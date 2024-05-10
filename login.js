@@ -1,43 +1,14 @@
-async function signup() {
-    const username = document.getElementById('signupUsername').value;
-    const password = document.getElementById('signupPassword').value;
-
-    const response = await fetch('/signup', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password })
-    });
-
-    const data = await response.json();
-
-    const signupMessage = document.getElementById('signupMessage');
-    if (data.success) {
-        signupMessage.innerHTML = 'Signup successful.';
-    } else {
-        signupMessage.innerHTML = data.message;
-    }
+function showLoginForm() {
+    document.getElementById('loginForm').style.display = 'flex';
+    document.querySelector('.container').style.display = 'none';
 }
 
-async function login() {
-    const username = document.getElementById('loginUsername').value;
-    const password = document.getElementById('loginPassword').value;
+function hideLoginForm() {
+    document.getElementById('loginForm').style.display = 'none';
+    document.querySelector('.container').style.display = 'flex';
+}
 
-    const response = await fetch('/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password })
-    });
-
-    const data = await response.json();
-
-    const loginMessage = document.getElementById('loginMessage');
-    if (data.success) {
-        loginMessage.innerHTML = 'Login successful.';
-    } else {
-        loginMessage.innerHTML = data.message;
-    }
+function showSignupForm() {
+    document.getElementById('signupForm').style.display = 'flex';
+    document.querySelector('.container').style.display = 'none';
 }
