@@ -94,8 +94,8 @@ app.post("/buyBook", async (req, res) => {
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "faziking900@gmail.com",
-    pass: "hvndavanagere",
+    user: "mail@gmail.com",
+    pass: "password",
   },
 });
 function sendBuyingEmailToSeller(
@@ -107,7 +107,7 @@ function sendBuyingEmailToSeller(
 ) {
   // Email options
   const mailOptions = {
-    from: "faziking900@gmail.com",
+    from: "mail@gmail.com",
     to: sellerEmail,
     subject: "Your book listing is live!",
     text: `Congratulations! Your book "${bookTitle}" by ${bookAuthor} at ${bookPrice} has a Buyer ${buyeremail}.`,
@@ -127,7 +127,7 @@ function sendListingEmailToSeller(sellerEmail, bookTitle) {
 
   // Email options
   const mailOptions = {
-    from: "faziking900@gmail.com",
+    from: "mail@gmail.com",
     to: sellerEmail,
     subject: "Your book listing is live!",
     text: `Congratulations! Your book "${bookTitle}" is now listed for sale.`,
