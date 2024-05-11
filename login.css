@@ -1,196 +1,137 @@
-body {
-  width: 100%;
-  height: 100%;
-  font-family: var(--ff-philosopher);
-  font-size: 4rem;
-  /* background-color: #c9acc2; */
-  background-color: #f5ebe6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  position: relative;
-  gap: 1px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif
 }
-.navbar {
-  width: 100%;
+
+.container {
+    margin: 50px auto;
 }
-.navbar-header {
-  width: 100%;
-  font-family: var(--ff-philosopher);
-  font-size: 4rem;
-  line-height: 1;
-  display: block;
-  text-decoration-color: #fff;
+
+.body {
+    position: relative;
+    width: 720px;
+    height: 440px;
+    margin: 20px auto;
+    border: 1px solid #dddd;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
 }
-.navbar-header a {
-  color: #ce6857;
-  font-size: 2rem;
-  margin-left: 2rem;
+
+.box-1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-.navbar {
-  background-color: #f5ebe6;
+
+.box-2 {
+    padding: 10px;
+}
+
+.box-1,
+.box-2 {
+    width: 50%;
+}
+
+.h-1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.text-muted {
+    font-size: 14px;
+}
+
+.container .box {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+    text-decoration: none;
+    color: #615f5fdd;
+}
+
+.box:active,
+.box:visited {
+    border: 2px solid #ce6857;
+}
+
+.box:hover {
+    border: 2px solid #ce6857;
+}
+
+.btn.btn-primary {
+    background-color: transparent;
+    color: #ce6857;
+    border: 0px;
+    padding: 0;
+    font-size: 14px;
+}
+
+.btn.btn-primary .fas.fa-chevron-right {
+    font-size: 12px;
+}
+
+.footer .p-color {
+    color: #ce6857;
+}
+
+.footer.text-muted {
+    font-size: 10px;
 }
 .container {
-}
-/* .col-sm-5{
-    margin-left:200px;
-    align-items: right;
-    margin-bottom: 200px;
-}
-.col-sm-4{
-    margin-left: 0px;
-}
-.loginbox{
-    box-sizing: border-box;
-    display: block;
-}
-.form-container {
-    background-color: #fff;
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin: 10px;
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 50px; /* Add some padding for spacing */
 }
 
-.form-container h2 {
-    margin-top: 0;
+
+.fas.fa-times {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 20px;
+    width: 20px;
+    background-color: #f3cff379;
+    font-size: 18px;
+    display: flsigex;
+    align-items: center;
+    justify-content: center;
+    display: none;
 }
 
-.form-container input[type="text"],
-.form-container input[type="password"],
-.form-container button {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 8px;
+.fas.fa-times:hover {
+    color: #ff0000;
 }
 
-.form-container button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
 
-.message {
-    color: red;
-} */
+@media (max-width:767px) {
+    body {
+        padding: 10px;
+    }
 
-.note {
-  width: 50%;
-  height: auto;
-}
-.note h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #ce6857;
-  text-align: center;
-}
+    .body {
+        width: 100%;
+        height: 100%;
+    }
 
-.main {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  left: 22vw;
-  /* background-color: #240046; */
-  background-color: #ce6857;
-  max-height: 47rem;
-  width: 40rem;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 7px 7px 10px 3px #24004628;
-}
+    .box-1 {
+        width: 100%;
+    }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 24px;
-}
-
-/*checkbox to switch from sign up to login*/
-#chk {
-  display: none;
-}
-
-/*Login*/
-.login {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.login label {
-  margin: 15% 0 5%;
-}
-
-label {
-  color: #fff;
-  font-size: 3rem;
-  justify-content: center;
-  display: flex;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.5s ease-in-out;
-}
-
-.input {
-  width: 100%;
-  height: 40px;
-  background: #e0dede;
-  padding: 10px;
-  border: none;
-  outline: none;
-  border-radius: 4px;
-  font-size: 2rem;
-}
-
-/*Register*/
-.register {
-  background: #eee;
-  border-radius: 60% / 10%;
-  transform: translateY(5%);
-  transition: 0.8s ease-in-out;
-}
-
-.register label {
-  color: #ce6857;
-  transform: scale(0.6);
-}
-#chk:checked ~ .register {
-  transform: translateY(-69%);
-}
-
-#chk:checked ~ .register label {
-  transform: scale(1);
-  margin: 10% 0 5%;
-}
-
-#chk:checked ~ .login label {
-  transform: scale(0.6);
-  margin: 5% 0 5%;
-}
-/*Button*/
-.form button {
-  width: 85%;
-  height: 40px;
-  margin: 12px auto 10%;
-  color: #fff;
-  background: #d54b33;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: 0.2s ease-in;
-}
-
-.form button:hover {
-  background-color: red;
-}
-
+    .box-2 {
+        width: 100%;
+        height: 440px;
+    }
 
 .close-icon{
   margin-top: 2rem;
+
 }
