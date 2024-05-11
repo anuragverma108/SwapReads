@@ -75,3 +75,4 @@ const navigateTab = function () {
 }
 
 addEventOnelem(tabCard, "click", navigateTab);
+
