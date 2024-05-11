@@ -75,3 +75,16 @@ const navigateTab = function () {
 }
 
 addEventOnelem(tabCard, "click", navigateTab);
+
+// Book Exchange Hub 
+function validateAndConnect() {
+  var bookTitle = document.getElementById('bookTitle').value;
+  var bookAuthor = document.getElementById('bookAuthor').value;
+  var yourPrice = document.getElementById('yourPrice').value;
+
+  if (bookTitle === '' || bookAuthor === '' || yourPrice === '') {
+    alert('Please fill in all fields.');
+  } else {
+    alert('Request received! We will let you know as soon as we find a reader with your requested book.');
+  }
+}
