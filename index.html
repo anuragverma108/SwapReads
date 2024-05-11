@@ -15,7 +15,7 @@
     rel="stylesheet">
 
   <link rel="preload" as="image" href="./assets/images/hero-banner.png">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
 
 </head>
 <script src="https://unpkg.com/scrollreveal"></script>
@@ -31,23 +31,23 @@
       <nav class="navbar" data-navbar>
         <ul class="navbar-list">
           <li class="navbar-item">
-            <a href="#home" class="navbar-link" data-nav-link><i class="ri-home-fill"></i> Home</a>
+            <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i class="ri-home-fill"></i> Home</a>
           </li>
       
           <li class="navbar-item">
-            <a href="#benefits" class="navbar-link" data-nav-link><i class="ri-bar-chart-fill"></i> Benefits</a>
+            <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i class="ri-bar-chart-fill"></i> Benefits</a>
           </li>
       
           <li class="navbar-item">
-            <a href="#chapters" class="navbar-link" data-nav-link><i class="ri-medal-fill"></i> Literary Realms</a>
+            <a href="#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i class="ri-medal-fill"></i> Literary Realms</a>
           </li>
       
           <li class="navbar-item">
-            <a href="#pricing" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
+            <a href="#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
           </li>
       
           <li class="navbar-item">
-            <a href="#contact" class="navbar-link" data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
+            <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
           </li>
       
           <li class="navbar-item">
@@ -792,7 +792,28 @@
   <script src="scroll-reveal.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+  <!-- Lenis smooth scrolling -->
+  <script>
+    const lenis = new Lenis({
+        duration: 1.8,
+        easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
+        direction: "vertical",
+        gestureDirection: "vertical",
+        smooth: true,
+        smoothTouch: false,
+        touchMultiplier: 2,
+    });
 
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+
+</script>
 </body>
 
 </html>
