@@ -109,7 +109,7 @@ function sendBuyingEmailToSeller(
   const mailOptions = {
     from: "mail@gmail.com",
     to: sellerEmail,
-    subject: "Your book listing is live!",
+    subject: "Someone is interested in your book!",
     text: `Congratulations! Your book "${bookTitle}" by ${bookAuthor} at ${bookPrice} has a Buyer ${buyeremail}.`,
   };
 
