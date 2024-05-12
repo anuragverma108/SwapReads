@@ -1,7 +1,29 @@
 'use strict';
 
+//  add event on send message button
+const sendMessageBtn = document.getElementById('sendMessageBtn');
 
+document.addEventListener('DOMContentLoaded', (event) => {
+  const contactFormDetails = document.getElementById('contact-form');
 
+  sendMessageBtn.addEventListener('click', function (e) {
+
+    const name = contactFormDetails['name'].value;
+    const email = contactFormDetails['email_address'].value;
+    const subject = contactFormDetails['subject'].value;
+    const message = contactFormDetails['message'].value;
+
+    e.preventDefault();
+
+    if (name === '' || email === '' || message === '' || subject === '') {
+      alert('Please fill in all fields.');
+    } else {
+      alert('Message sent successfully!');
+      console.log('Name: ' + name + ' Email: ' + email + ' Message: ' + message + ' Subject: ' + subject);
+    }
+    return false; // Prevent page refresh
+  });
+});
 /**
  * add event on element
  */
@@ -75,3 +97,16 @@ const navigateTab = function () {
 }
 
 addEventOnelem(tabCard, "click", navigateTab);
+
+// Book Exchange Hub 
+function validateAndConnect() {
+  var bookTitle = document.getElementById('bookTitle').value;
+  var bookAuthor = document.getElementById('bookAuthor').value;
+  var yourPrice = document.getElementById('yourPrice').value;
+
+  if (bookTitle === '' || bookAuthor === '' || yourPrice === '') {
+    alert('Please fill in all fields.');
+  } else {
+    alert('Request received! We will let you know as soon as we find a reader with your requested book.');
+  }
+}

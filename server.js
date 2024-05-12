@@ -36,6 +36,12 @@ app.post("/login", async (req, res) => {
   }
 });
 
+if (user) {
+  res.json({ success: true });
+} else {
+  res.json({ success: false, message: "Invalid username or password." });
+}
+
 //Book Exchange/Selling
 const bookSchema = new mongoose.Schema({
   title: String,
