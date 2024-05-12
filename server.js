@@ -69,7 +69,7 @@ app.post("/sellBook", async (req, res) => {
 });
 app.post("/buyBook", async (req, res) => {
   const { bookID, buyerEmail } = req.body;
-
+  console.log(bookID);
   Book.findById(bookID)
     .then((book) => {
       if (!book) {
@@ -94,8 +94,8 @@ app.post("/buyBook", async (req, res) => {
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "fazilking900@gmail.com",
-    pass: "degf oofs ujrt gbiq",
+    user: "mail@gmail.com",
+    pass: "password",
   },
 });
 function sendBuyingEmailToSeller(
@@ -107,10 +107,10 @@ function sendBuyingEmailToSeller(
 ) {
   // Email options
   const mailOptions = {
-    from: "fazilking900@gmail.com",
+    from: "mail@gmail.com",
     to: sellerEmail,
     subject: "Someone is interested in your book!",
-    text: `Congratulations! Your book "${bookTitle}" by ${bookAuthor} at ${bookPrice} has a Buyer ${buyeremail}.`,
+    text: `Congratulations! Your book "${bookTitle}" by ${bookAuthor} at ${bookPrice} has a Buyer ${buyerEmail}.`,
   };
 
   // Send email
@@ -127,7 +127,7 @@ function sendListingEmailToSeller(sellerEmail, bookTitle) {
 
   // Email options
   const mailOptions = {
-    from: "fazilking900@gmail.com",
+    from: "mail@gmail.com",
     to: sellerEmail,
     subject: "Your book listing is live!",
     text: `Congratulations! Your book "${bookTitle}" is now listed for sale.`,
