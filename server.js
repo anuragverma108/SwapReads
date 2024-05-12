@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -32,5 +33,6 @@ app.post('/login', async (req, res) => {
         res.json({ success: false, message: 'Invalid username or password.' });
     }
 });
+
 
 app.listen(3000, () => console.log('Server is running on port 3000'));
