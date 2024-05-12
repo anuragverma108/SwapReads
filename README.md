@@ -52,3 +52,55 @@ SwapReads.com is the solution to common challenges faced by book enthusiasts in 
 SwapReads.com contributes to the Open Innovation Challenge track by fostering a global community of readers. The platform promotes open access to diverse books, encourages sustainable reading practices through book swapping, and leverages user-generated content for personalized recommendations. With features like community-driven discussions and data-driven optimizations, SwapReads.com aligns with the challenge's goals of inclusivity, sustainability, and collaborative innovation in the realm of literature.
 
 Join SwapReads.com today and embark on a literary journey like never before!
+
+## **Getting started**
+1. Clone the repo
+
+```sh
+ git clone https://github.com/anuragverma108/SwapReads
+```
+
+2. Install npm packages
+```sh
+npm install
+```
+3. Run index.html with any browser (example: chrome etc).
+
+## Contributing
+
+Contributions are what makes the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+- If you have any suggestions for the projects, like reporting a bug, improving UI, or improving the README.md file, feel free to **open an issue** to discuss it, or directly create a pull request with the necessary changes.
+- Please make sure you check your spelling and grammar.
+- Create individual PR for each suggestion.
+
+## Creating Pull Request
+1. Fork the Project
+2. Clone your forked repository
+3. Now go ahead and create a new branch and move to the branch
+```sh
+git checkout -b <branch-name>
+```
+4. After you have added your changes, follow the following command chain
+   Check the changed files
+```sh
+git status -s
+```
+
+5. Add all the files to the staging area
+```sh
+git add .
+```
+ or
+```sh
+git add <file_name1> <file_name2>
+```
+6. Commit your changes
+```sh
+git commit -m "<EXPLAIN-YOUR_CHANGES>"
+```
+7. Push your changes
+```sh
+git push origin <branch-name>
+```
+8. Open a Pull Request 

@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_package_v0.16/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon_package_v0.16/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon_package_v0.16/favicon-16x16.png">
+<link rel="manifest" href="./favicon_package_v0.16/site.webmanifest">
+<link rel="mask-icon" href="./favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
     <title>Rate Us</title>
     <style>
         :root{
@@ -24,22 +31,11 @@
             justify-content: center;
             align-items: center;
             font-family: Arial, Helvetica, sans-serif;
-            background-color: hsl(357, 37%, 62%) ;
+            background-color: var(--old-rose) ;
             position: relative;
 
         }
-        .home_button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 10px 20px;
-            background-color: #fff;
-            color:   hsl(357, 37%, 62%);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none; /* To remove the default underline */
-        }
+        
 
         .rating_heading{
             color: white;
@@ -95,7 +91,34 @@
         .star:hover{
             cursor: pointer;
         }
-
+        .home_button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 10px 20px;
+            background-color: #fff;
+            color:   var(--old-rose);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none; /* To remove the default underline */
+        }
+        .submit_button {
+            margin-top: 5px;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: var(--old-rose);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; /* Initially hide the submit button */
+            
+        }
+        .thank_you_message {
+            color: white;
+            animation: scale-up 1s ease;
+            font-size: 1.5rem;
+        }
         /* Media Query for Responsive Design */
         @media only screen and (max-width: 600px) {
             /* Adjustments for smaller screens */
@@ -121,33 +144,47 @@
         <button class="star">&#9734;</button>
         <button class="star">&#9734;</button>
         <p class="current_rating"> 0 of 5</p>
-
     </div>
 
+    <button id="submit_rating" class="submit_button">Submit Rating</button>
     
 </body>
 <script>
-    const allStars=document.querySelectorAll('.star');
-    console.log(allStars);
-    let current_rating=document.querySelector('.current_rating');
-    allStars.forEach((star,i)=>{// i is for index of star
-        star.onclick=function(){
-            //console.log(star);
-            //console.log(i+1);
-
-            
-            let currentStar_level=i+1;
-            current_rating.innerText=`${currentStar_level} of 5`;
-            console.log(currentStar_level);
-            allStars.forEach((star,j)=>{
-                console.log(j);
-                if(currentStar_level>=j+1){
-                    star.innerHTML='&#9733';
-                } else{
-                    star.innerHTML='&#9734';
+    const allStars = document.querySelectorAll('.star');
+    const submitButton = document.getElementById('submit_rating');
+    const starRating = document.querySelector('.star_rating');
+    const ratingHeading = document.querySelector('.rating_heading');
+    let current_rating = document.querySelector('.current_rating');
+    let isStarClicked = false;
+    allStars.forEach((star, i) => {
+        star.onclick = function() {
+            let currentStar_level = i + 1;
+            current_rating.innerText = `${currentStar_level} of 5`;
+            allStars.forEach((star, j) => {
+                if (currentStar_level >= j + 1) {
+                    star.innerHTML = '&#9733';
+                } else {
+                    star.innerHTML = '&#9734';
                 }
-            })
-        }
-    })
+            });
+             // Enable submit button when a star is clicked
+             isStarClicked = true;
+             submitButton.style.display = 'block';
+        };
+    });
+    submitButton.onclick = function() {
+        // Hide star rating section
+        starRating.style.display = 'none';
+        // Hide rating heading
+        ratingHeading.style.display = 'none';
+        // Hide submit button
+        submitButton.style.display = 'none';
+        // Display thank you message
+        const thankYouMessage = document.createElement('p');
+        thankYouMessage.textContent = "Thank you for rating us!";
+        thankYouMessage.classList.add('thank_you_message');
+        document.body.appendChild(thankYouMessage);
+    };
 </script>
 </html>
+

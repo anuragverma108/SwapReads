@@ -1,18 +1,20 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const RegisterSchema = require("./validation/zodschema");
+const validate = require("./validation/validate.schema");
 const nodemailer = require("nodemailer");
 const app = express();
 
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost:27017/login", {
+mongoose.connect("mongodb+srv://new_user_346:JoRrqWMHx2AoOA3e@cluster0.x3ka0pq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 const User = mongoose.model("User", { username: String, password: String });
 
-app.post("/signup", async (req, res) => {
+app.post("/signup",validate(RegisterSchema), async (req, res) => {
   const { username, password } = req.body;
   const userExists = await User.findOne({ username });
 
@@ -25,7 +27,7 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-app.post("/login", async (req, res) => {
+app.post("/login", validate(RegisterSchema),async (req, res) => {
   const { username, password } = req.body;
   const user = await User.findOne({ username, password });
 
