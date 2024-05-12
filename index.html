@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<title>SwapReads</title>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,10 +16,14 @@
 
   <link rel="preload" as="image" href="./assets/images/hero-banner.png">
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
 
 </head>
 <script src="https://unpkg.com/scrollreveal"></script>
-
+<script src="./faq.js"></script>
 <body>
 
 
@@ -48,6 +52,10 @@
       
           <li class="navbar-item">
             <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="rate.html" class="navbar-link">Rate Us</a>
           </li>
       
           <li class="navbar-item">
@@ -93,7 +101,7 @@
             <img src="./assets/images/hero-banner.png" width="431" height="596"
               alt="things i never said, a novel by claudia wilson" class="w-100">
 
-            <button class="play-btn" aria-label="play video">
+            <button class="play-btn" aria-label="play video" onclick="window.location.href='https://www.youtube.com'">
               <ion-icon name="play-outline" aria-hidden="true"></ion-icon>
             </button>
           </div>
@@ -485,7 +493,19 @@
                  
                 </ul>
 
-                <button class="btn btn-secondary">BUY NOW</button>
+                <form action="YOUR_STRIPE_CHECKOUT_URL" method="POST">
+                  <input type="hidden" name="plan_id" value="YOUR_PLAN_ID">
+                  <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="YOUR_PUBLISHABLE_KEY"
+                    data-amount="500" 
+                    data-name="Fresh Pages - New Releases"
+                    data-description="75% Off"
+                    data-label="BUY NOW"
+                    data-currency="INR"
+                    data-locale="auto">
+                  </script>
+                </form>
 
               </div>
             </li>
@@ -506,7 +526,19 @@
 
                 </ul>
 
-                <button class="btn btn-secondary">BUY NOW</button>
+                <form action="YOUR_STRIPE_CHECKOUT_URL" method="POST">
+                  <input type="hidden" name="plan_id" value="YOUR_PLAN_ID">
+                  <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="YOUR_PUBLISHABLE_KEY"
+                    data-amount="500" 
+                    data-name="Timeless Classics - Aged Wonders"
+                    data-description="50% Off"
+                    data-label="BUY NOW"
+                    data-currency="INR"
+                    data-locale="auto">
+                  </script>
+                </form>
 
               </div>
             </li>
@@ -527,7 +559,19 @@
 
                 </ul>
 
-                <button class="btn btn-secondary">BUY NOW</button>
+                <form action="YOUR_STRIPE_CHECKOUT_URL" method="POST">
+                  <input type="hidden" name="plan_id" value="YOUR_PLAN_ID">
+                  <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="YOUR_PUBLISHABLE_KEY"
+                    data-amount="500" 
+                    data-name="Hidden Treasures - Vintage Editions"
+                    data-description="25% Off"
+                    data-label="BUY NOW"
+                    data-currency="INR"
+                    data-locale="auto">
+                  </script>
+                </form>
 
               </div>
             </li>
@@ -541,16 +585,7 @@
 
 
 
-     
-
-
-
-
-
-      
-
-
-
+    
 
       <!-- 
         - #CONTACT
@@ -568,7 +603,7 @@
 
           <div class="wrapper">
 
-            <form action="" class="contact-form">
+            <form action="" id="contact-form">
 
               <input type="text" name="name" placeholder="Your Name" required class="input-field">
 
@@ -578,7 +613,7 @@
 
               <textarea name="message" placeholder="Your Message" class="input-field"></textarea>
 
-              <button type="submit" class="btn btn-primary">Send Now</button>
+              <button type="submit" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
 
             </form>
 
@@ -653,9 +688,55 @@
     </article>
   </main>
 
+<h1 class="faq">Some Frequently Asked Questions</h1>
+  <div class="faq-section" style="background-color: #F5EBE5;">
+    <div class="faq-container">
+      <div class="question">
+        <h4>How does SwapReads work ?</h4>
+        <i class="icon fa-solid fa-caret-down"></i>
+      </div>
+      <div class="answers">
+        <p>SwapReads is a global book exchange platform where users can create profiles,
+        list the books they're willing to swap, and can find other users collections. 
+        When you find a book you're interested in, you can find suitable offers and can read that book. It's that easy!</p>
+      </div>
+    </div>
 
+    <div class="faq-container">
+        <div class="question">
+          <h4>How does SwapReads contribute to sustainability?</h4>
+          <i class="icon fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answers">
+          <p>
+            By facilitating book swaps, SwapReads promotes a more sustainable reading culture by 
+            reducing the demand for new book production. This helps minimize the environmental impact 
+            associated with book manufacturing, including paper usage and carbon emissions.
+          </p>
+        </div>
+      </div>
 
+  <div class="faq-container">
+    <div class="question">
+      <h4>How do I join the SwapReads community?</h4>
+      <i class="icon fa-solid fa-caret-down"></i>
+    </div>
+    <div class="answers">
+      <p>Signing up for SwapReads is quick and easy. Simply visit our website, create a profile, and start listing the books you're eager to swap. You'll be joining a vibrant community of passionate readers in no time!</p>
+    </div>
+  </div>
 
+  <div class="faq-container">
+    <div class="question">
+      <h4>How do I ensure the safety and security of my personal information on SwapReads</h4>
+      <i class="icon fa-solid fa-caret-down"></i>
+    </div>
+    <div class="answers">
+      <p>We take user privacy and security seriously. Your personal information is encrypted and stored securely on our servers. </p>
+    </div>
+  </div>
+</div>
+<br /><br />
 
   <!-- 
     - #FOOTER
@@ -682,7 +763,6 @@
             <li><a href="#chapters">Literary Realms</a></li>
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#contact">Contact Us</a></li>
-            <li><a href="">Reviews</a></li>
           </ul>
         </div>
         <div class="social-links">
@@ -690,31 +770,31 @@
           <ul class="social-list">
 
             <li>
-              <a href="#" class="social-link">
+              <a href="https://facebook.com" class="social-link">
                 <ion-icon name="logo-facebook"></ion-icon>
               </a>
             </li>
 
             <li>
-              <a href="#" class="social-link">
+              <a href="https://twitter.com/home" class="social-link">
                 <ion-icon name="logo-twitter"></ion-icon>
               </a>
             </li>
 
             <li>
-              <a href="#" class="social-link">
+              <a href="https://www.linkedin.com/feed/" class="social-link">
                 <ion-icon name="logo-linkedin"></ion-icon>
               </a>
             </li>
 
             <li>
-              <a href="#" class="social-link">
+              <a href="https://www.youtube.com/" class="social-link">
                 <ion-icon name="logo-youtube"></ion-icon>
               </a>
             </li>
 
             <li>
-              <a href="#" class="social-link">
+              <a href="https://www.whatsapp.com/" class="social-link">
                 <ion-icon name="logo-whatsapp"></ion-icon>
               </a>
             </li>
@@ -798,8 +878,8 @@
     const lenis = new Lenis({
         duration: 1.8,
         easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
-        direction: "vertical",
-        gestureDirection: "vertical",
+        direction:"vertical",
+        gestureDirection:"vertical",
         smooth: true,
         smoothTouch: false,
         touchMultiplier: 2,
@@ -811,6 +891,29 @@
     }
 
     requestAnimationFrame(raf);
+    // JavaScript function to load more content when user scrolls to bottom
+function loadMoreContent() {
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    var windowHeight = window.innerHeight;
+    var documentHeight = document.documentElement.scrollHeight;
+
+    // Check if user has scrolled to the bottom of the page
+    if (scrollTop + windowHeight >= documentHeight) {
+        // Make an AJAX request to fetch more content
+        // Replace 'more-content-url' with the actual URL to fetch more content
+        fetch('/index.html')
+            .then(response => response.text())
+            .then(data => {
+                // Append the fetched content to the page
+                document.getElementById('content-container').insertAdjacentHTML('beforeend', data);
+            })
+            .catch(error => console.error('Error fetching more content:', error));
+    }
+}
+
+// Event listener to trigger loadMoreContent function when user scrolls
+window.addEventListener('scroll', loadMoreContent);
+
 
 
 </script>
