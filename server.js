@@ -70,10 +70,10 @@ app.post("/sellBook", async (req, res) => {
 app.post("/buyBook", async (req, res) => {
   const { bookID, buyerEmail } = req.body;
 
-  Book.findById(bookId)
+  Book.findById(bookID)
     .then((book) => {
       if (!book) {
-        returnres.json({ success: false, message: "Book Not Found." });
+        return res.json({ success: false, message: "Book Not Found." });
       }
       sendBuyingEmailToSeller(
         book.sellerEmail,
@@ -95,7 +95,7 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: "fazilking900@gmail.com",
-    pass: "hvndavanagere",
+    pass: "degf oofs ujrt gbiq",
   },
 });
 function sendBuyingEmailToSeller(
