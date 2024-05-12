@@ -814,6 +814,29 @@
     }
 
     requestAnimationFrame(raf);
+    // JavaScript function to load more content when user scrolls to bottom
+function loadMoreContent() {
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    var windowHeight = window.innerHeight;
+    var documentHeight = document.documentElement.scrollHeight;
+
+    // Check if user has scrolled to the bottom of the page
+    if (scrollTop + windowHeight >= documentHeight) {
+        // Make an AJAX request to fetch more content
+        // Replace 'more-content-url' with the actual URL to fetch more content
+        fetch('/index.html')
+            .then(response => response.text())
+            .then(data => {
+                // Append the fetched content to the page
+                document.getElementById('content-container').insertAdjacentHTML('beforeend', data);
+            })
+            .catch(error => console.error('Error fetching more content:', error));
+    }
+}
+
+// Event listener to trigger loadMoreContent function when user scrolls
+window.addEventListener('scroll', loadMoreContent);
+
 
 
 </script>
