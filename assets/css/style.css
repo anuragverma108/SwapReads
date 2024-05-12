@@ -892,35 +892,54 @@ footer {
 }
 .foot-top{
   display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
   border-bottom: 1px solid black;
   padding-bottom: 30px;
 }
 .foot-left .desc p{
-  width: 600px;
+  width: 100%; /* Adjusting width to 100% for responsiveness */
 }
 .foot-left{
   margin-right: 30px;
+  flex: 1 0 0; /* Make the left part flexible */
 }
 .foot-right{
   display: flex;
+  flex: 1 0 0; /* Make the right part flexible */
+  justify-content: space-between; /* Distribute items evenly */
 }
 .nav-links{
-  margin: 0px 90px;
+  margin: 0;
 }
+
+.nav-links ul{
+  padding: 0;
+  list-style: none; /* Remove bullet points */
+}
+
+.nav-links ul li{
+  margin-bottom: 10px; /* Add some spacing between list items */
+}
+
 .nav-links ul li a{
   color: rgb(55, 54, 54);
+  text-decoration: none; /* Remove underline */
 }
+
 .nav-links ul li a:hover{
   color: rgb(167, 95, 107);
 }
+
 .foot-right h5{
   color: rgb(57, 57, 57);
   font-size: 2rem;
   font-weight: 500;
 }
+
 .social-list{
   display: flex;
   /* flex-direction: column; */
+  overflow: hidden;
 }
 /* .footer-top {
   padding-block: 50px;
@@ -952,6 +971,19 @@ footer {
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
+
+@media(max-width: 768px) {
+  .foot-left, .foot-right{
+    margin-bottom: 30px; 
+    flex: 1 100%; 
+  }
+}
+
+@media(max-width: 480px) {
+  .foot-left .desc p{
+    width: 100%; 
+  }
+}
 
 /**
  * responsive for large than 575px screen
