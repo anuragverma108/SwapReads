@@ -1,12 +1,12 @@
 <script type="module">
-  // Import the functions you need from the SDKs you need
+   {/* Import the functions you need from the SDKs you need */}
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+   {/* TODO: Add SDKs for Firebase products that you want to use */}
+   {/* https://firebase.google.com/docs/web/setup#available-libraries */}
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+   {/* Your web app's Firebase configuration */}
+   {/* For Firebase JS SDK v7.20.0 and later, measurementId is optional */}
   const firebaseConfig = {
     apiKey: "AIzaSyCZjy9z9fuAGgbIQxjgsfvnbp_vEiJsLbk",
     authDomain: "login-14d37.firebaseapp.com",
@@ -17,7 +17,8 @@
     measurementId: "G-SRVRX110W7"
   };
 
-  // Initialize Firebase
+   {/* Initialize Firebase */}
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+
 </script>
