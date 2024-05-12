@@ -22,6 +22,7 @@
     rel="stylesheet">
 
   <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -64,6 +65,9 @@
       
           <li class="navbar-item">
             <a href="login.html" class="navbar-link">Login/Signup</a>
+          </li>
+          <li>
+            <img src="./assets/images/moon.png" id="theme-icon">
           </li>
         </ul>
       </nav>
@@ -423,7 +427,7 @@
         </div>
       </section>
 
-<!-- Exhange Exchnage Exchange -->
+<!-- Exchange Exchnage Exchange -->
 <section class="section preview" aria-label="preview">
   <div class="container1">
 
@@ -497,19 +501,7 @@
                  
                 </ul>
 
-                <form action="YOUR_STRIPE_CHECKOUT_URL" method="POST">
-                  <input type="hidden" name="plan_id" value="YOUR_PLAN_ID">
-                  <script
-                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="YOUR_PUBLISHABLE_KEY"
-                    data-amount="500" 
-                    data-name="Fresh Pages - New Releases"
-                    data-description="75% Off"
-                    data-label="BUY NOW"
-                    data-currency="INR"
-                    data-locale="auto">
-                  </script>
-                </form>
+                <button class="btn btn-secondary">BUY NOW</button>
 
               </div>
             </li>
@@ -530,19 +522,7 @@
 
                 </ul>
 
-                <form action="YOUR_STRIPE_CHECKOUT_URL" method="POST">
-                  <input type="hidden" name="plan_id" value="YOUR_PLAN_ID">
-                  <script
-                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="YOUR_PUBLISHABLE_KEY"
-                    data-amount="500" 
-                    data-name="Timeless Classics - Aged Wonders"
-                    data-description="50% Off"
-                    data-label="BUY NOW"
-                    data-currency="INR"
-                    data-locale="auto">
-                  </script>
-                </form>
+                <button class="btn btn-secondary">BUY NOW</button>
 
               </div>
             </li>
@@ -563,19 +543,7 @@
 
                 </ul>
 
-                <form action="YOUR_STRIPE_CHECKOUT_URL" method="POST">
-                  <input type="hidden" name="plan_id" value="YOUR_PLAN_ID">
-                  <script
-                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="YOUR_PUBLISHABLE_KEY"
-                    data-amount="500" 
-                    data-name="Hidden Treasures - Vintage Editions"
-                    data-description="25% Off"
-                    data-label="BUY NOW"
-                    data-currency="INR"
-                    data-locale="auto">
-                  </script>
-                </form>
+                <button class="btn btn-secondary">BUY NOW</button>
 
               </div>
             </li>
@@ -693,7 +661,7 @@
   </main>
 
 <h1 class="faq">Some Frequently Asked Questions</h1>
-  <div class="faq-section" style="background-color: #F5EBE5;">
+  <div class="faq-section">
     <div class="faq-container">
       <div class="question">
         <h4>How does SwapReads work ?</h4>
@@ -781,7 +749,7 @@
 
             <li>
               <a href="https://twitter.com/home" class="social-link">
-                <ion-icon name="logo-twitter"></ion-icon>
+                <i class="fa-brands fa-x-twitter" style="display: flex;"></i>
               </a>
             </li>
 
@@ -862,6 +830,48 @@
   </footer> -->
 
 
+ <!--Dark Mode-->
+
+ <script>
+
+  // Function to toggle dark mode
+  function toggleDarkMode() {
+      const isDarkMode = isDarkModePreferred();
+      setDarkModePreference(!isDarkMode);
+      applyDarkModePreference();
+  }
+
+  // Function to apply dark mode preference
+  function applyDarkModePreference() {
+      const isDarkMode = isDarkModePreferred();
+      if (isDarkMode) {
+          document.body.classList.add('dark-mode');
+          document.getElementById('theme-icon').src = 'assets/images/sun.png';
+      } else {
+          document.body.classList.remove('dark-mode');
+          document.getElementById('theme-icon').src = 'assets/images/moon.png';
+      }
+  }
+
+  // Function to set dark mode preference
+  function setDarkModePreference(isDarkMode) {
+      localStorage.setItem('darkMode', isDarkMode);
+  }
+
+  // Function to check if dark mode preference exists
+  function isDarkModePreferred() {
+      return JSON.parse(localStorage.getItem('darkMode'));
+  }
+
+  // Call the function when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+      applyDarkModePreference();
+  });
+
+  // Add event listener to toggle dark mode when the image is clicked
+  document.getElementById('theme-icon').addEventListener('click', toggleDarkMode);
+
+ </script>
 
 
 
