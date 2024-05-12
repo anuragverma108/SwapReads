@@ -1,5 +1,13 @@
 'use strict';
 
+//gets data from seesion storage and sets the username as email 
+let profile=document.getElementsByClassName('navbar-link')[5];
+let userinfo=JSON.parse(sessionStorage.getItem('user-info'));
+if(userinfo){
+  profile.innerHTML=userinfo.username;
+  
+}
+
 
 
 /**
@@ -7,14 +15,16 @@
  */
 
 const addEventOnelem = function (elem, type, callback) {
+  
   if (elem.length > 1) {
     for (let i = 0; i < elem.length; i++) {
       elem[i].addEventListener(type, callback);
     }
-  } else {
-    elem.addEventListener(type, callback);
   }
-}
+  // } else {
+  //   elem.addEventListener(type, callback);
+  // }
+  }
 
 
 

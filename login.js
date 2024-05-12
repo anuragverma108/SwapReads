@@ -23,7 +23,8 @@ async function signup() {
 async function login() {
     const username = document.getElementById('loginUsername').value;
     const password = document.getElementById('loginPassword').value;
-
+    const profile=document.getElementById("profile");
+    console.log(profile);
     const response = await fetch('/login', {
         method: 'POST',
         headers: {

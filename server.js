@@ -6,7 +6,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/login', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('', { useNewUrlParser: true, useUnifiedTopology: true });
 const User = mongoose.model('User', { username: String, password: String });
 
 app.post('/signup', async (req, res) => {
@@ -23,11 +23,13 @@ app.post('/signup', async (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-    const { username, password } = req.body;
-    const user = await User.findOne({ username, password });
+    const { email, password } = req.body;
+    const user = await User.findOne({ email, password });
 
     if (user) {
         res.json({ success: true });
+        document.getElementsByClassName("navbar-link")[0].innerHTML=username;
+        console.log(document.getElementsByClassName("navbar-link")[0]);
     } else {
         res.json({ success: false, message: 'Invalid username or password.' });
     }
