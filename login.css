@@ -31,8 +31,49 @@ body {
 .navbar {
   background-color: #f5ebe6;
 }
-.container {
+
+
+/* Apply styles to the entire body, ensuring it fills the viewport */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure body takes up at least the full viewport height */
 }
+
+/* Main container for page content (excluding footer) */
+.main-content {
+  flex: 1; /* Allow main content to expand and fill available space */
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #f5ebe6; /* Match background color */
+  padding: 20px 0; /* Add padding */
+  text-align: center; /* Center-align text */
+}
+
+/* Copyright text styles */
+.copyright {
+  font-size: 1.6rem; /* Set font size */
+  color: #555; /* Match text color */
+}
+
+
+.welcome-container {
+  background-color:#ce6857 ; /* Match background color */
+  padding: 20px; /* Add padding for spacing */
+  text-align: center; /* Center align text */
+  margin-bottom: 20px; /* Add margin for separation */
+  border-radius: 8px; /* Add border radius for rounded corners */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle box shadow */
+}
+
+.welcome-text {
+  font-size: 1.8rem; /* Set font size */
+  color: #f5ebe6; /* Match text color */
+  font-weight: bold; /* Apply bold font weight */
+}
+
 /* .col-sm-5{
     margin-left:200px;
     align-items: right;
@@ -152,16 +193,12 @@ label {
 
 /*Register*/
 .register {
-  background: #eee;
+  background:  #f5ebe6;
   border-radius: 60% / 10%;
   transform: translateY(5%);
   transition: 0.8s ease-in-out;
 }
 
-.register label {
-  color: #ce6857;
-  transform: scale(0.6);
-}
 #chk:checked ~ .register {
   transform: translateY(-69%);
 }
@@ -175,6 +212,24 @@ label {
   transform: scale(0.6);
   margin: 5% 0 5%;
 }
+
+.register label {
+  color: #ce6857;
+  transform: scale(0.8); 
+  font-size: 2.2rem; 
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out; 
+}
+
+
+#chk:checked ~ .register label {
+  transform: scale(1); 
+  margin: 10% 0 5%; 
+}
+
+
+
+
 /*Button*/
 .form button {
   width: 85%;
@@ -182,17 +237,22 @@ label {
   margin: 12px auto 10%;
   color: #fff;
   background: #d54b33;
-  font-size: 1rem;
+  font-size: 1.5rem; /* Increase the font size */
   font-weight: bold;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: 0.2s ease-in;
+  text-transform: uppercase; /* Convert text to uppercase */
+  letter-spacing: 1px; /* Add letter-spacing for clarity */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Add subtle box-shadow */
 }
 
 .form button:hover {
-  background-color: red;
+  background-color:  #893223;
+  transform: scale(1.05); /* Scale up on hover for interaction */
 }
+
 
 
 .close-icon{
@@ -231,3 +291,4 @@ label {
     width: 95%;
   }
 }
+
