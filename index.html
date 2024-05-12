@@ -60,6 +60,9 @@
           <li class="navbar-item">
             <a href="login.html" class="navbar-link">Login/Signup</a>
           </li>
+          <li>
+            <img src="./assets/images/moon.png" id="theme-icon">
+          </li>
         </ul>
       </nav>
 
@@ -820,6 +823,48 @@
   </footer> -->
 
 
+ <!--Dark Mode-->
+
+ <script>
+
+  // Function to toggle dark mode
+  function toggleDarkMode() {
+      const isDarkMode = isDarkModePreferred();
+      setDarkModePreference(!isDarkMode);
+      applyDarkModePreference();
+  }
+
+  // Function to apply dark mode preference
+  function applyDarkModePreference() {
+      const isDarkMode = isDarkModePreferred();
+      if (isDarkMode) {
+          document.body.classList.add('dark-mode');
+          document.getElementById('theme-icon').src = 'assets/images/sun.png';
+      } else {
+          document.body.classList.remove('dark-mode');
+          document.getElementById('theme-icon').src = 'assets/images/moon.png';
+      }
+  }
+
+  // Function to set dark mode preference
+  function setDarkModePreference(isDarkMode) {
+      localStorage.setItem('darkMode', isDarkMode);
+  }
+
+  // Function to check if dark mode preference exists
+  function isDarkModePreferred() {
+      return JSON.parse(localStorage.getItem('darkMode'));
+  }
+
+  // Call the function when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+      applyDarkModePreference();
+  });
+
+  // Add event listener to toggle dark mode when the image is clicked
+  document.getElementById('theme-icon').addEventListener('click', toggleDarkMode);
+
+ </script>
 
 
 
