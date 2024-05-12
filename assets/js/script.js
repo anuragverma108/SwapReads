@@ -38,7 +38,7 @@
     }
   }
 
-  // pop-up box
+  // pop-up box chetan ui branch
   const closeBtns = document.getElementsByClassName('close-btn');
   for (let i = 0; i < closeBtns.length; i++) {
     closeBtns[i].addEventListener('click', closePopUp);
