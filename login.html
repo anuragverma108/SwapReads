@@ -242,4 +242,29 @@
     });
     //----- End
   </script>
+
+  <!---Dark Mode-->
+  <script>
+
+  function applyDarkModePreferenceOnLoginPage() {
+      const isDarkMode = isDarkModePreferred();
+      if (isDarkMode) {
+          document.body.classList.add('dark-mode');
+      } else {
+          document.body.classList.remove('dark-mode');
+      }
+  }
+
+  // Function to check if dark mode preference exists
+  function isDarkModePreferred() {
+      return JSON.parse(localStorage.getItem('darkMode'));
+  }
+
+  // Call the function when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+      applyDarkModePreferenceOnLoginPage();
+  });
+
+
+  </script>
 </html>
