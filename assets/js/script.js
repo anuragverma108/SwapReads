@@ -125,9 +125,18 @@
     var bookAuthor = document.getElementById('bookAuthor').value;
     var yourPrice = document.getElementById('yourPrice').value;
 
+
     if (bookTitle === '' || bookAuthor === '' || yourPrice === '') {
       alert('Please fill in all fields.');
     } else {
       alert('Request received! We will let you know as soon as we find a reader with your requested book.');
     }
   }
+=======
+  if (bookTitle === '' || bookAuthor === '' || yourPrice === '') {
+    swal("Try Again!","Please fill all the details.","warning");
+  } else {
+    swal("Request received!", "We will let you know as soon as we find a reader with your requested book.","success");
+  }
+}
+

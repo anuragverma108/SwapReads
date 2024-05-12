@@ -9,7 +9,7 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
     />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>How to create Firebase login and register?</title>
+    <title>Login / SignUp</title>
     <link rel="stylesheet" href="login.css" />
   </head>
   <body>
@@ -241,5 +241,30 @@
         });
     });
     //----- End
+  </script>
+
+  <!---Dark Mode-->
+  <script>
+
+  function applyDarkModePreferenceOnLoginPage() {
+      const isDarkMode = isDarkModePreferred();
+      if (isDarkMode) {
+          document.body.classList.add('dark-mode');
+      } else {
+          document.body.classList.remove('dark-mode');
+      }
+  }
+
+  // Function to check if dark mode preference exists
+  function isDarkModePreferred() {
+      return JSON.parse(localStorage.getItem('darkMode'));
+  }
+
+  // Call the function when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+      applyDarkModePreferenceOnLoginPage();
+  });
+
+
   </script>
 </html>
