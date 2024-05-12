@@ -36,12 +36,6 @@ app.post("/login", async (req, res) => {
   }
 });
 
-if (user) {
-  res.json({ success: true });
-} else {
-  res.json({ success: false, message: "Invalid username or password." });
-}
-
 //Book Exchange/Selling
 const bookSchema = new mongoose.Schema({
   title: String,
@@ -100,8 +94,8 @@ app.post("/buyBook", async (req, res) => {
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "mail@gmail.com",
-    pass: "password",
+    user: "fazilking900@gmail.com",
+    pass: "hvndavanagere",
   },
 });
 function sendBuyingEmailToSeller(
@@ -113,7 +107,7 @@ function sendBuyingEmailToSeller(
 ) {
   // Email options
   const mailOptions = {
-    from: "mail@gmail.com",
+    from: "fazilking900@gmail.com",
     to: sellerEmail,
     subject: "Someone is interested in your book!",
     text: `Congratulations! Your book "${bookTitle}" by ${bookAuthor} at ${bookPrice} has a Buyer ${buyeremail}.`,
@@ -133,7 +127,7 @@ function sendListingEmailToSeller(sellerEmail, bookTitle) {
 
   // Email options
   const mailOptions = {
-    from: "mail@gmail.com",
+    from: "fazilking900@gmail.com",
     to: sellerEmail,
     subject: "Your book listing is live!",
     text: `Congratulations! Your book "${bookTitle}" is now listed for sale.`,
