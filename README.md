@@ -3,7 +3,7 @@
 Connect, Exchange, Explore – Where Book Enthusiasts Swap Books and Discover New Literary Adventures!
 
 SwapReads.com is the solution to common challenges faced by book enthusiasts in today's digital age. We've identified key problems and developed a platform that addresses them efficiently and effectively.
-![Site preview](./Information/desktop.png)
+
 
 
 
