@@ -1,59 +1,27 @@
-body {
-  width: 100%;
-  height: 100%;
-  font-family: var(--ff-philosopher);
-  font-size: 4rem;
-  /* background-color: #c9acc2; */
-  background-color: #f5ebe6;
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #f5ebe6;
+}
+.navbar-header{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  position: relative;
-  gap: 1px;
-}
-.navbar {
   width: 100%;
 }
-.navbar-header {
-  width: 100%;
-  font-family: var(--ff-philosopher);
-  font-size: 4rem;
-  line-height: 1;
-  display: block;
-  text-decoration-color: #fff;
+.close-icon{
+  margin: 10px;
 }
-.navbar-header a {
+h1{
+  width: 70%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding-right: 7%;
+  font-size: 25px;
+  font-weight: 800;
   color: #ce6857;
-  font-size: 2rem;
-  margin-left: 2rem;
-}
-.navbar {
-  background-color: #f5ebe6;
-}
-
-/* .col-sm-5{
-    margin-left:200px;
-    align-items: right;
-    margin-bottom: 200px;
-}
-.col-sm-4{
-    margin-left: 0px;
-}
-.loginbox{
-    box-sizing: border-box;
-    display: block;
-}
-.form-container {
-    background-color: #fff;
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-}
-
-.form-container h2 {
-    margin-top: 0;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form-container input[type="text"],
@@ -76,11 +44,8 @@ body {
     color: red;
 } */
 
+
 .note {
-  width: 50%;
-  max-width: 600px;
-}
-.note h1 {
   font-size: 2.5rem;
   font-weight: 800;
   color: #ce6857;
@@ -89,11 +54,8 @@ body {
 
 .main {
   position: relative;
-  display: flex;
+  margin: auto;
   flex-direction: column;
-  left: 50%;
-  transform: translateX(-50%);
-  /* background-color: #240046; */
   background-color: #ce6857;
   max-height: 44rem;
   width: 90%;
@@ -102,7 +64,6 @@ body {
   border-radius: 12px;
   box-shadow: 7px 7px 10px 3px #24004628;
   margin-bottom: 10rem;
-  margin-left: 4rem;
 }
 
 .form {
@@ -117,12 +78,6 @@ body {
   display: none;
 }
 
-/*Login*/
-.login {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
 
 .login label {
   margin: 15% 0 5%;
@@ -152,8 +107,9 @@ label {
 /*Register*/
 .register {
   background: #eee;
-  border-radius: 60% / 10%;
-  transform: translateY(5%);
+  border-radius: 70% / 7%;
+  height: 370px;
+  transform: translateY(-6%);
   transition: 0.8s ease-in-out;
 }
 
@@ -176,7 +132,7 @@ label {
 }
 /*Button*/
 .form button {
-  width: 85%;
+  width: 100%;
   height: 40px;
   margin: 12px auto 10%;
   color: #fff;
@@ -194,22 +150,25 @@ label {
 }
 
 
-.close-icon{
-  margin-top: 2rem;
-}
-
 /*-----------------------------------*\
   #FOOTER
 \*-----------------------------------*/
 
-
 .footer-bottom {
-  padding-block: 20px;
-  border-block-start: 1px solid rgb(169, 166, 166);
-  color:  hsl(208, 7%, 46%);  
-  font-size: 1.8rem;
-  line-height: 1.8;
   text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 18px;
+    color: #6d767e;
+}
+
+.forget-password {
+  font-size: small;
+  text-align: center;
+  margin: -30px 0 10px;
 }
 
 /* Media queries for responsiveness */
@@ -217,15 +176,13 @@ label {
   body {
     font-size: 2rem;
   }
-
-  .navbar-header {
-    font-size: 2rem;
+  h1{
+    display: none;
   }
-
-  .note h1 {
-    font-size: 2.5rem;
+  .navbar-header{
+    display: flex;
+    justify-content: left;
   }
-
   .main {
     width: 95%;
   }
@@ -235,7 +192,55 @@ label {
 * Dark Mode
 */
 
-body.dark-mode{
-  background-color: #1E1C1C;
+body.dark-mode {
+  background-color: #1e1c1c;
   color: #ffffff;
+}
+
+
+.social-icons-container {
+  display: flex;
+  gap: 30px;
+  font-family: "Roboto", sans-serif;
+  margin: 32px 0;
+  justify-content: center;
+}
+
+.social-icons-container a {
+  display: flex;
+  gap: 8px;
+  font-size: 42px;
+  text-decoration: none;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  line-height: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.2);
+  transition: all 400ms ease;
+}
+
+.social-icons-container a:hover {
+  width: 138px;
+}
+
+.social-icons-container a .name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.social-icons-container a:nth-of-type(1) {
+  color: #4267b2;
+}
+
+.social-icons-container a:nth-of-type(2) {
+  color: #1da1f2;
+}
+
+.social-icons-container a:nth-of-type(3) {
+  color: #e1306c;
+}
+
+.social-icons-container a:nth-of-type(4) {
+  color: #ff0000;
 }
