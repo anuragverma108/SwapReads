@@ -30,45 +30,6 @@
       </p>
     </div>
   <br/>
-    <!-- <h2>Register for new users</h2> -->
-    <!-- <form name="registration_form" id="registration_form" method="post" action="#" enctype="multipart/form-data" >
-  <div class="row">
-
-	<div class="col-sm-4">
-		<div class="form-group">
-	      <label for="email">Email</label>
-		  <input type="text" name="email" id="email" class="form-control" placeholder="Enter your email">
-		</div>
-		
-		<div class="form-group">
-	      <label for="password" >Password</label>
-		  <input type="password" name="password" id="password" class="form-control"  placeholder="Enter your password">
-		</div>
-		<button type="button" id="register" name="register" class="btn btn-success">Register Now</button>
-	</div>
-	</form> -->
-
-    <!-- <div class="col-sm-4"> -->
-    <!--<img src="firebase_auth.png">-->
-    <!-- </div> -->
-
-    <!-- <form name="login_form" id="login_form" method="post" action="#" enctype="multipart/form-data" >
-	<div class="col-sm-5">
-		<h2>Sign in</h2>
-		<div class="form-group">
-	      <label for="email">Email</label>
-		  <input type="text" name="login_email" id="login_email" class="form-control" placeholder="Enter your email">
-		</div>
-		
-		<div class="form-group">
-	      <label for="password">Password</label>
-		  <input type="password" name="login_password" id="login_password" class="form-control"  placeholder="Enter your password">
-		</div>
-		<button type="button" id="login" name="login" class="btn btn-success">Login</button> -->
-    <!-- </div>end col -->
-
-    <!-- </div> end row		 -->
-    <!-- </form> -->
     <div class="main">
       <input type="checkbox" id="chk" aria-hidden="true" />
 
@@ -77,7 +38,22 @@
           <label for="chk" aria-hidden="true">Log in</label>
           <input class="input" type="email" name="email" id="login_email" placeholder="Email" required="" />
           <input class="input" type="password" name="pswd" id="login_password" placeholder="Password" required="" />
-          <button type="button" name="Login" id="login">Log in</button>
+          <button type="button" name="Login" id="login" onclick="openPopup()">Log in</button>
+          <div class="popup" id="popup">
+            <img src="404-tick.png">
+            <h2>Thank You!</h2>
+            <p>Your details have been successfully submitted.</p>
+            <button type="button" onclick="closePopup()">Ok</button>
+          </div>
+          <script>
+            let popup=document.getElementById("popup");
+            function openPopup(){
+                popup.classList.add("open-popup")
+            }
+            function closePopup(){
+                popup.classList.remove("open-popup")
+            }
+        </script>
           <p class="forget-password">
             Forgot Password?
             <a href="#" id="forgot_password_link">Reset Here</a>
@@ -91,7 +67,7 @@
           <!-- <input class="input" type="text" name="txt" placeholder="Username" required=""> -->
           <input class="input" type="email" name="email" id="email" placeholder="Email" required="" />
           <input class="input" type="password" name="pswd" id="password" placeholder="Password" required="" />
-          <button type="button" name="register" id="register">
+          <button type="button" name="register" id="register" onclick="openPopup()">
             Register
           </button>
         </form>
