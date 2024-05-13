@@ -124,6 +124,48 @@ function sendBuyingEmailToSeller(
     }
   });
 }
+
+// Search route
+app.get('/search', async (req, res) => {
+  const { query } = req.query;
+  if (!query) {
+      return res.status(400).json({ error: 'enter a book to find' });
+  }
+  try {
+      const results = await Book.find({ title: { $regex: query, $options: 'i' } });
+      res.json(results);
+  } catch (error) {
+      res.status(500).json({ error: 'An error occurred while searching for books' });
+  }
+});
+
+// Filter route
+app.get('/filter', async (req, res) => {
+  const { author, minPrice, maxPrice } = req.query;
+
+  const filter = {};
+  if (author) {
+      filter.author = author;
+  }
+  if (minPrice || maxPrice) {
+      filter.price = {};
+      if (minPrice) {
+          filter.price.$gte = parseInt(minPrice);
+      }
+      if (maxPrice) {
+          filter.price.$lte = parseInt(maxPrice);
+      }
+  }
+
+  try {
+      const results = await Book.find(filter);
+      res.json(results);
+  } catch (error) {
+      res.status(500).json({ error: 'An error occurred while filtering books' });
+  }
+});
+
+
 function sendListingEmailToSeller(sellerEmail, bookTitle) {
   // Configure Nodemailer transporter
 
