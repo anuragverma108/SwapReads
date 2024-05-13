@@ -5,9 +5,23 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="manifest" href="./assets/favicon_package_v0.16/site.webmanifest">
+  <link rel="mask-icon" href="./assets/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +30,9 @@
     rel="stylesheet">
 
   <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -28,13 +44,23 @@
 <script src="https://unpkg.com/scrollreveal"></script>
 <script src="./faq.js"></script>
 
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="./assets/js/faq.js"></script>
+
 <body>
 
 
   <header class="header header-anim" data-header>
     <div class="container">
 
-      <a href="#" class="logo">SwapReads</a>
+      <a href="#" class="logo" style="display:flex;">
+        <img src="./assets/images/Logo-pic.png" alt="" class="logopic" style=" width: 66px;"></img>
+        <div style="margin-top:13px;">SwapReads</div>
+      </a>
 
       <nav class="navbar" data-navbar>
         <ul class="navbar-list">
@@ -64,11 +90,14 @@
           </li>
 
           <li class="navbar-item">
-            <a href="rate.html" class="navbar-link">Rate Us</a>
+            <a href="./assets/html/rate.html" class="navbar-link">Rate Us</a>
           </li>
 
           <li class="navbar-item">
-            <a href="login.html" class="navbar-link">Login/Signup</a>
+            <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
+          </li>
+          <li>
+            <img src="./assets/images/moon.png" id="theme-icon">
           </li>
         </ul>
       </nav>
@@ -108,7 +137,7 @@
 
           </div>
 
-          <div class="hero-banner has-before">
+          <div class="hero-banner has-before" data-tilt="">
             <img src="./assets/images/hero-banner.png" width="431" height="596"
               alt="things i never said, a novel by claudia wilson" class="w-100">
 
@@ -441,9 +470,15 @@
         </div>
       </section>
 
+
       <!-- Exhange Exchnage Exchange -->
       <section class="section preview" aria-label="preview">
         <div class="container1">
+
+<!-- Exchange Exchnage Exchange -->
+<section class="section preview" aria-label="preview">
+  <div class="container1">
+
 
           <h2 class="h2 section-title has-underline">
 
@@ -464,9 +499,24 @@
               <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the title of your book" required
                 class="input-field">
 
+
               <label class="form-label" for="bookAuthor">Author:</label>
               <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter the author's name" required
                 class="input-field">
+
+      <label class="form-label" for="yourPrice">Your Price (50% Off):</label>
+      <div class="currency-container">
+      <label class="currency-label" for="currency">Currency:</label>
+    <select id="currency" name="currency" class="input-field currency-select">
+      
+    <option value="INR">INR</option>
+     <option value="USD">USD</option>
+     <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+   </select>
+    </div>
+      <input type="number" min="0" id="yourPrice" name="yourPrice" placeholder="Enter your desired selling price" required class="input-field">
+
 
               <label class="form-label" for="yourPrice">Your Price (50% Off):</label>
               <input type="number" id="yourPrice" name="yourPrice" placeholder="Enter your desired selling price"
@@ -520,6 +570,7 @@
 
                 </ul>
 
+
                 <form action="YOUR_STRIPE_CHECKOUT_URL" method="POST">
                   <input type="hidden" name="plan_id" value="YOUR_PLAN_ID">
                   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -527,6 +578,9 @@
                     data-description="75% Off" data-label="BUY NOW" data-currency="INR" data-locale="auto">
                     </script>
                 </form>
+
+                <button class="btn btn-secondary">BUY NOW</button>
+
 
               </div>
             </li>
@@ -548,6 +602,7 @@
 
                 </ul>
 
+
                 <form action="YOUR_STRIPE_CHECKOUT_URL" method="POST">
                   <input type="hidden" name="plan_id" value="YOUR_PLAN_ID">
                   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -555,6 +610,9 @@
                     data-description="50% Off" data-label="BUY NOW" data-currency="INR" data-locale="auto">
                     </script>
                 </form>
+
+                <button class="btn btn-secondary">BUY NOW</button>
+
 
               </div>
             </li>
@@ -576,6 +634,7 @@
 
                 </ul>
 
+
                 <form action="YOUR_STRIPE_CHECKOUT_URL" method="POST">
                   <input type="hidden" name="plan_id" value="YOUR_PLAN_ID">
                   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -583,6 +642,9 @@
                     data-description="25% Off" data-label="BUY NOW" data-currency="INR" data-locale="auto">
                     </script>
                 </form>
+
+                <button class="btn btn-secondary">BUY NOW</button>
+
 
               </div>
             </li>
@@ -699,8 +761,13 @@
     </article>
   </main>
 
+
   <h1 class="faq">Some Frequently Asked Questions</h1>
   <div class="faq-section" style="background-color: #F5EBE5;">
+=======
+<h1 class="faq">Some Frequently Asked Questions</h1>
+  <div class="faq-section">
+
     <div class="faq-container">
       <div class="question">
         <h4>How does SwapReads work ?</h4>
@@ -779,47 +846,44 @@
             <li><a href="#contact">Contact Us</a></li>
           </ul>
         </div>
-        <div class="social-links">
-          <h5>Social Links</h5>
-          <ul class="social-list">
-
-            <li>
-              <a href="https://facebook.com" class="social-link">
-                <ion-icon name="logo-facebook"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="https://twitter.com/home" class="social-link">
-                <ion-icon name="logo-twitter"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="https://www.linkedin.com/feed/" class="social-link">
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="https://www.youtube.com/" class="social-link">
-                <ion-icon name="logo-youtube"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="https://www.whatsapp.com/" class="social-link">
-                <ion-icon name="logo-whatsapp"></ion-icon>
-              </a>
-            </li>
-
-          </ul>
+        <div class="social-icons-container">
+          <a href="#">
+            <div class="icon">
+              <i class="fab fa-facebook-square"></i>
+            </div>
+    
+            <div class="name">Facebook</div>
+          </a>
+    
+          <a href="#">
+            <div class="icon">
+              <i class="fab fa-twitter-square"></i>
+            </div>
+    
+            <div class="name">Twitter</div>
+          </a>
+    
+          <a href="#">
+            <div class="icon">
+              <i class="fab fa-instagram-square"></i>
+            </div>
+    
+            <div class="name">Instagram</div>
+          </a>
+    
+          <a href="#">
+            <div class="icon">
+              <i class="fab fa-youtube-square"></i>
+            </div>
+    
+            <div class="name">YouTube</div>
+          </a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="copyright">
-        &copy; 2024 All right reserved. Made with ❤ by Guardian Hackers.
+      <p class="copyright" style="text-align: center"> 
+        &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
       </p>
       <button id="scrollToTopBtn">Scroll To Top</button>
     </div>
@@ -873,6 +937,48 @@
   </footer> -->
 
 
+ <!--Dark Mode-->
+
+ <script>
+
+  // Function to toggle dark mode
+  function toggleDarkMode() {
+      const isDarkMode = isDarkModePreferred();
+      setDarkModePreference(!isDarkMode);
+      applyDarkModePreference();
+  }
+
+  // Function to apply dark mode preference
+  function applyDarkModePreference() {
+      const isDarkMode = isDarkModePreferred();
+      if (isDarkMode) {
+          document.body.classList.add('dark-mode');
+          document.getElementById('theme-icon').src = 'assets/images/sun.png';
+      } else {
+          document.body.classList.remove('dark-mode');
+          document.getElementById('theme-icon').src = 'assets/images/moon.png';
+      }
+  }
+
+  // Function to set dark mode preference
+  function setDarkModePreference(isDarkMode) {
+      localStorage.setItem('darkMode', isDarkMode);
+  }
+
+  // Function to check if dark mode preference exists
+  function isDarkModePreferred() {
+      return JSON.parse(localStorage.getItem('darkMode'));
+  }
+
+  // Call the function when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+      applyDarkModePreference();
+  });
+
+  // Add event listener to toggle dark mode when the image is clicked
+  document.getElementById('theme-icon').addEventListener('click', toggleDarkMode);
+
+ </script>
 
 
 
@@ -885,7 +991,11 @@
   <!-- 
     - ionicon link
   -->
+
   <script src="scroll-reveal.js"></script>
+
+
+  <script src="./assets/js/scroll-reveal.js"></script>
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -934,7 +1044,12 @@
     
 
 
+
   </script>
+
+</script>
+<script src="vanilla-tilt.js"></script>
+
 </body>
 
 </html>
