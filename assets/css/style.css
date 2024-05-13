@@ -1,6 +1,6 @@
 .container1 {
   padding: 40px 100px;
-  background-color: hsl(20, 43%, 93%);
+  background-color: var(--seashell);
   border:2px solid hsl(20, 43%, 93%);
   max-width: 1000px;
   margin:0 auto;
@@ -378,6 +378,7 @@ body {
 
 .header {
   background-color: var(--white);
+  
   position: absolute;
   top: 10px;
   right: 10px;
@@ -385,6 +386,7 @@ body {
   padding-block: 12px;
   z-index: 4;
   transition: var(--transition-2);
+  
 }
 
 .header.active {
@@ -396,6 +398,7 @@ body {
   transform: translateY(-100%);
   transition: none;
   animation: slideIn 0.5s ease forwards;
+ 
 }
 
 @keyframes slideIn {
@@ -411,6 +414,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 }
 
 .logo {
@@ -453,9 +457,12 @@ body {
 }
 
 .navbar.active {
-  max-height: 300px;
+  max-height: 387px;
   visibility: visible;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   transition-duration: 0.5s;
+  overflow-y: scroll;
 }
 
 .navbar-list {
@@ -465,7 +472,7 @@ body {
 .navbar-link {
   color: var(--charcoal);
   padding-block: 8px;
-  line-height: 1.5;
+  line-height: 2;
   transition: var(--transition-1);
 }
 
@@ -517,7 +524,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--white);
+  background-color: hsl(0, 0%, 100%);
   color: var(--chinese-violet);
   font-size: 22px;
   padding: 24px;
@@ -808,7 +815,7 @@ body {
 }
 
 .input-field {
-  background-color: var(--white);
+  background-color: hsl(0, 0%, 100%);
   padding: 10px;
   margin-block-end: 15px;
   outline: none;
@@ -922,6 +929,7 @@ footer {
 
 .nav-links ul li a {
   color: rgb(55, 54, 54);
+  text-decoration: none; /* Remove underline */
 }
 
 .nav-links ul li a:hover {
@@ -962,6 +970,19 @@ footer {
   #MEDIA QUERIES
 \*-----------------------------------*/
 
+@media(max-width: 768px) {
+  .foot-left, .foot-right{
+    margin-bottom: 30px; 
+    flex: 1 100%; 
+  }
+}
+
+@media(max-width: 480px) {
+  .foot-left .desc p{
+    width: 100%; 
+  }
+}
+
 /**
  * responsive for large than 575px screen
  */
@@ -973,6 +994,9 @@ footer {
     border-radius: var(--radius-5);
     padding:30px;
   }
+  .container {
+    padding-inline: 37px;
+}
 }
 @media (min-width: 575px) {
   /**
@@ -1000,7 +1024,7 @@ footer {
     max-width: 540px;
     width: 100%;
     margin-inline: auto;
-    border-radius: var(--radius-5);
+    /* border-radius: var(--radius-5); */
   }
  
 
@@ -1018,6 +1042,7 @@ footer {
 
   .header.active {
     max-width: unset;
+    border-radius:0px;
   }
 
   .navbar {
@@ -1093,6 +1118,7 @@ footer {
   .header,
   .navbar {
     max-width: 720px;
+    /* border-radius:61px; */
   }
 
   .grid-list {
@@ -1203,7 +1229,8 @@ footer {
   .container1,
   .header,
   .navbar {
-    max-width: 960px;
+    max-width: 987px;
+    border-radius: 55px;
   }
 
   .grid-list {
@@ -1350,6 +1377,7 @@ footer {
   .header,
   .navbar {
     max-width: 1140px;
+    border-radius: 60px;
   }
  
   /**
@@ -1404,11 +1432,12 @@ footer {
 /* Faq Section */
 .faq-section {
   padding: 20px;
+  background-color: var(--seashell);
 }
 
 .faq {
   font-weight: 700;
-  color: black;
+  color: var(--sonic-silver);
   text-align: center;
   font-family: var(--ff-philosopher);
 }
@@ -1422,7 +1451,7 @@ footer {
 }
 
 .answers {
-  color: #666;
+  color: var(--sonic-silver);
   max-height: 0;
   overflow: hidden;
 }
@@ -1432,7 +1461,7 @@ footer {
 } */
 
 .question {
-  color: rgb(44, 42, 42);
+  color: var(--sonic-silver);
   display: flex;
   align-items: center;
   font-weight: bold;
@@ -1440,11 +1469,33 @@ footer {
 }
 
 .faq-container {
-  background-color: white;
+  background-color: var(--white);
   margin-bottom: 2rem;
   border-radius: 4px;
   box-shadow: 1px 1px 5px #efecea;
   padding: 4px 16px;
   line-height: 4rem;
   cursor: pointer;
+}
+
+.faq-container:hover {
+  background-color: var(--old-rose_30);
+}
+
+
+/**
+* Dark Mode
+*/
+
+#theme-icon{
+  width : 35px;
+  cursor : pointer;
+}
+
+.dark-mode{
+   --sonic-silver: #fff;
+   --ghost-white: #1E1C1C;
+   --seashell: #1E1C1C;
+   --charcoal: #fff;
+   --white: #1E1C1C;
 }
