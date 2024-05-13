@@ -1,8 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const RegisterSchema = require("./validation/zodschema");
-const validate = require("./validation/validate.schema");
+const RegisterSchema = require("./assets/validation/zodschema");
+const validate = require("./assets/validation/validate.schema");
 const nodemailer = require("nodemailer");
 const app = express();
 
