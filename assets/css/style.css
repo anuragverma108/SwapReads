@@ -898,45 +898,45 @@ footer {
   background-color: var(--seashell);
   padding: 30px 50px;
 }
-.foot-top{
+
+.foot-top {
   display: flex;
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
-  border-bottom: 1px solid black;
-  padding-bottom: 30px;
-}
-.foot-left .desc p{
-  width: 100%; /* Adjusting width to 100% for responsiveness */
-}
-.foot-left{
-  margin-right: 30px;
-  flex: 1 0 0; /* Make the left part flexible */
-}
-.foot-right{
-  display: flex;
-  flex: 1 0 0; /* Make the right part flexible */
-  justify-content: space-between; /* Distribute items evenly */
-}
-.nav-links{
-  margin: 0;
+  flex-wrap: wrap; 
 }
 
-.nav-links ul{
-  padding: 0;
-  list-style: none; /* Remove bullet points */
+.foot-left {
+  margin-right: 20px;
+  flex: 1; 
 }
 
-.nav-links ul li{
-  margin-bottom: 10px; /* Add some spacing between list items */
+.foot-left .desc p {
+  width: 100%;
 }
+
+.foot-right {
+  display: flex;
+  flex: 1; 
+  margin-top: 20px; 
+}
+
+.nav-links {
+  width: 100%; 
+  margin-bottom: 20px; 
+}
+
+.social-links {
+  width: 100%; 
+}
+
 
 .nav-links ul li a{
-  color: var(--light-grey);
   text-decoration: none; /* Remove underline */
 }
 
-.nav-links ul li a:hover{
+.nav-links ul li a:hover {
   color: rgb(167, 95, 107);
 }
+
 
 .foot-right h5{
   color: var(--light-grey);
@@ -944,36 +944,28 @@ footer {
   font-weight: 500;
 }
 
-.social-list{
+.social-list {
   display: flex;
-  /* flex-direction: column; */
-  overflow: hidden;
 }
-/* .footer-top {
-  padding-block: 50px;
-  border-block-end: 1px solid var(--chinese-violet_30);
-} */
 
-.footer .logo { margin-block-end: 15px; }
-
-/* .footer-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  column-gap: 20px;
-} */
-
-/* .footer-link {
-  color: var(--charcoal);
-  transition: var(--transition-1);
-} */
-
-.footer-link:is(:hover, :focus) { color: var(--old-rose); }
-
-.footer-bottom { 
+.footer-bottom {
   text-align: center;
   margin-top: 20px;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  .foot-left,
+  .foot-right {
+    flex-basis: 100%; /* Set flex-basis to 100% to make them each take full width on smaller screens */
+    margin-right: 0; /* Remove right margin on smaller screens */
   }
+
+  .foot-right {
+    margin-top: 0; /* Remove top margin on smaller screens */
+  }
+}
+
 
 
 /*-----------------------------------*\
@@ -1488,6 +1480,19 @@ footer {
   cursor: pointer;
 }
 
+#scrollToTopBtn {
+  display: none; /* Hide the button by default */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  background-color: var(--old-rose);
+  color: black;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  cursor: pointer;
+
 .faq-container:hover {
   background-color: var(--old-rose_30);
 }
@@ -1510,4 +1515,5 @@ footer {
    --white: #1E1C1C;
    --light-grey: #fff;
    --grey-white: #1E1C1C;
+
 }
