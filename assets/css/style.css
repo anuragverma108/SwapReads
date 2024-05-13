@@ -693,6 +693,39 @@ body {
   display: none;
 }
 
+.exchange-form_btn{
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-3);
+}
+
+.exchange-form_btn:hover{
+  background-color: var(--old-rose);
+  box-shadow: none;
+}
+
+.exchange-form_btn::after{
+  content: 'Connect with a Reader';
+  position: relative;
+  z-index: 0;
+}
+
+.exchange-form_btn::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  background-color: var(--chinese-violet);
+  transform: translateY(100%);
+  transition: transform .3s linear;
+}
+
+.exchange-form_btn:hover::before{
+  transform: translateY(-20%);
+}
+
 /*-----------------------------------*\
   #PRICING
 \*-----------------------------------*/
