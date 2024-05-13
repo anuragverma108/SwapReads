@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     if (name === '' || email === '' || message === '' || subject === '') {
       alert('Please fill in all fields.');
+    } else if(!validateEmail(email)) {
+      alert('Enter valid Email.')
     } else {
       alert('Message sent successfully!');
       console.log('Name: ' + name + ' Email: ' + email + ' Message: ' + message + ' Subject: ' + subject);
@@ -24,6 +26,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     return false; // Prevent page refresh
   });
 });
+const validateEmail = function(email) {
+  // Regular expression for validating email addresses
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  // Test the email against the regex pattern
+  return emailRegex.test(email);
+}
 /**
  * add event on element
  */
