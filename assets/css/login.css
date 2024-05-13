@@ -1,27 +1,59 @@
-body{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-color: #f5ebe6;
-}
-.navbar-header{
+body {
+  width: 100%;
+  height: 100%;
+  font-family: var(--ff-philosopher);
+  font-size: 4rem;
+  /* background-color: #c9acc2; */
+  background-color: #f5ebe6;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  gap: 1px;
+}
+.navbar {
   width: 100%;
 }
-.close-icon{
-  margin: 10px;
+.navbar-header {
+  width: 100%;
+  font-family: var(--ff-philosopher);
+  font-size: 4rem;
+  line-height: 1;
+  display: block;
+  text-decoration-color: #fff;
 }
-h1{
-  width: 70%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  padding-right: 7%;
-  font-size: 25px;
-  font-weight: 800;
+.navbar-header a {
   color: #ce6857;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 2rem;
+  margin-left: 2rem;
+}
+.navbar {
+  background-color: #f5ebe6;
+}
+
+/* .col-sm-5{
+    margin-left:200px;
+    align-items: right;
+    margin-bottom: 200px;
+}
+.col-sm-4{
+    margin-left: 0px;
+}
+.loginbox{
+    box-sizing: border-box;
+    display: block;
+}
+.form-container {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.form-container h2 {
+    margin-top: 0;
 }
 
 .form-container input[type="text"],
@@ -44,8 +76,11 @@ h1{
     color: red;
 } */
 
-
 .note {
+  width: 50%;
+  max-width: 600px;
+}
+.note h1 {
   font-size: 2.5rem;
   font-weight: 800;
   color: #ce6857;
@@ -54,8 +89,11 @@ h1{
 
 .main {
   position: relative;
-  margin: auto;
+  display: flex;
   flex-direction: column;
+  left: 50%;
+  transform: translateX(-50%);
+  /* background-color: #240046; */
   background-color: #ce6857;
   max-height: 44rem;
   width: 90%;
@@ -64,6 +102,7 @@ h1{
   border-radius: 12px;
   box-shadow: 7px 7px 10px 3px #24004628;
   margin-bottom: 10rem;
+  margin-left: 4rem;
 }
 
 .form {
@@ -78,6 +117,12 @@ h1{
   display: none;
 }
 
+/*Login*/
+.login {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 
 .login label {
   margin: 15% 0 5%;
@@ -107,8 +152,7 @@ label {
 /*Register*/
 .register {
   background: #eee;
-  border-radius: 70% / 7%;
-  height: 370px;
+  border-radius: 60% / 10%;
   transform: translateY(-6%);
   transition: 0.8s ease-in-out;
 }
@@ -132,7 +176,7 @@ label {
 }
 /*Button*/
 .form button {
-  width: 100%;
+  width: 85%;
   height: 40px;
   margin: 12px auto 10%;
   color: #fff;
@@ -149,20 +193,21 @@ label {
   background-color: red;
 }
 
+.close-icon {
+  margin-top: 2rem;
+}
 
 /*-----------------------------------*\
   #FOOTER
 \*-----------------------------------*/
 
 .footer-bottom {
+  padding-block: 20px;
+  border-block-start: 1px solid rgb(169, 166, 166);
+  color: hsl(208, 7%, 46%);
+  font-size: 1.8rem;
+  line-height: 1.8;
   text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    font-size: 18px;
-    color: #6d767e;
 }
 
 .forget-password {
@@ -176,13 +221,15 @@ label {
   body {
     font-size: 2rem;
   }
-  h1{
-    display: none;
+
+  .navbar-header {
+    font-size: 2rem;
   }
-  .navbar-header{
-    display: flex;
-    justify-content: left;
+
+  .note h1 {
+    font-size: 2.5rem;
   }
+
   .main {
     width: 95%;
   }
