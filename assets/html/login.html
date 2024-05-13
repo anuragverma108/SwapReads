@@ -119,57 +119,6 @@
   //console.log(app);
   const auth = getAuth();
 
-  //----- New Registration code start
-  let register = document.querySelector('.register');
-  document.getElementById('register').addEventListener('click', function () {
-    let email = document.getElementById('email').value;
-    let password = document.getElementById('password').value;
-    //For new registration
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user);
-        alert('Registration successfully!!');
-        email = '';
-        password = '';
-        register.style.transform = 'translateY(8%)';
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-        console.log(errorMessage);
-        alert(error);
-      });
-  });
-  //----- End
-
-  //----- Login code start
-  document.getElementById('login').addEventListener('click', function () {
-    let email = document.getElementById('login_email').value;
-    let password = document.getElementById('login_password').value;
-
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        //const user = userCredential.user;
-        //console.log(user);
-        window.location.href = '../../index.html';
-        //alert(user.email+" Login successfully!!!");
-        document.getElementById('logout').style.display = 'block';
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-        alert(errorMessage);
-      });
-  });
-  //----- End
-
   //----- Logout code start
   document.getElementById('logout').addEventListener('click', function () {
     signOut(auth)
