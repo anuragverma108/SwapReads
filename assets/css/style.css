@@ -40,6 +40,7 @@
   --seashell: hsl(20, 43%, 93%);
   --charcoal: hsl(203, 30%, 26%);
   --white: hsl(0, 0%, 100%);
+  --black:rgb(0,0,0);
 
   /**
    * typography
@@ -964,21 +965,33 @@ footer {
 
 .foot-right {
   display: flex;
-  flex: 1; 
-  margin-top: 20px; 
+
+  flex: 1 0 0; /* Make the right part flexible */
+  justify-content: space-between; /* Distribute items evenly */
+}
+.nav-links{
+  
+  margin: 0;
 }
 
-.nav-links {
-  width: 100%; 
-  margin-bottom: 20px; 
+.nav-links ul{
+  padding: 0;
+  
+  list-style: none; /* Remove bullet points */
 }
 
-.social-links {
-  width: 100%; 
+.nav-links ul li{
+  margin-bottom: 10px;
+   /* Add some spacing between list items */
+
+
 }
 
 
 .nav-links ul li a{
+
+  color: var(--sonic-silver);
+
   text-decoration: none; /* Remove underline */
 }
 
@@ -988,7 +1001,9 @@ footer {
 
 
 .foot-right h5{
-  color: var(--light-grey);
+
+  color:var(--black);
+
   font-size: 2rem;
   font-weight: 500;
 }
@@ -1563,7 +1578,7 @@ footer {
    --seashell: #1E1C1C;
    --charcoal: #fff;
    --white: #1E1C1C;
-   --light-grey: #fff;
-   --grey-white: #1E1C1C;
+
+   --black: #fff;
 
 }
