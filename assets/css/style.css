@@ -648,13 +648,52 @@ body {
 \*-----------------------------------*/
 
 .chapter-card {
+  position: relative;
   height: 100%;
   background-color: var(--white);
   padding: 25px;
   border-radius: var(--radius-5);
   box-shadow: var(--shadow-2);
-  transition: var(--transition-2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.chapter-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.chapter-card::before,
+.chapter-card::after {
+  content: '';
+  position: absolute;
+  width: 3px; /* Adjust the width of the beam as needed */
+  height: calc(100% + 6px); /* Extend the beam height to cover any card shadow */
+  background-color: var(--light-pink); /* Adjust the color of the beam */
+  transition: transform 0.3s ease;
+}
+
+.chapter-card::before {
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+  transform: scaleY(0);
+}
+
+.chapter-card::after {
+  bottom: 0;
+  right: 0;
+  transform-origin: bottom right;
+  transform: scaleY(0);
+}
+
+.chapter-card:hover::before {
+  transform: scaleY(1) translateX(-50%); /* Move towards left */
+}
+
+.chapter-card:hover::after {
+  transform: scaleY(1) translateX(50%); /* Move towards right */
+}
+
 
 .chapter-card:is(:hover, :focus-within) {
   transform: translateY(-10px);
