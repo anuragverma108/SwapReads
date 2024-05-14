@@ -62,6 +62,24 @@ const closeNavbar = function () {
 
 addEventOnelem(navbarLinks, "click", closeNavbar);
 
+// Function to toggle between light and dark mode
+function toggleTheme() {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  
+  document.documentElement.setAttribute('data-theme', newTheme);
+  
+  const logo = document.getElementById('logo');
+  if (newTheme === 'dark') {
+    logo.src = "./assets/images/logoPicLight.png";
+  } else {
+    logo.src = "./assets/images/logoPicDark.png";
+  }
+}
+
+const themeToggleButton = document.getElementById('theme-icon');
+themeToggleButton.addEventListener('click', toggleTheme);
+
 
 
 /**
