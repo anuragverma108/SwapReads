@@ -31,6 +31,7 @@
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <!-- Bootstrap theme -->
     <link
       rel="stylesheet"
@@ -38,13 +39,12 @@
     />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link
-  href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
-  rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Login / SignUp</title>
     <link rel="stylesheet" href="../css/login.css" />
-
-    
   </head>
   <body>
     <div class="navbar">
@@ -232,13 +232,39 @@
           password = "";
           register.style.transform = "translateY(8%)";
           // ...
+          Toastify({
+            text: 'Registeration Succesfull',
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)", 
+            style: {
+              transition: "all s ease", 
+              margin: "20px", 
+              padding: "10px", 
+            },
+            progressBar: true,
+            close: false, 
+          }).showToast();
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           // ..
-          console.log(errorMessage);
-          alert(error);
+          Toastify({
+            text: error.message,
+            duration: 3000, 
+            gravity: "top", 
+            position: "right",
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)", 
+            style: {
+              transition: "all 1s ease",
+              margin: "20px", 
+              padding: "10px",
+            },
+            progressBar: true,
+            close: false, 
+          }).showToast();
         });
     });
     //----- End
@@ -257,14 +283,41 @@
           //alert(user.email+" Login successfully!!!");
           document.getElementById("logout").style.display = "block";
           // ...
+          Toastify({
+            text: 'Login Successful!!',
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)", 
+            style: {
+              transition: "all 1s ease", 
+              margin: "20px", 
+              padding: "10px", 
+            },
+            progressBar: true,
+            close: false, 
+          }).showToast();
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorMessage);
-          alert(errorMessage);
+          Toastify({
+            text: errorMessage,
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)", 
+            style: {
+              transition: "all 1s ease", 
+              margin: "20px", 
+              padding: "10px", 
+            },
+            progressBar: true,
+            close: false, 
+          }).showToast();
         });
     });
+
     //----- End
 
     //----- Logout code start
@@ -275,10 +328,37 @@
           console.log("Sign-out successful.");
           alert("Sign-out successful.");
           document.getElementById("logout").style.display = "none";
+          Toastify({
+            text: 'Log-out Successfull',
+            duration: 3000, 
+            gravity: "top", 
+            position: "right",
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)", 
+            style: {
+              transition: "all 1s ease",
+              margin: "20px", 
+              padding: "10px",
+            },
+            progressBar: true,
+            close: false, 
+          }).showToast();
         })
         .catch((error) => {
           // An error happened.
-          console.log("An error happened.");
+          Toastify({
+            text: error.message,
+            duration: 3000, 
+            gravity: "top", 
+            position: "right",
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)", 
+            style: {
+              transition: "all 1s ease",
+              margin: "20px", 
+              padding: "10px",
+            },
+            progressBar: true,
+            close: false, 
+          }).showToast();
         });
     });
     //----- End
@@ -296,12 +376,37 @@
         sendPasswordResetEmail(auth, email)
           .then(() => {
             // Password reset email sent successfully
-            alert("Password reset email sent. Please check your email inbox.");
+            Toastify({
+            text: 'Password has sent ,check your inbox',
+            duration: 3000, 
+            gravity: "top", 
+            position: "right",
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)", 
+            style: {
+              transition: "all 1s ease",
+              margin: "20px", 
+              padding: "10px",
+            },
+            progressBar: true,
+            close: false, 
+          }).showToast();
           })
           .catch((error) => {
             // An error occurred
-            console.error("Error sending password reset email:", error.message);
-            alert("An error occurred while sending the password reset email.");
+            Toastify({
+            text: error.message,
+            duration: 3000, 
+            gravity: "top", 
+            position: "right",
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)", 
+            style: {
+              transition: "all 1s ease",
+              margin: "20px", 
+              padding: "10px",
+            },
+            progressBar: true,
+            close: false, 
+          }).showToast();
           });
       });
   </script>
