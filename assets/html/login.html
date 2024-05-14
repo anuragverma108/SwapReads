@@ -73,6 +73,49 @@
         </h2>
       </h1>
     </div>
+  <br/>
+    <div class="main">
+      <input type="checkbox" id="chk" aria-hidden="true" />
+
+      <div class="login">
+        <form class="form">
+          <label for="chk" aria-hidden="true">Log in</label>
+          <input class="input" type="email" name="email" id="login_email" placeholder="Email" required="" />
+          <input class="input" type="password" name="pswd" id="login_password" placeholder="Password" required="" />
+          <button type="button" name="Login" id="login" onclick="openPopup()">Log in</button>
+          <div class="popup" id="popup">
+            <img src="404-tick.png">
+            <h2>Thank You!</h2>
+            <p>Your details have been successfully submitted.</p>
+            <button type="button" onclick="closePopup()">Ok</button>
+          </div>
+          <script>
+            let popup=document.getElementById("popup");
+            function openPopup(){
+                popup.classList.add("open-popup")
+            }
+            function closePopup(){
+                popup.classList.remove("open-popup")
+            }
+        </script>
+          <p class="forget-password">
+            Forgot Password?
+            <a href="#" id="forgot_password_link">Reset Here</a>
+          </p>
+        </form>
+      </div>
+
+      <div class="register">
+        <form class="form">
+          <label for="chk" aria-hidden="true">Register</label>
+          <!-- <input class="input" type="text" name="txt" placeholder="Username" required=""> -->
+          <input class="input" type="email" name="email" id="email" placeholder="Email" required="" />
+          <input class="input" type="password" name="pswd" id="password" placeholder="Password" required="" />
+          <button type="button" name="register" id="register" onclick="openPopup()">
+            Register
+          </button>
+        </form>
+=======
     <br />
     <div class="container">
       <!-- <h2>Register for new users</h2> -->
@@ -210,6 +253,22 @@
       measurementId: "G-L3PPD58MZ8",
     };
 
+  //----- Logout code start
+  document.getElementById('logout').addEventListener('click', function () {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        console.log('Sign-out successful.');
+        alert('Sign-out successful.');
+        document.getElementById('logout').style.display = 'none';
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log('An error happened.');
+      });
+  });
+  //----- End
+=======
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
@@ -242,6 +301,7 @@
         });
     });
     //----- End
+
 
     //----- Login code start
     document.getElementById("login").addEventListener("click", function () {
@@ -317,6 +377,8 @@
       }
     }
 
+
+=======
     // Function to check if dark mode preference exists
     function isDarkModePreferred() {
       return JSON.parse(localStorage.getItem("darkMode"));
