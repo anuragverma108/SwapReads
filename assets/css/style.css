@@ -422,17 +422,21 @@ body {
   align-items: center;
   
 }
+[data-theme="light"] .logo {
+  background-color: #ffffff; /* Light background color */
+}
+
+/* Dark mode styles */
+[data-theme="dark"] .logo {
+  background-color: #000000; /* Dark background color */
+}
+
 
 .logo {
   font-family: var(--ff-philosopher);
   font-size: 3.5rem;
   color: var(--charcoal);
   line-height: 1;
-}
-
-.dark-mode .logopic{
-  transition: all 5s ease-in-out;
- mix-blend-mode: color-burn;
 }
 
 
@@ -1323,7 +1327,7 @@ margin: .8vmax 0 .8vmax 0;
  * responsive for large than 992px screen
  */
 
-@media (min-width: 1200px) {
+ @media (min-width: 992px) {
   /**
    * CUSTOM PROPERTY
    */
@@ -1464,23 +1468,6 @@ margin: .8vmax 0 .8vmax 0;
     padding: 40px;
   }
 }
-
-
-
-/* 
-responsiveness for small devices below 1200px */
-
-
-@media (max-width: 1200px) {
-  .navbar-list{
-    display: flex;
-    flex-direction: column !important;
-    justify-content: flex-start;
-    /* align-items: flex-start; */
-  }
-}
-
-
 
 
 /**
@@ -1654,5 +1641,4 @@ responsiveness for small devices below 1200px */
    --white: #1E1C1C;
 
    --black: #fff;
-
 }
