@@ -1,27 +1,87 @@
-body{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-color: #f5ebe6;
+:root{
+
+  /*font*/
+--ff-philosopher: "Philosopher", sans-serif;
+--ff-poppins: "Poppins", sans-serif;
+
+/*colors*/
+--chinese-violet_30: hsla(304, 14%, 46%, 0.3);
+--chinese-violet: hsl(304, 14%, 46%);
+--sonic-silver: hsl(208, 7%, 46%);
+--old-rose_30: hsla(357, 37%, 62%, 0.3);
+--ghost-white: hsl(233, 33%, 95%);
+--light-pink: hsl(357, 93%, 84%);
+--light-gray: hsl(0, 0%, 80%);
+--old-rose: hsl(357, 37%, 62%);
+--seashell: hsl(20, 43%, 93%);
+--charcoal: hsl(203, 30%, 26%);
+--white: hsl(0, 0%, 100%);
+--black:rgb(0,0,0);
+
+
 }
-.navbar-header{
-  display: flex;
+
+body {
   width: 100%;
+  height: 100vh;
+  font-family: var(--ff-philosopher);
+  font-size: 4rem;
+  /* background-color: #c9acc2; */
+  background-color: #f5ebe6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  /* gap: 1px; */
 }
-.close-icon{
-  margin: 10px;
+
+p{
+  font-size: 1rem;
 }
-h1{
-  width: 70%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  padding-right: 7%;
-  font-size: 25px;
-  font-weight: 800;
+
+.navbar {
+  width: 100%;
+  background-color: #f5ebe6;
+}
+.navbar-header {
+  width: 100%;
+  font-family: var(--ff-poppins);
+  font-size: 4rem;
+  line-height: 1;
+  
+  display: block;
+  text-decoration-color: #fff;
+}
+.navbar-header a {
   color: #ce6857;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 2rem;
+  margin-left: 2rem;
+}
+
+
+/* .col-sm-5{
+    margin-left:200px;
+    align-items: right;
+    margin-bottom: 200px;
+}
+.col-sm-4{
+    margin-left: 0px;
+}
+.loginbox{
+    box-sizing: border-box;
+    display: block;
+}
+.form-container {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.form-container h2 {
+    margin-top: 0;
 }
 
 .form-container input[type="text"],
@@ -44,26 +104,51 @@ h1{
     color: red;
 } */
 
-
 .note {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #ce6857;
+  width: 50%;
+  max-width: 600px;
+  font-family: var(--ff-philosopher);
+}
+
+.note h1 {
+  font-size: 5rem;
+  font-weight: bold;
+  color: #1f0b07;
   text-align: center;
+  font-family: var(--ff-philosopher) ;
+}
+
+.note h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--sonic-silver);
+  text-align: center;
+  font-family: var(--ff-poppins) ;
+}
+
+.note div{
+  padding-top:2rem;
+  font-size: 2.5rem;
+  font-weight:500;
 }
 
 .main {
   position: relative;
-  margin: auto;
+  display: flex;
   flex-direction: column;
-  background-color: #ce6857;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+  /* background-color: #240046; */
+  background-color: hsl(357, 37%, 62%);
   max-height: 44rem;
   width: 90%;
   max-width: 40rem;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 7px 7px 10px 3px #24004628;
-  margin-bottom: 10rem;
+  border-radius:2%;
+  box-shadow: 0 0 15px 5px #24004628;
+  /* margin-bottom: 10rem;
+  margin-left: 4rem; */
 }
 
 .form {
@@ -73,14 +158,28 @@ h1{
   padding: 24px;
 }
 
+
 /*checkbox to switch from sign up to login*/
 #chk {
   display: none;
 }
 
+/*Login*/
+
+#login{
+  font-size: medium;
+  font-family: var(--ff-poppins);
+}
+
+.login {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: var(--ff-poppins);
+}
 
 .login label {
-  margin: 15% 0 5%;
+  margin: 5% 0 5%;
 }
 
 label {
@@ -99,16 +198,30 @@ label {
   background: #e0dede;
   padding: 10px;
   border: none;
+  margin-top: 5%;
   outline: none;
   border-radius: 4px;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 /*Register*/
+#register{
+  font-size: medium;
+  background-color: var(--old-rose);
+  color: white; 
+  cursor: pointer; 
+ 
+}
+
+#register:hover {
+  background-color: white; 
+  background-color: var(--old-rose);
+}
+
 .register {
   background: #eee;
-  border-radius: 70% / 7%;
-  height: 370px;
+  font-family: var(--ff-poppins);
+  border-radius: 90% / 10%;
   transform: translateY(-6%);
   transition: 0.8s ease-in-out;
 }
@@ -117,8 +230,15 @@ label {
   color: #ce6857;
   transform: scale(0.6);
 }
+
+.register label:hover {
+  color: #000000;
+
+}
+
+
 #chk:checked ~ .register {
-  transform: translateY(-69%);
+  transform: translateY(-70%);
 }
 
 #chk:checked ~ .register label {
@@ -132,43 +252,77 @@ label {
 }
 /*Button*/
 .form button {
-  width: 100%;
+  width: 95%;
   height: 40px;
   margin: 12px auto 10%;
   color: #fff;
-  background: #d54b33;
+  background: transparent;
   font-size: 1rem;
   font-weight: bold;
   border: none;
-  border-radius: 4px;
+  border-radius: 50px;
   cursor: pointer;
-  transition: 0.2s ease-in;
+  transition: 0.25s ease;
+  box-shadow: 1px 1px 10px 3px #24004628;
 }
 
 .form button:hover {
-  background-color: red;
+  background-color: rgb(255, 255, 255);
+  color: #d54b33;
 }
 
+
+
+.btn-primary {
+  background-color: var(--old-rose);
+  color: var(--white);
+  border-radius: var(--radius-5);
+}
+
+.btn-primary:is(:hover, :focus) {
+  background-color: var(--chinese-violet);
+}
+
+.btn-secondary {
+  border: 1px solid var(--old-rose);
+  color: var(--old-rose);
+  border-radius: var(--radius-5);
+}
+
+.btn-secondary:is(:hover, :focus) {
+  background-color: var(--old-rose);
+  color: var(--white);
+}
+
+.close-icon {
+  margin-top: 2rem;
+  padding-left:92%;
+}
 
 /*-----------------------------------*\
   #FOOTER
 \*-----------------------------------*/
 
 .footer-bottom {
+  padding-block: 20px;
+  border-block-start: 1px solid rgb(169, 166, 166);
+  color: hsl(208, 7%, 46%);
+  font-size: 1.8rem;
+  line-height: 1.8;
   text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    font-size: 18px;
-    color: #6d767e;
 }
 
 .forget-password {
   font-size: small;
   text-align: center;
   margin: -30px 0 10px;
+  color:white;
+  font-weight: bold;
+}
+
+.forget-password a{
+  color:white;
+  text-decoration: underline;
 }
 
 /* Media queries for responsiveness */
@@ -176,15 +330,32 @@ label {
   body {
     font-size: 2rem;
   }
-  h1{
-    display: none;
+
+  .navbar-header {
+    font-size: 2rem;
   }
-  .navbar-header{
-    display: flex;
-    justify-content: left;
+
+  .main {
+    bottom: 0%;
+    padding: 10px;
   }
+
+  .note h1 {
+    font-size: 2.5rem;
+  }
+
   .main {
     width: 95%;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .main {
+    padding: 15px;  
+  }
+  .input, .form button {
+    font-size: 1rem;
   }
 }
 

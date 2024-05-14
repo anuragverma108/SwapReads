@@ -40,6 +40,7 @@
   --seashell: hsl(20, 43%, 93%);
   --charcoal: hsl(203, 30%, 26%);
   --white: hsl(0, 0%, 100%);
+  --black:rgb(0,0,0);
 
   /**
    * typography
@@ -420,10 +421,16 @@ body {
 
 .logo {
   font-family: var(--ff-philosopher);
-  font-size: 4rem;
+  font-size: 3.5rem;
   color: var(--charcoal);
   line-height: 1;
 }
+
+.dark-mode .logopic{
+  transition: all 5s ease-in-out;
+ mix-blend-mode: color-burn;
+}
+
 
 .nav-toggle-btn {
   font-size: 40px;
@@ -467,6 +474,10 @@ body {
 }
 
 .navbar-list {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    
   margin-block-end: 10px;
 }
 
@@ -479,6 +490,12 @@ body {
 
 .navbar-link:is(:hover, :focus) {
   color: var(--old-rose);
+}
+
+.navbar-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*-----------------------------------*\
@@ -691,6 +708,39 @@ body {
 
 .tab-card.active .tab-text {
   display: none;
+}
+
+.exchange-form_btn{
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-3);
+}
+
+.exchange-form_btn:hover{
+  background-color: var(--old-rose);
+  box-shadow: none;
+}
+
+.exchange-form_btn::after{
+  content: 'Connect with a Reader';
+  position: relative;
+  z-index: 0;
+}
+
+.exchange-form_btn::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  background-color: var(--chinese-violet);
+  transform: translateY(100%);
+  transition: transform .3s linear;
+}
+
+.exchange-form_btn:hover::before{
+  transform: translateY(-20%);
 }
 
 /*-----------------------------------*\
@@ -915,21 +965,33 @@ footer {
 
 .foot-right {
   display: flex;
-  flex: 1; 
-  margin-top: 20px; 
+
+  flex: 1 0 0; /* Make the right part flexible */
+  justify-content: space-evenly; /* Distribute items evenly */
+}
+.nav-links{
+  
+  margin: 0;
 }
 
-.nav-links {
-  width: 100%; 
-  margin-bottom: 20px; 
+.nav-links ul{
+  padding: 0;
+  
+  list-style: none; /* Remove bullet points */
 }
 
-.social-links {
-  width: 100%; 
+.nav-links ul li{
+  margin-bottom: 10px;
+   /* Add some spacing between list items */
+
+
 }
 
 
 .nav-links ul li a{
+
+  color: var(--sonic-silver);
+
   text-decoration: none; /* Remove underline */
 }
 
@@ -939,11 +1001,16 @@ footer {
 
 
 .foot-right h5{
-  color: var(--light-grey);
+
+  color:var(--black);
+
   font-size: 2rem;
   font-weight: 500;
 }
-
+.social-icons-container a {
+display: flex;
+margin: .8vmax 0 .8vmax 0;
+}
 .social-list {
   display: flex;
 }
@@ -1209,7 +1276,7 @@ footer {
  * responsive for large than 992px screen
  */
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   /**
    * CUSTOM PROPERTY
    */
@@ -1351,9 +1418,28 @@ footer {
   }
 }
 
+
+
+/* 
+responsiveness for small devices below 1200px */
+
+
+@media (max-width: 1200px) {
+  .navbar-list{
+    display: flex;
+    flex-direction: column !important;
+    justify-content: flex-start;
+    /* align-items: flex-start; */
+  }
+}
+
+
+
+
 /**
  * responsive for large than 1200px screen
  */
+
 
 @media (min-width: 1200px) {
   /**
@@ -1422,8 +1508,8 @@ footer {
   transition: font-size 1.1s ease-in-out;
 }
 .navbar-link:hover{
-  font-size: 1.2em;
-  background-color: blanchedalmond;
+  font-size: 1.1em;
+  /* background-color: blanchedalmond; */
   border-radius: 5px;
 }
 .navbar-link:active{
@@ -1446,6 +1532,7 @@ footer {
 
 .icon {
   margin-right: 16px;
+
 }
 
 .icon.active {
@@ -1491,7 +1578,6 @@ footer {
   border: none;
   border-radius: 50px;
   padding: 10px 20px;
-  cursor: pointer;}
 
 .faq-container:hover {
   background-color: var(--old-rose_30);
@@ -1501,11 +1587,12 @@ footer {
 /**
 * Dark Mode
 */
-
-#theme-icon{
-  width : 35px;
-  cursor : pointer;
+/* select the element with id theme-icon */
+#theme-icon {
+  width: 35px;
+  cursor: pointer;
 }
+
 
 .dark-mode{
    --sonic-silver: #fff;
@@ -1513,7 +1600,7 @@ footer {
    --seashell: #1E1C1C;
    --charcoal: #fff;
    --white: #1E1C1C;
-   --light-grey: #fff;
-   --grey-white: #1E1C1C;
+
+   --black: #fff;
 
 }
