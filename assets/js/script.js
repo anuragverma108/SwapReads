@@ -61,6 +61,27 @@ const closeNavbar = function () {
 }
 
 addEventOnelem(navbarLinks, "click", closeNavbar);
+// Function to toggle between light and dark mode
+function toggleTheme() {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  
+  // Toggle the data-theme attribute on the root element
+  document.documentElement.setAttribute('data-theme', newTheme);
+  
+  // Update the logo image source based on the new theme
+  const logo = document.querySelector('.logopic');
+  if (newTheme === 'dark') {
+    logo.src = "./assets/images/logoPicLight.png";
+  } else {
+    logo.src = "./assets/images/logoPicDark.png";
+  }
+}
+
+// Example of toggling theme when clicking a button
+const themeToggleButton = document.getElementById('theme-icon');
+themeToggleButton.addEventListener('click', toggleTheme);
+
 
 
 
