@@ -582,9 +582,24 @@ body {
   overflow: hidden;
   transition: var(--transition-2);
 }
+.join-button{
+ max-width: max-content;
+ margin: 5px;
+  box-shadow: var(--shadow-2);
+  border-radius: var(--radius-5);
+  overflow: hidden;
+  transition: var(--transition-2);
+}
 
 .benefits-card::before,
 .benefits-card::after {
+  bottom: 0;
+  right: 0;
+  clip-path: var(--polygon);
+  transition: var(--transition-2);
+}
+.join-button::before,
+.join-button::after {
   bottom: 0;
   right: 0;
   clip-path: var(--polygon);
@@ -598,6 +613,13 @@ body {
   transform: translateY(60px);
 }
 
+.join-button::before {
+  width: 80px;
+  height: 80px;
+  background-color: var(--old-rose_30);
+  transform: translateY(60px);
+}
+
 .benefits-card::after {
   width: 70px;
   height: 70px;
@@ -605,7 +627,16 @@ body {
   transform: translateY(65px);
 }
 
+.join-button::after {
+  width: 70px;
+  height: 70px;
+  background-color: var(--chinese-violet_30);
+  transform: translateY(65px);
+}
 .benefits-card:is(:hover, :focus-within) {
+  transform: translateY(-10px);
+}
+.join-button:is(:hover, :focus-within) {
   transform: translateY(-10px);
 }
 
@@ -613,8 +644,15 @@ body {
 .benefits-card:is(:hover, :focus-within)::after {
   transform: translateY(0);
 }
+.join-button:is(:hover, :focus-within)::before,
+.join-button:is(:hover, :focus-within)::after {
+  transform: translateY(0);
+}
 
 .benefits-card:is(:hover, :focus-within)::after {
+  transition-delay: 0.1s;
+}
+.join-button:is(:hover, :focus-within)::after {
   transition-delay: 0.1s;
 }
 
@@ -626,7 +664,14 @@ body {
   transition: var(--transition-1);
   border-radius: var(--radius-5);
 }
-
+.join-button .card-icon {
+  background-color: var(--old-rose);
+  max-width: max-content;
+  padding: 10px;
+  box-shadow: var(--shadow-3);
+  transition: var(--transition-1);
+  border-radius: var(--radius-5);
+}
 .benefits-card:is(:hover, :focus) .card-icon {
   box-shadow: none;
 }
@@ -638,7 +683,17 @@ body {
 .benefits-card .btn-link {
   margin-block-start: 15px;
 }
+.join-button:is(:hover, :focus) .card-icon {
+  box-shadow: none;
+}
 
+.join-button .card-title {
+  margin-block: 20px 15px;
+}
+
+.join-button .btn-link {
+  margin-block-start: 15px;
+}
 /*-----------------------------------*\
   #CHAPTERS
 \*-----------------------------------*/
