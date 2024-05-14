@@ -967,7 +967,7 @@ footer {
   display: flex;
 
   flex: 1 0 0; /* Make the right part flexible */
-  justify-content: space-between; /* Distribute items evenly */
+  justify-content: space-evenly; /* Distribute items evenly */
 }
 .nav-links{
   
@@ -1007,7 +1007,10 @@ footer {
   font-size: 2rem;
   font-weight: 500;
 }
-
+.social-icons-container a {
+display: flex;
+margin: .8vmax 0 .8vmax 0;
+}
 .social-list {
   display: flex;
 }
@@ -1415,9 +1418,28 @@ footer {
   }
 }
 
+
+
+/* 
+responsiveness for small devices below 1200px */
+
+
+@media (max-width: 1200px) {
+  .navbar-list{
+    display: flex;
+    flex-direction: column !important;
+    justify-content: flex-start;
+    /* align-items: flex-start; */
+  }
+}
+
+
+
+
 /**
  * responsive for large than 1200px screen
  */
+
 
 @media (min-width: 1200px) {
   /**
@@ -1510,6 +1532,7 @@ footer {
 
 .icon {
   margin-right: 16px;
+
 }
 
 .icon.active {
