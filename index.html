@@ -501,7 +501,7 @@
 
       <label class="-label" for="yourPrice">Your Price (50% Off):</label>
       <div class="currency-container">
-      <label class="currency-label" for="currency">Currency:</label>
+      <label class="currency-label" for="currency">Currency: </label>
     <select id="currency" name="currency" class="input-field currency-select">
       
     <option value="INR">INR</option>
@@ -510,25 +510,54 @@
       <option value="GBP">GBP</option>
    </select>
     </div>
-      <input type="number" min="0" id="yourPrice" name="yourPrice" placeholder="Enter your desired selling price" required class="input-field">
+    <input type="number" id="yourPrice" name="yourPrice" placeholder="Enter your desired selling price" required class="input-field">
 
-
-              <label class="-label" for="yourPrice">Your Price (50% Off):</label>
-              <input type="number" id="yourPrice" name="yourPrice" placeholder="Enter your desired selling price"
-                required class="input-field">
-
-            </div>
+    <!-- Error message container -->
+    <span id="yourPrice-error" class="error"></span>
+</div>
 
             <button type="button" class="btn btn-primary exchange-form_btn" onclick="validateAndConnect()"></button>
           </div>
-
+          <script>
+            // Function to validate the price input
+            function validatePriceInput() {
+                var yourPriceInput = document.getElementById('yourPrice');
+                var yourPriceValue = yourPriceInput.value.trim();
+        
+                // Check if the price is a valid number
+                if (isNaN(yourPriceValue) || yourPriceValue === "") {
+                    // If not, display error message
+                    document.getElementById('yourPrice-error').textContent = "Please enter a valid number";
+                    // Change border color to red to indicate error
+                    yourPriceInput.style.borderColor = 'red';
+                } else {
+                    // If price is valid, clear error message and reset border color
+                    document.getElementById('yourPrice-error').textContent = "";
+                    yourPriceInput.style.borderColor = '';
+                }
+            }
+        
+            // Add event listener to validate price input on every input change
+            document.getElementById('yourPrice').addEventListener('input', validatePriceInput);
+        
+            // Function to validate and connect when the form is submitted
+            function validateAndConnect() {
+                // Trigger input validation before submitting the form
+                validatePriceInput();
+        
+                // Proceed with form submission only if price is valid
+                var errorElement = document.getElementById('yourPrice-error');
+                if (errorElement.textContent === "") {
+                    // If no error, proceed with further actions, such as form submission
+                    // Example: document.getElementById('yourForm').submit();
+                    alert("Form submitted successfully!");
+                }
+            }
+        </script>
+        
 
         </div>
       </section>
-
-
-
-
 
 
 
