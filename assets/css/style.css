@@ -363,6 +363,10 @@ body {
   color: var(--white);
 }
 
+.downloadButton {
+  width: 100%;
+}
+
 .img-holder {
   aspect-ratio: var(--width) / var(--height);
   background-color: var(--light-gray);
@@ -644,13 +648,52 @@ body {
 \*-----------------------------------*/
 
 .chapter-card {
+  position: relative;
   height: 100%;
   background-color: var(--white);
   padding: 25px;
   border-radius: var(--radius-5);
   box-shadow: var(--shadow-2);
-  transition: var(--transition-2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.chapter-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.chapter-card::before,
+.chapter-card::after {
+  content: '';
+  position: absolute;
+  width: 3px; /* Adjust the width of the beam as needed */
+  height: calc(100% + 6px); /* Extend the beam height to cover any card shadow */
+  background-color: var(--light-pink); /* Adjust the color of the beam */
+  transition: transform 0.3s ease;
+}
+
+.chapter-card::before {
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+  transform: scaleY(0);
+}
+
+.chapter-card::after {
+  bottom: 0;
+  right: 0;
+  transform-origin: bottom right;
+  transform: scaleY(0);
+}
+
+.chapter-card:hover::before {
+  transform: scaleY(1) translateX(-50%); /* Move towards left */
+}
+
+.chapter-card:hover::after {
+  transform: scaleY(1) translateX(50%); /* Move towards right */
+}
+
 
 .chapter-card:is(:hover, :focus-within) {
   transform: translateY(-10px);
@@ -872,6 +915,7 @@ body {
   outline: none;
   border-radius: var(--radius-5);
   border-block-end: 2px solid transparent;
+  transition: border-color 0.3s;
 }
 
 .input-field:focus {
@@ -883,7 +927,10 @@ textarea.input-field {
   min-height: 120px;
   height: 120px;
   max-height: 200px;
+  overflow-y: auto;
+  transition: height 0.3s;
 }
+
 
 .contact-form .btn {
   margin-inline: auto;
@@ -1509,8 +1556,9 @@ responsiveness for small devices below 1200px */
 }
 .navbar-link:hover{
   font-size: 1.1em;
-  /* background-color: blanchedalmond; */
-  border-radius: 5px;
+  background-color: blanchedalmond;
+  border-radius: 7px;
+  padding: 5px 10px;
 }
 .navbar-link:active{
   font-size: 1.3em;
@@ -1521,6 +1569,8 @@ responsiveness for small devices below 1200px */
 .faq-section {
   padding: 20px;
   background-color: var(--seashell);
+  width: 50%; 
+  margin: 0 auto; 
 }
 
 .faq {
@@ -1543,6 +1593,7 @@ responsiveness for small devices below 1200px */
   color: var(--sonic-silver);
   max-height: 0;
   overflow: hidden;
+  transition: .4s ease-in-out;
 }
 /* 
 .answers.active {
