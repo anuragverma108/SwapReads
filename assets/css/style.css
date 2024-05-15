@@ -425,14 +425,6 @@ body {
   line-height: 1;
 }
 
-<<<<<<< HEAD
-=======
-.dark-mode .logopic{
- mix-blend-mode: normal;
-}
-
-
->>>>>>> 04531156edce7c482b7d9b5198aafab6333b59d8
 .nav-toggle-btn {
   font-size: 40px;
   color: var(--charcoal);
@@ -475,13 +467,6 @@ body {
 }
 
 .navbar-list {
-<<<<<<< HEAD
-=======
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-    
->>>>>>> 04531156edce7c482b7d9b5198aafab6333b59d8
   margin-block-end: 10px;
 }
 
@@ -641,18 +626,29 @@ body {
 /*-----------------------------------*\
   #CHAPTERS
 \*-----------------------------------*/
-
 .chapter-card {
   height: 100%;
   background-color: var(--white);
   padding: 25px;
   border-radius: var(--radius-5);
   box-shadow: var(--shadow-2);
-  transition: var(--transition-2);
+  position: relative; /* Add position relative to .chapter-card */
 }
 
-.chapter-card:is(:hover, :focus-within) {
-  transform: translateY(-10px);
+.chapter-card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 3px; /* Adjust line thickness as needed */
+  background-color: pink; /* Pink line color */
+  transition: width 0.3s ease; /* Transition width property */
+}
+
+.chapter-card:hover::before {
+  width: 100%; /* Expand line width on hover */
 }
 
 .chapter-card .card-title {
@@ -852,25 +848,14 @@ textarea.input-field {
   max-height: 200px;
 }
 
-<<<<<<< HEAD
-=======
-.input-field, .input-field.select {
-  background-color: hsl(0, 0%, 100%);
-  padding: 7px;
-  margin-block-end: 15px;
-  outline: none;
-  border-radius: var(--radius-5);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
+.character-count {
+  font-size: 0.7em; /* Make the character count slightly smaller */
+  color: hsl(20, 43%, 93%); /* Set the color */
+  position: relative; /* Enable positioning */
+  float: right; /* Move the character count indicators to the right */
+  margin-top: -10px; /* Adjust the vertical position */
 }
 
-.input-field:focus, .input-field.select:focus {
-  border-color: var(--old-rose);
-}
-
-
-
->>>>>>> 04531156edce7c482b7d9b5198aafab6333b59d8
 .contact-form .btn {
   margin-inline: auto;
 }

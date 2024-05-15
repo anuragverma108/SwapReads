@@ -34,6 +34,9 @@
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <script src="./assets/js/rateUsModal.js" defer></script>
+
 </head>
 <script src="https://unpkg.com/scrollreveal"></script>
 <script src="./assets/js/faq.js"></script>
@@ -76,16 +79,15 @@
           </li>
 
           <li class="navbar-item">
-            <a href="./assets/html/rate.html" class="navbar-link">Rate Us</a>
+            <a onclick="openRateUsModal()" class="navbar-link">Rate Us</a>
           </li>
 
-          <li class="navbar-item">
+          <li class="navbar-item" id="login-signup-link">
             <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
-          </li>
-          <li>
-            <img src="./assets/images/moon.png" id="theme-icon">
-          </li>
-        </ul>
+        </li>
+        <li class="navbar-item" id="logout-link" style="display: none;">
+                    <a href="#" class="navbar-link" id="logout">Logout</a>
+        </li>
       </nav>
 
       <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
@@ -102,6 +104,25 @@
 
 
   <main>
+
+    <!-- Rate Us Modal Pop up -->
+    <div class="rate-us-modal-wrapper">
+      <div class="rate-us-modal">
+        <a onclick="closeRateUsModal()" class="home_button"></a>
+        <h1 class="rating_heading">Rate Us</h1>
+        <div class="star_rating">
+            <p>How was your experience?</p>
+            <button class="star">&#9734;</button>
+            <button class="star">&#9734;</button>
+            <button class="star">&#9734;</button>
+            <button class="star">&#9734;</button>
+            <button class="star">&#9734;</button>
+            <p class="current_rating"> 0 of 5</p>
+        </div>
+        <button id="submit_rating" class="submit_button">Submit Rating</button>
+      </div>
+    </div>
+
     <article>
 
 
@@ -621,15 +642,17 @@
 
           <div class="wrapper">
 
-            <form action="" id="contact-form">
+            <form action="" id="contact-form">   
 
-              <input type="text" name="name" placeholder="Your Name" required class="input-field">
+              <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field">
 
-              <input type="email" name="email_address" placeholder="Your Email" required class="input-field">
+              <input type="email" name="email_address" id="email" placeholder="Your Email" required class="input-field">
 
-              <input type="text" name="subject" placeholder="Subject" required class="input-field">
-
-              <textarea name="message" placeholder="Your Message" class="input-field"></textarea>
+              <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field">
+              <div id="subject-count" class="character-count">0/100</div> <!-- Element to display character count for subject -->
+              
+              <textarea name="message" id="message" placeholder="Your Message" class="input-field"></textarea>
+              <div id="message-count" class="character-count">0/250</div> <!-- Element to display character count for message -->
 
               <button type="submit" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
 
@@ -796,7 +819,7 @@
        <div class="icons">
        <a href=""><img  class="icon-set" src="./assets/images/FB icon.png" alt=""></a> 
         <a href=""><img  class="icon-set" src="./assets/images/insta icon.png" alt=""></a>
-        <a href=""><img  class="icon-set" src="./assets/images/twitter-icon.png" alt=""></a>
+        <a href=""><i class="fa-brands fa-x-twitter fa-2xl" style="color: #deb887;"></i></a>
         <a href=""><img  class="icon-set" src="./assets/images/YT icon.png" alt=""></a>
        </div>
       </div>
@@ -851,7 +874,7 @@
 
       <div class="footer-bottom">
         <p class="copyright">
-          &copy; 2024 All right reserved. Made with ❤ by Guardian Hackers.
+          &copy; 2024 All rights reserved. Made with ❤ by Guardian Hackers.
         </p>
       </div>
 
@@ -875,10 +898,10 @@
       const isDarkMode = isDarkModePreferred();
       if (isDarkMode) {
         document.body.classList.add('dark-mode');
-        document.getElementById('theme-icon').src = 'assets/images/sun.png';
+        document.getElementById('theme-icon').src = 'assets/images/icons8-sun.svg';
       } else {
         document.body.classList.remove('dark-mode');
-        document.getElementById('theme-icon').src = 'assets/images/moon.png';
+        document.getElementById('theme-icon').src = 'assets/images/moon_solid.svg';
       }
     }
 
@@ -960,7 +983,61 @@
 
 
   </script>
+  <script type="module">
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCu2WXknNce_49J5BLuR1DyHm319hu6dWc",
+      authDomain: "login-13127.firebaseapp.com",
+      projectId: "login-13127",
+      storageBucket: "login-13127.appspot.com",
+      messagingSenderId: "151656578300",
+      appId: "1:151656578300:web:c67208ab6ec437c844ab79",
+      measurementId: "G-L3PPD58MZ8",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+    // Check authentication state and update navbar
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        document.getElementById("login-signup-link").style.display = "none";
+        document.getElementById("logout-link").style.display = "block";
+      } else {
+        document.getElementById("login-signup-link").style.display = "block";
+        document.getElementById("logout-link").style.display = "none";
+      }
+    });
+
+    // Logout function
+    document.getElementById("logout").addEventListener("click", (e) => {
+      e.preventDefault();
+      signOut(auth).then(() => {
+        alert("Logged out successfully.");
+      }).catch((error) => {
+        console.error("Logout error:", error);
+      });
+    });
+  </script> 
+
   <script src="vanilla-tilt.js"></script>
+  <script type="text/javascript">
+    (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          window.voiceflow.chat.load({
+            verify: { projectID: '66448ea9c63c08981233b8f1' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production'
+          });
+        }
+        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
 </body>
 
 </html>
