@@ -116,69 +116,32 @@
       <!-- </form> -->
       <div class="main">
         <input type="checkbox" id="chk" aria-hidden="true" />
-
-        <div class="login">
-          <form class="form">
-            <label for="chk" aria-hidden="true">LOGIN</label>
-            <input
-              class="input"
-              type="email"
-              name="email"
-              id="login_email"
-              placeholder="Email"
-              required=""
-            />
-            <input
-              class="input"
-              type="password"
-              name="pswd"
-              id="login_password"
-              placeholder="Password"
-              required=""
-            />
-            <button type="button" name="Login" id="login">Submit</button>
-          </form>
-          <p class="option">-or-</p>
-          <div class="google-btn">
-            <button id="google">Continue with google</button>
-          </div>
+        
+ <div class="login">
+        <form class="form" id="login-form">
+          <label for="chk" aria-hidden="true">LOGIN</label>
+          <input class="input" type="email" name="email" id="login_email" placeholder="Email" required/>
+          <input class="input" type="password" name="pswd" id="login_password" placeholder="Password" required />
+          <button type="submit" name="Login" id="login">Submit</button>
           <p class="forget-password">
             Forgot Password?
-            <a href="./reset-password.html" id="forgot_password_link"
-              >Reset Here</a
-            >
+            <a href="#" id="forgot_password_link">Reset Here</a>
           </p>
-        </div>
+        </form>
+      </div>
 
-        <div class="register">
-          <form class="form">
-            <label for="chk" aria-hidden="true">Register</label>
-            <!-- <input class="input" type="text" name="txt" placeholder="Username" required=""> -->
-            <input
-              class="input"
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Email"
-              required=""
-            />
-            <input
-              class="input"
-              type="password"
-              name="pswd"
-              id="password"
-              placeholder="Password"
-              required=""
-            />
-            <button type="button" name="register" id="register">
-              Register
             </button>
-          </form>
-          <p class="option">-or-</p>
-          <div class="google-btn">
-            <button id="google">Continue with google</button>
-          </div>
-        </div>
+  
+      <div class="register">
+        <form class="form" id="register-form">
+          <label for="chk" aria-hidden="true">Register</label>
+          <!-- <input class="input" type="text" name="txt" placeholder="Username" required=""> -->
+          <input class="input" type="email" name="email" id="email" placeholder="Email" required />
+          <input class="input" type="password" name="pswd" id="password" placeholder="Password" required />
+          <button type="submit" name="register" id="register">
+            Register
+          </button>
+        </form>
       </div>
     </div>
   </body>
@@ -225,26 +188,29 @@
     //console.log(app);
     const auth = getAuth();
 
-    //----- New Registration code start
-    let register = document.querySelector('.register');
-    document.getElementById('register').addEventListener('click', function () {
-      let email = document.getElementById('email').value;
-      let password = document.getElementById('password').value;
-      if (email.trim() === '') {
-        alert('Please enter an email address');
-        return;
-      }
 
-      var apiUrl =
-        'https://disposable.debounce.io/?email=' + encodeURIComponent(email);
+  //----- New Registration code start
+  let register = document.querySelector(".register");
+  document.getElementById("register-form").addEventListener("submit", function () {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    if (email.trim() === "") {
+      alert("Please enter an email address");
+      return;
+    }
 
-      fetch(apiUrl)
-        .then((response) => response.json())
-        .then((data) => {
-          var disposable = data.disposable === 'true'; // Convert string to boolean
-          if (disposable) {
-            alert('Please provide a genuine email address to continue.');
-          } else {
+    var apiUrl = "https://disposable.debounce.io/?email=" + encodeURIComponent(email);
+
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        var disposable = data.disposable === "true"; // Convert string to boolean
+        if (disposable) {
+          alert("Please provide a genuine email address to continue.");
+        } else {
+
+
+     
             //For new registration
 
             createUserWithEmailAndPassword(auth, email, password)
