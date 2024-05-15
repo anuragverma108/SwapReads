@@ -987,6 +987,146 @@ textarea.input-field {
 }
 
 /*-----------------------------------*\
+  #Rate-Us-Modal
+\*-----------------------------------*/
+
+.rate-us-modal-wrapper{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  z-index: 101;
+}
+
+.rate-us-modal-open{
+  overflow: hidden ;
+  position: fixed ;
+}
+
+.rate-us-modal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+}
+
+.rating_heading{
+  color: white;
+  animation: scale-up 1s ease;
+}
+
+@keyframes scale-up {
+  0%{
+      opacity: 0;
+      transform: scale(.5);
+
+  }
+  100%{
+      opacity: 1;
+      transform: scale(1);
+      
+  }
+
+}
+
+.star_rating{
+  width: 100%;
+  user-select: none;
+  background-color: white;
+  padding:1.4rem 2.5rem ;
+  margin-bottom:2rem;
+  border-radius: .4rem;
+  text-align: center;
+  animation:  slide-up 1s ease;
+}
+
+@keyframes slide-up {
+  0%{
+      opacity: 0;
+      transform: translateY(50px);
+
+  }
+  100%{
+      opacity: 1;
+      transform: translateY(0px);
+      
+  }
+}
+
+.star{
+  font-size: 3rem;
+  color: #ff9800;
+  background-color: unset;
+  border: none;
+  display: inline;
+}
+.star:hover{
+  cursor: pointer;
+}
+.home_button {
+  align-self: start;
+  padding: 0  .7em;
+  background-color: #fff;
+  color:   var(--old-rose);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none; /* To remove the default underline */
+}
+
+.home_button::before{
+  content:'\f00d';
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-family: FontAwesome;
+}
+
+.submit_button {
+  margin-top: 5px;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: var(--old-rose);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none; /* Initially hide the submit button */
+  
+}
+.thank_you_message {
+  background-color: white;
+  padding: .5em 1em;
+  margin-top:2rem;
+  animation: scale-up 1s ease;
+  font-size: 2rem;
+  border-radius: 5px;
+}
+/* Media Query for Responsive Design */
+
+@media only screen and (max-width:900px){
+  .rate-us-modal{
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  /* Adjustments for smaller screens */
+  
+  .star {
+      font-size: 2rem;
+  }
+
+  .rate-us-modal{
+    width: 90%;
+  }
+}
+
+/*-----------------------------------*\
   #FOOTER
 \*-----------------------------------*/
 
