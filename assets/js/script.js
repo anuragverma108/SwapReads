@@ -67,6 +67,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     } else {
       alert('Message sent successfully!');
       console.log('Name: ' + name + ' Email: ' + email + ' Message: ' + message + ' Subject: ' + subject);
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('subject').value = '';
+      document.getElementById('message').value = '';
     }
 
     return false; // Prevent page refresh
