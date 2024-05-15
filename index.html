@@ -80,13 +80,12 @@
             <a href="./assets/html/rate.html" class="navbar-link">Rate Us</a>
           </li>
 
-          <li class="navbar-item">
+          <li class="navbar-item" id="login-signup-link">
             <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
-          </li>
-          <li>
-            <img src="./assets/images/moon.png" id="theme-icon">
-          </li>
-        </ul>
+        </li>
+        <li class="navbar-item" id="logout-link" style="display: none;">
+                    <a href="#" class="navbar-link" id="logout">Logout</a>
+        </li>
       </nav>
 
       <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
@@ -963,6 +962,47 @@
 
 
   </script>
+  <script type="module">
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCu2WXknNce_49J5BLuR1DyHm319hu6dWc",
+      authDomain: "login-13127.firebaseapp.com",
+      projectId: "login-13127",
+      storageBucket: "login-13127.appspot.com",
+      messagingSenderId: "151656578300",
+      appId: "1:151656578300:web:c67208ab6ec437c844ab79",
+      measurementId: "G-L3PPD58MZ8",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+    // Check authentication state and update navbar
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        document.getElementById("login-signup-link").style.display = "none";
+        document.getElementById("logout-link").style.display = "block";
+      } else {
+        document.getElementById("login-signup-link").style.display = "block";
+        document.getElementById("logout-link").style.display = "none";
+      }
+    });
+
+    // Logout function
+    document.getElementById("logout").addEventListener("click", (e) => {
+      e.preventDefault();
+      signOut(auth).then(() => {
+        alert("Logged out successfully.");
+      }).catch((error) => {
+        console.error("Logout error:", error);
+      });
+    });
+  </script> 
+
   <script src="vanilla-tilt.js"></script>
 </body>
 
