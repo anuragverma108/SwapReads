@@ -5,7 +5,6 @@ const sendMessageBtn = document.getElementById('sendMessageBtn');
 
 document.addEventListener('DOMContentLoaded', (event) => {
   const contactFormDetails = document.getElementById('contact-form');
-  const sendMessageBtn = document.getElementById('sendMessageBtn');
   const subjectField = contactFormDetails['subject'];
   const messageField = contactFormDetails['message'];
 
@@ -47,34 +46,61 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Check if email format is valid
     if (!emailRegex.test(email)) {
-      alert('Please enter a valid email address.');
+      displayErrorMessage('Please enter a valid email address.');
       return;
     }
 
     // Check character limits for subject and message
     if (subject.length > 100) {
-      alert('Subject must be within 100 characters.');
+      displayErrorMessage('Subject must be within 100 characters.');
       return;
     }
-    if (message.length > 200) {
-      alert('Message must be within 250 characters.');
+    if (message.length > 250) {
+      displayErrorMessage('Message must be within 250 characters.');
       return;
     }
 
     // Check if any field is empty
     if (name === '' || email === '' || message === '' || subject === '') {
-      alert('Please fill in all fields.');
+      displayErrorMessage('Please fill in all fields.');
     } else {
-      alert('Message sent successfully!');
+      sendMessageBtn.disabled = true; // Disable the send button
+      displaySuccessMessage('Message sent successfully!');
       console.log('Name: ' + name + ' Email: ' + email + ' Message: ' + message + ' Subject: ' + subject);
     }
-
     return false; // Prevent page refresh
   });
+
+  // Function to display error message
+  function displayErrorMessage(message) {
+    const errorMessage = document.createElement('div');
+    errorMessage.textContent = message;
+    errorMessage.classList.add('error-message');
+    contactFormDetails.appendChild(errorMessage);
+
+    // Remove error message after 2 seconds
+    setTimeout(function () {
+      sendMessageBtn.disabled = false;
+      errorMessage.remove();
+    }, 2000);
+    sendMessageBtn.disabled = true;
+  }
+
+  // Function to display success message
+  function displaySuccessMessage(message) {
+    const successMessage = document.createElement('div');
+    successMessage.textContent = message;
+    successMessage.classList.add('success-message');
+    contactFormDetails.appendChild(successMessage);
+
+    // Remove success message after 2 seconds
+    setTimeout(function () {
+      sendMessageBtn.disabled = false;
+      successMessage.remove();
+    }, 2000);
+    sendMessageBtn.disabled = true;
+  }
 });
-
-
-  
 
 /**
  * add event on element
