@@ -62,6 +62,40 @@ const closeNavbar = function () {
 
 addEventOnelem(navbarLinks, "click", closeNavbar);
 
+// Function to toggle between light and dark mode
+function setLightMode() {
+  document.body.classList.remove('dark-theme');
+  document.body.classList.add('light-theme');
+  const logo = document.querySelector('.logopic');
+  logo.src = "./assets/images/logoPicLight.png";
+}
+
+function setDarkMode() {
+  document.body.classList.remove('light-theme');
+  document.body.classList.add('dark-theme');
+  const logo = document.querySelector('.logopic');
+  logo.src = "./assets/images/logoPicDark.png";
+}
+
+function toggleTheme() {
+  if (document.body.classList.contains('light-theme')) {
+    setDarkMode();
+  } else {
+    setLightMode();
+  }
+}
+
+const themeToggleButton = document.getElementById('theme-icon');
+themeToggleButton.addEventListener('click', toggleTheme);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.body.classList.contains('light-theme')) {
+    setLightMode();
+  } else {
+    setDarkMode();
+  }
+});
 
 
 /**

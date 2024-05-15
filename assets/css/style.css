@@ -422,6 +422,10 @@ body {
   align-items: center;
   
 }
+.logo img {
+  transition: opacity 0.3s ease-in-out;
+}
+
 
 .logo {
   font-family: var(--ff-philosopher);
@@ -1475,10 +1479,122 @@ margin: .8vmax 0 .8vmax 0;
 }
 
 /**
+ * responsive for large than 768px screen
+ */
+
+ @media (min-width: 768px) {
+  /**
+   * CUSTOM PROPERTY
+   */
+
+  :root {
+    /**
+     * typography
+     */
+
+    --fs-2: 4.8rem;
+  }
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container,
+  .container1,
+  .header,
+  .navbar {
+    max-width: 720px;
+    /* border-radius:61px; */
+  }
+
+  .grid-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /**
+   * HERO
+   */
+
+  .hero {
+    padding-block-start: calc(var(--section-padding) + 100px);
+    text-align: left;
+  }
+
+  .hero .container {
+    grid-template-columns: 1fr 0.8fr;
+    align-items: center;
+  }
+
+  .hero .section-subtitle {
+    text-align: left;
+  }
+
+  /**
+   * BENEFITS
+   */
+
+  .benefits :is(.section-title, .section-text) {
+    text-align: left;
+  }
+
+  .benefits-content {
+    grid-column: 1 / 3;
+  }
+
+  /**
+   * CHAPTERS, PRICING
+   */
+
+  :is(.chapters, .pricing) .grid-list li:last-child {
+    grid-column: 1 / 3;
+    max-width: calc(50% - 12.5px);
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  /**
+   * PREVIEW
+   */
+
+  .tab-card.active {
+    height: 70vh;
+  }
+
+  /**
+   * AUTHOR
+   */
+
+  .author .h2 {
+    --fs-3: 4.2rem;
+  }
+
+  /**
+   * ACHIEVEMENT
+   */
+
+  .achievement-card {
+    flex-direction: column;
+  }
+
+  .achievement-card > * {
+    width: 100%;
+  }
+
+  /**
+   * CONTACT
+   */
+
+  .contact .wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/**
  * responsive for large than 992px screen
  */
 
-@media (min-width: 1200px) {
+ @media (min-width: 992px) {
   /**
    * CUSTOM PROPERTY
    */
@@ -1619,22 +1735,6 @@ margin: .8vmax 0 .8vmax 0;
     padding: 40px;
   }
 }
-
-
-
-/* 
-responsiveness for small devices below 1200px */
-
-
-@media (max-width: 1200px) {
-  .navbar-list{
-    display: flex;
-    flex-direction: column !important;
-    justify-content: flex-start;
-    /* align-items: flex-start; */
-  }
-}
-
 
 
 
