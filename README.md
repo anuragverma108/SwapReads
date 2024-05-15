@@ -36,6 +36,33 @@
 SwapReads.com is the solution to common challenges faced by book enthusiasts in today's digital age. We've identified key problems and developed a platform that addresses them efficiently and effectively.
 </div>
 
+## Featured In
+
+<table>
+
+   <tr>
+      <th>Event Logo</th>
+      <th>Event Name</th>
+      <th>Event Description</th>
+   </tr>
+   <tr>
+      <td><img src=".github/assets/gssoc24.png" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
+      <td>GirlScript Summer of Code 2024</td>
+      <td>GirlScript Summer of Code is a three-month-long Open Source Program conducted every summer by GirlScript Foundation. It is an initiative to bring more beginners to Open-Source Software Development.</td>
+   </tr>
+
+</table>
+
+## Table of Contents
+
+* [The Problem](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#the-problem)
+* [How SwapReads Solves These Problems](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#how-swapreadscom-solves-these-problems)
+* [Tech Stack](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#how-swapreadscom-solves-these-problems)
+* [Open Innovation Challenge](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#open-innovation-challenge)
+* [Getting Started](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#open-innovation-challenge)
+* [Contribution](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#contribution)
+* [Creating a Pull Request](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#creating-pull-request)
+* [Our Contributors](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#creating-pull-request)
 
 ## The Problem:
 
@@ -88,7 +115,7 @@ SwapReads.com actively participates in the Open Innovation Challenge by cultivat
 
 Join SwapReads.com today and embark on a literary journey like never before!
 
-## **Getting started**
+## **Getting Started**
 1. Clone the repo
 
 ```sh
