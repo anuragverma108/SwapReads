@@ -312,8 +312,26 @@
       const isDarkMode = isDarkModePreferred();
       if (isDarkMode) {
         document.body.classList.add("dark-mode");
+        document.querySelector('.navbar').classList.add('dark-mode');
+        const closeButton = document.querySelector('.close-icon');
+        closeButton.src = "../images/close-white.png";
+        // For darkmode styles
+        const noteElements = document.querySelectorAll('.note *');
+        noteElements.forEach(element => {
+          element.classList.add('dark-mode');
+        })
+
+        const containerElements = document.querySelectorAll('.container *');
+        containerElements.forEach(element => {
+          element.classList.add('dark-mode');
+        })
+
+
       } else {
         document.body.classList.remove("dark-mode");
+        document.querySelector('.navbar').classList.remove('dark-mode');
+        const closeButton = document.querySelector('.close-icon');
+        closeButton.src = "../images/close1.png";
       }
     }
 
