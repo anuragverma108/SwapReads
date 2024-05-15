@@ -424,6 +424,10 @@ body {
   line-height: 1;
 }
 
+.dark-mode .logopic{
+  mix-blend-mode: normal;
+ }
+
 .nav-toggle-btn {
   font-size: 40px;
   color: var(--charcoal);
@@ -466,6 +470,9 @@ body {
 }
 
 .navbar-list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   margin-block-end: 10px;
 }
 
@@ -853,6 +860,20 @@ textarea.input-field {
   position: relative; /* Enable positioning */
   float: right; /* Move the character count indicators to the right */
   margin-top: -10px; /* Adjust the vertical position */
+}
+
+.input-field, .input-field.select {
+  background-color: hsl(0, 0%, 100%);
+  padding: 7px;
+  margin-block-end: 15px;
+  outline: none;
+  border-radius: var(--radius-5);
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.input-field:focus, .input-field.select:focus {
+  border-color: var(--old-rose);
 }
 
 .contact-form .btn {
@@ -1700,7 +1721,13 @@ footer {
   padding: 4px 16px;
   line-height: 4rem;
   cursor: pointer;
-  width: 60%;
+  width: 50%;
+}
+
+@media screen and (max-width:900px) {
+  .faq-container{
+    width: 100%;
+  }
 }
 
 .faq-container:hover {
