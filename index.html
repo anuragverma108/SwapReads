@@ -488,18 +488,18 @@
 
           <div class="exchange-">
 
-            <div class="-fields">
+            <div class="form-fields">
 
-              <label class="-label" for="bookTitle">Book Title:</label>
+              <label class="form-label" for="bookTitle">Book Title:</label>
               <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the title of your book" required
                 class="input-field">
 
 
-              <label class="-label" for="bookAuthor">Author:</label>
+              <label class="form-label" for="bookAuthor">Author:</label>
               <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter the author's name" required
                 class="input-field">
 
-      <label class="-label" for="yourPrice">Your Price (50% Off):</label>
+      <label class="form-label" for="yourPrice">Your Price (50% Off):</label>
       <div class="currency-container">
       <label class="currency-label" for="currency">Currency: </label>
     <select id="currency" name="currency" class="input-field currency-select">
@@ -510,7 +510,7 @@
       <option value="GBP">GBP</option>
    </select>
     </div>
-    <input type="number" id="yourPrice" name="yourPrice" placeholder="Enter your desired selling price" required class="input-field">
+    <input type="number" min="0" id="yourPrice" name="yourPrice" placeholder="Enter your desired selling price" required class="input-field">
 
     <!-- Error message container -->
     <span id="yourPrice-error" class="error"></span>
@@ -525,7 +525,7 @@
                 var yourPriceValue = yourPriceInput.value.trim();
         
                 // Check if the price is a valid number
-                if (isNaN(yourPriceValue) || yourPriceValue === "") {
+                if (isNaN(yourPriceValue) || yourPriceValue === "" || parseFloat(yourPriceValue) < 0) {
                     // If not, display error message
                     document.getElementById('yourPrice-error').textContent = "Please enter a valid number";
                     // Change border color to red to indicate error
