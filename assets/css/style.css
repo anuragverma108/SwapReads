@@ -625,18 +625,29 @@ body {
 /*-----------------------------------*\
   #CHAPTERS
 \*-----------------------------------*/
-
 .chapter-card {
   height: 100%;
   background-color: var(--white);
   padding: 25px;
   border-radius: var(--radius-5);
   box-shadow: var(--shadow-2);
-  transition: var(--transition-2);
+  position: relative; /* Add position relative to .chapter-card */
 }
 
-.chapter-card:is(:hover, :focus-within) {
-  transform: translateY(-10px);
+.chapter-card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 3px; /* Adjust line thickness as needed */
+  background-color: pink; /* Pink line color */
+  transition: width 0.3s ease; /* Transition width property */
+}
+
+.chapter-card:hover::before {
+  width: 100%; /* Expand line width on hover */
 }
 
 .chapter-card .card-title {
