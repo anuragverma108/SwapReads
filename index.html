@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <script src="https://unpkg.com/scrollreveal"></script>
@@ -84,7 +85,15 @@
             <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
           </li>
           <li>
-            <img src="./assets/images/moon.png" id="theme-icon">
+            <div class="switch-container">
+              <input type="checkbox" id="switch" class="switch-checkbox">
+              <label for="switch" class="switch-label">
+                  <div class="switch-button">
+                      <span class="material-icons sun-icon">wb_sunny</span>
+                      <span class="material-icons moon-icon">brightness_2</span>
+                  </div>
+              </label>
+          </div>
           </li>
         </ul>
       </nav>
@@ -867,41 +876,43 @@
   <script>
 
     // Function to toggle dark mode
-    function toggleDarkMode() {
-      const isDarkMode = isDarkModePreferred();
-      setDarkModePreference(!isDarkMode);
-      applyDarkModePreference();
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentTheme = localStorage.getItem('theme');
+      const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
 
-    // Function to apply dark mode preference
-    function applyDarkModePreference() {
-      const isDarkMode = isDarkModePreferred();
-      if (isDarkMode) {
-        document.body.classList.add('dark-mode');
-        document.getElementById('theme-icon').src = 'assets/images/sun.png';
+      if (switchCheckbox) { // Check if switchCheckbox is not null
+        function applyDarkModeStyles() {
+          document.body.classList.remove('light-mode');
+          document.body.classList.add('dark-mode');
+        }
+    
+        function applyLightModeStyles() {
+          document.body.classList.remove('dark-mode');
+          document.body.classList.add('light-mode');
+        }
+    
+        if (currentTheme) {
+          if (currentTheme === 'dark-mode') {
+            applyDarkModeStyles();
+            switchCheckbox.checked = true;
+          } else {
+            applyLightModeStyles();
+          }
+        }
+    
+        switchCheckbox.addEventListener('change', () => {
+          if (switchCheckbox.checked) {
+            applyDarkModeStyles();
+            localStorage.setItem('theme', 'dark-mode');
+          } else {
+            applyLightModeStyles();
+            localStorage.setItem('theme', 'light-mode');
+          }
+        });
       } else {
-        document.body.classList.remove('dark-mode');
-        document.getElementById('theme-icon').src = 'assets/images/moon.png';
-      }
+      console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
     }
-
-    // Function to set dark mode preference
-    function setDarkModePreference(isDarkMode) {
-      localStorage.setItem('darkMode', isDarkMode);
-    }
-
-    // Function to check if dark mode preference exists
-    function isDarkModePreferred() {
-      return JSON.parse(localStorage.getItem('darkMode'));
-    }
-
-    // Call the function when the page loads
-    document.addEventListener('DOMContentLoaded', function () {
-      applyDarkModePreference();
-    });
-
-    // Add event listener to toggle dark mode when the image is clicked
-    document.getElementById('theme-icon').addEventListener('click', toggleDarkMode);
+  });
 
   </script>
 
