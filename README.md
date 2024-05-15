@@ -75,19 +75,29 @@ Contributions are what makes the open source community such an amazing place to 
 - Create individual PR for each suggestion.
 
 ## Creating Pull Request
-1. Fork the Project
-2. Clone your forked repository
-3. Now go ahead and create a new branch and move to the branch
+1. **Fork the `SwapReads` repository** 
+   Follow these instructions on [how to fork a repository](https://help.github.com/en/articles/fork-a-repo)
+
+2. Clone the repository to your local machine.
+```sh
+git clone git@github.com:your-username/SwapReads.git
+```
+3. Clone the repository to your local machine.(from HTTPS)
+```sh
+https://github.com/your-username/SwapReads.git
+```
+
+4. Now go ahead and create a new branch and move to the branch
 ```sh
 git checkout -b <branch-name>
 ```
-4. After you have added your changes, follow the following command chain
+5. After you have added your changes, follow the following command chain
    Check the changed files
 ```sh
 git status -s
 ```
 
-5. Add all the files to the staging area
+6. Add all the files to the staging area
 ```sh
 git add .
 ```
@@ -95,12 +105,12 @@ git add .
 ```sh
 git add <file_name1> <file_name2>
 ```
-6. Commit your changes
+7. Commit your changes
 ```sh
 git commit -m "<EXPLAIN-YOUR_CHANGES>"
 ```
-7. Push your changes
+8. Push your changes
 ```sh
 git push origin <branch-name>
 ```
-8. Open a Pull Request 
+9. Open a Pull Request 
