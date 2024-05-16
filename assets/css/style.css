@@ -11,6 +11,10 @@
   
 }
 
+.navbar-item {
+  cursor: pointer;
+}
+
 
 .form-label{
   color:var(--charcoal);
@@ -1453,12 +1457,6 @@ footer {
   }
 }
 
-@media (max-width: 992px) {
-  .switch-container {
-    right: -20px;
-  }
-}
-
 /**
  * responsive for large than 992px screen
  */
@@ -1689,6 +1687,9 @@ footer {
 .faq-section {
   padding: 20px;
   background-color: var(--seashell);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .faq {
@@ -1732,111 +1733,47 @@ footer {
   padding: 4px 16px;
   line-height: 4rem;
   cursor: pointer;
+  width: 60%;
 }
+
 
 .faq-container:hover {
   background-color: var(--old-rose_30);
 }
 
 
+  /* Dark Mode Switch */
+
+
 /**
 * Dark Mode
 */
 
-.dark-mode {
-  --sonic-silver: #fff;
-  --ghost-white: #1E1C1C;
-  --seashell: #1E1C1C;
-  --charcoal: #fff;
-  --white: #1E1C1C;
-  --black: #fff;
+#theme-icon{
+  width : 35px;
+  cursor : pointer;
+}
 
-  /* shadow */
+.dark-mode{
+  
+   --sonic-silver: #fff;
+   --ghost-white: #1E1C1C;
+   --seashell: #3c3939;
+   --charcoal: #fff;
+   --white: #211d1d;
+   --old-rose: #f4a7b9;
 
-  --shadow-1: 4px 6px 10px hsla(240, 2%, 53%, 0.484);
-  --shadow-2: 2px 5px 8px hsla(240, 5%, 62%, 0.545);
+
+   /* shadow */
+
+   --shadow-1: 4px 6px 10px hsla(240, 2%, 53%, 0.484);
+  --shadow-2: 2px 5px 8px  hsla(240, 5%, 62%, 0.545);
   --shadow-3: 3px 3px var(--seashell);
   --shadow-4: 5px 5px var(--old-rose);
 }
 
-/* Switch Container */
-.switch-container {
- position: absolute;
- transform: translate(-50%, -50%);
- display: flex;
- align-items: center;
- justify-content: center;
-}
-
-/* Hidden Checkbox */
-.switch-checkbox {
- display: none;
-}
-
-/* Switch Label */
-.switch-label {
- position: relative;
- width: 45px;
- height: 30px;
- background-color: #ccc;
- border-radius: 20px;
- cursor: pointer;
- display: flex;
- align-items: center;
- justify-content: center;
- padding: 0 5px;
- box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
- transition: background-color 0.5s ease;
-}
-
-.switch-label .sun-icon,
-.switch-label .moon-icon {
- font-size: 19px;
- position: absolute;
-cursor: pointer;
- top: 50%;
- transform: translateY(-50%);
- transition: opacity 0.5s ease, color 0.5s ease;
-}
-
-.switch-label .sun-icon {
- color: #f39c12;
- left: 2px;
-}
-
-.switch-label .moon-icon {
- color: #bdc3c7;
- opacity: 0;
- left: 5px;
-}
-
-/* Switch Button */
-.switch-button {
- position: absolute;
- top: 3px;
- left: 3px;
- width: 25px;
- height: 25px;
- background-color: #fff;
- border-radius: 50%;
- box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
- transition: transform 0.5s ease, background-color 0.5s ease;
-}
-
-/* Checkbox Checked State */
-.switch-checkbox:checked + .switch-label {
- background-color: #34495e;
-}
-
-.switch-checkbox:checked + .switch-label .sun-icon {
- opacity: 0;
-}
-
-.switch-checkbox:checked + .switch-label .moon-icon {
- opacity: 1;
-}
-
-.switch-checkbox:checked + .switch-label .switch-button {
- transform: translateX(13px);
- /* background-color: #34495e; */
+@media screen and (max-width:900px) {
+  .faq-container{
+    width: 100%;
+  }
 }
