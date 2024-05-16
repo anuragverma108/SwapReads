@@ -1,0 +1,157 @@
+/* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+.testimonials{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #44a820;
+}
+.slide-container{
+  max-width: 1120px;
+  width: 100%;
+  padding: 40px 0;
+}
+.slide-content{
+  margin: 0 40px;
+  overflow: hidden;
+  border-radius: 25px;
+}
+
+.card{
+  border-radius: 25px;
+  
+  background-color:  var(--seashell);
+  height:300px;
+}
+.image-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+.image-content{
+  padding: 25px 0;
+}
+
+.card-image{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+.card-image .card-img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid hsl(357, 37%, 62%);
+}
+.swiper-navBtn{
+  color: hsl(357, 37%, 62%);
+  transition: color 0.3s ease;
+}
+.swiper-navBtn:hover{
+  color: hsl(357, 37%, 62%);
+}
+.swiper-navBtn::before,
+.swiper-navBtn::after{
+  font-size: 35px;
+}
+.swiper-button-next{
+  right: 0;
+}
+.swiper-button-prev{
+  left: 0;
+}
+.swiper-pagination-bullet{
+  background-color: hsl(357, 37%, 62%);
+  opacity: 1;
+}
+.swiper-pagination-bullet-active{
+  background-color: hsl(357, 37%, 62%);
+}
+
+@media screen and (max-width: 768px) {
+  .slide-content{
+    margin: 0 10px;
+  }
+  .swiper-navBtn{
+    display: none;
+  }
+}
+
+.card:hover{
+  transform: rotateY(180deg);
+}
+.card{
+  position: relative;
+    transition: all 1s linear;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+.cardshar{
+  position: relative;
+    transition: all 1s linear;
+    transform-style: preserve-3d;
+    
+}
+.fronts {
+  backface-visibility: hidden;
+}
+
+.backs {
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  border: 2px solid hsl(357, 37%, 62%);
+  background-color: white;
+  border-radius: 50px;
+  font-size: 1em;
+  height: 100%;
+  width:100%
+}
+
+.rating i {
+  color: #ffc107;
+}
+
+.backs {
+	position: relative;
+	padding: 10px 40px;
+	&::before {
+		content: "\201C";
+		position: absolute;
+		font-weight: bold;
+		font-size: 4em;
+		color: hsl(357, 37%, 62%);
+		top: -30px;
+		left: 0px;
+		font-family: Georgia, Times, serif;
+	}
+	&::after {
+		content: "\201D";
+		position: absolute;
+		font-weight: bold;
+		font-size: 4em;
+		color: hsl(357, 37%, 62%);
+		bottom: -50px;
+		right: 0px;
+		font-family: Georgia, Times, serif;
+	}
+}
+body.dark-mode .card{
+  box-shadow: inset 1px 1px 5px #efecea;
+}
+@media screen and (max-width: 700px)
+{
+     .backs{
+      font-size: 15px;
+     }
+}
+@media screen and (min-width: 520px) and (max-width: 550px) {
+  .backs {
+    font-size: 13px;
+  }
+}

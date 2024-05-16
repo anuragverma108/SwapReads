@@ -123,26 +123,42 @@ const addEventOnelem = function (elem, type, callback) {
 
 
 /**
- * toggle navbar
+ * Toggle navbar
  */
 
 const navbar = document.querySelector("[data-navbar]");
 const navbarLinks = document.querySelectorAll("[data-nav-link]");
 const navToggler = document.querySelector("[data-nav-toggler]");
+const logoImage = document.querySelector('.logopic'); // Added
+const themeSwitch = document.getElementById('switch'); // Added
+let currentTheme = 'light'; // Added
 
 const toggleNavbar = function () {
   navbar.classList.toggle("active");
   navToggler.classList.toggle("active");
 }
 
-addEventOnelem(navToggler, 'click', toggleNavbar);
-
 const closeNavbar = function () {
   navbar.classList.remove("active");
   navToggler.classList.remove("active");
 }
 
+const toggleTheme = function () { // Added
+  if (currentTheme === 'light') {
+    logoImage.src = './assets/images/logoPicDark.png';
+    currentTheme = 'dark';
+  } else {
+    logoImage.src = './assets/images/logoPicLight.png';
+    currentTheme = 'light';
+  }
+}
+
+toggleTheme(); // Added
+
+addEventOnelem(navToggler, 'click', toggleNavbar);
 addEventOnelem(navbarLinks, "click", closeNavbar);
+themeSwitch.addEventListener('change', toggleTheme); // Added
+
 
 
 
