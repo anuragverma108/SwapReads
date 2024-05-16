@@ -35,10 +35,20 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <script src="./assets/js/rateUsModal.js" defer></script>
+
 </head>
 <script src="https://unpkg.com/scrollreveal"></script>
 <script src="./assets/js/faq.js"></script>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="assets/css/test-style.css">
 <body>
 
 
@@ -46,7 +56,7 @@
     <div class="container">
 
       <a href="#" class="logo" style="display:flex;">
-        <img src="./assets/images/Logo-pic.png" alt="" class="logopic" style=" width: 66px;"></img>
+        <img src="./assets/images/Logo-pic.png" alt="" class="logopic" style=" width: 66px;"/>
         <div style="margin-top:13px;">SwapReads</div>
       </a>
 
@@ -78,11 +88,12 @@
           </li>
 
           <li class="navbar-item">
-            <a href="./assets/html/rate.html" class="navbar-link">Rate Us</a>
+            <a onclick="openRateUsModal()" class="navbar-link">Rate Us</a>
           </li>
 
-          <li class="navbar-item">
+          <li class="navbar-item" id="login-signup-link">
             <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
+<<<<<<< HEAD
           </li>
           <li>
             <div class="switch-container">
@@ -96,6 +107,12 @@
           </div>
           </li>
         </ul>
+=======
+        </li>
+        <li class="navbar-item" id="logout-link" style="display: none;">
+                    <a href="#" class="navbar-link" id="logout">Logout</a>
+        </li>
+>>>>>>> main
       </nav>
 
       <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
@@ -112,6 +129,25 @@
 
 
   <main>
+
+    <!-- Rate Us Modal Pop up -->
+    <div class="rate-us-modal-wrapper">
+      <div class="rate-us-modal">
+        <a onclick="closeRateUsModal()" class="home_button"></a>
+        <h1 class="rating_heading">Rate Us</h1>
+        <div class="star_rating">
+            <p>How was your experience?</p>
+            <button class="star">&#9734;</button>
+            <button class="star">&#9734;</button>
+            <button class="star">&#9734;</button>
+            <button class="star">&#9734;</button>
+            <button class="star">&#9734;</button>
+            <p class="current_rating"> 0 of 5</p>
+        </div>
+        <button id="submit_rating" class="submit_button">Submit Rating</button>
+      </div>
+    </div>
+
     <article>
 
 
@@ -633,19 +669,19 @@
 
             <form action="" id="contact-form">   
 
-              <input type="text" name="name" placeholder="Your Name" required class="input-field">
+              <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field">
 
-              <input type="email" name="email_address" placeholder="Your Email" required class="input-field">
+              <input type="email" name="email_address" id="email" placeholder="Your Email" required class="input-field">
+
 
               <input type="text" name="subject" placeholder="Subject" required class="input-field">
               <div id="subject-count" class="character-count">0/100</div> <!-- Element to display character count for subject -->
               
               <textarea name="message" placeholder="Your Message" class="input-field"></textarea>
-              <div id="message-count" class="character-count">0/250</div> <!-- Element to display character count for message -->
-
-              <button type="submit" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
-
-            </form>
+              <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field">
+              <div id="subject-count" class="character-count">0/100</div> <!-- Element to display character count for subject -->
+              
+              <textarea name="message" id="message" placeholder="Your Message" class="input-field"></textarea>
 
             <ul class="contact-card">
 
@@ -717,6 +753,109 @@
 
     </article>
   </main>
+
+  <!-- --Testimonials -->
+ 
+  <h2 class="h2 section-title has-underline" style="margin-top: 15px;">
+    Testimonials
+    <span class="span has-before"></span>
+  </h2>
+  <p class="section-subtitle">Know what our customers say</p>
+
+<div class="slide-container swiper" style="margin-bottom: 15px;">
+<div class="slide-content">
+<div class="card-wrapper swiper-wrapper">
+    <div class="card swiper-slide">
+        <div class="fronts" style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+          
+        <div class="image-content" >
+        
+          
+            <div class="card-image">
+                <img src="assets/images/testimonials-1.jpg" alt="" class="card-img">
+            </div>
+            <h2 style="font-size: 20px;">B.Sharmila</h2>
+        </div>
+        
+        <div class="rating" >
+            <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+        </div>
+        </div>               
+        <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">
+         
+          SwapReads has completely transformed my reading experience! Not only have I discovered new books I never would have picked up otherwise, but I've also connected with fellow book lovers who share my passion. It's like having a personalized library with endless possibilities. Highly recommend! </div>
+          
+    </div>
+    <div class="card swiper-slide">
+        <div class="fronts" style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+          
+          <div class="image-content" >
+                <div class="card-image">
+                    <img src="assets/images/testimonials-2.jpg" alt="" class="card-img">
+                </div>
+                <h2 style="font-size: 20px;">Prem Sampath</h2>
+            </div>
+            <div class="rating" >
+                <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+            </div>
+            </div>
+            <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">SwapReads has transformed my reading habits. Beyond swapping books, it's about fostering a community of passionate readers. I've made friends, broadened my literary horizons, and unearthed hidden gems. Thank you, SwapReads! </div>
+    </div>
+    <div class="card swiper-slide">
+        <div class="fronts" style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <div class="image-content" >
+                <div class="card-image">
+                    <img src="assets/images/testimonials-3.jpg" alt="" class="card-img">
+                </div>
+                <h2 style="font-size: 20px;">Aron Loes</h2>
+            </div>
+            <div class="rating" >
+                <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+            </div>
+            </div>                   
+            <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">SwapReads is a bookworm's paradise! With its user-friendly interface, welcoming community, and vast variety of books for swapping, I've embarked on countless new literary adventures. It's like an ever-active book club where I've connected with fellow literature lovers. I'm completely hooked!</div>                
+    </div>
+    <div class="card swiper-slide">
+        <div class="fronts" style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <div class="image-content" >
+                <div class="card-image">
+                    <img src="assets/images/testimonials-4.jpg" alt="" class="card-img">
+                </div>
+                <h2 style="font-size: 20px;">Sonal K</h2>
+            </div>
+            <div class="rating" >
+                <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+            </div>
+            </div>                   
+            <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">SwapReads revolutionized my reading life! I've decluttered my shelf, discovered hidden gems, and connected with a passionate community. Thank you, SwapReads, for stealing my heart! </div>
+    </div>
+</div>
+</div>
+<div class="swiper-button-next swiper-navBtn"></div>
+<div class="swiper-button-prev swiper-navBtn"></div>
+<div class="swiper-pagination"></div>
+</div>
+
+
+
+
+<!-- Testimonials -->
 
   <h1 class="faq" id="faqq">Some Frequently Asked Questions</h1>
   <div class="faq-section">
@@ -808,7 +947,7 @@
        <div class="icons">
        <a href=""><img  class="icon-set" src="./assets/images/FB icon.png" alt=""></a> 
         <a href=""><img  class="icon-set" src="./assets/images/insta icon.png" alt=""></a>
-        <a href=""><img  class="icon-set" src="./assets/images/twitter-icon.png" alt=""></a>
+        <a href=""><i class="fa-brands fa-x-twitter fa-2xl" style="color: #deb887;"></i></a>
         <a href=""><img  class="icon-set" src="./assets/images/YT icon.png" alt=""></a>
        </div>
       </div>
@@ -863,7 +1002,7 @@
 
       <div class="footer-bottom">
         <p class="copyright">
-          &copy; 2024 All right reserved. Made with ❤ by Guardian Hackers.
+          &copy; 2024 All rights reserved. Made with ❤ by Guardian Hackers.
         </p>
       </div>
 
@@ -880,6 +1019,7 @@
       const currentTheme = localStorage.getItem('theme');
       const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
 
+<<<<<<< HEAD
       if (switchCheckbox) { // Check if switchCheckbox is not null
         function applyDarkModeStyles() {
           document.body.classList.remove('light-mode');
@@ -911,6 +1051,18 @@
         });
       } else {
       console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
+=======
+    // Function to apply dark mode preference
+    function applyDarkModePreference() {
+      const isDarkMode = isDarkModePreferred();
+      if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        document.getElementById('theme-icon').src = 'assets/images/icons8-sun.svg';
+      } else {
+        document.body.classList.remove('dark-mode');
+        document.getElementById('theme-icon').src = 'assets/images/moon_solid.svg';
+      }
+>>>>>>> main
     }
   });
 
@@ -974,7 +1126,66 @@
 
 
   </script>
+  <script type="module">
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCu2WXknNce_49J5BLuR1DyHm319hu6dWc",
+      authDomain: "login-13127.firebaseapp.com",
+      projectId: "login-13127",
+      storageBucket: "login-13127.appspot.com",
+      messagingSenderId: "151656578300",
+      appId: "1:151656578300:web:c67208ab6ec437c844ab79",
+      measurementId: "G-L3PPD58MZ8",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+    // Check authentication state and update navbar
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        document.getElementById("login-signup-link").style.display = "none";
+        document.getElementById("logout-link").style.display = "block";
+      } else {
+        document.getElementById("login-signup-link").style.display = "block";
+        document.getElementById("logout-link").style.display = "none";
+      }
+    });
+
+    // Logout function
+    document.getElementById("logout").addEventListener("click", (e) => {
+      e.preventDefault();
+      signOut(auth).then(() => {
+        alert("Logged out successfully.");
+      }).catch((error) => {
+        console.error("Logout error:", error);
+      });
+    });
+  </script> 
+
   <script src="vanilla-tilt.js"></script>
+  <script type="text/javascript">
+    (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          window.voiceflow.chat.load({
+            verify: { projectID: '66448ea9c63c08981233b8f1' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production'
+          });
+        }
+        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
+  <!-- Swiper JS -->
+<script src="assets/js/swiper-bundle.min.js"></script>
+<!-- Custom JavaScript -->
+
+<script src="assets/js/test-script.js"></script>
 </body>
 
 </html>
