@@ -1060,6 +1060,7 @@ footer {
 }
 .foot-top{
   display: flex;
+  flex-wrap: wrap;
  justify-content: space-evenly;
  align-items: top;
   border-bottom: 1px solid black;
@@ -1068,11 +1069,12 @@ footer {
 
 
 .foot-left{
-  width: 30vw;
+  width: 400px;
 }
 .foot-middle{
   font-size: 1.5rem;
   text-align: center;
+  width: 200px;
 }
 
 .foot-quick :hover{
@@ -1110,7 +1112,6 @@ footer {
 .social-icons{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: top;
    gap: 10px;
 
@@ -1121,6 +1122,7 @@ footer {
   align-items: center;
   gap: 5px;
   font-size: 1.3rem;
+  width: 200px;
 }
 .social-icons h5{
   color: rgb(57, 57, 57);
@@ -1191,14 +1193,25 @@ footer {
   #MEDIA QUERIES
 \*-----------------------------------*/
 
-@media(max-width: 768px) {
-  .foot-left, .foot-right{
+@media(max-width: 875px) {
+  .foot-left, .foot-middle, .social-icons{
     margin-bottom: 30px; 
-    flex: 1 100%; 
+    margin-top: 30px;
+ 
+  }
+}
+@media(max-width:665px){
+  .foot-left{
+      width: 100%;
   }
 }
 
+
 @media(max-width: 480px) {
+  .foot-middle,.social-icons{
+      margin-top: 30px;
+    
+  }
   .foot-left .desc p{
     width: 100%; 
   }
@@ -1627,6 +1640,7 @@ footer {
 
   .footer-top {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
   }
