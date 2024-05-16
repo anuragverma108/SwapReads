@@ -1,7 +1,6 @@
 .container1 {
   padding: 40px 100px;
   background-color: var(--seashell);
-  border: 2px solid hsl(20, 43%, 93%);
   box-shadow: var(--shadow-2);
   max-width: 1000px;
   margin: 0 auto;
@@ -9,12 +8,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
 
 .navbar-item {
   cursor: pointer;
 }
-
 
 .form-label {
   color: var(--charcoal);
@@ -840,9 +839,54 @@ body {
   #CONTACT
 \*-----------------------------------*/
 
-.contact .wrapper {
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.contact-us {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  max-width: 1100px;
+  height: 100%;
+}
+
+.contact-us-box {
   display: grid;
-  gap: 25px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.left-side iframe {
+  margin-left: 20px;
+  padding: 40px 40px;
+  height: 400px;
+  width: 600px;
+}
+
+.right-side {
+  width: 500px;
+  margin-right: -20px;
+}
+
+.contact-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+section.contact .wrapper {
+  display: flex;
+  width: 100%;
 }
 
 .contact-form {
@@ -890,7 +934,7 @@ textarea.input-field {
 .input-field.select {
   background-color: hsl(0, 0%, 100%);
   padding: 7px;
-  margin-block-end: 15px;
+  margin-block-end: 5px;
   outline: none;
   border-radius: var(--radius-5);
   border: 2px solid transparent;
@@ -911,7 +955,14 @@ textarea.input-field {
 .contact-card {
   background-color: var(--seashell);
   border-radius: var(--radius-5);
-  padding: 30px;
+  padding: 20px;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap;
+  margin-top: 50px;
 }
 
 .contact-card .card-title {
@@ -1736,21 +1787,17 @@ footer {
 /*Adding Transitions*/
 
 .navbar-link {
-  transition: all 0.3s ease;
-  padding-left: 4px;
-  padding-right: 4px;
+  transition: font-size 1.1s ease-in-out;
 }
 
-.navbar-link:hover {
-  transform: scale(1.1);
-  background-color: blanchedalmond;
-  border-radius: 15px;
-}
-
-.navbar-link.active,
 .navbar-link:hover {
   font-size: 1.2em;
-  border-bottom: 2px solid darkred;
+  background-color: blanchedalmond;
+  border-radius: 5px;
+}
+
+.navbar-link:active {
+  font-size: 1.3em;
   color: darkred;
 }
 
@@ -1814,6 +1861,7 @@ footer {
 }
 
 
+
 /* Dark Mode Switch */
 
 
@@ -1821,13 +1869,20 @@ footer {
 * Dark Mode
 */
 
+#theme-icon {
+  width: 35px;
+  cursor: pointer;
+}
+
 .dark-mode {
+
   --sonic-silver: #fff;
   --ghost-white: #1E1C1C;
-  --seashell: #1E1C1C;
+  --seashell: #3c3939;
   --charcoal: #fff;
-  --white: #1E1C1C;
-  --black: #fff;
+  --white: #211d1d;
+  --old-rose: #f4a7b9;
+
 
   /* shadow */
 
