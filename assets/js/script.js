@@ -144,6 +144,24 @@ const closeNavbar = function () {
 
 addEventOnelem(navbarLinks, "click", closeNavbar);
 
+// Function to toggle logo in light and dark mode
+const logoImage = document.querySelector('.logopic');
+const themeSwitch = document.getElementById('switch');
+let currentTheme = 'light';
+
+function toggleTheme() {
+  if (currentTheme === 'light') {
+    logoImage.src = './assets/images/logoPicDark.png';
+    currentTheme = 'dark';
+  } else {
+    logoImage.src = './assets/images/logoPicLight.png';
+    currentTheme = 'light';
+  }
+}
+
+themeSwitch.addEventListener('change', toggleTheme);
+
+
 
 
 /**
