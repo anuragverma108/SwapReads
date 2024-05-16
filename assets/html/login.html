@@ -69,7 +69,7 @@
       <h1>
         Welcome to SwapReads
         <h2>
-          Join us by registering or log in if you already have an account.
+          Join us by creating an account or log in if you already have an account.
         </h2>
       </h1>
     </div>
@@ -105,6 +105,7 @@
 		  <input type="text" name="login_email" id="login_email" class="form-control" placeholder="Enter your email">
 		</div>
 
+
 		<div class="form-group">
 	      <label for="password">Password</label>
 		  <input type="password" name="login_password" id="login_password" class="form-control"  placeholder="Enter your password">
@@ -120,7 +121,7 @@
  <div class="login">
         <form class="form" id="login-form">
           <label for="chk" aria-hidden="true">LOGIN</label>
-          <input class="input" type="email" name="email" id="login_email" placeholder="Email" required/>
+          <input class="input" type="email" name="email" id="login_email" placeholder="Email" required />
           <input class="input" type="password" name="pswd" id="login_password" placeholder="Password" required />
           <button type="submit" name="Login" id="login">Submit</button>
           <p class="forget-password">
@@ -302,16 +303,34 @@
     });
   </script>
 
-  <!---Dark Mode-->
-  <script>
-    function applyDarkModePreferenceOnLoginPage() {
-      const isDarkMode = isDarkModePreferred();
-      if (isDarkMode) {
-        document.body.classList.add('dark-mode');
-      } else {
-        document.body.classList.remove('dark-mode');
-      }
+<!---Dark Mode-->
+<script>
+  function applyDarkModePreferenceOnLoginPage() {
+    const isDarkMode = isDarkModePreferred();
+    if (isDarkMode) {
+      document.body.classList.add("dark-mode");
+      document.querySelector('.navbar').classList.add('dark-mode');
+      const closeButton = document.querySelector('.close-icon');
+      closeButton.src = "../images/close-white.png";
+      // For darkmode styles
+      const noteElements = document.querySelectorAll('.note *');
+      noteElements.forEach(element => {
+        element.classList.add('dark-mode');
+      })
+
+      const containerElements = document.querySelectorAll('.container *');
+      containerElements.forEach(element => {
+        element.classList.add('dark-mode');
+      })
+
+
+    } else {
+      document.body.classList.remove("dark-mode");
+      document.querySelector('.navbar').classList.remove('dark-mode');
+      const closeButton = document.querySelector('.close-icon');
+      closeButton.src = "../images/close1.png";
     }
+  }
 
     // Function to check if dark mode preference exists
     function isDarkModePreferred() {
