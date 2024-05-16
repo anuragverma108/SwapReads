@@ -54,11 +54,10 @@
 
   <header class="header header-anim" data-header>
     <div class="container">
-
-      <a href="#" class="logo" style="display:flex;">
-        <img src="./assets/images/Logo-pic.png" alt="" class="logopic" style=" width: 66px;"/>
-        <div style="margin-top:13px;">SwapReads</div>
-      </a>
+<a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
+  <img src="https://png.pngtree.com/png-clipart/20230102/original/pngtree-letter-s-r-beauty-monogram-serif-logo-design-png-image_8855277.png" alt="" class="logopic" style="width: 66px;">
+  <div style="margin-top:17px;">SwapReads</div>
+</a>
 
       <nav class="navbar" data-navbar>
         <ul class="navbar-list">
@@ -88,29 +87,29 @@
           </li>
 
           <li class="navbar-item">
-            <a onclick="openRateUsModal()" class="navbar-link">Rate Us</a>
+            <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
           </li>
 
           <li class="navbar-item" id="login-signup-link">
             <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
-        </li>
-        <li class="navbar-item" id="logout-link" style="display: none;">
-                    <a href="#" class="navbar-link" id="logout">Logout</a>
-        </li>
-        
-        <li>
-          <div class="switch-container">
-            <input type="checkbox" id="switch" class="switch-checkbox">
-            <label for="switch" class="switch-label">
-                <div class="switch-button">
-                    <span class="material-icons sun-icon">wb_sunny</span>
-                    <span class="material-icons moon-icon">brightness_2</span>
-                </div>
-            </label>
-        </div>
-        </li>
-        </ul>
-      </nav>
+</li>
+<li class="navbar-item" id="logout-link" style="display: none;">
+    <a href="#" class="navbar-link" id="logout">Logout</a>
+</li>
+
+<li>
+    <div class="switch-container">
+        <input type="checkbox" id="switch" class="switch-checkbox">
+        <label for="switch" class="switch-label">
+            <div class="switch-button">
+                <span class="material-icons sun-icon">wb_sunny</span>
+                <span class="material-icons moon-icon">brightness_2</span>
+            </div>
+        </label>
+    </div>
+</li>
+</ul>
+</nav>
 
       <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
         <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
@@ -133,13 +132,13 @@
         <a onclick="closeRateUsModal()" class="home_button"></a>
         <h1 class="rating_heading">Rate Us</h1>
         <div class="star_rating">
-            <p>How was your experience?</p>
-            <button class="star">&#9734;</button>
-            <button class="star">&#9734;</button>
-            <button class="star">&#9734;</button>
-            <button class="star">&#9734;</button>
-            <button class="star">&#9734;</button>
-            <p class="current_rating"> 0 of 5</p>
+          <p>How was your experience?</p>
+          <button class="star">&#9734;</button>
+          <button class="star">&#9734;</button>
+          <button class="star">&#9734;</button>
+          <button class="star">&#9734;</button>
+          <button class="star">&#9734;</button>
+          <p class="current_rating"> 0 of 5</p>
         </div>
         <button id="submit_rating" class="submit_button">Submit Rating</button>
       </div>
@@ -161,7 +160,7 @@
             <p class="section-text">
               Join SwapReads.com, the ultimate online community for book enthusiasts! Create your profile, list your
               favorite reads, and embark on literary journeys by swapping books with fellow passionate readers. Discover
-              a world where books find new adventures and readers connect through the joy of sharing stories."
+              a world where books find new adventures and readers connect through the joy of sharing stories.
             </p>
 
           </div>
@@ -530,7 +529,6 @@
               <div class="currency-container">
                 <label class="currency-label" for="currency">Currency:</label>
                 <select id="currency" name="currency" class="input-field currency-select">
-
                   <option value="INR">INR</option>
                   <option value="USD">USD</option>
                   <option value="EUR">EUR</option>
@@ -548,17 +546,9 @@
 
         </div>
       </section>
-
-
-
-
-
-
-
       <!-- 
         - #PRICING
       -->
-
       <section class="section pricing" id="pricing" aria-label="pricing">
         <div class="container">
 
@@ -643,11 +633,6 @@
       </section>
 
 
-
-
-
-
-
       <!-- 
         - #CONTACT
       -->
@@ -664,12 +649,21 @@
 
           <div class="wrapper">
 
-            <form action="" id="contact-form">   
+            <form action="" id="contact-form">
 
               <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field">
 
               <input type="email" name="email_address" id="email" placeholder="Your Email" required class="input-field">
 
+<input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field">
+<div id="subject-count" class="character-count">0/100</div>
+<!-- Element to display character count for subject -->
+
+<textarea name="message" id="message" placeholder="Your Message" class="input-field"></textarea>
+<div id="message-count" class="character-count">0/250</div>
+<!-- Element to display character count for message -->
+
+<button type="submit" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
 
               <input type="text" name="subject" placeholder="Subject" required class="input-field">
               <div id="subject-count" class="character-count">0/100</div> <!-- Element to display character count for subject --> 
@@ -912,7 +906,8 @@
       <div class="foot-left">
         <div class="desc">
           <a href="#" class="logo">SwapReads</a>
-          <p>SwapReads.com is the ultimate destination for book lovers seeking to swap and discover new literary gems.
+          <p style="text-align: justify;">SwapReads.com is the ultimate destination for book lovers seeking to swap and
+            discover new literary gems.
             Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in the
             world of literature—all on one convenient platform. Join us and dive into a universe of endless
             possibilities!
@@ -920,8 +915,7 @@
         </div>
       </div>
       <div class="foot-middle">
-
-        <h5>Quick Links</h5>
+        <h2>Quick Links</h2>
         <ul>
           <li class="foot-quick"><a href="#home">Home</a></li>
           <li class="foot-quick"><a href="#benefits">Benefits</a></li>
@@ -932,17 +926,17 @@
         </ul>
       </div>
       <div class="social-icons">
-        <h5 >Newsletter</h5>
-       <div class="input-newletter">
-        <input placeholder="Enter your email" type="email" class="in-css"></input>
-        <button class="btn-signup" >Subscribe</button>
-       </div>
-       <div class="icons">
-       <a href=""><img  class="icon-set" src="./assets/images/FB icon.png" alt=""></a> 
-        <a href=""><img  class="icon-set" src="./assets/images/insta icon.png" alt=""></a>
-        <a href=""><i class="fa-brands fa-x-twitter fa-2xl" style="color: #deb887;"></i></a>
-        <a href=""><img  class="icon-set" src="./assets/images/YT icon.png" alt=""></a>
-       </div>
+        <h5>Newsletter</h5>
+        <div class="input-newletter">
+          <input placeholder="Enter your email" type="email" class="in-css"></input>
+          <button class="btn-signup">Subscribe</button>
+        </div>
+        <div class="icons">
+          <a href=""><img class="icon-set" src="./assets/images/FB icon.png" alt=""></a>
+          <a href=""><img class="icon-set" src="./assets/images/insta icon.png" alt=""></a>
+          <a href=""><i class="fa-brands fa-x-twitter fa-2xl" style="color: #deb887;"></i></a>
+          <a href=""><img class="icon-set" src="./assets/images/YT icon.png" alt=""></a>
+        </div>
       </div>
 
     </div>
@@ -1082,6 +1076,44 @@
 
   <!-- Lenis smooth scrolling -->
   <script>
+    document.addEventListener("scroll", function () {
+      var scrollPosition = window.scrollY;
+
+      // Get the top position of each section on the page
+      var homeSection = document.getElementById("home").offsetTop;
+      var benefitsSection = document.getElementById("benefits").offsetTop;
+      var chaptersSection = document.getElementById("chapters").offsetTop;
+      var pricingSection = document.getElementById("pricing").offsetTop;
+      var contactSection = document.getElementById("contact").offsetTop;
+
+      // Check which section the user has scrolled to and add the active class accordingly
+      if (scrollPosition < benefitsSection) {
+        setActiveLink("home");
+      } else if (scrollPosition >= benefitsSection && scrollPosition < chaptersSection) {
+        setActiveLink("benefits");
+      } else if (scrollPosition >= chaptersSection && scrollPosition < pricingSection) {
+        setActiveLink("chapters");
+      } else if (scrollPosition >= pricingSection && scrollPosition < contactSection) {
+        setActiveLink("pricing");
+      } else {
+        setActiveLink("contact");
+      }
+    });
+
+    function setActiveLink(sectionId) {
+      // Remove active class from all navbar links
+      var navbarLinks = document.querySelectorAll(".navbar-link");
+      navbarLinks.forEach(function (link) {
+        link.classList.remove("active");
+      });
+
+      // Add active class to the navbar link corresponding to the current section
+      var activeLink = document.querySelector('a[href="#' + sectionId + '"]');
+      if (activeLink) {
+        activeLink.classList.add("active");
+      }
+    }
+
     const lenis = new Lenis({
       duration: 1.8,
       easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
@@ -1163,21 +1195,24 @@
         console.error("Logout error:", error);
       });
     });
-  </script> 
+  </script>
 
   <script src="vanilla-tilt.js"></script>
   <script type="text/javascript">
-    (function(d, t) {
-        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-        v.onload = function() {
-          window.voiceflow.chat.load({
-            verify: { projectID: '66448ea9c63c08981233b8f1' },
-            url: 'https://general-runtime.voiceflow.com',
-            versionID: 'production'
-          });
-        }
-        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+    (function (d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function () {
+        window.voiceflow.chat.load({
+          verify: { projectID: '66448ea9c63c08981233b8f1' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production'
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
     })(document, 'script');
+
+
+
   </script>
   <!-- Swiper JS -->
 <script src="assets/js/swiper-bundle.min.js"></script>
