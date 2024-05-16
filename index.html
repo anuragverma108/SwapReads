@@ -93,26 +93,21 @@
 
           <li class="navbar-item" id="login-signup-link">
             <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
-<<<<<<< HEAD
-          </li>
-          <li>
-            <div class="switch-container">
-              <input type="checkbox" id="switch" class="switch-checkbox">
-              <label for="switch" class="switch-label">
-                  <div class="switch-button">
-                      <span class="material-icons sun-icon">wb_sunny</span>
-                      <span class="material-icons moon-icon">brightness_2</span>
-                  </div>
-              </label>
-          </div>
-          </li>
-        </ul>
-=======
         </li>
         <li class="navbar-item" id="logout-link" style="display: none;">
                     <a href="#" class="navbar-link" id="logout">Logout</a>
         </li>
->>>>>>> main
+        <li>
+          <div class="switch-container">
+            <input type="checkbox" id="switch" class="switch-checkbox">
+            <label for="switch" class="switch-label">
+                <div class="switch-button">
+                    <span class="material-icons sun-icon">wb_sunny</span>
+                    <span class="material-icons moon-icon">brightness_2</span>
+                </div>
+            </label>
+        </div>
+        </li>
       </nav>
 
       <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
@@ -1015,11 +1010,29 @@
   <script>
 
     // Function to toggle dark mode
+    function toggleDarkMode() {
+      const isDarkMode = isDarkModePreferred();
+      setDarkModePreference(!isDarkMode);
+      applyDarkModePreference();
+    }
+
+    // Function to apply dark mode preference
+    function applyDarkModePreference() {
+      const isDarkMode = isDarkModePreferred();
+      if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        document.getElementById('theme-icon').src = 'assets/images/icons8-sun.svg';
+      } else {
+        document.body.classList.remove('dark-mode');
+        document.getElementById('theme-icon').src = 'assets/images/moon_solid.svg';
+      }
+    }
+
+    // Function to set dark mode preference
     document.addEventListener('DOMContentLoaded', () => {
       const currentTheme = localStorage.getItem('theme');
       const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
 
-<<<<<<< HEAD
       if (switchCheckbox) { // Check if switchCheckbox is not null
         function applyDarkModeStyles() {
           document.body.classList.remove('light-mode');
@@ -1051,18 +1064,6 @@
         });
       } else {
       console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
-=======
-    // Function to apply dark mode preference
-    function applyDarkModePreference() {
-      const isDarkMode = isDarkModePreferred();
-      if (isDarkMode) {
-        document.body.classList.add('dark-mode');
-        document.getElementById('theme-icon').src = 'assets/images/icons8-sun.svg';
-      } else {
-        document.body.classList.remove('dark-mode');
-        document.getElementById('theme-icon').src = 'assets/images/moon_solid.svg';
-      }
->>>>>>> main
     }
   });
 
