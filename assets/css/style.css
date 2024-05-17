@@ -354,6 +354,8 @@ body {
   background-color: var(--old-rose);
   color: var(--white);
   border-radius: var(--radius-5);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .btn-primary:is(:hover, :focus) {
@@ -876,7 +878,7 @@ textarea.input-field {
 .character-count {
   font-size: 0.7em;
   /* Make the character count slightly smaller */
-  color: hsl(20, 43%, 93%);
+  color: var(--charcoal);
   /* Set the color */
   position: relative;
   /* Enable positioning */
@@ -894,13 +896,15 @@ textarea.input-field {
   margin-block-end: 15px;
   outline: none;
   border-radius: var(--radius-5);
-  border: 2px solid transparent;
+  border: 2px solid #c2acac;
   transition: border-color 0.3s;
 }
 
+
+
 .input-field:focus,
 .input-field.select:focus {
-  border-color: var(--old-rose);
+  border: 3px solid rgb(153, 81, 81) ;
 }
 
 
@@ -1232,10 +1236,39 @@ footer {
   gap: 5px;
 }
 
+.icons img,
+.icons i{
+  filter: grayscale(50%);
+  transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out ;
+}
+
+.icons img:hover,
+.icons i:hover {
+  filter: none;
+  color: #983b3b;
+  transform: scale(1.2);
+}
 .icon-set {
   height: 30px;
   width: 30px;
   object-fit: cover;
+}
+.icons a {
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.icons a:hover {
+  transform: scale(1.2);
+}
+
+.icons .icon-set {
+  width: 30px; /* Adjust the width as per your preference */
+  height: 30px; /* Adjust the height as per your preference */
+}
+
+.icons .fa-twitter {
+  font-size: 30px; /* Adjust the font-size as per your preference */
 }
 
 .social-list {
