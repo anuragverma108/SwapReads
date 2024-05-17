@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <script src="./assets/js/rateUsModal.js" defer></script>
@@ -54,9 +55,11 @@
 
   <header class="header header-anim" data-header>
     <div class="container">
-      <a href="#" class="logo" style="display:flex;">
-        <img src="./assets/images/Logo-pic.png" alt="" class="logopic" style=" width: 66px;" />
-        <div style="margin-top:13px;">SwapReads</div>
+      <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
+        <img
+          src="https://png.pngtree.com/png-clipart/20230102/original/pngtree-letter-s-r-beauty-monogram-serif-logo-design-png-image_8855277.png"
+          alt="" class="logopic" style="width: 66px;">
+        <div style="margin-top:17px;">SwapReads</div>
       </a>
 
 <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
@@ -99,6 +102,19 @@
           <li class="navbar-item" id="logout-link" style="display: none;">
             <a href="#" class="navbar-link" id="logout">Logout</a>
           </li>
+
+          <li>
+            <div class="switch-container">
+              <input type="checkbox" id="switch" class="switch-checkbox">
+              <label for="switch" class="switch-label">
+                <div class="switch-button">
+                  <span class="material-icons sun-icon">wb_sunny</span>
+                  <span class="material-icons moon-icon">brightness_2</span>
+                </div>
+              </label>
+            </div>
+          </li>
+        </ul>
       </nav>
 
       <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
@@ -704,12 +720,6 @@
                     <!-- Element to display character count for subject -->
 
                     <textarea name="message" placeholder="Your Message" class="input-field"></textarea>
-                    <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field">
-                    <div id="subject-count" class="character-count">0/100</div>
-                    <!-- Element to display character count for subject -->
-
-                    <textarea name="message" id="message" placeholder="Your Message" class="input-field"></textarea>
-
 
                   </form>
 
@@ -717,8 +727,105 @@
 
               </div>
             </div>
+          <h2 class="h2 section-title has-underline">
+            Write me anything
+            <span class="span has-before"></span>
+          </h2>
 
-          </div>
+          <div class="wrapper">
+            <div class="upper-portion">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1715923624010!5m2!1sen!2sin"
+                style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="lower-portion">
+              <div class="left-side">
+
+                <form action="" id="contact-form">
+
+                  <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field" size="50px">
+
+                  <input type="email" name="email_address" id="email" placeholder="Your Email" required
+                    class="input-field">
+
+                  <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field">
+                  <div id="subject-count" class="character-count">0/100</div>
+                  <!-- Element to display character count for subject -->
+
+                  <textarea name="message" id="message" placeholder="Your Message" class="input-field"></textarea>
+                  <div id="message-count" class="character-count">0/250</div>
+                  <!-- Element to display character count for message -->
+
+                  <button type="submit" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
+              </div>
+
+              <div class="right-side">
+
+                <ul class="contact-card ">
+
+                  <li>
+                    <p class="card-title">Address:</p>
+                    <address class="address">
+                      12, Nayabad <br>
+                      Kolkata, India 700054
+                    </address>
+                  </li>
+
+                  <li>
+                    <p class="card-title">Phone:</p>
+
+                    <a href="tel:1234567890" class="card-link">+91 9124421980</a>
+                  </li>
+
+                  <li>
+                    <p class="card-title">Email:</p>
+
+                    <a href="mailto:support@support.com" class="card-link">support@swapreads.com</a>
+                  </li>
+
+                  <!--  <li>
+                  <p class="social-list-title h3">Connect SwapReads socials</p>
+
+                  <ul class="social-list">
+
+                    <li>
+                    <a href="https://www.facebook.com/" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                    </a>
+                    </li>
+
+                    <li>
+                      <a href="https://twitter.com/?lang=en" class="social-link">
+                        <ion-icon name="logo-twitter"></ion-icon>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="https://www.linkedin.com/" class="social-link">
+                        <ion-icon name="logo-linkedin"></ion-icon>
+                      </a>
+                    </li>
+
+                    <li>
+                     <a href="https://www.youtube.com/" class="social-link">
+                        <ion-icon name="logo-youtube"></ion-icon>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="tel:+1234567890" class="social-link">
+                        <ion-icon name="logo-whatsapp"></ion-icon>
+                      </a>
+                    </li>
+
+                  </ul>
+                </li> -->
+
+                </ul>
+
+              </div>
 
 
           <!-- <li>
@@ -761,6 +868,8 @@
         </div>
 
         </div>
+            </div>
+
       </section>
 
     </article>
@@ -769,10 +878,10 @@
   <!-- --Testimonials -->
 
   <h2 class="h2 section-title has-underline" style="margin-top: 15px;">
-    Testimonials
-    <span class="span has-before"></span>
+    Testimonial
   </h2>
   <p class="section-subtitle">Know what our customers say</p>
+  <span class="span has-before"></span>
 
   <div class="slide-container swiper" style="margin-bottom: 15px;">
     <div class="slide-content">
@@ -1060,23 +1169,43 @@
     }
 
     // Function to set dark mode preference
-    function setDarkModePreference(isDarkMode) {
-      localStorage.setItem('darkMode', isDarkMode);
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentTheme = localStorage.getItem('theme');
+      const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
 
-    // Function to check if dark mode preference exists
-    function isDarkModePreferred() {
-      return JSON.parse(localStorage.getItem('darkMode'));
-    }
+      if (switchCheckbox) { // Check if switchCheckbox is not null
+        function applyDarkModeStyles() {
+          document.body.classList.remove('light-mode');
+          document.body.classList.add('dark-mode');
+        }
 
-    // Call the function when the page loads
-    document.addEventListener('DOMContentLoaded', function () {
-      applyDarkModePreference();
+        function applyLightModeStyles() {
+          document.body.classList.remove('dark-mode');
+          document.body.classList.add('light-mode');
+        }
+
+        if (currentTheme) {
+          if (currentTheme === 'dark-mode') {
+            applyDarkModeStyles();
+            switchCheckbox.checked = true;
+          } else {
+            applyLightModeStyles();
+          }
+        }
+
+        switchCheckbox.addEventListener('change', () => {
+          if (switchCheckbox.checked) {
+            applyDarkModeStyles();
+            localStorage.setItem('theme', 'dark-mode');
+          } else {
+            applyLightModeStyles();
+            localStorage.setItem('theme', 'light-mode');
+          }
+        });
+      } else {
+        console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
+      }
     });
-
-    // Add event listener to toggle dark mode when the image is clicked
-    document.getElementById('theme-icon').addEventListener('click', toggleDarkMode);
-
   </script>
 
 
