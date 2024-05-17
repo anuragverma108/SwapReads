@@ -1191,19 +1191,120 @@ footer {
 
 }
 
-.input-newletter {
+.row-flex{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  font-size: 1.3rem;
+  flex-direction: row;
 }
+
+
+form[type="newsletter"]:before { 
+  content: ""; 
+/*   background: rgba(255, 255, 0, 0.8);  */
+  display: flex;
+  flex-direction: row; 
+  width: 200px; 
+  height: 100px; 
+  position: absolute; 
+  z-index: -1; 
+  transform: rotate(45deg); 
+  -ms-transform: rotate(45deg); 
+  -webkit-transform: rotate(45deg); 
+  top: -500px; left: -60px;
+}
+form[type="newsletter"] { 
+  display: flex;
+  flex-direction: row; 
+  position: relative; 
+  margin: 50px auto 0; 
+  width: 600px; padding: 50px;
+  height:100px;
+}
+label[for="email"] { 
+  display: block; 
+  padding: 0px 0; 
+  
+  font-size: 14px; 
+  font-weight: 700; 
+  letter-spacing: 5px; 
+  text-transform: uppercase; 
+  border-top: 3px solid rgb(201, 168, 168); 
+  border-bottom: 3px solid rgb(201, 168, 168); 
+  margin-bottom: 20px; 
+  width: 30%; 
+  -webkit-transition: all 200ms ease; 
+  -moz-transition: all 200ms ease; 
+  -ms-transition: all 200ms ease; 
+  -o-transition: all 200ms ease; 
+  transition: all 200ms ease; }
+label[for="email"]:hover { 
+  width: 40%; 
+  -webkit-transition: all 200ms ease; 
+  -moz-transition: all 200ms ease; 
+  -ms-transition: all 200ms ease;
+-o-transition: all 200ms ease; 
+  transition: all 200ms ease; }
+input:focus { 
+  outline: 0; 
+}
+input[type="news"] { 
+  background: #FFF; 
+  border: 0; 
+  width: 250px; 
+  height: 20px;
+  padding: 20px;
+  margin-top: 0px;
+  padding-top: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px; 
+  text-transform: uppercase; 
+  float: left; }
+input[type="submit"] { 
+  color: #FFF; 
+  background: linear-gradient(to right, rgb(167, 95, 107) 50%, #36363b 50%);
+background-size: 200% 100%; 
+ 
+  background-position:left bottom; 
+  border: 0; 
+  width: 180px; 
+  height:20px;
+  line-height:0px;
+    
+  padding: 20px; 
+  font-size: 14px; 
+  font-weight: 400; 
+  letter-spacing: 2px; 
+  text-transform: uppercase;
+  -webkit-transition: all 200ms ease; 
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease; 
+  -o-transition: all 200ms ease; 
+  transition: all 200ms ease; 
+  cursor: pointer;}
+input[type="submit"]:hover { 
+  background: linear-gradient(to right, #000 50%,  #36363b 50%);
+background-size: 200% 100%; 
+
+  background-position:right bottom; 
+  -webkit-transition: all 200ms ease; 
+  -moz-transition: all 200ms ease; 
+  -ms-transition: all 200ms ease;
+-o-transition: all 200ms ease; 
+  transition: all 200ms ease; }
+
+
+.gen-hover:hover{
+  color:rgb(167, 95, 107);
+}
+
+
 
 .social-icons h5 {
   color: rgb(57, 57, 57);
   font-size: 2rem;
   font-weight: 500;
   text-align: center;
+  margin:20px;
 }
 
 .in-css {
@@ -1229,15 +1330,25 @@ footer {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 
 .icon-set {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   object-fit: cover;
+  filter: grayscale(100%);
+} 
+
+.icon-set:hover{
+  filter: none;
+  
 }
 
+.icon-set:active{
+  filter:hue-rotate(50%);
+  
+}
 .social-list {
   display: flex;
   /* flex-direction: column; */
