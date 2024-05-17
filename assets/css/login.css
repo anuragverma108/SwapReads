@@ -103,9 +103,9 @@ p {
 .form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding: 24px;
-  margin-top: -10px; /* Move the form upwards */
+  gap: 10px;
+  padding: 35px;
+  margin-top: -30px; /* Move the form upwards */
 }
 
 .note {
@@ -147,9 +147,9 @@ p {
   transform: translateX(-50%);
   /* background-color: #240046; */
   background-color: hsl(357, 37%, 62%);
-  max-height: 47rem;
-  width: 90%;
-  max-width: 40rem;
+  max-height: 60rem;
+  width: 100%;
+  max-width: 50rem;
   overflow: hidden;
   border-radius: 2%;
   box-shadow: 0 0 15px 5px #24004628;
@@ -202,14 +202,81 @@ label {
   border-radius: 4px;
   font-size: 1.5rem;
 }
+/* OR separator */
+#or {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  font-size: 1.5rem;
+  height: 1px; 
+  margin: 10px 0;
+}
+
+#or::before,
+#or::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 1px;
+  background-color: #ccc;
+}
+
+#or::before {
+  margin-right: 10px;
+}
+
+#or::after {
+  margin-left: 10px;
+}
+
+/* Google button */
+#google-sign-in {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 40px;
+  font-family: var(--ff-poppins);
+  background-color: #2887e0;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+#google-sign-in:hover {
+  background-color: #ca1107;
+}
+
 
 /*Register*/
+#register{
+  font-size: medium;
+  color: var(--old-rose);
+  background-color: #eee;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#register:hover {
+  background-color: white;
+  background-color: var(--old-rose);
+}
+
 .register {
   background: #eee;
+  width:100%;
   font-family: var(--ff-poppins);
   border-radius: 90% / 10%;
   transform: translateY(4%);
   transition: 0.8s ease-in-out;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
 }
 #register{
   color: var(--old-rose);
@@ -231,7 +298,7 @@ label {
 }
 
 #chk:checked ~ .register {
-  transform: translateY(-78%);
+  transform: translateY(-69%);
 }
 
 #chk:checked ~ .register label {
@@ -332,7 +399,7 @@ label {
 
   .main {
     bottom: 0%;
-    padding: 10px;
+    padding: 0px;
   }
 
   .note h1 {
@@ -340,17 +407,43 @@ label {
   }
 
   .main {
-    width: 95%;
+    width: 100%;
+    height:420px;
+  }
+  .register{
+    width: 100%;
+    margin-left: 0%;
+    padding-left: 0%;
+    margin-bottom: 0px;
+    padding-bottom: 45px;
+  }
+  .register .form label{
+    margin-top:0px;
+  }
+  #email{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  #register{
+    margin-top: 20px;
+    margin-bottom: 25px;
   }
 }
 
 @media (max-width: 480px) {
   .main {
-    padding: 15px;
+    padding: 0px;
   }
   .input,
   .form button {
     font-size: 1rem;
+  }
+  .register{
+    width: 100%;
+    margin-left: 0%;
+    padding-left: 0%;
+    margin-bottom: 0px;
+    padding-bottom: 45px;
   }
 }
 
