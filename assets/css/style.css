@@ -655,6 +655,7 @@ body {
   box-shadow: var(--shadow-2);
   position: relative;
   /* Add position relative to .chapter-card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth effect */
 }
 
 .chapter-card::before {
@@ -663,18 +664,19 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 50%;
+  width: 0%;
   height: 3px;
-  /* Adjust line thickness as needed */
-  background-color: pink;
-  /* Pink line color */
-  transition: width 0.3s ease;
-  /* Transition width property */
+  background-color: pink; /* Pink line color */
+  transition: width 0.3s ease; /* Transition width property */
+}
+
+.chapter-card:hover {
+  transform: scale(1.1); /* Increase scale on hover */
+  box-shadow: var(--shadow-3); /* Add shadow effect on hover */
 }
 
 .chapter-card:hover::before {
-  width: 100%;
-  /* Expand line width on hover */
+  width: 100%; /* Expand line width on hover */
 }
 
 .chapter-card .card-title {
