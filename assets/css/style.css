@@ -460,6 +460,7 @@ body {
 }
 
 .navbar {
+  display: inline-block;
   position: absolute;
   top: 100%;
   left: 0;
@@ -488,8 +489,11 @@ body {
 
   margin-block-end: 10px;
 }
-
+.navbar-item:nth-child(7) .navbar-link {
+  margin-right: 25px;
+}
 .navbar-link {
+  position: relative;
   color: var(--charcoal);
   padding-block: 8px;
   line-height: 2;
@@ -1579,6 +1583,10 @@ footer {
     gap: 30px;
   }
 
+  .switch-container{
+    right: .2rem;
+  }
+
   /**
    * BENEFITS
    */
@@ -1743,16 +1751,33 @@ footer {
 }
 
 .navbar-link:hover {
-  transform: scale(1.1);
-  background-color: blanchedalmond;
+  /* transform: scale(1.1);
   border-radius: 15px;
+  background-color: blanchedalmond; */
+  text-shadow: 2px 2px 10px #f39d127e, -2px -2px 4px rgba(175, 142, 25, 0.5);
 }
 
 .navbar-link.active,
 .navbar-link:hover {
-  font-size: 1.2em;
-  border-bottom: 2px solid darkred;
+  font-size: 1.1em;
+  /* border-bottom: 2px solid darkred; */
   color: darkred;
+}
+
+.navbar-link::after{
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  left: 0px;
+  height: 3px;
+  background-color: darkred;
+  width: 0;
+  height: 3px;
+  box-shadow: 0 0 10px #f39d127e;
+  transition: all 0.6s;
+}
+.navbar-link:hover::after{
+  width: 100%;
 }
 
 /* Faq Section */
