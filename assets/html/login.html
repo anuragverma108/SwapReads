@@ -41,6 +41,7 @@
       href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <script src="https://kit.fontawesome.com/1c2c2462bf.js" crossorigin="anonymous"></script>
 
     <title>Login / SignUp</title>
     <link rel="stylesheet" href="../css/login.css" />
@@ -122,7 +123,11 @@
         <form class="form" id="login-form">
           <label for="chk" aria-hidden="true">LOGIN</label>
           <input class="input" type="email" name="email" id="login_email" placeholder="Email" required />
-          <input class="input" type="password" name="pswd" id="login_password" placeholder="Password" required />
+         
+          <div class="input-box">
+            <input class="input" type="password" name="pswd" id="login_password" placeholder="Password" required />
+            <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-login">
+        </div>
           <button type="submit" name="Login" id="login">Submit</button>
           <p class="forget-password">
             Forgot Password?
@@ -141,7 +146,51 @@
           <label for="chk" aria-hidden="true">Create Account</label>
           <!-- <input class="input" type="text" name="txt" placeholder="Username" required=""> -->
           <input class="input" type="email" name="email" id="email" placeholder="Email" required />
-          <input class="input" type="password" name="pswd" id="password" placeholder="Password" required />
+          
+        <div class="input-box">
+            <input class="input" type="password" name="pswd" id="password" placeholder="Password" required />
+            <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon">
+        </div>
+
+        <div>
+            <div class="progress">
+                <div id="password-strength" 
+                    class="progress-bar" 
+                    role="progressbar" 
+                    aria-valuenow="40" 
+                    aria-valuemin="0" 
+                    aria-valuemax="100">
+                </div>
+            </div>
+            <ul class="list-unstyled">
+                <li class="">
+                    <span class="low-upper-case">
+                        <i class="fas fa-circle" aria-hidden="true"></i>
+                        &nbsp;Lowercase &amp; Uppercase
+                    </span>
+                </li>
+                <li class="">
+                    <span class="one-number">
+                        <i class="fas fa-circle" aria-hidden="true"></i>
+                        &nbsp;Number (0-9)
+                    </span> 
+                </li>
+                <li class="">
+                    <span class="one-special-char">
+                        <i class="fas fa-circle" aria-hidden="true"></i>
+                        &nbsp;Special Character (!@#$%^&*)
+                    </span>
+                </li>
+                <li class="">
+                    <span class="eight-character">
+                        <i class="fas fa-circle" aria-hidden="true"></i>
+                        &nbsp;Atleast 8 Character
+                    </span>
+                </li>
+            </ul>
+        </div>
+        
+
           <button type="submit" name="register" id="register">
             Register
           </button>
@@ -162,6 +211,111 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    let eyeIcon = document.getElementById("eyeicon");
+    let password = document.getElementById("password");
+    let eyeIconLogin = document.getElementById("eyeicon-login");
+    let passwordLogin = document.getElementById("login_password");
+    let passwordStrength = document.getElementById("password-strength");
+    let lowUpperCase = document.querySelector(".low-upper-case i");
+    let number = document.querySelector(".one-number i");
+    let specialChar = document.querySelector(".one-special-char i");
+    let eightChar = document.querySelector(".eight-character i");
+
+    // Set the password field to type "password" by default
+    password.type = "password";
+    eyeIcon.src = "../images/eye-close.png"; // Set the initial eye icon as closed
+
+    eyeIcon.onclick = function () {
+        if (password.type === "password") {
+            password.type = "text";
+            eyeIcon.src = "../images/eye-open.png";
+        } else {
+            password.type = "password";
+            eyeIcon.src = "../images/eye-close.png";
+        }
+    };
+
+    passwordLogin.type = "password";
+        eyeIconLogin.src = "../images/eye-close.png"; // Set the initial eye icon as closed
+
+        eyeIconLogin.onclick = function () {
+        if (passwordLogin.type === "password") {
+            passwordLogin.type = "text";
+            eyeIconLogin.src = "../images/eye-open.png";
+        } else {
+            passwordLogin.type = "password";
+            eyeIconLogin.src = "../images/eye-close.png";
+        }
+    };
+
+    password.addEventListener("keyup", function(){
+        let pass = document.getElementById("password").value;
+        checkStrength(pass);
+    });
+
+    function checkStrength(password) {
+        let strength = 0;
+
+        //If password contains both lower and uppercase characters
+        if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) {
+            strength += 1;
+            lowUpperCase.classList.remove('fa-circle');
+            lowUpperCase.classList.add('fa-check');
+        } else {
+            lowUpperCase.classList.add('fa-circle');
+            lowUpperCase.classList.remove('fa-check');
+        }
+        //If it has numbers and characters
+        if (password.match(/([0-9])/)) {
+            strength += 1;
+            number.classList.remove('fa-circle');
+            number.classList.add('fa-check');
+        } else {
+            number.classList.add('fa-circle');
+            number.classList.remove('fa-check');
+        }
+        //If it has one special character
+        if (password.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) {
+            strength += 1;
+            specialChar.classList.remove('fa-circle');
+            specialChar.classList.add('fa-check');
+        } else {
+            specialChar.classList.add('fa-circle');
+            specialChar.classList.remove('fa-check');
+        }
+        //If password is greater than 7
+        if (password.length > 7) {
+            strength += 1;
+            eightChar.classList.remove('fa-circle');
+            eightChar.classList.add('fa-check');
+        } else {
+            eightChar.classList.add('fa-circle');
+            eightChar.classList.remove('fa-check');   
+        }
+
+        // If value is less than 2
+        if (strength < 2) {
+            passwordStrength.classList.remove('progress-bar-warning');
+            passwordStrength.classList.remove('progress-bar-success');
+            passwordStrength.classList.add('progress-bar-danger');
+            passwordStrength.style = 'width: 10%';
+        } else if (strength == 3) {
+            passwordStrength.classList.remove('progress-bar-success');
+            passwordStrength.classList.remove('progress-bar-danger');
+            passwordStrength.classList.add('progress-bar-warning');
+            passwordStrength.style = 'width: 60%';
+        } else if (strength == 4) {
+            passwordStrength.classList.remove('progress-bar-warning');
+            passwordStrength.classList.remove('progress-bar-danger');
+            passwordStrength.classList.add('progress-bar-success');
+            passwordStrength.style = 'width: 100%';
+        }
+    }
+
+  </script>
+
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js';
