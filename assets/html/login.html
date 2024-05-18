@@ -128,6 +128,9 @@
             Forgot Password?
             <a href="#" id="forgot_password_link">Reset Here</a>
           </p>
+          <div id="or">Or</div>
+          <button id="google-sign-in"> Sign In with Google </button>
+
         </form>
       </div>
 
@@ -142,6 +145,9 @@
           <button type="submit" name="register" id="register">
             Register
           </button>
+          <div id="or">Or</div>
+          <button id="google-sign-in"> Sign Up with Google </button>
+
         </form>
       </div>
     </div>
@@ -159,6 +165,7 @@
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js';
+    import {getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
     import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js';
     import {
       getAuth,
@@ -185,9 +192,10 @@
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
+    const provider = new GoogleAuthProvider(app);
     const analytics = getAnalytics(app);
     //console.log(app);
-    const auth = getAuth();
+    const auth = getAuth(app);
 
 
   //----- New Registration code start
@@ -276,6 +284,33 @@
         });
     });
     //----- End
+    
+    //google auth redirect
+    document.getElementById('google-sign-in').addEventListener('click', (e) => {
+      signInWithRedirect(auth, provider);
+
+      getRedirectResult(auth)
+        .then((result) => {
+        window.location.href = '../../index.html';
+        // This gives you a Google Access Token. You can use it to access Google APIs.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+      }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });  
+});
 
     // google auth
 
