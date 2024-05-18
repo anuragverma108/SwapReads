@@ -1172,13 +1172,16 @@ footer {
   padding-bottom: 20px;
 }
 
-
-.foot-left {
-  width: 30vw;
+.description {
+  color: #555;
+  text-align: justify;
+  max-width: 600px; 
+  margin: 0 auto; 
 }
 
+
 .foot-middle {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   text-align: center;
 }
 
@@ -1193,8 +1196,8 @@ footer {
   list-style: none;
 }
 
-.foot-middle ul li {
-  text-align: left;
+.foot-middle ul li, .foot-middle h2 {
+  text-align: center;
 }
 
 .nav-links {
@@ -1248,6 +1251,7 @@ footer {
 
 .social-icons h5 {
   color: rgb(57, 57, 57);
+  padding-top: 35px;
   font-size: 2rem;
   font-weight: 500;
   text-align: center;
@@ -1336,9 +1340,7 @@ footer {
 }
 
 @media(max-width: 480px) {
-  .foot-left .desc p {
-    width: 100%;
-  }
+  
 }
 
 /**
@@ -2018,4 +2020,90 @@ footer {
 /* genre */
 #genre .chapter-card{
   background-color: var(--seashell);
+}
+
+
+/* Medium devices (large tablets and small laptops, 768px to 1060px) */
+@media (min-width: 768px) and (max-width: 1060px) {
+  .foot-top {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .foot-left{
+    max-width: 50%;
+  }
+  .foot-middle, .social-icons {
+    flex: 1;
+    max-width: 25%;
+    text-align: left;
+  }
+
+  .foot-left .desc a.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .foot-left .desc p {
+    text-align: justify;
+    max-width: 100%;
+  }
+
+  .foot-middle h2, .social-icons h5 {
+    font-size: 18px;
+  }
+
+  .foot-middle ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .foot-middle ul li {
+    margin-bottom: 10px;
+  }
+
+  .foot-middle ul li a {
+    text-decoration: none;
+
+  }
+}
+
+
+@media (max-width: 768px) {
+  .foot-top {
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  
+  .foot-left, .foot-middle, .social-icons, .description  {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .foot-left .desc a.logo {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .social-icons .input-newsletter {
+    flex-direction: column;
+  }
+
+  .social-icons .input-newsletter input, 
+  .social-icons .input-newsletter button,
+  .description {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .social-icons .icons {
+    display: flex;
+    justify-content: center;
+  }
+
+  .social-icons .icons a {
+    margin: 0 5px;
+  }
 }
