@@ -28,6 +28,8 @@
       href="/assets/favicon_package_v0.16/safari-pinned-tab.svg"
       color="#5bbad5"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -122,12 +124,18 @@
         <form class="form" id="login-form">
           <label for="chk" aria-hidden="true">LOGIN</label>
           <input class="input" type="email" name="email" id="login_email" placeholder="Email" required />
-          <input class="input" type="password" name="pswd" id="login_password" placeholder="Password" required />
+          <div class="pass-container">
+            <input class="input" type="password" name="pswd" id="login_password" placeholder="Password" required />
+            <i class="fa fa-eye-slash eye-icon" id="togglePassword"></i>
+          </div>
           <button type="submit" name="Login" id="login">Submit</button>
           <p class="forget-password">
             Forgot Password?
-            <a href="#" id="forgot_password_link">Reset Here</a>
+            <a href="forgot-pass.html" id="forgot_password_link">Reset Here</a>
           </p>
+          <div id="or">Or</div>
+          <button id="google-sign-in"> Sign In with Google </button>
+
         </form>
       </div>
 
@@ -138,10 +146,17 @@
           <label for="chk" aria-hidden="true">Create Account</label>
           <!-- <input class="input" type="text" name="txt" placeholder="Username" required=""> -->
           <input class="input" type="email" name="email" id="email" placeholder="Email" required />
-          <input class="input" type="password" name="pswd" id="password" placeholder="Password" required />
+          <div class="pass-container">
+            <input class="input" type="password" name="pswd" id="password" placeholder="Password" required />
+            <i class="fa fa-eye-slash eye-icon" id="toggleSignupPassword"></i>
+          </div>
+
           <button type="submit" name="register" id="register">
             Register
           </button>
+          <div id="or">Or</div>
+          <button id="google-sign-in"> Sign Up with Google </button>
+
         </form>
       </div>
     </div>
@@ -159,6 +174,7 @@
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js';
+    import {getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
     import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js';
     import {
       getAuth,
@@ -185,9 +201,10 @@
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
+    const provider = new GoogleAuthProvider(app);
     const analytics = getAnalytics(app);
     //console.log(app);
-    const auth = getAuth();
+    const auth = getAuth(app);
 
 
   //----- New Registration code start
@@ -276,6 +293,33 @@
         });
     });
     //----- End
+    
+    //google auth redirect
+    document.getElementById('google-sign-in').addEventListener('click', (e) => {
+      signInWithRedirect(auth, provider);
+
+      getRedirectResult(auth)
+        .then((result) => {
+        window.location.href = '../../index.html';
+        // This gives you a Google Access Token. You can use it to access Google APIs.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+      }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });  
+});
 
     // google auth
 
@@ -342,4 +386,30 @@
       applyDarkModePreferenceOnLoginPage();
     });
   </script>
+
+  <!-- For Eye Toggling button -->
+  <script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const toggleSignupPassword = document.querySelector('#toggleSignupPassword');
+    const password = document.querySelector('#login_password');
+    const signupPassword = document.querySelector('#password');
+
+    togglePassword.addEventListener('click', function (e) {
+        // toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // toggle the eye slash icon
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+    });
+    toggleSignupPassword.addEventListener('click', function (e) {
+        // toggle the type attribute
+        const type = signupPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+        signupPassword.setAttribute('type', type);
+        // toggle the eye slash icon
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+    });
+</script>
+
 </html>
