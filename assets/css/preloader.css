@@ -1,0 +1,73 @@
+/* Light mode */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: hsl(20, 43%, 93%); /* Light background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-out, visibility 1s ease-out;
+    opacity: 1;
+    visibility: visible;
+    z-index: 9999; /* Ensure the preloader is above all other content */
+}
+
+/* Dark mode */
+.dark-mode #preloader {
+    background: #1E1C1C; /* Dark background color */
+}
+
+/* When hidden, preloader transitions out */
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#loader {
+    display: block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: hsl(304, 14%, 46%);
+    animation: spin 2s linear infinite;
+}
+
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: hsl(357, 37%, 62%);
+    animation: spin 3s linear infinite;
+}
+
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: hsl(357, 93%, 84%);
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
