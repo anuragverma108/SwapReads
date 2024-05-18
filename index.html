@@ -1323,6 +1323,7 @@ animateCircles();
       // Get the top position of each section on the page
       var homeSection = document.getElementById("home").offsetTop;
       var benefitsSection = document.getElementById("benefits").offsetTop;
+      var genreSection = document.getElementById("genre").offsetTop;
       var chaptersSection = document.getElementById("chapters").offsetTop;
       var pricingSection = document.getElementById("pricing").offsetTop;
       var contactSection = document.getElementById("contact").offsetTop;
@@ -1330,8 +1331,10 @@ animateCircles();
       // Check which section the user has scrolled to and add the active class accordingly
       if (scrollPosition < benefitsSection) {
         setActiveLink("home");
-      } else if (scrollPosition >= benefitsSection && scrollPosition < chaptersSection) {
+      } else if (scrollPosition >= benefitsSection && scrollPosition < genreSection) {
         setActiveLink("benefits");
+      }else if (scrollPosition >= genreSection && scrollPosition < chaptersSection) {
+        setActiveLink("genre");
       } else if (scrollPosition >= chaptersSection && scrollPosition < pricingSection) {
         setActiveLink("chapters");
       } else if (scrollPosition >= pricingSection && scrollPosition < contactSection) {
