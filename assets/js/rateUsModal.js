@@ -5,7 +5,7 @@ const ratingHeading = document.querySelector('.rating_heading');
 let current_rating = document.querySelector('.current_rating');
 const rateUsModal = document.querySelector(".rate-us-modal")
 const rateUsModalWrapper = document.querySelector(".rate-us-modal-wrapper")
-
+const thankYouMessage = document.querySelector(".thank_you_message");
 
 let isStarClicked = false;
 allStars.forEach((star, i) => {
@@ -32,8 +32,7 @@ submitButton.onclick = function() {
     // Hide submit button
     submitButton.style.display = 'none';
     // Display thank you message
-    const thankYouMessage = '<p class="thank_you_message">Thank you for rating us!</p>';
-    rateUsModal.innerHTML += (thankYouMessage);
+    thankYouMessage.style.display = 'block';
 };
 
 
