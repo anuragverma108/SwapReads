@@ -135,9 +135,9 @@
         });
     }
 
-    // document.getElementById('google').addEventListener('click', function () {
-    //   signInWithGoogle();
-    // });
+    document.getElementById('google').addEventListener('click', function () {
+      signInWithGoogle();
+    });
   function applyDarkModePreferenceOnLoginPage() {
     const isDarkMode = isDarkModePreferred();
     if (isDarkMode) {
