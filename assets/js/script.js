@@ -129,11 +129,9 @@ const addEventOnelem = function (elem, type, callback) {
 const navbar = document.querySelector("[data-navbar]");
 const navbarLinks = document.querySelectorAll("[data-nav-link]");
 const navToggler = document.querySelector("[data-nav-toggler]");
-const logoImage = document.querySelector('.logopic');
-const themeSwitch = document.getElementById('switch');
-
-// Get the current theme from localStorage or default to 'light'
-let currentTheme = localStorage.getItem('currentTheme') || 'light';
+const logoImage = document.querySelector('.logopic'); // Added
+const themeSwitch = document.getElementById('switch'); // Added
+let currentTheme = 'light'; // Added
 
 const toggleNavbar = function () {
   navbar.classList.toggle("active");
@@ -145,7 +143,7 @@ const closeNavbar = function () {
   navToggler.classList.remove("active");
 }
 
-const toggleTheme = function () {
+const toggleTheme = function () { // Added
   if (currentTheme === 'light') {
     logoImage.src = './assets/images/logoPicDark.png';
     currentTheme = 'dark';
@@ -153,20 +151,13 @@ const toggleTheme = function () {
     logoImage.src = './assets/images/logoPicLight.png';
     currentTheme = 'light';
   }
-  // Save the current theme to localStorage
-  localStorage.setItem('currentTheme', currentTheme);
 }
 
-// Set the initial logo image based on the current theme
-if (currentTheme === 'dark') {
-  logoImage.src = './assets/images/logoPicDark.png';
-} else {
-  logoImage.src = './assets/images/logoPicLight.png';
-}
+toggleTheme(); // Added
 
 addEventOnelem(navToggler, 'click', toggleNavbar);
 addEventOnelem(navbarLinks, "click", closeNavbar);
-themeSwitch.addEventListener('change', toggleTheme);
+themeSwitch.addEventListener('change', toggleTheme); // Added
 
 
 
@@ -216,4 +207,9 @@ function validateAndConnect() {
   } else {
     swal("Request received!", "We will let you know as soon as we find a reader with your requested book.","success");
   }
+}
+
+function getRecommendations() {
+  const selectedGenre = document.getElementById('genre').value;
+  window.location.href = `recommendations.html?genre=${selectedGenre}`;
 }

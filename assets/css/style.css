@@ -11,18 +11,6 @@
   justify-content: center;
 }
 
-.circle {
-  height: 24px;
-  width: 24px;
-  border-radius: 24px;
-  background-color: black;
-  position: fixed; 
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 99999999; /* so that it stays on top of all other elements */
-}
-
 .navbar-item {
   cursor: pointer;
 }
@@ -374,13 +362,12 @@ body {
 
 .btn-secondary {
   border: 1px solid var(--old-rose);
-  color: white;
-  background-color: var(--old-rose);
+  color: var(--old-rose);
   border-radius: var(--radius-5);
 }
 
 .btn-secondary:is(:hover, :focus) {
-  background-color: var(--chinese-violet);
+  background-color: var(--old-rose);
   color: var(--white);
 }
 
@@ -501,15 +488,6 @@ body {
 
   margin-block-end: 10px;
 }
-
-/* @media (min-width:641px)  { 
-  .navbar-list{
-    flex-direction: column;
-  }
-  .navbar.active{
-    max-height: 330px;
-  }
- } */
 
 .navbar-link {
   color: var(--charcoal);
@@ -868,18 +846,6 @@ body {
   gap: 25px;
 }
 
-.contact .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.contact iframe {
-  width: 800px;
-  height: 450px;
-}
-
 .contact-form {
   background-color: var(--seashell);
   padding: 20px;
@@ -1128,23 +1094,10 @@ textarea.input-field {
   .rate-us-modal {
     width: 50%;
   }
-
-  .contact iframe {
-    width: 500px;
-    height: 350px;
-  }
 }
 
 @media only screen and (max-width: 600px) {
   /* Adjustments for smaller screens */
-  .navbar-list{
-    display: flex;
-    flex-direction: column;
-  }
-  .navbar{
-    display: flex;
-    justify-content: center;
-  }
 
   .star {
     font-size: 2rem;
@@ -1261,14 +1214,14 @@ footer {
 
 .btn-signup {
   padding: 4px;
-  color: white;
-  background-color: var(--old-rose);
+  color: rgb(210, 164, 172);
+  background-color: white;
   border-radius: 5px;
 }
 
 .btn-signup:hover {
   color: white;
-  background-color: var(--chinese-violet);
+  background-color: rgb(194, 148, 156);
   ;
 }
 
@@ -1566,7 +1519,6 @@ footer {
 @media (max-width: 992px) {
   .switch-container {
     right: -20px;
-    bottom: 10px;
   }
 }
 
@@ -1974,48 +1926,83 @@ footer {
     width: 100%;
   }
 }
-@media (min-width:320px)   { 
-  .navbar-list{
-    flex-direction: column;
-  }
-  
- 
-  
- }
-@media (min-width:481px)   { 
-  .navbar-list{
-    flex-direction: column;
-  }
-  
 
-
-
-
+/* recommendation system */
+.container00 {
+  max-width: 900px;
+  max-height: 800px;
+  margin: 20px auto;
+  padding: 80px;
+  border: 1px solid #ccc;
+  /* border-radius: 5px; */
+  background-color: var(--seashell);
+  border-radius: var(--radius-5);
+  margin-bottom: 50px;
+}
+.preference-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.preference-bar label {
+  font-weight: bold;
+  font-size: 20px;
+  color: #474646;
+}
+.preference-bar select {
+  padding: 9px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+select {
+  /* Remove default blue background color */
+  background-color: transparent;
+  /* Optional: Remove default blue text color */
+  color: black; /* or whatever color you want */
+}
+.preference-bar button {
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 5px;
+  /* background-color: #007bff; */
+  /* color: #fff; */
+  border: none;
+  cursor: pointer;
+}
+/* .preference-bar button:hover { */
+  /* background-color: #0056b3; */
+/* } */
+.preference-bar select {
+  padding: 8px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 2px solid #444242;
+  outline: none;
+  background-color: rgb(234, 224, 221);
+  color: #333;
+}
+.preference-bar select option {
+  background-color: rgb(242, 227, 227);
+  color: #333;
+  padding: 8px;
+}
+.container00 h2{
+  color: rgb(62, 60, 60) ;
+  margin-bottom: 50px;
+  margin-left: 230px;
+  font-size: 30px;
+}
+.preference-bar select:hover {
+  background-color: var(--old-rose_30);
+}.preference-bar select:focus {
+  border-color: #1e1e1f; /* Border color when the select element is focused */
+  box-shadow: 0 0 5px rgb(232, 167, 137); /* Adding a shadow for better focus indication */
 }
 
-  @media (min-width:641px)  { 
-    .navbar-list{
-      flex-direction:column;
-    }
-    
-  }
-  @media (min-width:961px)  {
-    .navbar-list{
-      flex-direction:row
-    }
-   }
-  @media (min-width:1025px) { 
-    .navbar-list{
-      flex-direction:row;
-    }
-   }
-  @media (min-width:1281px) {
-    .navbar-list{
-      flex-direction:row
-    }
-  }
-
-/* genre */
-#genre .chapter-card{
-  background-color: var(--seashell);
+.dark-mode .preference-bar label,
+.dark-mode .preference-bar select:hover,
+.dark-mode .container00 h2 {
+    color: white; /* Color for dark mode */
 }

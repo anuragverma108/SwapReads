@@ -28,12 +28,12 @@
   <link rel="preload" as="image" href="./assets/images/hero-banner.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <script src="./assets/js/rateUsModal.js" defer></script>
@@ -41,6 +41,7 @@
 </head>
 <script src="https://unpkg.com/scrollreveal"></script>
 <script src="./assets/js/faq.js"></script>
+<script src="recommend.js"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -50,42 +51,14 @@
 <!-- Custom CSS -->
 <link rel="stylesheet" href="assets/css/test-style.css">
 
-<!-- Preloader CSS-->
-<link rel="stylesheet" href="assets/css/preloader.css">
-<script src="./assets/js/preloader.js" defer></script>
-
-<body >
-
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
+<body>
 
 
-  <div id="preloader">
-    <div id="loader"></div>
-</div>
   <header class="header header-anim" data-header>
     <div class="container">
-<a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
-    <img src="./assets/images/LogoPicLight.png" alt="" class="logopic" style=" width: 66px;"/>
-</a>
+      <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
+        <img src="./assets/images/LogoPicLight.png" alt="" class="logopic" style=" width: 66px;" />
+      </a>
 
       <nav class="navbar" data-navbar>
         <ul class="navbar-list">
@@ -100,11 +73,6 @@
           </li>
 
           <li class="navbar-item">
-            <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
-                class="ri-bar-chart-fill"></i> Genre</a>
-          </li>
-
-          <li class="navbar-item">
             <a href="#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
                 class="ri-medal-fill"></i> Literary Realms</a>
           </li>
@@ -112,6 +80,11 @@
           <li class="navbar-item">
             <a href="#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
                 class="ri-price-tag-3-fill"></i> Pricing</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#recommend" onclick="lenis.scrollTo('#recommend')" class="navbar-link" data-nav-link><i
+                class="ri-customer-service-2-fill"></i> Book Recommendation</a>
           </li>
 
           <li class="navbar-item">
@@ -125,25 +98,24 @@
 
           <li class="navbar-item" id="login-signup-link">
             <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
-</li>
+          </li>
+          <li class="navbar-item" id="logout-link" style="display: none;">
+            <a href="#" class="navbar-link" id="logout">Logout</a>
+          </li>
 
-<li class="navbar-item" id="login-signup-link">
-    <a href="./assets/html/addremovebook.html" class="navbar-link">Your Booklist for Swapping</a>
-    </li>
-
-<li>
-    <div class="switch-container">
-        <input type="checkbox" id="switch" class="switch-checkbox">
-        <label for="switch" class="switch-label">
-            <div class="switch-button">
-                <span class="material-icons sun-icon">wb_sunny</span>
-                <span class="material-icons moon-icon">brightness_2</span>
+          <li>
+            <div class="switch-container">
+              <input type="checkbox" id="switch" class="switch-checkbox">
+              <label for="switch" class="switch-label">
+                <div class="switch-button">
+                  <span class="material-icons sun-icon">wb_sunny</span>
+                  <span class="material-icons moon-icon">brightness_2</span>
+                </div>
+              </label>
             </div>
-        </label>
-    </div>
-</li>
-</ul>
-</nav>
+          </li>
+        </ul>
+      </nav>
 
       <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
         <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
@@ -377,153 +349,6 @@
       </section>
 
 
-
-
-
-      <!-- Genre -->
-
-<section class="genre" id="genre">
-  <div class="container">
-
-    <p class="section-subtitle">Genre</p>
-
-    <h2 class="h2 section-title has-underline">
-      Explore Different Genres
-      <span class="span has-before"></span>
-    </h2>
-
-    <ul class="grid-list">
-
-      <li>
-        <div class="chapter-card">
-
-          <p class="card-subtitle">01</p>
-
-          <h3 class="h3 card-title">Classic Literature</h3>
-
-          <p class="card-text">
-            The category of classic literature contains literature that is worthy of being read through the ages. Classic literature is timeless and well-written. Sophocles,Charles Dickens, Jane Austen and Virgil are all writers whose works are considered classical literature.
-          </p>
-
-        </div>
-      </li>
-
-      <li>
-        <div class="chapter-card">
-
-          <p class="card-subtitle">02</p>
-
-          <h3 class="h3 card-title">Romance</h3>
-
-          <p class="card-text">
-            a romance is understood to be "love stories", that are primarily focused on the relationship between the main characters of the story.The biggest defining characteristic of the romance genre is that a happy ending is always guaranteed, perhaps living "happily ever after".
-          </p>
-
-        </div>
-      </li>
-
-      <li>
-        <div class="chapter-card">
-
-          <p class="card-subtitle">03</p>
-
-          <h3 class="h3 card-title">Suspense Thriller</h3>
-
-          <p class="card-text">
-            Readers are taken on a rollercoaster ride of tension and intrigue. These gripping tales are filled with twists and turns, keeping readers guessing until the very last page as protagonists navigate dangerous situations.
-          </p>
-
-        </div>
-      </li>
-
-      <li>
-        <div class="chapter-card">
-
-          <p class="card-subtitle">04</p>
-
-          <h3 class="h3 card-title">Science Fiction</h3>
-
-          <p class="card-text">
-            Embarking on voyages across the cosmos and exploring the possibilities of future technology, science fiction books ignite the imagination with visions of advanced civilizations, space exploration, and speculative science.
-          </p>
-
-        </div>
-      </li>
-
-      <li>
-        <div class="chapter-card">
-
-          <p class="card-subtitle">05</p>
-
-          <h3 class="h3 card-title">Fantasy</h3>
-
-          <p class="card-text">
-            Immersed in magical realms and mythical creatures, fantasy books transport readers to worlds where anything is possible, weaving tales of epic quests, ancient prophecies, and battles between good and evil.
-          </p>
-
-        </div>
-      </li>
-
-      <li>
-        <div class="chapter-card">
-
-          <p class="card-subtitle">06</p>
-
-          <h3 class="h3 card-title">Horror</h3>
-
-          <p class="card-text">
-            Sending shivers down readers' spines, horror books delve into the macabre and the supernatural, exploring fear, dread, and the unknown through chilling tales of monsters, ghosts, and psychological terror.
-          </p>
-
-        </div>
-      </li>
-
-      <li>
-        <div class="chapter-card">
-
-          <p class="card-subtitle">07</p>
-
-          <h3 class="h3 card-title">Biography</h3>
-
-          <p class="card-text">
-            Providing insight into real lives and experiences, biography books recount the journeys, triumphs, and struggles of notable individuals, offering inspiration and understanding through their personal stories and achievements.
-          </p>
-
-        </div>
-      </li>
-
-      <li>
-        <div class="chapter-card">
-
-          <p class="card-subtitle">08</p>
-
-          <h3 class="h3 card-title">Self Help</h3>
-
-          <p class="card-text">
-            Empowering readers to improve their lives and well-being, self-help books offer practical advice, strategies, and insights for personal growth, happiness, and success, covering topics such as relationships, productivity, and mental health.
-          </p>
-
-        </div>
-      </li>
-
-      <li>
-        <div class="chapter-card">
-
-          <p class="card-subtitle">09</p>
-
-          <h3 class="h3 card-title">Historical Fiction</h3>
-
-          <p class="card-text">
-            Offering a glimpse into the past, historical fiction books blend real events with fictional narratives, transporting readers to different eras and cultures, bringing history to life through vivid characters and immersive storytelling.
-          </p>
-
-        </div>
-      </li>
-
-    </ul>
-
-  </div>
-</section>
 
 
 
@@ -825,16 +650,14 @@
 
           <h2 class="h2 section-title has-underline">
             Write me anything
-            <span class="span has-before"></span>
+            <span clasas="span has-before"></span>
           </h2>
 
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
           <div class="wrapper">
-            <div class="contact-card">
-              <form action="" id="contact-form ">   
 
-              <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field" size="60px">
+            <form action="" id="contact-form">
+
+              <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field">
 
               <input type="email" name="email_address" id="email" placeholder="Your Email" required class="input-field">
 
@@ -847,27 +670,37 @@
               <!-- Element to display character count for message -->
 
               <button type="submit" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
-            </div>
-            <ul class="contact-card ">
-              <li>
-                <p class="card-title">Address:</p>
-                <address class="address">
-                  12, Nayabad <br>
-                  Kolkata, India 700054
-                </address>
-              </li>
 
-              <li>
-                <p class="card-title">Phone:</p>
-                <a href="tel:1234567890" class="card-link">+91 9124421980</a>
-              </li>
+              <input type="text" name="subject" placeholder="Subject" required class="input-field">
+              <div id="subject-count" class="character-count">0/100</div>
+              <!-- Element to display character count for subject -->
+              <textarea name="message" placeholder="Your Message" class="input-field"></textarea>
 
-              <li>
-                <p class="card-title">Email:</p>
-                <a href="mailto:support@support.com" class="card-link">support@swapreads.com</a>
-              </li>
 
-              <!-- <li>
+              <ul class="contact-card ">
+
+                <li>
+                  <p class="card-title">Address:</p>
+
+                  <address class="address">
+                    12, Nayabad <br>
+                    Kolkata, India 700054
+                  </address>
+                </li>
+
+                <li>
+                  <p class="card-title">Phone:</p>
+
+                  <a href="tel:1234567890" class="card-link">+91 9124421980</a>
+                </li>
+
+                <li>
+                  <p class="card-title">Email:</p>
+
+                  <a href="mailto:support@support.com" class="card-link">support@swapreads.com</a>
+                </li>
+
+                <!-- <li>
                 <p class="social-list-title h3">Connect SwapReads socials</p>
 
                 <ul class="social-list">
@@ -896,16 +729,16 @@
                     </a>
                   </li> -->
 
-              <!-- <li>
+                <!-- <li>
                     <a href="tel:+1234567890" class="social-link">
                       <ion-icon name="logo-whatsapp"></ion-icon>
                     </a>
                   </li> -->
 
-            </ul>
-            </li>
+              </ul>
+              </li>
 
-            </ul>
+              </ul>
 
           </div>
 
@@ -915,108 +748,150 @@
     </article>
   </main>
 
+
+  <!-- Book Recommendation System -->
+
+  <div id="recommend">
+    <p class="section-subtitle">Book Recommendation</p>
+    <h2 class="h2 section-title has-underline">
+      Discover Your Next Read
+      <span clasas="span has-before"></span>
+    </h2>
+    <div class="container00">
+      <h2>User Preference Bar</h2>
+      <div class="preference-bar">
+        <label for="genre">Select Genre:</label>
+        <select id="genre">
+          <option value="select">Select</option>
+          <option value="fiction">Fiction</option>
+          <option value="Technology">Technology</option>
+          <option value="classics">Classics</option>
+          <option value="Self-Help">Self-Help</Self-Help></option>
+          <option value="Science Fiction">Science Fiction</option>
+          <!-- Add more options as needed -->
+        </select>
+        <button onclick="getRecommendations()" class="btn-primary">Get Recommendations</button>
+      </div>
+    </div>
+  </div>
+
+
   <!-- --Testimonials -->
- 
+
   <h2 class="h2 section-title has-underline" style="margin-top: 15px;">
     Testimonials
     <span class="span has-before"></span>
   </h2>
   <p class="section-subtitle">Know what our customers say</p>
 
-<div class="slide-container swiper" style="margin-bottom: 15px;">
-<div class="slide-content">
-<div class="card-wrapper swiper-wrapper">
-    <div class="card swiper-slide">
-        <div class="fronts" style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-          
-        <div class="image-content" >
-        
-          
-            <div class="card-image">
+  <div class="slide-container swiper" style="margin-bottom: 15px;">
+    <div class="slide-content">
+      <div class="card-wrapper swiper-wrapper">
+        <div class="card swiper-slide">
+          <div class="fronts"
+            style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+
+            <div class="image-content">
+
+
+              <div class="card-image">
                 <img src="assets/images/testimonials-1.jpg" alt="" class="card-img">
+              </div>
+              <h2 style="font-size: 20px;">B.Sharmila</h2>
             </div>
-            <h2 style="font-size: 20px;">B.Sharmila</h2>
+
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">
+
+            SwapReads has completely transformed my reading experience! Not only have I discovered new books I never
+            would have picked up otherwise, but I've also connected with fellow book lovers who share my passion. It's
+            like having a personalized library with endless possibilities. Highly recommend! </div>
+
         </div>
-        
-        <div class="rating" >
-            <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+        <div class="card swiper-slide">
+          <div class="fronts"
+            style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+
+            <div class="image-content">
+              <div class="card-image">
+                <img src="assets/images/testimonials-2.jpg" alt="" class="card-img">
+              </div>
+              <h2 style="font-size: 20px;">Prem Sampath</h2>
+            </div>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">
+            SwapReads has transformed my reading habits. Beyond swapping books, it's about fostering a community of
+            passionate readers. I've made friends, broadened my literary horizons, and unearthed hidden gems. Thank you,
+            SwapReads! </div>
         </div>
-        </div>               
-        <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">
-         
-          SwapReads has completely transformed my reading experience! Not only have I discovered new books I never would have picked up otherwise, but I've also connected with fellow book lovers who share my passion. It's like having a personalized library with endless possibilities. Highly recommend! </div>
-          
+        <div class="card swiper-slide">
+          <div class="fronts"
+            style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <div class="image-content">
+              <div class="card-image">
+                <img src="assets/images/testimonials-3.jpg" alt="" class="card-img">
+              </div>
+              <h2 style="font-size: 20px;">Aron Loes</h2>
+            </div>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">
+            SwapReads is a bookworm's paradise! With its user-friendly interface, welcoming community, and vast variety
+            of books for swapping, I've embarked on countless new literary adventures. It's like an ever-active book
+            club where I've connected with fellow literature lovers. I'm completely hooked!</div>
+        </div>
+        <div class="card swiper-slide">
+          <div class="fronts"
+            style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <div class="image-content">
+              <div class="card-image">
+                <img src="assets/images/testimonials-4.jpg" alt="" class="card-img">
+              </div>
+              <h2 style="font-size: 20px;">Sonal K</h2>
+            </div>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">
+            SwapReads revolutionized my reading life! I've decluttered my shelf, discovered hidden gems, and connected
+            with a passionate community. Thank you, SwapReads, for stealing my heart! </div>
+        </div>
+      </div>
     </div>
-    <div class="card swiper-slide">
-        <div class="fronts" style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-          
-          <div class="image-content" >
-                <div class="card-image">
-                    <img src="assets/images/testimonials-2.jpg" alt="" class="card-img">
-                </div>
-                <h2 style="font-size: 20px;">Prem Sampath</h2>
-            </div>
-            <div class="rating" >
-                <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-            </div>
-            </div>
-            <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">SwapReads has transformed my reading habits. Beyond swapping books, it's about fostering a community of passionate readers. I've made friends, broadened my literary horizons, and unearthed hidden gems. Thank you, SwapReads! </div>
-    </div>
-    <div class="card swiper-slide">
-        <div class="fronts" style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-            <div class="image-content" >
-                <div class="card-image">
-                    <img src="assets/images/testimonials-3.jpg" alt="" class="card-img">
-                </div>
-                <h2 style="font-size: 20px;">Aron Loes</h2>
-            </div>
-            <div class="rating" >
-                <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-            </div>
-            </div>                   
-            <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">SwapReads is a bookworm's paradise! With its user-friendly interface, welcoming community, and vast variety of books for swapping, I've embarked on countless new literary adventures. It's like an ever-active book club where I've connected with fellow literature lovers. I'm completely hooked!</div>                
-    </div>
-    <div class="card swiper-slide">
-        <div class="fronts" style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-            <div class="image-content" >
-                <div class="card-image">
-                    <img src="assets/images/testimonials-4.jpg" alt="" class="card-img">
-                </div>
-                <h2 style="font-size: 20px;">Sonal K</h2>
-            </div>
-            <div class="rating" >
-                <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-            </div>
-            </div>                   
-            <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">SwapReads revolutionized my reading life! I've decluttered my shelf, discovered hidden gems, and connected with a passionate community. Thank you, SwapReads, for stealing my heart! </div>
-    </div>
-</div>
-</div>
-<div class="swiper-button-next swiper-navBtn"></div>
-<div class="swiper-button-prev swiper-navBtn"></div>
-<div class="swiper-pagination"></div>
-</div>
+    <div class="swiper-button-next swiper-navBtn"></div>
+    <div class="swiper-button-prev swiper-navBtn"></div>
+    <div class="swiper-pagination"></div>
+  </div>
 
 
 
 
-<!-- Testimonials -->
+  <!-- Testimonials -->
 
   <h1 class="faq" id="faqq">Some Frequently Asked Questions</h1>
   <div class="faq-section">
@@ -1106,10 +981,10 @@
           <button class="btn-signup">Subscribe</button>
         </div>
         <div class="icons">
-          <a href="https://www.facebook.com/askanuragverma?mibextid=ZbWKwL"><img class="icon-set" src="./assets/images/FB icon.png" alt=""></a>
-          <a href="https://www.instagram.com/anurag.bytes"><img class="icon-set" src="./assets/images/insta icon.png" alt=""></a>
-          <a href="https://www.twitter.com/anuragverma_108"><i class="fa-brands fa-x-twitter fa-2xl" style="color: #deb887;"></i></a>
-          <a href="https://www.youtube.com/@anuragbytes_"><img class="icon-set" src="./assets/images/YT icon.png" alt=""></a>
+          <a href=""><img class="icon-set" src="./assets/images/FB icon.png" alt=""></a>
+          <a href=""><img class="icon-set" src="./assets/images/insta icon.png" alt=""></a>
+          <a href=""><i class="fa-brands fa-x-twitter fa-2xl" style="color: #deb887;"></i></a>
+          <a href=""><img class="icon-set" src="./assets/images/YT icon.png" alt=""></a>
         </div>
       </div>
 
@@ -1175,73 +1050,6 @@
 
   <script>
 
-//Custom Cursor
-
-const coords = { x: 0, y: 0 };
-const circles = document.querySelectorAll(".circle");
-
-const colors = [
-  "#ffb56b",
-  "#fdaf69",
-  "#f89d63",
-  "#f59761",
-  "#ef865e",
-  "#ec805d",
-  "#e36e5c",
-  "#df685c",
-  "#d5585c",
-  "#d1525c",
-  "#c5415d",
-  "#c03b5d",
-  "#b22c5e",
-  "#ac265e",
-  "#9c155f",
-  "#950f5f",
-  "#830060",
-  "#7c0060",
-  "#680060",
-  "#60005f",
-  "#48005f",
-  "#3d005e"
-];
-
-circles.forEach(function (circle, index) {
-  circle.x = 0;
-  circle.y = 0;
-  circle.style.backgroundColor = colors[index % colors.length];
-});
-
-window.addEventListener("mousemove", function(e){
-  coords.x = e.clientX;
-  coords.y = e.clientY;
-  
-});
-
-function animateCircles() {
-  
-  let x = coords.x;
-  let y = coords.y;
-  
-  circles.forEach(function (circle, index) {
-    circle.style.left = x - 12 + "px";
-    circle.style.top = y - 12 + "px";
-    
-    circle.style.scale = (circles.length - index) / circles.length;
-    
-    circle.x = x;
-    circle.y = y;
-
-    const nextCircle = circles[index + 1] || circles[0];
-    x += (nextCircle.x - x) * 0.3;
-    y += (nextCircle.y - y) * 0.3;
-  });
- 
-  requestAnimationFrame(animateCircles);
-}
-
-animateCircles();
-
-
     // Function to toggle dark mode
     function toggleDarkMode() {
       const isDarkMode = isDarkModePreferred();
@@ -1271,12 +1079,12 @@ animateCircles();
           document.body.classList.remove('light-mode');
           document.body.classList.add('dark-mode');
         }
-    
+
         function applyLightModeStyles() {
           document.body.classList.remove('dark-mode');
           document.body.classList.add('light-mode');
         }
-    
+
         if (currentTheme) {
           if (currentTheme === 'dark-mode') {
             applyDarkModeStyles();
@@ -1285,7 +1093,7 @@ animateCircles();
             applyLightModeStyles();
           }
         }
-    
+
         switchCheckbox.addEventListener('change', () => {
           if (switchCheckbox.checked) {
             applyDarkModeStyles();
@@ -1296,9 +1104,9 @@ animateCircles();
           }
         });
       } else {
-      console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
-    }
-  });
+        console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
+      }
+    });
   </script>
 
 
@@ -1456,10 +1264,11 @@ animateCircles();
 
   </script>
   <!-- Swiper JS -->
-<script src="assets/js/swiper-bundle.min.js"></script>
-<!-- Custom JavaScript -->
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <!-- Custom JavaScript -->
 
-<script src="assets/js/test-script.js"></script>
+  <script src="assets/js/test-script.js"></script>
+  
 </body>
 
 </html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Recommendations</title>
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<style>
+    :root {
+      --seashell: #fff5ee;
+      --ff-philosopher: 'Merriweather', serif;
+    }
+  body {
+    font-family: var(--ff-philosopher);
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-family: var(--ff-philosopher);
+    font-size: 40px;
+  }
+  #recommendations {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color:var(--seashell);
+  }
+  .book {
+    /* border: 2px solid #efb7b7; */
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 10px;
+    overflow: hidden;
+    background-color: var(--seashell);
+  }
+  .book img {
+    max-width: 150px;
+    float: left;
+    margin-right: 10px;
+  }
+  .book-info {
+    overflow: hidden;
+  }
+  .book-info h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  .book-info p {
+    margin: 2px 0;
+    font-family: 'Poppins', sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<h1>Book Recommendations</h1>
+
+<div id="recommendations"></div>
+
+<script>
+  // Sample book data
+  const books = [
+    {
+        title: "To Kill a Mockingbird",
+        author: "Harper Lee",
+        genre: "Fiction",
+        image: "https://cdn2.penguin.com.au/covers/original/9781784870799.jpg",
+        year: 1960,
+        rating: 4.23,
+        description: "A classic novel set in the fictional town of Maycomb, Alabama, during the Great Depression. The story explores themes of racial injustice and moral growth through the eyes of a young girl named Scout Finch.",
+    },
+    {
+        title: "The Great Gatsby",
+        author: "F. Scott Fitzgerald",
+        genre: "Fiction",
+        image: "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982146702/the-great-gatsby-9781982146702_xlg.jpg",
+        year: 1925,
+        rating: 3.91,
+        description: "Set in the Roaring Twenties, this novel explores themes of love, wealth, and the American Dream. The story follows Jay Gatsby, a mysterious millionaire, and his pursuit of the elusive Daisy Buchanan.",
+    },
+    {
+        title: "1984",
+        author: "George Orwell",
+        genre: "Science Fiction",
+        image: "https://www.bookgeeks.in/wp-content/uploads/2021/07/1984-by-George-Orwell-1.jpg",
+        year: 1949,
+        rating: 4.16,
+        description: "A dystopian novel set in a totalitarian society where individualism and independent thinking are suppressed. The story follows Winston Smith, a low-ranking member of the ruling Party, as he rebels against the oppressive regime.",
+    },
+    {
+        title: "Dune",
+        author: "Frank Herbert",
+        genre: "Science Fiction",
+        image: "https://i.thenile.io/r1000/9780593099322.jpg?r=5e75f0e9c3c7d",
+        year: 1965,
+        rating: 4.23,
+        description: "Set in the distant future amidst a huge interstellar empire, the novel tells the story of young Paul Atreides, whose family accepts the stewardship of the desert planet Arrakis.",
+    },
+    {
+        title: "Pride and Prejudice",
+        author: "Jane Austen",
+        genre: "Classics",
+        image: "https://cdn2.penguin.com.au/covers/original/9780141330167.jpg",
+        year: 1813,
+        rating: 4.25,
+        description: "A romantic novel set in early 19th-century England, focusing on the themes of love, marriage, and social status. The story follows the spirited Elizabeth Bennet as she navigates the complexities of society and falls in love with the enigmatic Mr. Darcy.",
+    },
+    {
+        title: "The Power of Positive Thinking",
+        author: "Norman Vincent Peale",
+        genre: "Self-Help",
+        image: "https://i.thenile.io/r1000/9788194824169.jpg?r=5fc9067a7064c",
+        year: 1952,
+        rating: 4.07,
+        description: "A self-help book that emphasizes the impact of positive thinking on achieving success and personal happiness. It blends psychology, practical advice, and spiritual guidance.",
+    },
+    {
+        title: "Time Management",
+        author: "Brian Tracy",
+        genre: "Self-Help",
+        image: "http://prodimage.images-bn.com/pimages/9780814433430_p0_v1_s1200x630.jpg",
+        year: 2007,
+        rating: 4.02,
+        description: "A self-help book offering practical strategies and techniques for effectively managing time, increasing productivity, and achieving personal and professional goals.",
+    },
+    {
+        title: "Web Programming with HTML5, CSS, and JavaScript",
+        author: "Dean",
+        genre: "Technology",
+        image: "http://prodimage.images-bn.com/pimages/9781284091793_p0_v2_s1200x630.jpg",
+        year: 2018,
+        rating: 4.35,
+        description: "A comprehensive guide to web programming using HTML5, CSS, and JavaScript. The book covers the fundamentals and advanced techniques for creating responsive and interactive web applications.",
+    },
+    {
+        title: "Clean Code: A Handbook of Agile Software Craftsmanship",
+        author: "Robert C. Martin",
+        genre: "Technology",
+        image: "https://miro.medium.com/max/1103/1*PKsDuPxNoKJyJvmlLc64qg.jpeg",
+        year: 2008,
+        rating: 4.40,
+        description: "A guide to writing clean, readable, and maintainable code. It provides principles and best practices for software development, emphasizing the importance of code quality.",
+    }
+];
+
+
+
+  // Function to get URL parameters
+  function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    const results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  }
+
+  // Function to generate book recommendations based on user preferences
+  function generateRecommendations(books, genre) {
+    return books.filter(book => book.genre.toLowerCase() === genre.toLowerCase());
+  }
+
+  // Function to display book recommendations on the page
+  function displayRecommendations(recommendations) {
+    const recommendationsContainer = document.getElementById('recommendations');
+    recommendationsContainer.innerHTML = '';
+    recommendations.forEach(book => {
+      const bookElement = document.createElement('div');
+      bookElement.classList.add('book');
+      const bookInfo = `
+        <img src="${book.image}" alt="${book.title}">
+        <div class="book-info">
+          <h2>${book.title}</h2>
+          <p><strong>Author:</strong> ${book.author}</p>
+          <p><strong>Genre:</strong> ${book.genre}</p>
+          <p><strong>Year:</strong> ${book.year}</p>
+          <p><strong>Rating:</strong> ${book.rating}</p>
+          <p><strong>Description:</strong> ${book.description}</p>
+        </div>
+      `;
+      bookElement.innerHTML = bookInfo;
+      recommendationsContainer.appendChild(bookElement);
+    });
+  }
+
+  // Get the selected genre from URL parameters
+  const selectedGenre = getUrlParameter('genre');
+  
+  // Generate and display book recommendations based on the selected genre
+  if (selectedGenre) {
+    const recommendations = generateRecommendations(books, selectedGenre);
+    displayRecommendations(recommendations);
+  } else {
+    document.getElementById('recommendations').innerHTML = '<p>No genre selected.</p>';
+  }
+</script>
+
+</body>
+</html>
