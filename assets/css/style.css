@@ -169,6 +169,7 @@ a {
 
 img {
   height: auto;
+  z-index: 1;
 
 }
 
@@ -460,7 +461,7 @@ body {
 }
 
 .navbar {
-  position: absolute;
+  position: sticky;
   top: 100%;
   left: 0;
   width: 100%;
@@ -485,6 +486,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  position: relative;
 
   margin-block-end: 10px;
 }
@@ -495,10 +497,64 @@ body {
   line-height: 2;
   transition: var(--transition-1);
   transition-property: all;
+  position: relative;
+  z-index: 1;
+  transition: 0.5s;
+  
+}
+.navbar-item:nth-child(1):is(:hover,:active) ~ span {
+  left: 0;
+  width: 75px;
 }
 
+.navbar-item:nth-child(2):is(:hover,:active) ~ span {
+  left: 80px;
+  width: 95px
+}
+.navbar-item:nth-child(3):is(:hover,:active) ~ span {
+  left: 185px;
+  width: 150px;
+}
+.navbar-item:nth-child(4):is(:hover,:active) ~ span {
+  left: 345px;
+  width: 85px;
+}
+.navbar-item:nth-child(5):is(:hover,:active) ~ span {
+  left: 436px;
+  width: 90px;
+}
+.navbar-item:nth-child(6):is(:hover,:active) ~ span {
+  left: 538px;
+  width: 85px;
+}
+.navbar-item:nth-child(7):is(:hover,:active) ~ span {
+  left: 636px;
+  width: 120px;
+}
+
+nav span{
+  position:absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -150px;
+  width: 60px;
+  height: 55px;
+  background: linear-gradient(90deg,var(--white),var(--light-pink));
+  border-radius: 10px;
+  
+  transition: left 0.5s ease-in-out;
+  /* hsl(357, 37%, 62%) hsl(20, 43%, 93%) blanchedalmond rgb(250, 190, 137)*/
+}
+@media (min-width: 1200px){
+  nav span{
+    left:-310px;
+  }
+}
+
+
 .navbar-link:is(:hover, :focus) {
-  color: var(--old-rose);
+  /* color: darkred; */
+  /* color: var(--old-rose); */
 }
 
 /*-----------------------------------*\
@@ -1743,14 +1799,14 @@ footer {
 }
 
 .navbar-link:hover {
-  transform: scale(1.1);
-  background-color: blanchedalmond;
-  border-radius: 15px;
+  /* transform: scale(1.1); */
+  /* background-color: blanchedalmond;
+  border-radius: 15px; */
 }
 
-.navbar-link.active,
-.navbar-link:hover {
-  font-size: 1.2em;
+.navbar-link.active
+ {
+  /* font-size: 1.2em; */
   border-bottom: 2px solid darkred;
   color: darkred;
 }
@@ -1882,12 +1938,14 @@ footer {
 .switch-label .sun-icon {
   color: #f39c12;
   left: 2px;
+  display: none;
 }
 
 .switch-label .moon-icon {
   color: #bdc3c7;
   opacity: 0;
   left: 5px;
+  display: none;
 }
 
 /* Switch Button */
