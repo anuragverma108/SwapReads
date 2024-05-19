@@ -123,26 +123,51 @@ const addEventOnelem = function (elem, type, callback) {
 
 
 /**
- * toggle navbar
+ * Toggle navbar
  */
 
 const navbar = document.querySelector("[data-navbar]");
 const navbarLinks = document.querySelectorAll("[data-nav-link]");
 const navToggler = document.querySelector("[data-nav-toggler]");
+const logoImage = document.querySelector('.logopic');
+const themeSwitch = document.getElementById('switch');
+
+// Get the current theme from localStorage or default to 'light'
+let currentTheme = localStorage.getItem('currentTheme') || 'light';
 
 const toggleNavbar = function () {
   navbar.classList.toggle("active");
   navToggler.classList.toggle("active");
 }
 
-addEventOnelem(navToggler, 'click', toggleNavbar);
-
 const closeNavbar = function () {
   navbar.classList.remove("active");
   navToggler.classList.remove("active");
 }
 
+const toggleTheme = function () {
+  if (currentTheme === 'light') {
+    logoImage.src = './assets/images/logoPicDark.png';
+    currentTheme = 'dark';
+  } else {
+    logoImage.src = './assets/images/logoPicLight.png';
+    currentTheme = 'light';
+  }
+  // Save the current theme to localStorage
+  localStorage.setItem('currentTheme', currentTheme);
+}
+
+// Set the initial logo image based on the current theme
+if (currentTheme === 'dark') {
+  logoImage.src = './assets/images/logoPicDark.png';
+} else {
+  logoImage.src = './assets/images/logoPicLight.png';
+}
+
+addEventOnelem(navToggler, 'click', toggleNavbar);
 addEventOnelem(navbarLinks, "click", closeNavbar);
+themeSwitch.addEventListener('change', toggleTheme);
+
 
 
 
