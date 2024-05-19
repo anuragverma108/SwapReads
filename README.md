@@ -36,6 +36,33 @@
 SwapReads.com is the solution to common challenges faced by book enthusiasts in today's digital age. We've identified key problems and developed a platform that addresses them efficiently and effectively.
 </div>
 
+## Featured In
+
+<table>
+
+   <tr>
+      <th>Event Logo</th>
+      <th>Event Name</th>
+      <th>Event Description</th>
+   </tr>
+   <tr>
+      <td><img src=".github/assets/gssoc24.png" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
+      <td>GirlScript Summer of Code 2024</td>
+      <td>GirlScript Summer of Code is a three-month-long Open Source Program conducted every summer by GirlScript Foundation. It is an initiative to bring more beginners to Open-Source Software Development.</td>
+   </tr>
+
+</table>
+
+## Table of Contents
+
+* [The Problem](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#the-problem)
+* [How SwapReads Solves These Problems](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#how-swapreadscom-solves-these-problems)
+* [Tech Stack](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#how-swapreadscom-solves-these-problems)
+* [Open Innovation Challenge](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#open-innovation-challenge)
+* [Getting Started](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#open-innovation-challenge)
+* [Contribution](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#contribution)
+* [Creating a Pull Request](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#creating-pull-request)
+* [Our Contributors](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#creating-pull-request)
 
 ## The Problem:
 
@@ -88,7 +115,7 @@ SwapReads.com actively participates in the Open Innovation Challenge by cultivat
 
 Join SwapReads.com today and embark on a literary journey like never before!
 
-## **Getting started**
+## **Getting Started**
 1. Clone the repo
 
 ```sh
@@ -155,6 +182,43 @@ Your involvement helps to improve the project and make it better for everyone. T
 
 7. **Open a Pull Request:**
     - Go to the GitHub page of your forked repository, and you should see an option to create a pull request. Click on it, provide a descriptive title and description for your pull request, and then submit it.
+
+### Alternatively contribute using GitHub Desktop
+
+1. **Open GitHub Desktop:**
+   Launch GitHub Desktop and log in to your GitHub account if you haven't already.
+
+2. **Clone the Repository:**
+   - If you haven't cloned the SwapReads repository yet, you can do so by clicking on the "File" menu and selecting "Clone Repository."
+   - Choose the SwapReads repository from the list of repositories on GitHub and clone it to your local machine.
+
+3. **Switch to the Correct Branch:**
+   - Ensure you are on the branch that you want to submit a pull request for.
+   - If you need to switch branches, you can do so by clicking on the "Current Branch" dropdown menu and selecting the desired branch.
+
+4. **Make Changes:**
+   Make your changes to the code or files in the repository using your preferred code editor.
+
+5. **Commit Changes:**
+   - In GitHub Desktop, you'll see a list of the files you've changed. Check the box next to each file you want to include in the commit.
+   - Enter a summary and description for your changes in the "Summary" and "Description" fields, respectively. Click the "Commit to <branch-name>" button to commit your changes to the local branch.
+
+6. **Push Changes to GitHub:**
+   After committing your changes, click the "Push origin" button in the top right corner of GitHub Desktop to push your changes to your forked repository on GitHub.
+
+7. **Create a Pull Request:**
+  - Go to the GitHub website and navigate to your fork of the SwapReads repository.
+  - You should see a button to "Compare & pull request" between your fork and the original repository. Click on it.
+
+8. **Review and Submit:**
+   - On the pull request page, review your changes and add any additional information, such as a title and description, that you want to include with your pull request.
+   - Once you're satisfied, click the "Create pull request" button to submit your pull request.
+
+9. **Wait for Review:**
+    Your pull request will now be available for review by the project maintainers. They may provide feedback or ask for changes before merging your pull request into the main branch of the SwapReads repository.
+
+⭐️ Support the Project
+If you find this project helpful, please consider giving it a star on GitHub! Your support helps to grow the project and reach more contributors.
 
 <div>
  
