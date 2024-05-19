@@ -215,5 +215,8 @@ function validateAndConnect() {
     swal("Try Again!","Please fill all the details.","warning");
   } else {
     swal("Request received!", "We will let you know as soon as we find a reader with your requested book.","success");
+    document.getElementById('bookTitle').value='';
+    document.getElementById('bookAuthor').value='';
+    document.getElementById('yourPrice').value='';
   }
 }
