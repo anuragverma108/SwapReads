@@ -120,8 +120,6 @@ const addEventOnelem = function (elem, type, callback) {
   }
 }
 
-
-
 /**
  * Toggle navbar
  */
@@ -129,7 +127,7 @@ const addEventOnelem = function (elem, type, callback) {
 const navbar = document.querySelector("[data-navbar]");
 const navbarLinks = document.querySelectorAll("[data-nav-link]");
 const navToggler = document.querySelector("[data-nav-toggler]");
-const logoImage = document.querySelector('.logopic');
+const logoImage = document.getElementById('logoImage');
 const themeSwitch = document.getElementById('switch');
 
 // Get the current theme from localStorage or default to 'light'
@@ -147,10 +145,10 @@ const closeNavbar = function () {
 
 const toggleTheme = function () {
   if (currentTheme === 'light') {
-    logoImage.src = './assets/images/logoPicDark.png';
+    logoImage.src = './assets/images/logo_blackbg.png';
     currentTheme = 'dark';
   } else {
-    logoImage.src = './assets/images/logoPicLight.png';
+    logoImage.src = './assets/images/logo_whitebg.png';
     currentTheme = 'light';
   }
   // Save the current theme to localStorage
@@ -159,17 +157,14 @@ const toggleTheme = function () {
 
 // Set the initial logo image based on the current theme
 if (currentTheme === 'dark') {
-  logoImage.src = './assets/images/logoPicDark.png';
+  logoImage.src = './assets/images/logo_blackbg.png';
 } else {
-  logoImage.src = './assets/images/logoPicLight.png';
+  logoImage.src = './assets/images/logo_whitebg.png';
 }
 
 addEventOnelem(navToggler, 'click', toggleNavbar);
 addEventOnelem(navbarLinks, "click", closeNavbar);
 themeSwitch.addEventListener('change', toggleTheme);
-
-
-
 
 /**
  * header active on scroll down to 100px
@@ -186,8 +181,6 @@ const activeHeader = function () {
 }
 
 addEventOnelem(window, "scroll", activeHeader);
-
-
 
 /**
  * filter tab
