@@ -8,10 +8,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb+srv://new_user_346:JoRrqWMHx2AoOA3e@cluster0.x3ka0pq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect("mongodb+srv://new_user_346:JoRrqWMHx2AoOA3e@cluster0.x3ka0pq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 const User = mongoose.model("User", { username: String, password: String });
 
 app.post("/signup",validate(RegisterSchema), async (req, res) => {
@@ -144,4 +141,5 @@ function sendListingEmailToSeller(sellerEmail, bookTitle) {
     }
   });
 }
-app.listen(3000, () => console.log("Server is running on port 3000"));
+const PORT = 3001; 
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
