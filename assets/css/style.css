@@ -519,19 +519,66 @@ body {
     max-height: 330px;
   }
  } */
+ .navbar-list{
+  display: flex;
+  justify-content: center; /* Center align the navbar items */
+  align-items: center; /* Vertically center the navbar items */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.navbar-item {
+  margin: 0 10px; /* Adjust the horizontal margin to increase spacing */
+  padding: 0; /* Remove default padding */
+}
 
 .navbar-link {
   position: relative;
   color: var(--charcoal);
-  padding-block: 8px;
+  padding: 8px 12px; /* Adjust padding as needed */
   line-height: 2;
   transition: var(--transition-1);
-  transition-property: all;
 }
 
 .navbar-link:is(:hover, :focus) {
   color: var(--old-rose);
 }
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  background-color: var(--white);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.dropdown-item {
+  margin-top: 5px;
+}
+
+.dropdown-item:first-child {
+  margin-top: 0;
+}
+
+.dropdown-menu.active {
+  display: block;
+}
+
+.navbar-item.dropdown {
+  position: relative; /* Ensure the dropdown menu is positioned relative to the navbar item */
+}
+
+.navbar-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Adjust the position of the dropdown menu */
+.dropdown-menu {
+  top: 100%; /* Position below the navbar item */
+}
+
 
 /*-----------------------------------*\
   #HERO
@@ -1861,6 +1908,10 @@ input[type="submit"]:hover {
     max-width: 1140px;
     border-radius: 10px;
   }
+  .navbar-list {
+    gap: 30px; /* Increase gap between navbar items */
+    justify-content: center; /* Center align navbar items */
+  }
 
   /**
    * PREVIEW
@@ -1966,6 +2017,36 @@ input[type="submit"]:hover {
   overflow: hidden;
   transition: max-height 0.5s ease-in-out;
 }
+body{
+  background-color: #f39c12;
+}
+ .dark-mode  {
+  background-color: #222;
+  color: #fff;
+}
+.dark-mode .form{
+  background-color: #333;
+  color: #fff;
+}
+.dark-mode .navbar {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .note {
+  color: #fff;
+}
+
+.dark-mode .container {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .footer {
+  background-color: #333;
+  color: #fff;
+}
+
 
 /* 
 .answers.active {
