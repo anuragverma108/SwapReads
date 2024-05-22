@@ -1191,13 +1191,13 @@ footer {
 .foot-top {
   display: flex;
   justify-content: space-evenly;
-  align-items: top;
+  align-items: flex-start; /* Adjusted alignment */
   border-bottom: 1px solid black;
   padding-bottom: 20px;
 }
 
 .description {
-  color: #555;
+  color: var(--sonic-silver);
   text-align: justify;
   max-width: 600px;
   margin: 0 auto;
@@ -1285,77 +1285,47 @@ form[type="newsletter"]:before {
 }
 form[type="newsletter"] {
   display: flex;
-  flex-direction: row;
-  position: relative;
-  margin: 50px auto 0;
-  width: 600px;
-  padding: 50px;
-  height: 100px;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto; /* Adjusted margin */
+  padding: 20px; /* Adjusted padding */
 }
 label[for="email"] {
   display: block;
-  padding: 0px 0;
-
-  font-size: 14px;
+  font-size: 16px; /* Increased font size */
   font-weight: 700;
-  letter-spacing: 5px;
+  letter-spacing: 1px; /* Decreased letter spacing */
   text-transform: uppercase;
-  border-top: 3px solid rgb(201, 168, 168);
-  border-bottom: 3px solid rgb(201, 168, 168);
-  margin-bottom: 20px;
-  width: 30%;
-  -webkit-transition: all 200ms ease;
-  -moz-transition: all 200ms ease;
-  -ms-transition: all 200ms ease;
-  -o-transition: all 200ms ease;
-  transition: all 200ms ease;
+  margin-bottom: 10px;
 }
-label[for="email"]:hover {
-  width: 40%;
-  -webkit-transition: all 200ms ease;
-  -moz-transition: all 200ms ease;
-  -ms-transition: all 200ms ease;
-  -o-transition: all 200ms ease;
-  transition: all 200ms ease;
-}
+
 input:focus {
   outline: 0;
 }
 input[type="news"] {
+  width: 100%; /* Adjusted width */
+  max-width: 300px;
   background: #fff;
-  border: 0;
-  width: 250px;
-  height: 20px;
-  padding: 20px;
-  margin-top: 0px;
-  padding-top: 20px;
+  height: 40px; /* Increased height */
+  padding: 10px; /* Adjusted padding */
+  margin-bottom: 10px; /* Increased margin */
   font-size: 14px;
   font-weight: 400;
-  letter-spacing: 2px;
   text-transform: uppercase;
-  float: left;
 }
 input[type="submit"] {
-  color: #fff;
-  background: linear-gradient(to right, rgb(167, 95, 107) 50%, #36363b 50%);
-  background-size: 200% 100%;
-
-  background-position: left bottom;
+  width: 100%; /* Adjusted width */
+  max-width: 300px;
+  background:  rgb(167, 95, 107);
   border: 0;
-  width: 180px;
-  height: 20px;
-  line-height: 0px;
-
-  padding: 20px;
+  height: 40px; /* Increased height */
+  line-height: 40px; /* Adjusted line height */
+  padding: 0; /* Removed padding */
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 2px;
   text-transform: uppercase;
-  -webkit-transition: all 200ms ease;
-  -moz-transition: all 200ms ease;
-  -ms-transition: all 200ms ease;
-  -o-transition: all 200ms ease;
-  transition: all 200ms ease;
   cursor: pointer;
 }
 input[type="submit"]:hover {
@@ -1400,51 +1370,22 @@ input[type="submit"]:hover {
   color: white;
   background-color: var(--chinese-violet);
 }
-/* .social-icons{
+
+ .icons {
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
-} */
-.social-icons .icons {
-  display: flex;
-  justify-content:center;
-  align-items: center;
-  gap: 10px;
+  gap: 20px; /* Increased gap for larger icons */
 }
 
-.social-icons .icons a{
-    font-size: 30px;
-    height: 70px;
-    width:70px;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    border-radius: 50%;
-    color: hsl(0, 0%, 78%);
-    position: relative;
-    transition: 0.5s ease;
-    margin-right: 10px;
-}
-.social-icons .icons a:hover{
-  color: hsl(357, 37%, 62%);;
-  font-size: 33px;
-}
-/* .icons {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 10px;
-} */
-
-/* .icon-set {
-  height: 20px;
-  width: 20px;
-  object-fit: cover;
-  filter: grayscale(100%);
-} */
+.icon-set {
+  height: 40px; /* Increased icon size */
+  width: 40px; /* Increased icon size */
+} 
 
 .icon-set:hover {
-  filter: none;
+  transform: scale(1.1); /* Added scale effect */
+  filter: grayscale(0%) hue-rotate(0deg) saturate(150%); /* Adjusted hover effect */
 }
 
 .icon-set:active {
