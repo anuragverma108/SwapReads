@@ -47,13 +47,49 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <style>
+    .preloader{
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+background: white;
+transition: opacity 10s, visibility 5s;
+z-index: 1000;
+}
+
+.preloader--hidden{
+opacity: 0;
+visibility: hidden;
+}
+.preloader img{
+width: 300px;
+height: 300px;
+}
+  </style>
 </head>
 <script src="https://unpkg.com/scrollreveal"></script>
 <script src="./assets/js/faq.js"></script>
 
 <body>
+  <div class="preloader">
+    <img src="./assets/images/Logo-pic.png" alt="" class="center">
+  </div>
+  <script>
+    window.addEventListener("load", () => {
+const loader = document.querySelector(".preloader");
 
+loader.classList.add("preloader--hidden");
 
+loader.addEventListener("transitionend", () => {
+document.body.removeChild(loader);
+});
+});
+  </script>
   <header class="header header-anim" data-header>
     <div class="container">
 
