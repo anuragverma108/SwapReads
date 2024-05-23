@@ -89,9 +89,14 @@ google_login.addEventListener("click", function () {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const user = result.user;
             console.log(user);
+            
+            window.location.href="./index.html";
             alert(user.email + " Login successfully!!!");
-            document.querySelector('#logout').style.display = 'block';
+            
+            // document.querySelector('#logout').style.display = 'block';
             // alert("success");
+
+           
 
         }).catch((error) => {
 
@@ -111,10 +116,10 @@ google_signup.addEventListener("click", function () {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const user = result.user;
             console.log(user);
+            
+            window.location.href="./index.html";
             alert(user.email + " Login successfully!!!");
-            document.querySelector('#logout').style.display = 'block';
-            // alert("success")
-
+          
         }).catch((error) => {
 
             const errorCode = error.code;
@@ -122,6 +127,10 @@ google_signup.addEventListener("click", function () {
         });
 
 })
+
+
+
+
 
 // function updateUserProfile(user){
 //     const userName = userr.displayName;

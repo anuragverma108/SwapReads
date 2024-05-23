@@ -96,7 +96,8 @@
           //console.log(user);
           //window.location.href = '../../index.html';
           alert(user.email+" Login successfully!!!");
-          document.querySelector('#logout').style.display = 'block';
+          window.location.href="./index.html";
+          // document.querySelector('#logout').style.display = 'block';
           // ...
         })
         .catch((error) => {
