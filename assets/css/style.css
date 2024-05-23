@@ -460,6 +460,84 @@ body {
   mix-blend-mode: normal;
 }
 
+ .navbar-list{
+  display: flex;
+  justify-content: center; /* Center align the navbar items */
+  align-items: center; /* Vertically center the navbar items */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.navbar-item {
+  margin: 0 10px; /* Adjust the horizontal margin to increase spacing */
+  padding: 0; /* Remove default padding */
+}
+
+.navbar-link {
+  position: relative;
+  color: var(--charcoal);
+  padding: 8px 12px; /* Adjust padding as needed */
+  line-height: 2;
+  transition: var(--transition-1);
+}
+
+.navbar-link:is(:hover, :focus) {
+  color: var(--old-rose);
+}
+
+.dropdown-menu {
+  /* display: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  background-color: var(--white);
+  padding: 10px;
+  border-radius: 5px; */
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  transition: all 0.3s ease;
+  top: 100%;
+}
+
+.dropdown-item {
+  margin-top: 5px;
+}
+
+.dropdown-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu-item {
+  padding: 12px 16px;
+}
+
+.dropdown-menu-item a {
+  text-decoration: none;
+  color: #000;
+}
+
+.dropdown-item:first-child {
+  margin-top: 0;
+}
+
+.dropdown-menu.active {
+  display: block;
+}
+
+.navbar-item.dropdown {
+  position: relative; /* Ensure the dropdown menu is positioned relative to the navbar item */
+}
+
+.navbar-item.dropdown:hover .dropdown-menu {
+  display: block;
+} */
+
+
 .nav-toggle-btn {
   font-size: 40px;
   color: var(--charcoal);
@@ -503,39 +581,23 @@ body {
   overflow-y: scroll;
 }
 
-
-/* .navbar-item:nth-child(9) .navbar-link {
-  margin-right: 35px;
-} */
-/* .navbar-item:nth-child(9) .navbar-link {
-  margin-right: 5px;
-}*/
-
-/* @media (min-width:641px)  { 
-  .navbar-list{
-    flex-direction: column;
-  }
-  .navbar.active{
-    max-height: 330px;
-  }
- } */
- .navbar-list{
+.navbar-list {
   display: flex;
-  justify-content: center; /* Center align the navbar items */
-  align-items: center; /* Vertically center the navbar items */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar-item {
-  margin: 0 10px; /* Adjust the horizontal margin to increase spacing */
-  padding: 0; /* Remove default padding */
+  margin: 0 10px;
+  padding: 0;
 }
 
 .navbar-link {
   position: relative;
   color: var(--charcoal);
-  padding: 8px 12px; /* Adjust padding as needed */
+  padding: 8px 12px;
   line-height: 2;
   transition: var(--transition-1);
 }
@@ -547,19 +609,26 @@ body {
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: calc(100% + 5px);
-  left: 0;
-  background-color: var(--white);
-  padding: 10px;
-  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  transition: all 0.3s ease;
+  top: 100%;
 }
 
-.dropdown-item {
-  margin-top: 5px;
+.dropdown-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.dropdown-item:first-child {
-  margin-top: 0;
+.dropdown-menu-item {
+  padding: 12px 16px;
+}
+
+.dropdown-menu-item a {
+  text-decoration: none;
+  color: #000;
 }
 
 .dropdown-menu.active {
@@ -567,17 +636,11 @@ body {
 }
 
 .navbar-item.dropdown {
-  position: relative; /* Ensure the dropdown menu is positioned relative to the navbar item */
-}
-
-.navbar-item.dropdown:hover .dropdown-menu {
-  display: block;
+  position: relative;
 }
 
 /* Adjust the position of the dropdown menu */
-.dropdown-menu {
-  top: 100%; /* Position below the navbar item */
-}
+
 
 
 /*-----------------------------------*\
