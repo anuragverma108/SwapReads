@@ -147,10 +147,10 @@ const closeNavbar = function () {
 
 const toggleTheme = function () {
   if (currentTheme === 'light') {
-    logoImage.src = './assets/images/logoPicDark.png';
+    logoImage.src = './assets/images/logo_darkbg.png';
     currentTheme = 'dark';
   } else {
-    logoImage.src = './assets/images/logoPicLight.png';
+    logoImage.src = './assets/images/logo_whitebg.png';
     currentTheme = 'light';
   }
   // Save the current theme to localStorage
@@ -161,7 +161,7 @@ const toggleTheme = function () {
 if (currentTheme === 'dark') {
   logoImage.src = './assets/images/logoPicDark.png';
 } else {
-  logoImage.src = './assets/images/logoPicLight.png';
+  logoImage.src = './assets/images/logo_whitebg.png';
 }
 
 addEventOnelem(navToggler, 'click', toggleNavbar);
