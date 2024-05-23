@@ -181,7 +181,7 @@ ion-icon {
 }
 
 a {
-  color: inherit;
+  color: saddlebrown;
   text-decoration: none;
 }
 
@@ -519,6 +519,7 @@ body {
     max-height: 330px;
   }
  } */
+ 
  .navbar-list{
   display: flex;
   justify-content: center; /* Center align the navbar items */
@@ -545,17 +546,39 @@ body {
 }
 
 .dropdown-menu {
-  display: none;
+  /* display: none;
   position: absolute;
   top: calc(100% + 5px);
   left: 0;
   background-color: var(--white);
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 5px; */
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  transition: all 0.3s ease;
+  top: 100%;
 }
 
 .dropdown-item {
   margin-top: 5px;
+}
+
+.dropdown-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu-item {
+  padding: 12px 16px;
+}
+
+.dropdown-menu-item a {
+  text-decoration: none;
+  color: #000;
 }
 
 .dropdown-item:first-child {
@@ -572,11 +595,108 @@ body {
 
 .navbar-item.dropdown:hover .dropdown-menu {
   display: block;
+} */
+
+
+.nav-toggle-btn {
+  font-size: 40px;
+  color: var(--charcoal);
 }
 
-/* Adjust the position of the dropdown menu */
+.nav-toggle-btn ion-icon {
+  --ionicon-stroke-width: 20px;
+}
+
+.nav-toggle-btn.active .open,
+.nav-toggle-btn .close {
+  display: none;
+}
+
+.nav-toggle-btn .open,
+.nav-toggle-btn.active .close {
+  display: block;
+}
+
+.navbar {
+  border: 1px solid #000;
+  display: inline-block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  padding-inline: 15px;
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: 0.25s var(--cubic-out);
+}
+
+.navbar.active {
+  max-height: 387px;
+  visibility: visible;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition-duration: 0.5s;
+  overflow-y: scroll;
+}
+
+.navbar-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  margin: 0 10px;
+  padding: 0;
+}
+
+.navbar-link {
+  position: relative;
+  color: var(--charcoal);
+  padding: 8px 12px;
+  line-height: 2;
+  transition: var(--transition-1);
+}
+
+.navbar-link:is(:hover, :focus) {
+  color: var(--old-rose);
+}
+
 .dropdown-menu {
-  top: 100%; /* Position below the navbar item */
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  transition: all 0.3s ease;
+  top: 100%;
+}
+
+.dropdown-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu-item {
+  padding: 12px 16px;
+}
+
+.dropdown-menu-item a {
+  text-decoration: none;
+  color: #000;
+}
+
+.dropdown-menu.active {
+  display: block;
+}
+
+.navbar-item.dropdown {
+  position: relative;
 }
 
 
@@ -837,6 +957,7 @@ body {
   display: none;
 }
 
+
 /*-----------------------------------*\
   #PRICING
 \*-----------------------------------*/
@@ -938,6 +1059,14 @@ body {
   padding: 15px;
 }
 
+.small 
+{
+  color: black;
+}
+.lithead
+{
+  color: black;
+}
 .achievement-card .abs-img {
   position: absolute;
   top: 0;
@@ -964,6 +1093,7 @@ body {
 .contact iframe {
   width: 800px;
   height: 450px;
+  border-radius: 5px;
 }
 
 .contact-form {
@@ -1208,8 +1338,9 @@ textarea.input-field {
   }
 
   .contact iframe {
-    width: 500px;
-    height: 350px;
+    width: 350px;
+    height: 300px;
+    
   }
 }
 
@@ -1965,9 +2096,9 @@ input[type="submit"]:hover {
 
 .navbar-link.active,
 .navbar-link:hover {
-  font-size: 1.1em;
+  /* font-size: 1.1em; */
   /* border-bottom: 2px solid darkred; */
-  color: darkred;
+  color: #fcb0b480;
 }
 
 .navbar-link::after {
@@ -1976,7 +2107,7 @@ input[type="submit"]:hover {
   bottom: 1px;
   left: 0px;
   height: 3px;
-  background-color: darkred;
+  background-color: #fcb0b480;
   width: 0;
   height: 3px;
   box-shadow: 0 0 10px #f39d127e;

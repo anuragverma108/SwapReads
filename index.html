@@ -88,11 +88,11 @@
 
       <nav class="navbar" data-navbar>
         <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
-        <img src="./assets/images/LogoPicLight.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
+        <img src="./assets/images/logo_darkbg.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
         </a>
 
         <ul class="navbar-list">
-          <img src="assets/images/logo_whitebg.png" class="logopic" style=" width: 150px;">
+          <img src="assets/images/logo_darkbg.png" class="logopic" style=" width: 150px;">
 
           <li class="navbar-item">
             <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
@@ -121,9 +121,16 @@
             <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
           </li>
 
+
           <li class="navbar-item dropdown">
             <a href="#" class="navbar-link">More <i class="ri-arrow-down-s-line"></i></a>
             <div class="dropdown-menu">
+
+                    
+          <li class="navbar-item dropdown" id="more-dropdown">
+            <a href="#" class="navbar-link" id="more-link" onclick="toggleMoreDropdown(event)">More <i class="ri-arrow-down-s-line"></i></a>
+            <div class="dropdown-menu" id="dropdown-menu">
+
               <ul class="dropdown-menu-list">
                 <li class="dropdown-menu-item">
                   <a href="#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i class="ri-medal-fill"></i> Literary Realms</a>
@@ -136,9 +143,8 @@
                 </li>
               </ul>
             </div>
-
-          <li>
-
+          </li>
+          
             <div class="switch-container">
               <input type="checkbox" id="switch" class="switch-checkbox">
               <label for="switch" class="switch-label">
@@ -529,23 +535,67 @@
 
               </div>
             </li>
+            <div class="chapter-card">
+
+              <p class="card-subtitle">9</p>
+
+              <h3 class="h3 card-title">Historical Fiction</h3>
+
+              <p class="card-text">
+                Offering a glimpse into the past, historical fiction books blend real events with fictional
+                narratives, transporting readers to different eras and cultures, bringing history to life through
+                vivid characters and immersive storytelling.
+              </p>
+
+            </div>
+          </li>
 
             <li>
               <div class="chapter-card">
 
-                <p class="card-subtitle">09</p>
+                <p class="card-subtitle">10</p>
 
-                <h3 class="h3 card-title">Historical Fiction</h3>
+                <h3 class="h3 card-title">Poetry</h3>
 
                 <p class="card-text">
-                  Offering a glimpse into the past, historical fiction books blend real events with fictional
-                  narratives, transporting readers to different eras and cultures, bringing history to life through
-                  vivid characters and immersive storytelling.
+                  Distilling emotions into rhythmic language, they inspire reflection, evoke vivid imagery, and offer solace. 
+                  From ancient epics to modern verses, they celebrate the power of words and the timeless beauty of human expression.
                 </p>
 
               </div>
             </li>
+            
+            <li>
+              <div class="chapter-card">
 
+                <p class="card-subtitle">11</p>
+
+                <h3 class="h3 card-title">Philosophy</h3>
+
+                <p class="card-text">
+                  Delve into life's fundamental questions, exploring existence, ethics, 
+                  and knowledge, they provoke deep thought, challenge assumptions, and offer
+                  diverse perspectives, fostering critical thinking and a deeper understanding of the human condition.
+                </p>
+
+              </div>
+            </li>
+            
+            <li>
+              <div class="chapter-card">
+
+                <p class="card-subtitle">12</p>
+
+                <h3 class="h3 card-title">Adventure Fiction</h3>
+
+                <p class="card-text">
+                  Captivates with thrilling journeys, daring heroes, and unexpected twists,
+                  transports readers to exotic locales, ignites the imagination, and offers escapism,
+                  excitement, and a sense of discovery and wonder.
+                </p>
+
+              </div>
+            </li>
           </ul>
 
         </div>
@@ -572,7 +622,7 @@
             <li>
 
               <a class="cardo" href="#">
-                <h3>09. &nbsp;Romantic Escapes</h3>
+                <h3 class="lithead">09. &nbsp;Romantic Escapes</h3>
                 <p class="small"> Immerse yourself in the enchanting world of love and passion with our curated selection of romance
                   fiction.</p>
                 <div class="go-corner" href="#">
@@ -599,7 +649,7 @@
             <li>
 
               <a class="cardo" href="#">
-                <h3>02. &nbsp;Thrilling Adventures</h3>
+                <h3 class="lithead">02. &nbsp;Thrilling Adventures</h3>
                 <p class="small"> Dive into heart-pounding tales and gripping narratives that will keep you on the edge of your seat.</p>
                 <div class="go-corner" href="#">
                   <div class="go-arrow">
@@ -624,7 +674,7 @@
             <li>
 
               <a class="cardo" href="#">
-                <h3>03. &nbsp;Mindful Living</h3>
+                <h3 class="lithead">03. &nbsp;Mindful Living</h3>
                 <p class="small"> Discover the secrets to a fulfilling life with our collection of insightful and empowering self-help
                   books.</p>
                 <div class="go-corner" href="#">
@@ -651,7 +701,7 @@
             <li>
 
               <a class="cardo" href="#">
-                <h3>04. &nbsp;Mystical Fantasies</h3>
+                <h3 class="lithead">04. &nbsp;Mystical Fantasies</h3>
                 <p class="small"> Embark on fantastical journeys to magical realms with our captivating fantasy fiction picks.</p>
                 <div class="go-corner" href="#">
                   <div class="go-arrow">
@@ -676,7 +726,7 @@
             <li>
 
               <a class="cardo" href="#">
-                <h3>05. &nbsp;Historical Chronicles</h3>
+                <h3 class="lithead">05. &nbsp;Historical Chronicles</h3>
                 <p class="small"> Travel back in time and explore the rich tapestry of history through our curated historical fiction
                   selection.</p>
                 <div class="go-corner" href="#">
@@ -703,7 +753,7 @@
             <li>
 
               <a class="cardo" href="#">
-                <h3>06. &nbsp;Science Fiction Wonders</h3>
+                <h3 class="lithead">06. &nbsp;Science Fiction Wonders</h3>
                 <p class="small"> Ignite your imagination with mind-bending concepts and futuristic worlds in our science fiction.</p>
                 <div class="go-corner" href="#">
                   <div class="go-arrow">
@@ -728,7 +778,7 @@
             <li>
 
               <a class="cardo" href="#">
-                <h3>07. &nbsp;Laugh Out Loud Comedy</h3>
+                <h3 class="lithead">07. &nbsp;Laugh Out Loud Comedy</h3>
                 <p class="small"> Find joy and laughter in our comedy section, featuring witty and humorous tales that will brighten
                   your day.</p>
                 <div class="go-corner" href="#">
@@ -755,7 +805,7 @@
             <li>
 
               <a class="cardo" href="#">
-                <h3>08. &nbsp;Intriguing Mysteries</h3>
+                <h3 class="lithead">08. &nbsp;Intriguing Mysteries</h3>
                 <p class="small">  Unravel gripping mysteries and suspenseful plots that will keep you guessing until the last page.</p>
                 <div class="go-corner" href="#">
                   <div class="go-arrow">
@@ -780,7 +830,7 @@
             <li>
 
               <a class="cardo" href="#">
-                <h3>09. &nbsp;Inspiring Biographies</h3>
+                <h3 class="lithead">09. &nbsp;Inspiring Biographies</h3>
                 <p class="small"> Gain insights into the lives of remarkable individuals through our collection of inspiring biographies
                   and memoirs.</p>
                 <div class="go-corner" href="#">
