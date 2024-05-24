@@ -11,18 +11,31 @@
 
 		</head>
 		<body>
+			<div class="navbar">
+				<div class="navbar-header">
+				  <a href="../../index.html">
+					<img class="close-icon" src="../images/close1.png" alt="Close" />
+				  </a>
+				</div>
+			</div>
 		<div id="container">
 		<h1>Your Booklist for Swapping</h1>
 		<div id="auth">
 		<h2>Login</h2>
 		<input type="text" id="login-username" placeholder="Username">
-		<input type="password" id="login-password" placeholder="Password">
+		<div class="input-box">
+		<input type="password" id="login_password" placeholder="Password">
+		<img src="../images/eye-close.png" alt="Eye close-image" id="eye-icon-login">
+		</div>
 		<button onclick="login()">Login</button>
 
 
 		<h2>Sign Up</h2>
 		<input type="text" id="signup-username" placeholder="Username">
-		<input type="password" id="signup-password" placeholder="Password">
+		<div class="input-box">
+		<input type="password" id="password" placeholder="Password">
+		<img src="../images/eye-close.png" alt="Eye close-image" id="eye-icon">
+		</div>
 		<button onclick="signUp()">Sign Up</button>
 		</div>
 
@@ -36,5 +49,37 @@
 		</div>
 		</div>
 		<script src="/assets/js/addremove.js"></script>
+		<script>
+		let eyeIcon = document.getElementById("eye-icon");
+		let password = document.getElementById("password");
+		let passwordLogin = document.getElementById("login_password");
+		let eyeIconLogin = document.getElementById("eye-icon-login");
+					// Set the password field to type "password" by default
+					password.type = "password";
+		eyeIcon.src = "../images/eye-close.png"; // Set the initial eye icon as closed
+
+		eyeIcon.onclick = function () {
+			if (password.type === "password") {
+				password.type = "text";
+				eyeIcon.src = "../images/eye-open.png";
+			} else {
+				password.type = "password";
+				eyeIcon.src = "../images/eye-close.png";
+			}
+		};
+
+		passwordLogin.type = "password";
+		eyeIconLogin.src = "../images/eye-close.png"; // Set the initial eye icon as closed
+
+		eyeIconLogin.onclick = function () {
+			if (passwordLogin.type === "password") {
+				passwordLogin.type = "text";
+				eyeIconLogin.src = "../images/eye-open.png";
+			} else {
+				passwordLogin.type = "password";
+				eyeIconLogin.src = "../images/eye-close.png";
+			}
+		};
+		</script>
 		</body>
 		</html>
