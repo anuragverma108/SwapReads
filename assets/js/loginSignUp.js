@@ -13,15 +13,24 @@
 
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    // const firebaseConfig = {
+    //   apiKey: 'AIzaSyCu2WXknNce_49J5BLuR1DyHm319hu6dWc',
+    //   authDomain: 'login-13127.firebaseapp.com',
+    //   projectId: 'login-13127',
+    //   storageBucket: 'login-13127.appspot.com',
+    //   messagingSenderId: '151656578300',
+    //   appId: '1:151656578300:web:c67208ab6ec437c844ab79',
+    //   measurementId: 'G-L3PPD58MZ8',
+    // };
+
     const firebaseConfig = {
-      apiKey: 'AIzaSyCu2WXknNce_49J5BLuR1DyHm319hu6dWc',
-      authDomain: 'login-13127.firebaseapp.com',
-      projectId: 'login-13127',
-      storageBucket: 'login-13127.appspot.com',
-      messagingSenderId: '151656578300',
-      appId: '1:151656578300:web:c67208ab6ec437c844ab79',
-      measurementId: 'G-L3PPD58MZ8',
-    };
+      apiKey: "AIzaSyAIDh842xGC_NZj6pMcB9THjNQ1DyUVnZU",
+      authDomain: "swapreads-c7d1d.firebaseapp.com",
+      projectId: "swapreads-c7d1d",
+      storageBucket: "swapreads-c7d1d.appspot.com",
+      messagingSenderId: "912206670085",
+      appId: "1:912206670085:web:9a6182b16ac2529510ef6c"
+  };
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
@@ -87,7 +96,8 @@
           //console.log(user);
           //window.location.href = '../../index.html';
           alert(user.email+" Login successfully!!!");
-          document.querySelector('#logout').style.display = 'block';
+          window.location.href="./index.html";
+          // document.querySelector('#logout').style.display = 'block';
           // ...
         })
         .catch((error) => {
