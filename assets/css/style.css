@@ -719,7 +719,7 @@ body {
 }
 .hero-content {
   /* border: 1px solid black; */
-
+  padding: 20px;
   width: 55%;
 }
 
@@ -810,6 +810,16 @@ body {
   border-radius: var(--radius-5);
   overflow: hidden;
   transition: var(--transition-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.benefits-card .card-content {
+  overflow-y: auto;
+  max-height: 300px; /* Adjust this value as needed */
+  padding-right: 10px; /* Adjust for scrollbar */
 }
 
 .benefits-card::before,
@@ -866,6 +876,23 @@ body {
 
 .benefits-card .btn-link {
   margin-block-start: 15px;
+}
+
+/* Ensure container is a grid */
+.grid-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .grid-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 /*-----------------------------------*\
@@ -1798,6 +1825,7 @@ input[type="submit"]:hover {
 
   .benefits-content {
     grid-column: 1 / 3;
+    margin: auto;
   }
 
   /**
