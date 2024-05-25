@@ -431,7 +431,7 @@ background-size: cover;
 }
 
 .header.active {
-  position: fixed;
+  position:sticky;
   top: 0;
   right: 0;
   left: 0;
@@ -1671,6 +1671,8 @@ input[type="submit"]:hover {
 
   .container {
     padding-inline: 37px;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
   }
 }
 
@@ -1701,6 +1703,7 @@ input[type="submit"]:hover {
     width: 100%;
     margin-inline: auto;
     /* border-radius: var(--radius-5); */
+    padding: 1rem;
   }
 
   .section-text {
@@ -1877,12 +1880,27 @@ input[type="submit"]:hover {
     grid-template-columns: 1fr 1fr;
   }
 }
-
+@media (max-width:400px) {
+  .hero .container{
+    line-break: anywhere;
+  }
+}
 @media (max-width: 992px) {
   .switch-container {
     /* right: -20px; */
     bottom: 20px;
     /* right: 20px; */
+  }
+  .hero .container{
+    gap: 3rem;
+    justify-content: center;
+  }
+  .hero .container .hero-content,.hero .container .hero-banner{
+     flex: 1 0 25rem;
+  }
+ .benefits .container,.genre .container,.chapters .container,.pricing .container{
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -2069,6 +2087,7 @@ input[type="submit"]:hover {
   .navbar {
     max-width: 1140px;
     border-radius: 10px;
+    padding: 1rem;
   }
   .navbar-list {
     gap: 30px; /* Increase gap between navbar items */
@@ -2280,7 +2299,6 @@ body.dark-mode .navbar-link:hover::after {
 
 footer {
   position: relative;
-  padding: 50px 0;
 }
 #back-to-top-container {
   position: fixed;
