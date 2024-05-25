@@ -233,6 +233,5 @@ function toggleMoreDropdown(event) {
     moreLink.style.display = "block";
   } else {
     dropdownMenu.style.display = "block";
-    moreLink.style.display = "none";
   }
 }
