@@ -220,18 +220,3 @@ function validateAndConnect() {
     document.getElementById('yourPrice').value='';
   }
 }
-
-
-function toggleMoreDropdown(event) {
-  event.preventDefault();
-  const moreDropdown = document.getElementById('more-dropdown');
-  const dropdownMenu = document.getElementById('dropdown-menu');
-  const moreLink = document.getElementById('more-link');
-
-  if (dropdownMenu.style.display === "block") {
-    dropdownMenu.style.display = "none";
-    moreLink.style.display = "block";
-  } else {
-    dropdownMenu.style.display = "block";
-  }
-}
