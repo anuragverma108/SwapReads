@@ -8,23 +8,85 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../css/login.css" />
   <script type="module" src="../js/loginSignUp.js" defer></script>
+  <script src="../js/rateUsModal.js" defer></script>
+
+  <!-- rroushan verma -->
   <script src="../js/signinGoogle.js" defer type="module"></script>
+  <!-- end -->
   <title>Login / SignUp</title>
 </head>
 
 <body>
   <div class="navbar">
-    <div class="navbar-header">
-      <a href="../../index.html">
-        <img class="close-icon" src="../images/close1.png" alt="Close" />
+    <a href="index.html#home"  class="logo" style="display:flex;">
+      <img src="../images/LogoPicLight.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
       </a>
-    </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" id="logout" style="display: none">Log Out</a></li>
+
+      <ul class="navbar-list">
+        <a href="index.html#home">
+
+        <img src="../images/logo_whitebg.png" class="logopic" style=" width: 150px;">
+
+        <li class="navbar-item">
+          <a href="index.html#home"  class="navbar-link" data-nav-link><i
+              class="ri-home-fill"></i> Home</a>
+        </li>
+
+        <li class="navbar-item">
+          <a href="index.html#benefits"  class="navbar-link" data-nav-link><i
+              class="ri-bar-chart-fill"></i> Benefits</a>
+        </li>
+
+        <li class="navbar-item">
+          <a href="index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+              class="ri-bar-chart-fill"></i> Genre</a>
+        </li>
+
+        <li class="navbar-item">
+          <a href="index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
+              class="ri-customer-service-2-fill"></i> Contact</a>
+        </li>
+        <li class="navbar-item">
+          <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+        </li>
+        <li class="navbar-item dropdown">
+          <a href="#" class="navbar-link">More <i class="ri-arrow-down-s-line"></i></a>
+          <div class="dropdown-menu">
+            <ul class="dropdown-menu-list">
+              <li class="dropdown-menu-item">
+                <a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i class="ri-medal-fill"></i> Literary Realms</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="../html/addremovebook.html" class="navbar-link">Booklist for Swapping</a>
+              </li>
+            </ul>
+          </div>
+
+       
       </ul>
-    </div>
   </div>
+    <!-- Rate Us Modal Pop up -->
+    <div class="rate-us-modal-wrapper">
+      <div class="rate-us-modal">
+        <a onclick="closeRateUsModal()" class="home_button"></a>
+        <h1 class="rating_heading">Rate Us</h1>
+        <div class="star_rating">
+          <p>How was your experience?</p>
+          <button class="star">&#9734;</button>
+          <button class="star">&#9734;</button>
+          <button class="star">&#9734;</button>
+          <button class="star">&#9734;</button>
+          <button class="star">&#9734;</button>
+          <p class="current_rating"> 0 of 5</p>
+        </div>
+        <button id="submit_rating" class="submit_button">Submit Rating</button>
+        <p class="thank_you_message">Thank you for rating us!</p>
+      </div>
+    </div>
+
 
   <div class="note">
     <h1>Welcome to SwapReads</h1>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Genre</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="recommend">
+        <p class="section-subtitle" id="heading">Book Recommendation</p>
+        <h2 class="h2 section-title has-underline">
+            Discover Your Next Read
+        </h2>
+        <div class="container00">
+            <h2>User Preference Bar</h2>
+            <div class="preference-bar">
+                <label for="genre">Select Genre:</label>
+                <select id="genre">
+                    <option value="select">Select</option>
+                    <option value="fiction">Fiction</option>
+                    <option value="technology">Technology</option>
+                    <option value="classics">Classics</option>
+                    <option value="self-help">Self-Help</option>
+                    <option value="science-fiction">Science Fiction</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <button onclick="redirectToRecommendations()" class="btn-primary">Get Recommendations</button>
+            </div>
+        </div>
+
+        <!-- Recommendation Results Section -->
+        <div id="recommendationResults" class="container01" style="display: none;">
+            <h1 id="recommendationTitle" style="font-family: 'Philosopher', sans-serif;">Recommended Books</h1>
+            <div id="booksContainer" class="books-container">
+                <!-- Book recommendations will be displayed here -->
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function redirectToRecommendations() {
+            const genre = document.getElementById('genre').value;
+            if (genre === 'select') {
+                alert('Please select a genre.');
+            } else {
+                // Simulate book recommendations (replace with actual data)
+                const recommendations = getRecommendations(genre);
+                displayRecommendations(recommendations);
+                document.getElementById('recommendationResults').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Simulated function to get book recommendations
+        function getRecommendations(genre) {
+            switch (genre) {
+                case 'fiction':
+                    return [
+                        {
+                            title: "To Kill a Mockingbird",
+                            author: "Harper Lee",
+                            genre: "Fiction",
+                            image: "https://cdn2.penguin.com.au/covers/original/9781784870799.jpg",
+                            year: 1960,
+                            description: "A classic novel set in the fictional town of Maycomb, Alabama, during the Great Depression. The story explores themes of racial injustice and moral growth through the eyes of a young girl named Scout Finch."
+                        },
+                        {
+                            title: "1984",
+                            author: "George Orwell",
+                            genre: "Science Fiction",
+                            image: "https://www.bookgeeks.in/wp-content/uploads/2021/07/1984-by-George-Orwell-1.jpg",
+                            year: 1949,
+                            description: "A dystopian novel set in a totalitarian society where individualism and independent thinking are suppressed. The story follows Winston Smith, a low-ranking member of the ruling Party, as he rebels against the oppressive regime."
+                        },
+                        {
+                            title: "The Great Gatsby",
+                            author: "F. Scott Fitzgerald",
+                            genre: "Fiction",
+                            image: "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982146702/the-great-gatsby-9781982146702_xlg.jpg",
+                            year: 1925,
+                            description: "Set in the Roaring Twenties, this novel explores themes of love, wealth, and the American Dream. The story follows Jay Gatsby, a mysterious millionaire, and his pursuit of the elusive Daisy Buchanan."
+                        },
+                        {
+                            title: 'Brave New World',
+                            author: 'Aldous Huxley',
+                            image: 'https://tse4.mm.bing.net/th?id=OIP.hkQOsQlEiOBnF5jQ660r9gHaLJ&pid=Api&P=0&h=180',
+                            genre: 'Fiction',
+                            year: 1932,
+                            description: 'A novel depicting a dystopian future where individuality is suppressed and people are artificially bred in a controlled society.'
+                        },
+                        {
+                            title: 'The Catcher in the Rye',
+                            author: 'J.D. Salinger',
+                            image: 'https://tse4.mm.bing.net/th?id=OIP.WCVypoHL39VejGNd1Nu7ngHaLR&pid=Api&P=0&h=180',
+                            genre: 'Fiction',
+                            year: 1951,
+                            description: 'A novel about teenage angst and alienation, following the protagonist Holden Caulfield as he navigates life in New York City.'
+                        },
+                        {
+                            title: 'The Hobbit',
+                            author: 'J.R.R. Tolkien',
+                            image: 'https://tse2.mm.bing.net/th?id=OIP.u1jvgQh_S5zIR3e4uX5oNwHaLH&pid=Api&P=0&h=180',
+                            genre: 'Fiction',
+                            year: 1937,
+                            description: 'A fantasy novel following the quest of Bilbo Baggins, a hobbit who embarks on an adventure to reclaim treasure guarded by a dragon.'
+                        },
+                        {
+                            title: 'The Alchemist',
+                            author: 'Paulo Coelho',
+                            image: 'https://tse1.mm.bing.net/th?id=OIP.CP_1Cu_o_riUJ-gnUWz6DwHaLX&pid=Api&P=0&h=180',
+                            genre: 'Fiction',
+                            year: 1988,
+                            description: 'A novel about Santiago, an Andalusian shepherd boy, who journeys to Egypt in search of a treasure buried in the Pyramids.'
+                        }
+                    ];
+                case 'technology':
+                    return [
+                        {
+                            title: "Clean Code: A Handbook of Agile Software Craftsmanship",
+                            author: "Robert C. Martin",
+                            genre: "Technology",
+                            image: "https://miro.medium.com/max/1103/1*PKsDuPxNoKJyJvmlLc64qg.jpeg",
+                            year: 2008,
+                            description: "A guide to writing clean, readable, and maintainable code. It provides principles and best practices for software development, emphasizing the importance of code quality."
+                        },
+                        {
+                            title: "Web Programming with HTML5, CSS, and JavaScript",
+                            author: "Dean",
+                            genre: "Technology",
+                            image: "http://prodimage.images-bn.com/pimages/9781284091793_p0_v2_s1200x630.jpg",
+                            year: 2018,
+                            description: "A comprehensive guide to web programming using HTML5, CSS, and JavaScript. The book covers the fundamentals and advanced techniques for creating responsive and interactive web applications."
+                        },
+                        {
+                            title: "Steve Jobs",
+                            author: "Walter Isaacson",
+                            genre: "Technology",
+                            image: "https://tse4.mm.bing.net/th?id=OIP.RHPauuod2hNhqK6NoLgNKQHaLT&pid=Api&P=0&h=180",
+                            year: 2011,
+                            description: "Steve Jobs by Walter Isaacson is a biography that provides a deep insight into the life of the co-founder of Apple, detailing his innovative spirit, personal challenges, and profound impact on technology and culture.",
+                        },
+                        {
+                            title: "The Code Book",
+                            author: "Simon Singh",
+                            genre: "Technology",
+                            image: "https://tse2.mm.bing.net/th?id=OIP.uNxaRpxXUHZXpAasjABadwAAAA&pid=Api&P=0&h=180",
+                            year: 1999,
+                            description: "Explores the history of cryptography, from ancient codes to modern encryption. It covers key events like the cracking of the Enigma machine and highlights the impact of cryptography on today's digital world.",
+                        },
+                        {
+                            title: "The Soul of a New Machine",
+                            author: "Tracy Kidder",
+                            genre: "Technology",
+                            image: "https://tse2.mm.bing.net/th?id=OIF.ZsUtQZsp0mscrnCh6gn3DA&pid=Api&P=0&h=180",
+                            year: 1981,
+                            description: "It is a gripping tale of a team of engineers racing to build a revolutionary computer in the 1970s, highlighting their dedication, challenges, and the spirit of innovation.",
+                        }
+                    ];
+                case 'classics':
+                    return [
+                        {
+                            title: "Pride and Prejudice",
+                            author: "Jane Austen",
+                            genre: "Classics",
+                            image: "https://cdn2.penguin.com.au/covers/original/9780141330167.jpg",
+                            year: 1813,
+                            description: "A romantic novel set in early 19th-century England, focusing on the themes of love, marriage, and social status. The story follows the spirited Elizabeth Bennet as she navigates the complexities of society and falls in love with the enigmatic Mr. Darcy."
+                        },
+                        {
+                            title: "Emma",
+                            author: "Jane Austen",
+                            genre: "Classics",
+                            image: "https://cdn2.penguin.com.au/covers/original/9780141192475.jpg",
+                            year: 1815,
+                            description: "A novel about youthful hubris and romantic misunderstandings. The story takes place in the fictional village of Highbury and the surrounding estates of Hartfield, Randalls, and Donwell Abbey."
+                        },
+                        {
+                            title: "Jane Eyre",
+                            author: "Charlotte Brontë",
+                            genre: "Classics",
+                            image: "https://cdn2.penguin.com.au/covers/original/9780141040387.jpg",
+                            year: 1847,
+                            description: "A novel that follows the emotions and experiences of its eponymous character, including her growth to adulthood and her love for Mr. Rochester, the Byronic master of fictitious Thornfield Hall."
+                        },
+                        {
+                            title: "Anna Karenina",
+                            author: "Leo Tolstoy",
+                            genre: "Classics",
+                            image: "https://cdn2.penguin.com.au/covers/original/9780141199610.jpg",
+                            year: 1877,
+                            description: "A tragic story about a married aristocrat/socialite and her affair with the affluent Count Vronsky."
+                        },
+                        {
+                            title: "Moby-Dick",
+                            author: "Herman Melville",
+                            genre: "Classics",
+                            image: "https://cdn2.penguin.com.au/covers/original/9780143105954.jpg",
+                            year: 1851,
+                            description: "A tale of obsession and revenge, focusing on the monomaniacal quest of Ahab, captain of the whaler Pequod, for revenge against Moby Dick, the giant white sperm whale that on the previous whaling voyage bit off Ahab's leg at the knee."
+                        }
+                    ];
+                case 'self-help':
+                    return [
+                        {
+                            title: "The Power of Positive Thinking",
+                            author: "Norman Vincent Peale",
+                            genre: "Self-Help",
+                            image: "https://i.thenile.io/r1000/9788194824169.jpg?r=5fc9067a7064c",
+                            year: 1952,
+                            description: "A self-help book that emphasizes the impact of positive thinking on achieving success and personal happiness. It blends psychology, practical advice, and spiritual guidance."
+                        },
+                        {
+                            title: "Time Management",
+                            author: "Brian Tracy",
+                            genre: "Self-Help",
+                            image: "http://prodimage.images-bn.com/pimages/9780814433430_p0_v1_s1200x630.jpg",
+                            year: 2007,
+                            description: "A self-help book offering practical strategies and techniques for effectively managing time, increasing productivity, and achieving personal and professional goals."
+                        },
+                        {
+                            title: "How to Win Friends and Influence People",
+                            author: "Dale Carnegie",
+                            genre: "Self-Help",
+                            image: "https://tse4.mm.bing.net/th?id=OIP.-UiuMZdwnvJQlsdHFrLxPAHaLq&pid=Api&P=0&h=180",
+                            year: 1936,
+                            description: "A self-help book that provides practical advice on how to improve your relationships and influence others positively. It covers techniques for handling people, making people like you, and winning people to your way of thinking."
+                        },
+                        {
+                            title: "The 7 Habits of Highly Effective People",
+                            author: "Stephen R. Covey",
+                            genre: "Self-Help",
+                            image: "https://tse1.mm.bing.net/th?id=OIP.U_xujkJ3DznR8RoMtznT2QHaLO&pid=Api&P=0&h=180",
+                            year: 1989,
+                            description: "A self-help book that presents a principle-centered approach for solving personal and professional problems. It emphasizes character ethics and principles of fairness, integrity, honesty, and human dignity."
+                        },
+                        {
+                            title: "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+                            author: "James Clear",
+                            genre: "Self-Help",
+                            image: "https://images-na.ssl-images-amazon.com/images/I/91bYsX41DVL.jpg",
+                            year: 2018,
+                            description: "A practical guide to understanding how habits work and how to create and maintain good habits over time. It offers a framework for changing your habits and achieving remarkable results."
+                        },
+                        {
+                            title: "The Power of Positive Thinking",
+                            author: "Norman Vincent Peale",
+                            genre: "Self-Help",
+                            image: "https://i.thenile.io/r1000/9788194824169.jpg?r=5fc9067a7064c",
+                            year: 1952,
+                            description: "A self-help book that emphasizes the impact of positive thinking on achieving success and personal happiness. It blends psychology, practical advice, and spiritual guidance."
+                        }
+                    ];
+                case 'science-fiction':
+                    return [
+                        {
+                            title: "Dune",
+                            author: "Frank Herbert",
+                            genre: "Science Fiction",
+                            image: "https://i.thenile.io/r1000/9780593099322.jpg?r=5e75f0e9c3c7d",
+                            year: 1965,
+                            description: "Set in the distant future amidst a huge interstellar empire, the novel tells the story of young Paul Atreides, whose family accepts the stewardship of the desert planet Arrakis."
+                        },
+                        {
+                            title: "Neuromancer",
+                            author: "William Gibson",
+                            genre: "Science Fiction",
+                            image: "https://tse3.mm.bing.net/th?id=OIP.p9EE9O6O2tPpKgzYjPqKIAHaJ4&pid=Api&P=0&h=180",
+                            year: 1984,
+                            description: "A cyberpunk novel set in a future where cyberspace, artificial intelligence, and multinational corporations are dominant. The story follows a washed-up computer hacker hired by a mysterious employer.",
+                        },
+                        {
+                            title: "Foundation",
+                            author: "Isaac Asimov",
+                            genre: "Science Fiction",
+                            image: "https://tse4.mm.bing.net/th?id=OIP.nh7p_Q0WrrCxvdvI0FOoEAHaMM&pid=Api&P=0&h=180",
+                            year: 1951,
+                            description: "The first book in Asimov's Foundation series, it explores the concept of psychohistory, a blend of history, sociology, and mathematical statistics, to predict the future of large populations.",
+                        },
+                        {
+                            title: "The Left Hand of Darkness",
+                            author: "Ursula K. Le Guin",
+                            genre: "Science Fiction",
+                            image: "https://tse4.mm.bing.net/th?id=OIP.RRWtDjq1114Q3BcOLDQ8UgHaLN&pid=Api&P=0&h=180",
+                            year: 1969,
+                            description: "A novel set in the future on the planet Gethen, where the inhabitants can change their gender at will. It explores themes of gender and sexuality, politics, and the nature of human emotions.",
+                        },
+                        {
+                            title: "Snow Crash",
+                            author: "Neal Stephenson",
+                            genre: "Science Fiction",
+                            image: "https://tse3.mm.bing.net/th?id=OIP.WxHDBDfquK85C7OGRwuuygAAAA&pid=Api&P=0&h=180",
+                            year: 1992,
+                            description: "A cyberpunk novel set in a future America where the internet, virtual reality, and the mafia dominate society. The story follows Hiro Protagonist, a computer hacker and pizza delivery driver.",
+                        }
+                    ];
+                default:
+                    return [];
+            }
+        }
+
+
+        // Function to display recommendations
+        function displayRecommendations(recommendations) {
+            const recommendationsContainer = document.getElementById('booksContainer');
+            recommendationsContainer.innerHTML = '';
+
+            recommendations.forEach(book => {
+                const bookElement = document.createElement('div');
+                bookElement.classList.add('book');
+
+                const bookInfo = `
+          <div class="book-info">
+            <h2>${book.title}</h2>
+            <p><strong>Author:</strong> ${book.author}</p>
+            <p><strong>Genre:</strong> ${book.genre}</p>
+            <p><strong>Year:</strong> ${book.year}</p>
+            <p><strong>Description:</strong> ${book.description}</p>
+          </div>
+          <img src="${book.image}" alt="${book.title}" class="book-image" style="width: 280px; height: 400px; ">
+        `;
+                bookElement.innerHTML = bookInfo;
+                recommendationsContainer.appendChild(bookElement);
+            });
+
+            // Show the recommendation results section
+            document.getElementById('recommendationResults').style.display = 'block';
+            document.getElementById('recommendationTitle').innerText = `Recommended Books for ${capitalizeFirstLetter(document.getElementById('genre').value)}`;
+            const recommendationTitle = document.getElementById('recommendationTitle');
+            // recommendationTitle.style.fontFamily = 'Poppins, sans-serif';
+            recommendationTitle.style.fontSize = '42px';
+            recommendationTitle.style.textAlign = 'center';
+            recommendationTitle.style.marginBottom = '23px';
+        }
+
+        // Helper function to capitalize the first letter of a string
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+    </script>
+
+</body>
+
+</html>
