@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -7,19 +8,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>How to create Firebase login and register?</title>
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="./assets/css/login.css" />
     <style>
         .remember-me-label {
             font-size: 14px;
             display: inline-flex;
             align-items: center;
         }
+
         .remember-me-label input {
-            margin-right: 8px; /* Adjusted margin */
-            margin-top: 1px; /* Added margin-top for better alignment */
+            margin-right: 8px;
+            /* Adjusted margin */
+            margin-top: 1px;
+            /* Added margin-top for better alignment */
         }
     </style>
 </head>
+
 <body>
     <div class="navbar">
         <div class="navbar-header">
@@ -47,7 +52,8 @@
                 <form class="form">
                     <label for="chk" aria-hidden="true">Log in</label>
                     <input class="input" type="email" name="email" id="login_email" placeholder="Email" required="" />
-                    <input class="input" type="password" name="pswd" id="login_password" placeholder="Password" required="" />
+                    <input class="input" type="password" name="pswd" id="login_password" placeholder="Password"
+                        required="" />
                     <label class="remember-me-label">
                         <input type="checkbox" id="rememberMe"> Remember Me
                     </label>
@@ -70,11 +76,12 @@
         <div class="container">
             <div class="footer-bottom">
                 <p class="copyright">
-                    &copy; 2024 All right reserved. Made with ❤ by Guardian Hackers.
+                    &copy; <span id="copyright-year"></span> All right reserved. Made with ❤ by Guardian Hackers.
                 </p>
             </div>
         </div>
     </footer>
+    <script>document.getElementById("copyright-year").textContent = new Date().getFullYear();</script>
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
@@ -98,7 +105,7 @@
         const auth = getAuth();
 
         // Remember Me functionality
-        window.onload = function() {
+        window.onload = function () {
             if (localStorage.getItem('rememberMe') === 'true') {
                 document.getElementById('login_email').value = localStorage.getItem('email');
                 document.getElementById('login_password').value = localStorage.getItem('password');
@@ -158,4 +165,5 @@
             signOut(auth)
                 .then(() => {
                     console.log("Sign-out successful.");
-                   
+                })
+            })

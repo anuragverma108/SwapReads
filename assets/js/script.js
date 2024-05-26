@@ -129,9 +129,11 @@ const addEventOnelem = function (elem, type, callback) {
 const navbar = document.querySelector("[data-navbar]");
 const navbarLinks = document.querySelectorAll("[data-nav-link]");
 const navToggler = document.querySelector("[data-nav-toggler]");
-const logoImage = document.querySelector('.logopic'); // Added
-const themeSwitch = document.getElementById('switch'); // Added
-let currentTheme = 'light'; // Added
+const logoImage = document.querySelector('.logopic');
+const themeSwitch = document.getElementById('switch');
+
+// Get the current theme from localStorage or default to 'light'
+let currentTheme = localStorage.getItem('currentTheme') || 'light';
 
 const toggleNavbar = function () {
   navbar.classList.toggle("active");
@@ -143,21 +145,28 @@ const closeNavbar = function () {
   navToggler.classList.remove("active");
 }
 
-const toggleTheme = function () { // Added
+const toggleTheme = function () {
   if (currentTheme === 'light') {
-    logoImage.src = './assets/images/logoPicDark.png';
+    logoImage.src = './assets/images/logo_darkbg.png';
     currentTheme = 'dark';
   } else {
-    logoImage.src = './assets/images/logoPicLight.png';
+    logoImage.src = './assets/images/logo_whitebg.png';
     currentTheme = 'light';
   }
+  // Save the current theme to localStorage
+  localStorage.setItem('currentTheme', currentTheme);
 }
 
-toggleTheme(); // Added
+// Set the initial logo image based on the current theme
+if (currentTheme === 'dark') {
+  logoImage.src = './assets/images/logoPicDark.png';
+} else {
+  logoImage.src = './assets/images/logo_whitebg.png';
+}
 
 addEventOnelem(navToggler, 'click', toggleNavbar);
 addEventOnelem(navbarLinks, "click", closeNavbar);
-themeSwitch.addEventListener('change', toggleTheme); // Added
+themeSwitch.addEventListener('change', toggleTheme);
 
 
 
@@ -206,5 +215,23 @@ function validateAndConnect() {
     swal("Try Again!","Please fill all the details.","warning");
   } else {
     swal("Request received!", "We will let you know as soon as we find a reader with your requested book.","success");
+    document.getElementById('bookTitle').value='';
+    document.getElementById('bookAuthor').value='';
+    document.getElementById('yourPrice').value='';
+  }
+}
+
+
+function toggleMoreDropdown(event) {
+  event.preventDefault();
+  const moreDropdown = document.getElementById('more-dropdown');
+  const dropdownMenu = document.getElementById('dropdown-menu');
+  const moreLink = document.getElementById('more-link');
+
+  if (dropdownMenu.style.display === "block") {
+    dropdownMenu.style.display = "none";
+    moreLink.style.display = "block";
+  } else {
+    dropdownMenu.style.display = "block";
   }
 }

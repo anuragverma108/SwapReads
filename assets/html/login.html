@@ -1,151 +1,149 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/assets/favicon_package_v0.16/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/assets/favicon_package_v0.16/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/assets/favicon_package_v0.16/favicon-16x16.png"
-    />
-    <link
-      rel="manifest"
-      href="/assets/favicon_package_v0.16/site.webmanifest"
-    />
-    <link
-      rel="mask-icon"
-      href="/assets/favicon_package_v0.16/safari-pinned-tab.svg"
-      color="#5bbad5"
-    />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#ffffff" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- Bootstrap theme -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/login.css" />
+  <script type="module" src="../js/loginSignUp.js" defer></script>
+  <script src="../js/rateUsModal.js" defer></script>
 
-    <title>Login / SignUp</title>
-    <link rel="stylesheet" href="../css/login.css" />
-  </head>
+  <!-- rroushan verma -->
+  <script src="../js/signinGoogle.js" defer type="module"></script>
+  <!-- end -->
+  <title>Login / SignUp</title>
+</head>
 
-  <body>
-    <div class="navbar">
-      <div class="navbar-header">
-        <a href="../../index.html">
-          <img class="close-icon" src="../images/close1.png" alt="Close" />
-        </a>
-        <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls="navbar">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-  </button>  -->
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" id="logout" style="display: none">Log Out</a></li>
-        </ul>
+<body>
+  <div class="navbar">
+    <a href="index.html#home"  class="logo" style="display:flex;">
+      <img src="../images/LogoPicLight.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
+      </a>
+
+      <ul class="navbar-list">
+        <a href="index.html#home">
+
+        <img src="../images/logo_whitebg.png" class="logopic" style=" width: 150px;">
+
+        <li class="navbar-item">
+          <a href="index.html#home"  class="navbar-link" data-nav-link><i
+              class="ri-home-fill"></i> Home</a>
+        </li>
+
+        <li class="navbar-item">
+          <a href="index.html#benefits"  class="navbar-link" data-nav-link><i
+              class="ri-bar-chart-fill"></i> Benefits</a>
+        </li>
+
+        <li class="navbar-item">
+          <a href="index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+              class="ri-bar-chart-fill"></i> Genre</a>
+        </li>
+
+        <li class="navbar-item">
+          <a href="index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
+              class="ri-customer-service-2-fill"></i> Contact</a>
+        </li>
+        <li class="navbar-item">
+          <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+        </li>
+        <li class="navbar-item dropdown">
+          <a href="#" class="navbar-link">More <i class="ri-arrow-down-s-line"></i></a>
+          <div class="dropdown-menu">
+            <ul class="dropdown-menu-list">
+              <li class="dropdown-menu-item">
+                <a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i class="ri-medal-fill"></i> Literary Realms</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="../html/addremovebook.html" class="navbar-link">Booklist for Swapping</a>
+              </li>
+            </ul>
+          </div>
+
+       
+      </ul>
+  </div>
+    <!-- Rate Us Modal Pop up -->
+    <div class="rate-us-modal-wrapper">
+      <div class="rate-us-modal">
+        <a onclick="closeRateUsModal()" class="home_button"></a>
+        <h1 class="rating_heading">Rate Us</h1>
+        <div class="star_rating">
+          <p>How was your experience?</p>
+          <button class="star">&#9734;</button>
+          <button class="star">&#9734;</button>
+          <button class="star">&#9734;</button>
+          <button class="star">&#9734;</button>
+          <button class="star">&#9734;</button>
+          <p class="current_rating"> 0 of 5</p>
+        </div>
+        <button id="submit_rating" class="submit_button">Submit Rating</button>
+        <p class="thank_you_message">Thank you for rating us!</p>
       </div>
     </div>
-    <div class="note">
-      <h1>
-        Welcome to SwapReads
-        <h2>
-          Join us by creating an account or log in if you already have an account.
-        </h2>
-      </h1>
-    </div>
-    <br />
-    <div class="container">
-      <!-- <h2>Register for new users</h2> -->
-      <!-- <form name="registration_form" id="registration_form" method="post" action="#" enctype="multipart/form-data" >
-  <div class="row">
-
-	<div class="col-sm-4">
-		<div class="form-group">
-	      <label for="email">Email</label>
-		  <input type="text" name="email" id="email" class="form-control" placeholder="Enter your email">
-		</div>
-
-		<div class="form-group">
-	      <label for="password" >Password</label>
-		  <input type="password" name="password" id="password" class="form-control"  placeholder="Enter your password">
-		</div>
-		<button type="button" id="register" name="register" class="btn btn-success">Register Now</button>
-	</div>
-	</form> -->
-
-      <!-- <div class="col-sm-4"> -->
-      <!--<img src="firebase_auth.png">-->
-      <!-- </div> -->
-
-      <!-- <form name="login_form" id="login_form" method="post" action="#" enctype="multipart/form-data" >
-	<div class="col-sm-5">
-		<h2>Sign in</h2>
-		<div class="form-group">
-	      <label for="email">Email</label>
-		  <input type="text" name="login_email" id="login_email" class="form-control" placeholder="Enter your email">
-		</div>
 
 
-		<div class="form-group">
-	      <label for="password">Password</label>
-		  <input type="password" name="login_password" id="login_password" class="form-control"  placeholder="Enter your password">
-		</div>
-		<button type="button" id="login" name="login" class="btn btn-success">Login</button> -->
-      <!-- </div>end col -->
+  <div class="note">
+    <h1>Welcome to SwapReads</h1>
+    <h2>Join us by creating an account or log in if you already have an account.</h2>
+  </div>
+  <br />
 
-      <!-- </div> end row		 -->
-      <!-- </form> -->
-      <div class="main">
-        <input type="checkbox" id="chk" aria-hidden="true" />
+  <div class="container">
+    <div class="main">
+      <input type="checkbox" id="chk" aria-hidden="true" />
 
- <div class="login">
+      <div class="login">
         <form class="form" id="login-form">
           <label for="chk" aria-hidden="true">LOGIN</label>
           <input class="input" type="email" name="email" id="login_email" placeholder="Email" required />
-          <input class="input" type="password" name="pswd" id="login_password" placeholder="Password" required />
+          <div class="input-box">
+            <input class="input" type="password" name="pswd" id="login_password" placeholder="Password" required />
+            <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-login">
+          </div>
           <button type="submit" name="Login" id="login">Submit</button>
           <p class="forget-password">
             Forgot Password?
-            <a href="#" id="forgot_password_link">Reset Here</a>
+            <a href="forgot-pass.html" id="forgot_password_link">Reset Here</a>
           </p>
+          <div id="or">Or</div>
+          <button id="google-sign-in"> Sign In with Google </button>
         </form>
       </div>
-
-            </button>
 
       <div class="register">
         <form class="form" id="register-form">
           <label for="chk" aria-hidden="true">Create Account</label>
-          <!-- <input class="input" type="text" name="txt" placeholder="Username" required=""> -->
           <input class="input" type="email" name="email" id="email" placeholder="Email" required />
-          <input class="input" type="password" name="pswd" id="password" placeholder="Password" required />
-          <button type="submit" name="register" id="register">
-            Register
-          </button>
+          <div class="input-box">
+            <input class="input" type="password" name="pswd" id="password" placeholder="Password" required />
+            <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon">
+          </div>
+
+          <div>
+            <div class="progress">
+              <div id="password-strength" class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <ul class="list-unstyled">
+              <li><span class="low-upper-case"><i class="fas fa-circle" aria-hidden="true"></i>&nbsp;Lowercase &amp; Uppercase</span></li>
+              <li><span class="one-number"><i class="fas fa-circle" aria-hidden="true"></i>&nbsp;Number (0-9)</span></li>
+              <li><span class="one-special-char"><i class="fas fa-circle" aria-hidden="true"></i>&nbsp;Special Character (!@#$%^&*)</span></li>
+              <li><span class="eight-character"><i class="fas fa-circle" aria-hidden="true"></i>&nbsp;At least 8 Character</span></li>
+            </ul>
+          </div>
+
+          <button type="submit" name="register" id="register">Register</button>
+          <div id="or">Or</div>
+          <button id="google-signup"> Sign Up with Google </button>
         </form>
       </div>
     </div>
-  </body>
+  </div>
   <hr />
   <footer class="footer">
     <div class="container">
@@ -156,190 +154,131 @@
       </div>
     </div>
   </footer>
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js';
-    import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js';
-    import {
-      getAuth,
-      createUserWithEmailAndPassword,
-      signInWithEmailAndPassword,
-      signOut,
-    } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js';
 
-    //const credential = EmailAuthProvider.credential(email, password);
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
+  <script>
+    let eyeIcon = document.getElementById("eyeicon");
+    let password = document.getElementById("password");
+    let eyeIconLogin = document.getElementById("eyeicon-login");
+    let passwordLogin = document.getElementById("login_password");
+    let passwordStrength = document.getElementById("password-strength");
+    let lowUpperCase = document.querySelector(".low-upper-case i");
+    let number = document.querySelector(".one-number i");
+    let specialChar = document.querySelector(".one-special-char i");
+    let eightChar = document.querySelector(".eight-character i");
 
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: 'AIzaSyCu2WXknNce_49J5BLuR1DyHm319hu6dWc',
-      authDomain: 'login-13127.firebaseapp.com',
-      projectId: 'login-13127',
-      storageBucket: 'login-13127.appspot.com',
-      messagingSenderId: '151656578300',
-      appId: '1:151656578300:web:c67208ab6ec437c844ab79',
-      measurementId: 'G-L3PPD58MZ8',
+    // Set the password field to type "password" by default
+    password.type = "password";
+    eyeIcon.src = "../images/eye-close.png"; // Set the initial eye icon as closed
+
+    eyeIcon.onclick = function () {
+        if (password.type === "password") {
+            password.type = "text";
+            eyeIcon.src = "../images/eye-open.png";
+        } else {
+            password.type = "password";
+            eyeIcon.src = "../images/eye-close.png";
+        }
     };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    //console.log(app);
-    const auth = getAuth();
+    passwordLogin.type = "password";
+    eyeIconLogin.src = "../images/eye-close.png"; // Set the initial eye icon as closed
 
-
-  //----- New Registration code start
-  let register = document.querySelector(".register");
-  document.getElementById("register-form").addEventListener("submit", function () {
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-    if (email.trim() === "") {
-      alert("Please enter an email address");
-      return;
-    }
-
-    var apiUrl = "https://disposable.debounce.io/?email=" + encodeURIComponent(email);
-
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-        var disposable = data.disposable === "true"; // Convert string to boolean
-        if (disposable) {
-          alert("Please provide a genuine email address to continue.");
+    eyeIconLogin.onclick = function () {
+        if (passwordLogin.type === "password") {
+            passwordLogin.type = "text";
+            eyeIconLogin.src = "../images/eye-open.png";
         } else {
+            passwordLogin.type = "password";
+            eyeIconLogin.src = "../images/eye-close.png";
+        }
+    };
 
-
-
-            //For new registration
-
-            createUserWithEmailAndPassword(auth, email, password)
-              .then((userCredential) => {
-                // Signed in
-                const user = userCredential.user;
-                console.log(user);
-                alert('Registration successfully!!');
-                email = '';
-                password = '';
-                register.style.transform = 'translateY(8%)';
-                // ...
-              })
-              .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
-                console.log(errorMessage);
-                alert(error);
-              });
-          }
-        });
+    password.addEventListener("keyup", function(){
+        let pass = document.getElementById("password").value;
+        checkStrength(pass);
     });
-    //----- End
 
-    //----- Login code start
-    document.getElementById('login').addEventListener('click', function () {
-      let email = document.getElementById('login_email').value;
-      let password = document.getElementById('login_password').value;
+    function checkStrength(password) {
+        let strength = 0;
 
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed in
-          //const user = userCredential.user;
-          //console.log(user);
-          window.location.href = '../../index.html';
-          //alert(user.email+" Login successfully!!!");
-          document.getElementById('logout').style.display = 'block';
-          // ...
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorMessage);
-          alert(errorMessage);
-        });
-    });
-    //----- End
+        //If password contains both lower and uppercase characters
+        if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) {
+            strength += 1;
+            lowUpperCase.classList.remove('fa-circle');
+            lowUpperCase.classList.add('fa-check');
+        } else {
+            lowUpperCase.classList.add('fa-circle');
+            lowUpperCase.classList.remove('fa-check');
+        }
+        //If it has numbers and characters
+        if (password.match(/([0-9])/)) {
+            strength += 1;
+            number.classList.remove('fa-circle');
+            number.classList.add('fa-check');
+        } else {
+            number.classList.add('fa-circle');
+            number.classList.remove('fa-check');
+        }
+        //If it has one special character
+        if (password.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) {
+            strength += 1;
+            specialChar.classList.remove('fa-circle');
+            specialChar.classList.add('fa-check');
+        } else {
+            specialChar.classList.add('fa-circle');
+            specialChar.classList.remove('fa-check');
+        }
+        //If password is greater than 7
+        if (password.length > 7) {
+            strength += 1;
+            eightChar.classList.remove('fa-circle');
+            eightChar.classList.add('fa-check');
+        } else {
+            eightChar.classList.add('fa-circle');
+            eightChar.classList.remove('fa-check');   
+        }
 
-    //----- Logout code start
-    document.getElementById('logout').addEventListener('click', function () {
-      signOut(auth)
-        .then(() => {
-          // Sign-out successful.
-          console.log('Sign-out successful.');
-          alert('Sign-out successful.');
-          document.getElementById('logout').style.display = 'none';
-        })
-        .catch((error) => {
-          // An error happened.
-          console.log('An error happened.');
-        });
-    });
-    //----- End
-
-    // google auth
-
-    function signInWithGoogle() {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      firebase
-        .auth()
-        .signInWithPopup(provider)
-        .then((result) => {
-          // Handle successful sign-in
-          // const user = result.user;
-          // console.log(user);
-          window.location.href = '../../index.html';
-        })
-        .catch((error) => {
-          // Handle errors
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.error(errorMessage);
-        });
+        // If value is less than 2
+        if (strength < 2) {
+            passwordStrength.classList.remove('progress-bar-warning');
+            passwordStrength.classList.remove('progress-bar-success');
+            passwordStrength.classList.add('progress-bar-danger');
+            passwordStrength.style = 'width: 10%';
+        } else if (strength == 3) {
+            passwordStrength.classList.remove('progress-bar-success');
+            passwordStrength.classList.remove('progress-bar-danger');
+            passwordStrength.classList.add('progress-bar-warning');
+            passwordStrength.style = 'width: 60%';
+        } else if (strength == 4) {
+            passwordStrength.classList.remove('progress-bar-warning');
+            passwordStrength.classList.remove('progress-bar-danger');
+            passwordStrength.classList.add('progress-bar-success');
+            passwordStrength.style = 'width: 100%';
+        }
     }
 
-    document.getElementById('google').addEventListener('click', function () {
-      signInWithGoogle();
-    });
-  </script>
+    document.addEventListener('DOMContentLoaded', function() {
+    applyThemePreferenceOnLoginPage();
+});
 
-<!---Dark Mode-->
-<script>
-  function applyDarkModePreferenceOnLoginPage() {
-    const isDarkMode = isDarkModePreferred();
-    if (isDarkMode) {
-      document.body.classList.add("dark-mode");
-      document.querySelector('.navbar').classList.add('dark-mode');
-      const closeButton = document.querySelector('.close-icon');
-      closeButton.src = "../images/close-white.png";
-      // For darkmode styles
-      const noteElements = document.querySelectorAll('.note *');
-      noteElements.forEach(element => {
-        element.classList.add('dark-mode');
-      })
+function applyThemePreferenceOnLoginPage() {
+    let currentTheme = localStorage.getItem('currentTheme');
+    let themeClass = localStorage.getItem('theme');
 
-      const containerElements = document.querySelectorAll('.container *');
-      containerElements.forEach(element => {
-        element.classList.add('dark-mode');
-      })
+    if (currentTheme === 'dark' && themeClass) {
+        document.body.classList.add(themeClass);
 
-
+        document.querySelectorAll('.note h1, .note h2, .navbar, .main, .login, .register input, #register, .register label').forEach(element => {
+            element.classList.add('dark-mode');
+        });
     } else {
-      document.body.classList.remove("dark-mode");
-      document.querySelector('.navbar').classList.remove('dark-mode');
-      const closeButton = document.querySelector('.close-icon');
-      closeButton.src = "../images/close1.png";
-    }
-  }
+        document.body.classList.remove(themeClass);
 
-    // Function to check if dark mode preference exists
-    function isDarkModePreferred() {
-      return JSON.parse(localStorage.getItem('darkMode'));
+        document.querySelectorAll('.note h1, .note h2, .navbar, .main, .login, .register input, #register, .register label').forEach(element => {
+            element.classList.remove('dark-mode');
+        });
     }
-
-    // Call the function when the page loads
-    document.addEventListener('DOMContentLoaded', function () {
-      applyDarkModePreferenceOnLoginPage();
-    });
+}
   </script>
+</body>
 </html>
