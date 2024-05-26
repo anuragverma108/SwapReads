@@ -2,6 +2,9 @@
 
 # SwapReads.com
 
+![swap3](https://github.com/anuragverma108/SwapReads/assets/133582566/aa2d00bb-92fc-4363-8c68-11612666b218)
+
+
 <i>Connect, Exchange, Explore – Where Book Enthusiasts Swap Books and Discover New Literary Adventures!</i>
 
 </div>
@@ -36,6 +39,8 @@
 SwapReads.com is the solution to common challenges faced by book enthusiasts in today's digital age. We've identified key problems and developed a platform that addresses them efficiently and effectively.
 </div>
 
+<hr>
+
 ## Featured In
 
 <table>
@@ -53,16 +58,7 @@ SwapReads.com is the solution to common challenges faced by book enthusiasts in 
 
 </table>
 
-## Table of Contents
-
-* [The Problem](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#the-problem)
-* [How SwapReads Solves These Problems](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#how-swapreadscom-solves-these-problems)
-* [Tech Stack](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#how-swapreadscom-solves-these-problems)
-* [Open Innovation Challenge](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#open-innovation-challenge)
-* [Getting Started](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#open-innovation-challenge)
-* [Contribution](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#contribution)
-* [Creating a Pull Request](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#creating-pull-request)
-* [Our Contributors](https://github.com/anuragverma108/SwapReads?tab=readme-ov-file#creating-pull-request)
+<hr>
 
 ## The Problem:
 
@@ -97,6 +93,8 @@ SwapReads.com is the solution to common challenges faced by book enthusiasts in 
 
 5. **Revitalizing Unused Book Collections:**
    - SwapReads.com encourages users to share and exchange books that are sitting idle on their shelves.
+  
+<hr>
 
 <div align="center">
 
@@ -109,84 +107,70 @@ SwapReads.com is the solution to common challenges faced by book enthusiasts in 
 
 </div>
 
+  
+<hr>
+
+<div>
+  <h2><img src="https://github.com/Meetjain1/wanderlust/assets/133582566/90f3930e-5a12-4a4e-8ac9-0dc7d5396adb" width="35" height="35"> Ready to Contribute?</h2>
+</div>
+
+Kindly go through [CONTRIBUTING.md](CONTRIBUTING.md) to understand everything from setup to contributing guidelines.
+
+If you would like to contribute to the project, please follow our contribution guidelines.
+
+<hr>
+
 ### **Open Innovation Challenge:**
 
 SwapReads.com actively participates in the Open Innovation Challenge by cultivating a global community of readers. Our platform champions open access to a wide range of books, promotes sustainable reading habits through book swapping, and harnesses user-generated content to offer personalized recommendations. With community-driven discussions and data-driven optimizations, SwapReads.com is committed to advancing the goals of inclusivity, sustainability, and collaborative innovation in the world of literature.
 
 Join SwapReads.com today and embark on a literary journey like never before!
 
-## **Getting Started**
-1. Clone the repo
+<hr>
+<div>
+  <h2>🔗 Contact Us</h2>
+</div>
 
-```sh
- git clone https://github.com/anuragverma108/SwapReads
-```
+<table>
+    <tr>
+        <th>Role</th>
+        <th>LinkedIn</th>
+        <th>Discord</th>
+        <th>Email</th>
+    </tr>
+    <tr>
+        <td>Project Admin</td>
+        <td><a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">LinkedIn</a></td>
+        <td><a href="https://discordapp.com/users/anuragverma_108" target="_blank" class="discord">Discord</a></td>
+        <td>anuragvermacontact@gmail.com</td>
+    </tr>
+    <tr>
+        <td>Mentor</td>
+        <td><a href="https://www.linkedin.com/in/huamanraj/" target="_blank">LinkedIn</a></td>
+        <td><a href="https://discordapp.com/users/amanraj" target="_blank" class="discord">Discord</a></td>
+        <td>amanraj12.ar@gmail.com</td>
+    </tr>
+</table>
 
-2. Install npm packages
-```sh
-npm install
-```
-3. Run index.html with any browser (example: chrome etc).
+<hr>
 
-## Contribution
+<!-- Code of conduct -->
+<div>
+<h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35" height="35"> Code of Conduct</h2>
+</div>
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Please note that this project is released with a [Contributor Code of Conduct](./CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
-- If you have any suggestions for the project, such as reporting a bug, improving the UI, or enhancing the README.md file, feel free to **open an issue** to discuss it or directly create a pull request with the necessary changes.
-- Please make sure to check your spelling and grammar.
-- Create individual pull requests for each suggestion to keep changes focused and manageable.
+<hr>
 
-Your involvement helps to improve the project and make it better for everyone. Thank you for your contributions!
+⭐️ Support Our Project
+If you find this project helpful, please consider giving it a star on GitHub! Your support helps to grow the project and reach more contributors.
 
-## Creating Pull Request
-1. **Fork the Project:**
-    - Click on the "Fork" button at the top right corner of the repository's page on GitHub to create your own copy of the project.
-
-2. **Clone Your Forked Repository:**
-    - Clone the forked repository to your local machine using the following command:
-    ```sh
-     git clone https://github.com/anuragverma108/SwapReads
-    ```
-
-3. **Create a New Branch and Move to the Branch:**
-    - Create a new branch for your changes and move to that branch using the following commands:
-    ```sh
-    git checkout -b <branch-name>
-    ```
-
-4. **Add Your Changes:**
-    - After you have made your changes, check the status of the changed files using the following command:
-    ```sh
-    git status -s
-    ```
-    - Add all the files to the staging area using the following command:
-    ```sh
-    git add .
-    ```
-    or add specific files using:
-    ```sh
-    git add <file_name1> <file_name2>
-    ```
-
-5. **Commit Your Changes:**
-    - Commit your changes with a descriptive message using the following command:
-    ```sh
-    git commit -m "<EXPLAIN-YOUR_CHANGES>"
-    ```
-
-6. **Push Your Changes:**
-    - Push your changes to your forked repository on GitHub using the following command:
-    ```sh
-    git push origin <branch-name>
-    ```
-
-7. **Open a Pull Request:**
-    - Go to the GitHub page of your forked repository, and you should see an option to create a pull request. Click on it, provide a descriptive title and description for your pull request, and then submit it.
+<hr>
 
 <div>
- 
-<h2 align = "center">Our Contributors ❤️</h2>
-<div align = "center">
+  <h2 align = "center"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" width="35" height="35">Our Contributors</h2>
+  <div align = "center">
  <h3>Thank you for contributing to our repository</h3>
 
 ![Contributors](https://contrib.rocks/image?repo=anuragverma108/SwapReads)
