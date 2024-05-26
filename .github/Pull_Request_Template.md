@@ -1,19 +1,24 @@
-# Description
+# Related Issue
 
-Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+[Cite any related issue(s) this pull request addresses. If none, simply state “None”]
 
 Fixes:  #(issue no.)
 
+# Description
+
+[Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.]
+
 <!---give the issue number you fixed----->
 
-## Type of change
+# Type of PR
 
-<!----Please delete options that are not relevant.And in order to tick the check box just but x inside them for example [x] like this----->
+- [ ] Bug fix
+- [ ] Feature enhancement
+- [ ] Documentation update
+- [ ] Other (specify): _______________
 
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] This change requires a documentation update
+# Screenshots / videos (if applicable)
+[Attach any relevant screenshots or videos demonstrating the changes. Make sure to attach before & after screenshots in your PR.]
 
 # Checklist:
 
@@ -25,6 +30,5 @@ Fixes:  #(issue no.)
 - [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] I have made corresponding changes to the documentation
 - [ ] My changes generate no new warnings
-
-
-# ATTACH SCREEN-SHOTS / DEPLOYMENT LINK
+- [ ] I have tested the changes thoroughly before submitting this pull request.
+- [ ] I have provided relevant issue numbers, screenshots, and videos after making the changes.
