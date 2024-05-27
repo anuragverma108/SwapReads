@@ -22,13 +22,17 @@ Fixes:  #(issue no.)
 
 # Checklist:
 
-<!----Please delete options that are not relevant.And in order to tick the check box just but x inside them for example [x] like this----->
-- [ ] I have made this from my own
-- [ ] I have taken help from some online resourses 
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my own code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
-- [ ] My changes generate no new warnings
+<!--
+----Please delete options that are not relevant. And in order to tick the check box just put x inside them for example [x] like
+-->
+
+- [ ] I have made this change from my own.
+- [ ] I have taken help from some online resources.
+- [ ] My code follows the style guidelines of this project.
+- [ ] I have performed a self-review of my own code.
+- [ ] I have commented my code, particularly in hard-to-understand areas.
+- [ ] I have made corresponding changes to the documentation.
+- [ ] My changes generate no new warnings.
 - [ ] I have tested the changes thoroughly before submitting this pull request.
-- [ ] I have provided relevant issue numbers, screenshots, and videos after making the changes.
+- [ ] I have provided relevant issue numbers and screenshots after making the changes.
+
