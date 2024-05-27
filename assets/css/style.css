@@ -555,7 +555,11 @@ background-size: cover;
   padding: 0; /* Remove default padding */
 }
 
+
 .navbar-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   color: var(--charcoal);
   padding: 8px 12px; /* Adjust padding as needed */
@@ -582,12 +586,8 @@ background-size: cover;
   z-index: 1;
   transition: all 0.3s ease;
   top: 100%;
+  text-align: center;
 }
-
-.dropdown-item {
-  margin-top: 5px;
-}
-
 .dropdown-menu-list {
   list-style: none;
   margin: 0;
@@ -613,11 +613,20 @@ background-size: cover;
 
 .navbar-item.dropdown {
   position: relative; /* Ensure the dropdown menu is positioned relative to the navbar item */
+} 
+.dropdown-menu-item .navbar-link {
+  display: inline-block; /* Ensure links are inline-block to center them */
 }
-
 .navbar-item.dropdown:hover .dropdown-menu {
   display: block;
-} */
+} 
+.dropdown-arrow {
+  transition: transform 0.3s ease; /* Smooth transition for rotation */
+}
+
+.navbar-item.dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
 
 
 .nav-toggle-btn {
