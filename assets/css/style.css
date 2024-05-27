@@ -1,7 +1,3 @@
-img.logopic{
-  filter: brightness(50%);
-}
-
 .container1 {
   padding: 40px 100px;
   background-color: var(--seashell);
@@ -68,7 +64,7 @@ img.logopic{
   --ghost-white: hsl(233, 33%, 95%);
   --light-pink: hsl(357, 93%, 84%);
   --light-gray: hsl(0, 0%, 80%);
-  --old-rose: hsl(357, 37%, 62%);
+  --old-rose: hsl(357, 82%, 35%);
   --seashell: hsl(20, 43%, 93%);
   --charcoal: hsl(203, 30%, 26%);
   --white: hsl(0, 0%, 100%);
@@ -262,7 +258,7 @@ background-size: cover;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(357, 37%, 62%);
+  background: hsl(357, 60%, 45%);
 }
 
 /*-----------------------------------*\
@@ -271,6 +267,7 @@ background-size: cover;
 
 .section {
   padding-block: var(--section-padding);
+ 
 }
 
 .section:nth-child(odd) {
@@ -467,7 +464,7 @@ background-size: cover;
 }
 
 .dark-mode .logopic {
-  mix-blend-mode: normal;
+  content: url("./../images/new_logo_banner_light.png");
 }
 
 .nav-toggle-btn {
@@ -918,9 +915,10 @@ background-size: cover;
 
 }
 
-.chapter-card:hover::before {
-  width: 100%; /* Expand line width on hover */
-}
+/* .chapter-card:hover::before {
+  width: 100%;       
+}  */
+/* Expand line width on hover */
 
 .chapter-card .card-title {
   margin-block-end: 15px;
@@ -988,6 +986,10 @@ background-size: cover;
   transition: var(--transition-2);
   border-radius: var(--radius-5);
   box-shadow: var(--shadow-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .pricing-card:is(:hover, :focus-within),
@@ -1009,6 +1011,7 @@ background-size: cover;
 
 .pricing-card-list {
   margin-block: 20px 40px;
+  flex-grow: 1;
 }
 
 .pricing-card-list .card-item:not(:last-child) {
@@ -1021,6 +1024,8 @@ background-size: cover;
 
 .pricing-card .btn {
   margin-inline: auto;
+  align-self: center;
+  margin-top: auto;
 }
 
 /*-----------------------------------*\
@@ -1942,7 +1947,7 @@ input[type="submit"]:hover {
    */
 
   .header .container {
-    padding-inline: 20px 30px;
+    padding-inline: 0px 30px;
   }
 
   .nav-toggle-btn {
@@ -2084,7 +2089,7 @@ input[type="submit"]:hover {
   .container,
   .header,
   .navbar {
-    max-width: 1140px;
+    max-width: 1209px;
     border-radius: 10px;
     padding: 1rem;
   }
@@ -2306,10 +2311,8 @@ footer {
 }
 #back-to-top-container {
   position: fixed;
-  bottom: 135px;
-  right: 45px; /* Changed left to right */
-  bottom: 48px;
-  right: 4px; /* Changed left to right */
+  top: 78%;
+  right: 2.8%; /* Changed left to right */
   cursor: pointer;
   z-index: 1000;
 }
@@ -2347,7 +2350,7 @@ footer {
   justify-content: center;
   margin-top: 30px;
   right:-4px;
-  top: 40px;
+  top: 35px;
 }
 
 /* Hidden Checkbox */
@@ -2448,10 +2451,20 @@ footer {
   .navbar-list {
     flex-direction: row;
   }
+  #back-to-top-container {
+    position: fixed;
+    top: 78%;
+    right: 3.5%; /* Changed left to right */
+  }
 }
 @media (min-width: 1025px) {
   .navbar-list {
     flex-direction: row;
+  }
+  #back-to-top-container {
+    position: fixed;
+    top: 78%;
+    right: 2.8%; /* Changed left to right */
   }
 }
 @media (min-width: 1281px) {
@@ -2544,6 +2557,12 @@ footer {
   .description {
     width: 100%;
     margin: 5px 0;
+  }
+
+  #back-to-top-container {
+    position: fixed;
+    top: 76%;
+    right: 4.95%; /* Changed left to right */
   }
 
 }
@@ -2712,4 +2731,24 @@ select {
   .book-image.dark-mode {
       border: 1px solid #ffffff;
   }
-  
+
+.cardo{
+  height: 28rem;
+}
+.pricing-card{
+  height :70rem
+}
+.card-title{
+  padding: 2px;
+}
+
+@media(max-width:300px){
+  .cardo{
+    height: fit-content;
+  }
+}
+@media(max-width:770px){
+  .pricing-card{
+    height: fit-content;
+  }
+}
