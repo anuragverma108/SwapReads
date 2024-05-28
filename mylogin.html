@@ -22,6 +22,10 @@
             margin-top: 1px;
             /* Added margin-top for better alignment */
         }
+        .error-message {
+            color: red;
+            font-size: 12px;
+        }
     </style>
 </head>
 
@@ -49,11 +53,11 @@
             <input type="checkbox" id="chk" aria-hidden="true" />
 
             <div class="login">
-                <form class="form">
+                <form class="form" id="login-form">
                     <label for="chk" aria-hidden="true">Log in</label>
-                    <input class="input" type="email" name="email" id="login_email" placeholder="Email" required="" />
-                    <input class="input" type="password" name="pswd" id="login_password" placeholder="Password"
-                        required="" />
+                    <input class="input" type="email" name="email" id="login_email" placeholder="Email" form="login-form" required="" />
+                    <div id="login_email_error" class="error-message"></div>
+                    <input class="input" type="password" name="pswd" id="login_password" placeholder="Password" form="login-form" required="" />
                     <label class="remember-me-label">
                         <input type="checkbox" id="rememberMe"> Remember Me
                     </label>
@@ -62,10 +66,11 @@
             </div>
 
             <div class="register">
-                <form class="form">
+                <form class="form" id="register-form">
                     <label for="chk" aria-hidden="true">Register</label>
-                    <input class="input" type="email" name="email" id="email" placeholder="Email" required="" />
-                    <input class="input" type="password" name="pswd" id="password" placeholder="Password" required="" />
+                    <input class="input" type="email" name="email" id="email" placeholder="Email" form="register-form" required="" />
+                    <div id="email_error" class="error-message"></div>
+                    <input class="input" type="password" name="pswd" id="password" placeholder="Password" form="register-form" required="" />
                     <button type="button" name="register" id="register">Register</button>
                 </form>
             </div>
@@ -104,6 +109,12 @@
         const analytics = getAnalytics(app);
         const auth = getAuth();
 
+        // Email validation function
+        function validateEmail(email) {
+            const re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+
         // Remember Me functionality
         window.onload = function () {
             if (localStorage.getItem('rememberMe') === 'true') {
@@ -116,6 +127,15 @@
         document.getElementById("register").addEventListener("click", function () {
             let email = document.getElementById("email").value;
             let password = document.getElementById("password").value;
+            let emailError = document.getElementById("email_error");
+
+            // Validate email format
+            if (!validateEmail(email)) {
+                emailError.textContent = "Please enter a valid email address";
+                return;
+            } else {
+                emailError.textContent = "";
+            }
 
             // For new registration
             createUserWithEmailAndPassword(auth, email, password)
@@ -138,6 +158,15 @@
             let email = document.getElementById("login_email").value;
             let password = document.getElementById("login_password").value;
             let rememberMe = document.getElementById("rememberMe").checked;
+            let loginEmailError = document.getElementById("login_email_error");
+
+            // Validate email format
+            if (!validateEmail(email)) {
+                loginEmailError.textContent = "Please enter a valid email address";
+                return;
+            } else {
+                loginEmailError.textContent = "";
+            }
 
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
@@ -166,4 +195,8 @@
                 .then(() => {
                     console.log("Sign-out successful.");
                 })
-            })
+        })
+    </script>
+</body>
+
+</html>
