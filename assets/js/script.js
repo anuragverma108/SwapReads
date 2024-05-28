@@ -147,10 +147,10 @@ const closeNavbar = function () {
 
 const toggleTheme = function () {
   if (currentTheme === 'light') {
-    logoImage.src = './assets/images/logo_darkbg.png';
+    logoImage.src = 'https://swapreads.vercel.app/assets/images/new_logo_banner_dark.png';
     currentTheme = 'dark';
   } else {
-    logoImage.src = './assets/images/logo_whitebg.png';
+    logoImage.src = 'assets/images/new_logo_banner_light.png';
     currentTheme = 'light';
   }
   // Save the current theme to localStorage
@@ -159,9 +159,9 @@ const toggleTheme = function () {
 
 // Set the initial logo image based on the current theme
 if (currentTheme === 'dark') {
-  logoImage.src = './assets/images/logoPicDark.png';
+  logoImage.src = 'assets/images/new_logo_banner_light.png';
 } else {
-  logoImage.src = './assets/images/logo_whitebg.png';
+  logoImage.src = 'https://swapreads.vercel.app/assets/images/new_logo_banner_dark.png';
 }
 
 addEventOnelem(navToggler, 'click', toggleNavbar);
