@@ -825,6 +825,34 @@ background-size: cover;
   #BENEFITS
 \*-----------------------------------*/
 
+.benefits .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.benefits .grid-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.benefits-card {
+  width: calc(50% - 20px);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center text within cards */
+}
+
+.benefits-card .card-text {
+  margin-block-end: 20px;
+}
+
 .benefits .section-text {
   text-align: center;
   margin-block: 8px 25px;
@@ -2014,19 +2042,6 @@ input[type="submit"]:hover {
   } */
 
   /**
-   * BENEFITS
-   */
-
-  .benefits .grid-list {
-    grid-template-columns: repeat(4, 1fr);
-    align-items: center;
-  }
-
-  .benefits-content {
-    max-width: 80%;
-  }
-
-  /**
    * CHAPTER, PRICING
    */
 
@@ -2101,6 +2116,42 @@ input[type="submit"]:hover {
     padding: 40px;
   }
 }
+@media (min-width: 992px) {
+  .benefits .grid-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Add gap between cards */
+    align-items: center;
+  }
+
+  .benefits-card {
+    width: calc(33.33% - 20px);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px; /* Add margin to separate cards vertically */
+    margin: 20px; /* Add margin to provide full spacing for each card */
+  }
+
+  .benefits-content {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .benefits-card .card-text {
+    margin-block-end: 20px;
+  }
+}
+
+
+
+
+
 
 /**
  * responsive for large than 1200px screen
@@ -2136,6 +2187,18 @@ input[type="submit"]:hover {
   .navbar-list {
     gap: 30px; /* Increase gap between navbar items */
     justify-content: center; /* Center align navbar items */
+  }
+
+  .benefits .grid-list {
+    grid-template-columns: repeat(3, 1fr); /* Display three cards per row */
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .benefits-card {
+    width: calc(33.33% - 20px); /* Adjust width for three cards per row */
+    margin: 20px;
   }
 
   /**
