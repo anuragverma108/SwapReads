@@ -2700,9 +2700,15 @@ footer {
 }
 .preference-bar {
   display: flex;
-  justify-content: space-around;
+  justify-content: center; /* Center items horizontally */
   align-items: center;
+  flex-wrap: wrap; /* Allow items to wrap if they exceed container width */
 }
+
+.preference-bar > * {
+  margin: 0 10px; /* Add spacing between items */
+}
+
 .preference-bar label {
   font-weight: bold;
   font-size: 20px;      
@@ -2857,16 +2863,119 @@ select {
     padding: 2px;
   }
   
-  @media(max-width:300px){
-    .cards{
-      height: fit-content;
-    }
+
+/* Media Queries for Recommended Books section */
+
+
+ /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .container00 {
+    padding: 30px;
+    margin-bottom: 30px;
   }
-  @media(max-width:770px){
-    .pricing-card{
-      height: fit-content;
-    }
+  .container01 {
+    padding: 30px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
+  .preference-bar {
+    flex-direction: column; /* Stack items vertically */
+  }
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 16px; /* Reduce font size for better fit */
+  }
+  .container00 h2 {
+    font-size: 24px;
+    margin-left: 0;
+  }
+}
+
+
+/* Devices between 600px and 768px */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  .container00 {
+    padding: 40px; /* Adjust padding for better spacing */
+    margin-bottom: 40px; /* Adjust margin for better spacing */
+  }
+  .container01 {
+    padding: 40px; /* Adjust padding for better spacing */
+    margin-bottom: 40px; /* Adjust margin for better spacing */
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .preference-bar {
+    flex-direction: column; /* Stack items vertically */
+  }
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 16px; /* Reduce font size for better fit */
+  }
+  .container00 h2 {
+    font-size: 26px; /* Increase font size for better readability */
+    margin-left: 0;
+  }
+}
+
+
+/* Small devices (landscape phones, 768px and up) */
+@media only screen and (min-width: 768px) {
+  /* No changes needed from the base styles */
+  .container00 {
+    max-width: 700px; /* Adjust the max-width for better layout on landscape phones */
+    padding: 50px; /* Increase padding for better spacing */
+  }
+  .container01 {
+    max-width: 700px; /* Adjust the max-width for better layout on landscape phones */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px; /* Increase padding for better spacing */
+  }
+  .preference-bar {
+    justify-content: space-between; /* Maintain space between items */
+    flex-wrap: wrap; /* Allow items to wrap */
+  }
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 18px; /* Increase font size for better readability */
+  }
+}
+
+
+/* Medium devices (tablets, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .container00 {
+    max-width: 800px;
+  }
+  .container01 {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .preference-bar {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 18px;
+  }
+}
+
+/* Large devices (desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .container00 {
+    max-width: 1000px;
+  }
+  .container01 {
+    max-width: 1000px;
+  }
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 20px;
+  }
+}
 
  
 
