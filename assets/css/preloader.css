@@ -26,7 +26,7 @@
     visibility: hidden;
 }
 
-#loader {
+/* #loader {
     display: block;
     position: relative;
     width: 150px;
@@ -70,4 +70,46 @@
     100% {
         transform: rotate(360deg);
     }
-}
+} */
+
+
+
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .book-wrapper {
+    width: 150px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+  }
+  .book {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(10px 10px 5px rgba(0, 0, 0, 0.137));
+    border: 0;
+  }
+  .book-wrapper .book-page {
+    width: 50%;
+    height: auto;
+    position: absolute;
+    animation: paging 0.35s linear infinite;
+    transform-origin: left;
+    bottom: 20px;
+  }
+  @keyframes paging {
+    0% {
+      transform: rotateY(0deg) skewY(0deg);
+    }
+    50% {
+      transform: rotateY(90deg) skewY(-20deg);
+    }
+    100% {
+      transform: rotateY(180deg) skewY(0deg);
+    }
+  }
+  
