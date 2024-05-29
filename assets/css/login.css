@@ -57,7 +57,7 @@ p {
   font-size: 1rem;
 }
 
-.navbar {
+/* .navbar {
   width: 80%;
   height: 6rem;
   align-self: center;
@@ -73,7 +73,7 @@ p {
 
 
 
-}
+} */
 /* .navbar-header {
   width: 100%;
   font-family: var(--ff-poppins);
@@ -106,15 +106,6 @@ p {
 
 }
 
-.navbar-link {
-  position: relative;
-  color: var(--charcoal);
-  padding: 8px 12px; /* Adjust padding as needed */
-  line-height: 2;
-  text-decoration: none;
-
-  transition: var(--transition-1);
-}
 .nav-links {
   margin: 0;
   text-decoration: none;
@@ -438,6 +429,23 @@ a:active {color: var(--old-rose);}
 .message {
     color: red;
 } */
+
+
+.navbar-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--charcoal);
+  padding: 8px 12px; /* Adjust padding as needed */
+  line-height: 2;
+  transition: var(--transition-1);
+}
+
+.navbar-link:is(:hover, :focus) {
+  color: var(--old-rose);
+}
+
 .dropdown-menu {
   /* display: none;
   position: absolute;
@@ -453,12 +461,8 @@ a:active {color: var(--old-rose);}
   z-index: 1;
   transition: all 0.3s ease;
   top: 100%;
+  text-align: center;
 }
-
-.dropdown-item {
-  margin-top: 5px;
-}
-
 .dropdown-menu-list {
   list-style: none;
   margin: 0;
@@ -484,43 +488,19 @@ a:active {color: var(--old-rose);}
 
 .navbar-item.dropdown {
   position: relative; /* Ensure the dropdown menu is positioned relative to the navbar item */
+} 
+.dropdown-menu-item .navbar-link {
+  display: inline-block; /* Ensure links are inline-block to center them */
 }
-
 .navbar-item.dropdown:hover .dropdown-menu {
   display: block;
-} */
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 1;
-  transition: all 0.3s ease;
-  top: 100%;
+} 
+.dropdown-arrow {
+  transition: transform 0.3s ease; /* Smooth transition for rotation */
 }
 
-.dropdown-menu-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.dropdown-menu-item {
-  padding: 12px 16px;
-}
-
-.dropdown-menu-item a {
-  text-decoration: none;
-  color: #000;
-}
-
-.dropdown-menu.active {
-  display: block;
-}
-
-.navbar-item.dropdown {
-  position: relative;
+.navbar-item.dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
 }
 
 .form {
@@ -535,6 +515,7 @@ a:active {color: var(--old-rose);}
   width: 50%;
   max-width: 600px;
   font-family: var(--ff-philosopher);
+  margin-top:200px;
   margin-bottom: 4rem;
 }
 
@@ -586,21 +567,21 @@ a:active {color: var(--old-rose);}
   display: none;
 }
 
-/*Login*/
+/*Signup*/
 
-#login {
+#signup {
   font-size: medium;
   font-family: var(--ff-poppins);
 }
 
-.login {
+.signup {
   position: relative;
   width: 100%;
   height: 100%;
   font-family: var(--ff-poppins);
 }
 
-.login label {
+.signup label {
   margin: 5% 0 5%;
 }
 
@@ -693,22 +674,22 @@ label {
 }
 
 
-/*Register*/
-#register{
+/*Login*/
+#Login{
   font-size: medium;
   color: var(--old-rose);
-  background-color: #eee;
+  background-color: rgb(247, 150, 150);
   cursor: pointer;
   margin-top: 100px;
   margin-bottom: 20px;
 }
 
-#register:hover {
+#login:hover {
   background-color: white;
   background-color: var(--old-rose);
 }
 
-.register {
+.login{
   background: #eee;
   width:100%;
   font-family: var(--ff-poppins);
@@ -718,35 +699,35 @@ label {
   margin-bottom: 45px;
   padding-bottom: 45px;
 }
-#register{
+#login{
   color: var(--old-rose);
 }
-#register:hover {
+#login:hover {
   color: white;
   background-color: var(--old-rose);
 }
 
 
-.register label {
+.login label {
   color: var(--old-rose);
   margin-top: 1rem;
   transform: scale(0.6);
 }
 
-.register label:hover {
+.login label:hover {
   color: #000000;
 }
 
-#chk:checked ~ .register {
+#chk:checked ~ .login {
   transform: translateY(-69%);
 }
 
-#chk:checked ~ .register label {
+#chk:checked ~ .login label {
   transform: scale(1);
   /* margin: 5% 0 5%; */
 }
 
-#chk:checked ~ .login label {
+#chk:checked ~ .signup label {
   transform: scale(0.6);
   margin: 5% 0 5%;
 }
@@ -755,7 +736,7 @@ label {
   width: 95%;
   height: 40px;
   margin: 12px auto 10%;
-  color: #fff;
+  color:rgb(247, 150, 150);
   background: transparent;
   font-size: 1.5rem;
   font-weight: bold;
