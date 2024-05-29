@@ -136,30 +136,3 @@ dbConnect().then(() => {
 
   app.listen(3000, () => console.log("Server is running on port 3000"));
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const mongoURI = "mongodb+srv://shrinaya:KiE1hSUgeEVfak5A@cluster0.fy6herp.mongodb.net/myDatabase?retryWrites=true&w=majority";
-
-// mongoose.connect(mongoURI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   serverSelectionTimeoutMS: 30000, // 30 seconds timeout
-// })
-//   .then(() => console.log('MongoDB connected...'))
-//   .catch(err => console.log(err));
