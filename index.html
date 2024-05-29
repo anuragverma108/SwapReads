@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png"> 
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
   <link rel="manifest" href="./assets/favicon_package_v0.16/site.webmanifest">
@@ -53,6 +53,84 @@
   <!-- Preloader CSS-->
   <link rel="stylesheet" href="assets/css/preloader.css">
   <script src="./assets/js/preloader.js" defer></script>
+  <style>
+    swiper-container {
+      width: 100%;
+      height: 70%;
+    }
+
+    swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      color: hsl(357, 37%, 62%);
+    }
+
+    swiper-container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .flip-card {
+      background-color: transparent;
+      width: 400px;
+      height: 370px;
+      /* margin: 2px; */
+      /* border: 1px solid #f1f1f1; */
+      perspective: 1000px;
+      /* Remove this if you don't want the 3D effect */
+    }
+
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      padding: 10px;
+    }
+
+    /* Do an horizontal flip when you move the mouse over the flip box container */
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Position the front and back side */
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      /* Safari */
+      backface-visibility: hidden;
+    }
+
+    /* Style the front side (fallback if image is missing) */
+    .flip-card-front {
+      background-color: white;
+      color: black;
+    }
+
+    /* Style the back side */
+    .flip-card-back {
+      background-color: black;
+      color: white;
+      transform: rotateY(180deg);
+    }
+  </style>
 </head>
 
 
@@ -90,7 +168,7 @@
 
       <nav class="navbar" data-navbar>
         <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
-        <img src="./assets/images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
+          <img src="./assets/images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
         </a>
 
         <ul class="navbar-list">
@@ -125,16 +203,21 @@
 
 
           <li class="navbar-item dropdown" id="more-dropdown">
-            <a href="#" class="navbar-link" id="more-link">More 
-            <svg  class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24"><path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z"/></svg></a>
+            <a href="#" class="navbar-link" id="more-link">More
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
+                viewBox="0 0 24 24">
+                <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
+              </svg></a>
             <div class="dropdown-menu" id="dropdown-menu">
 
               <ul class="dropdown-menu-list">
                 <li class="dropdown-menu-item">
-                  <a href="#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i class="ri-medal-fill"></i> Literary Realms</a>
+                  <a href="#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
+                      class="ri-medal-fill"></i> Literary Realms</a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href="#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
+                  <a href="#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
+                      class="ri-price-tag-3-fill"></i> Pricing</a>
                 </li>
                 <li class="dropdown-menu-item">
                   <a href="./assets/html/addremovebook.html" class="navbar-link">Booklist for Swapping</a>
@@ -145,7 +228,8 @@
                   </a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
+                  <a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
+                    data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
                 </li>
                 <li class="dropdown-menu-item">
                   <a href="./assets/html/about.html" class="navbar-link">About</a>
@@ -153,42 +237,42 @@
               </ul>
             </div>
           </li>
-          
+
           <!-- Google Translate Element -->
           <li class="navbar-item">
             <div id="google_element"></div>
-        </li>
-    </ul>
-</nav>
-</div>
-
-<script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-<script>
-function loadGoogleTranslate() {
-new google.translate.TranslateElement({
-  pageLanguage: 'en'
-}, 'google_element');
-}
-</script>
-            <div class="switch-container">
-              <input type="checkbox" id="switch" class="switch-checkbox">
-              <label for="switch" class="switch-label">
-                <div class="switch-button">
-                  <span class="material-icons sun-icon">wb_sunny</span>
-                  <span class="material-icons moon-icon">brightness_2</span>
-                </div>
-              </label>
-            </div>
-
           </li>
         </ul>
       </nav>
+    </div>
 
-      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
-        <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
+    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script>
+      function loadGoogleTranslate() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en'
+        }, 'google_element');
+      }
+    </script>
+    <div class="switch-container">
+      <input type="checkbox" id="switch" class="switch-checkbox">
+      <label for="switch" class="switch-label">
+        <div class="switch-button">
+          <span class="material-icons sun-icon">wb_sunny</span>
+          <span class="material-icons moon-icon">brightness_2</span>
+        </div>
+      </label>
+    </div>
 
-        <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
-      </button>
+    </li>
+    </ul>
+    </nav>
+
+    <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+      <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
+
+      <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
+    </button>
 
     </div>
   </header>
@@ -458,9 +542,11 @@ new google.translate.TranslateElement({
                 <p class="card-subtitle">02</p>
 
                 <h3 class="h3 card-title">Romance</h3>
-          <p class="card-text">
-            "A romance is understood to be 'love stories,' which are primarily focused on the relationship between the main characters of the story. The biggest defining characteristic of the romance genre is that a happy ending is always guaranteed, perhaps living 'happily ever after.'"
-          </p>
+                <p class="card-text">
+                  "A romance is understood to be 'love stories,' which are primarily focused on the relationship between
+                  the main characters of the story. The biggest defining characteristic of the romance genre is that a
+                  happy ending is always guaranteed, perhaps living 'happily ever after.'"
+                </p>
 
               </div>
             </li>
@@ -573,7 +659,7 @@ new google.translate.TranslateElement({
               </p>
 
             </div>
-          </li>
+            </li>
 
             <li>
               <div class="chapter-card">
@@ -583,13 +669,15 @@ new google.translate.TranslateElement({
                 <h3 class="h3 card-title">Poetry</h3>
 
                 <p class="card-text">
-                  Distilling emotions into rhythmic language, they inspire reflection, evoke vivid imagery, and offer solace. 
-                  From ancient epics to modern verses, they celebrate the power of words and the timeless beauty of human expression.
+                  Distilling emotions into rhythmic language, they inspire reflection, evoke vivid imagery, and offer
+                  solace.
+                  From ancient epics to modern verses, they celebrate the power of words and the timeless beauty of
+                  human expression.
                 </p>
 
               </div>
             </li>
-            
+
             <li>
               <div class="chapter-card">
 
@@ -598,14 +686,14 @@ new google.translate.TranslateElement({
                 <h3 class="h3 card-title">Philosophy</h3>
 
                 <p class="card-text">
-                  Delve into life's fundamental questions, exploring existence, ethics, 
+                  Delve into life's fundamental questions, exploring existence, ethics,
                   and knowledge, they provoke deep thought, challenge assumptions, and offer
                   diverse perspectives, fostering critical thinking and a deeper understanding of the human condition.
                 </p>
 
               </div>
             </li>
-            
+
             <li>
               <div class="chapter-card">
 
@@ -646,10 +734,11 @@ new google.translate.TranslateElement({
           <ul class="grid-list">
 
             <li>
-<!---jfdb-->
+              <!---jfdb-->
               <a class="cardo" href="#">
                 <h3 class="lithead">01. &nbsp;Romantic Escapes</h3>
-                <p class="small"> Immerse yourself in the enchanting world of love and passion with our curated selection of romance
+                <p class="small"> Immerse yourself in the enchanting world of love and passion with our curated
+                  selection of romance
                   fiction.</p>
                 <div class="go-corner" href="#">
                   <div class="go-arrow">
@@ -676,14 +765,15 @@ new google.translate.TranslateElement({
 
               <a class="cardo" href="#">
                 <h3 class="lithead">02. &nbsp;Thrilling Adventures</h3>
-                <p class="small"> Dive into heart-pounding tales and gripping narratives that will keep you on the edge of your seat.</p>
+                <p class="small"> Dive into heart-pounding tales and gripping narratives that will keep you on the edge
+                  of your seat.</p>
                 <div class="go-corner" href="#">
                   <div class="go-arrow">
                     →
                   </div>
                 </div>
               </a>
-              
+
               <!-- <div class="chapter-card">
 
                 <p class="card-subtitle">02</p>
@@ -701,7 +791,8 @@ new google.translate.TranslateElement({
 
               <a class="cardo" href="#">
                 <h3 class="lithead">03. &nbsp;Mindful Living</h3>
-                <p class="small"> Discover the secrets to a fulfilling life with our collection of insightful and empowering self-help
+                <p class="small"> Discover the secrets to a fulfilling life with our collection of insightful and
+                  empowering self-help
                   books.</p>
                 <div class="go-corner" href="#">
                   <div class="go-arrow">
@@ -709,7 +800,7 @@ new google.translate.TranslateElement({
                   </div>
                 </div>
               </a>
-              
+
               <!-- <div class="chapter-card">
 
                 <p class="card-subtitle">03</p>
@@ -728,14 +819,15 @@ new google.translate.TranslateElement({
 
               <a class="cardo" href="#">
                 <h3 class="lithead">04. &nbsp;Mystical Fantasies</h3>
-                <p class="small"> Embark on fantastical journeys to magical realms with our captivating fantasy fiction picks.</p>
+                <p class="small"> Embark on fantastical journeys to magical realms with our captivating fantasy fiction
+                  picks.</p>
                 <div class="go-corner" href="#">
                   <div class="go-arrow">
                     →
                   </div>
                 </div>
               </a>
-              
+
               <!-- <div class="chapter-card">
 
                 <p class="card-subtitle">04</p>
@@ -753,7 +845,8 @@ new google.translate.TranslateElement({
 
               <a class="cardo" href="#">
                 <h3 class="lithead">05. &nbsp;Historical Chronicles</h3>
-                <p class="small"> Travel back in time and explore the rich tapestry of history through our curated historical fiction
+                <p class="small"> Travel back in time and explore the rich tapestry of history through our curated
+                  historical fiction
                   selection.</p>
                 <div class="go-corner" href="#">
                   <div class="go-arrow">
@@ -761,7 +854,7 @@ new google.translate.TranslateElement({
                   </div>
                 </div>
               </a>
-              
+
               <!-- <div class="chapter-card">
 
                 <p class="card-subtitle">05</p>
@@ -780,14 +873,15 @@ new google.translate.TranslateElement({
 
               <a class="cardo" href="#">
                 <h3 class="lithead">06. &nbsp;Science Fiction Wonders</h3>
-                <p class="small"> Ignite your imagination with mind-bending concepts and futuristic worlds in our science fiction.</p>
+                <p class="small"> Ignite your imagination with mind-bending concepts and futuristic worlds in our
+                  science fiction.</p>
                 <div class="go-corner" href="#">
                   <div class="go-arrow">
                     →
                   </div>
                 </div>
               </a>
-              
+
               <!-- <div class="chapter-card">
 
                 <p class="card-subtitle">06</p>
@@ -805,7 +899,8 @@ new google.translate.TranslateElement({
 
               <a class="cardo" href="#">
                 <h3 class="lithead">07. &nbsp;Laugh Out Loud Comedy</h3>
-                <p class="small"> Find joy and laughter in our comedy section, featuring witty and humorous tales that will brighten
+                <p class="small"> Find joy and laughter in our comedy section, featuring witty and humorous tales that
+                  will brighten
                   your day.</p>
                 <div class="go-corner" href="#">
                   <div class="go-arrow">
@@ -813,7 +908,7 @@ new google.translate.TranslateElement({
                   </div>
                 </div>
               </a>
-              
+
               <!-- <div class="chapter-card">
 
                 <p class="card-subtitle">07</p>
@@ -832,14 +927,15 @@ new google.translate.TranslateElement({
 
               <a class="cardo" href="#">
                 <h3 class="lithead">08. &nbsp;Intriguing Mysteries</h3>
-                <p class="small">  Unravel gripping mysteries and suspenseful plots that will keep you guessing until the last page.</p>
+                <p class="small"> Unravel gripping mysteries and suspenseful plots that will keep you guessing until the
+                  last page.</p>
                 <div class="go-corner" href="#">
                   <div class="go-arrow">
                     →
                   </div>
                 </div>
               </a>
-              
+
               <!-- <div class="chapter-card">
 
                 <p class="card-subtitle">08</p>
@@ -857,7 +953,8 @@ new google.translate.TranslateElement({
 
               <a class="cardo" href="#">
                 <h3 class="lithead">09. &nbsp;Inspiring Biographies</h3>
-                <p class="small"> Gain insights into the lives of remarkable individuals through our collection of inspiring biographies
+                <p class="small"> Gain insights into the lives of remarkable individuals through our collection of
+                  inspiring biographies
                   and memoirs.</p>
                 <div class="go-corner" href="#">
                   <div class="go-arrow">
@@ -865,7 +962,7 @@ new google.translate.TranslateElement({
                   </div>
                 </div>
               </a>
-              
+
               <!-- <div class="chapter-card">
 
                 <p class="card-subtitle">09</p>
@@ -1179,113 +1276,200 @@ new google.translate.TranslateElement({
   </h2>
   <p class="section-subtitle">Know what our customers say</p>
 
-  <div class="slide-container swiper" style="margin-bottom: 15px;">
-    <div class="slide-content">
-      <div class="card-wrapper swiper-wrapper">
-        <div class="card swiper-slide">
-          <div class="fronts"
-            style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+  <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="40"
+   loop="true" slides-per-view="3">
+    <swiper-slide>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front fronts dark-mode">
+            <div class="">
 
-            <div class="image-content">
+              <div class="image-content">
 
 
-              <div class="card-image">
-                <img src="./assets/images/testimonials-1.jpg" alt="" class="card-img">
+                <div class="card-image">
+                  <img src="./assets/images/testimonials-4.jpg" alt="" class="card-img">
+                </div>
+                <h2 style="font-size: 20px;">Sonal K</h2>
               </div>
-              <h2 style="font-size: 20px;">B.Sharmila</h2>
-            </div>
 
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
             </div>
           </div>
-          <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">
-
+          <div class="flip-card-back backs">
             SwapReads has completely transformed my reading experience! Not only have I discovered new books I never
             would have picked up otherwise, but I've also connected with fellow book lovers who share my passion. It's
-            like having a personalized library with endless possibilities. Highly recommend! </div>
-
-        </div>
-        <div class="card swiper-slide">
-          <div class="fronts"
-            style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-
-            <div class="image-content">
-              <div class="card-image">
-                <img src="./assets/images/testimonials-2.jpg" alt="" class="card-img">
-              </div>
-              <h2 style="font-size: 20px;">Prem Sampath</h2>
-            </div>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
+            like having a personalized library with endless possibilities. Highly recommend!
           </div>
-          <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">
-            SwapReads has transformed my reading habits. Beyond swapping books, it's about fostering a community of
-            passionate readers. I've made friends, broadened my literary horizons, and unearthed hidden gems. Thank you,
-            SwapReads! </div>
-        </div>
-        <div class="card swiper-slide">
-          <div class="fronts"
-            style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-            <div class="image-content">
-              <div class="card-image">
-                <img src="./assets/images/testimonials-3.jpg" alt="" class="card-img">
-              </div>
-              <h2 style="font-size: 20px;">Aron Loes</h2>
-            </div>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
-          <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">
-            SwapReads is a bookworm's paradise! With its user-friendly interface, welcoming community, and vast variety
-            of books for swapping, I've embarked on countless new literary adventures. It's like an ever-active book
-            club where I've connected with fellow literature lovers. I'm completely hooked!</div>
-        </div>
-        <div class="card swiper-slide">
-          <div class="fronts"
-            style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-            <div class="image-content">
-              <div class="card-image">
-                <img src="./assets/images/testimonials-4.jpg" alt="" class="card-img">
-              </div>
-              <h2 style="font-size: 20px;">Sonal K</h2>
-            </div>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
-          <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">
-            SwapReads revolutionized my reading life! I've decluttered my shelf, discovered hidden gems, and connected
-            with a passionate community. Thank you, SwapReads, for stealing my heart! </div>
         </div>
       </div>
-    </div>
-    <div class="swiper-button-next swiper-navBtn"></div>
-    <div class="swiper-button-prev swiper-navBtn"></div>
-    <div class="swiper-pagination"></div>
-  </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front fronts dark-mode">
+            <div class="">
+
+              <div class="image-content">
 
 
+                <div class="card-image">
+                  <img src="./assets/images/testimonials-2.jpg" alt="" class="card-img">
+                </div>
+                <h2 style="font-size: 20px;">Prem Sampath</h2>
+              </div>
+
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card-back backs">
+            SwapReads has transformed my reading habits. Beyond swapping books, it's about fostering a community of
+            passionate readers. I've made friends, broadened my literary horizons, and unearthed hidden gems. Thank you,
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front fronts dark-mode">
+            <div class="">
+
+              <div class="image-content">
 
 
+                <div class="card-image">
+                  <img src="./assets/images/testimonials-3.jpg" alt="" class="card-img">
+                </div>
+                <h2 style="font-size: 20px;">Aron Loes</h2>
+              </div>
+
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card-back backs">
+            SwapReads is a bookworm's paradise! With its user-friendly interface, welcoming community, and vast variety
+            of books for swapping, I've embarked on countless new literary adventures. It's like an ever-active book
+            club where I've connected with fellow literature lovers. I'm completely hooked!
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front fronts dark-mode">
+            <div class="">
+
+              <div class="image-content">
+
+
+                <div class="card-image">
+                  <img src="./assets/images/testimonials-1.jpg" alt="" class="card-img">
+                </div>
+                <h2 style="font-size: 20px;">B.Sharmila</h2>
+              </div>
+
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card-back backs">
+            SwapReads revolutionized my reading life! I've decluttered my shelf, discovered hidden gems, and connected
+            with a passionate community. Thank you, SwapReads, for stealing my heart! 
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front fronts dark-mode">
+            <div class="">
+
+              <div class="image-content">
+
+
+                <div class="card-image">
+                  <img src="./assets/images/testimonials-2.jpg" alt="" class="card-img">
+                </div>
+                <h2 style="font-size: 20px;">Prem Sampath</h2>
+              </div>
+
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card-back backs">
+            SwapReads is a bookworm's paradise! With its user-friendly interface, welcoming community, and vast variety
+            of books for swapping, I've embarked on countless new literary adventures. It's like an ever-active book
+            club where I've connected with fellow literature lovers. I'm completely hooked!
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front fronts dark-mode">
+            <div class="">
+
+              <div class="image-content">
+
+
+                <div class="card-image">
+                  <img src="./assets/images/testimonials-3.jpg" alt="" class="card-img">
+                </div>
+                <h2 style="font-size: 20px;">Aron Loes</h2>
+              </div>
+
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card-back backs">
+            SwapReads has transformed my reading habits. Beyond swapping books, it's about fostering a community of
+            passionate readers. I've made friends, broadened my literary horizons, and unearthed hidden gems. Thank you,
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+
+  
   <!-- Testimonials -->
 
   <!-- FAQ section start-->
@@ -1392,7 +1576,7 @@ new google.translate.TranslateElement({
 
             <!--email write-->
             <input type="news" value="" name="email" placeholder="email address" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" >
+            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
           </div>
         </form>
         <div class="icons">
@@ -1401,42 +1585,43 @@ new google.translate.TranslateElement({
               <i class="fab fa-facebook-square"></i>
             </div>
           </a>
-    
+
           <a href="#">
             <div class="icon">
               <i class="fa-brands fa-square-x-twitter"></i>
             </div>
           </a>
-    
+
           <a href="#">
             <div class="icon">
               <i class="fab fa-instagram-square"></i>
             </div>
           </a>
-    
+
           <a href="https://www.youtube.com/@anuragbytes">
             <div class="icon">
               <i class="fab fa-youtube-square"></i>
             </div>
           </a>
-      <!-- </div> -->
-    </div>
-    <div class="footer-bottom">
-      <p class="copyright" style="text-align: center">
-        &copy;
-        <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
-      </p>
-    </div>
+          <!-- </div> -->
+        </div>
+        <div class="footer-bottom">
+          <p class="copyright" style="text-align: center">
+            &copy;
+            <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
+            Hackers.
+          </p>
+        </div>
 
-    <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">
-      <div class="circle1">
-        <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-          class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-          <path
-            d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-        </svg>
-      </div>
-    </div>
+        <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">
+          <div class="circle1">
+            <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+              class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+              <path
+                d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+            </svg>
+          </div>
+        </div>
 
   </footer>
   <!-- Footer ended-->
@@ -1756,7 +1941,7 @@ new google.translate.TranslateElement({
       e.preventDefault();
       signOut(auth).then(() => {
         alert("Logged out successfully.");
-        window.location.href="../../index.html";
+        window.location.href = "../../index.html";
       }).catch((error) => {
         console.error("Logout error:", error);
       });
@@ -1799,6 +1984,8 @@ new google.translate.TranslateElement({
 
 
   <script src="./assets/js/test-script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
 </body>
 
 </html>
