@@ -46,17 +46,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <!-- Swiper CSS -->
-  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="../css/swiper-bundle.min.css">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/test-style.css">
+  <link rel="stylesheet" href="../css/test-style.css">
 
   <!-- Preloader CSS-->
   <link rel="stylesheet" href="./../css/preloader.css">
   <script src="./../js/preloader.js" defer></script>
 
   <!-- Free E-Book Css -->
-  <link rel="stylesheet" href="assets/css/Available.css">
+  <link rel="stylesheet" href="../css/Available.css">
 
 
  
@@ -66,7 +66,6 @@
 
 
 <body>
-   <div class="circle-container">
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
@@ -87,14 +86,87 @@
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
-  </div> 
-
-
-  <div id="preloader">
-    <div id="loader"></div>
-  </div>
-  
-  </div>
+    
+    
+    <div id="preloader">
+      <div class="loader">
+        <div class="book-wrapper">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="white"
+            viewBox="0 0 126 75"
+            class="book"
+          >
+            <rect
+              stroke-width="5"
+              stroke="#e05452"
+              rx="7.5"
+              height="70"
+              width="121"
+              y="2.5"
+              x="2.5"
+            ></rect>
+            <line
+              stroke-width="5"
+              stroke="#e05452"
+              y2="75"
+              x2="63.5"
+              x1="63.5"
+            ></line>
+            <path
+              stroke-linecap="round"
+              stroke-width="4"
+              stroke="#c18949"
+              d="M25 20H50"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-width="4"
+              stroke="#c18949"
+              d="M101 20H76"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-width="4"
+              stroke="#c18949"
+              d="M16 30L50 30"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-width="4"
+              stroke="#c18949"
+              d="M110 30L76 30"
+            ></path>
+          </svg>
+      
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="#ffffff74"
+            viewBox="0 0 65 75"
+            class="book-page"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-width="4"
+              stroke="#c18949"
+              d="M40 20H15"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-width="4"
+              stroke="#c18949"
+              d="M49 30L15 30"
+            ></path>
+            <path
+              stroke-width="5"
+              stroke="#e05452"
+              d="M2.5 2.5H55C59.1421 2.5 62.5 5.85786 62.5 10V65C62.5 69.1421 59.1421 72.5 55 72.5H2.5V2.5Z"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      
+    </div>
 
   <header class="header header-anim" data-header>
 
@@ -442,52 +514,7 @@ new google.translate.TranslateElement({
   </footer>
   <!-- Footer ended-->
 
-  <!-- <footer class="footer">
-    <div class="container">
-
-      <div class="footer-top">
-
-        <a href="#" class="logo">SwapReads</a>
-
-        <ul class="footer-list">
-
-          <li>
-            <a href="#home" class="footer-link">Home</a>
-          </li>
-
-          <li>
-            <a href="#benefits" class="footer-link">Benefits</a>
-          </li>
-
-          <li>
-            <a href="#chapters" class="footer-link">Literary Realms</a>
-          </li>
-
-          <li>
-            <a href="#pricing" class="footer-link">Pricing</a>
-          </li>
-
-
-          <li>
-            <a href="#reviews" class="footer-link">Reviews</a>
-          </li>
-
-          <li>
-            <a href="#contact" class="footer-link">Contact</a>
-          </li>
-
-        </ul>
-
-      </div>
-
-      <div class="footer-bottom">
-        <p class="copyright">
-          &copy; 2024 All rights reserved. Made with ❤ by Guardian Hackers.
-        </p>
-      </div>
-
-    </div>
-  </footer> -->
+ 
   <!--Dark Mode-->
 
   <script>
@@ -574,6 +601,31 @@ const coords = { x: 0, y: 0 };
     });
   });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const backToTopButton = document.getElementById('back-to-top-container');
+  
+      function checkButtonVisibility() {
+          if (window.innerWidth > 100 && window.scrollY > 100) {
+              backToTopButton.style.display = 'block';
+          } else {
+              backToTopButton.style.display = 'none';
+          }
+      }
+  
+      window.addEventListener('scroll', checkButtonVisibility);
+      window.addEventListener('resize', checkButtonVisibility);
+  
+      backToTopButton.addEventListener('click', function () {
+          window.scrollTo({
+              top: 0,
+              behavior: 'smooth' 
+          });
+      });
+      checkButtonVisibility();
+  });
+  
+    </script>
 
 </body>
 </html>

@@ -10,14 +10,115 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/preloader.css">
+    <script src="../js/preloader.js"></script>
 </head>
 
 <body>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
 
+    <div id="preloader">
+        <div class="loader">
+          <div class="book-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="white"
+              viewBox="0 0 126 75"
+              class="book"
+            >
+              <rect
+                stroke-width="5"
+                stroke="#e05452"
+                rx="7.5"
+                height="70"
+                width="121"
+                y="2.5"
+                x="2.5"
+              ></rect>
+              <line
+                stroke-width="5"
+                stroke="#e05452"
+                y2="75"
+                x2="63.5"
+                x1="63.5"
+              ></line>
+              <path
+                stroke-linecap="round"
+                stroke-width="4"
+                stroke="#c18949"
+                d="M25 20H50"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-width="4"
+                stroke="#c18949"
+                d="M101 20H76"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-width="4"
+                stroke="#c18949"
+                d="M16 30L50 30"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-width="4"
+                stroke="#c18949"
+                d="M110 30L76 30"
+              ></path>
+            </svg>
+        
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#ffffff74"
+              viewBox="0 0 65 75"
+              class="book-page"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-width="4"
+                stroke="#c18949"
+                d="M40 20H15"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-width="4"
+                stroke="#c18949"
+                d="M49 30L15 30"
+              ></path>
+              <path
+                stroke-width="5"
+                stroke="#e05452"
+                d="M2.5 2.5H55C59.1421 2.5 62.5 5.85786 62.5 10V65C62.5 69.1421 59.1421 72.5 55 72.5H2.5V2.5Z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        
+      </div>
     <div id="recommend">
         <p class="section-subtitle" id="heading">Book Recommendation</p>
         <h2 class="h2 section-title has-underline">
@@ -58,6 +159,70 @@
     </div>
 
     <script>
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+
+        const colors = [
+        "#ffb56b",
+        "#fdaf69",
+        "#f89d63",
+        "#f59761",
+        "#ef865e",
+        "#ec805d",
+        "#e36e5c",
+        "#df685c",
+        "#d5585c",
+        "#d1525c",
+        "#c5415d",
+        "#c03b5d",
+        "#b22c5e",
+        "#ac265e",
+        "#9c155f",
+        "#950f5f",
+        "#830060",
+        "#7c0060",
+        "#680060",
+        "#60005f",
+        "#48005f",
+        "#3d005e"
+        ];
+
+        circles.forEach(function (circle, index) {
+        circle.x = 0;
+        circle.y = 0;
+        circle.style.backgroundColor = colors[index % colors.length];
+        });
+
+        window.addEventListener("mousemove", function (e) {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+
+        });
+
+        function animateCircles() {
+
+        let x = coords.x;
+        let y = coords.y;
+
+        circles.forEach(function (circle, index) {
+            circle.style.left = x - 12 + "px";
+            circle.style.top = y - 12 + "px";
+
+            circle.style.scale = (circles.length - index) / circles.length;
+
+            circle.x = x;
+            circle.y = y;
+
+            const nextCircle = circles[index + 1] || circles[0];
+            x += (nextCircle.x - x) * 0.3;
+            y += (nextCircle.y - y) * 0.3;
+        });
+
+        requestAnimationFrame(animateCircles);
+        }
+
+        animateCircles();
+
         function redirectToRecommendations() {
             const genre = document.getElementById('genre').value;
             if (genre === 'select') {
