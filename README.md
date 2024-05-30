@@ -150,6 +150,12 @@ Join SwapReads.com today and embark on a literary journey like never before!
         <td><a href="https://discordapp.com/users/amanraj" target="_blank" class="discord">Discord</a></td>
         <td>amanraj12.ar@gmail.com</td>
     </tr>
+    <tr>
+        <td>Mentor</td>
+        <td><a href="https://www.linkedin.com/in/riti-chandak-315392215/" target="_blank">LinkedIn</a></td>
+        <td><a href="https://discordapp.com/users/riti1641" target="_blank" class="discord">Discord</a></td>
+        <td>ritichandak@gmail.com</td>
+    </tr>
 </table>
 
 <hr>
