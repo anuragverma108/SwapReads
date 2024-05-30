@@ -841,9 +841,9 @@ new google.translate.TranslateElement({
       <!-- Exchange Exchnage Exchange -->
       <section class="section preview" aria-label="preview">
         <div class="container1">
+          <div class="bg-image"></div>
 
           <h2 class="h2 section-title has-underline">
-
             Book Exchange Hub
             <span class="span has-before"></span>
           </h2>
@@ -852,18 +852,19 @@ new google.translate.TranslateElement({
             Connect with fellow readers in our Book Exchange Hub. Sell your old books at half price and give your
             favorite reads a new home. Fill out the form below to get started!
           </p>
-
           <div class="exchange-form">
 
             <div class="form-fields">
               <div class="form-fields">
 
-                <label class="form-label" for="bookTitle">Book Title:</label>
+                <label class="form-label" for="email_address">Enter your email:</label>
+                <input type="email" id="email_address" name="email"  placeholder="Enter your email id" required class="input-field">
+                <span id="emailError" class="error"></span>
                 <label class="form-label" for="bookTitle">Book Title:</label>
                 <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the title of your book" required
                   class="input-field">
 
-                <label class="formform-label" for="bookAuthor">Author:</label>
+                <label class="form-label" for="bookAuthor">Author:</label>
                 <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter the author's name" required
                   class="input-field">
 
@@ -889,6 +890,25 @@ new google.translate.TranslateElement({
                 Reader</button>
             </div>
             <script>
+              // Function to validate the email input
+            function validateEmailInput() {
+              var emailInput = document.getElementById('email_address');
+              var emailError = document.getElementById('emailError');
+
+            if (!emailInput.validity.valid) {
+                if (emailInput.validity.valueMissing) {
+                    emailError.textContent = 'Email address is required.';
+                } else if (emailInput.validity.typeMismatch) {
+                    emailError.textContent = 'Please enter a valid email address.';
+                }
+                emailInput.style.borderColor = 'red';
+                return false;
+            } else {
+                emailError.textContent = '';
+                emailInput.style.borderColor = '';
+                return true;
+            }
+            }
               // Function to validate the price input
               function validatePriceInput() {
                 var yourPriceInput = document.getElementById('yourPrice');
@@ -909,14 +929,18 @@ new google.translate.TranslateElement({
 
               // Add event listener to validate price input on every input change
               document.getElementById('yourPrice').addEventListener('input', validatePriceInput);
+              // Add event listener to validate email input 
+              document.getElementById('email_address').addEventListener('input', validateEmailInput);
 
               // Function to validate and connect when the form is submitted
               function validateAndConnect() {
                 // Trigger input validation before submitting the form
                 validatePriceInput();
+                validateEmailInput();
 
                 // Proceed with form submission only if price is valid
                 var errorElement = document.getElementById('yourPrice-error');
+                var errorElement = document.getElementById('emailError');
                 if (errorElement.textContent === "") {
                   // If no error, proceed with further actions, such as form submission
                   // Example: document.getElementById('yourForm').submit();
@@ -924,7 +948,6 @@ new google.translate.TranslateElement({
                 }
               }
             </script>
-
 
           </div>
       </section>
