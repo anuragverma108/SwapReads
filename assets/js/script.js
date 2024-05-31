@@ -5,7 +5,6 @@ const sendMessageBtn = document.getElementById('sendMessageBtn');
 
 document.addEventListener('DOMContentLoaded', (event) => {
   const contactFormDetails = document.getElementById('contact-form');
-  const sendMessageBtn = document.getElementById('sendMessageBtn');
   const subjectField = contactFormDetails['subject'];
   const messageField = contactFormDetails['message'];
 
@@ -47,34 +46,65 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Check if email format is valid
     if (!emailRegex.test(email)) {
-      alert('Please enter a valid email address.');
+      displayErrorMessage('Please enter a valid email address.');
       return;
     }
 
     // Check character limits for subject and message
     if (subject.length > 100) {
-      alert('Subject must be within 100 characters.');
+      displayErrorMessage('Subject must be within 100 characters.');
       return;
     }
-    if (message.length > 200) {
-      alert('Message must be within 250 characters.');
+    if (message.length > 250) {
+      displayErrorMessage('Message must be within 250 characters.');
       return;
     }
 
     // Check if any field is empty
     if (name === '' || email === '' || message === '' || subject === '') {
-      alert('Please fill in all fields.');
+      displayErrorMessage('Please fill in all fields.');
     } else {
-      alert('Message sent successfully!');
+      sendMessageBtn.disabled = true; // Disable the send button
+      displaySuccessMessage('Message sent successfully!');
       console.log('Name: ' + name + ' Email: ' + email + ' Message: ' + message + ' Subject: ' + subject);
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('subject').value = '';
+      document.getElementById('message').value = '';
     }
-
     return false; // Prevent page refresh
   });
+
+  // Function to display error message
+  function displayErrorMessage(message) {
+    const errorMessage = document.createElement('div');
+    errorMessage.textContent = message;
+    errorMessage.classList.add('error-message');
+    contactFormDetails.appendChild(errorMessage);
+
+    // Remove error message after 2 seconds
+    setTimeout(function () {
+      sendMessageBtn.disabled = false;
+      errorMessage.remove();
+    }, 2000);
+    sendMessageBtn.disabled = true;
+  }
+
+  // Function to display success message
+  function displaySuccessMessage(message) {
+    const successMessage = document.createElement('div');
+    successMessage.textContent = message;
+    successMessage.classList.add('success-message');
+    contactFormDetails.appendChild(successMessage);
+
+    // Remove success message after 2 seconds
+    setTimeout(function () {
+      sendMessageBtn.disabled = false;
+      successMessage.remove();
+    }, 2000);
+    sendMessageBtn.disabled = true;
+  }
 });
-
-
-  
 
 /**
  * add event on element
@@ -93,26 +123,51 @@ const addEventOnelem = function (elem, type, callback) {
 
 
 /**
- * toggle navbar
+ * Toggle navbar
  */
 
 const navbar = document.querySelector("[data-navbar]");
 const navbarLinks = document.querySelectorAll("[data-nav-link]");
 const navToggler = document.querySelector("[data-nav-toggler]");
+const logoImage = document.querySelector('.logopic');
+const themeSwitch = document.getElementById('switch');
+
+// Get the current theme from localStorage or default to 'light'
+let currentTheme = localStorage.getItem('currentTheme') || 'light';
 
 const toggleNavbar = function () {
   navbar.classList.toggle("active");
   navToggler.classList.toggle("active");
 }
 
-addEventOnelem(navToggler, 'click', toggleNavbar);
-
 const closeNavbar = function () {
   navbar.classList.remove("active");
   navToggler.classList.remove("active");
 }
 
+const toggleTheme = function () {
+  if (currentTheme === 'light') {
+    logoImage.src = './assets/images/logo_darkbg.png';
+    currentTheme = 'dark';
+  } else {
+    logoImage.src = './assets/images/logo_whitebg.png';
+    currentTheme = 'light';
+  }
+  // Save the current theme to localStorage
+  localStorage.setItem('currentTheme', currentTheme);
+}
+
+// Set the initial logo image based on the current theme
+if (currentTheme === 'dark') {
+  logoImage.src = './assets/images/logoPicDark.png';
+} else {
+  logoImage.src = './assets/images/logo_whitebg.png';
+}
+
+addEventOnelem(navToggler, 'click', toggleNavbar);
 addEventOnelem(navbarLinks, "click", closeNavbar);
+themeSwitch.addEventListener('change', toggleTheme);
+
 
 
 
@@ -160,5 +215,8 @@ function validateAndConnect() {
     swal("Try Again!","Please fill all the details.","warning");
   } else {
     swal("Request received!", "We will let you know as soon as we find a reader with your requested book.","success");
+    document.getElementById('bookTitle').value='';
+    document.getElementById('bookAuthor').value='';
+    document.getElementById('yourPrice').value='';
   }
 }

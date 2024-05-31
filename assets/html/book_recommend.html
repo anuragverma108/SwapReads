@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Genre</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/preloader.css">
+    <script src="../js/preloader.js"></script>
+</head>
+
+<body>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div id="preloader">
+        <div class="loader">
+          <div class="book-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="white"
+              viewBox="0 0 126 75"
+              class="book"
+            >
+              <rect
+                stroke-width="5"
+                stroke="#e05452"
+                rx="7.5"
+                height="70"
+                width="121"
+                y="2.5"
+                x="2.5"
+              ></rect>
+              <line
+                stroke-width="5"
+                stroke="#e05452"
+                y2="75"
+                x2="63.5"
+                x1="63.5"
+              ></line>
+              <path
+                stroke-linecap="round"
+                stroke-width="4"
+                stroke="#c18949"
+                d="M25 20H50"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-width="4"
+                stroke="#c18949"
+                d="M101 20H76"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-width="4"
+                stroke="#c18949"
+                d="M16 30L50 30"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-width="4"
+                stroke="#c18949"
+                d="M110 30L76 30"
+              ></path>
+            </svg>
+        
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#ffffff74"
+              viewBox="0 0 65 75"
+              class="book-page"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-width="4"
+                stroke="#c18949"
+                d="M40 20H15"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-width="4"
+                stroke="#c18949"
+                d="M49 30L15 30"
+              ></path>
+              <path
+                stroke-width="5"
+                stroke="#e05452"
+                d="M2.5 2.5H55C59.1421 2.5 62.5 5.85786 62.5 10V65C62.5 69.1421 59.1421 72.5 55 72.5H2.5V2.5Z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        
+      </div>
+    <div id="recommend">
+        <p class="section-subtitle" id="heading">Book Recommendation</p>
+        <h2 class="h2 section-title has-underline">
+            Discover Your Next Read
+        </h2>
+        <div class="container00">
+            <h2>User Preference Bar</h2>
+            <div class="preference-bar">
+                <label for="genre">Select Genre:</label>
+                <select id="genre">
+                    <option value="select">Select</option>
+                    <option value="fiction">Fiction</option>
+                    <option value="technology">Technology</option>
+                    <option value="classics">Classics</option>
+                    <option value="self-help">Self-Help</option>
+                    <option value="science-fiction">Science Fiction</option>
+                    <option value="mystery">Mystery</option>
+                    <option value="adventure">Adventure</option>
+                    <option value="romance">Romance</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="biography">Biography</option>
+                    <option value="action">Action</option>
+                    <option value="comedy">Comedy</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <button onclick="redirectToRecommendations()" class="btn-primary">Get Recommendations</button>
+            </div>
+        </div>
+
+        <!-- Recommendation Results Section -->
+        <div id="recommendationResults" class="container01" style="display: none;">
+            <h1 id="recommendationTitle" style="font-family: 'Philosopher', sans-serif;">Recommended Books</h1>
+            <div id="booksContainer" class="books-container">
+                <!-- Book recommendations will be displayed here -->
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+
+        const colors = [
+        "#ffb56b",
+        "#fdaf69",
+        "#f89d63",
+        "#f59761",
+        "#ef865e",
+        "#ec805d",
+        "#e36e5c",
+        "#df685c",
+        "#d5585c",
+        "#d1525c",
+        "#c5415d",
+        "#c03b5d",
+        "#b22c5e",
+        "#ac265e",
+        "#9c155f",
+        "#950f5f",
+        "#830060",
+        "#7c0060",
+        "#680060",
+        "#60005f",
+        "#48005f",
+        "#3d005e"
+        ];
+
+        circles.forEach(function (circle, index) {
+        circle.x = 0;
+        circle.y = 0;
+        circle.style.backgroundColor = colors[index % colors.length];
+        });
+
+        window.addEventListener("mousemove", function (e) {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+
+        });
+
+        function animateCircles() {
+
+        let x = coords.x;
+        let y = coords.y;
+
+        circles.forEach(function (circle, index) {
+            circle.style.left = x - 12 + "px";
+            circle.style.top = y - 12 + "px";
+
+            circle.style.scale = (circles.length - index) / circles.length;
+
+            circle.x = x;
+            circle.y = y;
+
+            const nextCircle = circles[index + 1] || circles[0];
+            x += (nextCircle.x - x) * 0.3;
+            y += (nextCircle.y - y) * 0.3;
+        });
+
+        requestAnimationFrame(animateCircles);
+        }
+
+        animateCircles();
+
+        function redirectToRecommendations() {
+            const genre = document.getElementById('genre').value;
+            if (genre === 'select') {
+                alert('Please select a genre.');
+            } else {
+                // Simulate book recommendations (replace with actual data)
+                const recommendations = getRecommendations(genre);
+                displayRecommendations(recommendations);
+                document.getElementById('recommendationResults').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Simulated function to get book recommendations
+        function getRecommendations(genre) {
+            switch (genre) {
+                case 'fiction':
+                    return [
+                        {
+                            title: "To Kill a Mockingbird",
+                            author: "Harper Lee",
+                            genre: "Fiction",
+                            image: "https://cdn2.penguin.com.au/covers/original/9781784870799.jpg",
+                            year: 1960,
+                            description: "A classic novel set in the fictional town of Maycomb, Alabama, during the Great Depression. The story explores themes of racial injustice and moral growth through the eyes of a young girl named Scout Finch."
+                        },
+                        {
+                            title: "1984",
+                            author: "George Orwell",
+                            genre: "Science Fiction",
+                            image: "https://www.bookgeeks.in/wp-content/uploads/2021/07/1984-by-George-Orwell-1.jpg",
+                            year: 1949,
+                            description: "A dystopian novel set in a totalitarian society where individualism and independent thinking are suppressed. The story follows Winston Smith, a low-ranking member of the ruling Party, as he rebels against the oppressive regime."
+                        },
+                        {
+                            title: "The Great Gatsby",
+                            author: "F. Scott Fitzgerald",
+                            genre: "Fiction",
+                            image: "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982146702/the-great-gatsby-9781982146702_xlg.jpg",
+                            year: 1925,
+                            description: "Set in the Roaring Twenties, this novel explores themes of love, wealth, and the American Dream. The story follows Jay Gatsby, a mysterious millionaire, and his pursuit of the elusive Daisy Buchanan."
+                        },
+                        {
+                            title: 'Brave New World',
+                            author: 'Aldous Huxley',
+                            image: 'https://tse4.mm.bing.net/th?id=OIP.hkQOsQlEiOBnF5jQ660r9gHaLJ&pid=Api&P=0&h=180',
+                            genre: 'Fiction',
+                            year: 1932,
+                            description: 'A novel depicting a dystopian future where individuality is suppressed and people are artificially bred in a controlled society.'
+                        },
+                        {
+                            title: 'The Catcher in the Rye',
+                            author: 'J.D. Salinger',
+                            image: 'https://tse4.mm.bing.net/th?id=OIP.WCVypoHL39VejGNd1Nu7ngHaLR&pid=Api&P=0&h=180',
+                            genre: 'Fiction',
+                            year: 1951,
+                            description: 'A novel about teenage angst and alienation, following the protagonist Holden Caulfield as he navigates life in New York City.'
+                        },
+                        {
+                            title: 'The Hobbit',
+                            author: 'J.R.R. Tolkien',
+                            image: 'https://tse2.mm.bing.net/th?id=OIP.u1jvgQh_S5zIR3e4uX5oNwHaLH&pid=Api&P=0&h=180',
+                            genre: 'Fiction',
+                            year: 1937,
+                            description: 'A fantasy novel following the quest of Bilbo Baggins, a hobbit who embarks on an adventure to reclaim treasure guarded by a dragon.'
+                        },
+                        {
+                            title: 'The Alchemist',
+                            author: 'Paulo Coelho',
+                            image: 'https://tse1.mm.bing.net/th?id=OIP.CP_1Cu_o_riUJ-gnUWz6DwHaLX&pid=Api&P=0&h=180',
+                            genre: 'Fiction',
+                            year: 1988,
+                            description: 'A novel about Santiago, an Andalusian shepherd boy, who journeys to Egypt in search of a treasure buried in the Pyramids.'
+                        }
+                    ];
+                case 'technology':
+                    return [
+                        {
+                            title: "Clean Code: A Handbook of Agile Software Craftsmanship",
+                            author: "Robert C. Martin",
+                            genre: "Technology",
+                            image: "https://miro.medium.com/max/1103/1*PKsDuPxNoKJyJvmlLc64qg.jpeg",
+                            year: 2008,
+                            description: "A guide to writing clean, readable, and maintainable code. It provides principles and best practices for software development, emphasizing the importance of code quality."
+                        },
+                        {
+                            title: "Web Programming with HTML5, CSS, and JavaScript",
+                            author: "Dean",
+                            genre: "Technology",
+                            image: "http://prodimage.images-bn.com/pimages/9781284091793_p0_v2_s1200x630.jpg",
+                            year: 2018,
+                            description: "A comprehensive guide to web programming using HTML5, CSS, and JavaScript. The book covers the fundamentals and advanced techniques for creating responsive and interactive web applications."
+                        },
+                        {
+                            title: "Steve Jobs",
+                            author: "Walter Isaacson",
+                            genre: "Technology",
+                            image: "https://tse4.mm.bing.net/th?id=OIP.RHPauuod2hNhqK6NoLgNKQHaLT&pid=Api&P=0&h=180",
+                            year: 2011,
+                            description: "Steve Jobs by Walter Isaacson is a biography that provides a deep insight into the life of the co-founder of Apple, detailing his innovative spirit, personal challenges, and profound impact on technology and culture.",
+                        },
+                        {
+                            title: "The Code Book",
+                            author: "Simon Singh",
+                            genre: "Technology",
+                            image: "https://tse2.mm.bing.net/th?id=OIP.uNxaRpxXUHZXpAasjABadwAAAA&pid=Api&P=0&h=180",
+                            year: 1999,
+                            description: "Explores the history of cryptography, from ancient codes to modern encryption. It covers key events like the cracking of the Enigma machine and highlights the impact of cryptography on today's digital world.",
+                        },
+                        {
+                            title: "The Soul of a New Machine",
+                            author: "Tracy Kidder",
+                            genre: "Technology",
+                            image: "https://tse2.mm.bing.net/th?id=OIF.ZsUtQZsp0mscrnCh6gn3DA&pid=Api&P=0&h=180",
+                            year: 1981,
+                            description: "It is a gripping tale of a team of engineers racing to build a revolutionary computer in the 1970s, highlighting their dedication, challenges, and the spirit of innovation.",
+                        }
+                    ];
+                case 'classics':
+                    return [
+                        {
+                            title: "Pride and Prejudice",
+                            author: "Jane Austen",
+                            genre: "Classics",
+                            image: "https://cdn2.penguin.com.au/covers/original/9780141330167.jpg",
+                            year: 1813,
+                            description: "A romantic novel set in early 19th-century England, focusing on the themes of love, marriage, and social status. The story follows the spirited Elizabeth Bennet as she navigates the complexities of society and falls in love with the enigmatic Mr. Darcy."
+                        },
+                        {
+                            title: "Emma",
+                            author: "Jane Austen",
+                            genre: "Classics",
+                            image: "https://cdn2.penguin.com.au/covers/original/9780141192475.jpg",
+                            year: 1815,
+                            description: "A novel about youthful hubris and romantic misunderstandings. The story takes place in the fictional village of Highbury and the surrounding estates of Hartfield, Randalls, and Donwell Abbey."
+                        },
+                        {
+                            title: "Jane Eyre",
+                            author: "Charlotte Brontë",
+                            genre: "Classics",
+                            image: "https://cdn2.penguin.com.au/covers/original/9780141040387.jpg",
+                            year: 1847,
+                            description: "A novel that follows the emotions and experiences of its eponymous character, including her growth to adulthood and her love for Mr. Rochester, the Byronic master of fictitious Thornfield Hall."
+                        },
+                        {
+                            title: "Anna Karenina",
+                            author: "Leo Tolstoy",
+                            genre: "Classics",
+                            image: "https://cdn2.penguin.com.au/covers/original/9780141199610.jpg",
+                            year: 1877,
+                            description: "A tragic story about a married aristocrat/socialite and her affair with the affluent Count Vronsky."
+                        },
+                        {
+                            title: "Moby-Dick",
+                            author: "Herman Melville",
+                            genre: "Classics",
+                            image: "https://cdn2.penguin.com.au/covers/original/9780143105954.jpg",
+                            year: 1851,
+                            description: "A tale of obsession and revenge, focusing on the monomaniacal quest of Ahab, captain of the whaler Pequod, for revenge against Moby Dick, the giant white sperm whale that on the previous whaling voyage bit off Ahab's leg at the knee."
+                        }
+                    ];
+                case 'self-help':
+                    return [
+                        {
+                            title: "The Power of Positive Thinking",
+                            author: "Norman Vincent Peale",
+                            genre: "Self-Help",
+                            image: "https://i.thenile.io/r1000/9788194824169.jpg?r=5fc9067a7064c",
+                            year: 1952,
+                            description: "A self-help book that emphasizes the impact of positive thinking on achieving success and personal happiness. It blends psychology, practical advice, and spiritual guidance."
+                        },
+                        {
+                            title: "Time Management",
+                            author: "Brian Tracy",
+                            genre: "Self-Help",
+                            image: "http://prodimage.images-bn.com/pimages/9780814433430_p0_v1_s1200x630.jpg",
+                            year: 2007,
+                            description: "A self-help book offering practical strategies and techniques for effectively managing time, increasing productivity, and achieving personal and professional goals."
+                        },
+                        {
+                            title: "How to Win Friends and Influence People",
+                            author: "Dale Carnegie",
+                            genre: "Self-Help",
+                            image: "https://tse4.mm.bing.net/th?id=OIP.-UiuMZdwnvJQlsdHFrLxPAHaLq&pid=Api&P=0&h=180",
+                            year: 1936,
+                            description: "A self-help book that provides practical advice on how to improve your relationships and influence others positively. It covers techniques for handling people, making people like you, and winning people to your way of thinking."
+                        },
+                        {
+                            title: "The 7 Habits of Highly Effective People",
+                            author: "Stephen R. Covey",
+                            genre: "Self-Help",
+                            image: "https://tse1.mm.bing.net/th?id=OIP.U_xujkJ3DznR8RoMtznT2QHaLO&pid=Api&P=0&h=180",
+                            year: 1989,
+                            description: "A self-help book that presents a principle-centered approach for solving personal and professional problems. It emphasizes character ethics and principles of fairness, integrity, honesty, and human dignity."
+                        },
+                        {
+                            title: "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+                            author: "James Clear",
+                            genre: "Self-Help",
+                            image: "https://images-na.ssl-images-amazon.com/images/I/91bYsX41DVL.jpg",
+                            year: 2018,
+                            description: "A practical guide to understanding how habits work and how to create and maintain good habits over time. It offers a framework for changing your habits and achieving remarkable results."
+                        },
+                        {
+                            title: "The Power of Positive Thinking",
+                            author: "Norman Vincent Peale",
+                            genre: "Self-Help",
+                            image: "https://i.thenile.io/r1000/9788194824169.jpg?r=5fc9067a7064c",
+                            year: 1952,
+                            description: "A self-help book that emphasizes the impact of positive thinking on achieving success and personal happiness. It blends psychology, practical advice, and spiritual guidance."
+                        }
+                    ];
+                case 'science-fiction':
+                    return [
+                        {
+                            title: "Dune",
+                            author: "Frank Herbert",
+                            genre: "Science Fiction",
+                            image: "https://i.thenile.io/r1000/9780593099322.jpg?r=5e75f0e9c3c7d",
+                            year: 1965,
+                            description: "Set in the distant future amidst a huge interstellar empire, the novel tells the story of young Paul Atreides, whose family accepts the stewardship of the desert planet Arrakis."
+                        },
+                        {
+                            title: "Neuromancer",
+                            author: "William Gibson",
+                            genre: "Science Fiction",
+                            image: "https://tse3.mm.bing.net/th?id=OIP.p9EE9O6O2tPpKgzYjPqKIAHaJ4&pid=Api&P=0&h=180",
+                            year: 1984,
+                            description: "A cyberpunk novel set in a future where cyberspace, artificial intelligence, and multinational corporations are dominant. The story follows a washed-up computer hacker hired by a mysterious employer.",
+                        },
+                        {
+                            title: "Foundation",
+                            author: "Isaac Asimov",
+                            genre: "Science Fiction",
+                            image: "https://tse4.mm.bing.net/th?id=OIP.nh7p_Q0WrrCxvdvI0FOoEAHaMM&pid=Api&P=0&h=180",
+                            year: 1951,
+                            description: "The first book in Asimov's Foundation series, it explores the concept of psychohistory, a blend of history, sociology, and mathematical statistics, to predict the future of large populations.",
+                        },
+                        {
+                            title: "The Left Hand of Darkness",
+                            author: "Ursula K. Le Guin",
+                            genre: "Science Fiction",
+                            image: "https://tse4.mm.bing.net/th?id=OIP.RRWtDjq1114Q3BcOLDQ8UgHaLN&pid=Api&P=0&h=180",
+                            year: 1969,
+                            description: "A novel set in the future on the planet Gethen, where the inhabitants can change their gender at will. It explores themes of gender and sexuality, politics, and the nature of human emotions.",
+                        },
+                        {
+                            title: "Snow Crash",
+                            author: "Neal Stephenson",
+                            genre: "Science Fiction",
+                            image: "https://tse3.mm.bing.net/th?id=OIP.WxHDBDfquK85C7OGRwuuygAAAA&pid=Api&P=0&h=180",
+                            year: 1992,
+                            description: "A cyberpunk novel set in a future America where the internet, virtual reality, and the mafia dominate society. The story follows Hiro Protagonist, a computer hacker and pizza delivery driver.",
+                        }
+                    ];
+                case 'mystery':
+                    return [
+                        {
+                            title: "Gone Girl",
+                            author: "Gillian Flynn",
+                            genre: "Mystery",
+                            image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQUo8M52d0y-5pZ5EWH87ic9_dsTPMUD2ObvEfUYD9fo86jFxuf",
+                            year: 1965,
+                            description: "Set in the distant future amidst a huge interstellar empire, the novel tells the story of young Paul Atreides, whose family accepts the stewardship of the desert planet Arrakis."
+                        },
+                        {
+                            title: "The Girl with the Dragon Tattoo",
+                            author: "Stieg Larsson",
+                            genre: "Mystery",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3cMvcHM-OMya1LDncgOZO7WEfzRI3RUVsiiAfN_Sdig&s",
+                            year: 2005,
+                            description: "A spellbinding amalgam of murder mystery, family saga, love story, and financial intrigue, this first installment in the Millennium series finds journalist Mikael Blomkvist and hacker Lisbeth Salander unearthing dark secrets of the Vanger family while investigating a disappearance."
+                        },
+                        {
+                            title: "The Woman in White",
+                            author: "Wilkie Collins",
+                            genre: "Mystery",
+                            image: "https://wordsworth-editions.com/wp-content/uploads/2022/03/9781840220841.jpg",
+                            year: 1859,
+                            description: "A tale of secrets, mistaken identities, surprise revelations, and villainy, centering on the mysterious appearance of a woman dressed entirely in white, and the intricate and often sinister web that surrounds her."
+                        },
+                        {
+                            title: "The Silent Patient",
+                            author: "Alex Michaelides",
+                            genre: "Mystery",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx8LKcM_fdQmHpU3phtFEyNKQl8f9DabjhrVTEvVbESw&s",
+                            year: 2019,
+                            description: "Alicia Berenson, a famous painter, shoots her husband in the head five times and then never speaks another word. Her silence turns a domestic tragedy into a mystery that captures the public imagination, and Theo Faber, a forensic psychologist, is determined to unravel her motive."
+                        },
+                        {
+                            title: "In the Woods",
+                            author: "Tana French",
+                            genre: "Mystery",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSthFRrDepvHXsPh-Mo8zJONx2PQ6KA1oyqNfvUZAy7UA&s",
+                            year: 2007,
+                            description: "Detective Rob Ryan and his partner Cassie Maddox investigate the murder of a twelve-year-old girl in a small Irish town, only to find that it may be linked to a traumatic event from Ryan's own past."
+                        },
+                        {
+                            title: "Big Little Lies",
+                            author: "Liane Moriarty",
+                            genre: "Mystery",
+                            image: "https://m.media-amazon.com/images/I/41LvfWGfleL.jpg",
+                            year: 2014,
+                            description: "Follows three women, each at a crossroads, and explores the secrets they keep, the lies they tell, and the dangerous truths they hold. The book culminates in a shocking murder at a school trivia night."
+                        }
+                    ];
+                case 'adventure':
+                    return [
+                        {
+                            title: "The Hobbit",
+                            author: "J.R.R. Tolkien",
+                            genre: "Adventure",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFJhg31KXNOMvMii0zIzp2_VR77kax_fYTCByo-uM_2g&s",
+                            year: 1937,
+                            description: "Bilbo Baggins, a hobbit, is swept into an epic quest by the wizard Gandalf and a company of dwarves. They journey to the Lonely Mountain to reclaim a treasure guarded by the dragon Smaug."
+                        },
+                        {
+                            title: "Treasure Island",
+                            author: "Robert Louis Stevenson",
+                            genre: "Adventure",
+                            image: "https://m.media-amazon.com/images/I/710K9pWWZ+L._AC_UF1000,1000_QL80_.jpg",
+                            year: 1883,
+                            description: "A tale of pirates, treasure maps, mutiny, and adventure on the high seas, featuring the iconic character Long John Silver."
+                        },
+                        {
+                            title: "Jurassic Park",
+                            author: "Michael Crichton",
+                            genre: "Adventure",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu1rFTsYvvRB8NEp1ZlMzxxwKekD1VQx-lxPjJu35nTw&s",
+                            year: 1990,
+                            description: "A billionaire creates a theme park populated by cloned dinosaurs. Chaos ensues when the dinosaurs break free, and a group of visitors must survive the island's dangers."
+                        },
+                        {
+                            title: "The Call of the Wild",
+                            author: "Jack London",
+                            genre: "Adventure",
+                            image: "https://m.media-amazon.com/images/I/91IGZKkFKEL._AC_UF1000,1000_QL80_.jpg",
+                            year: 1903,
+                            description: "The story of Buck, a domestic dog who is kidnapped and sold as a sled dog in the Yukon during the 19th-century Klondike Gold Rush. Buck eventually embraces his wild instincts and becomes a leader among wolves."
+                        },
+                        {
+                            title: "The Adventures of Huckleberry Finn",
+                            author: "Mark Twain",
+                            genre: "Adventure",
+                            image: "https://m.media-amazon.com/images/I/91sBZnKzEfL._AC_UF1000,1000_QL80_.jpg",
+                            year: 1884,
+                            description: "The adventures of a young boy named Huck Finn and an escaped slave named Jim as they journey down the Mississippi River on a raft. Along the way, they encounter various characters and face moral dilemmas."
+                        }
+                    ];
+
+                case 'romance':
+                    return [
+                        {
+                            title: "Pride and Prejudice",
+                            author: "Jane Austen",
+                            genre: "Romance",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB_SuoaZ0VAf3RZa33Qj_O4KvIvOh_dT2-_oe-Z_crdA&s",
+                            year: 1813,
+                            description: "Follows the emotional development of Elizabeth Bennet, one of five sisters, as she navigates issues of manners, upbringing, morality, education, and marriage in the society of the landed gentry of early 19th-century England."
+                        },
+                        {
+                            title: "The Notebook",
+                            author: "Nicholas Sparks",
+                            genre: "Romance",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBBT_N_1_LoTQVE_-jS5jovBsZf--8oRKFagfbpNOq_w&s",
+                            year: 1996,
+                            description: "Set in 1940s South Carolina, it tells the story of Noah Calhoun, a young man from town, and Allie Nelson, the daughter of a wealthy family, who fall in love one summer but are separated due to their social differences."
+                        },
+                        {
+                            title: "Outlander",
+                            author: "Diana Gabaldon",
+                            genre: "Romance",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY12bpTWAgflKG-VQFir9w73n99PpvkP3OGmXM6ju_mg&s",
+                            year: 1991,
+                            description: "Follows the story of Claire Randall, a married combat nurse from 1945 who is mysteriously swept back in time to 1743 Scotland, where she meets and falls in love with Jamie Fraser, a young Scottish warrior."
+                        },
+                        {
+                            title: "Me Before You",
+                            author: "Jojo Moyes",
+                            genre: "Romance",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlKyoEg3_-dDYJSs9ItE932-2xp9myDAk_D-wEhmWoaQ&s",
+                            year: 2012,
+                            description: "Tells the story of Louisa Clark, a young woman living in a small English town, and Will Traynor, a wealthy man left paralyzed after an accident. Their lives change when Louisa becomes Will's caregiver."
+                        },
+                        {
+                            title: "The Fault in Our Stars",
+                            author: "John Green",
+                            genre: "Romance",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIFzYk4PXdeS9Efq41_CA6EOjHtUUDI11RnN-fHSkklg&s",
+                            year: 2012,
+                            description: "Tells the story of Hazel Grace Lancaster, a sixteen-year-old cancer patient who falls in love with Augustus Waters, a former basketball player and amputee. Their relationship is both beautiful and tragic."
+                        },
+                        {
+                            title: "A Walk to Remember",
+                            author: "Nicholas Sparks",
+                            genre: "Romance",
+                            image: "https://oldbookdepot.in/wp-content/uploads/2017/07/Walk-To-Remember-by-Nicholas-Sparks.jpg",
+                            year: 1999,
+                            description: "Follows the story of Landon Carter, a popular student, and Jamie Sullivan, the daughter of the town's Baptist minister, as they fall in love despite their differences and face challenges together."
+                        }
+                    ];
+
+
+
+                case 'fantasy':
+                    return [
+                        {
+                            title: "Harry Potter and the Sorcerer's Stone",
+                            author: "J.K. Rowling",
+                            genre: "Fantasy",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCWu3J0NrLumT38kEO5YFuV-O_rOtKUH1juFDdpt3Lkw&s",
+                            year: 1997,
+                            description: "Follows the journey of a young wizard, Harry Potter, who discovers his magical heritage and attends Hogwarts School of Witchcraft and Wizardry, where he uncovers dark secrets and battles the dark wizard Voldemort."
+                        },
+                        {
+                            title: "The Hobbit",
+                            author: "J.R.R. Tolkien",
+                            genre: "Fantasy",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFJhg31KXNOMvMii0zIzp2_VR77kax_fYTCByo-uM_2g&s",
+                            year: 1937,
+                            description: "Bilbo Baggins, a hobbit, is swept into an epic quest by the wizard Gandalf and a company of dwarves. They journey to the Lonely Mountain to reclaim a treasure guarded by the dragon Smaug."
+                        },
+                        {
+                            title: "A Game of Thrones",
+                            author: "George R.R. Martin",
+                            genre: "Fantasy",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUiHq1CGLz28XlbkIsv8YpWfBC2IbZ-zjfc8iwZ74Bqg&s",
+                            year: 1996,
+                            description: "The first book in the epic fantasy series 'A Song of Ice and Fire', it follows the power struggles among noble families as they vie for control of the Iron Throne of the Seven Kingdoms, set against a backdrop of dark magic and political intrigue."
+                        }
+                    ];
+
+
+                case 'biography':
+                    return [
+                        {
+                            "title": "Steve Jobs",
+                            "author": "Walter Isaacson",
+                            "genre": "Biography",
+                            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT5eZeoUVLrSQvhgSf93s5FU0KLnSxkh9ffnu2x2PTGA&s",
+                            "year": 2011,
+                            "description": "This biography provides a detailed account of the life of Steve Jobs, the co-founder of Apple Inc., covering his innovations, successes, and personal struggles."
+                        },
+                        {
+                            "title": "Becoming",
+                            "author": "Michelle Obama",
+                            "genre": "Biography, Memoir",
+                            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxwaMtGfiG10FGy5AVn9H5jVvXePmIbumw8Ee5-DuVIw&s",
+                            "year": 2018,
+                            "description": "Michelle Obama's memoir chronicles her life from childhood to her time as First Lady of the United States, offering insights into her journey, experiences, and values."
+                        },
+                        {
+                            "title": "The Diary of a Young Girl",
+                            "author": "Anne Frank",
+                            "genre": "Biography, Memoir",
+                            "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1560816565l/48855.jpg",
+                            "year": 1947,
+                            "description": "Anne Frank's diary, written during her time in hiding from the Nazis in Amsterdam during World War II, provides a poignant and intimate account of her thoughts, feelings, and experiences."
+                        },
+                        {
+                            title: "Leonardo da Vinci",
+                            author: "Walter Isaacson",
+                            genre: "Biography",
+                            image: "https://m.media-amazon.com/images/I/819sg4vB4tL._AC_UF1000,1000_QL80_.jpg",
+                            year: 2017,
+                            description: "Walter Isaacson's biography delves into the life and genius of Leonardo da Vinci, exploring his art, science, and enduring legacy."
+                        }
+                    ];
+                    case 'action':
+                    return[
+                        {
+                            title: "The Hunger Games",
+                            author: "Suzanne Collins",
+                            genre: "Action, Dystopian",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp5LfFIsqjeK7LnmBxIK4VWYQNTUW1WpNg2d0bltFXTA&s",
+                            year: 2008,
+                            description: "In a dystopian future, Katniss Everdeen volunteers to take her sister's place in the annual Hunger Games, a televised event in which tributes fight to the death until only one remains."
+                        },
+                        {
+                            title: "The Bourne Identity",
+                            author: "Robert Ludlum",
+                            genre: "Action, Thriller",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdkOHI2PtF2P2dhDazD3dILfCxYNHBrTNlXhvd4PPMxg&s",
+                            year: 1980,
+                            description: "A man is found floating in the Mediterranean Sea with no memory of his past but discovers he possesses deadly skills and is pursued by unknown assailants as he tries to uncover his identity."
+                        },
+                        {
+                            title: "Die Hard",
+                            author: "Roderick Thorp",
+                            genre: "Action, Thriller",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8FJFD-B7QCRp2JmYpsp6KlOT6FY80aEmKKHVYw6cVsg&s",
+                            year: 1979,
+                            description: "NYPD detective John McClane becomes the lone hope for hostages as he battles terrorists led by Hans Gruber during a hostage situation in a Los Angeles skyscraper."
+                        },
+                        {
+                            title: "The Da Vinci Code",
+                            author: "Dan Brown",
+                            genre: "Action, Mystery",
+                            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTm4jymF_uMb11oRsYqzS10dbKEdyjlUBrWEaByQYPyA&s",
+                            year: 2003,
+                            description: "Harvard symbologist Robert Langdon finds himself entangled in a thrilling quest to unravel a conspiracy hidden within the works of Leonardo da Vinci, racing against time and mysterious forces."
+                        }
+                    ];
+
+                    case 'comedy':
+    return [
+        {
+            title: "The Hitchhiker's Guide to the Galaxy",
+            author: "Douglas Adams",
+            genre: "Comedy",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5gkXKVV3AJwixDKM3j4RNKlcqKAVvBtjHQvhignh1YA&s",
+            year: 1979,
+            description: "A comedic science fiction series that follows the misadventures of Arthur Dent, a hapless Englishman who is unexpectedly whisked off Earth by his friend Ford Prefect, a researcher for a guidebook for hitchhikers in space."
+        },
+        {
+            title: "Good Omens",
+            author: "Terry Pratchett & Neil Gaiman",
+            genre: "Comedy",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfQnCuiKUJzJjhthokCXWa0mWqYfAI9qaCySPmXeo7Ww&s",
+            year: 1990,
+            description: "A humorous take on the apocalypse, featuring an angel, Aziraphale, and a demon, Crowley, who have become accustomed to life on Earth and join forces to prevent the coming of the Antichrist and the end of the world."
+        },
+        {
+            title: "Catch-22",
+            author: "Joseph Heller",
+            genre: "Comedy",
+            image: "https://images.squarespace-cdn.com/content/v1/57923bb33e00be1777423ef5/1608157518215-9VHFF8XAJ4KK5VEZO1SW/IMG_5590.jpeg?format=1000w",
+            year: 1961,
+            description: "A satirical novel set during World War II, following the exploits of Captain John Yossarian, a U.S. Army Air Forces B-25 bombardier. The book explores the absurdity of war and bureaucracy, particularly the military's 'catch-22' rule."
+        },
+        {
+            title: "Bridget Jones's Diary",
+            author: "Helen Fielding",
+            genre: "Comedy",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToxsHzKJD15nAGuyrDUUgUXJ6wUgn3pAzEljo-j0tcWg&s",
+            year: 1996,
+            description: "A comedic novel written in the form of a personal diary, chronicling the life of Bridget Jones, a single woman in her 30s living in London. The book humorously explores themes of love, relationships, and self-improvement."
+        },
+        {
+            title: "Three Men in a Boat",
+            author: "Jerome K. Jerome",
+            genre: "Comedy",
+            image: "https://rukminim2.flixcart.com/image/850/1000/kzogn0w0/regionalbooks/g/f/p/three-men-in-a-boat-original-imagbny8kwayhhh9.jpeg?q=90&crop=false",
+            year: 1889,
+            description: "A humorous account of a boating holiday on the Thames taken by three friends: J, Harris, and George, along with their dog, Montmorency. The book is filled with comedic anecdotes and observations about their misadventures."
+        }
+    ];
+
+                default:
+                    return [];
+            }
+        }
+
+        // Function to display recommendations
+        function displayRecommendations(recommendations) {
+            const recommendationsContainer = document.getElementById('booksContainer');
+            recommendationsContainer.innerHTML = '';
+
+            recommendations.forEach(book => {
+                const bookElement = document.createElement('div');
+                bookElement.classList.add('book');
+
+                const bookInfo = `
+          <div class="book-info">
+            <h2>${book.title}</h2>
+            <p><strong>Author:</strong> ${book.author}</p>
+            <p><strong>Genre:</strong> ${book.genre}</p>
+            <p><strong>Year:</strong> ${book.year}</p>
+            <p><strong>Description:</strong> ${book.description}</p>
+          </div>
+          <img src="${book.image}" alt="${book.title}" class="book-image" style="width: 280px; height: 400px; ">
+        `;
+                bookElement.innerHTML = bookInfo;
+                recommendationsContainer.appendChild(bookElement);
+            });
+
+            // Show the recommendation results section
+            document.getElementById('recommendationResults').style.display = 'block';
+            document.getElementById('recommendationTitle').innerText = `Recommended Books for ${capitalizeFirstLetter(document.getElementById('genre').value)}`;
+            const recommendationTitle = document.getElementById('recommendationTitle');
+            // recommendationTitle.style.fontFamily = 'Poppins, sans-serif';
+            recommendationTitle.style.fontSize = '42px';
+            recommendationTitle.style.textAlign = 'center';
+            recommendationTitle.style.marginBottom = '23px';
+        }
+
+        // Helper function to capitalize the first letter of a string
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+    </script>
+
+</body>
+
+</html>
