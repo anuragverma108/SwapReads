@@ -317,6 +317,8 @@ background-size: cover;
 
 .section-text {
   font-size: var(--fs-7);
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .w-100 {
@@ -733,8 +735,9 @@ background-size: cover;
 
 .hero .hero-title {
   margin-block: 10px 25px;
-  font-size: clamp(4rem, 3vw, 5rem);
+  font-size: 5rem;
   text-align: center 
+ 
 }
 
 
@@ -777,8 +780,8 @@ background-size: cover;
   margin-top: 1.5rem;
   padding: 10px 15px;
   border-radius: 10px;
-  transition: all 2s ease;
-  animation: pulse 3s ease infinite;
+  transition: all 1s ease;
+  animation: pulse 1s ease infinite;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
@@ -805,6 +808,34 @@ background-size: cover;
 /*-----------------------------------*\
   #BENEFITS
 \*-----------------------------------*/
+
+.benefits .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.benefits .grid-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.benefits-card {
+  width: calc(50% - 20px);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center text within cards */
+}
+
+.benefits-card .card-text {
+  margin-block-end: 20px;
+}
 
 .benefits .section-text {
   text-align: center;
@@ -1386,13 +1417,6 @@ textarea.input-field {
   .circle-container{
     display:none;
   }
-  .hero-content{
-    width: 95%;
-  }
-  .hero-banner{
-    width: 95%;
-    order: -1;
-  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -1705,6 +1729,13 @@ input[type="submit"]:hover {
     padding-bottom: 1rem;
     padding-top: 1rem;
   }
+
+  html {
+    overflow-x: hidden;
+  }
+  .hero .hero-title{
+    font-size: 3rem;
+  }
 }
 
 @media (min-width: 575px) {
@@ -1999,19 +2030,6 @@ input[type="submit"]:hover {
   } */
 
   /**
-   * BENEFITS
-   */
-
-  .benefits .grid-list {
-    grid-template-columns: repeat(4, 1fr);
-    align-items: center;
-  }
-
-  .benefits-content {
-    max-width: 80%;
-  }
-
-  /**
    * CHAPTER, PRICING
    */
 
@@ -2086,6 +2104,42 @@ input[type="submit"]:hover {
     padding: 40px;
   }
 }
+@media (min-width: 992px) {
+  .benefits .grid-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Add gap between cards */
+    align-items: center;
+  }
+
+  .benefits-card {
+    width: calc(33.33% - 20px);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px; /* Add margin to separate cards vertically */
+    margin: 20px; /* Add margin to provide full spacing for each card */
+  }
+
+  .benefits-content {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .benefits-card .card-text {
+    margin-block-end: 20px;
+  }
+}
+
+
+
+
+
 
 /**
  * responsive for large than 1200px screen
@@ -2123,6 +2177,18 @@ input[type="submit"]:hover {
     justify-content: center; /* Center align navbar items */
     padding-left: 2rem;
 
+  }
+
+  .benefits .grid-list {
+    grid-template-columns: repeat(3, 1fr); /* Display three cards per row */
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .benefits-card {
+    width: calc(33.33% - 20px); /* Adjust width for three cards per row */
+    margin: 20px;
   }
 
   /**
@@ -2629,9 +2695,15 @@ footer {
 }
 .preference-bar {
   display: flex;
-  justify-content: space-around;
+  justify-content: center; /* Center items horizontally */
   align-items: center;
+  flex-wrap: wrap; /* Allow items to wrap if they exceed container width */
 }
+
+.preference-bar > * {
+  margin: 0 10px; /* Add spacing between items */
+}
+
 .preference-bar label {
   font-weight: bold;
   font-size: 20px;      
@@ -2786,16 +2858,119 @@ select {
     padding: 2px;
   }
   
-  @media(max-width:300px){
-    .cards{
-      height: fit-content;
-    }
+
+/* Media Queries for Recommended Books section */
+
+
+ /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .container00 {
+    padding: 30px;
+    margin-bottom: 30px;
   }
-  @media(max-width:770px){
-    .pricing-card{
-      height: fit-content;
-    }
+  .container01 {
+    padding: 30px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
+  .preference-bar {
+    flex-direction: column; /* Stack items vertically */
+  }
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 16px; /* Reduce font size for better fit */
+  }
+  .container00 h2 {
+    font-size: 24px;
+    margin-left: 0;
+  }
+}
+
+
+/* Devices between 600px and 768px */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  .container00 {
+    padding: 40px; /* Adjust padding for better spacing */
+    margin-bottom: 40px; /* Adjust margin for better spacing */
+  }
+  .container01 {
+    padding: 40px; /* Adjust padding for better spacing */
+    margin-bottom: 40px; /* Adjust margin for better spacing */
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .preference-bar {
+    flex-direction: column; /* Stack items vertically */
+  }
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 16px; /* Reduce font size for better fit */
+  }
+  .container00 h2 {
+    font-size: 26px; /* Increase font size for better readability */
+    margin-left: 0;
+  }
+}
+
+
+/* Small devices (landscape phones, 768px and up) */
+@media only screen and (min-width: 768px) {
+  /* No changes needed from the base styles */
+  .container00 {
+    max-width: 700px; /* Adjust the max-width for better layout on landscape phones */
+    padding: 50px; /* Increase padding for better spacing */
+  }
+  .container01 {
+    max-width: 700px; /* Adjust the max-width for better layout on landscape phones */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px; /* Increase padding for better spacing */
+  }
+  .preference-bar {
+    justify-content: space-between; /* Maintain space between items */
+    flex-wrap: wrap; /* Allow items to wrap */
+  }
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 18px; /* Increase font size for better readability */
+  }
+}
+
+
+/* Medium devices (tablets, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .container00 {
+    max-width: 800px;
+  }
+  .container01 {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .preference-bar {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 18px;
+  }
+}
+
+/* Large devices (desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .container00 {
+    max-width: 1000px;
+  }
+  .container01 {
+    max-width: 1000px;
+  }
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 20px;
+  }
+}
 
  
 
