@@ -33,6 +33,12 @@
   pointer-events: none;
   z-index: 99999999; /* so that it stays on top of all other elements */
 }
+/* media queries for cursor on mobile and tablet */
+@media only screen and (max-width:998px) {
+ .circle{
+  display: none;
+ } 
+}
 
 .navbar-list{
   text-align: center;
@@ -317,8 +323,6 @@ background-size: cover;
 
 .section-text {
   font-size: var(--fs-7);
-  padding-left: 30px;
-  padding-right: 30px;
 }
 
 .w-100 {
@@ -803,6 +807,17 @@ background-size: cover;
   100% {
     box-shadow: 0 0 0 10px transparent;
   }
+}
+/* media queries for hero section on mobile and tablet */
+@media only screen and (max-width:898px){
+  .hero-content{
+    width: 90%;
+  }
+  .hero-banner{
+    width: 90%;
+    order: -1;
+  }
+  
 }
 
 /*-----------------------------------*\
@@ -1414,9 +1429,6 @@ textarea.input-field {
 
   }
 
-  .circle-container{
-    display:none;
-  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -1881,9 +1893,6 @@ input[type="submit"]:hover {
     align-items: center;
   }
 
-  .hero .section-subtitle {
-    text-align: left;
-  }
 
   /**
    * BENEFITS
@@ -2134,6 +2143,13 @@ input[type="submit"]:hover {
   .benefits-card .card-text {
     margin-block-end: 20px;
   }
+
+  .container{
+    padding-inline: 5rem;
+  }
+  .hero-button{
+    padding: 0;
+  }
 }
 
 
@@ -2170,7 +2186,6 @@ input[type="submit"]:hover {
   .navbar {
     max-width: 1330px;
     border-radius: 10px;
-    padding: 0 1rem 0 1rem;
   }
   .navbar-list {
     gap: 30px; /* Increase gap between navbar items */
@@ -2972,5 +2987,23 @@ select {
   }
 }
 
- 
+/* media queries for chat widget  */
 
+@media screen and (min-width:960px){
+ .bp-widget-web.bp-widget-web{
+  right: calc(3.4% - 23px) ;
+  } 
+}
+
+@media screen and (min-width:1010px) {
+  .bp-widget-web.bp-widget-web{
+  right: calc(2.8% - 23px) ;
+}
+}
+
+@media only screen and (max-width: 598px) {
+  
+  .bp-widget-web.bp-widget-web{
+    right: calc(4.95% - 23px) ;
+  }
+}
