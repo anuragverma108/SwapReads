@@ -52,6 +52,7 @@
 
   <!-- Preloader CSS-->
   <link rel="stylesheet" href="assets/css/preloader.css">
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
   <script src="./assets/js/preloader.js" defer></script>
   <style>
     swiper-container {
@@ -130,11 +131,75 @@
       color: white;
       transform: rotateY(180deg);
     }
+
+    /* pankaj bind */
+    #cookie-consent {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      background-color: #f1f1f1;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 300px;
+      height: 250px;
+      z-index: 100;
+      border-radius: 10px;
+      margin-bottom: 5px;
+    }
+
+    #cookie-consent button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #accept-cookies {
+      width: 280px;
+      height: 40px;
+      background-color: #A30F17;
+      color: white;
+    }
+
+    #reject-cookies {
+      margin-top: 10px;
+      height: 40px;
+      width: 280px;
+      background-color: #A30F17;
+      color: white;
+    }
   </style>
 </head>
 
 
 <body>
+
+  <div id="cookie-consent">
+    <p>We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with
+      our Cookie Policy. <a href="#">Learn More</a></p>
+    <button id="accept-cookies">Accept</button>
+    <button id="reject-cookies">Reject</button>
+
+
+    <script>
+      const cookieConsent = document.getElementById('cookie-consent');
+      const acceptButton = document.getElementById('accept-cookies');
+      const rejectButton = document.getElementById('reject-cookies');
+
+      // Function to hide the cookie consent box
+      function hideCookieConsent() {
+        cookieConsent.style.display = 'none';
+        // You can also set a cookie here to remember user preference (optional)
+      }
+
+      acceptButton.addEventListener('click', hideCookieConsent);
+      rejectButton.addEventListener('click', hideCookieConsent);
+
+    </script>
+  </div>
 
   <div class="circle"></div>
   <div class="circle"></div>
@@ -161,81 +226,24 @@
   <div id="preloader">
     <div class="loader">
       <div class="book-wrapper">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="white"
-          viewBox="0 0 126 75"
-          class="book"
-        >
-          <rect
-            stroke-width="5"
-            stroke="#e05452"
-            rx="7.5"
-            height="70"
-            width="121"
-            y="2.5"
-            x="2.5"
-          ></rect>
-          <line
-            stroke-width="5"
-            stroke="#e05452"
-            y2="75"
-            x2="63.5"
-            x1="63.5"
-          ></line>
-          <path
-            stroke-linecap="round"
-            stroke-width="4"
-            stroke="#c18949"
-            d="M25 20H50"
-          ></path>
-          <path
-            stroke-linecap="round"
-            stroke-width="4"
-            stroke="#c18949"
-            d="M101 20H76"
-          ></path>
-          <path
-            stroke-linecap="round"
-            stroke-width="4"
-            stroke="#c18949"
-            d="M16 30L50 30"
-          ></path>
-          <path
-            stroke-linecap="round"
-            stroke-width="4"
-            stroke="#c18949"
-            d="M110 30L76 30"
-          ></path>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 126 75" class="book">
+          <rect stroke-width="5" stroke="#e05452" rx="7.5" height="70" width="121" y="2.5" x="2.5"></rect>
+          <line stroke-width="5" stroke="#e05452" y2="75" x2="63.5" x1="63.5"></line>
+          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M25 20H50"></path>
+          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M101 20H76"></path>
+          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M16 30L50 30"></path>
+          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M110 30L76 30"></path>
         </svg>
-    
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="#ffffff74"
-          viewBox="0 0 65 75"
-          class="book-page"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-width="4"
-            stroke="#c18949"
-            d="M40 20H15"
-          ></path>
-          <path
-            stroke-linecap="round"
-            stroke-width="4"
-            stroke="#c18949"
-            d="M49 30L15 30"
-          ></path>
-          <path
-            stroke-width="5"
-            stroke="#e05452"
-            d="M2.5 2.5H55C59.1421 2.5 62.5 5.85786 62.5 10V65C62.5 69.1421 59.1421 72.5 55 72.5H2.5V2.5Z"
-          ></path>
+
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff74" viewBox="0 0 65 75" class="book-page">
+          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M40 20H15"></path>
+          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M49 30L15 30"></path>
+          <path stroke-width="5" stroke="#e05452"
+            d="M2.5 2.5H55C59.1421 2.5 62.5 5.85786 62.5 10V65C62.5 69.1421 59.1421 72.5 55 72.5H2.5V2.5Z"></path>
         </svg>
       </div>
     </div>
-    
+
   </div>
 
   <header class="header header-anim" data-header>
@@ -248,8 +256,9 @@
         </a>
 
         <ul class="navbar-list">
-          <img src="./assets/images/new_logo_banner_dark.png" class="logopic" style=" width: 200px;">
-
+          <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+            <img src="./assets/images/new_logo_banner_dark.png" class="logopic" style=" width: 200px;">
+          </a>
           <li class="navbar-item">
             <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
                 class="ri-home-fill"></i> Home</a>
@@ -296,7 +305,7 @@
                       class="ri-price-tag-3-fill"></i> Pricing</a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href="./assets/html/addremovebook.html" class="navbar-link">Booklist for Swapping</a>
+                  <a href="./assets/html/booklistswap.html" class="navbar-link">Booklist for Swapping</a>
                 </li>
                 <li class="dropdown-menu-item">
                   <a href="./assets/html/book_recommend.html" class="navbar-link" data-nav-link>
@@ -396,10 +405,13 @@
               favorite reads, and embark on literary journeys by swapping books with fellow passionate readers. Discover
               a world where books find new adventures and readers connect through the joy of sharing stories.
             </p>
-            <button class="play-btn" aria-label="play video" onclick="window.location.href='#'">
-              <ion-icon name="play-outline" aria-hidden="true"></ion-icon>
-              <h2>Play Now</h2>
-            </button>
+            <div class="container hero-button">
+              <button class="play-btn" aria-label="play video" onclick="window.location.href='#'">
+                <ion-icon name="play-outline" aria-hidden="true"></ion-icon>
+                <h2>Play Now</h2>
+              </button>
+            </div>
+
 
           </div>
 
@@ -426,9 +438,10 @@
           <div class="grid-list">
             <div class="benefits-content">
               <h2 class="h2 section-title" style="text-align: center;">Unleash the Magic of Book Swapping!</h2>
-        <p class="section-text" style="text-align: center;">"SwapReads.com - Where Every Book is a Portal to a New Adventure!"</p>
+              <p class="section-text" style="text-align: center;">"SwapReads.com - Where Every Book is a Portal to a New
+                Adventure!"</p>
             </div>
-      
+
             <li>
               <div class="benefits-card has-before has-after">
                 <div class="card-icon">
@@ -436,7 +449,8 @@
                 </div>
                 <h3 class="h3 card-title">Diverse Literary Adventures</h3>
                 <p class="card-text">
-                  Explore a vast array of genres and titles by exchanging books with our diverse community, opening doors
+                  Explore a vast array of genres and titles by exchanging books with our diverse community, opening
+                  doors
                   to new and exciting literary adventures.
                 </p>
                 <a href="#" class="btn-link">
@@ -609,9 +623,11 @@
                 <p class="card-subtitle">02</p>
 
                 <h3 class="h3 card-title">Romance</h3>
-          <p class="card-text">
-            A romance is understood to be 'love stories,' which are primarily focused on the relationship between the main characters of the story. The biggest defining characteristic of the romance genre is that a happy ending is always guaranteed, perhaps living 'happily ever after.
-          </p>
+                <p class="card-text">
+                  A romance is understood to be 'love stories,' which are primarily focused on the relationship between
+                  the main characters of the story. The biggest defining characteristic of the romance genre is that a
+                  happy ending is always guaranteed, perhaps living 'happily ever after.
+                </p>
 
               </div>
             </li>
@@ -713,7 +729,7 @@
             </li>
             <div class="chapter-card">
 
-              <p class="card-subtitle">9</p>
+              <p class="card-subtitle">09</p>
 
               <h3 class="h3 card-title">Historical Fiction</h3>
 
@@ -800,7 +816,7 @@
 
             <li>
               <!---jfdb-->
-              <a class="cardo" href="#">
+              <a class="cardo" href="books.html">
                 <h3 class="lithead">01. &nbsp;Romantic Escapes</h3>
                 <p class="small"> Immerse yourself in the enchanting world of love and passion with our curated
                   selection of romance
@@ -864,14 +880,14 @@
 
               </div> -->
             </li>
-         <li>
+            <li>
 
               <a class="cardo" href="#">
                 <h3 class="lithead">04. &nbsp;Mystical Fantasies</h3>
                 <p class="small"> Embark on fantastical journeys to magical realms with our captivating fantasy fiction
                   picks.</p>
                 <div class="go-corner" href="#">
-                  <div class="go-arrow">    →
+                  <div class="go-arrow"> →
                   </div>
                 </div>
               </a>
@@ -888,7 +904,7 @@
 
               </div> -->
             </li>
-           <li>
+            <li>
 
               <a class="cardo" href="#">
                 <h3 class="lithead">05. &nbsp;Historical Chronicles</h3>
@@ -915,7 +931,7 @@
 
               </div> -->
             </li>
-           <li>
+            <li>
 
               <a class="cardo" href="#">
                 <h3 class="lithead">06. &nbsp;Science Fiction Wonders</h3>
@@ -940,7 +956,7 @@
 
               </div> -->
             </li>
-          <li>
+            <li>
 
               <a class="cardo" href="#">
                 <h3 class="lithead">07. &nbsp;Laugh Out Loud Comedy</h3>
@@ -1045,7 +1061,7 @@
               <div class="form-fields">
 
                 <label class="form-label" for="bookTitle">Book Title:</label>
-                <label class="form-label" for="bookTitle">Book Title:</label>
+                
                 <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the title of your book" required
                   class="input-field">
 
@@ -1150,7 +1166,7 @@
                 <button class="btn btn-secondary">BUY NOW</button>
               </div>
             </li>
-          <li>
+            <li>
               <div class="pricing-card">
                 <h3 class="h3 card-title">Timeless Classics - Aged Wonders</h3>
                 <data class="price" value="15">50% Off</data>
@@ -1170,7 +1186,7 @@
             <li>
               <div class="pricing-card">
                 <h3 class="h3 card-title">Hidden Treasures - Vintage Editions</h3>
-               <data class="price" value="10">25% Off</data>
+                <data class="price" value="10">25% Off</data>
                 <ul class="pricing-card-list">
 
 
@@ -1229,7 +1245,13 @@
             </div>
             <ul class="contact-card ">
               <li>
-                <p class="card-title">Address:</p>
+                <p class="card-title"><lord-icon
+                  class="invert-col"
+                  src="https://cdn.lordicon.com/iikoxwld.json"
+                  trigger="hover"
+                  colors="primary:#000000"
+                  style="width:25px;height:25px">
+              </lord-icon>  Address:</p>
                 <address class="address">
                   12, Nayabad <br>
                   Kolkata, India 700054
@@ -1237,12 +1259,22 @@
               </li>
 
               <li>
-                <p class="card-title">Phone:</p>
+                <p class="card-title"><lord-icon
+                    class="invert-col" 
+                    src="https://cdn.lordicon.com/srsgifqc.json"
+                    trigger="hover"
+                    style="width:20px;height:20px;">
+                </lord-icon>  Phone:</p>
                 <a href="tel:1234567890" class="card-link">+91 9124421980</a>
               </li>
 
               <li>
-                <p class="card-title">Email:</p>
+                <p class="card-title"><lord-icon
+                    class="invert-col"
+                    src="https://cdn.lordicon.com/xtzvywzp.json"
+                    trigger="hover"
+                    style="width:20px;height:20px;">
+                </lord-icon>  Email:</p>
                 <a href="mailto:support@support.com" class="card-link">support@swapreads.com</a>
               </li>
             </ul>
@@ -1267,7 +1299,7 @@
   <p class="section-subtitle">Know what our customers say</p>
 
   <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="40"
-   loop="true" slides-per-view="3">
+    loop="true" slides-per-view="3">
     <swiper-slide>
       <div class="flip-card">
         <div class="flip-card-inner">
@@ -1389,7 +1421,7 @@
           </div>
           <div class="flip-card-back backs">
             SwapReads revolutionized my reading life! I've decluttered my shelf, discovered hidden gems, and connected
-            with a passionate community. Thank you, SwapReads, for stealing my heart! 
+            with a passionate community. Thank you, SwapReads, for stealing my heart!
           </div>
         </div>
       </div>
@@ -1459,7 +1491,7 @@
     </swiper-slide>
   </swiper-container>
 
-  
+
   <!-- Testimonials -->
 
   <!-- FAQ section start-->
@@ -1569,49 +1601,81 @@
             <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
           </div>
         </form>
+        <style>
+          .icons .icon i {
+            font-size: 24px;
+            /* Set the default font size for icons */
+            transition: all 0.3s ease;
+            /* Add transition for smooth animation */
+          }
+
+          .icons .icon:hover i {
+            transform: scale(1.2);
+            /* Scale the icon on hover */
+          }
+
+          .icons .icon:hover .fab.fa-facebook-square {
+            color: #3b5998;
+            /* Change to Facebook color on hover */
+          }
+
+          .icons .icon:hover .fab.fa-twitter-square {
+            color: #1da1f2;
+            /* Change to Twitter color on hover */
+          }
+
+          .icons .icon:hover .fab.fa-instagram-square {
+            color: #c13584;
+            /* Change to Instagram color on hover */
+          }
+
+          .icons .icon:hover .fab.fa-youtube-square {
+            color: #ff0000;
+            /* Change to YouTube color on hover */
+          }
+        </style>
+
         <div class="icons">
           <a href="#">
             <div class="icon">
-              <i class="fab fa-facebook-square"></i>
+              <i class="fab fa-facebook-square" style="cursor: pointer;"></i>
             </div>
           </a>
 
           <a href="#">
             <div class="icon">
-              <i class="fa-brands fa-square-x-twitter"></i>
+              <i class="fab fa-twitter-square" style="cursor: pointer;"></i>
             </div>
           </a>
 
           <a href="#">
             <div class="icon">
-              <i class="fab fa-instagram-square"></i>
+              <i class="fab fa-instagram-square" style="cursor: pointer;"></i>
             </div>
           </a>
 
           <a href="https://www.youtube.com/@anuragbytes">
             <div class="icon">
-              <i class="fab fa-youtube-square"></i>
+              <i class="fab fa-youtube-square" style="cursor: pointer;"></i>
             </div>
           </a>
-          <!-- </div> -->
-        </div>
-        <div class="footer-bottom">
-          <p class="copyright" style="text-align: center">
-            &copy;
-            <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-            Hackers.
-          </p>
-        </div>
-
-        <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">
-          <div class="circle1">
-            <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-              class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-              <path
-                d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-            </svg>
+          <div class="footer-bottom">
+            <p class="copyright" style="text-align: center">
+              &copy;
+              <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
+              Hackers.
+            </p>
           </div>
-        </div>
+
+          <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">
+            <div class="circle1">
+              <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                <path
+                  d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+              </svg>
+            </div>
+          </div>
 
   </footer>
   <!-- Footer ended-->
