@@ -1,0 +1,24 @@
+name: Auto Label Issues and PRs
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2
+
+    - name: Add Label to Issues and PRs
+      uses: actions-ecosystem/action-add-labels@v1.1.1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        labels: gssoc
