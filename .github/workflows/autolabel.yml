@@ -11,29 +11,28 @@ permissions:
   pull-requests: write
 
 jobs:
-  auto_label_issue:
+  auto_label_and_assign:
     runs-on: ubuntu-latest
-    if: github.event_name == 'issues'
+
     steps:
-      - name: Assign and label the issue
+      - name: Check if event is an issue
+        if: github.event_name == 'issues'
         uses: actions-ecosystem/action-add-labels@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: gssoc
 
-  auto_label_pr:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
-      
+      - name: Check if event is a pull request
+        if: github.event_name == 'pull_request'
+        uses: actions/checkout@v3
+
       - name: Fetch issue number from PR body
+        if: github.event_name == 'pull_request'
         id: issue-number
         run: echo "::set-output name=issue_number::$(echo ${{ github.event.pull_request.body }} | grep -oP '#\K\d+')"
 
       - name: Assign PR to issue author and label
-        if: steps.issue-number.outputs.issue_number != ''
+        if: github.event_name == 'pull_request' && steps.issue-number.outputs.issue_number != ''
         run: |
           ISSUE_NUMBER=${{ steps.issue-number.outputs.issue_number }}
           ISSUE_AUTHOR=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
