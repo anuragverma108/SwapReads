@@ -1,24 +1,23 @@
-name: Auto Label Issues and PRs
+
+name: Auto-label on Any Issue
 
 on:
   issues:
     types: [opened]
-  pull_request:
-    types: [opened]
 
 jobs:
-  label:
+  auto-label:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      pull-requests: write
-
     steps:
-    - name: Check out the repository
-      uses: actions/checkout@v2
-
-    - name: Add Label to Issues and PRs
-      uses: actions-ecosystem/action-add-labels@v1.1.1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        labels: gssoc
+      - name: Add labels to any new issue
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const labelsToAdd = ["gssoc"];
+            await github.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: labelsToAdd
+            });
