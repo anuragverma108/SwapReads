@@ -59,6 +59,28 @@
   font-size: 15px;
 }
 
+/* Google Translate Element */
+#google_element {
+  font-family: var(--ff-poppins);
+  font-size: 1.6rem;
+  color: var(--charcoal);
+}
+
+/* Select options */
+.goog-te-combo {
+  background-color: var(--seashell);
+  color: var(--charcoal);
+  border: 2px solid hsl(20, 43%, 93%);
+  border-radius: 5px;
+  padding: 8px 8px;
+  cursor: pointer;
+}
+
+/* Change the hover effect of the options */
+.goog-te-combo option:hover {
+  background-color: lightcoral !important; /* Change to your desired background color for options on hover */
+  color: white; /* Change to your desired text color for options on hover */
+}
 .form-label {
   color: var(--charcoal);
 }
@@ -300,7 +322,6 @@ body {
   text-transform: uppercase;
   font-weight: var(--fw-700);
   letter-spacing: 4px;
-  text-align: center;
   margin-bottom: 20px;
   font-size: 2.5rem;
 }
@@ -330,6 +351,7 @@ body {
 
 .section-text {
   font-size: var(--fs-7);
+  text-align: start;
 }
 
 .w-100 {
@@ -405,11 +427,13 @@ body {
   margin-left: 0px;
   margin-top: 30px;
   text-align: center;
-  margin: 0 auto;
+  margin : auto;
 }
 
 .btn-primary:is(:hover, :focus) {
-  background-color: var(--chinese-violet);
+  background-color: white;
+  color:#000;
+  border: #d26d6d 2px solid;
 }
 
 .btn-secondary {
@@ -757,13 +781,16 @@ body {
 .hero-content {
   /* border: 1px solid black; */
   width: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 
 }
 
 .hero .hero-title {
   margin-block: 10px 25px;
   font-size: 5rem;
-  text-align: center
+  text-align: start;
 }
 
 
@@ -777,6 +804,7 @@ body {
   padding-inline-start: 20px;
   padding-block-end: 30px;
   max-width: 400px;
+  margin-top: 2.5rem;
 
   /* border: 2px solid red; */
 }
@@ -1230,6 +1258,9 @@ body.dark-mode .chapter-card:hover {
   border-block-end: 2px solid transparent;
 }
 
+.input-field:hover{
+  box-shadow: #d26d6d 8px 14px 69px -20px;}
+
 .input-field:focus {
   border-color: black;
   border-color: var(--old-rose);
@@ -1262,7 +1293,7 @@ textarea.input-field {
   margin-block-end: 15px;
   outline: none;
   border-radius: var(--radius-5);
-  border: 2px solid transparent;
+  border-bottom: 1.6px solid #d26d6d;
   transition: border-color 0.3s;
 }
 
@@ -1462,12 +1493,6 @@ textarea.input-field {
 
   }
 
-<<<<<<< Updated upstream
-=======
-  .circle-container {
-    display: none;
-  }
->>>>>>> Stashed changes
 }
 
 @media only screen and (max-width: 600px) {
@@ -1511,6 +1536,13 @@ footer {
   /* Adjusted alignment */
   border-bottom: 1px solid black;
   padding-bottom: 20px;
+  gap: 50px;
+}
+
+.desc{
+  display: flex;
+    flex-direction: column;
+    gap: 21px
 }
 
 .description {
@@ -1572,24 +1604,28 @@ footer {
   text-align: center;
 }
 
-/* .social-icons {
+.social-icons {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: top;
   gap: 10px;
-} */
+  width: auto;
+}
+
 
 .row-flex {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
 }
 
 form[type="newsletter"]:before {
   content: "";
   /*   background: rgba(255, 255, 0, 0.8);  */
   display: flex;
-  flex-direction: row;
   width: 200px;
   height: 100px;
   position: absolute;
@@ -1621,6 +1657,7 @@ label[for="email"] {
   /* Decreased letter spacing */
   text-transform: uppercase;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 input:focus {
@@ -3155,7 +3192,6 @@ body.dark-mode .h3 {
   .preference-bar select {
     font-size: 20px;
   }
-<<<<<<< Updated upstream
 }
 
 /* media queries for chat widget  */
@@ -3177,6 +3213,4 @@ body.dark-mode .h3 {
   .bp-widget-web.bp-widget-web{
     right: calc(4.95% - 23px) ;
   }
-=======
->>>>>>> Stashed changes
 }
