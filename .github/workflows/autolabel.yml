@@ -1,8 +1,8 @@
-name: Auto Label Issues and PRs
+name: Auto Label and Assign
 
 on:
   issues:
-    types: [opened]
+    types: [assigned]
   pull_request:
     types: [opened]
 
@@ -11,23 +11,39 @@ permissions:
   pull-requests: write
 
 jobs:
-  label:
+  auto_label_issue:
     runs-on: ubuntu-latest
-
+    if: github.event_name == 'issues'
     steps:
-    - name: Check out the repository
-      uses: actions/checkout@v3
+      - name: Assign and label the issue
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: gssoc
 
-    - name: Add Label to Issues
-      if: github.event_name == 'issues'
-      uses: actions-ecosystem/action-add-labels@v1.1.1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        labels: gssoc
+  auto_label_pr:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      
+      - name: Fetch issue number from PR body
+        id: issue-number
+        run: echo "::set-output name=issue_number::$(echo ${{ github.event.pull_request.body }} | grep -oP '#\K\d+')"
 
-    - name: Add Label to Pull Requests
-      if: github.event_name == 'pull_request'
-      uses: actions-ecosystem/action-add-labels@v1.1.1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        labels: gssoc
+      - name: Assign PR to issue author and label
+        if: steps.issue-number.outputs.issue_number != ''
+        run: |
+          ISSUE_NUMBER=${{ steps.issue-number.outputs.issue_number }}
+          ISSUE_AUTHOR=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                              -H "Accept: application/vnd.github.v3+json" \
+                              https://api.github.com/repos/${{ github.repository }}/issues/$ISSUE_NUMBER | jq -r .user.login)
+          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                       -H "Accept: application/vnd.github.v3+json" \
+                       https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/assignees \
+                       -d '{"assignees":["'$ISSUE_AUTHOR'"]}'
+          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                       -H "Accept: application/vnd.github.v3+json" \
+                       https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/labels \
+                       -d '{"labels":["gssoc"]}'
