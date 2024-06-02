@@ -42,16 +42,35 @@ Your involvement helps to improve the project and make it better for everyone. T
 2. **Clone Your Forked Repository:**
     - Clone the forked repository to your local machine using the following command:
     ```sh
-     git clone https://github.com/anuragverma108/SwapReads
+     git clone https://github.com/<your_user_name>/SwapReads
+    ```
+    - Navigate to project folder:
+    ```sh
+     cd SwapReads
     ```
 
-3. **Create a New Branch and Move to the Branch:**
+3. **Add a reference(remote) to the original repository:**
+
+    ```
+    git remote add upstream https://github.com/anuragverma108/SwapReads
+    ```
+4. **Check the remotes for this repository.**
+    ```
+    git remote -v
+    ```
+
+5. **Always take a pull from the upstream repository to your master branch to keep it at par with the main project (updated repository).**
+    ```
+    git pull upstream main
+    ```
+
+6. **Create a New Branch and Move to the Branch:**
     - Create a new branch for your changes and move to that branch using the following commands:
     ```sh
     git checkout -b <branch-name>
     ```
 
-4. **Add Your Changes:**
+7. **Add Your Changes:**
     - After you have made your changes, check the status of the changed files using the following command:
     ```sh
     git status -s
@@ -64,19 +83,19 @@ Your involvement helps to improve the project and make it better for everyone. T
     ```sh
     git add <file_name1> <file_name2>
     ```
-5. **Commit Your Changes:**
+8. **Commit Your Changes:**
     - Commit your changes with a descriptive message using the following command:
     ```sh
     git commit -m "<EXPLAIN-YOUR_CHANGES>"
     ```
 
-6. **Push Your Changes:**
+9. **Push Your Changes:**
     - Push your changes to your forked repository on GitHub using the following command:
     ```sh
     git push origin <branch-name>
     ```
 
-7. **Open a Pull Request:**
+10. **Open a Pull Request:**
     - Go to the GitHub page of your forked repository, and you should see an option to create a pull request. Click on it, provide a descriptive title and description for your pull request, and then submit it.
 
 ### Alternatively contribute using GitHub Desktop
