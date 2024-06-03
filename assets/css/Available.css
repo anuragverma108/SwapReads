@@ -1,0 +1,167 @@
+:root {
+    --btn-bg-color: hsl(357, 37%, 62%);
+    --btn-bg-hover-color: hsl(357, 37%, 52%);
+    --btn-text-color: white;
+    --background-color: hsl(20, 43%, 93%);
+    ;
+    --old-rose: hsl(357, 37%, 62%);
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+.section-text1 {
+    font-size: var(--fs-7);
+    text-align: center;
+  }
+
+  .book-display .benefits-content {
+    margin-bottom: 40px;
+    margin-top: 40px;
+    padding-top: 8%;
+    padding-left: 22%;
+    left: 50px;
+}
+
+.book-display .book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 50px;
+}
+
+.book-item {
+    text-align: center;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease-in-out;
+    padding: 5px;
+    padding-bottom: 30px;
+
+}
+
+.book-cover {
+    width: 4.5cm;
+    height: 6.5cm;
+    border: 2px solid transparent;
+    padding: 6px;
+    transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.book-title {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #474747;
+}
+
+h2.section-title {
+    font-family: 'Philosopher', sans-serif;
+    color: hsl(203, 30%, 26%);
+    font-size: 3em;
+    
+}
+
+.section-text1 {
+    font-family: "Poppins", sans-serif;
+    color: hsl(208, 7%, 46%);
+}
+
+.book-item:hover {
+    transform: translateY(-5px);
+}
+
+.book-cover:hover {
+    border-color: hsl(357, 37%, 62%);
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: var(--btn-bg-color);
+    color: var(--btn-text-color);
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    position: relative;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    width: fit-content;
+    margin-left: 40px;
+
+
+}
+
+.btn-secondary::after,
+.btn-secondary::before {
+    content: "";
+    position: absolute;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-secondary::after {
+    width: 100%;
+    height: 6px;
+    background-color: var(--border-color-bottom);
+    bottom: -6px;
+    left: 0;
+}
+
+.btn-secondary::before {
+    width: 6px;
+    height: 100%;
+    background-color: var(--border-color-right);
+    top: 0;
+    right: -6px;
+    
+}
+
+.btn-secondary:hover {
+    background-color: var(--btn-bg-hover-color);
+
+}
+
+/* Span for underline effect */
+span {
+    display: block;
+}
+
+/* Class for the underline effect */
+.has-underline {
+    position: relative;
+    margin-block-end: 60px;
+    text-align: center; /* Center align the heading */
+}
+
+/* Span within the underline class */
+.span {
+    height: 2px;
+    background-color: #cc9999; /* Adjust to the desired color */
+    width: 200px;
+    margin: 30px auto 0 auto;
+}
+
+/* Before and after pseudo-elements */
+.has-before::before,
+.has-after::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+}
+
+/* Specific styling for the before pseudo-element */
+.has-before::before {
+    width: 18px;
+    height: 18px;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    background-color: #cc9999; /* Adjust to the desired color */
+    box-shadow: 7px -7px #cc9999; /* Adjust to the desired shadow color */
+}
+

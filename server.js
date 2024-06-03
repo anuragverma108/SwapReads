@@ -8,140 +8,131 @@ const app = express();
 
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb+srv://new_user_346:JoRrqWMHx2AoOA3e@cluster0.x3ka0pq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-const User = mongoose.model("User", { username: String, password: String });
+const MONGO_URI = "mongodb://localhost:27017/swapread";
 
-app.post("/signup",validate(RegisterSchema), async (req, res) => {
-  const { username, password } = req.body;
-  const userExists = await User.findOne({ username });
-
-  if (userExists) {
-    res.json({ success: false, message: "Username already exists." });
-  } else {
-    const newUser = new User({ username, password });
-    await newUser.save();
-    res.json({ success: true });
-  }
-});
-
-app.post("/login", validate(RegisterSchema),async (req, res) => {
-  const { username, password } = req.body;
-  const user = await User.findOne({ username, password });
-
-  if (user) {
-    res.json({ success: true });
-  } else {
-    res.json({ success: false, message: "Invalid username or password." });
-  }
-});
-
-//Book Exchange/Selling
-const bookSchema = new mongoose.Schema({
-  title: String,
-  author: String,
-  price: Number,
-  sellerEmail: String,
-});
-const Book = mongoose.model("Book", bookSchema);
-
-//Book Listinh
-app.post("/sellBook", async (req, res) => {
-  const { title, author, price, sellerEmail } = req.body;
-  const newBook = new Book({
-    title,
-    author,
-    price,
-    sellerEmail,
-  });
-
-  newBook
-    .save()
-    .then((book) => {
-      // Send email to the seller
-      sendListingEmailToSeller(sellerEmail, book.title);
-      res.json({ success: true, message: "Book listing added successfully!" });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.json({ success: false, message: "Internal Server Error" });
+const dbConnect = async () => {
+  try {
+    await mongoose.connect(MONGO_URI, {
+      // useNewUrlParser: true,
+      // useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 30000, // 30 seconds timeout
     });
-});
-app.post("/buyBook", async (req, res) => {
-  const { bookID, buyerEmail } = req.body;
-  console.log(bookID);
-  Book.findById(bookID)
-    .then((book) => {
-      if (!book) {
-        return res.json({ success: false, message: "Book Not Found." });
-      }
-      sendBuyingEmailToSeller(
-        book.sellerEmail,
-        book.title,
-        book.price,
-        book.author,
-        buyerEmail
-      );
-      res.json({ success: true, message: "Email Sent to Seller" });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.json({ success: false, message: "Internal Server Error" });
-    });
-});
+    console.log("DB connected");
+  } catch (err) {
+    console.log("DB failed", err);
+  }
+};
 
-// Configure Nodemailer transporter
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "mail@gmail.com",
-    pass: "password",
-  },
-});
-function sendBuyingEmailToSeller(
-  sellerEmail,
-  bookTitle,
-  bookPrice,
-  bookAuthor,
-  buyerEmail
-) {
-  // Email options
-  const mailOptions = {
-    from: "mail@gmail.com",
-    to: sellerEmail,
-    subject: "Someone is interested in your book!",
-    text: `Congratulations! Your book "${bookTitle}" by ${bookAuthor} at ${bookPrice} has a Buyer ${buyerEmail}.`,
-  };
+dbConnect().then(() => {
+  const User = mongoose.model("User", { username: String, password: String });
 
-  // Send email
-  transporter.sendMail(mailOptions, (err, info) => {
-    if (err) {
-      console.error("Error sending email:", err);
+  app.post("/signup", validate(RegisterSchema), async (req, res) => {
+    const { username, password } = req.body;
+    const userExists = await User.findOne({ username });
+
+    if (userExists) {
+      res.json({ success: false, message: "Username already exists." });
     } else {
-      console.log("Email sent:", info.response);
+      const newUser = new User({ username, password });
+      await newUser.save();
+      res.json({ success: true });
     }
   });
-}
-function sendListingEmailToSeller(sellerEmail, bookTitle) {
+
+  app.post("/login", validate(RegisterSchema), async (req, res) => {
+    const { username, password } = req.body;
+    const user = await User.findOne({ username, password });
+
+    if (user) {
+      res.json({ success: true });
+    } else {
+      res.json({ success: false, message: "Invalid username or password." });
+    }
+  });
+
+  // Book Exchange/Selling
+  const bookSchema = new mongoose.Schema({
+    title: String,
+    author: String,
+    price: Number,
+    sellerEmail: String,
+  });
+
+  const Book = mongoose.model("Book", bookSchema);
+
+  app.post("/sellBook", async (req, res) => {
+    const { title, author, price, sellerEmail } = req.body;
+    const newBook = new Book({ title, author, price, sellerEmail });
+
+    newBook.save()
+      .then((book) => {
+        sendListingEmailToSeller(sellerEmail, book.title);
+        res.json({ success: true, message: "Book listing added successfully!" });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.json({ success: false, message: "Internal Server Error" });
+      });
+  });
+
+  app.post("/buyBook", async (req, res) => {
+    const { bookID, buyerEmail } = req.body;
+    Book.findById(bookID)
+      .then((book) => {
+        if (!book) {
+          return res.json({ success: false, message: "Book Not Found." });
+        }
+        sendBuyingEmailToSeller(book.sellerEmail, book.title, book.price, book.author, buyerEmail);
+        res.json({ success: true, message: "Email Sent to Seller" });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.json({ success: false, message: "Internal Server Error" });
+      });
+  });
+
   // Configure Nodemailer transporter
-
-  // Email options
-  const mailOptions = {
-    from: "mail@gmail.com",
-    to: sellerEmail,
-    subject: "Your book listing is live!",
-    text: `Congratulations! Your book "${bookTitle}" is now listed for sale.`,
-  };
-
-  // Send email
-  transporter.sendMail(mailOptions, (err, info) => {
-    if (err) {
-      console.error("Error sending email:", err);
-    } else {
-      console.log("Email sent:", info.response);
-    }
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "mail@gmail.com",
+      pass: "password",
+    },
   });
-}
-app.listen(3000, () => console.log("Server is running on port 3000"));
+
+  function sendBuyingEmailToSeller(sellerEmail, bookTitle, bookPrice, bookAuthor, buyerEmail) {
+    const mailOptions = {
+      from: "mail@gmail.com",
+      to: sellerEmail,
+      subject: "Someone is interested in your book!",
+      text: `Congratulations! Your book "${bookTitle}" by ${bookAuthor} at ${bookPrice} has a Buyer ${buyerEmail}.`,
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        console.error("Error sending email:", err);
+      } else {
+        console.log("Email sent:", info.response);
+      }
+    });
+  }
+
+  function sendListingEmailToSeller(sellerEmail, bookTitle) {
+    const mailOptions = {
+      from: "mail@gmail.com",
+      to: sellerEmail,
+      subject: "Your book listing is live!",
+      text: `Congratulations! Your book "${bookTitle}" is now listed for sale.`,
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        console.error("Error sending email:", err);
+      } else {
+        console.log("Email sent:", info.response);
+      }
+    });
+  }
+
+  app.listen(3000, () => console.log("Server is running on port 3000"));
+});

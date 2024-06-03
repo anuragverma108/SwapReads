@@ -7,6 +7,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../css/login.css" />
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon_package_v0.16/favicon-16x16.png">
+  <link rel="manifest" href="../favicon_package_v0.16/site.webmanifest">
+  <link rel="mask-icon" href="../favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <script src="../js/script.js" defer></script>
+  
+
+  <script src="../js/scroll-reveal.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
   <script type="module" src="../js/loginSignUp.js" defer></script>
   <script src="../js/rateUsModal.js" defer></script>
 
@@ -17,57 +31,103 @@
 </head>
 
 <body>
-  <div class="navbar">
-    <a href="index.html#home"  class="logo" style="display:flex;">
-      <img src="../images/LogoPicLight.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
-      </a>
+  <header class="header header-anim" data-header>
+      
+    <div class="container">
 
-      <ul class="navbar-list">
-        <a href="index.html#home">
+      <nav class="navbar" data-navbar>
+        <a href="SwapReads\index.html" class="logo" style="display:flex;">
+        <img src="../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
+        </a>
 
-        <img src="../images/logo_whitebg.png" class="logopic" style=" width: 150px;">
+        <ul class="navbar-list">
+          <a href="../../index.html#home">
+          <img src="../images/new_logo_banner_dark.png" class="logopic" style=" width: 150px;">
 
-        <li class="navbar-item">
-          <a href="index.html#home"  class="navbar-link" data-nav-link><i
-              class="ri-home-fill"></i> Home</a>
-        </li>
+          <li class="navbar-item">
+            <a href="../../index.html#home" class="navbar-link" data-nav-link><i
+                class="ri-home-fill"></i> Home</a>
+          </li>
 
-        <li class="navbar-item">
-          <a href="index.html#benefits"  class="navbar-link" data-nav-link><i
-              class="ri-bar-chart-fill"></i> Benefits</a>
-        </li>
+          <li class="navbar-item">
+            <a href="../../index.html#benefits" class="navbar-link" data-nav-link><i
+                class="ri-bar-chart-fill"></i> Benefits</a>
+          </li>
 
-        <li class="navbar-item">
-          <a href="index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
-              class="ri-bar-chart-fill"></i> Genre</a>
-        </li>
+          <li class="navbar-item">
+            <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+                class="ri-bar-chart-fill"></i> Genre</a>
 
-        <li class="navbar-item">
-          <a href="index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-              class="ri-customer-service-2-fill"></i> Contact</a>
-        </li>
-        <li class="navbar-item">
-          <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
-        </li>
-        <li class="navbar-item dropdown">
-          <a href="#" class="navbar-link">More <i class="ri-arrow-down-s-line"></i></a>
-          <div class="dropdown-menu">
-            <ul class="dropdown-menu-list">
-              <li class="dropdown-menu-item">
-                <a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i class="ri-medal-fill"></i> Literary Realms</a>
-              </li>
-              <li class="dropdown-menu-item">
-                <a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
-              </li>
-              <li class="dropdown-menu-item">
-                <a href="../html/addremovebook.html" class="navbar-link">Booklist for Swapping</a>
-              </li>
-            </ul>
-          </div>
+          </li>
 
-       
-      </ul>
-  </div>
+          <li class="navbar-item">
+            <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
+                class="ri-customer-service-2-fill"></i> Contact</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="rate.html" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+          </li>
+          <li class="navbar-item" id="logout-r">
+            <a href="../html/login.html" class="navbar-link">Logout</a>
+          </li>
+
+          
+          <li class="navbar-item dropdown" id="more-dropdown">
+            <a href="#" class="navbar-link" id="more-link">More 
+            <svg  class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24"><path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z"/></svg></a>
+            <div class="dropdown-menu" id="dropdown-menu">
+
+              <ul class="dropdown-menu-list">
+                <li class="dropdown-menu-item">
+                  <a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i class="ri-medal-fill"></i> Literary Realms</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="./booklistswap.html" class="navbar-link">Booklist for Swapping</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="book_recommend.html" class="navbar-link" data-nav-link>
+                    <i class="ri-customer-service-2-fill"></i> Book Recommendation
+                  </a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="./freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="./about.html" class="navbar-link">About</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+
+            <div class="switch-container">
+              <input type="checkbox" id="switch" class="switch-checkbox">
+              <label for="switch" class="switch-label">
+                <div class="switch-button">
+                  <span class="material-icons sun-icon"></span>
+                  <span class="material-icons moon-icon"></span>
+                </div>
+              </label>
+            </div>
+
+          </li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
+
+        <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
+      </button>
+
+    </div>
+  </header>
+
     <!-- Rate Us Modal Pop up -->
     <div class="rate-us-modal-wrapper">
       <div class="rate-us-modal">
@@ -107,25 +167,30 @@
             <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-login">
           </div>
           <button type="submit" name="Login" id="login">Submit</button>
-          <p class="forget-password">
+          <div class="forget-password">
             Forgot Password?
             <a href="forgot-pass.html" id="forgot_password_link">Reset Here</a>
-          </p>
+          </div>
+          
           <div id="or">Or</div>
           <button id="google-sign-in"> Sign In with Google </button>
+          <div class="register">
+            <!-- <div class="register1">New to SwapReads?</div> -->
+            <a href="mylogin.html" class="register_link">Register Here</a>
+          </div>
         </form>
       </div>
 
-      <div class="register">
+      <!-- <div class="register">
         <form class="form" id="register-form">
           <label for="chk" aria-hidden="true">Create Account</label>
           <input class="input" type="email" name="email" id="email" placeholder="Email" required />
           <div class="input-box">
             <input class="input" type="password" name="pswd" id="password" placeholder="Password" required />
             <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon">
-          </div>
+          </div> -->
 
-          <div>
+          <!-- <div>
             <div class="progress">
               <div id="password-strength" class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
@@ -135,17 +200,132 @@
               <li><span class="one-special-char"><i class="fas fa-circle" aria-hidden="true"></i>&nbsp;Special Character (!@#$%^&*)</span></li>
               <li><span class="eight-character"><i class="fas fa-circle" aria-hidden="true"></i>&nbsp;At least 8 Character</span></li>
             </ul>
-          </div>
+          </div> -->
 
-          <button type="submit" name="register" id="register">Register</button>
+          <!-- <button type="submit" name="register" id="register">Register</button>
           <div id="or">Or</div>
-          <button id="google-signup"> Sign Up with Google </button>
+          <button id="google-signup"> Sign Up with Google </button> -->
         </form>
       </div>
     </div>
   </div>
   <hr />
-  <footer class="footer">
+  <footer>
+    <div class="foot-top">
+      <div class="foot-left">
+        <div class="desc">
+
+          <div><a href="#" class="logo">SwapReads</a></div>
+          <div><p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book lovers
+            seeking to swap and
+
+            discover new literary gems.
+            Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in the
+            world of literature—all on one convenient platform. Join us and dive into a universe of endless
+            possibilities!
+          </p>
+        </div>
+        </div>
+      </div>
+      <div class="foot-middle">
+        <h2>Quick Links</h2>
+        <ul>
+          <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')">Home</a></li>
+          <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
+          <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+          <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
+          <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+          <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="social-icons">
+        <!-- <h5>Newsletter</h5> -->
+        <!-- <div class="input-newletter">
+          <label for="newsletter"><h5>Newsletter</h5></label>
+          <input placeholder="Enter your email" type="email" ></input>
+          <button class="btn-subs">Subscribe</button>
+        </div> -->
+
+        <form type="newsletter">
+          <label for="email">Subscribe to our Newsletter</label>
+          <div class="row-flex">
+
+
+
+            <!--email write-->
+            <input type="news" value="" name="email" placeholder="email address" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
+          </div>
+        </form>
+        <style>
+          .icons .icon i {
+            font-size: 24px;
+            /* Set the default font size for icons */
+            transition: all 0.3s ease;
+            /* Add transition for smooth animation */
+          }
+
+          .icons .icon:hover i {
+            transform: scale(1.2);
+            /* Scale the icon on hover */
+          }
+
+          .icons .icon:hover .fab.fa-facebook-square {
+            color: #1877f2;
+            /* Change to Facebook color on hover */
+          }
+
+          .icons .icon:hover .fab.fa-twitter-square {
+            color: #1da1f3;
+            /* Change to Twitter color on hover */
+          }
+
+          .icons .icon:hover .fab.fa-instagram-square {
+            color: #c13583;
+            /* Change to Instagram color on hover */
+          }
+
+          .icons .icon:hover .fab.fa-youtube-square {
+            color: #ff0001;
+            /* Change to YouTube color on hover */
+          }
+        </style>
+
+        <div class="icons">
+          <a href="#">
+            <div class="icon">
+              <i class="fab fa-facebook-square" style="cursor: pointer;"></i>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="icon">
+              <i class="fab fa-twitter-square" style="cursor: pointer;"></i>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="icon">
+              <i class="fab fa-instagram-square" style="cursor: pointer;"></i>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/@anuragbytes">
+            <div class="icon">
+              <i class="fab fa-youtube-square" style="cursor: pointer;"></i>
+            </div>
+          </a>
+        </div>
+          <div class="footer-bottom">
+            <p class="copyright" style="text-align: center">
+              &copy;
+              <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
+              Hackers.
+            </p>
+          </div>
+
+  </footer>
+  <!-- <footer class="footer">
     <div class="container">
       <div class="footer-bottom">
         <p class="copyright">
@@ -153,32 +333,18 @@
         </p>
       </div>
     </div>
-  </footer>
+  </footer> -->
 
   <script>
-    let eyeIcon = document.getElementById("eyeicon");
-    let password = document.getElementById("password");
     let eyeIconLogin = document.getElementById("eyeicon-login");
     let passwordLogin = document.getElementById("login_password");
+    let eyeIcon = document.getElementById("eyeicon");
+    let password = document.getElementById("password");
     let passwordStrength = document.getElementById("password-strength");
     let lowUpperCase = document.querySelector(".low-upper-case i");
     let number = document.querySelector(".one-number i");
     let specialChar = document.querySelector(".one-special-char i");
     let eightChar = document.querySelector(".eight-character i");
-
-    // Set the password field to type "password" by default
-    password.type = "password";
-    eyeIcon.src = "../images/eye-close.png"; // Set the initial eye icon as closed
-
-    eyeIcon.onclick = function () {
-        if (password.type === "password") {
-            password.type = "text";
-            eyeIcon.src = "../images/eye-open.png";
-        } else {
-            password.type = "password";
-            eyeIcon.src = "../images/eye-close.png";
-        }
-    };
 
     passwordLogin.type = "password";
     eyeIconLogin.src = "../images/eye-close.png"; // Set the initial eye icon as closed
@@ -280,5 +446,6 @@ function applyThemePreferenceOnLoginPage() {
     }
 }
   </script>
+   <script src="../js/script.js" defer></script>
 </body>
 </html>

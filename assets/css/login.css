@@ -57,7 +57,7 @@ p {
   font-size: 1rem;
 }
 
-.navbar {
+/* .navbar {
   width: 80%;
   height: 6rem;
   align-self: center;
@@ -73,7 +73,7 @@ p {
 
 
 
-}
+} */
 /* .navbar-header {
   width: 100%;
   font-family: var(--ff-poppins);
@@ -106,15 +106,6 @@ p {
 
 }
 
-.navbar-link {
-  position: relative;
-  color: var(--charcoal);
-  padding: 8px 12px; /* Adjust padding as needed */
-  line-height: 2;
-  text-decoration: none;
-
-  transition: var(--transition-1);
-}
 .nav-links {
   margin: 0;
   text-decoration: none;
@@ -366,8 +357,8 @@ a:active {color: var(--old-rose);}
   }
 }
 
-@media only screen and (max-width: 600px) {
-  /* Adjustments for smaller screens */
+ @media only screen and (max-width: 600px) {
+
   .navbar-list {
     display: flex;
     flex-direction: column;
@@ -384,8 +375,31 @@ a:active {color: var(--old-rose);}
   .rate-us-modal {
     width: 90%;
   }
-}
+}  
 
+@media only screen and (max-width: 600px) {
+ 
+  .navbar-item {
+    display: none;
+  }
+
+ 
+  .navbar {
+    display: flex;
+    justify-content: center;
+  }
+
+  
+  .logo {
+    display: flex;
+    justify-content: center;
+  }
+
+  
+  .logopic {
+    width: 150px; /
+  }
+}
 
 
 .fa{
@@ -438,6 +452,23 @@ a:active {color: var(--old-rose);}
 .message {
     color: red;
 } */
+
+
+.navbar-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--charcoal);
+  padding: 8px 12px; /* Adjust padding as needed */
+  line-height: 2;
+  transition: var(--transition-1);
+}
+
+.navbar-link:is(:hover, :focus) {
+  color: var(--old-rose);
+}
+
 .dropdown-menu {
   /* display: none;
   position: absolute;
@@ -453,17 +484,15 @@ a:active {color: var(--old-rose);}
   z-index: 1;
   transition: all 0.3s ease;
   top: 100%;
+  text-align: center;
+ 
 }
-
-.dropdown-item {
-  margin-top: 5px;
-}
-
 .dropdown-menu-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 
 .dropdown-menu-item {
   padding: 12px 16px;
@@ -484,43 +513,19 @@ a:active {color: var(--old-rose);}
 
 .navbar-item.dropdown {
   position: relative; /* Ensure the dropdown menu is positioned relative to the navbar item */
+} 
+.dropdown-menu-item .navbar-link {
+  display: inline-block; /* Ensure links are inline-block to center them */
 }
-
 .navbar-item.dropdown:hover .dropdown-menu {
   display: block;
-} */
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 1;
-  transition: all 0.3s ease;
-  top: 100%;
+} 
+.dropdown-arrow {
+  transition: transform 0.3s ease; /* Smooth transition for rotation */
 }
 
-.dropdown-menu-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.dropdown-menu-item {
-  padding: 12px 16px;
-}
-
-.dropdown-menu-item a {
-  text-decoration: none;
-  color: #000;
-}
-
-.dropdown-menu.active {
-  display: block;
-}
-
-.navbar-item.dropdown {
-  position: relative;
+.navbar-item.dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
 }
 
 .form {
@@ -530,11 +535,18 @@ a:active {color: var(--old-rose);}
     padding: 35px;
     margin-top: -30px;
 }
-
+.form1 {
+	display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 15px 35px;
+    margin-top: -30px;
+}
 .note {
   width: 50%;
   max-width: 600px;
   font-family: var(--ff-philosopher);
+  margin-top:200px;
   margin-bottom: 4rem;
 }
 
@@ -576,6 +588,7 @@ a:active {color: var(--old-rose);}
   overflow: hidden;
   border-radius: 2%;
   box-shadow: 0 0 15px 5px #24004628;
+  
   /* margin-bottom: 10rem;
   margin-left: 4rem; */
 }
@@ -586,21 +599,21 @@ a:active {color: var(--old-rose);}
   display: none;
 }
 
-/*Login*/
+/*Signup*/
 
-#login {
+#signup {
   font-size: medium;
   font-family: var(--ff-poppins);
 }
 
-.login {
+.signup {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 110%;
   font-family: var(--ff-poppins);
 }
 
-.login label {
+.signup label {
   margin: 5% 0 5%;
 }
 
@@ -693,22 +706,22 @@ label {
 }
 
 
-/*Register*/
-#register{
+/*Login*/
+#Login{
   font-size: medium;
   color: var(--old-rose);
-  background-color: #eee;
+  background-color: rgb(247, 150, 150);
   cursor: pointer;
   margin-top: 100px;
   margin-bottom: 20px;
 }
 
-#register:hover {
+#login:hover {
   background-color: white;
   background-color: var(--old-rose);
 }
 
-.register {
+.login{
   background: #eee;
   width:100%;
   font-family: var(--ff-poppins);
@@ -717,36 +730,38 @@ label {
   transition: 0.8s ease-in-out;
   margin-bottom: 45px;
   padding-bottom: 45px;
+  height: fit-content;
 }
-#register{
+#login{
   color: var(--old-rose);
+  
 }
-#register:hover {
+#login:hover {
   color: white;
   background-color: var(--old-rose);
 }
 
 
-.register label {
+.login label {
   color: var(--old-rose);
   margin-top: 1rem;
   transform: scale(0.6);
 }
 
-.register label:hover {
+.login label:hover {
   color: #000000;
 }
 
-#chk:checked ~ .register {
+#chk:checked ~ .login {
   transform: translateY(-69%);
 }
 
-#chk:checked ~ .register label {
+#chk:checked ~ .login label {
   transform: scale(1);
   /* margin: 5% 0 5%; */
 }
 
-#chk:checked ~ .login label {
+#chk:checked ~ .signup label {
   transform: scale(0.6);
   margin: 5% 0 5%;
 }
@@ -755,7 +770,7 @@ label {
   width: 95%;
   height: 40px;
   margin: 12px auto 10%;
-  color: #fff;
+  color:rgb(247, 150, 150);
   background: transparent;
   font-size: 1.5rem;
   font-weight: bold;
@@ -814,12 +829,17 @@ label {
   text-align: center;
 }
 
-.forget-password {
+.forget-password .loginButton {
   font-size: small;
   text-align: center;
   margin: -20px 0 10px;
-  color: white;
+  color: rgb(247, 150, 150);
   font-weight: bold;
+}
+
+#forgot_password_link{
+  color: rgb(247, 150, 150);
+  text-decoration: none;
 }
 
 .forget-password a {
@@ -848,15 +868,18 @@ label {
 
   .main {
     width: 100%;
-    height:420px;
+    
   }
   .register{
-    width: 100%;
+     /* width: 100%;
 	margin-top: -30px;
-    margin-left: 0%;
+    margin-left: 50px;
     padding-left: 0%;
     margin-bottom: 0px;
-    padding-bottom: 45px;
+    padding-bottom: 45px; */
+    text-align: center; 
+    
+   
   }
   .register .form label{
     margin-top:0px;
@@ -865,10 +888,19 @@ label {
     margin-top: 10px;
     margin-bottom: 10px;
   }
-  #register{
+  /* #register{
     margin-top: 20px;
     margin-bottom: 25px;
-  }
+  } */
+}
+/* .register1{
+  margin-left: 33%;
+} */
+
+.register_link{
+  text-align: center;
+  color: rgb(247, 150, 150);
+  margin-bottom: 10px;
 }
 
 .input-box{
@@ -928,10 +960,18 @@ label {
 	}
 	.form {
 		gap:0;
+    padding:10px;
 	}
-	#register{
-		margin-top: 1px;
-	}
+  .register{
+    width: 100%;
+    margin-left: 0%;
+    padding-left: 0%;
+    margin-bottom: 0px;
+    padding-bottom: 45px;
+  }
+  .main {
+    padding: 16px;
+  }
 	/* #or{
 		margin-top: -10px;
 	} */
@@ -942,7 +982,7 @@ label {
 
 @media (max-width: 480px) {
   .main {
-    padding: 0px;
+    padding: 6px;
   }
   .input,
   .form button {
@@ -1162,3 +1202,309 @@ body.dark-mode {
     bottom: 20px;
     /* right: 20px; */
   }}
+
+  .remember-me-label {
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.remember-me-label input {
+    margin-right: 8px;
+    /* Adjusted margin */
+    margin-top: 1px;
+    /* Added margin-top for better alignment */
+}
+
+footer {
+  background-color: var(--seashell);
+  padding: 20px 30px;
+}
+
+.foot-top {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  /* Adjusted alignment */
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+  gap: 50px;
+}
+
+.desc{
+  display: flex;
+    flex-direction: column;
+    gap: 21px
+}
+
+.description {
+  color: var(--sonic-silver);
+  text-align: justify;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.8rem;
+}
+
+.foot-middle {
+  font-size: 1.6rem;
+  text-align: center;
+}
+.foot-middle a{
+  font-size: 2rem;
+}
+
+.foot-quick :hover {
+  color: rgb(201, 168, 168);
+}
+
+.foot-middle ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.foot-middle ul li,
+.foot-middle h2 {
+  text-align: center;
+}
+
+.nav-links {
+  margin: 0;
+}
+
+.nav-links ul {
+  padding: 0;
+  list-style: none;
+  /* Remove bullet points */
+}
+
+.nav-links ul li {
+  margin-bottom: 10px;
+  /* Add some spacing between list items */
+}
+
+.nav-links ul li a {
+  color: rgb(55, 54, 54);
+  text-decoration: none;
+  /* Remove underline */
+}
+
+.nav-links ul li a:hover {
+  color: rgb(167, 95, 107);
+}
+
+.foot-middle h5 {
+  color: rgb(57, 57, 57);
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: top;
+  gap: 10px;
+  width: auto;
+}
+
+
+.row-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+}
+
+form[type="newsletter"]:before {
+  content: "";
+  /*   background: rgba(255, 255, 0, 0.8);  */
+  display: flex;
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  z-index: -1;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  top: -500px;
+  left: -60px;
+}
+
+form[type="newsletter"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+  /* Adjusted margin */
+  padding: 20px;
+  /* Adjusted padding */
+}
+
+label[for="email"] {
+  display: block;
+  font-size: 16px;
+  /* Increased font size */
+  font-weight: 700;
+  letter-spacing: 1px;
+  /* Decreased letter spacing */
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  text-align: center;
+  color: black;
+}
+
+input:focus {
+  outline: 0;
+}
+
+input[type="news"] {
+  width: 100%;
+  /* Adjusted width */
+  max-width: 300px;
+  background: #fff;
+  height: 40px;
+  /* Increased height */
+  padding: 10px;
+  /* Adjusted padding */
+  margin-bottom: 10px;
+  /* Increased margin */
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: var(--radius-1);
+
+  transition: border-color 0.3s;
+  text-transform: uppercase;
+}
+
+input[type="news"]:focus {
+  border: 2px solid #c27a7e;
+}
+
+input[type="submit"] {
+  width: 100%;
+  /* Adjusted width */
+  max-width: 300px;
+  background: rgb(167, 95, 107);
+  border: 0;
+  height: 40px;
+  /* Increased height */
+  line-height: 40px;
+  /* Adjusted line height */
+  padding: 0;
+  /* Removed padding */
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background: linear-gradient(to right, #000 50%, #36363b 50%);
+  background-size: 200% 100%;
+  color: white;
+
+  background-position: right bottom;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+.gen-hover:hover {
+  color: rgb(167, 95, 107);
+}
+
+.social-icons h5 {
+  color: rgb(57, 57, 57);
+  padding-top: 35px;
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 20px;
+}
+
+.in-css {
+  background-color: white;
+  border-radius: 4px;
+  padding: 3px;
+}
+
+.btn-signup {
+  padding: 4px;
+  color: white;
+  background-color: var(--old-rose);
+  border-radius: 5px;
+}
+
+.btn-signup:hover {
+  color: white;
+  background-color: var(--chinese-violet);
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  /* Increased gap for larger icons */
+}
+
+.icon-set {
+  height: 40px;
+  /* Increased icon size */
+  width: 40px;
+  /* Increased icon size */
+}
+
+.icon-set:hover {
+  transform: scale(1.1);
+  /* Added scale effect */
+  filter: grayscale(0%) hue-rotate(0deg) saturate(150%);
+  /* Adjusted hover effect */
+}
+
+.icon-set:active {
+  filter: hue-rotate(50%);
+}
+
+.social-list {
+  display: flex;
+  /* flex-direction: column; */
+  overflow: hidden;
+}
+
+/* .footer-top {
+  padding-block: 50px;
+  border-block-end: 1px solid var(--chinese-violet_30);
+} */
+
+.footer .logo {
+  margin-block-end: 15px;
+}
+
+/* .footer-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 20px;
+} */
+
+/* .footer-link {
+  color: var(--charcoal);
+  transition: var(--transition-1);
+} */
+
+.footer-link:is(:hover, :focus) {
+  color: var(--old-rose);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+}

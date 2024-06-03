@@ -5,6 +5,7 @@ const RegisterSchema = zod.object({
     .string({ required_error: 'Email is required' })
     .trim()
     .email({ message: 'Invalid Email Address' })
+    .regex(/^[a-zA-Z0-9._%+-]+@gmail\.com$/, { message: 'Email must be a Gmail address ending with @gmail.com' })
     .min(3, { message: 'Email should be at least 3 characters' })
     .max(255, { message: 'Email can be at most 255 characters' }),
   password: zod

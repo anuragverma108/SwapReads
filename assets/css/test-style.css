@@ -36,19 +36,26 @@ display: flex;
 
 /* Chapter Card hover effect by "harshcodesit" */
 .cardo {
-  display: block;
+  /* display: block; */
+
+  /* Height of the cards in Literary realms is fixed */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   position: relative;
   max-width: 500px;
-  max-height: 360.900px;
+  /* max-height: 360px; */
   background-color: hsl(20, 43%, 93%);
   /* background-image:url(/assets/images/book.jpg); */
+  border: 2px solid hsl(357, 37%, 62%);
   border-radius: 4px;
   padding: 32px 24px;
   margin: 2px;
   text-decoration: none;
   z-index: 0;
   overflow: hidden;
-
+  
   &:before {
     content: "";
     position: absolute;
@@ -89,7 +96,7 @@ display: flex;
 
 .card{
   border-radius: 25px;
-  
+  width: 330px;
   background-color:  var(--seashell);
   height:300px;
 }
@@ -146,7 +153,14 @@ display: flex;
   .backs{
     background-color: var(--white);
   }
-
+  /* Enhancement of the cards containers in dark-mode of literary realms section */
+  .cards {
+    border: none;
+  }
+  .cards:hover {
+    box-shadow: rgba(222, 211, 211, 0.743) 0px 19px 43px;
+    transform: translate3d(0px, -1px, 0px);
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -179,13 +193,15 @@ display: flex;
 }
 .fronts {
   backface-visibility: hidden;
+  background-color: white;
+  border-radius: 50px;
 }
 
 .backs {
-  transform: rotateY(180deg);
+  /* transform: rotateY(180deg); */
   backface-visibility: hidden;
   border: 2px solid hsl(357, 37%, 62%);
-  background-color: white;
+  background-color: black;
   border-radius: 50px;
   font-size: 1em;
   height: 100%;
