@@ -1,14 +1,11 @@
-name: Auto Label Issues and PRs
+name: Auto Label Issues 
 
 on:
   issues:
     types: [opened]
-  pull_request:
-    types: [opened]
 
 permissions:
   issues: write
-  pull-requests: write
 
 jobs:
   label:
@@ -20,13 +17,6 @@ jobs:
 
     - name: Add Label to Issues
       if: github.event_name == 'issues'
-      uses: actions-ecosystem/action-add-labels@v1.1.1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        labels: gssoc
-
-    - name: Add Label to Pull Requests
-      if: github.event_name == 'pull_request'
       uses: actions-ecosystem/action-add-labels@v1.1.1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
