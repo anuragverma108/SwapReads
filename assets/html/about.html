@@ -1,273 +1,683 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../css/login.css" />
-    <title>About Us</title>
-    <link rel="stylesheet" href="../css/aboutus.css">
-    <style>
-       .about-us {
-    display: block;
-    margin: auto;
-    width: 52.5rem;
-    height: 100%;
-    background-color: white;
+  <!-- <link rel="stylesheet" href="../css/login.css" /> -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script src="../js/script.js" defer></script>
+  <script src="../js/scroll-reveal.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <title>About Us</title>
+  <link rel="stylesheet" href="../css/aboutus.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .about {
+      background-color: var(--seashell);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+
+    .about h2 {
+      color:var(--sonic-silver);
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .about p {
+      color:var(--sonic-silver);
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .stats-box {
+      background-color: var(--seashell);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+
+    .stats-box h2 {
+      color:var(--sonic-silver);
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .stat {
+      
+      text-align: center;
+    }
+
+    .stat h3 {
+      color:var(--sonic-silver);
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .stat p {
+      color:var(--sonic-silver);
+      font-size: 16px;
+    }
+
+    .mission-values {
+      background-color: var(--seashell);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+
+    .mission-values h2 {
+      color:var(--sonic-silver);
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .about-us-heading {
+  text-align: center;
+  margin-bottom: 5rem;
+  margin-top: 160px; /* Adjust this value to position it below the header */
+  color: var(--charcoal);
+  
 }
 
-.about-us-heading {
-    text-align: center;
-    margin-bottom: 5rem;
-    margin-top: 5rem;
-}
 
-.about-us-block {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.about-us-community, .about-us-product, .about-us-event, .about-us-location {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 35%;
-    height: 16rem;
-    border: 1px solid rgba(206, 212, 218, 1);
-    border-radius: 8px;
-    margin-bottom: 21px;
-}
-
-.about-us-community {
-    border: 2px solid rgb(223, 155, 102);
-}
-
-.about-us-community:hover {
-    background: rgb(223, 155, 102);
-    color: white;
-}
-
-.about-us-location {
-    border: 2px solid rgb(223, 155, 102);
-}
-
-.about-us-location:hover {
-    background: rgb(223, 155, 102);
-    color: white;
-}
-
-.about-us-product {
-    border: 2px solid rgb(223, 155, 102);
-}
-
-.about-us-product:hover {
-    background: rgb(223, 155, 102);
-    color: white;
-}
-
-.about-us-event {
-    border: 2px solid rgb(223, 155, 102);
-}
-
-.about-us-event:hover {
-    background: rgb(223, 155, 102);
-    color: white;
-}
-
-.about-us-blk-text {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 30px;
-    letter-spacing: 0em;
-    text-align: left;
-    margin-top: 1rem;
-}
-
-.about-us-blk-para {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 25px;
-    letter-spacing: 0em;
-    text-align: left;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
-@media only screen and (max-width: 768px) {
     .about-us-block {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
     }
 
-    .about-us-community, .about-us-event, .about-us-location, .about-us-product {
-        width: 90%;
-        height: 100%;
-        padding: 0.5rem;
+    .about-us-community,
+    .about-us-product,
+    .about-us-event,
+    .about-us-location {
+      background-color: var(--seashell);
+      border: 1px solid rgba(206, 212, 218, 1);
+      border-radius: 8px;
+      padding: 20px;
+      width: 45%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 21px;
     }
-}
 
-@media only screen and (max-width: 1020px) {
-    .about-us-block {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    .about-us-blk-text {
+      color:var(--sonic-silver);
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
     }
 
-    .about-us-community, .about-us-event, .about-us-location, .about-us-product {
-        width: 90% !important;
-        height: 100%;
-        padding: 0.5rem;
+    .about-us-blk-para {
+      color:var(--sonic-silver);
+      font-size: 16px;
+      line-height: 1.6;
     }
-}
-
-@media only screen and (max-width: 1250px) {
-    .about-us-community, .about-us-event, .about-us-location, .about-us-product {
-        width: 45%;
-    }
-}
-    </style>
+  </style>
 </head>
+
 <body>
-    <div class="navbar">
-        <a href="index.html#home"  class="logo" style="display:flex;">
-          <img src="../images/LogoPicLight.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
-          </a>
-    
-          <ul class="navbar-list">
-            <a href="index.html#home">
-    
-            <img src="../images/logo_whitebg.png" class="logopic" style=" width: 150px;">
-    
+
+  <header class="header header-anim" data-header>
+
+    <div class="container">
+
+      <nav class="navbar" data-navbar>
+        <a href="index.html#home" class="logo" style="display:flex;">
+          <img src="../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
+        </a>
+
+        <ul class="navbar-list">
+          <a href="index.html#home">
+            <img src="../images/new_logo_banner_dark.png" class="logopic" style=" width: 150px;">
+
             <li class="navbar-item">
-              <a href="index.html"  class="navbar-link" data-nav-link><i
-                  class="ri-home-fill"></i> Home</a>
+              <a href="../../index.html" class="navbar-link" data-nav-link><i class="ri-home-fill"></i> Home</a>
             </li>
-    
+
             <li class="navbar-item">
-              <a href="index.html#benefits"  class="navbar-link" data-nav-link><i
-                  class="ri-bar-chart-fill"></i> Benefits</a>
+              <a href="../../index.html#benefits" class="navbar-link" data-nav-link><i class="ri-bar-chart-fill"></i>
+                Benefits</a>
             </li>
-    
+
             <li class="navbar-item">
-              <a href="index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+              <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
                   class="ri-bar-chart-fill"></i> Genre</a>
+
             </li>
-    
+
             <li class="navbar-item">
-              <a href="index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-                  class="ri-customer-service-2-fill"></i> Contact</a>
+              <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link"
+                data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
             </li>
+
             <li class="navbar-item">
-              <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+              <a href="rate.html" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
             </li>
+            <li class="navbar-item" id="logout-r">
+              <a href="../html/login.html" class="navbar-link">Logout</a>
+            </li>
+
+
             <li class="navbar-item dropdown" id="more-dropdown">
-                <a href="#" class="navbar-link" id="more-link">More 
-                <svg  class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24"><path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z"/></svg></a>
-                <div class="dropdown-menu" id="dropdown-menu">
-    
-                  <ul class="dropdown-menu-list">
-                    <li class="dropdown-menu-item">
-                      <a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i class="ri-medal-fill"></i> Literary Realms</a>
-                    </li>
-                    <li class="dropdown-menu-item">
-                      <a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
-                    </li>
-                    <li class="dropdown-menu-item">
-                      <a href="./assets/html/addremovebook.html" class="navbar-link">Booklist for Swapping</a>
-                    </li>
-                    <li class="dropdown-menu-item">
-                      <a href="book_recommend.html" class="navbar-link" data-nav-link>
-                        <i class="ri-customer-service-2-fill"></i> Book Recommendation
-                      </a>
-                    </li>
-                    <li class="dropdown-menu-item">
-                        <a href="index.html#E-books" onclick="lenis.scrollTo('#E-books')" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
-                      </li>
-                  </ul>
-                </div>
-              </li>
+              <a href="#" class="navbar-link" id="more-link">More
+                <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
+                  viewBox="0 0 24 24">
+                  <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
+                </svg></a>
+              <div class="dropdown-menu" id="dropdown-menu">
+
+                <ul class="dropdown-menu-list">
+                  <li class="dropdown-menu-item">
+                    <a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link"
+                      data-nav-link><i class="ri-medal-fill"></i> Literary Realms</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link"
+                      data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="addremovebook.html" class="navbar-link">Booklist for Swapping</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="book_recommend.html" class="navbar-link" data-nav-link>
+                      <i class="ri-customer-service-2-fill"></i> Book Recommendation
+                    </a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link" data-nav-link><i
+                        class="ri-price-tag-3-fill"></i>Free E-books</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="about.html" class="navbar-link">About</a>
+                  </li>
                 </ul>
               </div>
-    
-           
-          </ul>
-      </div>
-    <div id="about-us">
-        <h1 class="about-us-heading">About Us</h1>
-        <div class="about-us-block">
-            <div class="about-us-community">
-                <div style="display: flex; align-items: center; gap: 1rem;">
-                    <img id="community-img" src="../images/book.png" alt="" style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-                    <div class="about-us-blk-text">Book Swapping</div>
-                </div>
-                <p class="about-us-blk-para">Easily list the books you’re willing to exchange and browse through a vast collection of available titles, facilitating smooth and hassle-free book swaps with other members.</p>
-            </div>
-            <div class="about-us-product">
-                <div style="display: flex; align-items: center; gap: 1rem;">
-                    <img id="product-img" src="../images/community.png" alt="" style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-                    <div class="about-us-blk-text">Community Engagement</div>
-                </div>
-                <p class="about-us-blk-para">Join a vibrant community of book lovers through discussion forums, reading groups, and event participation, fostering a collaborative and engaging literary environment.</p>
-            </div>
-        </div>
-        <div class="about-us-block">
-            <div class="about-us-location">
-                <div style="display: flex; align-items: center; gap: 1rem;">
-                    <img id="location-img" src="../images/read.png" alt="" style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-                    <div class="about-us-blk-text">Reading Recommendations</div>
-                </div>
-                <p class="about-us-blk-para">Receive personalized book suggestions based on your reading history and preferences, ensuring you always have a new and exciting read lined up for your next literary adventure.</p>
-            </div>
-            <div class="about-us-event">
-                <div style="display: flex; align-items: center; gap: 1rem;">
-                    <img id="event-img" src="../images/bookshelf.png" alt="" style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-                    <div class="about-us-blk-text">Virtual Bookshelf</div>
-                </div>
-                <p class="about-us-blk-para">Organize and manage your virtual bookshelf, keeping track of books you've read, want to read, and are currently reading. Easily access your collection and track your reading progress.</p>
-            </div>
-        </div>
+            </li>
+
+            <li>
+
+              <div class="switch-container">
+                <input type="checkbox" id="switch" class="switch-checkbox">
+                <label for="switch" class="switch-label">
+                  <div class="switch-button">
+                    <span class="material-icons sun-icon"></span>
+                    <span class="material-icons moon-icon"></span>
+                  </div>
+                </label>
+              </div>
+
+            </li>
+            <!-- Google Translate Element -->
+            <li class="navbar-item">
+              <div id="google_element"></div>
+            </li>
+        </ul>
+      </nav>
+      <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+      <script>
+        function loadGoogleTranslate() {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en'
+          }, 'google_element');
+        }
+      </script>
+
+      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
+
+        <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
+      </button>
+
     </div>
+  </header>
+  <div id="about-us">
+    <h1 class="about-us-heading">About Us</h1>
+    <div class="container">
+      <section class="about">
 
-    <script>
-        // JavaScript for hover effects
-        document.querySelectorAll('.about-us-community').forEach(function(element) {
-    element.addEventListener('mouseover', function() {
+          <h2>About SwapReads</h2>
+          <p>SwapReads is an online platform dedicated to connecting book lovers and facilitating the exchange of books. Our mission is to promote reading culture and make it easier for readers to discover new books, share their favorites, and connect with fellow book enthusiasts.</p>
+      </section>
+      <section class="stats-box">
+        <div class="stats-container">
+          <h2>Our Stats</h2>
+          <div class="stats">
+            <div class="stat">
+              <h3 id="stat1">0</h3>
+              <p>Books Available</p>
+            </div>
+            <div class="stat">
+              <h3 id="stat2">0</h3>
+              <p>Genres Covered</p>
+            </div>
+            <div class="stat">
+              <h3 id="stat3">0</h3>
+              <p>Happy Readers</p>
+            </div>
+          </div>
+        </div>
+        
+    </section>
+    <section class="mission-values">
+      <h2>Our Mission and Values</h2>
+    <div class="about-us-block">
+      <div class="about-us-community">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <img id="community-img" src="../images/book.png" alt=""
+            style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
+          <div class="about-us-blk-text">Book Swapping</div>
+        </div>
+        <p class="about-us-blk-para">Easily list the books you’re willing to exchange and browse through a vast
+          collection of available titles, facilitating smooth and hassle-free book swaps with other members.</p>
+      </div>
+      <div class="about-us-product">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <img id="product-img" src="../images/community.png" alt=""
+            style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
+          <div class="about-us-blk-text">Community Engagement</div>
+        </div>
+        <p class="about-us-blk-para">Join a vibrant community of book lovers through discussion forums, reading groups,
+          and event participation, fostering a collaborative and engaging literary environment.</p>
+      </div>
+    </div>
+    <div class="about-us-block">
+      <div class="about-us-location">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <img id="location-img" src="../images/read.png" alt=""
+            style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
+          <div class="about-us-blk-text">Reading Recommendations</div>
+        </div>
+        <p class="about-us-blk-para">Receive personalized book suggestions based on your reading history and
+          preferences, ensuring you always have a new and exciting read lined up for your next literary adventure.</p>
+      </div>
+      <div class="about-us-event">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <img id="event-img" src="../images/bookshelf.png" alt=""
+            style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
+          <div class="about-us-blk-text">Virtual Bookshelf</div>
+        </div>
+        <p class="about-us-blk-para">Organize and manage your virtual bookshelf, keeping track of books you've read,
+          want to read, and are currently reading. Easily access your collection and track your reading progress.</p>
+      </div>
+    </div>
+  </div>
+</section>
+  <section class="team">
+    <h2>Meet Our Team</h2>
+    <div class="team-cards">
+        <!-- Team member cards will go here -->
+        <div class="team-member">
+            <img src="../images/pic1.jpeg" alt="Team Member 1">
+            <div class="member-info">
+                <h3>Anurag Verma</h3>
+                <p>Project Admin</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="../images/pic2.jpeg" alt="Team Member 2">
+            <div class="member-info">
+                <h3>Aman Raj</h3>
+                <p>Mentor</p>
+            </div>
+        </div>
+        <div class="team-member">
+          <img src="../images/pic3.jpeg" alt="Team Member 2">
+          <div class="member-info">
+              <h3>Riti Chandak</h3>
+              <p>Mentor</p>
+          </div>
+      </div>
+        <!-- Add more team member cards as needed -->
+    </div>
+</section>
+  <footer>
+    <div class="foot-top">
+      <div class="foot-left">
+        <div class="desc">
+
+          <div><a href="#" class="logo">SwapReads</a></div>
+          <div>
+            <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
+              lovers
+              seeking to swap and
+
+              discover new literary gems.
+              Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
+              the
+              world of literature—all on one convenient platform. Join us and dive into a universe of endless
+              possibilities!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="foot-middle">
+        <h2>Quick Links</h2>
+        <ul>
+          <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')">Home</a></li>
+          <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
+          <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+          <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
+          <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+          <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="social-icons">
+        <!-- <h5>Newsletter</h5> -->
+        <!-- <div class="input-newletter">
+          <label for="newsletter"><h5>Newsletter</h5></label>
+          <input placeholder="Enter your email" type="email" ></input>
+          <button class="btn-subs">Subscribe</button>
+        </div> -->
+
+        <form type="newsletter">
+          <label for="email">Subscribe to our Newsletter</label>
+          <div class="row-flex">
+
+
+
+            <!--email write-->
+            <input type="news" value="" name="email" placeholder="email address" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
+          </div>
+        </form>
+        <style>
+          .icons .icon i {
+            font-size: 24px;
+            /* Set the default font size for icons */
+            transition: all 0.3s ease;
+            /* Add transition for smooth animation */
+          }
+
+          .icons .icon:hover i {
+            transform: scale(1.2);
+            /* Scale the icon on hover */
+          }
+
+          .icons .icon:hover .fab.fa-facebook-square {
+            color: #3B5998;
+            /* Change to Facebook color on hover */
+          }
+
+          .icons .icon:hover .fa-brands.fa-square-x-twitter {
+            color: #090e11;
+            /* Change to Twitter color on hover */
+          }
+
+          .icons .icon:hover .fab.fa-instagram-square {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            background-clip: text;
+            border-radius: 20%;
+            transform: scale(1.5);
+            color: transparent;
+            /* Change to Instagram color on hover */
+          }
+
+          .icons .icon:hover .fab.fa-youtube-square {
+            color: #C31A1E;
+            /* Change to YouTube color on hover */
+          }
+        </style>
+
+        <div class="icons">
+          <a href="#">
+            <div class="icon">
+              <i class="fab fa-facebook-square" title="Facebook" style="cursor: pointer;"></i>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="icon">
+              <i class="fa-brands fa-square-x-twitter" title="X" style="cursor: pointer;"></i>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="icon">
+              <i class="fab fa-instagram-square" title="Instagram" style="cursor: pointer;"></i>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
+            <div class="icon">
+              <i class="fab fa-youtube-square" style="cursor: pointer;"></i>
+            </div>
+          </a>
+        </div>
+        <div class="footer-bottom">
+          <p class="copyright" style="text-align: center">
+            &copy;
+            <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
+            Hackers.
+          </p>
+        </div>
+
+        <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">
+          <div class="circle1">
+            <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+              class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+              <path
+                d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+            </svg>
+          </div>
+        </div>
+
+  </footer>
+
+  <script>
+    // Function to animate counting from 0 to a target number
+function countUp(target, elementId) {
+  let count = 0;
+  const increment = target / 100; // Increment by a fraction of the target number
+  
+  const interval = setInterval(() => {
+    count += increment;
+    document.getElementById(elementId).textContent = Math.round(count) + "+"; // Add the "+" sign
+    
+    // Stop the interval when count reaches or exceeds the target number
+    if (count >= target) {
+      clearInterval(interval);
+      document.getElementById(elementId).textContent = target + "+"; // Ensure final value is exact with the "+"
+      // Start counting animation again after a delay
+      setTimeout(() => {
+        countUp(target, elementId);
+      }, 3000); // Delay before restarting the animation (adjust as needed)
+    }
+  }, 20); // Adjust interval speed as needed
+}
+
+// Start counting animation for each stat
+countUp(150, 'stat1'); // Example target number for stat 1
+countUp(100, 'stat2'); // Example target number for stat 2
+countUp(500, 'stat3'); // Example target number for stat 3
+
+
+    // JavaScript for hover effects
+    document.querySelectorAll('.about-us-community').forEach(function (element) {
+      element.addEventListener('mouseover', function () {
         element.querySelector('img').src = '../images/bookhover.png';
-    });
-    element.addEventListener('mouseleave', function() {
+      });
+      element.addEventListener('mouseleave', function () {
         element.querySelector('img').src = '../images/book.png';
+      });
     });
-});
 
-document.querySelectorAll('.about-us-event').forEach(function(element) {
-    element.addEventListener('mouseover', function() {
+    document.querySelectorAll('.about-us-event').forEach(function (element) {
+      element.addEventListener('mouseover', function () {
         element.querySelector('img').src = '../images/bookshelfhover.png';
-    });
-    element.addEventListener('mouseleave', function() {
+      });
+      element.addEventListener('mouseleave', function () {
         element.querySelector('img').src = '../images/bookshelf.png';
+      });
     });
-});
 
-document.querySelectorAll('.about-us-product').forEach(function(element) {
-    element.addEventListener('mouseover', function() {
+    document.querySelectorAll('.about-us-product').forEach(function (element) {
+      element.addEventListener('mouseover', function () {
         element.querySelector('img').src = '../images/communityhover.png';
-    });
-    element.addEventListener('mouseleave', function() {
+      });
+      element.addEventListener('mouseleave', function () {
         element.querySelector('img').src = '../images/community.png';
+      });
     });
-});
 
-document.querySelectorAll('.about-us-location').forEach(function(element) {
-    element.addEventListener('mouseover', function() {
+    document.querySelectorAll('.about-us-location').forEach(function (element) {
+      element.addEventListener('mouseover', function () {
         element.querySelector('img').src = '../images/readhover.png';
-    });
-    element.addEventListener('mouseleave', function() {
+      });
+      element.addEventListener('mouseleave', function () {
         element.querySelector('img').src = '../images/read.png';
+      });
     });
-});
-    </script>
+
+      //Custom Cursor
+      
+      const coords = { x: 0, y: 0 };
+          const circles = document.querySelectorAll(".circle");
+      
+          const colors = [
+            "#ffb56b",
+            "#fdaf69",
+            "#f89d63",
+            "#f59761",
+            "#ef865e",
+            "#ec805d",
+            "#e36e5c",
+            "#df685c",
+            "#d5585c",
+            "#d1525c",
+            "#c5415d",
+            "#c03b5d",
+            "#b22c5e",
+            "#ac265e",
+            "#9c155f",
+            "#950f5f",
+            "#830060",
+            "#7c0060",
+            "#680060",
+            "#60005f",
+            "#48005f",
+            "#3d005e"
+          ];
+      
+          circles.forEach(function (circle, index) {
+            circle.x = 0;
+            circle.y = 0;
+            circle.style.backgroundColor = colors[index % colors.length];
+          });
+      
+          window.addEventListener("mousemove", function (e) {
+            coords.x = e.clientX;
+            coords.y = e.clientY;
+      
+          });
+      
+          function animateCircles() {
+      
+            let x = coords.x;
+            let y = coords.y;
+      
+            circles.forEach(function (circle, index) {
+              circle.style.left = x - 12 + "px";
+              circle.style.top = y - 12 + "px";
+      
+              circle.style.scale = (circles.length - index) / circles.length;
+      
+              circle.x = x;
+              circle.y = y;
+      
+              const nextCircle = circles[index + 1] || circles[0];
+              x += (nextCircle.x - x) * 0.3;
+              y += (nextCircle.y - y) * 0.3;
+            });
+      
+            requestAnimationFrame(animateCircles);
+          }
+      
+          animateCircles();
+      
+          document.addEventListener('DOMContentLoaded', function () {
+          var switchCheckbox = document.querySelector('.switch-checkbox');
+          var body = document.body;
+          var navbar = document.querySelector('.navbar');
+      
+          switchCheckbox.addEventListener('change', function () {
+            if (switchCheckbox.checked) {
+              body.classList.add('dark-mode');
+              navbar.classList.add('dark-mode');
+            } else {
+              body.classList.remove('dark-mode');
+              navbar.classList.remove('dark-mode');
+            }
+          });
+        });
+      </script>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const backToTopButton = document.getElementById('back-to-top-container');
+        
+            function checkButtonVisibility() {
+                if (window.innerWidth > 100 && window.scrollY > 100) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            }
+        
+            window.addEventListener('scroll', checkButtonVisibility);
+            window.addEventListener('resize', checkButtonVisibility);
+        
+            backToTopButton.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' 
+                });
+            });
+            checkButtonVisibility();
+        });
+        
+      </script>
+
 </body>
+
 </html>
