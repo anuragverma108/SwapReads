@@ -38,56 +38,13 @@
     //console.log(app);
     const auth = getAuth();
 
-  //----- New Registration code start
-  let register = document.querySelector(".register");
-  document.querySelector("#register-form").addEventListener("submit", function (e) {
-    e.preventDefault()
-    let email = document.querySelector("#email").value;
-    let password = document.querySelector("#password").value;
-    if (email.trim() === "") {
-      alert("Please enter an email address");
-      return;
-    }
-
-    var apiUrl = "https://disposable.debounce.io/?email=" + encodeURIComponent(email);
-
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-        var disposable = data.disposable === "true"; // Convert string to boolean
-        if (disposable) {
-          alert("Please provide a genuine email address to continue.");
-        } else {
-            //For new registration
-            console.log("going for new registration")
-            createUserWithEmailAndPassword(auth, email, password)
-              .then((userCredential) => {
-                // Signed in
-                const user = userCredential.user;
-                console.log(user);
-                alert('Registration successfully!!');
-                email = '';
-                password = '';
-                register.style.transform = 'translateY(8%)';
-                // ...
-              })
-              .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
-                console.log(errorMessage);
-                alert(error);
-              });
-          }
-        });
-    });
-    //----- End
-
     //----- Login code start
+    console.log(document.querySelector('#login-form'))
     document.querySelector('#login-form').addEventListener('submit', function (e) {
-        e.preventDefault()
+      e.preventDefault()
       let email = document.querySelector('#login_email').value;
       let password = document.querySelector('#login_password').value;
+      console.log(password)
 
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
