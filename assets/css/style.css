@@ -2,6 +2,23 @@
   padding: 0px;
 }
 
+::-webkit-scrollbar-track {
+  background: var(--grey-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    hsl(357, 37%, 62%),
+    hsl(304, 14%, 46%)
+  );
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(357, 37%, 62%);
+}
+
 .container1 {
   padding: 70px 100px;
   background-color: var(--seashell);
@@ -59,6 +76,28 @@
   font-size: 15px;
 }
 
+/* Google Translate Element */
+#google_element {
+  font-family: var(--ff-poppins);
+  font-size: 1.6rem;
+  color: var(--charcoal);
+}
+
+/* Select options */
+.goog-te-combo {
+  background-color: var(--seashell);
+  color: var(--charcoal);
+  border: 2px solid hsl(20, 43%, 93%);
+  border-radius: 5px;
+  padding: 8px 8px;
+  cursor: pointer;
+}
+
+/* Change the hover effect of the options */
+.goog-te-combo option:hover {
+  background-color: lightcoral !important; /* Change to your desired background color for options on hover */
+  color: white; /* Change to your desired text color for options on hover */
+}
 .form-label {
   color: var(--charcoal);
 }
@@ -300,9 +339,9 @@ body {
   text-transform: uppercase;
   font-weight: var(--fw-700);
   letter-spacing: 4px;
-  text-align: center;
   margin-bottom: 20px;
   font-size: 2.5rem;
+  text-align: center;
 }
 
 .h1,
@@ -330,6 +369,12 @@ body {
 
 .section-text {
   font-size: var(--fs-7);
+  text-align: start;
+  margin: 0 30px; /*added margin to align the text*/
+}
+
+.booktext {
+  margin-left: 30px;
 }
 
 .w-100 {
@@ -372,7 +417,6 @@ body {
 
 .has-underline {
   position: relative;
-  margin-block-end: 60px;
 }
 
 .has-underline .span {
@@ -403,9 +447,9 @@ body {
   color: var(--white);
   border-radius: var(--radius-5);
   margin-left: 0px;
-  margin-top: 30px;
   text-align: center;
-  margin: 0 auto;
+  margin : auto;
+  margin-top: 1.5rem;
 }
 
 .btn-primary:is(:hover, :focus) {
@@ -759,13 +803,17 @@ body {
 .hero-content {
   /* border: 1px solid black; */
   width: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  
 
 }
 
 .hero .hero-title {
   margin-block: 10px 25px;
   font-size: 5rem;
-  text-align: center
+  text-align: start;
 }
 
 
@@ -779,6 +827,7 @@ body {
   padding-inline-start: 20px;
   padding-block-end: 30px;
   max-width: 400px;
+  margin-top: 2.5rem;
 
   /* border: 2px solid red; */
 }
@@ -960,6 +1009,11 @@ body {
   color: rgb(205, 168, 168);
 }
 
+.canvas:hover{
+  transform: scale(1.05);
+  box-shadow: 3px 3px #e36e5c;
+}
+
 /*-----------------------------------*\
   #CHAPTERS
 \*-----------------------------------*/
@@ -1018,6 +1072,47 @@ body.dark-mode .chapter-card:hover {
 .chapter-card .card-title {
   margin-block-end: 15px;
 }
+
+/*Added Top/Bottom Mrgins*/
+
+#benefits .grid-list
+{
+  margin-top: 20px; 
+  margin-bottom: 20px; 
+}
+#genre .container {
+  margin-top: 20px; 
+  margin-bottom: 20px; 
+}
+#genre .section-subtitle
+{
+  margin-top: 20px; 
+  margin-bottom: 20px; 
+}
+#genre .grid-list
+{
+  margin-top: 30px; 
+  margin-bottom: 30px; 
+}
+#section-title1 {
+  margin-top: 20px;
+  margin-bottom: 20px; 
+}
+#chapters .grid-list
+{
+  margin-top: 30px; 
+  margin-bottom: 30px; 
+}
+#section-title2 {
+  margin-top: 20px; 
+  margin-bottom: 20px; 
+}
+#chapters .section-subtitle
+{
+  margin-top: 20px; 
+  margin-bottom: 20px; 
+}
+
 
 /*-----------------------------------*\
   #PREVIEW
@@ -1316,6 +1411,16 @@ textarea.input-field {
   gap: 10px;
 }
 
+.subscribe-btn{
+  background-color: var(--old-rose);
+  color: var(--white);
+  height: 4rem;
+  padding: 2px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
 .social-link {
   background-color: var(--old-rose);
   color: var(--white);
@@ -1467,14 +1572,7 @@ textarea.input-field {
 
   }
 
-<<<<<<< Updated upstream
-=======
-  .circle-container {
-    display: none;
-  }
->>>>>>> Stashed changes
 }
-
 @media only screen and (max-width: 600px) {
 
   /* Adjustments for smaller screens */
@@ -1507,6 +1605,7 @@ textarea.input-field {
 footer {
   background-color: var(--seashell);
   padding: 20px 30px;
+  width: 100vw;
 }
 
 .foot-top {
@@ -1516,6 +1615,13 @@ footer {
   /* Adjusted alignment */
   border-bottom: 1px solid black;
   padding-bottom: 20px;
+  gap: 50px;
+}
+
+.desc{
+  display: flex;
+    flex-direction: column;
+    gap: 21px
 }
 
 .description {
@@ -1577,24 +1683,28 @@ footer {
   text-align: center;
 }
 
-/* .social-icons {
+.social-icons {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: top;
   gap: 10px;
-} */
+  width: auto;
+}
+
 
 .row-flex {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
 }
 
 form[type="newsletter"]:before {
   content: "";
   /*   background: rgba(255, 255, 0, 0.8);  */
   display: flex;
-  flex-direction: row;
   width: 200px;
   height: 100px;
   position: absolute;
@@ -1626,6 +1736,7 @@ label[for="email"] {
   /* Decreased letter spacing */
   text-transform: uppercase;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 input:focus {
@@ -1725,6 +1836,37 @@ input[type="submit"]:hover {
   gap: 20px;
   /* Increased gap for larger icons */
 }
+.icons .icon i {
+  font-size: 24px;
+  /* Set the default font size for icons */
+  transition: all 0.3s ease;
+  /* Add transition for smooth animation */
+}
+
+.icons .icon:hover {
+  transform: scale(1.5);
+  /* Scale the icon on hover */
+}
+
+.icons .icon:hover .fab.fa-facebook-square {
+  color: #1877f2;
+  /* Change to Facebook color on hover */
+}
+
+.icons .icon:hover .fa-brands.fa-square-x-twitter {
+  color: #1da1f3;
+  /* Change to Twitter color on hover */
+}
+
+.icons .icon:hover .fab.fa-instagram-square {
+  color: #c13583;
+  /* Change to Instagram color on hover */
+}
+
+.icons .icon:hover .fab.fa-youtube-square {
+  color: #ff0001;
+  /* Change to YouTube color on hover */
+}
 
 .icon-set {
   height: 40px;
@@ -1793,7 +1935,7 @@ input[type="submit"]:hover {
   }
 }
 
-@media (max-width: 480px) {}
+/* @media (max-width: 480px) {} */
 
 /**
  * responsive for large than 575px screen
@@ -1808,17 +1950,31 @@ input[type="submit"]:hover {
   }
 
   .container {
-    padding-inline: 37px;
     padding-bottom: 1rem;
     padding-top: 1rem;
+    padding-left: 0 !important;
   }
 
   html {
     overflow-x: hidden;
   }
+  .hero-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .hero .hero-title {
     font-size: 3rem;
+    line-height: 120%;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .section-text{
+    text-align: center;
+  }
+  .section-subtitle{
+    line-height: 120%;
   }
 }
 
@@ -2030,6 +2186,8 @@ input[type="submit"]:hover {
   .switch-container {
     /* right: -20px; */
     bottom: 20px;
+    transform: translateY(-25px) !important;
+    right: 10px !important;
     /* right: 20px; */
   }
 
@@ -2417,7 +2575,7 @@ body.dark-mode {
 }
 
 .dark-mode .form {
-  background-color: #333;
+  /* background-color: #333; */
   color: #fff;
 }
 
@@ -2431,7 +2589,6 @@ body.dark-mode {
 }
 
 .dark-mode .container {
-  background-color: #333;
   color: #fff;
   padding-left: 4rem;
   padding-right: 1rem;
@@ -2524,11 +2681,13 @@ body.dark-mode .navbar-link:hover::after {
 
 footer {
   position: relative;
+  top: 140px;
 }
 
 #back-to-top-container {
-  position: fixed;
-  top: 78%;
+
+  /* position: fixed; */
+  top: 83%;
   right: 2.8%;
   /* Changed left to right */
   cursor: pointer;
@@ -2536,6 +2695,7 @@ footer {
 }
 
 .circle1 {
+ 
   background-color: white;
   border-radius: 50%;
   display: flex;
@@ -2552,11 +2712,11 @@ footer {
 }
 
 .circle1:hover {
-  background-color: black;
+  background-color: white;
 }
 
 #back-to-top:hover {
-  fill: hsl(357, 93%, 84%);
+  fill: black;
 }
 
 /* Switch Container */
@@ -2654,11 +2814,15 @@ footer {
   .navbar-list {
     flex-direction: column;
   }
+  
 }
 
 @media (min-width: 481px) {
   .navbar-list {
     flex-direction: column;
+  }
+  .switch-container{
+    transform: translateY(-20px);
   }
 }
 
@@ -2675,8 +2839,8 @@ footer {
 
   #back-to-top-container {
     position: fixed;
-    top: 78%;
-    right: 3.5%;
+    top: 82%;
+    right: 8%;
     /* Changed left to right */
   }
 }
@@ -2685,15 +2849,7 @@ footer {
   .navbar-list {
     flex-direction: row;
   }
-
-  #back-to-top-container {
-    position: fixed;
-    top: 78%;
-    right: 2.8%;
-    /* Changed left to right */
-  }
 }
-
 @media (min-width: 1281px) {
   .navbar-list {
     flex-direction: row;
@@ -2768,7 +2924,7 @@ footer {
     flex-direction: column;
     align-items: center;
   }
-
+  
   .foot-left,
   .foot-middle,
   .social-icons,
@@ -2911,7 +3067,7 @@ select {
 }
 
 #heading {
-  margin-top: 50px;
+ padding-top: 18rem;
 }
 
 
@@ -3018,14 +3174,18 @@ body.dark-mode .h3 {
 
 /* Media Queries for Recommended Books section */
 
-
+@media only screen and (max-width:574px){
+  .switch-container{
+    transform: translateY(-10px) !important;
+  }
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .container00 {
     padding: 30px;
     margin-bottom: 30px;
   }
-
+  
   .container01 {
     padding: 30px;
     margin-bottom: 30px;
@@ -3050,7 +3210,16 @@ body.dark-mode .h3 {
   }
 }
 
-
+@media only screen and (max-width: 574px)  {
+.switch-container{
+  transform: translateY(-10px) !important;
+}
+}
+@media only screen and (min-width:574px) and( max-width:600px){
+  .switch-container{
+    transform: translateY(-25px) !important;
+  }
+}
 /* Devices between 600px and 768px */
 @media only screen and (min-width: 600px) and (max-width: 767px) {
   .container00 {
@@ -3059,7 +3228,7 @@ body.dark-mode .h3 {
     margin-bottom: 40px;
     /* Adjust margin for better spacing */
   }
-
+  
   .container01 {
     padding: 40px;
     /* Adjust padding for better spacing */
@@ -3160,28 +3329,25 @@ body.dark-mode .h3 {
   .preference-bar select {
     font-size: 20px;
   }
-<<<<<<< Updated upstream
 }
 
 /* media queries for chat widget  */
 
 @media screen and (min-width:960px){
  .bp-widget-web.bp-widget-web{
-  right: calc(3.4% - 23px) ;
+    right: calc(3.4% - 23px) ;
   } 
 }
 
-@media screen and (min-width:1010px) {
-  .bp-widget-web.bp-widget-web{
-  right: calc(2.8% - 23px) ;
-}
-}
-
-@media only screen and (max-width: 598px) {
-  
-  .bp-widget-web.bp-widget-web{
-    right: calc(4.95% - 23px) ;
+  @media screen and (min-width:1010px) {
+    .bp-widget-web.bp-widget-web{
+      right: calc(2.8% - 23px) ;
+    }
   }
-=======
->>>>>>> Stashed changes
-}
+
+  @media only screen and (max-width: 598px) {
+    
+    .bp-widget-web.bp-widget-web{
+      right: calc(4.95% - 23px) ;
+    }
+  }
