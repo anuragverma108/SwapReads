@@ -1189,66 +1189,48 @@
 
       <section class="section contact" id="contact" aria-label="contact">
         <div class="container">
-
           <p class="section-subtitle">Contact</p>
-
           <h2 class="h2 section-title has-underline">
             Write me anything
             <span class="span has-before"></span>
           </h2>
-
-          
-
           <div class="wrapper">
             <div class="contact-card">
-              <form action="" id="contact-form ">
-
-                <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field"
-                  size="60px">
-
-                <input type="email" name="email_address" id="email" placeholder="Your Email" required
-                  class="input-field">
-
+              <form action="" id="contact-form">
+                <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field" size="60px">
+          
+                <input type="email" name="email_address" id="email" placeholder="Your Email" required class="input-field">
+          
                 <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field">
                 <div id="subject-count" class="character-count">0/100</div>
-                <!-- Element to display character count for subject -->
-
+          
                 <textarea name="message" id="message" placeholder="Your Message" class="input-field"></textarea>
                 <div id="message-count" class="character-count">0/250</div>
-                <!-- Element to display character count for message -->
-
-                <button type="submit1" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
+          
+                <button type="submit" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
+                <div id="success-message" style="display:none">Message sent successfully!</div>
+              </form>
             </div>
-            <ul class="contact-card ">
+            <ul class="contact-card">
               <li>
-                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json"
-                    trigger="hover" colors="primary:#000000" style="width:25px;height:25px">
-                  </lord-icon> Address:</p>
+                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json" trigger="hover" colors="primary:#000000" style="width:25px;height:25px"></lord-icon> Address:</p>
                 <address class="address">
                   12, Nayabad <br>
                   Kolkata, India 700054
                 </address>
               </li>
-
+          
               <li>
-                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/srsgifqc.json"
-                    trigger="hover" style="width:20px;height:20px;">
-                  </lord-icon> Phone:</p>
+                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/srsgifqc.json" trigger="hover" style="width:20px;height:20px;"></lord-icon> Phone:</p>
                 <a href="tel:1234567890" class="card-link">+91 9124421980</a>
               </li>
-
+          
               <li>
-                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/xtzvywzp.json"
-                    trigger="hover" style="width:20px;height:20px;">
-                  </lord-icon> Email:</p>
+                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/xtzvywzp.json" trigger="hover" style="width:20px;height:20px;"></lord-icon> Email:</p>
                 <a href="mailto:support@support.com" class="card-link">support@swapreads.com</a>
               </li>
             </ul>
-            </li>
-
-            </ul>
-
-          </div>
+          </div>          
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin"
             style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -1615,7 +1597,7 @@
 
 
             <!--email write-->
-            <input type="news" value="" name="email" placeholder="email address" required>
+            <input type="news" value="" name="email" placeholder="email address">
             <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
           </div>
         </form>
@@ -2012,8 +1994,18 @@
     });
 
   </script>
-
-
+<!-- Fot Contact Send Now Button -->
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+      var successMessage = document.getElementById("success-message");
+      successMessage.style.display = "block";
+      document.getElementById("contact-form").reset();
+      setTimeout(function() {
+        successMessage.style.display = "none";
+      }, 3000);
+    });
+  </script>
 
   <script src="./assets/js/test-script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
