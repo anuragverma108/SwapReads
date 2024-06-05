@@ -16,6 +16,7 @@
 
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/font-6/css/all.css">
+  <link rel="stylesheet" href="header.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -227,6 +228,29 @@
       background-color: #A30F17;
       color: white;
     }
+    
+    
+    /* Basic navbar styling */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 10;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+/* Hide the navbar */
+.header.hidden {
+  top: -93px; /* Adjust according to your header height */
+}
+
+/* Navbar styling when scrolled */
+.header.scrolled {
+  background-color: #222; /* Change to a darker color when scrolled */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+}
+
+
   </style>
 </head>
 
@@ -241,6 +265,32 @@
 
 
     <script>
+
+     document.addEventListener('DOMContentLoaded', function() {
+  const header = document.querySelector('.header');
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener('scroll', function() {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY) {
+      // Scrolling down
+      header.classList.add('hidden');
+    } else {
+      // Scrolling up
+      header.classList.remove('hidden');
+    }
+
+    if (currentScrollY > 50) { // Adjust the scroll distance as needed
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+
+    lastScrollY = currentScrollY;
+  });
+});
+
       const cookieConsent = document.getElementById('cookie-consent');
       const acceptButton = document.getElementById('accept-cookies');
       const rejectButton = document.getElementById('reject-cookies');
