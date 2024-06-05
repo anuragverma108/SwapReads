@@ -787,65 +787,87 @@
         let contributors = [];
         let currentPage = 1;
 
-        async function fetchContributors() {
-          const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contributors`);
-          if (!response.ok) {
-            console.error('Failed to fetch contributors:', response.statusText);
-            return;
-          }
-          contributors = await response.json();
-          displayContributors();
-          createPaginationButtons();
+        async function fetchAllContributors() {
+    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contributors`);
+    if (!response.ok) {
+        console.error('Failed to fetch contributors:', response.statusText);
+        return;
+    }
+    contributors = await response.json();
+    displayContributors();
+    createPaginationButtons();
+}
+
+async function fetchContributors(page) {
+    const perPage = 8;
+    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contributors?page=${page}&per_page=${perPage}`);
+    if (!response.ok) {
+        console.error('Failed to fetch contributors:', response.statusText);
+        return;
+    }
+    const newContributors = await response.json();
+    contributors = contributors.concat(newContributors);
+}
+
+function displayContributors() {
+    const container = document.getElementById('contributor-cards');
+    container.innerHTML = '';
+    const start = (currentPage - 1) * contributorsPerPage;
+    const end = start + contributorsPerPage;
+    const currentContributors = contributors.slice(start, end);
+
+    currentContributors.forEach(contributor => {
+        const card = document.createElement('div');
+        card.className = 'contributor-member';
+
+        const img = document.createElement('img');
+        img.src = contributor.avatar_url;
+        img.alt = contributor.login;
+
+        const name = document.createElement('h3');
+        name.textContent = contributor.login;
+
+        const contributions = document.createElement('p');
+        contributions.textContent = `${contributor.contributions} contributions`;
+
+        card.appendChild(img);
+        card.appendChild(name);
+        card.appendChild(contributions);
+        container.appendChild(card);
+    });
+}
+
+function createPaginationButtons() {
+    const paginationContainer = document.getElementById('pagination');
+    paginationContainer.innerHTML = '';
+    const totalPages = Math.ceil(contributors.length / contributorsPerPage);
+
+    for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement('button');
+        button.textContent = i;
+        button.classList.add('pagination-button');
+        if (i === currentPage) {
+            button.classList.add('active');
         }
+        button.addEventListener('click', () => {
+            currentPage = i;
+            displayContributors();
+            updatePaginationButtons();
+        });
+        paginationContainer.appendChild(button);
+    }
+}
 
-        function displayContributors() {
-          const container = document.getElementById('contributor-cards');
-          container.innerHTML = '';
-          const start = (currentPage - 1) * contributorsPerPage;
-          const end = start + contributorsPerPage;
-          const currentContributors = contributors.slice(start, end);
+async function initialize() {
+    await fetchAllContributors();
+    for (let page = 2; page <= 4; page++) {
+        await fetchContributors(page);
+    }
+    displayContributors();
+    createPaginationButtons();
+}
 
-          currentContributors.forEach(contributor => {
-            const card = document.createElement('div');
-            card.className = 'contributor-member';
-
-            const img = document.createElement('img');
-            img.src = contributor.avatar_url;
-            img.alt = contributor.login;
-
-            const name = document.createElement('h3');
-            name.textContent = contributor.login;
-
-            const contributions = document.createElement('p');
-            contributions.textContent = `${contributor.contributions} contributions`;
-
-            card.appendChild(img);
-            card.appendChild(name);
-            card.appendChild(contributions);
-            container.appendChild(card);
-          });
-        }
-
-        function createPaginationButtons() {
-          const paginationContainer = document.getElementById('pagination');
-          paginationContainer.innerHTML = '';
-          const totalPages = Math.ceil(contributors.length / contributorsPerPage);
-
-          for (let i = 1; i <= totalPages; i++) {
-            const button = document.createElement('button');
-            button.textContent = i;
-            button.classList.add('pagination-button');
-            if (i === currentPage) {
-              button.classList.add('active');
-            }
-            button.addEventListener('click', () => {
-              currentPage = i;
-              displayContributors();
-              updatePaginationButtons();
-            });
-            paginationContainer.appendChild(button);
-          }
-        }
+initialize();
 
         function updatePaginationButtons() {
           const buttons = document.querySelectorAll('.pagination-button');
@@ -856,8 +878,6 @@
             }
           });
         }
-
-        fetchContributors();
       </script>
 
     </body>
