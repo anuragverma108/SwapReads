@@ -90,49 +90,4 @@ dbConnect().then(() => {
         res.json({ success: false, message: "Internal Server Error" });
       });
   });
-
-  // Configure Nodemailer transporter
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: "mail@gmail.com",
-      pass: "password",
-    },
-  });
-
-  function sendBuyingEmailToSeller(sellerEmail, bookTitle, bookPrice, bookAuthor, buyerEmail) {
-    const mailOptions = {
-      from: "mail@gmail.com",
-      to: sellerEmail,
-      subject: "Someone is interested in your book!",
-      text: `Congratulations! Your book "${bookTitle}" by ${bookAuthor} at ${bookPrice} has a Buyer ${buyerEmail}.`,
-    };
-
-    transporter.sendMail(mailOptions, (err, info) => {
-      if (err) {
-        console.error("Error sending email:", err);
-      } else {
-        console.log("Email sent:", info.response);
-      }
-    });
-  }
-
-  function sendListingEmailToSeller(sellerEmail, bookTitle) {
-    const mailOptions = {
-      from: "mail@gmail.com",
-      to: sellerEmail,
-      subject: "Your book listing is live!",
-      text: `Congratulations! Your book "${bookTitle}" is now listed for sale.`,
-    };
-
-    transporter.sendMail(mailOptions, (err, info) => {
-      if (err) {
-        console.error("Error sending email:", err);
-      } else {
-        console.log("Email sent:", info.response);
-      }
-    });
-  }
-
-  app.listen(3000, () => console.log("Server is running on port 3000"));
 });
