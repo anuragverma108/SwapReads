@@ -2,6 +2,29 @@
   padding: 0px;
 }
 
+::-webkit-scrollbar-track {
+  background: var(--grey-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    hsl(357, 37%, 62%),
+    hsl(304, 14%, 46%)
+  );
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(357, 37%, 62%);
+}
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This centers the content horizontally */
+  text-align: center; /* This centers the text within each element */
+}
+
 .container1 {
   padding: 70px 100px;
   background-color: var(--seashell);
@@ -353,6 +376,7 @@ body {
 .section-text {
   font-size: var(--fs-7);
   text-align: start;
+  margin: 0 30px; /*added margin to align the text*/
 }
 
 .booktext {
@@ -399,7 +423,6 @@ body {
 
 .has-underline {
   position: relative;
-  margin-block-end: 60px;
 }
 
 .has-underline .span {
@@ -463,12 +486,6 @@ body {
   height: 100%;
   object-fit: cover;
 }
-
-.section-text{
-  margin-left: 3rem;
-  margin-right: 3rem;
-}
-
 
 /*-----------------------------------*\
   #HEADER
@@ -552,8 +569,8 @@ body {
   width: 100%;
   background-color: var(--white);
   padding-inline: 15px;
-  max-height: 90vh !important;
-  overflow: visible;
+  max-height: 0;
+  overflow: hidden;
   visibility: hidden;
   transition: 0.25s var(--cubic-out);
 }
@@ -620,6 +637,25 @@ body {
   transition: all 0.3s ease;
   top: 100%;
   text-align: center;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 8px;
+  background-color: transparent;
+  overflow: hidden;
+  padding: 5px;
+  width: 200px;
+  border: 1px solid #ddd; /* Add a light gray border */
+
+}
+
+.dropdown-menu-item {
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu-item:last-child {
+  margin-bottom: 0;
 }
 
 .dropdown-menu-list {
@@ -628,13 +664,15 @@ body {
   padding: 0;
 }
 
-.dropdown-menu-item {
-  padding: 12px 16px;
-}
+
 
 .dropdown-menu-item a {
   text-decoration: none;
   color: #000;
+  color: #fff; /* White color for links */
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
 }
 
 .dropdown-item:first-child {
@@ -746,6 +784,7 @@ body {
   z-index: 1;
   transition: all 0.3s ease;
   top: 100%;
+  
 }
 
 .dropdown-menu-list {
@@ -755,7 +794,7 @@ body {
 }
 
 .dropdown-menu-item {
-  padding: 12px 16px;
+  padding: 4px 10px;
 }
 
 .dropdown-menu-item a {
@@ -996,6 +1035,11 @@ body {
 
 .benefits-card .btn-link:hover {
   color: rgb(205, 168, 168);
+}
+
+.canvas:hover{
+  transform: scale(1.05);
+  box-shadow: 3px 3px #e36e5c;
 }
 
 /*-----------------------------------*\
@@ -1395,6 +1439,16 @@ textarea.input-field {
   gap: 10px;
 }
 
+.subscribe-btn{
+  background-color: var(--old-rose);
+  color: var(--white);
+  height: 4rem;
+  padding: 2px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
 .social-link {
   background-color: var(--old-rose);
   color: var(--white);
@@ -1547,7 +1601,6 @@ textarea.input-field {
   }
 
 }
-
 @media only screen and (max-width: 600px) {
 
   /* Adjustments for smaller screens */
@@ -1580,6 +1633,7 @@ textarea.input-field {
 footer {
   background-color: var(--seashell);
   padding: 20px 30px;
+  width: 100vw;
 }
 
 .foot-top {
@@ -2549,7 +2603,7 @@ body.dark-mode {
 }
 
 .dark-mode .form {
-  background-color: #333;
+  /* background-color: #333; */
   color: #fff;
 }
 
@@ -2563,7 +2617,6 @@ body.dark-mode {
 }
 
 .dark-mode .container {
-  background-color: #333;
   color: #fff;
   padding-left: 4rem;
   padding-right: 1rem;
@@ -2650,12 +2703,22 @@ body.dark-mode .navbar-link::after {
   box-shadow: 0 0 10px #fcb0b480;
 }
 
+body.dark-mode .flip-card-back{
+  background-color: black !important;
+  color: white !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 body.dark-mode .navbar-link:hover::after {
   box-shadow: 0 0 20px hsl(357, 93%, 84%, 0.7);
 }
 
 footer {
   position: relative;
+  top: 140px;
 }
 
 #back-to-top-container {
@@ -2686,11 +2749,11 @@ footer {
 }
 
 .circle1:hover {
-  background-color: black;
+  background-color: white;
 }
 
 #back-to-top:hover {
-  fill: hsl(357, 93%, 84%);
+  fill: black;
 }
 
 /* Switch Container */
@@ -2731,7 +2794,7 @@ footer {
   font-size: 19px;
   position: absolute;
   cursor: pointer;
-  top: 50%;
+   top: 50%; 
   transform: translateY(-50%);
   transition: opacity 0.5s ease, color 0.5s ease;
 }
@@ -3309,20 +3372,19 @@ body.dark-mode .h3 {
 
 @media screen and (min-width:960px){
  .bp-widget-web.bp-widget-web{
-  right: calc(3.4% - 23px) ;
+    right: calc(3.4% - 23px) ;
   } 
 }
 
-@media screen and (min-width:1010px) {
-  .bp-widget-web.bp-widget-web{
-  right: calc(2.8% - 23px) ;
-}
-}
-
-@media only screen and (max-width: 598px) {
-  
-  .bp-widget-web.bp-widget-web{
-    right: calc(4.95% - 23px) ;
+  @media screen and (min-width:1010px) {
+    .bp-widget-web.bp-widget-web{
+      right: calc(2.8% - 23px) ;
+    }
   }
 
-}
+  @media only screen and (max-width: 598px) {
+    
+    .bp-widget-web.bp-widget-web{
+      right: calc(4.95% - 23px) ;
+    }
+  }
