@@ -81,6 +81,7 @@
       }
     }
 
+/* testimonal card fix by harshcodesit */
     swiper-slide {
       text-align: center;
       font-size: 18px;
@@ -88,7 +89,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-bottom: 55px;
     }
+    /* ########### */
 
     swiper-slide img {
       display: block;
@@ -165,6 +168,8 @@
       letter-spacing: 1px;
       transition: ease-in-out;
     }
+  
+
 
     /* Dark Mode Styles */
     .dark-mode .readmore-anim {
@@ -229,7 +234,7 @@
 <body>
 
   <div id="cookie-consent">
-    <p>We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with
+    <p style="color: black;">We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with
       our Cookie Policy. <a href="#">Learn More</a></p>
     <button id="accept-cookies">Accept</button>
     <button id="reject-cookies">Reject</button>
@@ -299,12 +304,10 @@
 
   <header class="header header-anim" data-header>
 
-    <div class="container mobile-container-styles">
+    <div class="container mobile-container-styles" style="padding-left: 0;">
 
       <nav class="navbar" data-navbar>
-        <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
-          <img src="./assets/images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
-        </a>
+       
 
         <ul class="navbar-list">
           <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
@@ -314,7 +317,10 @@
             <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
                 class="ri-home-fill"></i> Home</a>
           </li>
-
+           <li class="navbar-item">
+                <a href="./assets/html/about1.html"  class="navbar-link" data-nav-link><i
+                    class="ri-home-fill"></i> About Us </a>
+              </li>
           <li class="navbar-item">
             <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
                 class="ri-bar-chart-fill"></i> Benefits</a>
@@ -376,9 +382,9 @@
           </li>
 
           <!-- Google Translate Element -->
-          <li class="navbar-item">
+          <!-- <li class="navbar-item">
             <div id="google_element"></div>
-          </li>
+          </li> -->
           <li>
             <div class="switch-container switch-container-desktop">
               <input type="checkbox" id="switch" class="switch-checkbox">
@@ -419,7 +425,7 @@
           </div>
         </label>
       </div>
-      <!-- <img src="./assets/images/new_logo_banner_dark.png" alt="" class="logopic-mobile"/> -->
+
       <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
         <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
 
@@ -498,7 +504,7 @@
 
 
 
-      <!-- 
+      <!--
         - #BENEFITS
       -->
 
@@ -511,8 +517,8 @@
                 Adventure!"</p>
             </div>
 
-            <li>
-              <div class="benefits-card has-before has-after">
+            <li class="canvas">
+              <div class="benefits-card has-before has-after ">
                 <div class="card-icon">
                   <img src="./assets/images/benefits-1.svg" width="40" height="40" loading="lazy" alt="Experience">
                 </div>
@@ -531,7 +537,7 @@
               </div>
             </li>
 
-            <li>
+            <li class="canvas">
               <div class="benefits-card has-before has-after">
 
                 <div class="card-icon">
@@ -555,7 +561,7 @@
               </div>
             </li>
 
-            <li>
+            <li class="canvas">
               <div class="benefits-card has-before has-after">
 
                 <div class="card-icon">
@@ -578,7 +584,7 @@
               </div>
             </li>
 
-            <li>
+            <li class="canvas">
               <div class="benefits-card has-before has-after">
 
                 <div class="card-icon">
@@ -602,7 +608,7 @@
               </div>
             </li>
 
-            <li>
+            <li class="canvas">
               <div class="benefits-card has-before has-after">
 
                 <div class="card-icon">
@@ -626,7 +632,7 @@
               </div>
             </li>
 
-            <li>
+            <li class="canvas">
               <div class="benefits-card has-before has-after">
 
                 <div class="card-icon">
@@ -869,7 +875,7 @@
 
 
 
-      <!-- 
+      <!--
         - #CHAPTERS
       -->
 
@@ -940,7 +946,7 @@
                 </div>
               </a>
 
-             
+
             </li>
             <li>
 
@@ -956,7 +962,7 @@
                 </div>
               </a>
 
-             
+
             </li>
             <li>
 
@@ -971,7 +977,7 @@
                 </div>
               </a>
 
-              
+
             </li>
             <li>
 
@@ -1111,7 +1117,7 @@
 
 
 
-      <!-- 
+      <!--
         - #PRICING
       -->
       <section class="section pricing" id="pricing" aria-label="pricing">
@@ -1189,69 +1195,60 @@
 
       <section class="section contact" id="contact" aria-label="contact">
         <div class="container">
-
           <p class="section-subtitle">Contact</p>
-
           <h2 class="h2 section-title has-underline">
             Write me anything
             <span class="span has-before"></span>
           </h2>
-
-          
-
           <div class="wrapper">
             <div class="contact-card">
-              <form action="" id="contact-form ">
-
-                <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field"
-                  size="60px">
-
-                <input type="email" name="email_address" id="email" placeholder="Your Email" required
-                  class="input-field">
-
+              <form action="" id="contact-form">
+                <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field" size="60px">
+          
+                <input type="email" name="email_address" id="email" placeholder="Your Email" required class="input-field">
+          
                 <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field">
                 <div id="subject-count" class="character-count">0/100</div>
-                <!-- Element to display character count for subject -->
-
+          
                 <textarea name="message" id="message" placeholder="Your Message" class="input-field"></textarea>
                 <div id="message-count" class="character-count">0/250</div>
-                <!-- Element to display character count for message -->
-
-                <button type="submit1" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
+          
+                <button type="submit" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
+                <div id="success-message" style="display:none">Message sent successfully!</div>
+              </form>
             </div>
+
+            <ul class="contact-card">
             <ul class="contact-card ">
+              <style>
+                .address {
+                  color: hsl(304, 14%, 46%);
+                }
+              </style>
               <li>
-                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json"
-                    trigger="hover" colors="primary:#000000" style="width:25px;height:25px">
-                  </lord-icon> Address:</p>
+                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json" trigger="hover" colors="primary:#000000" style="width:25px;height:25px"></lord-icon> Address:</p>
                 <address class="address">
                   12, Nayabad <br>
                   Kolkata, India 700054
                 </address>
               </li>
-
+          
               <li>
-                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/srsgifqc.json"
-                    trigger="hover" style="width:20px;height:20px;">
-                  </lord-icon> Phone:</p>
+                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/srsgifqc.json" trigger="hover" style="width:20px;height:20px;"></lord-icon> Phone:</p>
                 <a href="tel:1234567890" class="card-link">+91 9124421980</a>
               </li>
-
+          
               <li>
-                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/xtzvywzp.json"
-                    trigger="hover" style="width:20px;height:20px;">
-                  </lord-icon> Email:</p>
+                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/xtzvywzp.json" trigger="hover" style="width:20px;height:20px;"></lord-icon> Email:</p>
                 <a href="mailto:support@support.com" class="card-link">support@swapreads.com</a>
               </li>
             </ul>
-            </li>
-
-            </ul>
-
-          </div>
+          </div>          
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin"
-            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin"
+          style="border:0; margin-bottom:30px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      
         </div>
 
       </section>
@@ -1268,7 +1265,7 @@
   <p class="section-subtitle">Know what our customers say</p>
 
   <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="40"
-    loop="true" slides-per-view="3">
+    loop="true" >
     <swiper-slide>
       <div class="flip-card">
         <div class="flip-card-inner">
@@ -1293,7 +1290,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card-back backs">
+          <div class="flip-card-back backs"  >
             SwapReads has completely transformed my reading experience! Not only have I discovered new books I never
             would have picked up otherwise, but I've also connected with fellow book lovers who share my passion. It's
             like having a personalized library with endless possibilities. Highly recommend!
@@ -1405,9 +1402,9 @@
 
 
                 <div class="card-image">
-                  <img src="./assets/images/testimonials-2.jpg" alt="" class="card-img">
+                  <img src="./assets/images/testimonials-5.jpg" alt="" class="card-img">
                 </div>
-                <h2 style="font-size: 20px;">Prem Sampath</h2>
+                <h2 style="font-size: 20px;">Jane Doe</h2>
               </div>
 
               <div class="rating">
@@ -1420,9 +1417,9 @@
             </div>
           </div>
           <div class="flip-card-back backs">
-            SwapReads is a bookworm's paradise! With its user-friendly interface, welcoming community, and vast variety
-            of books for swapping, I've embarked on countless new literary adventures. It's like an ever-active book
-            club where I've connected with fellow literature lovers. I'm completely hooked!
+            I love SwapReads! It's a fantastic way to keep my reading list dynamic and engaging. The platform is
+            easy to use, and the community is incredibly supportive and passionate about books. SwapReads has
+            definitely enriched my reading experience.
           </div>
         </div>
       </div>
@@ -1437,9 +1434,9 @@
 
 
                 <div class="card-image">
-                  <img src="./assets/images/testimonials-3.jpg" alt="" class="card-img">
+                  <img src="./assets/images/testimonials-6.jpg" alt="" class="card-img">
                 </div>
-                <h2 style="font-size: 20px;">Aron Loes</h2>
+                <h2 style="font-size: 20px;">Maya Verma</h2>
               </div>
 
               <div class="rating">
@@ -1452,8 +1449,9 @@
             </div>
           </div>
           <div class="flip-card-back backs">
-            SwapReads has transformed my reading habits. Beyond swapping books, it's about fostering a community of
-            passionate readers. I've made friends, broadened my literary horizons, and unearthed hidden gems. Thank you,
+            SwapReads has completely changed the way I read and discover books. The swapping system is seamless,
+            and I've found so many new favorites. Plus, the community is amazing – it's like having a book club at
+            my fingertips!
           </div>
         </div>
       </div>
@@ -1520,7 +1518,7 @@
 
   <!-- FAQ section end -->
 
-  <!-- 
+  <!--
     - #FOOTER
   -->
 
@@ -1546,7 +1544,7 @@
       "https://translate.google.com/translate_a/element.js?
       cb=googleTranslateElementInit">
           </script>
-          <a href="#" class="logo">SwapReads</a>
+          <!-- <a href="#" class="logo">SwapReads</a>
           <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book lovers
             seeking to swap and
 
@@ -1554,7 +1552,7 @@
             Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in the
             world of literature—all on one convenient platform. Join us and dive into a universe of endless
             possibilities!
-          </p>
+          </p> -->
 
 
           <div><a href="#" class="logo">SwapReads</a></div>
@@ -1615,8 +1613,11 @@
 
 
             <!--email write-->
-            <input type="news" value="" name="email" placeholder="email address" required>
+            <input type="news" value="" name="email" placeholder="email address">
             <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
+            <input type="news" value="" name="email" placeholder="email address" id="newsletter-email">
+            <button type="submit" class="subscribe-btn">subscribe</button>
+            
           </div>
         </form>
         <style>
@@ -1639,15 +1640,16 @@
 
           .icons .icon:hover .fa-brands.fa-square-x-twitter{
             color: #090e11;
+            background-color: white;
             /* Change to Twitter color on hover */
           }
 
           .icons .icon:hover .fab.fa-instagram-square {
             background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    background-clip: text;
-    border-radius: 20%;
-    transform: scale(1.5);
-    color:transparent;
+            background-clip: text;
+            border-radius: 20%;
+            transform: scale(1.5);
+            color:transparent;
             /* Change to Instagram color on hover */
           }
 
@@ -1682,13 +1684,14 @@
             </div>
           </a>
         </div>
-        <div class="footer-bottom">
-          <p class="copyright" style="text-align: center">
+        <!-- <div style="text-align: center; align-items: center;">
+          <p style="text-align: center">
             &copy;
             <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
             Hackers.
           </p>
-        </div>
+          
+        </div> -->
 
         <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">
           <div class="circle1">
@@ -1699,11 +1702,40 @@
             </svg>
           </div>
         </div>
+      </div>
+    </div>
+        <div style="text-align: center; align-items: center;">
+          <p style="text-align: center">
+            &copy;
+            <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
+            Hackers.
+          </p>
+          
+        </div>
+
+       
 
   </footer>
+  
   <!-- Footer ended-->
+  <script src="./assets/js/script.js" defer></script>
 
   <script>
+
+    //   function sendMail(){
+    //         let params={
+    //             name:document.getElementById('name').value,
+    //             email:document.getElementById('email').value,
+    //             subject:document.getElementById('subject').value,
+    //             message:document.getElementById('message').value,
+    //             subscribe:document.getElementById('newsletter-email').value
+    //         }
+    //         EmailJSResponseStatus.send("service_lktb68z","template_w79vd94",params,"o6kveYmOSDrs0l1Mg")
+    //         .then(alert('Email sent successfully'))
+    //       }
+
+
+    // document.querySelector('subscribe-btn').addEventListener('submit', sendMail());
 
     //Custom Cursor
 
@@ -1838,12 +1870,11 @@
 
 
 
-  <!-- 
+  <!--
     - custom js link
   -->
-  <script src="./assets/js/script.js" defer></script>
 
-  <!-- 
+  <!--
     - ionicon link
   -->
   <script src="./assets/js/scroll-reveal.js"></script>
@@ -2012,8 +2043,18 @@
     });
 
   </script>
-
-
+<!-- Fot Contact Send Now Button -->
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+      var successMessage = document.getElementById("success-message");
+      successMessage.style.display = "block";
+      document.getElementById("contact-form").reset();
+      setTimeout(function() {
+        successMessage.style.display = "none";
+      }, 3000);
+    });
+  </script>
 
   <script src="./assets/js/test-script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
