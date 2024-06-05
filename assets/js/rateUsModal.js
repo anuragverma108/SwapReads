@@ -36,12 +36,12 @@ submitButton.onclick = function() {
 };
 
 
-const openRateUsModal = ()=>{
-    rateUsModalWrapper.style.display = "flex";
-    document.body.classList.add("rate-us-modal-open")
+function openRateUsModal() {
+    document.querySelector('.rate-us-modal-wrapper').style.display = 'flex';
 }
 
-const closeRateUsModal = ()=>{
-    rateUsModalWrapper.style.display = "none";
-    document.body.classList.remove("rate-us-modal-open")
+function closeRateUsModal() {
+    document.querySelector('.rate-us-modal-wrapper').style.display = 'none';
 }
+
+
