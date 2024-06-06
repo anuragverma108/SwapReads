@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 
 const MONGO_URI = "mongodb://localhost:27017/swapread";
 
+
 const dbConnect = async () => {
   try {
     await mongoose.connect(MONGO_URI, {
@@ -91,3 +92,11 @@ dbConnect().then(() => {
       });
   });
 });
+
+
+app.post('/subscribe',(req,res)=>{
+  let email = req.body;
+  console.log(email);
+})
+
+app.listen(3000, () => console.log("Server is running on port 3000"));
