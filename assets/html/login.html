@@ -12,15 +12,17 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon_package_v0.16/favicon-16x16.png">
   <link rel="manifest" href="../favicon_package_v0.16/site.webmanifest">
   <link rel="mask-icon" href="../favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <script src="../js/script.js" defer></script>
-  
+
 
   <script src="../js/scroll-reveal.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-  <script type="module" src="../js/loginSignUp.js" defer></script>
+  <script type="module" src="../js/login.js" defer></script>
   <script src="../js/rateUsModal.js" defer></script>
 
   <!-- rroushan verma -->
@@ -30,51 +32,72 @@
 </head>
 
 <body>
+
+  <div class="rate-us-modal-wrapper">
+    <div class="rate-us-modal">
+      <a onclick="closeRateUsModal()" class="home_button"></a>
+      <h1 class="rating_heading">Rate Us</h1>
+      <div class="star_rating">
+        <p>How was your experience?</p>
+        <button class="star">&#9734;</button>
+        <button class="star">&#9734;</button>
+        <button class="star">&#9734;</button>
+        <button class="star">&#9734;</button>
+        <button class="star">&#9734;</button>
+        <p class="current_rating"> 0 of 5</p>
+      </div>
+      <button id="submit_rating" class="submit_button">Submit Rating</button>
+      <p class="thank_you_message">Thank you for rating us!</p>
+    </div>
+  </div>
+
   <header class="header header-anim" data-header>
 
     <div class="container">
 
       <nav class="navbar" data-navbar>
-        <a href="index.html#home" class="logo" style="display:flex;">
+        <a href="SwapReads\index.html" class="logo" style="display:flex;">
         <img src="../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
         </a>
 
         <ul class="navbar-list">
-          <a href="index.html#home">
-          <img src="../images/new_logo_banner_dark.png" class="logopic" style=" width: 150px;">
-
+          <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+            <img src="../images/new_logo_banner_dark.png" class="logopic" style=" width: 200px;">
+          </a>
           <li class="navbar-item">
-            <a href="index.html#home" class="navbar-link" data-nav-link><i
+            <a href="../../index.html#home" class="navbar-link" data-nav-link><i
                 class="ri-home-fill"></i> Home</a>
           </li>
 
           <li class="navbar-item">
-            <a href="index.html#benefits" class="navbar-link" data-nav-link><i
+            <a href="../../index.html#benefits" class="navbar-link" data-nav-link><i
                 class="ri-bar-chart-fill"></i> Benefits</a>
           </li>
 
           <li class="navbar-item">
-            <a href="index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+            <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
                 class="ri-bar-chart-fill"></i> Genre</a>
-
           </li>
 
           <li class="navbar-item">
-            <a href="index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
+            <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
                 class="ri-customer-service-2-fill"></i> Contact</a>
           </li>
 
           <li class="navbar-item">
-            <a href="rate.html" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+            <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
           </li>
-          <li class="navbar-item" id="logout-r">
-            <a href="../html/login.html" class="navbar-link">Logout</a>
+          <li class="navbar-item" id="login-signup-link">
+            <a href="./login.html" class="navbar-link">Login/Signup</a>
           </li>
 
-          
+
           <li class="navbar-item dropdown" id="more-dropdown">
-            <a href="#" class="navbar-link" id="more-link">More 
-            <svg  class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24"><path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z"/></svg></a>
+            <a href="#" class="navbar-link" id="more-link">More
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
+                viewBox="0 0 24 24">
+                <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
+              </svg></a>
             <div class="dropdown-menu" id="dropdown-menu">
 
               <ul class="dropdown-menu-list">
@@ -88,12 +111,13 @@
                   <a href="./booklistswap.html" class="navbar-link">Booklist for Swapping</a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href="book_recommend.html" class="navbar-link" data-nav-link>
+                  <a href="./book_recommend.html" class="navbar-link" data-nav-link>
                     <i class="ri-customer-service-2-fill"></i> Book Recommendation
                   </a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href="./freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
+                  <a href="./freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
+                    data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
                 </li>
                 <li class="dropdown-menu-item">
                   <a href="./about.html" class="navbar-link">About</a>
@@ -102,50 +126,37 @@
             </div>
           </li>
 
-          <li>
-
-            <div class="switch-container">
-              <input type="checkbox" id="switch" class="switch-checkbox">
-              <label for="switch" class="switch-label">
-                <div class="switch-button">
-                  <span class="material-icons sun-icon"></span>
-                  <span class="material-icons moon-icon"></span>
-                </div>
-              </label>
-            </div>
-
+          <!-- Google Translate Element -->
+          <li class="navbar-item">
+            <div id="google_element"></div>
           </li>
         </ul>
       </nav>
+    </div>
 
-      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
-        <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
+    </script>
+    <div class="switch-container">
+      <input type="checkbox" id="switch" class="switch-checkbox">
+      <label for="switch" class="switch-label">
+        <div class="switch-button">
+          <span class="material-icons sun-icon">wb_sunny</span>
+          <span class="material-icons moon-icon">brightness_2</span>
+        </div>
+      </label>
+    </div>
 
-        <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
-      </button>
+    </li>
+    </ul>
+    </nav>
+
+    <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+      <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
+
+      <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
+    </button>
 
     </div>
   </header>
-
-    <!-- Rate Us Modal Pop up -->
-    <div class="rate-us-modal-wrapper">
-      <div class="rate-us-modal">
-        <a onclick="closeRateUsModal()" class="home_button"></a>
-        <h1 class="rating_heading">Rate Us</h1>
-        <div class="star_rating">
-          <p>How was your experience?</p>
-          <button class="star">&#9734;</button>
-          <button class="star">&#9734;</button>
-          <button class="star">&#9734;</button>
-          <button class="star">&#9734;</button>
-          <button class="star">&#9734;</button>
-          <p class="current_rating"> 0 of 5</p>
-        </div>
-        <button id="submit_rating" class="submit_button">Submit Rating</button>
-        <p class="thank_you_message">Thank you for rating us!</p>
-      </div>
-    </div>
-
 
   <div class="note">
     <h1>Welcome to SwapReads</h1>
@@ -166,50 +177,164 @@
             <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-login">
           </div>
           <button type="submit" name="Login" id="login">Submit</button>
-          <div class="forget-password">
+          <p class="forget-password">
             Forgot Password?
             <a href="forgot-pass.html" id="forgot_password_link">Reset Here</a>
-          </div>
-          
+          </p>
           <div id="or">Or</div>
           <button id="google-sign-in"> Sign In with Google </button>
-          <div class="register">
-            <!-- <div class="register1">New to SwapReads?</div> -->
-            <a href="mylogin.html" class="register_link">Register Here</a>
-          </div>
         </form>
       </div>
 
-      <!-- <div class="register">
+      <div class="register">
         <form class="form" id="register-form">
           <label for="chk" aria-hidden="true">Create Account</label>
           <input class="input" type="email" name="email" id="email" placeholder="Email" required />
           <div class="input-box">
             <input class="input" type="password" name="pswd" id="password" placeholder="Password" required />
             <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon">
-          </div> -->
+          </div>
 
-          <!-- <div>
+          <div>
             <div class="progress">
               <div id="password-strength" class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <ul class="list-unstyled">
-              <li><span class="low-upper-case"><i class="fas fa-circle" aria-hidden="true"></i>&nbsp;Lowercase &amp; Uppercase</span></li>
-              <li><span class="one-number"><i class="fas fa-circle" aria-hidden="true"></i>&nbsp;Number (0-9)</span></li>
-              <li><span class="one-special-char"><i class="fas fa-circle" aria-hidden="true"></i>&nbsp;Special Character (!@#$%^&*)</span></li>
-              <li><span class="eight-character"><i class="fas fa-circle" aria-hidden="true"></i>&nbsp;At least 8 Character</span></li>
+              <li><span class="low-upper-case">&nbsp;Lowercase &amp; Uppercase</span></li>
+              <li><span class="one-number">&nbsp;Number (0-9)</span></li>
+              <li><span class="one-special-char">&nbsp;Special Character (!@#$%^&*)</span></li>
+              <li><span class="eight-character">&nbsp;At least 8 Character</span></li>
             </ul>
-          </div> -->
+          </div>
 
-          <!-- <button type="submit" name="register" id="register">Register</button>
+          <button type="submit" name="register" id="register">Register</button>
           <div id="or">Or</div>
-          <button id="google-signup"> Sign Up with Google </button> -->
+          <button id="google-signup"> Sign Up with Google </button>
         </form>
       </div>
     </div>
   </div>
   <hr />
-  <footer class="footer">
+  <footer>
+    <div class="foot-top">
+      <div class="foot-left">
+        <div class="desc">
+
+          <div><a href="#" class="logo">SwapReads</a></div>
+          <div><p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book lovers
+            seeking to swap and
+
+            discover new literary gems.
+            Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in the
+            world of literature—all on one convenient platform. Join us and dive into a universe of endless
+            possibilities!
+          </p>
+        </div>
+        </div>
+      </div>
+      <div class="foot-middle">
+        <h2>Quick Links</h2>
+        <ul>
+          <li class="foot-quick"><a href="../../index.html#home" onclick="lenis.scrollTo('#home')">Home</a></li>
+          <li class="foot-quick"><a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
+          <li class="foot-quick"><a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+          <li class="foot-quick"><a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
+          <li class="foot-quick"><a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+          <li class="foot-quick"><a href="../../index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="social-icons">
+        <!-- <h5>Newsletter</h5> -->
+        <!-- <div class="input-newletter">
+          <label for="newsletter"><h5>Newsletter</h5></label>
+          <input placeholder="Enter your email" type="email" ></input>
+          <button class="btn-subs">Subscribe</button>
+        </div> -->
+
+        <form type="newsletter">
+          <label for="email">Subscribe to our Newsletter</label>
+          <div class="row-flex">
+
+
+
+            <!--email write-->
+            <input type="news" value="" name="email" placeholder="email address" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
+          </div>
+        </form>
+        <style>
+          .icons .icon i {
+            font-size: 24px;
+            /* Set the default font size for icons */
+            transition: all 0.3s ease;
+            /* Add transition for smooth animation */
+          }
+
+          .icons .icon:hover i {
+            transform: scale(1.2);
+            /* Scale the icon on hover */
+          }
+
+          .icons .icon:hover .fab.fa-facebook {
+            color: #1877f2;
+            /* Change to Facebook color on hover */
+          }
+
+          .icons .icon:hover .fab.fa-twitter {
+            color: black;
+            /* Change to Twitter color on hover */
+          }
+
+          .icons .icon:hover .fab.fa-instagram {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            background-clip: text;
+            border-radius: 20%;
+            transform: scale(1.5);
+            color:transparent;
+            /* Change to Instagram color on hover */
+          }
+
+          .icons .icon:hover .fab.fa-youtube {
+            color: #ff0001;
+            /* Change to YouTube color on hover */
+          }
+        </style>
+
+        <div class="icons">
+          <a href="#">
+            <div class="icon">
+              <i class="fab fa-facebook" style="cursor: pointer;"></i>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="icon">
+              <i class="fab fa-twitter" style="cursor: pointer;"></i>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="icon">
+              <i class="fab fa-instagram" style="cursor: pointer;"></i>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/@anuragbytes">
+            <div class="icon">
+              <i class="fab fa-youtube" style="cursor: pointer;"></i>
+            </div>
+          </a>
+        </div>
+          <div class="footer-bottom">
+            <p class="copyright" style="text-align: center">
+              &copy;
+              <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
+              Hackers.
+            </p>
+          </div>
+
+  </footer>
+  <!-- <footer class="footer">
     <div class="container">
       <div class="footer-bottom">
         <p class="copyright">
@@ -217,18 +342,32 @@
         </p>
       </div>
     </div>
-  </footer>
+  </footer> -->
 
   <script>
-    let eyeIconLogin = document.getElementById("eyeicon-login");
-    let passwordLogin = document.getElementById("login_password");
     let eyeIcon = document.getElementById("eyeicon");
     let password = document.getElementById("password");
+    let eyeIconLogin = document.getElementById("eyeicon-login");
+    let passwordLogin = document.getElementById("login_password");
     let passwordStrength = document.getElementById("password-strength");
     let lowUpperCase = document.querySelector(".low-upper-case i");
     let number = document.querySelector(".one-number i");
     let specialChar = document.querySelector(".one-special-char i");
     let eightChar = document.querySelector(".eight-character i");
+
+    // Set the password field to type "password" by default
+    password.type = "password";
+    eyeIcon.src = "../images/eye-close.png"; // Set the initial eye icon as closed
+
+    eyeIcon.onclick = function () {
+        if (password.type === "password") {
+            password.type = "text";
+            eyeIcon.src = "../images/eye-open.png";
+        } else {
+            password.type = "password";
+            eyeIcon.src = "../images/eye-close.png";
+        }
+    };
 
     passwordLogin.type = "password";
     eyeIconLogin.src = "../images/eye-close.png"; // Set the initial eye icon as closed
@@ -285,7 +424,7 @@
             eightChar.classList.add('fa-check');
         } else {
             eightChar.classList.add('fa-circle');
-            eightChar.classList.remove('fa-check');   
+            eightChar.classList.remove('fa-check');
         }
 
         // If value is less than 2
@@ -329,7 +468,69 @@ function applyThemePreferenceOnLoginPage() {
         });
     }
 }
+
+function toggleDarkMode() {
+  const isDarkMode = isDarkModePreferred();
+  setDarkModePreference(!isDarkMode);
+  applyDarkModePreference();
+}
+
+// Function to apply dark mode preference
+function applyDarkModePreference() {
+  const isDarkMode = isDarkModePreferred();
+  if (isDarkMode) {
+    document.body.classList.add('dark-mode');
+    document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
+  } else {
+    document.body.classList.remove('dark-mode');
+    document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
+  }
+}
+
+// Function to set dark mode preference
+document.addEventListener('DOMContentLoaded', () => {
+  const currentTheme = localStorage.getItem('theme');
+  const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
+  const starRating = document.querySelector('.star_rating');
+  const thankYouMessage = document.querySelector(".thank_you_message");
+  if (switchCheckbox) { // Check if switchCheckbox is not null
+    function applyDarkModeStyles() {
+      document.body.classList.remove('light-mode');
+      document.body.classList.add('dark-mode');
+      starRating.style.backgroundColor = '#2d2828';
+      thankYouMessage.style.backgroundColor = '#2d2828';
+    }
+
+    function applyLightModeStyles() {
+      document.body.classList.remove('dark-mode');
+      document.body.classList.add('light-mode');
+      starRating.style.backgroundColor = 'white';
+      thankYouMessage.style.backgroundColor = 'white';
+    }
+
+    if (currentTheme) {
+      if (currentTheme === 'dark-mode') {
+        applyDarkModeStyles();
+        switchCheckbox.checked = true;
+      } else {
+        applyLightModeStyles();
+      }
+    }
+
+    switchCheckbox.addEventListener('change', () => {
+      if (switchCheckbox.checked) {
+        applyDarkModeStyles();
+        localStorage.setItem('theme', 'dark-mode');
+      } else {
+        applyLightModeStyles();
+        localStorage.setItem('theme', 'light-mode');
+      }
+      applyDarkModePreference(); // Call the applyDarkModePreference function after updating the dark mode preference
+    });
+  } else {
+    console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
+  }
+});
   </script>
-   <script src="../js/script.js" defer></script>
 </body>
 </html>

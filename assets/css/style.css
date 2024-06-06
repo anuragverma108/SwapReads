@@ -2,6 +2,29 @@
   padding: 0px;
 }
 
+::-webkit-scrollbar-track {
+  background: var(--grey-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    hsl(357, 37%, 62%),
+    hsl(304, 14%, 46%)
+  );
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(357, 37%, 62%);
+}
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This centers the content horizontally */
+  text-align: center; /* This centers the text within each element */
+}
+
 .container1 {
   padding: 70px 100px;
   background-color: var(--seashell);
@@ -42,7 +65,7 @@
 @media only screen and (max-width:998px) {
  .circle{
   display: none;
- } 
+ }
 }
 
 .navbar-list {
@@ -324,6 +347,7 @@ body {
   letter-spacing: 4px;
   margin-bottom: 20px;
   font-size: 2.5rem;
+  text-align: center;
 }
 
 .h1,
@@ -352,6 +376,11 @@ body {
 .section-text {
   font-size: var(--fs-7);
   text-align: start;
+  margin: 0 30px; /*added margin to align the text*/
+}
+
+.booktext {
+  margin-left: 30px;
 }
 
 .w-100 {
@@ -394,7 +423,6 @@ body {
 
 .has-underline {
   position: relative;
-  margin-block-end: 60px;
 }
 
 .has-underline .span {
@@ -425,9 +453,9 @@ body {
   color: var(--white);
   border-radius: var(--radius-5);
   margin-left: 0px;
-  margin-top: 30px;
   text-align: center;
   margin : auto;
+  margin-top: 1.5rem;
 }
 
 .btn-primary:is(:hover, :focus) {
@@ -609,6 +637,25 @@ body {
   transition: all 0.3s ease;
   top: 100%;
   text-align: center;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 8px;
+  background-color: transparent;
+  overflow: hidden;
+  padding: 5px;
+  width: 200px;
+  border: 1px solid #ddd; /* Add a light gray border */
+
+}
+
+.dropdown-menu-item {
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu-item:last-child {
+  margin-bottom: 0;
 }
 
 .dropdown-menu-list {
@@ -617,13 +664,15 @@ body {
   padding: 0;
 }
 
-.dropdown-menu-item {
-  padding: 12px 16px;
-}
+
 
 .dropdown-menu-item a {
   text-decoration: none;
   color: #000;
+  color: #fff; /* White color for links */
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
 }
 
 .dropdown-item:first-child {
@@ -735,16 +784,18 @@ body {
   z-index: 1;
   transition: all 0.3s ease;
   top: 100%;
+
 }
 
 .dropdown-menu-list {
   list-style: none;
+  
   margin: 0;
   padding: 0;
 }
 
 .dropdown-menu-item {
-  padding: 12px 16px;
+  padding: 4px 10px;
 }
 
 .dropdown-menu-item a {
@@ -784,6 +835,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: start;
+
 
 }
 
@@ -869,7 +921,7 @@ body {
     width: 90%;
     order: -1;
   }
-  
+
 }
 
 /*-----------------------------------*\
@@ -986,6 +1038,11 @@ body {
   color: rgb(205, 168, 168);
 }
 
+.canvas:hover{
+  transform: scale(1.05);
+  box-shadow: 3px 3px #e36e5c;
+}
+
 /*-----------------------------------*\
   #CHAPTERS
 \*-----------------------------------*/
@@ -1037,13 +1094,54 @@ body.dark-mode .chapter-card:hover {
 }
 
 /* .chapter-card:hover::before {
-  width: 100%;       
+  width: 100%;
 }  */
 /* Expand line width on hover */
 
 .chapter-card .card-title {
   margin-block-end: 15px;
 }
+
+/*Added Top/Bottom Mrgins*/
+
+#benefits .grid-list
+{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#genre .container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#genre .section-subtitle
+{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#genre .grid-list
+{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+#section-title1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#chapters .grid-list
+{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+#section-title2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#chapters .section-subtitle
+{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 
 /*-----------------------------------*\
   #PREVIEW
@@ -1342,6 +1440,16 @@ textarea.input-field {
   gap: 10px;
 }
 
+.subscribe-btn{
+  background-color: var(--old-rose);
+  color: var(--white);
+  height: 4rem;
+  padding: 2px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
 .social-link {
   background-color: var(--old-rose);
   color: var(--white);
@@ -1494,7 +1602,6 @@ textarea.input-field {
   }
 
 }
-
 @media only screen and (max-width: 600px) {
 
   /* Adjustments for smaller screens */
@@ -1527,6 +1634,7 @@ textarea.input-field {
 footer {
   background-color: var(--seashell);
   padding: 20px 30px;
+  width: 100vw;
 }
 
 .foot-top {
@@ -1757,6 +1865,37 @@ input[type="submit"]:hover {
   gap: 20px;
   /* Increased gap for larger icons */
 }
+.icons .icon i {
+  font-size: 24px;
+  /* Set the default font size for icons */
+  transition: all 0.3s ease;
+  /* Add transition for smooth animation */
+}
+
+.icons .icon:hover {
+  transform: scale(1.5);
+  /* Scale the icon on hover */
+}
+
+.icons .icon:hover .fab.fa-facebook-square {
+  color: #1877f2;
+  /* Change to Facebook color on hover */
+}
+
+.icons .icon:hover .fa-brands.fa-square-x-twitter {
+  color: #1da1f3;
+  /* Change to Twitter color on hover */
+}
+
+.icons .icon:hover .fab.fa-instagram-square {
+  color: #c13583;
+  /* Change to Instagram color on hover */
+}
+
+.icons .icon:hover .fab.fa-youtube-square {
+  color: #ff0001;
+  /* Change to YouTube color on hover */
+}
 
 .icon-set {
   height: 40px;
@@ -1825,7 +1964,7 @@ input[type="submit"]:hover {
   }
 }
 
-@media (max-width: 480px) {}
+/* @media (max-width: 480px) {} */
 
 /**
  * responsive for large than 575px screen
@@ -1840,17 +1979,31 @@ input[type="submit"]:hover {
   }
 
   .container {
-    padding-inline: 37px;
     padding-bottom: 1rem;
     padding-top: 1rem;
+    padding-left: 0 !important;
   }
 
   html {
     overflow-x: hidden;
   }
+  .hero-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .hero .hero-title {
     font-size: 3rem;
+    line-height: 120%;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .section-text{
+    text-align: center;
+  }
+  .section-subtitle{
+    line-height: 120%;
   }
 }
 
@@ -2062,6 +2215,8 @@ input[type="submit"]:hover {
   .switch-container {
     /* right: -20px; */
     bottom: 20px;
+    transform: translateY(-25px) !important;
+    right: 10px !important;
     /* right: 20px; */
   }
 
@@ -2386,7 +2541,7 @@ input[type="submit"]:hover {
 /* .navbar-link.active,
 .navbar-link:hover {
   /* font-size: 1.1em; */
-/* border-bottom: 2px solid darkred; 
+/* border-bottom: 2px solid darkred;
   color: #fcb0b480;
 } */
 
@@ -2449,7 +2604,7 @@ body.dark-mode {
 }
 
 .dark-mode .form {
-  background-color: #333;
+  /* background-color: #333; */
   color: #fff;
 }
 
@@ -2463,7 +2618,6 @@ body.dark-mode {
 }
 
 .dark-mode .container {
-  background-color: #333;
   color: #fff;
   padding-left: 4rem;
   padding-right: 1rem;
@@ -2541,7 +2695,7 @@ body.dark-mode {
 
 body.dark-mode .navbar-link:hover,
 body.dark-mode .navbar-link.active {
-  color: hsl(357, 93%, 84%);
+  color:var(--old-rose);
 }
 
 body.dark-mode .navbar-link::after {
@@ -2550,17 +2704,28 @@ body.dark-mode .navbar-link::after {
   box-shadow: 0 0 10px #fcb0b480;
 }
 
+body.dark-mode .flip-card-back{
+  background-color: black !important;
+  color: white !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 body.dark-mode .navbar-link:hover::after {
   box-shadow: 0 0 20px hsl(357, 93%, 84%, 0.7);
 }
 
 footer {
   position: relative;
+  top: 140px;
 }
 
 #back-to-top-container {
-  position: fixed;
-  top: 78%;
+
+  /* position: fixed; */
+  top: 83%;
   right: 2.8%;
   /* Changed left to right */
   cursor: pointer;
@@ -2568,6 +2733,7 @@ footer {
 }
 
 .circle1 {
+
   background-color: white;
   border-radius: 50%;
   display: flex;
@@ -2584,11 +2750,11 @@ footer {
 }
 
 .circle1:hover {
-  background-color: black;
+  background-color: white;
 }
 
 #back-to-top:hover {
-  fill: hsl(357, 93%, 84%);
+  fill: black;
 }
 
 /* Switch Container */
@@ -2629,7 +2795,7 @@ footer {
   font-size: 19px;
   position: absolute;
   cursor: pointer;
-  top: 50%;
+   top: 50%;
   transform: translateY(-50%);
   transition: opacity 0.5s ease, color 0.5s ease;
 }
@@ -2686,11 +2852,15 @@ footer {
   .navbar-list {
     flex-direction: column;
   }
+
 }
 
 @media (min-width: 481px) {
   .navbar-list {
     flex-direction: column;
+  }
+  .switch-container{
+    transform: translateY(-20px);
   }
 }
 
@@ -2707,8 +2877,8 @@ footer {
 
   #back-to-top-container {
     position: fixed;
-    top: 78%;
-    right: 3.5%;
+    top: 82%;
+    right: 8%;
     /* Changed left to right */
   }
 }
@@ -2717,15 +2887,7 @@ footer {
   .navbar-list {
     flex-direction: row;
   }
-
-  #back-to-top-container {
-    position: fixed;
-    top: 78%;
-    right: 2.8%;
-    /* Changed left to right */
-  }
 }
-
 @media (min-width: 1281px) {
   .navbar-list {
     flex-direction: row;
@@ -2834,3 +2996,304 @@ footer {
 }
 
 
+.dark-mode .preference-bar label,
+.dark-mode .preference-bar select:hover,
+.dark-mode .container00 h2 {
+  color: white;
+  /* Color for dark mode */
+}
+
+#heading {
+ padding-top: 18rem;
+}
+
+
+.book {
+  display: flex;
+  margin-bottom: 20px;
+  border: 3px double #7c7b7a;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.book .book-info {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.book .book-info h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.book .book-info p {
+  margin: 5px 0;
+}
+
+.book .book-info img {
+  width: 120px;
+  /* Adjust the width as needed */
+  height: auto;
+  float: right;
+  margin-left: 20px;
+}
+
+.book .book-info h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.recommendationTitle {
+  font-size: larger;
+  margin-left: 200px;
+  margin-bottom: 20px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .h1,
+body.dark-mode .h2,
+body.dark-mode .h3 {
+  color: #ffffff;
+  margin: 0 10px;
+}
+
+.container00.dark-mode,
+.container01.dark-mode {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.section-subtitle.dark-mode,
+.h2.section-title.has-underline.dark-mode {
+  color: #ffffff;
+}
+
+.btn-primary.dark-mode {
+  background-color: #333333;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.book-info.dark-mode {
+  background-color: #2c2c2c;
+  color: #ffffff;
+}
+
+.book-image.dark-mode {
+  border: 1px solid #ffffff;
+}
+
+.cards {
+  height: 28rem;
+}
+
+.pricing-card {
+  height: 70rem
+}
+
+.card-title {
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+
+/* Media Queries for Recommended Books section */
+
+@media only screen and (max-width:574px){
+  .switch-container{
+    transform: translateY(-10px) !important;
+  }
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .container00 {
+    padding: 30px;
+    margin-bottom: 30px;
+  }
+
+  .container01 {
+    padding: 30px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .preference-bar {
+    flex-direction: column;
+    /* Stack items vertically */
+  }
+
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 16px;
+    /* Reduce font size for better fit */
+  }
+
+  .container00 h2 {
+    font-size: 24px;
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 574px)  {
+.switch-container{
+  transform: translateY(-10px) !important;
+}
+}
+@media only screen and (min-width:574px) and( max-width:600px){
+  .switch-container{
+    transform: translateY(-25px) !important;
+  }
+}
+/* Devices between 600px and 768px */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  .container00 {
+    padding: 40px;
+    /* Adjust padding for better spacing */
+    margin-bottom: 40px;
+    /* Adjust margin for better spacing */
+  }
+
+  .container01 {
+    padding: 40px;
+    /* Adjust padding for better spacing */
+    margin-bottom: 40px;
+    /* Adjust margin for better spacing */
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .preference-bar {
+    flex-direction: column;
+    /* Stack items vertically */
+  }
+
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 16px;
+    /* Reduce font size for better fit */
+  }
+
+  .container00 h2 {
+    font-size: 26px;
+    /* Increase font size for better readability */
+    margin-left: 0;
+  }
+}
+
+
+/* Small devices (landscape phones, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+  /* No changes needed from the base styles */
+  .container00 {
+    max-width: 700px;
+    /* Adjust the max-width for better layout on landscape phones */
+    padding: 50px;
+    /* Increase padding for better spacing */
+  }
+
+  .container01 {
+    max-width: 700px;
+    /* Adjust the max-width for better layout on landscape phones */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    /* Increase padding for better spacing */
+  }
+
+  .preference-bar {
+    justify-content: space-between;
+    /* Maintain space between items */
+    flex-wrap: wrap;
+    /* Allow items to wrap */
+  }
+
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 18px;
+    /* Increase font size for better readability */
+  }
+}
+
+
+/* Medium devices (tablets, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .container00 {
+    max-width: 800px;
+  }
+
+  .container01 {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .preference-bar {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 18px;
+  }
+}
+
+/* Large devices (desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .container00 {
+    max-width: 1000px;
+  }
+
+  .container01 {
+    max-width: 1000px;
+  }
+
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 20px;
+  }
+}
+
+/* media queries for chat widget  */
+
+@media screen and (min-width:960px){
+ .bp-widget-web.bp-widget-web{
+    right: calc(3.4% - 23px) ;
+  }
+}
+
+  @media screen and (min-width:1010px) {
+    .bp-widget-web.bp-widget-web{
+      right: calc(2.8% - 23px) ;
+    }
+  }
+
+  @media only screen and (max-width: 598px) {
+
+    .bp-widget-web.bp-widget-web{
+      right: calc(4.95% - 23px) ;
+    }
+  }
+
+  .fab.fa-twitter{
+    font-family:sans-serif;
+  }
+  .fab.fa-twitter::before{
+    content:"𝕏";
+    font-size:1.1em;
+    background-color: transparent;
+  }
