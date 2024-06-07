@@ -1,4 +1,41 @@
 'use strict';
+const nodemailer=require('nodemailer');
+require('dotenv').config();
+
+const transporter=nodemailer.createTransport({
+  service:'gmail',
+  host:'smtp.gmail.com',
+  port:587,
+  secure:false, 
+  auth:{
+    user:"anuragvermacoding@gmail.com",
+    pass:process.env.APP_PASSWORD
+  }
+})
+
+const mailOptions={
+  from:{
+    name:'SwapReads',
+    address:"anuragvermacoding@gmail.com"
+  },
+  to:"ayeshasiddiqua.connects@gmail.com",
+  subject:'Welcome to Our Newsletter!',
+  text:"Hello, Thank you for subscribing to our newsletter! Stay tuned for exciting updates.",
+}
+
+
+const sendMail=async(transporter,mailOptions)=>{
+  try{
+    await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully');
+  }
+  catch(error){
+    console.error('Error sending email:',error);
+  }
+}
+
+const subscribeBtn=document.querySelector('.subscribe-btn');
+subscribeBtn.addEventListener('click',sendMail(transporter,mailOptions));
 
 //  add event on send message button
 const sendMessageBtn = document.getElementById('sendMessageBtn');

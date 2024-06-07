@@ -1,4 +1,4 @@
-name: Auto Label Issues 
+name: Auto Label Issues
 
 on:
   issues:
@@ -15,9 +15,11 @@ jobs:
     - name: Check out the repository
       uses: actions/checkout@v3
 
-    - name: Add Label to Issues
+    - name: Add Labels to Issues
       if: github.event_name == 'issues'
       uses: actions-ecosystem/action-add-labels@v1.1.1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        labels: gssoc
+        labels: |
+          gssoc
+          level1
