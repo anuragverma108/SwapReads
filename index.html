@@ -41,6 +41,7 @@
   <script src="./assets/js/scroll.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="modals(privacy policy).css">
 
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
@@ -194,21 +195,21 @@
       bottom: 10px;
       left: 10px;
       background-color: #f1f1f1;
-      padding: 10px;
+      padding: 30px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      width: 300px;
-      height: 250px;
+      width: 350px;
+      height: 300px;
       z-index: 100;
       border-radius: 10px;
       margin-bottom: 5px;
+      box-shadow: 0 0 20px #A30F17;
     }
 
     #cookie-consent button {
       padding: 5px 10px;
-      border: none;
       border-radius: 5px;
       cursor: pointer;
     }
@@ -216,16 +217,26 @@
     .accept-cookies {
       width: 280px;
       height: 40px;
-      background-color: #A30F17;
       color: white;
+      background-color: #A30F17;
     }
-
     .reject-cookies {
       margin-top: 10px;
+ padding-top: 5px;
       height: 40px;
       width: 280px;
-      background-color: #A30F17;
       color: white;
+      background-color: #A30F17;
+
+    }
+    #accept-cookies:hover{
+      transform: scale(0.9);
+      box-shadow: 0 0 40px whitesmoke;
+    }
+    #reject-cookies:hover{
+      transform: scale(0.9);
+      box-shadow: 0 0 40px whitesmoke;
+
     }
     .accept-cookies:hover {
       width: 280px;
@@ -1716,14 +1727,88 @@
         </div>
       </div>
     </div>
-        <div style="text-align: center; align-items: center;">
-          <p style="text-align: center">
-            &copy;
-            <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-            Hackers.
-          </p>
-
-        </div>
+    <!-- adding privacy policy and copyright popup-->
+    <div style="text-align: center; align-items: center;">
+      <p style="text-align: center">
+        &copy;
+        <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+      </p>
+      <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
+      <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+    </div>
+    
+    <!-- Copyright Policy Modal -->
+    <div id="copyrightPolicyModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeCopyright">&times;</span>
+        <h1>Copyright Policy</h1>
+        <p>Welcome to SwapReads. Here is our copyright policy:</p>
+        <ul>
+          <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
+          <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
+          <li>Users may download and print content for personal use only.</li>
+          <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
+          <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Privacy Notice Modal -->
+    <div id="privacyNoticeModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closePrivacy">&times;</span>
+        <h1>Privacy Notice</h1>
+        <p>Welcome to SwapReads. Here is our privacy notice:</p>
+        <ul>
+          <li>We collect personal information when you register, buy, or sell books.</li>
+          <li>We use this information to provide and improve our services.</li>
+          <li>We do not share your personal information with third parties without your consent.</li>
+          <li>We take reasonable measures to protect your data from unauthorized access.</li>
+          <li>You can contact us to update or delete your personal information.</li>
+          <li>By using our site, you consent to our privacy practices.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <script>
+      // Get the modal elements
+      var copyrightModal = document.getElementById("copyrightPolicyModal");
+      var privacyModal = document.getElementById("privacyNoticeModal");
+    
+      // Get the link elements
+      var copyrightLink = document.getElementById("copyrightPolicyLink");
+      var privacyLink = document.getElementById("privacyNoticeLink");
+    
+      // Get the <span> elements that close the modals
+      var closeCopyright = document.getElementById("closeCopyright");
+      var closePrivacy = document.getElementById("closePrivacy");
+    
+      // When the user clicks the link, open the modal 
+      copyrightLink.onclick = function() {
+        copyrightModal.style.display = "block";
+      }
+      privacyLink.onclick = function() {
+        privacyModal.style.display = "block";
+      }
+    
+      // When the user clicks on <span> (x), close the modal
+      closeCopyright.onclick = function() {
+        copyrightModal.style.display = "none";
+      }
+      closePrivacy.onclick = function() {
+        privacyModal.style.display = "none";
+      }
+    
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == copyrightModal) {
+          copyrightModal.style.display = "none";
+        }
+        if (event.target == privacyModal) {
+          privacyModal.style.display = "none";
+        }
+      }
+    </script>
 
 
 
