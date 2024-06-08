@@ -932,25 +932,39 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.benefits .grid-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.benefits .flex {
+  display: flex;
   gap: 20px;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
+#benefits .benefits-canvas-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center ;
+  align-items: center;
+}
+
+#benefits .benefits-canvas-container .canvas
+{
+  margin: 10px;
+  width: 300px;
+}
+
+
 .benefits-card {
-  width: calc(50% - 20px);
+  position: relative;
   height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* Center text within cards */
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
 }
 
@@ -964,6 +978,7 @@ body {
 }
 
 .benefits-card {
+  width: 100%;
   padding: 25px;
   background-color: #FFD6CE 0.9px;
   height: 500px;
@@ -971,12 +986,11 @@ body {
   border-radius: var(--radius-5);
   overflow: hidden;
   transition: var(--transition-2);
-  height: 500px;
-  width: 260px;
 }
 
 .benefits-card::before,
 .benefits-card::after {
+  content:"";
   bottom: 0;
   right: 0;
   clip-path: var(--polygon);
@@ -1038,10 +1052,6 @@ body {
   color: rgb(205, 168, 168);
 }
 
-.canvas:hover{
-  transform: scale(1.05);
-  box-shadow: 3px 3px #e36e5c;
-}
 
 /*-----------------------------------*\
   #CHAPTERS
@@ -3298,3 +3308,14 @@ body.dark-mode .h3 {
     font-size:1.1em;
     background-color: transparent;
   }
+
+
+/* Adding media queries for benifits */
+
+@media screen and(min-width: ) {
+  .benefits .grid-list
+  {
+
+  }
+  
+}
