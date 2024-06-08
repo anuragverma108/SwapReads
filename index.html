@@ -189,13 +189,13 @@
       bottom: 10px;
       left: 10px;
       background-color: #f1f1f1;
-      padding: 10px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
       width: 300px;
-      height: 250px;
+      height: fit-content;
       z-index: 100;
       border-radius: 10px;
       margin-bottom: 5px;
@@ -222,6 +222,13 @@
       background-color: #A30F17;
       color: white;
     }
+
+    
+        #cookie-content {
+            display: none;
+            margin-top: 10px;
+        }
+    
   </style>
 </head>
 
@@ -230,9 +237,16 @@
 
   <div id="cookie-consent">
     <p>We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with
-      our Cookie Policy. <a href="#">Learn More</a></p>
+      our Cookie Policy. <a href="#" id="learn-more-link">Learn More</a></p>
+      <div id="cookie-content">
+        <p>Our Cookie Policy explains how we use cookies to enhance your experience. Cookies are small text files that are stored on your device when you visit a website. They help us to remember your preferences, track website usage, and provide personalized content. You can control your cookie preferences through your browser settings. By continuing to use our website, you agree to the use of cookies as described in our Cookie Policy.</p>
+      </div>
+  
     <button id="accept-cookies">Accept</button>
     <button id="reject-cookies">Reject</button>
+
+   
+    
 
 
     <script>
@@ -250,6 +264,17 @@
       rejectButton.addEventListener('click', hideCookieConsent);
 
     </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+      document.getElementById('learn-more-link').addEventListener('click', function(event) {
+          event.preventDefault();
+          document.getElementById('cookie-content').style.display = 'block';
+          var learnMoreLink = document.getElementById('learn-more-link');
+                learnMoreLink.style.display = 'none';
+      });
+  });
+</script>
   </div>
 
   <div class="circle"></div>
