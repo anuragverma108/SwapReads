@@ -13,6 +13,8 @@
 
   <link rel="stylesheet" href="assets/css/test-style.css">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <!-- <link rel="stylesheet" href="../css/login.css" /> -->
   <link rel="stylesheet" href="../css/style.css">
 
@@ -535,17 +537,17 @@
                 /* Scale the icon on hover */
               }
 
-              .icons .icon:hover .fab.fa-facebook-square {
+              .icons .icon:hover .fab.fa-facebook {
                 color: #3B5998;
                 /* Change to Facebook color on hover */
               }
 
-              .icons .icon:hover .fa-brands.fa-square-x-twitter {
+              .icons .icon:hover .fab.fa-twitter {
                 color: #090e11;
                 /* Change to Twitter color on hover */
               }
 
-              .icons .icon:hover .fab.fa-instagram-square {
+              .icons .icon:hover .fab.fa-instagram {
                 background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
                 background-clip: text;
                 border-radius: 20%;
@@ -554,34 +556,43 @@
                 /* Change to Instagram color on hover */
               }
 
-              .icons .icon:hover .fab.fa-youtube-square {
+              .icons .icon:hover .fab.fa-youtube {
                 color: #C31A1E;
                 /* Change to YouTube color on hover */
+              }
+
+              .icons .icon:hover .fab.fa-github {
+                color: #333;
               }
             </style>
 
             <div class="icons">
               <a href="#">
                 <div class="icon">
-                  <i class="fab fa-facebook-square" title="Facebook" style="cursor: pointer;"></i>
+                  <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
                 </div>
               </a>
 
               <a href="#">
                 <div class="icon">
-                  <i class="fa-brands fa-square-x-twitter" title="X" style="cursor: pointer;"></i>
+                  <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
                 </div>
               </a>
 
               <a href="#">
                 <div class="icon">
-                  <i class="fab fa-instagram-square" title="Instagram" style="cursor: pointer;"></i>
+                  <i class="fab fa-instagram" title="Instagram" style="cursor: pointer;"></i>
                 </div>
               </a>
 
               <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
                 <div class="icon">
-                  <i class="fab fa-youtube-square" style="cursor: pointer;"></i>
+                  <i class="fab fa-youtube" style="cursor: pointer;"></i>
+                </div>
+              </a>
+              <a href="https://github.com/anuragverma108">
+                <div class="icon">
+                  <i class="fab fa-github" style="cursor: pointer;"></i>
                 </div>
               </a>
             </div>
@@ -736,21 +747,62 @@
 
         animateCircles();
 
-        document.addEventListener('DOMContentLoaded', function () {
-          var switchCheckbox = document.querySelector('.switch-checkbox');
-          var body = document.body;
-          var navbar = document.querySelector('.navbar');
+      // Function to toggle dark mode
+    function toggleDarkMode() {
+      const isDarkMode = isDarkModePreferred();
+      setDarkModePreference(!isDarkMode);
+      applyDarkModePreference();
+    }
+     // Function to apply dark mode preference
+     function applyDarkModePreference() {
+      const isDarkMode = isDarkModePreferred();
+      if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        document.getElementById('theme-icon').src = '../images/icons8-sun.svg';
+      } else {
+        document.body.classList.remove('dark-mode');
+        document.getElementById('theme-icon').src = '../images/moon_solid.svg';
+      }
+    }
+      // Function to set dark mode preference
+      document.addEventListener('DOMContentLoaded', () => {
+      const currentTheme = localStorage.getItem('theme');
+      const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
+   
+      if (switchCheckbox) { // Check if switchCheckbox is not null
+        function applyDarkModeStyles() {
+          document.body.classList.remove('light-mode');
+          document.body.classList.add('dark-mode');
+          
+        }
+        function applyLightModeStyles() {
+          document.body.classList.remove('dark-mode');
+          document.body.classList.add('light-mode');
+          // starRating.style.backgroundColor = 'white';
+          // thankYouMessage.style.backgroundColor = 'white';
+        }
+        if (currentTheme) {
+          if (currentTheme === 'dark-mode') {
+            applyDarkModeStyles();
+            switchCheckbox.checked = true;
+          } else {
+            applyLightModeStyles();
+          }
+        }
 
-          switchCheckbox.addEventListener('change', function () {
-            if (switchCheckbox.checked) {
-              body.classList.add('dark-mode');
-              navbar.classList.add('dark-mode');
-            } else {
-              body.classList.remove('dark-mode');
-              navbar.classList.remove('dark-mode');
-            }
-          });
+        switchCheckbox.addEventListener('change', () => {
+          if (switchCheckbox.checked) {
+            applyDarkModeStyles();
+            localStorage.setItem('theme', 'dark-mode');
+          } else {
+            applyLightModeStyles();
+            localStorage.setItem('theme', 'light-mode');
+          }
         });
+      } else {
+        console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
+      }
+    });
       </script>
       <script>
         document.addEventListener("DOMContentLoaded", function () {
