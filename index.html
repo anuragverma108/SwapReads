@@ -1403,6 +1403,17 @@
                 <div id="success-message" style="display:none">Message sent successfully!</div>
               </form>
             </div>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+              var form = document.getElementById('contact-form');
+              var message = document.getElementById('message');
+
+              form.addEventListener('submit', function(event) {
+              if (message.value.length < 50) {
+              alert("Message length can't be less than 50 characters.");
+              event.preventDefault(); // Prevent the form from being submitted
+            }});});
+            </script>
 
             <ul class="contact-card">
             <ul class="contact-card ">
