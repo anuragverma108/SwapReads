@@ -211,13 +211,7 @@
       display: none;
     }
 
-    #cookie-consent button {
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      display: none;
-    }
-
+    
     .accept-cookies {
       width: 280px;
       height: 40px;
@@ -226,7 +220,7 @@
     }
     .reject-cookies {
       margin-top: 10px;
- padding-top: 5px;
+      padding-top: 5px;
       height: 40px;
       width: 280px;
       color: white;
@@ -286,55 +280,52 @@
 <body>
 
   <div id="cookie-consent">
-    <p style="color: black;">We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with
-      our Cookie Policy. <a href="#">Learn More</a></p>
+    <p style="color: black;">We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy. <a href="#">Learn More</a></p>
     <button class="accept-cookies">Accept</button>
     <button class="reject-cookies">Reject</button>
-
-
-    <script>
-
-     document.addEventListener('DOMContentLoaded', function() {
-  const header = document.querySelector('.header');
-  let lastScrollY = window.scrollY;
-
-  window.addEventListener('scroll', function() {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY > lastScrollY) {
-      // Scrolling down
-      header.classList.add('hidden');
-    } else {
-      // Scrolling up
-      header.classList.remove('hidden');
-    }
-
-    if (currentScrollY > 50) { // Adjust the scroll distance as needed
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-
-    lastScrollY = currentScrollY;
-  });
-});
-
-      const cookieConsent = document.getElementById('cookie-consent');
-      const acceptButton = document.getElementById('accept-cookies');
-      const rejectButton = document.getElementById('reject-cookies');
-
-      // Function to hide the cookie consent box
-      function hideCookieConsent() {
-        cookieConsent.style.display = 'none';
-        // You can also set a cookie here to remember user preference (optional)
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      // Function to set a cookie
+      function setCookie(name, value, days) {
+          var expires = "";
+          if (days) {
+              var date = new Date();
+              date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+              expires = "; expires=" + date.toUTCString();
+          }
+          document.cookie = name + "=" + (value || "") + expires + "; path=/";
       }
 
-      acceptButton.addEventListener('click', hideCookieConsent);
-      rejectButton.addEventListener('click', hideCookieConsent);
+      // Function to get a cookie
+      function getCookie(name) {
+          var nameEQ = name + "=";
+          var ca = document.cookie.split(';');
+          for (var i = 0; i < ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+              if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+          }
+          return null;
+      }
 
-    </script>
-  </div>
+      // Show the consent banner if the consent cookie is not set
+      if (!getCookie('cookieConsent')) {
+          document.getElementById('cookie-consent').style.display = 'flex';
+      }
 
+      // Add event listeners to the buttons
+      document.querySelector('.accept-cookies').addEventListener('click', function() {
+          setCookie('cookieConsent', 'accepted', 365);
+          document.getElementById('cookie-consent').style.display = 'none';
+      });
+
+      document.querySelector('.reject-cookies').addEventListener('click', function() {
+          setCookie('cookieConsent', 'rejected', 365);
+          document.getElementById('cookie-consent').style.display = 'none';
+      });
+  });
+</script>
   <div class="circle"></div>
   <div class="circle"></div>
   <div class="circle"></div>
