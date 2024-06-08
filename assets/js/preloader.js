@@ -3,12 +3,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const mainContent = document.getElementById('main-content');
 
     // Listen for the window load event
-    window.addEventListener('load', function() {
+    window.addEventListener('load', ()=> {
         // Set a delay before transitioning the preloader and main content
-        setTimeout(function() {
+        const body = document.body;
+        body.classList.add("body-fixed")
+        setTimeout(()=>{
             preloader.classList.add('hidden');
-            mainContent.classList.remove('hidden');
-            mainContent.classList.add('visible');
-        }, 3000); // 2000 milliseconds = 2 seconds delay
+            console.log(body)
+            body.classList.remove("body-fixed")
+        }, 2000); // 2000 milliseconds = 2 seconds delay
     });
 });
