@@ -1681,18 +1681,28 @@
           <button class="btn-subs">Subscribe</button>
         </div> -->
 
+
+        <form id="newsletterForm" type="newsletter">
+
         <form action="/subscribe" method="post">
+
           <label for="email">Subscribe to our Newsletter</label>
           <div class="row-flex">
+            <input type="email" name="email" id="email" placeholder="  email address" style="background-color: white; margin-left: 20px; height: 40px;">
 
+
+              <button type="submit" class="subscribe-btn">Subscribe</button>
 
 
 <input type="news" value="" name="email" placeholder="email address" id="newsletter-email">
 <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
 
 
+
           </div>
-        </form>
+      </form>
+      <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+      
         <style>
           .icons .icon i {
             font-size: 24px;
@@ -1879,6 +1889,20 @@
 
   <!-- Footer ended-->
   <script src="./assets/js/script.js" defer></script>
+  <script>
+    document.getElementById("newsletterForm").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+  
+    
+      var email = document.getElementById("email").value;
+  
+      document.getElementById("confirmationMessage").style.display = "block";
+  
+
+      document.getElementById("email").value = '';
+  });
+  
+  </script>
 
   <script>
 
