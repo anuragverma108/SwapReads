@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function() {
         body.classList.add("body-fixed")
         setTimeout(()=>{
             preloader.classList.add('hidden');
-            console.log(body)
             body.classList.remove("body-fixed")
         }, 2000); // 2000 milliseconds = 2 seconds delay
     });

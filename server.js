@@ -1,20 +1,21 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const nodemailer = require("nodemailer");
 const RegisterSchema = require("./assets/validation/zodschema");
 const validate = require("./assets/validation/validate.schema");
-const nodemailer = require("nodemailer");
+const cors=require("cors")
 const app = express();
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
+app.use(cors()); 
 
-const MONGO_URI = "mongodb://localhost:27017/swapread";
+const MONGO_URI = "mongodb+srv://nishantkaushal0708:jhn14300@cluster0.vye07az.mongodb.net/";
 
 const dbConnect = async () => {
   try {
     await mongoose.connect(MONGO_URI, {
-      // useNewUrlParser: true,
-      // useUnifiedTopology: true,
       serverSelectionTimeoutMS: 30000, // 30 seconds timeout
     });
     console.log("DB connected");
@@ -91,48 +92,48 @@ dbConnect().then(() => {
       });
   });
 
-  // Configure Nodemailer transporter
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: "mail@gmail.com",
-      pass: "password",
-    },
+  // Contact form endpoint
+  app.post("/contact", async (req, res) => {
+    const { name, email, subject, message } = req.body;
+
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "enter_you_mail",
+        pass: "Enter_YOUR_APP_PASSWORD",
+      },
+    });
+
+    const mailOptions = {
+      from: email,
+      to: "enter_you_mail",
+      subject: `You Have New Query from ${name} Regarding ${subject}`,
+      html: `Hey there is query from is  ${name} Email: ${email}  &nbsp; Message:<p style="color: red;"> ${message}</p>`,
+    };
+
+    const acknowledgmentOptions = {
+      from: "enter_you_mail",
+      to: email,
+      subject: "Acknowledgment of your message",
+      html: `<div style="font-family: Arial, sans-serif; line-height: 1.6;">
+      <p>Dear <strong>${name}</strong>,</p>
+      <p>Thank you for reaching out to us. We have received your message and will get back to you shortly.</p>
+      <p style="margin-top: 20px;">Best regards,<br><strong>SwapReads.com</strong></p>
+    </div>`,
+    };
+
+    try {
+      await transporter.sendMail(mailOptions);
+      await transporter.sendMail(acknowledgmentOptions);
+      res.json({ success: true, message: "Message sent successfully" });
+    } catch (err) {
+      console.error("Error sending email:", err);
+      res.json({ success: false, message: "Error sending message" });
+    }
   });
 
-  function sendBuyingEmailToSeller(sellerEmail, bookTitle, bookPrice, bookAuthor, buyerEmail) {
-    const mailOptions = {
-      from: "mail@gmail.com",
-      to: sellerEmail,
-      subject: "Someone is interested in your book!",
-      text: `Congratulations! Your book "${bookTitle}" by ${bookAuthor} at ${bookPrice} has a Buyer ${buyerEmail}.`,
-    };
-
-    transporter.sendMail(mailOptions, (err, info) => {
-      if (err) {
-        console.error("Error sending email:", err);
-      } else {
-        console.log("Email sent:", info.response);
-      }
-    });
-  }
-
-  function sendListingEmailToSeller(sellerEmail, bookTitle) {
-    const mailOptions = {
-      from: "mail@gmail.com",
-      to: sellerEmail,
-      subject: "Your book listing is live!",
-      text: `Congratulations! Your book "${bookTitle}" is now listed for sale.`,
-    };
-
-    transporter.sendMail(mailOptions, (err, info) => {
-      if (err) {
-        console.error("Error sending email:", err);
-      } else {
-        console.log("Email sent:", info.response);
-      }
-    });
-  }
-
-  app.listen(3000, () => console.log("Server is running on port 3000"));
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 });
