@@ -22,7 +22,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <script src="../js/script.js" defer></script>
-  
+
 
   <script src="../js/scroll-reveal.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -38,6 +38,27 @@
 </head>
 
 <body>
+
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
 
   <div class="rate-us-modal-wrapper">
     <div class="rate-us-modal">
@@ -56,9 +77,9 @@
       <p class="thank_you_message">Thank you for rating us!</p>
     </div>
   </div>
-  
+
   <header class="header header-anim" data-header>
-      
+
     <div class="container">
 
       <nav class="navbar" data-navbar>
@@ -206,10 +227,10 @@
               <div id="password-strength" class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <ul class="list-unstyled">
-              <li><span class="low-upper-case"><i class="fas fa-circle" aria-hidden="true"></i>&nbsp;Lowercase &amp; Uppercase</span></li>
-              <li><span class="one-number"><i class="fas fa-circle" aria-hidden="true"></i>&nbsp;Number (0-9)</span></li>
-              <li><span class="one-special-char"><i class="fas fa-circle" aria-hidden="true"></i>&nbsp;Special Character (!@#$%^&*)</span></li>
-              <li><span class="eight-character"><i class="fas fa-circle" aria-hidden="true"></i>&nbsp;At least 8 Character</span></li>
+              <li><span class="low-upper-case">&nbsp;Lowercase &amp; Uppercase</span></li>
+              <li><span class="one-number">&nbsp;Number (0-9)</span></li>
+              <li><span class="one-special-char">&nbsp;Special Character (!@#$%^&*)</span></li>
+              <li><span class="eight-character">&nbsp;At least 8 Character</span></li>
             </ul>
           </div>
 
@@ -281,31 +302,40 @@
             /* Scale the icon on hover */
           }
 
-          .icons .icon:hover .fab.fa-facebook-square {
+          .icons .icon:hover .fab.fa-facebook {
             color: #1877f2;
             /* Change to Facebook color on hover */
           }
+
 
           .icons .icon:hover .fa-brands .fa-square-x-twitter {
             color: #555;
             /* Change to Twitter color on hover */
           }
 
-          .icons .icon:hover .fab.fa-instagram-square {
-            color: #c13583;
+          .icons .icon:hover .fab.fa-instagram {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            background-clip: text;
+            border-radius: 20%;
+            transform: scale(1.5);
+            color:transparent;
             /* Change to Instagram color on hover */
           }
 
-          .icons .icon:hover .fab.fa-youtube-square {
+          .icons .icon:hover .fab.fa-youtube {
             color: #ff0001;
             /* Change to YouTube color on hover */
+          }
+
+          .icons .icon:hover .fab.fa-github {
+            color: #333;
           }
         </style>
 
         <div class="icons">
           <a href="#">
             <div class="icon">
-              <i class="fab fa-facebook-square" style="cursor: pointer;"></i>
+              <i class="fab fa-facebook" style="cursor: pointer;"></i>
             </div>
           </a>
 
@@ -317,13 +347,19 @@
 
           <a href="#">
             <div class="icon">
-              <i class="fab fa-instagram-square" style="cursor: pointer;"></i>
+              <i class="fab fa-instagram" style="cursor: pointer;"></i>
             </div>
           </a>
 
           <a href="https://www.youtube.com/@anuragbytes">
             <div class="icon">
-              <i class="fab fa-youtube-square" style="cursor: pointer;"></i>
+              <i class="fab fa-youtube" style="cursor: pointer;"></i>
+            </div>
+          </a>
+
+          <a href="https://github.com/anuragverma108">
+            <div class="icon">
+              <i class="fab fa-github" style="cursor: pointer;"></i>
             </div>
           </a>
         </div>
@@ -347,6 +383,70 @@
   </footer> -->
 
   <script>
+    const coords = { x: 0, y: 0 };
+    const circles = document.querySelectorAll(".circle");
+
+    const colors = [
+      "#ffb56b",
+      "#fdaf69",
+      "#f89d63",
+      "#f59761",
+      "#ef865e",
+      "#ec805d",
+      "#e36e5c",
+      "#df685c",
+      "#d5585c",
+      "#d1525c",
+      "#c5415d",
+      "#c03b5d",
+      "#b22c5e",
+      "#ac265e",
+      "#9c155f",
+      "#950f5f",
+      "#830060",
+      "#7c0060",
+      "#680060",
+      "#60005f",
+      "#48005f",
+      "#3d005e"
+    ];
+
+    circles.forEach(function (circle, index) {
+      circle.x = 0;
+      circle.y = 0;
+      circle.style.backgroundColor = colors[index % colors.length];
+    });
+
+    window.addEventListener("mousemove", function (e) {
+      coords.x = e.clientX;
+      coords.y = e.clientY;
+
+    });
+
+    function animateCircles() {
+
+      let x = coords.x;
+      let y = coords.y;
+
+      circles.forEach(function (circle, index) {
+        circle.style.left = x - 12 + "px";
+        circle.style.top = y - 12 + "px";
+
+        circle.style.scale = (circles.length - index) / circles.length;
+
+        circle.x = x;
+        circle.y = y;
+
+        const nextCircle = circles[index + 1] || circles[0];
+        x += (nextCircle.x - x) * 0.3;
+        y += (nextCircle.y - y) * 0.3;
+      });
+
+      requestAnimationFrame(animateCircles);
+    }
+
+    animateCircles();
+
     let eyeIcon = document.getElementById("eyeicon");
     let password = document.getElementById("password");
     let eyeIconLogin = document.getElementById("eyeicon-login");
@@ -426,7 +526,7 @@
             eightChar.classList.add('fa-check');
         } else {
             eightChar.classList.add('fa-circle');
-            eightChar.classList.remove('fa-check');   
+            eightChar.classList.remove('fa-check');
         }
 
         // If value is less than 2
@@ -459,15 +559,8 @@ function applyThemePreferenceOnLoginPage() {
     if (currentTheme === 'dark' && themeClass) {
         document.body.classList.add(themeClass);
 
-        document.querySelectorAll('.note h1, .note h2, .navbar, .main, .login, .register input, #register, .register label').forEach(element => {
-            element.classList.add('dark-mode');
-        });
     } else {
         document.body.classList.remove(themeClass);
-
-        document.querySelectorAll('.note h1, .note h2, .navbar, .main, .login, .register input, #register, .register label').forEach(element => {
-            element.classList.remove('dark-mode');
-        });
     }
 }
 
