@@ -130,7 +130,7 @@
       padding: 10px;
     }
 
-    /* Do an horizontal flip when you move the mouse over the flip box container */
+    /* Do a horizontal flip when you move the mouse over the flip box container */
     .flip-card:hover .flip-card-inner {
       transform: rotateY(180deg);
     }
@@ -146,16 +146,20 @@
       backface-visibility: hidden;
     }
 
-    /* Style the front side (fallback if image is missing) */
-    .flip-card-front {
+    /* Style the front side (fallback if image is missing) in light mode */
+    .light-mode .flip-card-front {
       background-color: white;
       color: black;
+    }
+    
+    /* Style the front side (fallback if image is missing) in dark mode*/
+    .dark-mode .flip-card-front {
+      background-color: black;
+      color: white;
     }
 
     /* Style the back side */
     .flip-card-back {
-      background-color: white;
-      color: black;
       transform: rotateY(180deg);
     }
 
@@ -168,11 +172,31 @@
 
     .light-mode .readmore-anim:hover {
       color: red;
-      letter-spacing: 1px;
+      letter-spacing: 100px;
       transition: ease-in-out;
     }
 
+    /*Flipped card when in light mode*/
 
+    body.light-mode .flip-card-back{
+      background-color: white !important;
+      color: black !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    /*Flipped card whenn in dark mode*/
+
+    body.dark-mode .flip-card-back{
+      background-color: black !important;
+      color: white !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
     /* Dark Mode Styles */
     .dark-mode .readmore-anim {
@@ -190,6 +214,9 @@
       letter-spacing: 1px;
       transition: ease-in-out;
     }
+
+
+
 
     /* pankaj bind */
     #cookie-consent {
@@ -1343,6 +1370,7 @@
   <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="40"
     loop="true" >
     <swiper-slide>
+
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front fronts dark-mode">
