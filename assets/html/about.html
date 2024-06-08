@@ -747,21 +747,62 @@
 
         animateCircles();
 
-        document.addEventListener('DOMContentLoaded', function () {
-          var switchCheckbox = document.querySelector('.switch-checkbox');
-          var body = document.body;
-          var navbar = document.querySelector('.navbar');
+      // Function to toggle dark mode
+    function toggleDarkMode() {
+      const isDarkMode = isDarkModePreferred();
+      setDarkModePreference(!isDarkMode);
+      applyDarkModePreference();
+    }
+     // Function to apply dark mode preference
+     function applyDarkModePreference() {
+      const isDarkMode = isDarkModePreferred();
+      if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        document.getElementById('theme-icon').src = '../images/icons8-sun.svg';
+      } else {
+        document.body.classList.remove('dark-mode');
+        document.getElementById('theme-icon').src = '../images/moon_solid.svg';
+      }
+    }
+      // Function to set dark mode preference
+      document.addEventListener('DOMContentLoaded', () => {
+      const currentTheme = localStorage.getItem('theme');
+      const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
+   
+      if (switchCheckbox) { // Check if switchCheckbox is not null
+        function applyDarkModeStyles() {
+          document.body.classList.remove('light-mode');
+          document.body.classList.add('dark-mode');
+          
+        }
+        function applyLightModeStyles() {
+          document.body.classList.remove('dark-mode');
+          document.body.classList.add('light-mode');
+          // starRating.style.backgroundColor = 'white';
+          // thankYouMessage.style.backgroundColor = 'white';
+        }
+        if (currentTheme) {
+          if (currentTheme === 'dark-mode') {
+            applyDarkModeStyles();
+            switchCheckbox.checked = true;
+          } else {
+            applyLightModeStyles();
+          }
+        }
 
-          switchCheckbox.addEventListener('change', function () {
-            if (switchCheckbox.checked) {
-              body.classList.add('dark-mode');
-              navbar.classList.add('dark-mode');
-            } else {
-              body.classList.remove('dark-mode');
-              navbar.classList.remove('dark-mode');
-            }
-          });
+        switchCheckbox.addEventListener('change', () => {
+          if (switchCheckbox.checked) {
+            applyDarkModeStyles();
+            localStorage.setItem('theme', 'dark-mode');
+          } else {
+            applyLightModeStyles();
+            localStorage.setItem('theme', 'light-mode');
+          }
         });
+      } else {
+        console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
+      }
+    });
       </script>
       <script>
         document.addEventListener("DOMContentLoaded", function () {
