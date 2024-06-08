@@ -13,6 +13,7 @@ app.use(cors());
 
 const MONGO_URI = "mongodb+srv://nishantkaushal0708:jhn14300@cluster0.vye07az.mongodb.net/";
 
+
 const dbConnect = async () => {
   try {
     await mongoose.connect(MONGO_URI, {
@@ -137,3 +138,11 @@ dbConnect().then(() => {
     console.log(`Server running on port ${PORT}`);
   });
 });
+
+
+app.post('/subscribe',(req,res)=>{
+  let email = req.body;
+  console.log(email);
+})
+
+app.listen(3000, () => console.log("Server is running on port 3000"));
