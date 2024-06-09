@@ -253,8 +253,25 @@
   <footer>
     <div class="foot-top">
       <div class="foot-left">
+  
         <div class="desc">
-
+  <!--google translate-->
+          <div id="google_translate_element"></div>
+  
+          <script type="text/javascript">
+              function googleTranslateElementInit() {
+                  new google.translate.TranslateElement(
+                      {pageLanguage: 'en'},
+                      'google_translate_element'
+                  );
+              }
+          </script>
+  
+          <script type="text/javascript"
+                  src=
+      "https://translate.google.com/translate_a/element.js?
+      cb=googleTranslateElementInit">
+          </script>
           <div><a href="#" class="logo">SwapReads</a></div>
           <div>
             <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
@@ -268,10 +285,34 @@
               possibilities!
             </p>
           </div>
+
         </div>
       </div>
       <div class="foot-middle">
         <h2>Quick Links</h2>
+
+        <div id="quicklinks">
+          <div>
+          <ul>
+            <li class="foot-quick"><a href="../../index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
+            <li class="foot-quick"><a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
+            <li class="foot-quick"><a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+            <li class="foot-quick"><a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
+            <li class="foot-quick"><a href="book_recommend.html"
+              onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li class="foot-quick"><a href="addremovebook.html" onclick="lenis.scrollTo('#contact')">Swap
+                BookList</a></li>
+            <li class="foot-quick"><a href="freeBooks.html"
+                onclick="lenis.scrollTo('#contact')">E-Book</a></li>
+            <li class="foot-quick"><a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+          </ul>
+        </div>
+        </div>
+
         <ul>
           <li class="foot-quick"><a href="../../index.html#home" onclick="lenis.scrollTo('#home')">Home</a></li>
           <li class="foot-quick"><a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a>
@@ -284,6 +325,7 @@
           </li>
           <li class="foot-quick"><a href="../../index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
         </ul>
+
       </div>
       <div class="social-icons">
         <!-- <h5>Newsletter</h5> -->
@@ -292,16 +334,19 @@
           <input placeholder="Enter your email" type="email" ></input>
           <button class="btn-subs">Subscribe</button>
         </div> -->
-
+  
         <form type="newsletter">
           <label for="email">Subscribe to our Newsletter</label>
           <div class="row-flex">
-
-
-
+  
+  
+  
             <!--email write-->
-            <input type="news" value="" name="email" placeholder="email address" required>
+            <input type="news" value="" name="email" placeholder="email address">
             <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
+            <input type="news" value="" name="email" placeholder="email address" id="newsletter-email">
+            <button type="submit" class="subscribe-btn">subscribe</button>
+  
           </div>
         </form>
         <style>
@@ -311,23 +356,29 @@
             transition: all 0.3s ease;
             /* Add transition for smooth animation */
           }
-
+  
           .icons .icon:hover i {
             transform: scale(1.2);
             /* Scale the icon on hover */
           }
-
+  
           .icons .icon:hover .fab.fa-facebook {
-            color: #1877f2;
+            color: #3B5998;
             /* Change to Facebook color on hover */
           }
+
+  
+          .icons .icon:hover .fab.fa-twitter{
+            color: #090e11;
+
 
 
           .icons .icon:hover .fa-brands .fa-square-x-twitter {
             color: #555;
+
             /* Change to Twitter color on hover */
           }
-
+  
           .icons .icon:hover .fab.fa-instagram {
             background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
             background-clip: text;
@@ -336,41 +387,77 @@
             color: transparent;
             /* Change to Instagram color on hover */
           }
-
+  
           .icons .icon:hover .fab.fa-youtube {
-            color: #ff0001;
+            color: #C31A1E;
             /* Change to YouTube color on hover */
           }
 
           .icons .icon:hover .fab.fa-github {
+                    color: #333;
+                }
+
+
+          .icons .icon:hover .fab.fa-github {
             color: #333;
           }
-        </style>
 
+        </style>
+  
         <div class="icons">
           <a href="#">
             <div class="icon">
-              <i class="fab fa-facebook" style="cursor: pointer;"></i>
+              <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
             </div>
           </a>
-
+  
           <a href="#">
             <div class="icon">
+
+              <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
+
               <i class="fa-brands fa-square-x-twitter" title="X"style="cursor: pointer;"></i>
+
             </div>
           </a>
-
+  
           <a href="#">
             <div class="icon">
-              <i class="fab fa-instagram" style="cursor: pointer;"></i>
+              <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
             </div>
           </a>
-
-          <a href="https://www.youtube.com/@anuragbytes">
+  
+          <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
             <div class="icon">
               <i class="fab fa-youtube" style="cursor: pointer;"></i>
             </div>
           </a>
+
+          <a href="https://github.com/anuragverma108" title="GitHub">
+            <div class="icon">
+                <i class="fab fa-github" style="cursor: pointer;"></i>
+            </div>
+          </a>
+        </div>
+        <!-- <div style="text-align: center; align-items: center;">
+          <p style="text-align: center">
+            &copy;
+            <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
+            Hackers.
+          </p>
+  
+        </div> -->
+  
+        <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">
+          <div class="circle1">
+            <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+              class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+              <path
+                d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+            </svg>
+          </div>
+        </div>
+
 
           <a href="https://github.com/anuragverma108">
             <div class="icon">
@@ -387,15 +474,7 @@
         </div>
 
   </footer>
-  <!-- <footer class="footer">
-    <div class="container">
-      <div class="footer-bottom">
-        <p class="copyright">
-          &copy; <script>document.write(new Date().getFullYear())</script> All rights reserved. Made with ❤ by Guardian Hackers.
-        </p>
-      </div>
-    </div>
-  </footer> -->
+ 
 
   <script>
     const coords = { x: 0, y: 0 };
