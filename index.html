@@ -282,46 +282,36 @@
       border-bottom-color: #A30F17; 
     }
 
-    #cookie-consent button {
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      display: none;
-    }
-
+    
     .accept-cookies {
-      width: 280px;
-      height: 40px;
-      color: white;
-      background-color: #A30F17;
-    }
-    .reject-cookies {
-      margin-top: 10px;
- padding-top: 5px;
-      height: 40px;
-      width: 280px;
-      color: white;
-      background-color: #A30F17;
+  width: 280px;
+  height: 40px;
+  color: white;
+  background-color: #A30F17;
+}
+.reject-cookies {
+  margin-top: 10px;
+  padding-top: 5px;
+  height: 40px;
+  width: 280px;
+  color: white;
+  background-color: #A30F17;
+}
 
-    }
-    #accept-cookies:hover, #reject-cookies:hover {
-     transform: scale(0.9);
-    box-shadow: 0 0 20px rgb(249, 212, 212);
-    }
-    .accept-cookies:hover {
-      width: 280px;
-      height: 40px;
-      background-color: white;
-      color: red;
-    }
+.accept-cookies:hover, .reject-cookies:hover {
+  transform: scale(0.9);
+  box-shadow: 0 0 20px rgb(249, 212, 212);
+}
 
-    .reject-cookies:hover{
-      margin-top: 10px;
-      height: 40px;
-      width: 280px;
-      background-color: white;
-      color: red;
-    }
+.accept-cookies:hover {
+  background-color: white;
+  color: red;
+}
+
+.reject-cookies:hover {
+  background-color: white;
+  color: red;
+}
 
     #back-to-top-container {
       position: fixed;
@@ -368,79 +358,39 @@
 
   <div id="cookie-consent">
 
-    <p>We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with
-      our Cookie Policy. <a href="#" id="learn-more-link">Learn More</a></p>
-      <div id="cookie-content">
-        <p>Our Cookie Policy explains how we use cookies to enhance your experience. Cookies are small text files that are stored on your device when you visit a website. They help us to remember your preferences, track website usage, and provide personalized content. You can control your cookie preferences through your browser settings. By continuing to use our website, you agree to the use of cookies as described in our Cookie Policy.</p>
-      </div>
-  
-    <button id="accept-cookies">Accept</button>
-    <button id="reject-cookies">Reject</button>
-
+   
     <p style="color: black;">We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with
       our Cookie Policy. <a href="#">Learn More</a></p>
     <button class="accept-cookies">Accept</button>
     <button class="reject-cookies">Reject</button>
-
-
-   
-    
-
-
-    <script>
-
-     document.addEventListener('DOMContentLoaded', function() {
-  const header = document.querySelector('.header');
-  let lastScrollY = window.scrollY;
-
-  window.addEventListener('scroll', function() {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY > lastScrollY) {
-      // Scrolling down
-      header.classList.add('hidden');
-    } else {
-      // Scrolling up
-      header.classList.remove('hidden');
-    }
-
-    if (currentScrollY > 50) { // Adjust the scroll distance as needed
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-
-    lastScrollY = currentScrollY;
-  });
-});
-
-      const cookieConsent = document.getElementById('cookie-consent');
-      const acceptButton = document.getElementById('accept-cookies');
-      const rejectButton = document.getElementById('reject-cookies');
-
-      // Function to hide the cookie consent box
-      function hideCookieConsent() {
-        cookieConsent.style.display = 'none';
-        // You can also set a cookie here to remember user preference (optional)
-      }
-
-      acceptButton.addEventListener('click', hideCookieConsent);
-      rejectButton.addEventListener('click', hideCookieConsent);
-
-    </script>
-
+</div>
 <script>
-  document.addEventListener('DOMContentLoaded', (event) => {
-      document.getElementById('learn-more-link').addEventListener('click', function(event) {
-          event.preventDefault();
-          document.getElementById('cookie-content').style.display = 'block';
-          var learnMoreLink = document.getElementById('learn-more-link');
-                learnMoreLink.style.display = 'none';
-      });
+  document.addEventListener('DOMContentLoaded', function() {
+    const cookieConsent = document.getElementById('cookie-consent');
+    const acceptButton = document.querySelector('.accept-cookies');
+    const rejectButton = document.querySelector('.reject-cookies');
+
+    // Check if the user has already made a choice
+    if (localStorage.getItem('cookieConsent')) {
+      cookieConsent.style.display = 'none';
+    }
+
+    // Function to handle cookie consent choice
+    function handleConsent(choice) {
+      localStorage.setItem('cookieConsent', choice);
+      cookieConsent.style.display = 'none';
+    }
+
+    // Add event listeners to buttons
+    acceptButton.addEventListener('click', function() {
+      handleConsent('accepted');
+    });
+
+    rejectButton.addEventListener('click', function() {
+      handleConsent('rejected');
+    });
   });
 </script>
-  </div>
-
   <div class="circle"></div>
   <div class="circle"></div>
   <div class="circle"></div>
