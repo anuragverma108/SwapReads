@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="./../favicon_package_v0.16/apple-touch-icon.png"> 
+  <link rel="apple-touch-icon" sizes="180x180" href="./../favicon_package_v0.16/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./../favicon_package_v0.16/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./../favicon_package_v0.16/favicon-16x16.png">
   <link rel="manifest" href="./../favicon_package_v0.16/site.webmanifest">
@@ -59,7 +59,7 @@
   <link rel="stylesheet" href="../css/Available.css">
 
 
- 
+
 
 
 </head>
@@ -86,8 +86,8 @@
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
-    
-    
+
+
     <div id="preloader">
       <div class="loader">
         <div class="book-wrapper">
@@ -138,7 +138,7 @@
               d="M110 30L76 30"
             ></path>
           </svg>
-      
+
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="#ffffff74"
@@ -165,7 +165,7 @@
           </svg>
         </div>
       </div>
-      
+
     </div>
 
   <header class="header header-anim" data-header>
@@ -197,7 +197,7 @@
 
           <li class="navbar-item">
 
-            <a href="/assets/html/index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
+            <a href="./index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
                 class="ri-customer-service-2-fill"></i> Contact</a>
           </li>
 
@@ -208,7 +208,7 @@
             <a href="./login.html" class="navbar-link">Login/Signup</a>
           </li>
           <li class="navbar-item dropdown" id="more-dropdown">
-            <a href="#" class="navbar-link" id="more-link">More 
+            <a href="#" class="navbar-link" id="more-link">More
             <svg  class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z"/></svg></a>
             <div class="dropdown-menu" id="dropdown-menu">
 
@@ -231,12 +231,15 @@
                   <a href="./freeBooks.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
                 </li>
                 <li class="dropdown-menu-item">
+                  <a href="./read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
+                </li>
+                <li class="dropdown-menu-item">
                   <a href="./about.html" class="navbar-link">About</a>
                 </li>
               </ul>
             </div>
           </li>
-          
+
           <!-- Google Translate Element -->
           <li class="navbar-item">
             <div id="google_element"></div>
@@ -276,7 +279,12 @@ new google.translate.TranslateElement({
     </div>
   </header>
 
-
+<style>
+   .dark-mode .book_title{
+    color:white;
+  text-shadow: 3px 3px 20px #d1c4c4;
+  }
+</style>
 
 
 
@@ -293,121 +301,145 @@ new google.translate.TranslateElement({
                 <img src="https://www.gutenberg.org/cache/epub/11/pg11.cover.medium.jpg" alt="Alice's Adventures in Wonderland" class="book-cover">
                 <h3 class="book_title">Alice's Adventures in Wonderland</h3>
                 <a href="https://www.gutenberg.org/ebooks/11" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(1)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/1342/pg1342.cover.medium.jpg" alt="Pride and Prejudice" class="book-cover">
                 <h3 class="book_title">Pride and Prejudice</h3>
                 <a href="https://www.gutenberg.org/ebooks/1342" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(2)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/84/pg84.cover.medium.jpg" alt="Frankenstein" class="book-cover">
                 <h3 class="book_title">Frankenstein</h3>
                 <a href="https://www.gutenberg.org/ebooks/84" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(3)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/5200/pg5200.cover.medium.jpg" alt="Metamorphosis" class="book-cover">
                 <h3 class="book_title">Metamorphosis</h3>
                 <a href="https://www.gutenberg.org/ebooks/5200" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(4)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/1661/pg1661.cover.medium.jpg" alt="The Adventures of Sherlock Holmes" class="book-cover">
                 <h3 class="book_title">The Adventures of Sherlock Holmes</h3>
                 <a href="https://www.gutenberg.org/ebooks/1661" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(5)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/11/pg11.cover.medium.jpg" alt="Alice's Adventures in Wonderland" class="book-cover">
                 <h3 class="book_title">Alice's Adventures in Wonderland</h3>
                 <a href="https://www.gutenberg.org/ebooks/11" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(6)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/1342/pg1342.cover.medium.jpg" alt="Pride and Prejudice" class="book-cover">
                 <h3 class="book_title">Pride and Prejudice</h3>
                 <a href="https://www.gutenberg.org/ebooks/1342" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(7)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/84/pg84.cover.medium.jpg" alt="Frankenstein" class="book-cover">
                 <h3 class="book_title">Frankenstein</h3>
                 <a href="https://www.gutenberg.org/ebooks/84" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(8)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/5200/pg5200.cover.medium.jpg" alt="Metamorphosis" class="book-cover">
                 <h3 class="book_title">Metamorphosis</h3>
                 <a href="https://www.gutenberg.org/ebooks/5200" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(9)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/1661/pg1661.cover.medium.jpg" alt="The Adventures of Sherlock Holmes" class="book-cover">
                 <h3 class="book_title">The Adventures of Sherlock Holmes</h3>
                 <a href="https://www.gutenberg.org/ebooks/1661" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(10)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/11/pg11.cover.medium.jpg" alt="Alice's Adventures in Wonderland" class="book-cover">
                 <h3 class="book_title">Alice's Adventures in Wonderland</h3>
                 <a href="https://www.gutenberg.org/ebooks/11" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(11)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/1342/pg1342.cover.medium.jpg" alt="Pride and Prejudice" class="book-cover">
                 <h3 class="book_title">Pride and Prejudice</h3>
                 <a href="https://www.gutenberg.org/ebooks/1342" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(12)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/84/pg84.cover.medium.jpg" alt="Frankenstein" class="book-cover">
                 <h3 class="book_title">Frankenstein</h3>
                 <a href="https://www.gutenberg.org/ebooks/84" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(13)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/5200/pg5200.cover.medium.jpg" alt="Metamorphosis" class="book-cover">
                 <h3 class="book_title">Metamorphosis</h3>
                 <a href="https://www.gutenberg.org/ebooks/5200" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(14)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/1661/pg1661.cover.medium.jpg" alt="The Adventures of Sherlock Holmes" class="book-cover">
                 <h3 class="book_title">The Adventures of Sherlock Holmes</h3>
                 <a href="https://www.gutenberg.org/ebooks/1661" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(15)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/11/pg11.cover.medium.jpg" alt="Alice's Adventures in Wonderland" class="book-cover">
                 <h3 class="book_title">Alice's Adventures in Wonderland</h3>
                 <a href="https://www.gutenberg.org/ebooks/11" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(16)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/1342/pg1342.cover.medium.jpg" alt="Pride and Prejudice" class="book-cover">
                 <h3 class="book_title">Pride and Prejudice</h3>
                 <a href="https://www.gutenberg.org/ebooks/1342" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(17)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/84/pg84.cover.medium.jpg" alt="Frankenstein" class="book-cover">
                 <h3 class="book_title">Frankenstein</h3>
                 <a href="https://www.gutenberg.org/ebooks/84" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(18)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/5200/pg5200.cover.medium.jpg" alt="Metamorphosis" class="book-cover">
                 <h3 class="book_title">Metamorphosis</h3>
                 <a href="https://www.gutenberg.org/ebooks/5200" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(19)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/1661/pg1661.cover.medium.jpg" alt="The Adventures of Sherlock Holmes" class="book-cover">
                 <h3 class="book_title">The Adventures of Sherlock Holmes</h3>
                 <a href="https://www.gutenberg.org/ebooks/1661" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(20)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/11/pg11.cover.medium.jpg" alt="Alice's Adventures in Wonderland" class="book-cover">
                 <h3 class="book_title">Alice's Adventures in Wonderland</h3>
                 <a href="https://www.gutenberg.org/ebooks/11" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(21)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/1342/pg1342.cover.medium.jpg" alt="Pride and Prejudice" class="book-cover">
                 <h3 class="book_title">Pride and Prejudice</h3>
                 <a href="https://www.gutenberg.org/ebooks/1342" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(22)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/84/pg84.cover.medium.jpg" alt="Frankenstein" class="book-cover">
                 <h3 class="book_title">Frankenstein</h3>
                 <a href="https://www.gutenberg.org/ebooks/84" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(23)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
                 <img src="https://www.gutenberg.org/cache/epub/5200/pg5200.cover.medium.jpg" alt="Metamorphosis" class="book-cover">
                 <h3 class="book_title">Metamorphosis</h3>
                 <a href="https://www.gutenberg.org/ebooks/5200" class="btn btn-secondary">Download</a>
+                <button onclick="addToReadLater(24)" class="read_later_button">Add to Read Later</button>
             </div>
         </div>
     </div>
@@ -418,103 +450,193 @@ new google.translate.TranslateElement({
 
 
 
-  <!-- 
+  <!--
     - #FOOTER
   -->
 
-  <footer>
-    <div class="foot-top">
-      <div class="foot-left">
-        <div class="desc">
 
-          <a href="#" class="logo">SwapReads</a>
-          <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book lovers
-            seeking to swap and
+    <footer>
+      <div class="foot-top">
+        <div class="foot-left">
 
-            discover new literary gems.
-            Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in the
-            world of literature—all on one convenient platform. Join us and dive into a universe of endless
-            possibilities!
-          </p>
+          <div class="desc">
+  <!--google translate-->
+            <div id="google_translate_element"></div>
+
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement(
+                        {pageLanguage: 'en'},
+                        'google_translate_element'
+                    );
+                }
+            </script>
+
+            <script type="text/javascript"
+                    src=
+        "https://translate.google.com/translate_a/element.js?
+        cb=googleTranslateElementInit">
+            </script>
+            <div><a href="#" class="logo">SwapReads</a></div>
+            <div>
+              <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
+                lovers
+                seeking to swap and
+
+                discover new literary gems.
+                Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
+                the
+                world of literature—all on one convenient platform. Join us and dive into a universe of endless
+                possibilities!
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <div class="foot-middle">
+          <h2>Quick Links</h2>
+          <div id="quicklinks">
+            <div>
+            <ul>
+              <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')">Home</a></li>
+              <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
+              <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+              <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
+              <li class="foot-quick">
+                <a href="./assets/html/book_recommend.html" onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')">Swap
+                  BookList</a></li>
+              <li class="foot-quick"><a href="./assets/html/freeBooks.html"
+                  onclick="lenis.scrollTo('#contact')">E-Book</a></li>
+              <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
+              </li>
+              <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+              <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
+            </ul>
+          </div>
+          </div>
+        </div>
+        <div class="social-icons">
+
+          <form action="/subscribe" method="post">
+            <label for="email">Subscribe to our Newsletter</label>
+            <div class="row-flex">
+
+            <input type="news" value="" name="email" placeholder="email address" id="newsletter-email">
+            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
+
+            </div>
+          </form>
+          <style>
+            .icons .icon i {
+              font-size: 24px;
+              /* Set the default font size for icons */
+              transition: all 0.3s ease;
+              /* Add transition for smooth animation */
+              margin-top: 10px;
+            }
+
+            .icons .icon:hover i {
+              transform: scale(1.2);
+              /* Scale the icon on hover */
+            }
+
+            .icons .icon:hover .fab.fa-facebook {
+              color: #3B5998;
+              /* Change to Facebook color on hover */
+            }
+
+            .icons .icon:hover .fab.fa-twitter{
+              color: #090e11;
+              /* Change to Twitter color on hover */
+            }
+
+            .icons .icon:hover .fab.fa-instagram {
+              background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+              background-clip: text;
+              border-radius: 20%;
+              transform: scale(1.5);
+              color:transparent;
+              /* Change to Instagram color on hover */
+            }
+
+            .icons .icon:hover .fab.fa-youtube {
+              color: #C31A1E;
+              /* Change to YouTube color on hover */
+            }
+            .icons .icon:hover .fab.fa-github {
+              color: #333;
+            }
+            .icons .icon:hover .fab.fa-linkedin {
+              color: #285AEB;
+            }
+          </style>
+
+          <div class="icons">
+            <a href="https://www.linkedin.com/in/anurag-verma-b91417253/">
+              <div class="icon">
+                <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
+              </div>
+            </a>
+
+            <a href="https://x.com/anuragverma_108">
+              <div class="icon">
+                <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
+              </div>
+            </a>
+
+            <a href="#">
+              <div class="icon">
+                <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
+              </div>
+            </a>
+            <a href="https://github.com/anuragverma108/SwapReads" title="Github">
+              <div class="icon">
+                <i class="fab fa-github" style="cursor: pointer;"></i>
+              </div>
+            </a>
+
+            <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
+              <div class="icon">
+                <i class="fab fa-youtube" style="cursor: pointer;"></i>
+              </div>
+            </a>
+            <a href="https://github.com/anuragverma108" title="GitHub">
+              <div class="icon">
+                  <i class="fab fa-github" style="cursor: pointer;"></i>
+              </div>
+            </a>
+          </div>
+
+          <div id="back-to-top-container" onclick="lenis.scrollTo('#chapters')">
+            <div class="circle1">
+              <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                <path
+                  d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="foot-middle">
-        <h2>Quick Links</h2>
-        <ul>
-          <li class="foot-quick"><a href="./index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
-          <li class="foot-quick"><a href="./index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
-          <li class="foot-quick"><a href="./index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
-          <li class="foot-quick"><a href="./index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
-          <li class="foot-quick"><a href="./index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
-          <li class="foot-quick"><a href="./index.html#faqq" onclick="lenis.scrollTo('#faqq')">Faq</a></li>
-        </ul>
+      <!-- adding privacy policy and copyright popup-->
+      <div style="text-align: center; align-items: center;">
+        <p style="text-align: center">
+          &copy;
+          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+        </p>
       </div>
-      <div class="social-icons">
-        <!-- <h5>Newsletter</h5> -->
-        <!-- <div class="input-newletter">
-          <label for="newsletter"><h5>Newsletter</h5></label>
-          <input placeholder="Enter your email" type="email" ></input>
-          <button class="btn-subs">Subscribe</button>
-        </div> -->
-
-        <form type="newsletter">
-          <label for="email">Subscribe to our Newsletter</label>
-          <div class="row-flex">
 
 
+    </footer>
 
-            <!--email write-->
-            <input type="news" value="" name="email" placeholder="email address" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" >
-          </div>
-        </form>
-        <div class="icons">
-          <a href="#">
-            <div class="icon">
-              <i class="fab fa-facebook-square"></i>
-            </div>
-          </a>
-    
-          <a href="#">
-            <div class="icon">
-              <i class="fa-brands fa-square-x-twitter"></i>
-            </div>
-          </a>
-    
-          <a href="#">
-            <div class="icon">
-              <i class="fab fa-instagram-square"></i>
-            </div>
-          </a>
-    
-          <a href="https://www.youtube.com/@anuragbytes">
-            <div class="icon">
-              <i class="fab fa-youtube-square"></i>
-            </div>
-          </a>
-      <!-- </div> -->
-    </div>
-    <div class="footer-bottom">
-      <p class="copyright" style="text-align: center">
-        &copy;
-        <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
-      </p>
-    </div>
-
-    <div id="back-to-top-container">
-      <div class="circle1">
-        <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-          class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-          <path
-            d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-        </svg>
-      </div>
-    </div>
-
-  </footer>
   <!-- Footer ended-->
 
- 
+
   <!--Dark Mode-->
 
   <script>
@@ -604,7 +726,7 @@ const coords = { x: 0, y: 0 };
 <script>
   document.addEventListener("DOMContentLoaded", function () {
       const backToTopButton = document.getElementById('back-to-top-container');
-  
+
       function checkButtonVisibility() {
           if (window.innerWidth > 100 && window.scrollY > 100) {
               backToTopButton.style.display = 'block';
@@ -612,20 +734,20 @@ const coords = { x: 0, y: 0 };
               backToTopButton.style.display = 'none';
           }
       }
-  
+
       window.addEventListener('scroll', checkButtonVisibility);
       window.addEventListener('resize', checkButtonVisibility);
-  
+
       backToTopButton.addEventListener('click', function () {
           window.scrollTo({
               top: 0,
-              behavior: 'smooth' 
+              behavior: 'smooth'
           });
       });
       checkButtonVisibility();
   });
-  
-    </script>
 
+    </script>
+    <script src="../js/freeBooks.js"></script>
 </body>
 </html>
