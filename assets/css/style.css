@@ -450,7 +450,7 @@ body {
 
 .btn-primary {
   background-color: var(--old-rose);
-  color: var(--white);
+  color: white;
   border-radius: var(--radius-5);
   margin-left: 0px;
   text-align: center;
@@ -598,7 +598,7 @@ body {
 }
 
 .navbar-item {
-  margin: 0 10px;
+  margin: 0 5px;
   /* Adjust the horizontal margin to increase spacing */
   padding: 0;
   /* Remove default padding */
@@ -760,7 +760,7 @@ body {
 }
 
 .navbar-item {
-  margin: 0 10px;
+  margin: 0 5px;
   padding: 0;
 }
 
@@ -932,25 +932,39 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.benefits .grid-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.benefits .flex {
+  display: flex;
   gap: 20px;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
+#benefits .benefits-canvas-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center ;
+  align-items: center;
+}
+
+#benefits .benefits-canvas-container .canvas
+{
+  margin: 10px;
+  width: 300px;
+}
+
+
 .benefits-card {
-  width: calc(50% - 20px);
+  position: relative;
   height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* Center text within cards */
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
 }
 
@@ -964,6 +978,7 @@ body {
 }
 
 .benefits-card {
+  width: 100%;
   padding: 25px;
   background-color: #FFD6CE 0.9px;
   height: 500px;
@@ -971,12 +986,11 @@ body {
   border-radius: var(--radius-5);
   overflow: hidden;
   transition: var(--transition-2);
-  height: 500px;
-  width: 260px;
 }
 
 .benefits-card::before,
 .benefits-card::after {
+  content:"";
   bottom: 0;
   right: 0;
   clip-path: var(--polygon);
@@ -1038,10 +1052,6 @@ body {
   color: rgb(205, 168, 168);
 }
 
-.canvas:hover{
-  transform: scale(1.05);
-  box-shadow: 3px 3px #e36e5c;
-}
 
 /*-----------------------------------*\
   #CHAPTERS
@@ -1624,6 +1634,7 @@ textarea.input-field {
     width: 90%;
   }
 }
+
 
 
 
@@ -2589,6 +2600,7 @@ input[type="submit"]:hover {
 
 .answers {
   color: var(--sonic-silver);
+  line-height: 28px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease-in-out;
@@ -2604,7 +2616,7 @@ body.dark-mode {
 }
 
 .dark-mode .form {
-  /* background-color: #333; */
+  background-color: #333;
   color: #fff;
 }
 
@@ -2728,15 +2740,25 @@ footer {
   top: 140px;
 }
 
-#back-to-top-container {
-
-  /* position: fixed; */
-  top: 83%;
-  right: 2.8%;
-  /* Changed left to right */
+#back-to-top-container{
+  position: fixed;
+  top: 75% !important;
+  right: 2.8% !important;
   cursor: pointer;
   z-index: 1000;
 }
+
+@media(max-width : 900px){
+  #back-to-top-container{
+    position: fixed;
+    top: 65% !important;
+    right: 9% !important;
+    cursor: pointer;
+    z-index: 1000;
+  }
+}
+
+
 
 .circle1 {
 
@@ -2880,7 +2902,7 @@ footer {
 
   #back-to-top-container {
     position: fixed;
-    top: 82%;
+    top: 84.1%;
     right: 8%;
     /* Changed left to right */
   }
@@ -2996,51 +3018,6 @@ footer {
     right: 4.95%;
     /* Changed left to right */
   }
-
-}
-
-/* recommendation system */
-.container00 {
-  max-width: 900px;
-  max-height: 800px;
-  margin: 20px auto;
-  padding: 80px;
-  border: 1px solid #ccc;
-  /* border-radius: 5px; */
-  background-color: var(--seashell);
-  border-radius: var(--radius-5);
-  margin-bottom: 50px;
-}
-
-.container01 {
-  background-color: var(--seashell);
-  border-radius: var(--radius-5);
-  margin-bottom: 50px;
-  margin-left: 310px;
-  margin-right: 310px;
-  padding: 80px;
-  border: 2px solid #b49393;
-  color: black;
-}
-
-.preference-bar {
-  display: flex;
-  justify-content: center;
-  /* Center items horizontally */
-  align-items: center;
-  flex-wrap: wrap;
-  /* Allow items to wrap if they exceed container width */
-}
-
-.preference-bar>* {
-  margin: 0 10px;
-  /* Add spacing between items */
-}
-
-.preference-bar label {
-  font-weight: bold;
-  font-size: 20px;
-  color: #474646;
 }
 
 select {
@@ -3085,7 +3062,7 @@ select {
 .container00 h2 {
   color: rgb(62, 60, 60);
   margin-bottom: 50px;
-  margin-left: 230px;
+  margin-left: 280px;
   font-size: 30px;
 }
 
@@ -3099,6 +3076,65 @@ select {
   box-shadow: 0 0 5px rgb(232, 167, 137);
   /* Adding a shadow for better focus indication */
 }
+
+
+select {
+  /* Remove default blue background color */
+  background-color: transparent;
+  /* Optional: Remove default blue text color */
+  color: black;
+  /* or whatever color you want */
+}
+
+.preference-bar button {
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 5px;
+  /* background-color: #007bff; */
+  /* color: #fff; */
+  border: none;
+  cursor: pointer;
+}
+
+/* .preference-bar button:hover { */
+/* background-color: #0056b3; */
+/* } */
+
+.preference-bar select {
+  padding: 8px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 2px solid #444242;
+  outline: none;
+  background-color: rgb(234, 224, 221);
+  color: #333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.preference-bar select option {
+  background-color: rgb(242, 227, 227);
+  color: #333;
+  padding: 8px;
+}
+
+.container00 h2 {
+  color: rgb(62, 60, 60);
+  margin-bottom: 50px;
+  margin-left: 280px;
+  font-size: 30px;
+}
+
+.preference-bar select:hover {
+  background-color: var(--old-rose_30);
+}
+
+.preference-bar select:focus {
+  border-color: #1e1e1f;
+  /* Border color when the select element is focused */
+  box-shadow: 0 0 5px rgb(232, 167, 137);
+  /* Adding a shadow for better focus indication */
+}
+
 
 .dark-mode .preference-bar label,
 .dark-mode .preference-bar select:hover,
@@ -3175,6 +3211,10 @@ body.dark-mode .h3 {
 .container01.dark-mode {
   background-color: #1e1e1e;
   color: #ffffff;
+}
+
+.recommendationTitle-heading {
+  color: white;
 }
 
 .section-subtitle.dark-mode,
@@ -3426,9 +3466,4 @@ body.dark-mode .h3 {
 
   .fab.fa-twitter{
     font-family:sans-serif;
-  }
-  .fab.fa-twitter::before{
-    content:"𝕏";
-    font-size:1.1em;
-    background-color: transparent;
   }
