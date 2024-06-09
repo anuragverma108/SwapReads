@@ -191,24 +191,36 @@
       transition: ease-in-out;
     }
 
+    .dark-mode .header.scrolled {
+      background-color: #232222; /* Change to a darker color when scrolled */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+    }
+
     /* pankaj bind */
     #cookie-consent {
       position: fixed;
       bottom: 10px;
       left: 10px;
       background-color: #f1f1f1;
-      padding: 30px;
+      padding: 20px;
+
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      width: 350px;
-      height: 300px;
+      width: 300px;
+      height: fit-content;
       z-index: 100;
       border-radius: 10px;
       margin-bottom: 5px;
-      box-shadow: 0 0 20px #A30F17;
-      display: none;
+      margin: 20px;
+      border-right: 4px solid transparent; 
+      border-bottom: 4px solid transparent; 
+      transition: border-color 0.3s; 
+    }
+    #cookie-consent:hover {
+      border-right-color: #A30F17; 
+      border-bottom-color: #A30F17; 
     }
 
     
@@ -227,14 +239,9 @@
       background-color: #A30F17;
 
     }
-    #accept-cookies:hover{
-      transform: scale(0.9);
-      box-shadow: 0 0 40px whitesmoke;
-    }
-    #reject-cookies:hover{
-      transform: scale(0.9);
-      box-shadow: 0 0 40px whitesmoke;
-
+    #accept-cookies:hover, #reject-cookies:hover {
+     transform: scale(0.9);
+    box-shadow: 0 0 20px rgb(249, 212, 212);
     }
     .accept-cookies:hover {
       width: 280px;
@@ -251,6 +258,13 @@
       color: red;
     }
     
+
+        #cookie-content {
+            display: none;
+            margin-top: 10px;
+        }
+    
+
     
     /* Basic navbar styling */
 .header {
@@ -268,7 +282,7 @@
 
 /* Navbar styling when scrolled */
 .header.scrolled {
-  background-color: #222; /* Change to a darker color when scrolled */
+  background-color: #efefef; /* Change to a darker color when scrolled */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
 }
 
@@ -280,52 +294,105 @@
 <body>
 
   <div id="cookie-consent">
-    <p style="color: black;">We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy. <a href="#">Learn More</a></p>
+<p style="color: black;">We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy. <a href="#" id="learn-more-link">Learn More</a></p>
+
+<div id="cookie-content" style="color: black;">
+  <p>Our Cookie Policy explains how we use cookies to enhance your experience. Cookies are small text files that are stored on your device when you visit a website. They help us to remember your preferences, track website usage, and provide personalized content. You can control your cookie preferences through your browser settings. By continuing to use our website, you agree to the use of cookies as described in our Cookie Policy.</p>
+</div>
+
+<button id="accept-cookies">Accept</button>
+<button id="reject-cookies">Reject</button>
+
+<p style="color: black;">We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy. <a href="#">Learn More</a></p>
+
     <button class="accept-cookies">Accept</button>
     <button class="reject-cookies">Reject</button>
 </div>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-      // Function to set a cookie
-      function setCookie(name, value, days) {
-          var expires = "";
-          if (days) {
-              var date = new Date();
-              date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-              expires = "; expires=" + date.toUTCString();
-          }
-          document.cookie = name + "=" + (value || "") + expires + "; path=/";
-      }
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to set a cookie
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
 
-      // Function to get a cookie
-      function getCookie(name) {
-          var nameEQ = name + "=";
-          var ca = document.cookie.split(';');
-          for (var i = 0; i < ca.length; i++) {
-              var c = ca[i];
-              while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-              if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-          }
-          return null;
-      }
+        // Function to get a cookie
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
 
-      // Show the consent banner if the consent cookie is not set
-      if (!getCookie('cookieConsent')) {
-          document.getElementById('cookie-consent').style.display = 'flex';
-      }
+        const header = document.querySelector('.header');
+        let lastScrollY = window.scrollY;
 
-      // Add event listeners to the buttons
-      document.querySelector('.accept-cookies').addEventListener('click', function() {
-          setCookie('cookieConsent', 'accepted', 365);
-          document.getElementById('cookie-consent').style.display = 'none';
-      });
+        window.addEventListener('scroll', function() {
+            const currentScrollY = window.scrollY;
 
-      document.querySelector('.reject-cookies').addEventListener('click', function() {
-          setCookie('cookieConsent', 'rejected', 365);
-          document.getElementById('cookie-consent').style.display = 'none';
-      });
-  });
+            if (currentScrollY > lastScrollY) {
+                // Scrolling down
+                header.classList.add('hidden');
+            } else {
+                // Scrolling up
+                header.classList.remove('hidden');
+            }
+
+            if (currentScrollY > 50) { // Adjust the scroll distance as needed
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            lastScrollY = currentScrollY;
+        });
+
+        const cookieConsent = document.getElementById('cookie-consent');
+        const acceptButton = document.getElementById('accept-cookies');
+        const rejectButton = document.getElementById('reject-cookies');
+
+        // Function to hide the cookie consent box
+        function hideCookieConsent() {
+            cookieConsent.style.display = 'none';
+        }
+
+        acceptButton.addEventListener('click', function() {
+            hideCookieConsent();
+            setCookie('cookieConsent', 'accepted', 365);
+        });
+
+        rejectButton.addEventListener('click', function() {
+            hideCookieConsent();
+            setCookie('cookieConsent', 'rejected', 365);
+        });
+
+        // Check if cookie consent has already been given
+        if (getCookie('cookieConsent') === 'accepted') {
+            hideCookieConsent();
+        }
+
+        if (!getCookie('cookieConsent')) {
+            document.getElementById('cookie-consent').style.display = 'flex';
+        }
+
+        document.getElementById('learn-more-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('cookie-content').style.display = 'block';
+            var learnMoreLink = document.getElementById('learn-more-link');
+            learnMoreLink.style.display = 'none';
+        });
+    });
 </script>
+
   <div class="circle"></div>
   <div class="circle"></div>
   <div class="circle"></div>
