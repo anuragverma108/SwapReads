@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Booklist for Swapping</title>
+    <title>Literary Realms</title>
     <link rel="apple-touch-icon" sizes="180x180" href="./../favicon_package_v0.16/apple-touch-icon.png"> 
     <link rel="icon" type="image/png" sizes="32x32" href="./../favicon_package_v0.16/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./../favicon_package_v0.16/favicon-16x16.png">
@@ -85,6 +85,10 @@
             justify-content: flex-start;
             /* height: 100vh; */
             /* width: 100%; */
+        }
+        #section{
+            padding-top: 50px;
+            margin-top:50px;
         }
         footer{
             width: 100%;
@@ -240,99 +244,45 @@
         <div class="container">
     
           <nav class="navbar" data-navbar>
-            <a href="../../index.html" class="logo" style="display:flex;">
-              <img src="../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
+            <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
+            <img src="./../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
             </a>
     
             <ul class="navbar-list">
-              <a href="../../index.html">
-                <img src="../images/new_logo_banner_dark.png" class="logopic" style=" width: 150px;">
+              <img src="./../images/new_logo_banner_dark.png" class="logopic" style=" width: 200px;">
     
-                <li class="navbar-item">
-                  <a href="../../index.html" class="navbar-link" data-nav-link><i class="ri-home-fill"></i> Home</a>
-                </li>
+              <li class="navbar-item">
+                <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
+                    class="ri-home-fill"></i> Home</a>
+              </li>
     
-                <li class="navbar-item">
-                  <a href="../../index.html#benefits" class="navbar-link" data-nav-link><i class="ri-bar-chart-fill"></i>
-                    Benefits</a>
-                </li>
+              <li class="navbar-item">
+                <a href="./index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
+                    class="ri-bar-chart-fill"></i> Benefits</a>
+              </li>
     
-                <li class="navbar-item">
-                  <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
-                      class="ri-bar-chart-fill"></i> Genre</a>
+              <li class="navbar-item">
+                <a href="./index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+                    class="ri-bar-chart-fill"></i> Genre</a>
+              </li>
     
-                </li>
+              <li class="navbar-item">
     
-                <li class="navbar-item">
-                  <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link"
-                    data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
-                </li>
+                <a href="/assets/html/index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
+                    class="ri-customer-service-2-fill"></i> Contact</a>
+              </li>
     
-                <li class="navbar-item">
-                  <a href="rate.html" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
-                </li>
-                <li class="navbar-item" id="logout-r">
-                  <a href="../html/login.html" class="navbar-link">Login/Signup</a>
-                </li>
+              <li class="navbar-item">
+                <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+              </li>
+              <li class="navbar-item" id="login-signup-link">
+                <a href="./login.html" class="navbar-link">Login/Signup</a>
+              </li>
+              <li class="navbar-item dropdown" id="more-dropdown">
+                <a href="#" class="navbar-link" id="more-link">More 
+                <svg  class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z"/></svg></a>
+                <div class="dropdown-menu" id="dropdown-menu">
     
-
-    
-                <li class="navbar-item dropdown" id="more-dropdown">
-                  <a href="#" class="navbar-link" id="more-link">More
-                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
-                      viewBox="0 0 24 24">
-                      <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
-                    </svg></a>
-                  <div class="dropdown-menu" id="dropdown-menu">
-    
-                    <ul class="dropdown-menu-list">
-                      <li class="dropdown-menu-item">
-                        <a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link"
-                          data-nav-link><i class="ri-medal-fill"></i> Literary Realms</a>
-                      </li>
-                      <li class="dropdown-menu-item">
-                        <a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link"
-                          data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
-                      </li>
-                      <li class="dropdown-menu-item">
-                        <a href="addremovebook.html" class="navbar-link">Booklist for Swapping</a>
-                      </li>
-                      <li class="dropdown-menu-item">
-                        <a href="book_recommend.html" class="navbar-link" data-nav-link>
-                          <i class="ri-customer-service-2-fill"></i> Book Recommendation
-                        </a>
-                      </li>
-                      <li class="dropdown-menu-item">
-                        <a href="freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link" data-nav-link><i
-                            class="ri-price-tag-3-fill"></i>Free E-books</a>
-                      </li>
-                      <li class="dropdown-menu-item">
-                        <a href="about.html" class="navbar-link">About</a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-    
-                <li>
-    
-                  <div class="switch-container">
-                    <input type="checkbox" id="switch" class="switch-checkbox">
-                    <label for="switch" class="switch-label">
-                      <div class="switch-button">
-                        <span class="material-icons sun-icon"></span>
-                        <span class="material-icons moon-icon"></span>
-                      </div>
-                    </label>
-                  </div>
-    
-                </li>
-                <!-- Google Translate Element -->
-                <li class="navbar-item">
-                  <div id="google_element"></div>
-                </li>
-            </ul>
-          </nav>
-
                   <ul class="dropdown-menu-list">
                     <li class="dropdown-menu-item">
                       <a href="./index.html#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i class="ri-medal-fill"></i> Literary Realms</a>
@@ -341,7 +291,7 @@
                       <a href="./index.html#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
                     </li>
                     <li class="dropdown-menu-item">
-                      <a href="./addremovebook.html" class="navbar-link">Booklist for Swapping</a>
+                      <a href="./booklistswap.html" class="navbar-link">Booklist for Swapping</a>
                     </li>
                     <li class="dropdown-menu-item">
                       <a href="./book_recommend.html" class="navbar-link" data-nav-link>
@@ -350,9 +300,6 @@
                     </li>
                     <li class="dropdown-menu-item">
                       <a href="./freeBooks.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
-                    </li>
-                    <li class="dropdown-menu-item">
-                      <a href="./read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
                     </li>
                     <li class="dropdown-menu-item">
                       <a href="./about.html" class="navbar-link">About</a>
@@ -367,7 +314,6 @@
             </li>
         </ul>
     </nav>
-
     </div>
     
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
@@ -400,211 +346,168 @@
     
         </div>
       </header>
-      <section>
-    <header class="navbar5">
-        <h1 class="navbar-header" style="margin-top: 170px;"><a href="#">Your Booklist for Swapping</a></h1>
-    </header>
-    <div id="container5" style="margin-bottom: 20px;">
-        <h2>Add a Book</h2>
-        <form id="book-form">
-            <input type="text" id="book-title" placeholder="Book Title" required>
-            <input type="text" id="book-author" placeholder="Author" required>
-            <input type="text" id="book-genre" placeholder="Genre" required>
-            <button type="submit">Add to List</button>
-        </form>
-        <h2>Ready-to-Swap Reads</h2>
-        <ul class="book-list" id="book-list">
-            <!-- Books will be dynamically added here -->
-        </ul>
-    </div>
-</section>
-<footer>
-  <div class="foot-top">
-    <div class="foot-left">
+      <!--
+        - #PRICING
+      -->
+      <section class="section pricing" id="pricing" aria-label="pricing">
+        <div class="container">
 
-      <div class="desc">
-<!--google translate-->
-        <div id="google_translate_element"></div>
+          <p class="section-subtitle">Pricing</p>
 
-        <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement(
-                    {pageLanguage: 'en'},
-                    'google_translate_element'
-                );
-            }
-        </script>
+          <h2 class="h2 section-title has-underline">
+            Pricing based on their version
+            <span class="span has-before"></span>
+          </h2>
 
-        <script type="text/javascript"
-                src=
-    "https://translate.google.com/translate_a/element.js?
-    cb=googleTranslateElementInit">
-        </script>
-        <div><a href="#" class="logo">SwapReads</a></div>
-        <div>
-          <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
-            lovers
-            seeking to swap and
+          <ul class="grid-list">
 
-            discover new literary gems.
-            Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
-            the
-            world of literature—all on one convenient platform. Join us and dive into a universe of endless
-            possibilities!
+            <li>
+              <div class="pricing-card">
+
+                <h3 class="h3 card-title">Fresh Pages - New Releases</h3>
+
+                <data class="price" value="5">75% Off</data>
+
+                <ul class="pricing-card-list">
+
+                  <li class="card-item">
+                    <p class="card-text">Exchange any recently released or gently used books, less than a year old, at
+                      75% of the original cost (Limited Offer)</p>
+                  </li>
+                </ul>
+
+                <button class="btn btn-secondary">BUY NOW</button>
+              </div>
+            </li>
+            <li>
+              <div class="pricing-card">
+                <h3 class="h3 card-title">Timeless Classics - Aged Wonders</h3>
+                <data class="price" value="15">50% Off</data>
+                <ul class="pricing-card-list">
+
+                  <li class="card-item">
+                    <p class="card-text">Swap beloved classics or books aged 1 to 5 years at 50% of the original cost,
+                      preserving the magic of timeless stories.</p>
+                  </li>
+                </ul>
+
+                <button class="btn btn-secondary">BUY NOW</button>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="pricing-card">
+                <h3 class="h3 card-title">Hidden Treasures - Vintage Editions</h3>
+                <data class="price" value="10">25% Off</data>
+                <ul class="pricing-card-list">
+
+
+                  <li class="card-item">
+                    <p class="card-text">Dive into the past with vintage editions or books over 5 years old, available
+                      for exchange at 25% of their original cost.</p>
+                  </li>
+                </ul>
+
+                <button class="btn btn-secondary">BUY NOW</button>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+        </section>
+        <footer>
+        <div class="foot-top">
+          <div class="foot-left">
+            <div class="desc">
+    
+              <a href="#" class="logo">SwapReads</a>
+              <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book lovers
+                seeking to swap and
+    
+                discover new literary gems.
+                Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in the
+                world of literature—all on one convenient platform. Join us and dive into a universe of endless
+                possibilities!
+              </p>
+            </div>
+          </div>
+          <div class="foot-middle">
+            <h2>Quick Links</h2>
+            <ul>
+              <li class="foot-quick"><a href="./index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
+              <li class="foot-quick"><a href="./index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
+              <li class="foot-quick"><a href="./index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+              <li class="foot-quick"><a href="./index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
+              <li class="foot-quick"><a href="./index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+              <li class="foot-quick"><a href="./index.html#faqq" onclick="lenis.scrollTo('#faqq')">Faq</a></li>
+            </ul>
+          </div>
+          <div class="social-icons">
+            <!-- <h5>Newsletter</h5> -->
+            <!-- <div class="input-newletter">
+              <label for="newsletter"><h5>Newsletter</h5></label>
+              <input placeholder="Enter your email" type="email" ></input>
+              <button class="btn-subs">Subscribe</button>
+            </div> -->
+    
+            <form type="newsletter">
+              <label for="email">Subscribe to our Newsletter</label>
+              <div class="row-flex">
+    
+    
+    
+                <!--email write-->
+                <input type="news" value="" name="email" placeholder="email address" required>
+                <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" >
+              </div>
+            </form>
+            <div class="icons">
+              <a href="#">
+                <div class="icon">
+                  <i class="fab fa-facebook-square"></i>
+                </div>
+              </a>
+        
+              <a href="#">
+                <div class="icon">
+                  <i class="fa-brands fa-square-x-twitter"></i>
+                </div>
+              </a>
+        
+              <a href="#">
+                <div class="icon">
+                  <i class="fab fa-instagram-square"></i>
+                </div>
+              </a>
+        
+              <a href="https://www.youtube.com/@anuragbytes">
+                <div class="icon">
+                  <i class="fab fa-youtube-square"></i>
+                </div>
+              </a>
+          <!-- </div> -->
+        </div>
+        <div class="footer-bottom">
+          <p class="copyright" style="text-align: center">
+            &copy;
+            <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
           </p>
         </div>
-
-      </div>
-    </div>
-    <div class="foot-middle">
-      <h2>Quick Links</h2>
-      <div id="quicklinks">
-        <div>
-        <ul>
-          <li class="foot-quick"><a href="../../index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
-          <li class="foot-quick"><a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
-          <li class="foot-quick"><a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
-          <li class="foot-quick"><a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
-          <li class="foot-quick"><a href="book_recommend.html"
-            onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
-        </ul>
-      </div>
-      <div>
-        <ul>
-          <li class="foot-quick"><a href="addremovebook.html" onclick="lenis.scrollTo('#contact')">Swap
-              BookList</a></li>
-          <li class="foot-quick"><a href="freeBooks.html"
-              onclick="lenis.scrollTo('#contact')">E-Book</a></li>
-          <li class="foot-quick"><a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
-        </ul>
-      </div>
-      </div>
-    </div>
-    <div class="social-icons">
-      <!-- <h5>Newsletter</h5> -->
-      <!-- <div class="input-newletter">
-        <label for="newsletter"><h5>Newsletter</h5></label>
-        <input placeholder="Enter your email" type="email" ></input>
-        <button class="btn-subs">Subscribe</button>
-      </div> -->
-
-      <form type="newsletter">
-        <label for="email">Subscribe to our Newsletter</label>
-        <div class="row-flex">
-
-
-
-          <!--email write-->
-          <input type="news" value="" name="email" placeholder="email address">
-          <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
-          <input type="news" value="" name="email" placeholder="email address" id="newsletter-email">
-          <button type="submit" class="subscribe-btn">subscribe</button>
-
+    
+        <div id="back-to-top-container">
+          <div class="circle1">
+            <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+              class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+              <path
+                d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+            </svg>
+          </div>
         </div>
-      </form>
-      <style>
-        .icons .icon i {
-          font-size: 24px;
-          /* Set the default font size for icons */
-          transition: all 0.3s ease;
-          /* Add transition for smooth animation */
-        }
-
-        .icons .icon:hover i {
-          transform: scale(1.2);
-          /* Scale the icon on hover */
-        }
-
-        .icons .icon:hover .fab.fa-facebook {
-          color: #3B5998;
-          /* Change to Facebook color on hover */
-        }
-
-        .icons .icon:hover .fab.fa-twitter{
-          color: #090e11;
-          /* Change to Twitter color on hover */
-        }
-
-        .icons .icon:hover .fab.fa-instagram {
-          background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-          background-clip: text;
-          border-radius: 20%;
-          transform: scale(1.5);
-          color:transparent;
-          /* Change to Instagram color on hover */
-        }
-
-        .icons .icon:hover .fab.fa-youtube {
-          color: #C31A1E;
-          /* Change to YouTube color on hover */
-        }
-        .icons .icon:hover .fab.fa-github {
-                  color: #333;
-              }
-      </style>
-
-      <div class="icons">
-        <a href="#">
-          <div class="icon">
-            <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
-          </div>
-        </a>
-
-        <a href="#">
-          <div class="icon">
-            <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
-          </div>
-        </a>
-
-        <a href="#">
-          <div class="icon">
-            <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
-          </div>
-        </a>
-
-        <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
-          <div class="icon">
-            <i class="fab fa-youtube" style="cursor: pointer;"></i>
-          </div>
-        </a>
-        <a href="https://github.com/anuragverma108" title="GitHub">
-          <div class="icon">
-              <i class="fab fa-github" style="cursor: pointer;"></i>
-          </div>
-        </a>
-      </div>
-      <!-- <div style="text-align: center; align-items: center;">
-        <p style="text-align: center">
-          &copy;
-          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-          Hackers.
-        </p>
-
-      </div> -->
-
-      <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">
-        <div class="circle1">
-          <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-            class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-            <path
-              d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-          </svg>
-        </div>
-      </div>
-    </div>
-  </div>
-      <div style="text-align: center; align-items: center;">
-        <p style="text-align: center">
-          &copy;
-          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-          Hackers.
-        </p>
-
-      </div>
-
-
-
-</footer>
+    
+      </footer>
       <!-- Footer ended-->
 
     <script>
