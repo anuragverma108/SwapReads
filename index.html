@@ -40,6 +40,7 @@
   <script src="./assets/js/faq.js"></script>
   <script src="./assets/js/tilt.js"></script>
   <script src="./assets/js/scroll.js"></script>
+  <link rel="stylesheet" href="./scrollbar.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="modals(privacy policy).css">
@@ -172,6 +173,64 @@
       transition: ease-in-out;
     }
 
+.cta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: auto;
+  padding: 20px 24px;
+  color:  hsl(357, 37%, 62%);
+  font-family: Avenir, sans-serif;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 28px;
+    background: rgba(255, 171, 157, 0.5);
+    width: 56px;
+    height: 56px;
+    transition: all 0.3s ease;
+  }
+  span {
+    position: relative;
+    font-size: 8px;
+    line-height: 18px;
+    font-weight: 900;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+  svg {
+    position: relative;
+    top: 0;
+    margin-left: 5px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: hsl(357, 37%, 62%);
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    &:before {
+      width: 9%;
+      background: #ffab9d;
+    }
+    svg {
+      transform: translateX(0);
+    }
+    .active {
+      transform: scale(0.96);
+    }
+  }
+}
+
 
 
     /* Dark Mode Styles */
@@ -191,72 +250,81 @@
       transition: ease-in-out;
     }
 
+    .dark-mode .header.scrolled {
+      background-color: #232222; /* Change to a darker color when scrolled */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+    }
+
     /* pankaj bind */
     #cookie-consent {
       position: fixed;
       bottom: 10px;
       left: 10px;
       background-color: #f1f1f1;
-      padding: 30px;
+      padding: 20px;
+
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      width: 350px;
-      height: 300px;
+      width: 300px;
+      height: fit-content;
       z-index: 100;
       border-radius: 10px;
       margin-bottom: 5px;
-      box-shadow: 0 0 20px #A30F17;
-      display: none;
+      margin: 20px;
+      border-right: 4px solid transparent; 
+      border-bottom: 4px solid transparent; 
+      transition: border-color 0.3s; 
+    }
+    #cookie-consent:hover {
+      border-right-color: #A30F17; 
+      border-bottom-color: #A30F17; 
     }
 
-    #cookie-consent button {
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      display: none;
-    }
-
-    .accept-cookies {
-      width: 280px;
-      height: 40px;
-      color: white;
-      background-color: #A30F17;
-    }
-    .reject-cookies {
-      margin-top: 10px;
- padding-top: 5px;
-      height: 40px;
-      width: 280px;
-      color: white;
-      background-color: #A30F17;
-
-    }
-    #accept-cookies:hover{
-      transform: scale(0.9);
-      box-shadow: 0 0 40px whitesmoke;
-    }
-    #reject-cookies:hover{
-      transform: scale(0.9);
-      box-shadow: 0 0 40px whitesmoke;
-
-    }
-    .accept-cookies:hover {
-      width: 280px;
-      height: 40px;
-      background-color: white;
-      color: red;
-    }
-
-    .reject-cookies:hover{
-      margin-top: 10px;
-      height: 40px;
-      width: 280px;
-      background-color: white;
-      color: red;
-    }
     
+    .accept-cookies {
+  width: 280px;
+  height: 40px;
+  color: white;
+  background-color: #A30F17;
+}
+.reject-cookies {
+  margin-top: 10px;
+  padding-top: 5px;
+  height: 40px;
+  width: 280px;
+  color: white;
+  background-color: #A30F17;
+}
+
+.accept-cookies:hover, .reject-cookies:hover {
+  transform: scale(0.9);
+  box-shadow: 0 0 20px rgb(249, 212, 212);
+}
+
+.accept-cookies:hover {
+  background-color: white;
+  color: red;
+}
+
+.reject-cookies:hover {
+  background-color: white;
+  color: red;
+}
+
+    #back-to-top-container {
+      position: fixed;
+    }
+
+    
+
+        #cookie-content {
+            display: none;
+            margin-top: 10px;
+        }
+    
+
     
     /* Basic navbar styling */
 .header {
@@ -274,7 +342,7 @@
 
 /* Navbar styling when scrolled */
 .header.scrolled {
-  background-color: #222; /* Change to a darker color when scrolled */
+  background-color: #efefef; /* Change to a darker color when scrolled */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
 }
 
@@ -284,79 +352,45 @@
 
 
 <body>
+  <div class="nav-wrapper">
+    <div class="progress-bar"></div>
+  </div>
 
   <div id="cookie-consent">
+
+   
     <p style="color: black;">We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with
       our Cookie Policy. <a href="#">Learn More</a></p>
     <button class="accept-cookies">Accept</button>
     <button class="reject-cookies">Reject</button>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const cookieConsent = document.getElementById('cookie-consent');
+    const acceptButton = document.querySelector('.accept-cookies');
+    const rejectButton = document.querySelector('.reject-cookies');
 
-
-    <script>
-
-     document.addEventListener('DOMContentLoaded', function() {
-  const header = document.querySelector('.header');
-  let lastScrollY = window.scrollY;
-
-  window.addEventListener('scroll', function() {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY > lastScrollY) {
-      // Scrolling down
-      header.classList.add('hidden');
-    } else {
-      // Scrolling up
-      header.classList.remove('hidden');
+    // Check if the user has already made a choice
+    if (localStorage.getItem('cookieConsent')) {
+      cookieConsent.style.display = 'none';
     }
 
-    if (currentScrollY > 50) { // Adjust the scroll distance as needed
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+    // Function to handle cookie consent choice
+    function handleConsent(choice) {
+      localStorage.setItem('cookieConsent', choice);
+      cookieConsent.style.display = 'none';
     }
 
-    lastScrollY = currentScrollY;
+    // Add event listeners to buttons
+    acceptButton.addEventListener('click', function() {
+      handleConsent('accepted');
+    });
+
+    rejectButton.addEventListener('click', function() {
+      handleConsent('rejected');
+    });
   });
-});
-
-      const cookieConsent = document.getElementById('cookie-consent');
-      const acceptButton = document.getElementById('accept-cookies');
-      const rejectButton = document.getElementById('reject-cookies');
-
-      // Function to hide the cookie consent box
-      function hideCookieConsent() {
-        cookieConsent.style.display = 'none';
-        // You can also set a cookie here to remember user preference (optional)
-      }
-
-      acceptButton.addEventListener('click', hideCookieConsent);
-      rejectButton.addEventListener('click', hideCookieConsent);
-
-    </script>
-  </div>
-
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-
-
+</script>
   <div id="preloader">
     <div class="loader">
       <div class="book-wrapper">
@@ -432,24 +466,27 @@
 
               <ul class="dropdown-menu-list">
                 <li class="dropdown-menu-item">
-                  <a href="#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
+                  <a href="./assets/html/literaryrealms.html" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
                       class="ri-medal-fill"></i> Literary Realms</a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href="#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
+                  <a href="./assets/html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
                       class="ri-price-tag-3-fill"></i> Pricing</a>
                 </li>
                 <li class="dropdown-menu-item">
                   <a href="./assets/html/booklistswap.html" class="navbar-link">Booklist for Swapping</a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href="./assets/html/book_recommend.html" class="navbar-link" data-nav-link>
+                  <a href="./assets/html/bookrecommend.html" class="navbar-link" data-nav-link>
                     <i class="ri-customer-service-2-fill"></i> Book Recommendation
                   </a>
                 </li>
                 <li class="dropdown-menu-item">
                   <a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
                     data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="./assets/html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
                 </li>
                 <li class="dropdown-menu-item">
                   <a href="./assets/html/about.html" class="navbar-link">About</a>
@@ -608,11 +645,17 @@
                   to new and exciting literary adventures.
                 </p>
 
-                <a href="#" class="btn-link">
+                <!-- <a href="#" class="btn-link">
                   <span class="span readmore-anim">Read more</span>
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+                </a> -->
+                <a href="#" class="cta style-9">
+                  <span>Read More</span>
+                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                  </svg>
                 </a>
-
               </div>
             </li>
 
@@ -631,10 +674,17 @@
                 </p>
                 <br>
 
-                <a href="#" class="btn-link">
+                <!-- <a href="#" class="btn-link">
                   <span class="span readmore-anim">Read more</span>
 
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+                </a> -->
+                <a href="#" class="cta style-9">
+                  <span>Read More</span>
+                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                  </svg>
                 </a>
 
               </div>
@@ -654,12 +704,18 @@
                   forming a community bonded by a love for literature.
                 </p>
 
-                <a href="#" class="btn-link">
+                <!-- <a href="#" class="btn-link">
                   <span class="span readmore-anim">Read more</span>
 
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+                </a> -->
+                <a href="#" class="cta style-9">
+                  <span>Read More</span>
+                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                  </svg>
                 </a>
-
               </div>
             </li>
 
@@ -678,12 +734,18 @@
                 </p>
                 <br>
 
-                <a href="#" class="btn-link">
+                <!-- <a href="#" class="btn-link">
                   <span class="span readmore-anim">Read more</span>
 
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+                </a> -->
+                <a href="#" class="cta style-9">
+                  <span>Read More</span>
+                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                  </svg>
                 </a>
-
               </div>
             </li>
 
@@ -702,12 +764,18 @@
                 </p>
                 <br>
 
-                <a href="#" class="btn-link">
+                <!-- <a href="#" class="btn-link">
                   <span class="span readmore-anim">Read more</span>
 
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+                </a> -->
+                <a href="#" class="cta style-9">
+                  <span>Read More</span>
+                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                  </svg>
                 </a>
-
               </div>
             </li>
 
@@ -725,12 +793,18 @@
                   creating a personalized and curated reading experience that suits you.
                 </p>
 
-                <a href="#" class="btn-link">
+                <!-- <a href="#" class="btn-link">
                   <span class="span readmore-anim">Read more</span>
-
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
-                </a>
+                </a> -->
 
+                <a href="#" class="cta style-9">
+                  <span>Read More</span>
+                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                  </svg>
+                </a>
               </div>
             </li>
 
@@ -739,10 +813,228 @@
 
         </div>
       </section>
+      <!--Chapters -->
+      <section class="section chapters" id="chapters">
+        <div class="container">
+
+          <p class="section-subtitle">Literary Realms</p>
+
+          <h2 class="h2 section-title has-underline" id="section-title2">
+            Literary Realms we've covered
+            <span class="span has-before"></span>
+          </h2>
+
+          <ul class="grid-list">
+
+            <li>
+              <!---jfdb-->
+              <a class="cardo" href="books.html">
+                <h3 class="lithead">01. &nbsp;Romantic Escapes</h3>
+                <p class="small"> Immerse yourself in the enchanting world of love and passion with our curated
+                  selection of romance
+                  fiction.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+
+              <a class="cardo" href="#">
+                <h3 class="lithead">02. &nbsp;Thrilling Adventures</h3>
+                <p class="small"> Dive into heart-pounding tales and gripping narratives that will keep you on the edge
+                  of your seat.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li>
+
+              <a class="cardo" href="#">
+                <h3 class="lithead">03. &nbsp;Mindful Living</h3>
+                <p class="small"> Discover the secrets to a fulfilling life with our collection of insightful and
+                  empowering self-help
+                  books.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li>
+
+              <a class="cardo" href="#">
+                <h3 class="lithead">04. &nbsp;Mystical Fantasies</h3>
+                <p class="small"> Embark on fantastical journeys to magical realms with our captivating fantasy fiction
+                  picks.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow"> →
+                  </div>
+                </div>
+              </a>
+
+
+            </li>
+            <li>
+
+              <a class="cardo" href="#">
+                <h3 class="lithead">05. &nbsp;Historical Chronicles</h3>
+                <p class="small"> Travel back in time and explore the rich tapestry of history through our curated
+                  historical fiction
+                  selection.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
+
+
+            </li>
+            <li>
+
+              <a class="cardo" href="#">
+                <h3 class="lithead">06. &nbsp;Science Fiction Wonders</h3>
+                <p class="small"> Ignite your imagination with mind-bending concepts and futuristic worlds in our
+                  science fiction.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
+
+
+            </li>
+            <li>
+
+              <a class="cardo" href="#">
+                <h3 class="lithead">07. &nbsp;Laugh Out Loud Comedy</h3>
+                <p class="small"> Find joy and laughter in our comedy section, featuring witty and humorous tales that
+                  will brighten
+                  your day.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+
+              <a class="cardo" href="#">
+                <h3 class="lithead">08. &nbsp;Intriguing Mysteries</h3>
+                <p class="small"> Unravel gripping mysteries and suspenseful plots that will keep you guessing until the
+                  last page.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li>
+
+              <a class="cardo" href="#">
+                <h3 class="lithead">09. &nbsp;Inspiring Biographies</h3>
+                <p class="small"> Gain insights into the lives of remarkable individuals through our collection of
+                  inspiring biographies
+                  and memoirs.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
+
+            </li>
+          </ul>
+        </div>
+      </section>
 
 
 
+<!--
+        - #PRICING
+      -->
+      <section class="section pricing" id="pricing" aria-label="pricing">
+        <div class="container">
 
+          <p class="section-subtitle">Pricing</p>
+
+          <h2 class="h2 section-title has-underline">
+            Pricing based on their version
+            <span class="span has-before"></span>
+          </h2>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="pricing-card">
+
+                <h3 class="h3 card-title">Fresh Pages - New Releases</h3>
+
+                <data class="price" value="5">75% Off</data>
+
+                <ul class="pricing-card-list">
+
+                  <li class="card-item">
+                    <p class="card-text">Exchange any recently released or gently used books, less than a year old, at
+                      75% of the original cost (Limited Offer)</p>
+                  </li>
+                </ul>
+
+                <button class="btn btn-secondary">BUY NOW</button>
+              </div>
+            </li>
+            <li>
+              <div class="pricing-card">
+                <h3 class="h3 card-title">Timeless Classics - Aged Wonders</h3>
+                <data class="price" value="15">50% Off</data>
+                <ul class="pricing-card-list">
+
+                  <li class="card-item">
+                    <p class="card-text">Swap beloved classics or books aged 1 to 5 years at 50% of the original cost,
+                      preserving the magic of timeless stories.</p>
+                  </li>
+                </ul>
+
+                <button class="btn btn-secondary">BUY NOW</button>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="pricing-card">
+                <h3 class="h3 card-title">Hidden Treasures - Vintage Editions</h3>
+                <data class="price" value="10">25% Off</data>
+                <ul class="pricing-card-list">
+
+
+                  <li class="card-item">
+                    <p class="card-text">Dive into the past with vintage editions or books over 5 years old, available
+                      for exchange at 25% of their original cost.</p>
+                  </li>
+                </ul>
+
+                <button class="btn btn-secondary">BUY NOW</button>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+        </section>
 
       <!-- Genre -->
 
@@ -959,153 +1251,6 @@
         - #CHAPTERS
       -->
 
-      <section class="section chapters" id="chapters">
-        <div class="container">
-
-          <p class="section-subtitle">Literary Realms</p>
-
-          <h2 class="h2 section-title has-underline" id="section-title2">
-            Literary Realms we've covered
-            <span class="span has-before"></span>
-          </h2>
-
-          <ul class="grid-list">
-
-            <li>
-              <!---jfdb-->
-              <a class="cardo" href="books.html">
-                <h3 class="lithead">01. &nbsp;Romantic Escapes</h3>
-                <p class="small"> Immerse yourself in the enchanting world of love and passion with our curated
-                  selection of romance
-                  fiction.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow">
-                    →
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li>
-
-              <a class="cardo" href="#">
-                <h3 class="lithead">02. &nbsp;Thrilling Adventures</h3>
-                <p class="small"> Dive into heart-pounding tales and gripping narratives that will keep you on the edge
-                  of your seat.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow">
-                    →
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li>
-
-              <a class="cardo" href="#">
-                <h3 class="lithead">03. &nbsp;Mindful Living</h3>
-                <p class="small"> Discover the secrets to a fulfilling life with our collection of insightful and
-                  empowering self-help
-                  books.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow">
-                    →
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li>
-
-              <a class="cardo" href="#">
-                <h3 class="lithead">04. &nbsp;Mystical Fantasies</h3>
-                <p class="small"> Embark on fantastical journeys to magical realms with our captivating fantasy fiction
-                  picks.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow"> →
-                  </div>
-                </div>
-              </a>
-
-
-            </li>
-            <li>
-
-              <a class="cardo" href="#">
-                <h3 class="lithead">05. &nbsp;Historical Chronicles</h3>
-                <p class="small"> Travel back in time and explore the rich tapestry of history through our curated
-                  historical fiction
-                  selection.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow">
-                    →
-                  </div>
-                </div>
-              </a>
-
-
-            </li>
-            <li>
-
-              <a class="cardo" href="#">
-                <h3 class="lithead">06. &nbsp;Science Fiction Wonders</h3>
-                <p class="small"> Ignite your imagination with mind-bending concepts and futuristic worlds in our
-                  science fiction.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow">
-                    →
-                  </div>
-                </div>
-              </a>
-
-
-            </li>
-            <li>
-
-              <a class="cardo" href="#">
-                <h3 class="lithead">07. &nbsp;Laugh Out Loud Comedy</h3>
-                <p class="small"> Find joy and laughter in our comedy section, featuring witty and humorous tales that
-                  will brighten
-                  your day.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow">
-                    →
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li>
-
-              <a class="cardo" href="#">
-                <h3 class="lithead">08. &nbsp;Intriguing Mysteries</h3>
-                <p class="small"> Unravel gripping mysteries and suspenseful plots that will keep you guessing until the
-                  last page.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow">
-                    →
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li>
-
-              <a class="cardo" href="#">
-                <h3 class="lithead">09. &nbsp;Inspiring Biographies</h3>
-                <p class="small"> Gain insights into the lives of remarkable individuals through our collection of
-                  inspiring biographies
-                  and memoirs.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow">
-                    →
-                  </div>
-                </div>
-              </a>
-
-            </li>
-          </ul>
-        </div>
-      </section>
-
       <!-- Exchange Exchnage Exchange -->
       <section class="section preview" aria-label="preview">
         <div class="container1">
@@ -1193,83 +1338,7 @@
 
 
           </div>
-      </section>
-
-
-
-      <!--
-        - #PRICING
-      -->
-      <section class="section pricing" id="pricing" aria-label="pricing">
-        <div class="container">
-
-          <p class="section-subtitle">Pricing</p>
-
-          <h2 class="h2 section-title has-underline">
-            Pricing based on their version
-            <span class="span has-before"></span>
-          </h2>
-
-          <ul class="grid-list">
-
-            <li>
-              <div class="pricing-card">
-
-                <h3 class="h3 card-title">Fresh Pages - New Releases</h3>
-
-                <data class="price" value="5">75% Off</data>
-
-                <ul class="pricing-card-list">
-
-                  <li class="card-item">
-                    <p class="card-text">Exchange any recently released or gently used books, less than a year old, at
-                      75% of the original cost (Limited Offer)</p>
-                  </li>
-                </ul>
-
-                <button class="btn btn-secondary">BUY NOW</button>
-              </div>
-            </li>
-            <li>
-              <div class="pricing-card">
-                <h3 class="h3 card-title">Timeless Classics - Aged Wonders</h3>
-                <data class="price" value="15">50% Off</data>
-                <ul class="pricing-card-list">
-
-                  <li class="card-item">
-                    <p class="card-text">Swap beloved classics or books aged 1 to 5 years at 50% of the original cost,
-                      preserving the magic of timeless stories.</p>
-                  </li>
-                </ul>
-
-                <button class="btn btn-secondary">BUY NOW</button>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="pricing-card">
-                <h3 class="h3 card-title">Hidden Treasures - Vintage Editions</h3>
-                <data class="price" value="10">25% Off</data>
-                <ul class="pricing-card-list">
-
-
-                  <li class="card-item">
-                    <p class="card-text">Dive into the past with vintage editions or books over 5 years old, available
-                      for exchange at 25% of their original cost.</p>
-                  </li>
-                </ul>
-
-                <button class="btn btn-secondary">BUY NOW</button>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
-
+        </section>
 
       <!-- - #CONTACT -->
 
@@ -1297,6 +1366,17 @@
                 <div id="success-message" style="display:none">Message sent successfully!</div>
               </form>
             </div>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+              var form = document.getElementById('contact-form');
+              var message = document.getElementById('message');
+
+              form.addEventListener('submit', function(event) {
+              if (message.value.length < 50) {
+              alert("Message length can't be less than 50 characters.");
+              event.preventDefault(); // Prevent the form from being submitted
+            }});});
+            </script>
 
             <ul class="contact-card">
             <ul class="contact-card ">
@@ -1651,8 +1731,10 @@
             <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
             <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
             <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
-            <li class="foot-quick"><a href="./assets/html/book_recommend.html"
+            <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
               onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
+            <li class="foot-quick">
+              <a href="./assets/html/book_recommend.html" onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
           </ul>
         </div>
         <div>
@@ -1670,25 +1752,22 @@
         </div>
       </div>
       <div class="social-icons">
-        <!-- <h5>Newsletter</h5> -->
-        <!-- <div class="input-newletter">
-          <label for="newsletter"><h5>Newsletter</h5></label>
-          <input placeholder="Enter your email" type="email" ></input>
-          <button class="btn-subs">Subscribe</button>
-        </div> -->
+       
+        <form id="newsletterForm" type="newsletter">
 
         <form action="/subscribe" method="post">
+
           <label for="email">Subscribe to our Newsletter</label>
           <div class="row-flex">
 
-
-
-            <!--email write-->
             <input type="news" value="" name="email" placeholder="email address" id="newsletter-email">
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
+            <button type="submit" class="subscribe-btn">Subscribe</button>
 
           </div>
-        </form>
+
+      </form>
+      <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+      
         <style>
           .icons .icon i {
             font-size: 24px;
@@ -1765,16 +1844,9 @@
             </div>
           </a>
         </div>
-        <!-- <div style="text-align: center; align-items: center;">
-          <p style="text-align: center">
-            &copy;
-            <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-            Hackers.
-          </p>
+       
 
-        </div> -->
-
-        <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">
+        <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
           <div class="circle1">
             <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
               class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
@@ -1783,8 +1855,13 @@
             </svg>
           </div>
         </div>
+        
       </div>
     </div>
+
+        
+
+
     <!-- adding privacy policy and copyright popup-->
     <div style="text-align: center; align-items: center;">
       <p style="text-align: center">
@@ -1874,6 +1951,20 @@
 
   <!-- Footer ended-->
   <script src="./assets/js/script.js" defer></script>
+  <script>
+    document.getElementById("newsletterForm").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+  
+    
+      var email = document.getElementById("email").value;
+  
+      document.getElementById("confirmationMessage").style.display = "block";
+  
+
+      document.getElementById("email").value = '';
+  });
+  
+  </script>
 
   <script>
 
@@ -1891,74 +1982,6 @@
 
 
     // document.querySelector('subscribe-btn').addEventListener('submit', sendMail());
-
-    //Custom Cursor
-
-    const coords = { x: 0, y: 0 };
-    const circles = document.querySelectorAll(".circle");
-
-    const colors = [
-      "#ffb56b",
-      "#fdaf69",
-      "#f89d63",
-      "#f59761",
-      "#ef865e",
-      "#ec805d",
-      "#e36e5c",
-      "#df685c",
-      "#d5585c",
-      "#d1525c",
-      "#c5415d",
-      "#c03b5d",
-      "#b22c5e",
-      "#ac265e",
-      "#9c155f",
-      "#950f5f",
-      "#830060",
-      "#7c0060",
-      "#680060",
-      "#60005f",
-      "#48005f",
-      "#3d005e"
-    ];
-
-    circles.forEach(function (circle, index) {
-      circle.x = 0;
-      circle.y = 0;
-      circle.style.backgroundColor = colors[index % colors.length];
-    });
-
-    window.addEventListener("mousemove", function (e) {
-      coords.x = e.clientX;
-      coords.y = e.clientY;
-
-    });
-
-    function animateCircles() {
-
-      let x = coords.x;
-      let y = coords.y;
-
-      circles.forEach(function (circle, index) {
-        circle.style.left = x - 12 + "px";
-        circle.style.top = y - 12 + "px";
-
-        circle.style.scale = (circles.length - index) / circles.length;
-
-        circle.x = x;
-        circle.y = y;
-
-        const nextCircle = circles[index + 1] || circles[0];
-        x += (nextCircle.x - x) * 0.3;
-        y += (nextCircle.y - y) * 0.3;
-      });
-
-      requestAnimationFrame(animateCircles);
-    }
-
-    animateCircles();
-
-
     // Function to toggle dark mode
     function toggleDarkMode() {
       const isDarkMode = isDarkModePreferred();
@@ -2213,7 +2236,7 @@
 
   <script src="./assets/js/test-script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-
+  <script src="./scrollbar.js"></script>
 </body>
 
 </html>

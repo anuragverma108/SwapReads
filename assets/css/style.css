@@ -376,7 +376,7 @@ body {
 .section-text {
   font-size: var(--fs-7);
   text-align: start;
-  margin: 0 30px; /*added margin to align the text*/
+  margin: 10 50px; /*added margin to align the text*/
 }
 
 .booktext {
@@ -528,6 +528,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 80px;
+  /* width:200px; */
 }
 
 .logo {
@@ -1637,6 +1639,7 @@ textarea.input-field {
 
 
 
+
 /*-----------------------------------*\
   #FOOTER
 \*-----------------------------------*/
@@ -2615,12 +2618,12 @@ body.dark-mode {
 }
 
 .dark-mode .form {
-  /* background-color: #333; */
+  background-color: #333;
   color: #fff;
 }
 
 .dark-mode .navbar {
-  background-color: #333;
+  /* background-color: #333; */
   color: #fff;
 }
 
@@ -2628,11 +2631,15 @@ body.dark-mode {
   color: #fff;
 }
 
-.dark-mode .container {
+.dark-mode .container .section-text{
   color: #fff;
-  padding-left: 4rem;
+  padding-left: 2rem;
   padding-right: 1rem;
+  padding-top: 3rem;
 
+}
+.dark-mode .container button{
+  margin-left: 2rem;
 }
 
 .dark-mode .invert-col {
@@ -2673,15 +2680,6 @@ body.dark-mode {
   background-color: var(--old-rose_30);
 }
 
-/* Dark Mode Switch */
-.dark-mode .switch-container {
-  right: -4px;
-  top: 5px;
-}
-
-/**
-* Dark Mode
-*/
 
 .dark-mode {
   --sonic-silver: #fff;
@@ -2733,15 +2731,25 @@ footer {
   top: 140px;
 }
 
-#back-to-top-container {
-
-  /* position: fixed; */
-  top: 83%;
-  right: 2.8%;
-  /* Changed left to right */
+#back-to-top-container{
+  position: fixed;
+  top: 75% !important;
+  right: 2.8% !important;
   cursor: pointer;
   z-index: 1000;
 }
+
+@media(max-width : 900px){
+  #back-to-top-container{
+    position: fixed;
+    top: 65% !important;
+    right: 9% !important;
+    cursor: pointer;
+    z-index: 1000;
+  }
+}
+
+
 
 .circle1 {
 
@@ -2912,12 +2920,15 @@ footer {
 
 
 .subscribe-btn {
-  background-color: var(--old-rose);
+  background-color: red;
   color: var(--white);
+  width: 20rem;
 }
 
 .subscribe-btn:is(:hover, :focus) {
-  background-color: var(--chinese-violet);
+  background-color: white;
+  color:#000;
+  border: #d26d6d 2px solid;
 }
 
 /* Medium devices (large tablets and small laptops, 768px to 1060px) */
@@ -3006,6 +3017,121 @@ footer {
   }
 }
 
+select {
+  /* Remove default blue background color */
+  background-color: transparent;
+  /* Optional: Remove default blue text color */
+  color: black;
+  /* or whatever color you want */
+}
+
+.preference-bar button {
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 5px;
+  /* background-color: #007bff; */
+  /* color: #fff; */
+  border: none;
+  cursor: pointer;
+}
+
+/* .preference-bar button:hover { */
+/* background-color: #0056b3; */
+/* } */
+
+.preference-bar select {
+  padding: 8px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 2px solid #444242;
+  outline: none;
+  background-color: rgb(234, 224, 221);
+  color: #333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.preference-bar select option {
+  background-color: rgb(242, 227, 227);
+  color: #333;
+  padding: 8px;
+}
+
+.container00 h2 {
+  color: rgb(62, 60, 60);
+  margin-bottom: 50px;
+  margin-left: 280px;
+  font-size: 30px;
+}
+
+.preference-bar select:hover {
+  background-color: var(--old-rose_30);
+}
+
+.preference-bar select:focus {
+  border-color: #1e1e1f;
+  /* Border color when the select element is focused */
+  box-shadow: 0 0 5px rgb(232, 167, 137);
+  /* Adding a shadow for better focus indication */
+}
+
+
+select {
+  /* Remove default blue background color */
+  background-color: transparent;
+  /* Optional: Remove default blue text color */
+  color: black;
+  /* or whatever color you want */
+}
+
+.preference-bar button {
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 5px;
+  /* background-color: #007bff; */
+  /* color: #fff; */
+  border: none;
+  cursor: pointer;
+}
+
+/* .preference-bar button:hover { */
+/* background-color: #0056b3; */
+/* } */
+
+.preference-bar select {
+  padding: 8px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 2px solid #444242;
+  outline: none;
+  background-color: rgb(234, 224, 221);
+  color: #333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.preference-bar select option {
+  background-color: rgb(242, 227, 227);
+  color: #333;
+  padding: 8px;
+}
+
+.container00 h2 {
+  color: rgb(62, 60, 60);
+  margin-bottom: 50px;
+  margin-left: 280px;
+  font-size: 30px;
+}
+
+.preference-bar select:hover {
+  background-color: var(--old-rose_30);
+}
+
+.preference-bar select:focus {
+  border-color: #1e1e1f;
+  /* Border color when the select element is focused */
+  box-shadow: 0 0 5px rgb(232, 167, 137);
+  /* Adding a shadow for better focus indication */
+}
+
 
 .dark-mode .preference-bar label,
 .dark-mode .preference-bar select:hover,
@@ -3082,6 +3208,10 @@ body.dark-mode .h3 {
 .container01.dark-mode {
   background-color: #1e1e1e;
   color: #ffffff;
+}
+
+.recommendationTitle-heading {
+  color: white;
 }
 
 .section-subtitle.dark-mode,

@@ -156,6 +156,12 @@ Join SwapReads.com today and embark on a literary journey like never before!
         <td><a href="https://discordapp.com/users/riti1641" target="_blank" class="discord">Discord</a></td>
         <td>ritichandak@gmail.com</td>
     </tr>
+    <tr>
+        <td>Mentor</td>
+        <td><a href="https://www.linkedin.com/in/rishabhdhawad/" target="_blank">LinkedIn</a></td>
+        <td><a href="https://discordapp.com/users/rishabhdhawad" target="_blank" class="discord">Discord</a></td>
+        <td>rishabhdhawad29@gmail.com</td>
+    </tr>
 </table>
 
 <hr>
