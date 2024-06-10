@@ -1,0 +1,327 @@
+swiper-container {
+    width: 100%;
+    height: 75%;
+  }
+
+  /* Theme Change Button Style */
+  .switch-container {
+    margin-right: 2rem;
+    margin-top: 3.5rem;
+  }
+  @media (max-width: 990px) {
+    .switch-container {
+      margin-top: 3.2rem;
+      margin-right: -0.5rem;
+    }
+  }
+  @media (max-width: 575px) {
+    .switch-container {
+      margin-top: 2.4rem;
+      margin-right: -0.5rem;
+    }
+    /* Navbar Toggle Button placed in center */
+    .nav-toggle-btn{
+      margin-top: -2rem;
+      margin-left: 2.2rem;
+    }
+  }
+
+/* testimonal card fix by harshcodesit */
+  swiper-slide {
+    text-align: center;
+    font-size: 15;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  /* ########### */
+
+  swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    color: hsl(357, 37%, 62%);
+  }
+
+  swiper-container {
+
+     margin: auto;
+    
+  }
+
+  .flip-card {
+    background-color: transparent;
+    width: 400px;
+    height: 370px;
+    /* margin: 2px; */
+    /* border: 1px solid #f1f1f1; */
+    perspective: 1000px;
+    /* Remove this if you don't want the 3D effect */
+  }
+
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+    padding: 10px;
+  }
+
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  /* Position the front and back side */
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+  }
+
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    background-color: white;
+    color: black;
+  }
+
+  /* Style the back side */
+  .flip-card-back {
+    background-color: white;
+    color: black;
+    transform: rotateY(180deg);
+  }
+
+  /* Light mode styles */
+  .light-mode .readmore-anim {
+    font-size: 18px;
+    letter-spacing: 0;
+    color: hsl(357, 37%, 62%);
+  }
+
+  .light-mode .readmore-anim:hover {
+    color: red;
+    letter-spacing: 1px;
+    transition: ease-in-out;
+  }
+
+.cta {
+position: relative;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+margin: auto;
+padding: 20px 24px;
+color:  hsl(357, 37%, 62%);
+font-family: Avenir, sans-serif;
+text-decoration: none;
+transition: all 0.2s ease;
+&:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 28px;
+  background: rgba(255, 171, 157, 0.5);
+  width: 56px;
+  height: 56px;
+  transition: all 0.3s ease;
+}
+span {
+  position: relative;
+  font-size: 8px;
+  line-height: 18px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+svg {
+  position: relative;
+  top: 0;
+  margin-left: 5px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: hsl(357, 37%, 62%);
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+&:hover {
+  &:before {
+    width: 9%;
+    background: #ffab9d;
+  }
+  svg {
+    transform: translateX(0);
+  }
+  .active {
+    transform: scale(0.96);
+  }
+}
+}
+
+
+
+  /* Dark Mode Styles */
+  .dark-mode .readmore-anim {
+    font-size: 18px;
+    letter-spacing: 0;
+    color: hsl(357, 37%, 62%);
+  }
+
+  .readmore-anim .icon:hover {
+    color: red;
+  }
+
+  .dark-mode .readmore-anim:hover {
+    color: red;
+    letter-spacing: 1px;
+    transition: ease-in-out;
+  }
+
+  .dark-mode .header.scrolled {
+    background-color: #232222; /* Change to a darker color when scrolled */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+  }
+
+  /* pankaj bind */
+  #cookie-consent {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background-color: #f1f1f1;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    height: fit-content;
+    z-index: 100;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin: 20px;
+    border-right: 4px solid transparent; 
+    border-bottom: 4px solid transparent; 
+    transition: border-color 0.3s; 
+  }
+  #cookie-consent:hover {
+    border-right-color: #A30F17; 
+    border-bottom-color: #A30F17; 
+  }
+
+  
+  .accept-cookies {
+width: 280px;
+height: 40px;
+color: white;
+background-color: #A30F17;
+}
+.reject-cookies {
+margin-top: 10px;
+padding-top: 5px;
+height: 40px;
+width: 280px;
+color: white;
+background-color: #A30F17;
+}
+
+.accept-cookies:hover, .reject-cookies:hover {
+transform: scale(0.9);
+box-shadow: 0 0 20px rgb(249, 212, 212);
+}
+
+.accept-cookies:hover {
+background-color: white;
+color: red;
+}
+
+.reject-cookies:hover {
+background-color: white;
+color: red;
+}
+
+  #back-to-top-container {
+    position: fixed;
+  }
+
+  
+
+      #cookie-content {
+          display: none;
+          margin-top: 10px;
+      }
+  
+
+  
+  /* Basic navbar styling */
+.header {
+position: fixed;
+width: 100%;
+top: 10;
+z-index: 1000;
+transition: top 0.3s;
+}
+
+/* Hide the navbar */
+.header.hidden {
+top: -93px; /* Adjust according to your header height */
+}
+
+/* Navbar styling when scrolled */
+.header.scrolled {
+background-color: #efefef; /* Change to a darker color when scrolled */
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+}
+.icons .icon i {
+    font-size: 24px;
+    /* Set the default font size for icons */
+    transition: all 0.3s ease;
+    /* Add transition for smooth animation */
+  }
+
+  .icons .icon:hover i {
+    transform: scale(1.2);
+    /* Scale the icon on hover */
+  }
+
+  .icons .icon:hover .fab.fa-facebook {
+    color: #3B5998;
+    /* Change to Facebook color on hover */
+  }
+
+  .icons .icon:hover .fab.fa-twitter{
+    color: #090e11;
+    /* Change to Twitter color on hover */
+  }
+
+  .icons .icon:hover .fab.fa-instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background-clip: text;
+    border-radius: 20%;
+    transform: scale(1.5);
+    color:transparent;
+    /* Change to Instagram color on hover */
+  }
+
+  .icons .icon:hover .fab.fa-youtube {
+    color: #C31A1E;
+    /* Change to YouTube color on hover */
+  }
+  .icons .icon:hover .fab.fa-github {
+            color: #333;
+        }
