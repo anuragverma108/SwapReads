@@ -83,10 +83,6 @@
 </div>
 
 <script>
-  document.getElementById("cookie-content").onclick = function() {
-          document.getElementById("cookie-consent").style.display = "none";
-  }
-  
   document.addEventListener('DOMContentLoaded', function() {
     const cookieConsent = document.getElementById('cookie-consent');
     const acceptButton = document.querySelector('.accept-cookies');
@@ -113,17 +109,17 @@
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
     });
-  });
 
-  document.addEventListener('DOMContentLoaded', (event) => {
-      document.getElementById('learn-more-link').addEventListener('click', function(event) {
-          event.preventDefault();
-          document.getElementById('cookie-content').style.display = 'block';
-          var learnMoreLink = document.getElementById('learn-more-link');
-                learnMoreLink.style.display = 'none';
-      });
+    // Add event listener to "Learn More" link
+    learnMoreLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      learnMoreContent.style.display = 'block';
+      learnMoreLink.style.display = 'none';
+    });
   });
 </script>
+
+
 
   <div id="preloader">
     <div class="loader">
