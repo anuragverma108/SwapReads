@@ -74,10 +74,17 @@
    
     <p style="color: black;">We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with
       our Cookie Policy. <a href="#">Learn More</a></p>
+      <div id="cookie-content">
+        <p>Our Cookie Policy explains how we use cookies to enhance your experience. Cookies are small text files that are stored on your device when you visit a website. They help us to remember your preferences, track website usage, and provide personalized content. You can control your cookie preferences through your browser settings. By continuing to use our website, you agree to the use of cookies as described in our Cookie Policy.</p>
+      </div>
     <button class="accept-cookies">Accept</button>
     <button class="reject-cookies">Reject</button>
 </div>
 <script>
+  document.getElementById("cookie-content").onclick = function() {
+          document.getElementById("cookie-consent").style.display = "none";
+  }
+  
   document.addEventListener('DOMContentLoaded', function() {
     const cookieConsent = document.getElementById('cookie-consent');
     const acceptButton = document.querySelector('.accept-cookies');
@@ -102,6 +109,15 @@
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
     });
+  });
+
+  document.addEventListener('DOMContentLoaded', (event) => {
+      document.getElementById('learn-more-link').addEventListener('click', function(event) {
+          event.preventDefault();
+          document.getElementById('cookie-content').style.display = 'block';
+          var learnMoreLink = document.getElementById('learn-more-link');
+                learnMoreLink.style.display = 'none';
+      });
   });
 </script>
   <div id="preloader">
