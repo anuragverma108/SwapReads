@@ -9,6 +9,6 @@ document.addEventListener("DOMContentLoaded", function() {
             preloader.classList.add('hidden');
             mainContent.classList.remove('hidden');
             mainContent.classList.add('visible');
-        }, 3000); // 2000 milliseconds = 2 seconds delay
+        }, 100);
     });
 });
