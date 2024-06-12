@@ -7,23 +7,36 @@ const rateUsModal = document.querySelector(".rate-us-modal")
 const rateUsModalWrapper = document.querySelector(".rate-us-modal-wrapper")
 const thankYouMessage = document.querySelector(".thank_you_message");
 
-let isStarClicked = false;
+let selectedRating = 0;
+
 allStars.forEach((star, i) => {
-    star.onclick = function() {
-        let currentStar_level = i + 1;
-        current_rating.innerText = `${currentStar_level} of 5`;
-        allStars.forEach((star, j) => {
-            if (currentStar_level >= j + 1) {
-                star.innerHTML = '&#9733';
-            } else {
-                star.innerHTML = '&#9734';
-            }
-        });
-            // Enable submit button when a star is clicked
-            isStarClicked = true;
-            submitButton.style.display = 'block';
+    star.onclick = function () {
+        selectedRating = i + 1;
+        current_rating.innerText = `${selectedRating} of 5`;
+        updateStars(selectedRating);
+        // Enable submit button when a star is clicked
+        submitButton.style.display = 'block';
+    };
+
+    star.onmouseenter = function () {
+        updateStars(i + 1);
+    };
+
+    star.onmouseleave = function () {
+        updateStars(selectedRating);
     };
 });
+
+function updateStars(rating) {
+    allStars.forEach((star, j) => {
+        if (rating >= j + 1) {
+            star.innerHTML = '&#9733';
+        } else {
+            star.innerHTML = '&#9734';
+        }
+    });
+}
+
 submitButton.onclick = function() {
     // Hide star rating section
     starRating.style.display = 'none';
