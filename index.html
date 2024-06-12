@@ -171,6 +171,17 @@
       background-color: #A30F17;
       color: white;
     }
+
+    .close-btn {
+
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
   </style>
 </head>
 
@@ -178,25 +189,39 @@
 <body>
 
   <div id="cookie-consent">
-    <p>We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with
+    <p > <button id="close-banner" class="close-btn">&times;</button>
+      We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with
       our Cookie Policy. <a href="#">Learn More</a></p>
     <button id="accept-cookies">Accept</button>
     <button id="reject-cookies">Reject</button>
 
 
     <script>
-      const cookieConsent = document.getElementById('cookie-consent');
-      const acceptButton = document.getElementById('accept-cookies');
-      const rejectButton = document.getElementById('reject-cookies');
+      document.addEventListener("DOMContentLoaded", function() {
+    var cookieBanner = document.getElementById('cookie-consent');
+    var closeButton = document.getElementById('close-banner');
+    var acceptButton = document.getElementById('accept-cookies');
+    var rejectButton = document.getElementById('reject-cookies');
 
-      // Function to hide the cookie consent box
-      function hideCookieConsent() {
-        cookieConsent.style.display = 'none';
-        // You can also set a cookie here to remember user preference (optional)
-      }
+    closeButton.addEventListener('click', function() {
+        cookieBanner.style.display = 'none';
+        sessionStorage.setItem('cookieBannerDismissed', 'true');
+    });
 
-      acceptButton.addEventListener('click', hideCookieConsent);
-      rejectButton.addEventListener('click', hideCookieConsent);
+    acceptButton.addEventListener('click', function() {
+        // Logic for accepting cookies
+        cookieBanner.style.display = 'none';
+    });
+
+    rejectButton.addEventListener('click', function() {
+        // Logic for rejecting cookies
+        cookieBanner.style.display = 'none';
+    });
+
+    if (sessionStorage.getItem('cookieBannerDismissed')) {
+        cookieBanner.style.display = 'none';
+    }
+});
 
     </script>
   </div>
