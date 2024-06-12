@@ -55,294 +55,6 @@
   <link rel="stylesheet" href="assets/css/preloader.css">
   <script src="https://cdn.lordicon.com/lordicon.js"></script>
   <script src="./assets/js/preloader.js" defer></script>
-  <style>
-    swiper-container {
-      width: 100%;
-      height: 75%;
-    }
-
-    /* Theme Change Button Style */
-    .switch-container {
-      margin-right: 2rem;
-      margin-top: 3.5rem;
-    }
-    @media (max-width: 990px) {
-      .switch-container {
-        margin-top: 3.2rem;
-        margin-right: -0.5rem;
-      }
-    }
-    @media (max-width: 575px) {
-      .switch-container {
-        margin-top: 2.4rem;
-        margin-right: -0.5rem;
-      }
-      /* Navbar Toggle Button placed in center */
-      .nav-toggle-btn{
-        margin-top: -2rem;
-        margin-left: 2.2rem;
-      }     
-    }
-
-/* testimonal card fix by harshcodesit */
-    swiper-slide {
-      text-align: center;
-      font-size: 15;
-      background: transparent;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 50px;
-    }
-    /* ########### */
-
-    swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      color: hsl(357, 37%, 62%);
-    }
-
-    swiper-container {
-
-       margin: auto;
-      
-    }
-
-    .flip-card {
-      background-color: transparent;
-      width: 400px;
-      height: 370px;
-      /* margin: 2px; */
-      /* border: 1px solid #f1f1f1; */
-      perspective: 1000px;
-      /* Remove this if you don't want the 3D effect */
-    }
-
-    /* This container is needed to position the front and back side */
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.7s;
-      transform-style: preserve-3d;
-      padding: 10px;
-    }
-
-    /* Do an horizontal flip when you move the mouse over the flip box container */
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    /* Position the front and back side */
-    .flip-card-front,
-    .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      -webkit-backface-visibility: hidden;
-      /* Safari */
-      backface-visibility: hidden;
-    }
-
-    /* Style the front side (fallback if image is missing) */
-    .flip-card-front {
-      background-color: white;
-      color: black;
-    }
-
-    /* Style the back side */
-    .flip-card-back {
-      background-color: white;
-      color: black;
-      transform: rotateY(180deg);
-    }
-
-    /* Light mode styles */
-    .light-mode .readmore-anim {
-      font-size: 18px;
-      letter-spacing: 0;
-      color: hsl(357, 37%, 62%);
-    }
-
-    .light-mode .readmore-anim:hover {
-      color: red;
-      letter-spacing: 1px;
-      transition: ease-in-out;
-    }
-
-.cta {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin: auto;
-  padding: 20px 24px;
-  color:  hsl(357, 37%, 62%);
-  font-family: Avenir, sans-serif;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    border-radius: 28px;
-    background: rgba(255, 171, 157, 0.5);
-    width: 56px;
-    height: 56px;
-    transition: all 0.3s ease;
-  }
-  span {
-    position: relative;
-    font-size: 8px;
-    line-height: 18px;
-    font-weight: 900;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    vertical-align: middle;
-  }
-  svg {
-    position: relative;
-    top: 0;
-    margin-left: 5px;
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke: hsl(357, 37%, 62%);
-    stroke-width: 2;
-    transform: translateX(-5px);
-    transition: all 0.3s ease;
-  }
-  &:hover {
-    &:before {
-      width: 9%;
-      background: #ffab9d;
-    }
-    svg {
-      transform: translateX(0);
-    }
-    .active {
-      transform: scale(0.96);
-    }
-  }
-}
-
-
-
-    /* Dark Mode Styles */
-    .dark-mode .readmore-anim {
-      font-size: 18px;
-      letter-spacing: 0;
-      color: hsl(357, 37%, 62%);
-    }
-
-    .readmore-anim .icon:hover {
-      color: red;
-    }
-
-    .dark-mode .readmore-anim:hover {
-      color: red;
-      letter-spacing: 1px;
-      transition: ease-in-out;
-    }
-
-    .dark-mode .header.scrolled {
-      background-color: #232222; /* Change to a darker color when scrolled */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
-    }
-
-    /* pankaj bind */
-    #cookie-consent {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      background-color: #f1f1f1;
-      padding: 20px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      width: 300px;
-      height: fit-content;
-      z-index: 100;
-      border-radius: 10px;
-      margin-bottom: 5px;
-      margin: 20px;
-      border-right: 4px solid transparent; 
-      border-bottom: 4px solid transparent; 
-      transition: border-color 0.3s; 
-    }
-    #cookie-consent:hover {
-      border-right-color: #A30F17; 
-      border-bottom-color: #A30F17; 
-    }
-
-    
-    .accept-cookies {
-  width: 280px;
-  height: 40px;
-  color: white;
-  background-color: #A30F17;
-}
-.reject-cookies {
-  margin-top: 10px;
-  padding-top: 5px;
-  height: 40px;
-  width: 280px;
-  color: white;
-  background-color: #A30F17;
-}
-
-.accept-cookies:hover, .reject-cookies:hover {
-  transform: scale(0.9);
-  box-shadow: 0 0 20px rgb(249, 212, 212);
-}
-
-.accept-cookies:hover {
-  background-color: white;
-  color: red;
-}
-
-    .reject-cookies:hover{
-      margin-top: 10px;
-      height: 40px;
-      width: 280px;
-      background-color: white;
-      color: red;
-    }
-    .dark-mode .switch-label{
-      top: 1rem;
-    }
-    
-    
-    /* Basic navbar styling */
-.header {
-  position: fixed;
-  width: 100%;
-  top: 10;
-  z-index: 1000;
-  transition: top 0.3s;
-}
-
-/* Hide the navbar */
-.header.hidden {
-  top: -93px; /* Adjust according to your header height */
-}
-
-/* Navbar styling when scrolled */
-.header.scrolled {
-  background-color: #222; /* Change to a darker color when scrolled */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
-}
-
-
->>>>>>>>> Temporary merge branch 2
-  </style>
 </head>
 
 
@@ -352,18 +64,25 @@
   </div>
 
   <div id="cookie-consent">
-
-   
-    <p style="color: black;">We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with
-      our Cookie Policy. <a href="#">Learn More</a></p>
+    <p style="color: black;">
+        We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy. 
+        <a href="#" id="learn-more-link">Learn More</a>
+    </p>
+    <div id="learn-more-content" style="display: none; color: black;">
+        <p>Cookies are small text files that can be used by websites to make a user's experience more efficient. The law states that we can store cookies on your device if they are strictly necessary for the operation of this site. For all other types of cookies we need your permission.</p>
+        <p>This site uses different types of cookies. Some cookies are placed by third party services that appear on our pages.</p>
+    </div>
     <button class="accept-cookies">Accept</button>
     <button class="reject-cookies">Reject</button>
 </div>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const cookieConsent = document.getElementById('cookie-consent');
     const acceptButton = document.querySelector('.accept-cookies');
     const rejectButton = document.querySelector('.reject-cookies');
+    const learnMoreLink = document.getElementById('learn-more-link');
+    const learnMoreContent = document.getElementById('learn-more-content');
 
     // Check if the user has already made a choice
     if (localStorage.getItem('cookieConsent')) {
@@ -384,8 +103,18 @@
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
     });
+
+    // Add event listener to "Learn More" link
+    learnMoreLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      learnMoreContent.style.display = 'block';
+      learnMoreLink.style.display = 'none';
+    });
   });
 </script>
+
+
+
   <div id="preloader">
     <div class="loader">
       <div class="book-wrapper">
@@ -486,29 +215,15 @@
                 <li class="dropdown-menu-item">
                   <a href="./assets/html/about.html" class="navbar-link">About</a>
                 </li>
-
               </ul>
             </div>
           </li>
-
           <!-- Google Translate Element -->
           <!-- <li class="navbar-item">
             <div id="google_element"></div>
           </li> -->
-          <li>
-            <div class="switch-container switch-container-desktop">
-              <input type="checkbox" id="switch" class="switch-checkbox">
-              <label for="switch" class="switch-label">
-                <div class="switch-button">
-                  <span class="material-icons sun-icon">wb_sunny</span>
-                  <span class="material-icons moon-icon">brightness_2</span>
-                </div>
-              </label>
-            </div>
-          </li>
         </ul>
       </nav>
-    </div>
 
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script>
@@ -1728,8 +1443,6 @@
             <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
             <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
               onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
-            <li class="foot-quick">
-              <a href="./assets/html/book_recommend.html" onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
           </ul>
         </div>
         <div>
@@ -1755,55 +1468,16 @@
           <label for="email">Subscribe to our Newsletter</label>
           <div class="row-flex">
 
-            <input type="news" value="" name="email" placeholder="email address" id="newsletter-email">
+            <input type="email" value="" name="email" placeholder="email address" id="newsletter-email">
             <button type="submit" class="subscribe-btn">Subscribe</button>
+
 
           </div>
 
       </form>
       <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
       
-        <style>
-          .icons .icon i {
-            font-size: 24px;
-            /* Set the default font size for icons */
-            transition: all 0.3s ease;
-            /* Add transition for smooth animation */
-          }
-
-          .icons .icon:hover i {
-            transform: scale(1.2);
-            /* Scale the icon on hover */
-          }
-
-          .icons .icon:hover .fab.fa-facebook {
-            color: #3B5998;
-            /* Change to Facebook color on hover */
-          }
-
-          .icons .icon:hover .fab.fa-twitter{
-            color: #090e11;
-            /* Change to Twitter color on hover */
-          }
-
-          .icons .icon:hover .fab.fa-instagram {
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-            background-clip: text;
-            border-radius: 20%;
-            transform: scale(1.5);
-            color:transparent;
-            /* Change to Instagram color on hover */
-          }
-
-          .icons .icon:hover .fab.fa-youtube {
-            color: #C31A1E;
-            /* Change to YouTube color on hover */
-          }
-          .icons .icon:hover .fab.fa-github {
-                    color: #333;
-                }
-        </style>
-
+        
         <div class="icons">
           <a href="https://www.linkedin.com/in/anurag-verma-b91417253/">
             <div class="icon">
@@ -1833,11 +1507,6 @@
               <i class="fab fa-youtube" style="cursor: pointer;"></i>
             </div>
           </a>
-          <a href="https://github.com/anuragverma108" title="GitHub">
-            <div class="icon">
-                <i class="fab fa-github" style="cursor: pointer;"></i>
-            </div>
-          </a>
         </div>
        
 
@@ -1863,8 +1532,12 @@
         &copy;
         <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
       </p>
+      <div class="row-copy">
+
+    
       <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
       <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+    </div>
     </div>
     
     <!-- Copyright Policy Modal -->
