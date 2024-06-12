@@ -30,7 +30,7 @@
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #f9f9f9;
-      color: #333;
+      color: #f5f1f1;
       margin: 0;
       padding: 0;
     }
@@ -185,7 +185,7 @@
               <a href="../../index.html" class="navbar-link" data-nav-link><i class="ri-home-fill"></i> Home</a>
             </li>
             <li class="navbar-item">
-              <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><i
+              <a href="./about1.html"  class="navbar-link" data-nav-link><i
                   class="ri-home-fill"></i> About Us </a>
             </li>
             <li class="navbar-item">
@@ -317,6 +317,7 @@
         </div>
 
       </section>
+      
       <section class="mission-values">
         <h2>Our Mission and Values</h2>
         <div class="about-us-block">
@@ -476,6 +477,7 @@
       }
 
       .pagination button {
+        color: #090e11;
         margin: 0 5px;
         padding: 10px 15px;
         border: 1px solid #ccc;
@@ -486,6 +488,25 @@
       .pagination button.active {
         background-color: #ddd;
       }
+/* General styles for the about-us-block divs */
+.about-us-block > div {
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  .about-us-block > div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  .about-us-block > div:hover img {
+    filter: brightness(1.2);
+  }
+  .about-us-block > div:hover .about-us-blk-text {
+    color:#d26d6d;
+  }
+  .about-us-block > div:hover .about-us-blk-para {
+    color:var(--sonic-silver); 
+  }
     </style>
 
 <footer>
@@ -558,21 +579,38 @@
         <button class="btn-subs">Subscribe</button>
       </div> -->
 
-      <form type="newsletter">
+      <!-- <form type="newsletter">
         <label for="email">Subscribe to our Newsletter</label>
         <div class="row-flex">
 
 
 
 
-          <!--email write-->
           <input type="news" value="" name="email" placeholder="email address">
           <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
-          <!-- <input type="news" value="" name="email" placeholder="email address" id="newsletter-email">
-          <button type="submit" class="subscribe-btn">subscribe</button> -->
+          <input type="news" value="" name="email" placeholder="email address" id="newsletter-email">
+          <button type="submit" class="subscribe-btn">subscribe</button>
 
         </div>
-      </form>
+      </form> -->
+      <style>
+        input[type="email"] {
+            border: 2px solid #ccc; /* Gray border */
+            border-radius: 4px; /* Rounded corners */
+            padding: 10px; /* Inner padding */
+            font-size: 16px; /* Font size */
+        }
+      </style>
+
+      <form type="newsletter">
+        <label for="newsletter-email">Subscribe to our Newsletter</label>
+        <div class="row-flex">
+            <!-- Email input -->
+            <input type="email" id="newsletter-email" name="email" placeholder="email address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$" 
+            title="Please enter a valid email address that ends with '.com'" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
+        </div>
+    </form>
       <style>
         .icons .icon i {
           font-size: 24px;
