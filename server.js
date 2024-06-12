@@ -38,6 +38,7 @@ dbConnect().then(() => {
       res.json({ success: true });
     }
   });
+ 
 
   app.post("/login", validate(RegisterSchema), async (req, res) => {
     const { username, password } = req.body;
@@ -133,5 +134,7 @@ dbConnect().then(() => {
       }
     });
   }
+  
+  app.listen(3000, () => console.log("Server is running on port 3000"));
 
 });
