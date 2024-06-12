@@ -15,9 +15,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./assets/font-6/css/all.css">
+  <link rel="stylesheet" href="header.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,8 +40,10 @@
   <script src="./assets/js/faq.js"></script>
   <script src="./assets/js/tilt.js"></script>
   <script src="./assets/js/scroll.js"></script>
+  <link rel="stylesheet" href="./scrollbar.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="modals(privacy policy).css">
 
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
@@ -54,115 +55,12 @@
   <link rel="stylesheet" href="assets/css/preloader.css">
   <script src="https://cdn.lordicon.com/lordicon.js"></script>
   <script src="./assets/js/preloader.js" defer></script>
-  <style>
-    swiper-container {
-      width: 100%;
-      height: 70%;
-    }
 
-    swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: transparent;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
 
-    swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      color: hsl(357, 37%, 62%);
-    }
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  
 
-    swiper-container {
-      margin-left: auto;
-      margin-right: auto;
-    }
 
-    .flip-card {
-      background-color: transparent;
-      width: 400px;
-      height: 370px;
-      /* margin: 2px; */
-      /* border: 1px solid #f1f1f1; */
-      perspective: 1000px;
-      /* Remove this if you don't want the 3D effect */
-    }
-
-    /* This container is needed to position the front and back side */
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-      padding: 10px;
-    }
-
-    /* Do an horizontal flip when you move the mouse over the flip box container */
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    /* Position the front and back side */
-    .flip-card-front,
-    .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      -webkit-backface-visibility: hidden;
-      /* Safari */
-      backface-visibility: hidden;
-    }
-
-    /* Style the front side (fallback if image is missing) */
-    .flip-card-front {
-      background-color: white;
-      color: black;
-    }
-
-    /* Style the back side */
-    .flip-card-back {
-      background-color: black;
-      color: white;
-      transform: rotateY(180deg);
-    }
-
-    /* pankaj bind */
-    #cookie-consent {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      background-color: #f1f1f1;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      width: 300px;
-      height: 250px;
-      z-index: 100;
-      border-radius: 10px;
-      margin-bottom: 5px;
-    }
-
-    #cookie-consent button {
-      padding: 5px 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    #accept-cookies {
-      width: 280px;
-      height: 40px;
-      background-color: #A30F17;
-      color: white;
-    }
 
     #reject-cookies {
       margin-top: 10px;
@@ -183,18 +81,54 @@
     cursor: pointer;
 }
   </style>
+
 </head>
 
 
 <body>
+  <div class="nav-wrapper">
+    <div class="progress-bar"></div>
+  </div>
 
   <div id="cookie-consent">
+
     <p > <button id="close-banner" class="close-btn">&times;</button>
       We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with
       our Cookie Policy. <a href="#">Learn More</a></p>
     <button id="accept-cookies">Accept</button>
     <button id="reject-cookies">Reject</button>
 
+    <p style="color: black;">
+        We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy. 
+        <a href="#" id="learn-more-link">Learn More</a>
+    </p>
+    <div id="learn-more-content" style="display: none; color: black;">
+        <p>Cookies are small text files that can be used by websites to make a user's experience more efficient. The law states that we can store cookies on your device if they are strictly necessary for the operation of this site. For all other types of cookies we need your permission.</p>
+        <p>This site uses different types of cookies. Some cookies are placed by third party services that appear on our pages.</p>
+    </div>
+    <button class="accept-cookies">Accept</button>
+    <button class="reject-cookies">Reject</button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const cookieConsent = document.getElementById('cookie-consent');
+    const acceptButton = document.querySelector('.accept-cookies');
+    const rejectButton = document.querySelector('.reject-cookies');
+    const learnMoreLink = document.getElementById('learn-more-link');
+    const learnMoreContent = document.getElementById('learn-more-content');
+
+    // Check if the user has already made a choice
+    if (localStorage.getItem('cookieConsent')) {
+      cookieConsent.style.display = 'none';
+    }
+
+
+    // Function to handle cookie consent choice
+    function handleConsent(choice) {
+      localStorage.setItem('cookieConsent', choice);
+      cookieConsent.style.display = 'none';
+    }
 
     <script>
       document.addEventListener("DOMContentLoaded", function() {
@@ -223,29 +157,25 @@
     }
 });
 
-    </script>
-  </div>
+    // Add event listeners to buttons
+    acceptButton.addEventListener('click', function() {
+      handleConsent('accepted');
+    });
 
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
+    rejectButton.addEventListener('click', function() {
+      handleConsent('rejected');
+    });
+
+
+    // Add event listener to "Learn More" link
+    learnMoreLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      learnMoreContent.style.display = 'block';
+      learnMoreLink.style.display = 'none';
+    });
+  });
+</script>
+
 
 
   <div id="preloader">
@@ -273,12 +203,10 @@
 
   <header class="header header-anim" data-header>
 
-    <div class="container">
+    <div class="container mobile-container-styles" style="padding-left: 0;">
 
       <nav class="navbar" data-navbar>
-        <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
-          <img src="./assets/images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
-        </a>
+
 
         <ul class="navbar-list">
           <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
@@ -288,7 +216,10 @@
             <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
                 class="ri-home-fill"></i> Home</a>
           </li>
-
+           <li class="navbar-item">
+                <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><i
+                    class="ri-home-fill"></i> About Us </a>
+              </li>
           <li class="navbar-item">
             <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
                 class="ri-bar-chart-fill"></i> Benefits</a>
@@ -322,18 +253,18 @@
 
               <ul class="dropdown-menu-list">
                 <li class="dropdown-menu-item">
-                  <a href="#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
+                  <a href="./assets/html/literaryrealms.html" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
                       class="ri-medal-fill"></i> Literary Realms</a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href="#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
+                  <a href="./assets/html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
                       class="ri-price-tag-3-fill"></i> Pricing</a>
                 </li>
                 <li class="dropdown-menu-item">
                   <a href="./assets/html/booklistswap.html" class="navbar-link">Booklist for Swapping</a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href="./assets/html/book_recommend.html" class="navbar-link" data-nav-link>
+                  <a href="./assets/html/bookrecommend.html" class="navbar-link" data-nav-link>
                     <i class="ri-customer-service-2-fill"></i> Book Recommendation
                   </a>
                 </li>
@@ -342,19 +273,20 @@
                     data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
                 </li>
                 <li class="dropdown-menu-item">
+                  <a href="./assets/html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
+                </li>
+                <li class="dropdown-menu-item">
                   <a href="./assets/html/about.html" class="navbar-link">About</a>
                 </li>
               </ul>
             </div>
           </li>
-
           <!-- Google Translate Element -->
-          <li class="navbar-item">
+          <!-- <li class="navbar-item">
             <div id="google_element"></div>
-          </li>
+          </li> -->
         </ul>
       </nav>
-    </div>
 
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script>
@@ -364,25 +296,32 @@
         }, 'google_element');
       }
     </script>
-    <div class="switch-container">
-      <input type="checkbox" id="switch" class="switch-checkbox">
-      <label for="switch" class="switch-label">
-        <div class="switch-button">
-          <span class="material-icons sun-icon">wb_sunny</span>
-          <span class="material-icons moon-icon">brightness_2</span>
-        </div>
-      </label>
-    </div>
+
+
 
     </li>
     </ul>
     </nav>
 
-    <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
-      <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
+    <div class="switch-toggle-container">
+      <div class="switch-container switch-container-mobile">
+        <input type="checkbox" id="switch" class="switch-checkbox">
+        <label for="switch" class="switch-label">
+          <div class="switch-button">
+            <span class="material-icons sun-icon">wb_sunny</span>
+            <span class="material-icons moon-icon">brightness_2</span>
+          </div>
+        </label>
+      </div>
 
-      <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
-    </button>
+      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
+
+        <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
+      </button>
+    </div>
+
+
 
     </div>
   </header>
@@ -420,7 +359,6 @@
         <div class="container">
 
           <div class="hero-content">
-
             <p class="section-subtitle"> Let's Exchange Old Books and Discover New Stories Together!</p>
 
             <h1 class="h1 hero-title">SwapReads.com - Where Books Find New Adventures!</h1>
@@ -454,21 +392,22 @@
 
 
 
-      <!-- 
+      <!--
         - #BENEFITS
       -->
 
       <section class="section benefits" id="benefits" aria-label="benefits">
         <div class="container">
-          <div class="grid-list">
+          <div class="flex">
             <div class="benefits-content">
               <h2 class="h2 section-title" style="text-align: center;">Unleash the Magic of Book Swapping!</h2>
               <p class="section-text" style="text-align: center;">"SwapReads.com - Where Every Book is a Portal to a New
                 Adventure!"</p>
             </div>
 
-            <li>
-              <div class="benefits-card has-before has-after">
+            <ul class="benefits-canvas-container">
+            <li class="canvas">
+              <div class="benefits-card has-before has-after ">
                 <div class="card-icon">
                   <img src="./assets/images/benefits-1.svg" width="40" height="40" loading="lazy" alt="Experience">
                 </div>
@@ -478,14 +417,22 @@
                   doors
                   to new and exciting literary adventures.
                 </p>
-                <a href="#" class="btn-link">
+
+                <!-- <a href="#" class="btn-link">
                   <span class="span readmore-anim">Read more</span>
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+                </a> -->
+                <a href="#" class="cta style-9">
+                  <span>Read More</span>
+                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                  </svg>
                 </a>
               </div>
             </li>
 
-            <li>
+            <li class="canvas">
               <div class="benefits-card has-before has-after">
 
                 <div class="card-icon">
@@ -500,16 +447,23 @@
                 </p>
                 <br>
 
-                <a href="#" class="btn-link">
+                <!-- <a href="#" class="btn-link">
                   <span class="span readmore-anim">Read more</span>
 
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+                </a> -->
+                <a href="#" class="cta style-9">
+                  <span>Read More</span>
+                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                  </svg>
                 </a>
 
               </div>
             </li>
 
-            <li>
+            <li class="canvas">
               <div class="benefits-card has-before has-after">
 
                 <div class="card-icon">
@@ -523,16 +477,22 @@
                   forming a community bonded by a love for literature.
                 </p>
 
-                <a href="#" class="btn-link">
+                <!-- <a href="#" class="btn-link">
                   <span class="span readmore-anim">Read more</span>
 
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+                </a> -->
+                <a href="#" class="cta style-9">
+                  <span>Read More</span>
+                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                  </svg>
                 </a>
-
               </div>
             </li>
 
-            <li>
+            <li class="canvas">
               <div class="benefits-card has-before has-after">
 
                 <div class="card-icon">
@@ -547,16 +507,22 @@
                 </p>
                 <br>
 
-                <a href="#" class="btn-link">
+                <!-- <a href="#" class="btn-link">
                   <span class="span readmore-anim">Read more</span>
 
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+                </a> -->
+                <a href="#" class="cta style-9">
+                  <span>Read More</span>
+                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                  </svg>
                 </a>
-
               </div>
             </li>
 
-            <li>
+            <li class="canvas">
               <div class="benefits-card has-before has-after">
 
                 <div class="card-icon">
@@ -571,16 +537,22 @@
                 </p>
                 <br>
 
-                <a href="#" class="btn-link">
+                <!-- <a href="#" class="btn-link">
                   <span class="span readmore-anim">Read more</span>
 
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+                </a> -->
+                <a href="#" class="cta style-9">
+                  <span>Read More</span>
+                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                  </svg>
                 </a>
-
               </div>
             </li>
 
-            <li>
+            <li class="canvas">
               <div class="benefits-card has-before has-after">
 
                 <div class="card-icon">
@@ -594,23 +566,248 @@
                   creating a personalized and curated reading experience that suits you.
                 </p>
 
-                <a href="#" class="btn-link">
+                <!-- <a href="#" class="btn-link">
                   <span class="span readmore-anim">Read more</span>
-
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
-                </a>
+                </a> -->
 
+                <a href="#" class="cta style-9">
+                  <span>Read More</span>
+                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                  </svg>
+                </a>
               </div>
             </li>
 
+          </ul>
           </div>
 
+        </div>
+      </section>
+      <!--Chapters -->
+      <section class="section chapters" id="chapters">
+        <div class="container">
+
+          <p class="section-subtitle">Literary Realms</p>
+
+          <h2 class="h2 section-title has-underline" id="section-title2">
+            Literary Realms we've covered
+            <span class="span has-before"></span>
+          </h2>
+
+          <ul class="grid-list">
+
+            <li>
+              <!---jfdb-->
+              <a class="cardo" href="books.html">
+                <h3 class="lithead">01. &nbsp;Romantic Escapes</h3>
+                <p class="small"> Immerse yourself in the enchanting world of love and passion with our curated
+                  selection of romance
+                  fiction.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+
+              <a class="cardo" href="#">
+                <h3 class="lithead">02. &nbsp;Thrilling Adventures</h3>
+                <p class="small"> Dive into heart-pounding tales and gripping narratives that will keep you on the edge
+                  of your seat.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li>
+
+              <a class="cardo" href="#">
+                <h3 class="lithead">03. &nbsp;Mindful Living</h3>
+                <p class="small"> Discover the secrets to a fulfilling life with our collection of insightful and
+                  empowering self-help
+                  books.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li>
+
+              <a class="cardo" href="#">
+                <h3 class="lithead">04. &nbsp;Mystical Fantasies</h3>
+                <p class="small"> Embark on fantastical journeys to magical realms with our captivating fantasy fiction
+                  picks.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow"> →
+                  </div>
+                </div>
+              </a>
+
+
+            </li>
+            <li>
+
+              <a class="cardo" href="#">
+                <h3 class="lithead">05. &nbsp;Historical Chronicles</h3>
+                <p class="small"> Travel back in time and explore the rich tapestry of history through our curated
+                  historical fiction
+                  selection.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
+
+
+            </li>
+            <li>
+
+              <a class="cardo" href="#">
+                <h3 class="lithead">06. &nbsp;Science Fiction Wonders</h3>
+                <p class="small"> Ignite your imagination with mind-bending concepts and futuristic worlds in our
+                  science fiction.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
+
+
+            </li>
+            <li>
+
+              <a class="cardo" href="#">
+                <h3 class="lithead">07. &nbsp;Laugh Out Loud Comedy</h3>
+                <p class="small"> Find joy and laughter in our comedy section, featuring witty and humorous tales that
+                  will brighten
+                  your day.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+
+              <a class="cardo" href="#">
+                <h3 class="lithead">08. &nbsp;Intriguing Mysteries</h3>
+                <p class="small"> Unravel gripping mysteries and suspenseful plots that will keep you guessing until the
+                  last page.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li>
+
+              <a class="cardo" href="#">
+                <h3 class="lithead">09. &nbsp;Inspiring Biographies</h3>
+                <p class="small"> Gain insights into the lives of remarkable individuals through our collection of
+                  inspiring biographies
+                  and memoirs.</p>
+                <div class="go-corner" href="#">
+                  <div class="go-arrow">
+                    →
+                  </div>
+                </div>
+              </a>
+
+            </li>
+          </ul>
         </div>
       </section>
 
 
 
+<!--
+        - #PRICING
+      -->
+      <section class="section pricing" id="pricing" aria-label="pricing">
+        <div class="container">
 
+          <p class="section-subtitle">Pricing</p>
+
+          <h2 class="h2 section-title has-underline">
+            Pricing based on their version
+            <span class="span has-before"></span>
+          </h2>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="pricing-card">
+
+                <h3 class="h3 card-title">Fresh Pages - New Releases</h3>
+
+                <data class="price" value="5">75% Off</data>
+
+                <ul class="pricing-card-list">
+
+                  <li class="card-item">
+                    <p class="card-text">Exchange any recently released or gently used books, less than a year old, at
+                      75% of the original cost (Limited Offer)</p>
+                  </li>
+                </ul>
+
+                <button class="btn btn-secondary">BUY NOW</button>
+              </div>
+            </li>
+            <li>
+              <div class="pricing-card">
+                <h3 class="h3 card-title">Timeless Classics - Aged Wonders</h3>
+                <data class="price" value="15">50% Off</data>
+                <ul class="pricing-card-list">
+
+                  <li class="card-item">
+                    <p class="card-text">Swap beloved classics or books aged 1 to 5 years at 50% of the original cost,
+                      preserving the magic of timeless stories.</p>
+                  </li>
+                </ul>
+
+                <button class="btn btn-secondary">BUY NOW</button>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="pricing-card">
+                <h3 class="h3 card-title">Hidden Treasures - Vintage Editions</h3>
+                <data class="price" value="10">25% Off</data>
+                <ul class="pricing-card-list">
+
+
+                  <li class="card-item">
+                    <p class="card-text">Dive into the past with vintage editions or books over 5 years old, available
+                      for exchange at 25% of their original cost.</p>
+                  </li>
+                </ul>
+
+                <button class="btn btn-secondary">BUY NOW</button>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+        </section>
 
       <!-- Genre -->
 
@@ -619,7 +816,7 @@
 
           <p class="section-subtitle">Genre</p>
 
-          <h2 class="h2 section-title has-underline">
+          <h2 class="h2 section-title has-underline" id="section-title1">
             Explore Different Genres
             <span class="span has-before"></span>
           </h2>
@@ -823,247 +1020,9 @@
 
 
 
-      <!-- 
+      <!--
         - #CHAPTERS
       -->
-
-      <section class="section chapters" id="chapters">
-        <div class="container">
-
-          <p class="section-subtitle">Literary Realms</p>
-
-          <h2 class="h2 section-title has-underline">
-            Literary Realms we've covered
-            <span class="span has-before"></span>
-          </h2>
-
-          <ul class="grid-list">
-
-            <li>
-              <!---jfdb-->
-              <a class="cardo" href="books.html">
-                <h3 class="lithead">01. &nbsp;Romantic Escapes</h3>
-                <p class="small"> Immerse yourself in the enchanting world of love and passion with our curated
-                  selection of romance
-                  fiction.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow">
-                    →
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li>
-
-              <a class="cardo" href="#">
-                <h3 class="lithead">02. &nbsp;Thrilling Adventures</h3>
-                <p class="small"> Dive into heart-pounding tales and gripping narratives that will keep you on the edge
-                  of your seat.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow">
-                    →
-                  </div>
-                </div>
-              </a>
-
-              <!-- <div class="chapter-card">
-
-                <p class="card-subtitle">02</p>
-
-                <h3 class="h3 card-title">Thrilling Adventures</h3>
-
-                <p class="card-text">
-                  Dive into heart-pounding tales and gripping narratives that will keep you on the edge of your seat.
-                </p>
-
-              </div> -->
-            </li>
-            <li>
-
-              <a class="cardo" href="#">
-                <h3 class="lithead">03. &nbsp;Mindful Living</h3>
-                <p class="small"> Discover the secrets to a fulfilling life with our collection of insightful and
-                  empowering self-help
-                  books.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow">
-                    →
-                  </div>
-                </div>
-              </a>
-
-              <!-- <div class="chapter-card">
-
-                <p class="card-subtitle">03</p>
-
-                <h3 class="h3 card-title">Mindful Living</h3>
-
-                <p class="card-text">
-                  Discover the secrets to a fulfilling life with our collection of insightful and empowering self-help
-                  books.
-                </p>
-
-              </div> -->
-            </li>
-            <li>
-
-              <a class="cardo" href="#">
-                <h3 class="lithead">04. &nbsp;Mystical Fantasies</h3>
-                <p class="small"> Embark on fantastical journeys to magical realms with our captivating fantasy fiction
-                  picks.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow"> →
-                  </div>
-                </div>
-              </a>
-
-              <!-- <div class="chapter-card">
-
-                <p class="card-subtitle">04</p>
-
-                <h3 class="h3 card-title">Mystical Fantasies</h3>
-
-                <p class="card-text">
-                  Embark on fantastical journeys to magical realms with our captivating fantasy fiction picks.
-                </p>
-
-              </div> -->
-            </li>
-            <li>
-
-              <a class="cardo" href="#">
-                <h3 class="lithead">05. &nbsp;Historical Chronicles</h3>
-                <p class="small"> Travel back in time and explore the rich tapestry of history through our curated
-                  historical fiction
-                  selection.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow">
-                    →
-                  </div>
-                </div>
-              </a>
-
-              <!-- <div class="chapter-card">
-
-                <p class="card-subtitle">05</p>
-
-                <h3 class="h3 card-title">Historical Chronicles</h3>
-
-                <p class="card-text">
-                  Travel back in time and explore the rich tapestry of history through our curated historical fiction
-                  selection.
-                </p>
-
-              </div> -->
-            </li>
-            <li>
-
-              <a class="cardo" href="#">
-                <h3 class="lithead">06. &nbsp;Science Fiction Wonders</h3>
-                <p class="small"> Ignite your imagination with mind-bending concepts and futuristic worlds in our
-                  science fiction.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow">
-                    →
-                  </div>
-                </div>
-              </a>
-
-              <!-- <div class="chapter-card">
-
-                <p class="card-subtitle">06</p>
-
-                <h3 class="h3 card-title">Science Fiction Wonders</h3>
-
-                <p class="card-text">
-                  Ignite your imagination with mind-bending concepts and futuristic worlds in our science fiction.
-                </p>
-
-              </div> -->
-            </li>
-            <li>
-
-              <a class="cardo" href="#">
-                <h3 class="lithead">07. &nbsp;Laugh Out Loud Comedy</h3>
-                <p class="small"> Find joy and laughter in our comedy section, featuring witty and humorous tales that
-                  will brighten
-                  your day.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow">
-                    →
-                  </div>
-                </div>
-              </a>
-
-              <!-- <div class="chapter-card">
-
-                <p class="card-subtitle">07</p>
-
-                <h3 class="h3 card-title">Laugh Out Loud Comedy</h3>
-
-                <p class="card-text">
-                  Find joy and laughter in our comedy section, featuring witty and humorous tales that will brighten
-                  your day.
-                </p>
-
-              </div> -->
-            </li>
-            <li>
-
-              <a class="cardo" href="#">
-                <h3 class="lithead">08. &nbsp;Intriguing Mysteries</h3>
-                <p class="small"> Unravel gripping mysteries and suspenseful plots that will keep you guessing until the
-                  last page.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow">
-                    →
-                  </div>
-                </div>
-              </a>
-
-              <!-- <div class="chapter-card">
-
-                <p class="card-subtitle">08</p>
-
-                <h3 class="h3 card-title">Intriguing Mysteries</h3>
-
-                <p class="card-text">
-                  Unravel gripping mysteries and suspenseful plots that will keep you guessing until the last page.
-                </p>
-
-              </div> -->
-            </li>
-
-            <li>
-
-              <a class="cardo" href="#">
-                <h3 class="lithead">09. &nbsp;Inspiring Biographies</h3>
-                <p class="small"> Gain insights into the lives of remarkable individuals through our collection of
-                  inspiring biographies
-                  and memoirs.</p>
-                <div class="go-corner" href="#">
-                  <div class="go-arrow">
-                    →
-                  </div>
-                </div>
-              </a>
-
-              <!-- <div class="chapter-card">
-
-                <p class="card-subtitle">09</p>
-
-                <h3 class="h3 card-title">Inspiring Biographies</h3>
-
-                <p class="card-text">
-                  Gain insights into the lives of remarkable individuals through our collection of inspiring biographies
-                  and memoirs.
-                </p>
-
-              </div> -->
-            </li>
-          </ul>
-        </div>
-      </section>
 
       <!-- Exchange Exchnage Exchange -->
       <section class="section preview" aria-label="preview">
@@ -1075,7 +1034,7 @@
             <span class="span has-before"></span>
           </h2>
 
-          <p class="section-text">
+          <p class="section-text booktext">
             Connect with fellow readers in our Book Exchange Hub. Sell your old books at half price and give your
             favorite reads a new home. Fill out the form below to get started!
           </p>
@@ -1084,9 +1043,7 @@
 
             <div class="form-fields">
               <div class="form-fields">
-
                 <label class="form-label" for="bookTitle">Book Title:</label>
-                
                 <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the title of your book" required
                   class="input-field">
 
@@ -1154,129 +1111,55 @@
 
 
           </div>
-      </section>
-
-
-
-      <!-- 
-        - #PRICING
-      -->
-      <section class="section pricing" id="pricing" aria-label="pricing">
-        <div class="container">
-
-          <p class="section-subtitle">Pricing</p>
-
-          <h2 class="h2 section-title has-underline">
-            Pricing based on their version
-            <span class="span has-before"></span>
-          </h2>
-
-          <ul class="grid-list">
-
-            <li>
-              <div class="pricing-card">
-
-                <h3 class="h3 card-title">Fresh Pages - New Releases</h3>
-
-                <data class="price" value="5">75% Off</data>
-
-                <ul class="pricing-card-list">
-
-                  <li class="card-item">
-                    <p class="card-text">Exchange any recently released or gently used books, less than a year old, at
-                      75% of the original cost (Limited Offer)</p>
-                  </li>
-                </ul>
-
-                <button class="btn btn-secondary">BUY NOW</button>
-              </div>
-            </li>
-            <li>
-              <div class="pricing-card">
-                <h3 class="h3 card-title">Timeless Classics - Aged Wonders</h3>
-                <data class="price" value="15">50% Off</data>
-                <ul class="pricing-card-list">
-
-                  <li class="card-item">
-                    <p class="card-text">Swap beloved classics or books aged 1 to 5 years at 50% of the original cost,
-                      preserving the magic of timeless stories.</p>
-                  </li>
-                </ul>
-
-                <button class="btn btn-secondary">BUY NOW</button>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="pricing-card">
-                <h3 class="h3 card-title">Hidden Treasures - Vintage Editions</h3>
-                <data class="price" value="10">25% Off</data>
-                <ul class="pricing-card-list">
-
-
-                  <li class="card-item">
-                    <p class="card-text">Dive into the past with vintage editions or books over 5 years old, available
-                      for exchange at 25% of their original cost.</p>
-                  </li>
-                </ul>
-
-                <button class="btn btn-secondary">BUY NOW</button>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
-
+        </section>
 
       <!-- - #CONTACT -->
 
       <section class="section contact" id="contact" aria-label="contact">
         <div class="container">
-
           <p class="section-subtitle">Contact</p>
-
           <h2 class="h2 section-title has-underline">
             Write me anything
             <span class="span has-before"></span>
           </h2>
-
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin"
-            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
           <div class="wrapper">
             <div class="contact-card">
-              <form action="" id="contact-form ">
+              <form action="" id="contact-form">
+                <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field" size="60px">
 
-                <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field"
-                  size="60px">
-
-                <input type="email" name="email_address" id="email" placeholder="Your Email" required
-                  class="input-field">
+                <input type="email" name="email_address" id="email" placeholder="Your Email" required class="input-field">
 
                 <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field">
                 <div id="subject-count" class="character-count">0/100</div>
-                <!-- Element to display character count for subject -->
 
                 <textarea name="message" id="message" placeholder="Your Message" class="input-field"></textarea>
                 <div id="message-count" class="character-count">0/250</div>
-                <!-- Element to display character count for message -->
 
-                <button type="submit1" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
+                <button type="submit" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
+                <div id="success-message" style="display:none">Message sent successfully!</div>
+              </form>
             </div>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+              var form = document.getElementById('contact-form');
+              var message = document.getElementById('message');
+
+              form.addEventListener('submit', function(event) {
+              if (message.value.length < 50) {
+              alert("Message length can't be less than 50 characters.");
+              event.preventDefault(); // Prevent the form from being submitted
+            }});});
+            </script>
+
+            <ul class="contact-card">
             <ul class="contact-card ">
+              <style>
+                .address {
+                  color: hsl(304, 14%, 46%);
+                }
+              </style>
               <li>
-                <p class="card-title"><lord-icon
-                  class="invert-col"
-                  src="https://cdn.lordicon.com/iikoxwld.json"
-                  trigger="hover"
-                  colors="primary:#000000"
-                  style="width:25px;height:25px">
-              </lord-icon>  Address:</p>
+                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json" trigger="hover" colors="primary:#000000" style="width:25px;height:25px"></lord-icon> Address:</p>
                 <address class="address">
                   12, Nayabad <br>
                   Kolkata, India 700054
@@ -1284,32 +1167,23 @@
               </li>
 
               <li>
-                <p class="card-title"><lord-icon
-                    class="invert-col" 
-                    src="https://cdn.lordicon.com/srsgifqc.json"
-                    trigger="hover"
-                    style="width:20px;height:20px;">
-                </lord-icon>  Phone:</p>
+                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/srsgifqc.json" trigger="hover" style="width:20px;height:20px;"></lord-icon> Phone:</p>
                 <a href="tel:1234567890" class="card-link">+91 9124421980</a>
               </li>
 
               <li>
-                <p class="card-title"><lord-icon
-                    class="invert-col"
-                    src="https://cdn.lordicon.com/xtzvywzp.json"
-                    trigger="hover"
-                    style="width:20px;height:20px;">
-                </lord-icon>  Email:</p>
+                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/xtzvywzp.json" trigger="hover" style="width:20px;height:20px;"></lord-icon> Email:</p>
                 <a href="mailto:support@support.com" class="card-link">support@swapreads.com</a>
               </li>
             </ul>
-            </li>
-
-            </ul>
-
           </div>
+          <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin"
+          style="border:0; margin-bottom:30px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
 
         </div>
+
       </section>
 
     </article>
@@ -1321,10 +1195,10 @@
     Testimonials
     <span class="span has-before"></span>
   </h2>
-  <p class="section-subtitle">Know what our customers say</p>
+  <p class="section-subtitle" style="text-align: center;">Know what our customers say</p>
 
   <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="40"
-    loop="true" slides-per-view="3">
+    loop="true" >
     <swiper-slide>
       <div class="flip-card">
         <div class="flip-card-inner">
@@ -1349,7 +1223,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card-back backs">
+          <div class="flip-card-back backs"  >
             SwapReads has completely transformed my reading experience! Not only have I discovered new books I never
             would have picked up otherwise, but I've also connected with fellow book lovers who share my passion. It's
             like having a personalized library with endless possibilities. Highly recommend!
@@ -1461,9 +1335,9 @@
 
 
                 <div class="card-image">
-                  <img src="./assets/images/testimonials-2.jpg" alt="" class="card-img">
+                  <img src="./assets/images/testimonials-5.jpg" alt="" class="card-img">
                 </div>
-                <h2 style="font-size: 20px;">Prem Sampath</h2>
+                <h2 style="font-size: 20px;">Jane Doe</h2>
               </div>
 
               <div class="rating">
@@ -1476,9 +1350,9 @@
             </div>
           </div>
           <div class="flip-card-back backs">
-            SwapReads is a bookworm's paradise! With its user-friendly interface, welcoming community, and vast variety
-            of books for swapping, I've embarked on countless new literary adventures. It's like an ever-active book
-            club where I've connected with fellow literature lovers. I'm completely hooked!
+            I love SwapReads! It's a fantastic way to keep my reading list dynamic and engaging. The platform is
+            easy to use, and the community is incredibly supportive and passionate about books. SwapReads has
+            definitely enriched my reading experience.
           </div>
         </div>
       </div>
@@ -1493,9 +1367,9 @@
 
 
                 <div class="card-image">
-                  <img src="./assets/images/testimonials-3.jpg" alt="" class="card-img">
+                  <img src="./assets/images/testimonials-6.jpg" alt="" class="card-img">
                 </div>
-                <h2 style="font-size: 20px;">Aron Loes</h2>
+                <h2 style="font-size: 20px;">Maya Verma</h2>
               </div>
 
               <div class="rating">
@@ -1508,21 +1382,24 @@
             </div>
           </div>
           <div class="flip-card-back backs">
-            SwapReads has transformed my reading habits. Beyond swapping books, it's about fostering a community of
-            passionate readers. I've made friends, broadened my literary horizons, and unearthed hidden gems. Thank you,
+            SwapReads has completely changed the way I read and discover books. The swapping system is seamless,
+            and I've found so many new favorites. Plus, the community is amazing – it's like having a book club at
+            my fingertips!
           </div>
         </div>
       </div>
     </swiper-slide>
   </swiper-container>
-
+</br>
 
   <!-- Testimonials -->
 
   <!-- FAQ section start-->
 
-  <h1 class="faq" id="faqq">Some Frequently Asked Questions</h1>
+
   <div class="faq-section">
+    <h1 class="faq" id="faqq">Some Frequently Asked Questions</h1>
+    </br>
     <div class="faq-container">
       <div class="question">
         <h4>How does SwapReads work?</h4>
@@ -1576,131 +1453,139 @@
 
   <!-- FAQ section end -->
 
-  <!-- 
+  <!--
     - #FOOTER
   -->
 
   <footer>
     <div class="foot-top">
       <div class="foot-left">
+
         <div class="desc">
+<!--google translate-->
+          <div id="google_translate_element"></div>
 
-          <a href="#" class="logo">SwapReads</a>
-          <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book lovers
-            seeking to swap and
+          <script type="text/javascript">
+              function googleTranslateElementInit() {
+                  new google.translate.TranslateElement(
+                      {pageLanguage: 'en'},
+                      'google_translate_element'
+                  );
+              }
+          </script>
 
-            discover new literary gems.
-            Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in the
-            world of literature—all on one convenient platform. Join us and dive into a universe of endless
-            possibilities!
-          </p>
+          <script type="text/javascript"
+                  src=
+      "https://translate.google.com/translate_a/element.js?
+      cb=googleTranslateElementInit">
+          </script>
+          <div><a href="#" class="logo">SwapReads</a></div>
+          <div>
+            <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
+              lovers
+              seeking to swap and
+
+              discover new literary gems.
+              Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
+              the
+              world of literature—all on one convenient platform. Join us and dive into a universe of endless
+              possibilities!
+            </p>
+          </div>
+
         </div>
       </div>
       <div class="foot-middle">
         <h2>Quick Links</h2>
-        <ul>
-          <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')">Home</a></li>
-          <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
-          <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
-          <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
-          <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
-          <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
-        </ul>
+        <div id="quicklinks">
+          <div>
+          <ul>
+            <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')">Home</a></li>
+            <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
+            <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+            <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
+            <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
+              onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')">Swap
+                BookList</a></li>
+            <li class="foot-quick"><a href="./assets/html/freeBooks.html"
+                onclick="lenis.scrollTo('#contact')">E-Book</a></li>
+            <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
+            </li>
+            <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+            <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
+          </ul>
+        </div>
+        </div>
       </div>
       <div class="social-icons">
-        <!-- <h5>Newsletter</h5> -->
-        <!-- <div class="input-newletter">
-          <label for="newsletter"><h5>Newsletter</h5></label>
-          <input placeholder="Enter your email" type="email" ></input>
-          <button class="btn-subs">Subscribe</button>
-        </div> -->
+       
+        <form id="newsletterForm" type="newsletter">
 
-        <form type="newsletter">
+        <form action="/subscribe" method="post">
+
           <label for="email">Subscribe to our Newsletter</label>
           <div class="row-flex">
 
+            <input type="email" value="" name="email" placeholder="email address" id="newsletter-email">
+            <button type="submit" class="subscribe-btn">Subscribe</button>
 
 
-            <!--email write-->
-            <input type="news" value="" name="email" placeholder="email address" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
           </div>
-        </form>
-        <style>
-          .icons .icon i {
-            font-size: 24px;
-            /* Set the default font size for icons */
-            transition: all 0.3s ease;
-            /* Add transition for smooth animation */
-          }
 
-          .icons .icon:hover i {
-            transform: scale(1.2);
-            /* Scale the icon on hover */
-          }
-
-          .icons .icon:hover .fab.fa-facebook-square {
-            color: #3b5998;
-            /* Change to Facebook color on hover */
-          }
-
-          .icons .icon:hover .fab.fa-twitter-square {
-            color: #1da1f2;
-            /* Change to Twitter color on hover */
-          }
-
-          .icons .icon:hover .fab.fa-instagram-square {
-            color: #c13584;
-            /* Change to Instagram color on hover */
-          }
-
-          .icons .icon:hover .fab.fa-youtube-square {
-            color: #ff0000;
-            /* Change to YouTube color on hover */
-          }
-        </style>
-
+      </form>
+      <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+      
+        
         <div class="icons">
-          <a href="#">
+          <a href="https://www.linkedin.com/in/anurag-verma-b91417253/">
             <div class="icon">
-              <i class="fab fa-facebook-square" style="cursor: pointer;"></i>
+              <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
+            </div>
+          </a>
+
+          <a href="https://x.com/anuragverma_108">
+            <div class="icon">
+              <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
             </div>
           </a>
 
           <a href="#">
             <div class="icon">
-              <i class="fab fa-twitter-square" style="cursor: pointer;"></i>
+              <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
+            </div>
+          </a>
+          <a href="https://github.com/anuragverma108/SwapReads" title="Github">
+            <div class="icon">
+              <i class="fab fa-github" style="cursor: pointer;"></i>
             </div>
           </a>
 
-          <a href="#">
+          <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
             <div class="icon">
-              <i class="fab fa-instagram-square" style="cursor: pointer;"></i>
+              <i class="fab fa-youtube" style="cursor: pointer;"></i>
             </div>
           </a>
+        </div>
+       
 
-          <a href="https://www.youtube.com/@anuragbytes">
-            <div class="icon">
-              <i class="fab fa-youtube-square" style="cursor: pointer;"></i>
-            </div>
-          </a>
-          <div class="footer-bottom">
-            <p class="copyright" style="text-align: center">
-              &copy;
-              <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-              Hackers.
-            </p>
+        <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
+          <div class="circle1">
+            <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+              class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+              <path
+                d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+            </svg>
           </div>
+        </div>
+        
+      </div>
+    </div>
 
-          <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">
-            <div class="circle1">
-              <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-                <path
-                  d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-              </svg>
-            </div>
-          </div>
 
   </footer>
   <!-- Footer ended-->
@@ -1708,6 +1593,134 @@
   <script>
 
 
+        
+
+
+    <!-- adding privacy policy and copyright popup-->
+    <div style="text-align: center; align-items: center;">
+      <p style="text-align: center">
+        &copy;
+        <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+      </p>
+      <div class="row-copy">
+
+    
+      <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
+      <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+    </div>
+    </div>
+    
+    <!-- Copyright Policy Modal -->
+    <div id="copyrightPolicyModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeCopyright">&times;</span>
+        <h1>Copyright Policy</h1>
+        <p>Welcome to SwapReads. Here is our copyright policy:</p>
+        <ul>
+          <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
+          <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
+          <li>Users may download and print content for personal use only.</li>
+          <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
+          <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Privacy Notice Modal -->
+    <div id="privacyNoticeModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closePrivacy">&times;</span>
+        <h1>Privacy Notice</h1>
+        <p>Welcome to SwapReads. Here is our privacy notice:</p>
+        <ul>
+          <li>We collect personal information when you register, buy, or sell books.</li>
+          <li>We use this information to provide and improve our services.</li>
+          <li>We do not share your personal information with third parties without your consent.</li>
+          <li>We take reasonable measures to protect your data from unauthorized access.</li>
+          <li>You can contact us to update or delete your personal information.</li>
+          <li>By using our site, you consent to our privacy practices.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <script>
+      // Get the modal elements
+      var copyrightModal = document.getElementById("copyrightPolicyModal");
+      var privacyModal = document.getElementById("privacyNoticeModal");
+    
+      // Get the link elements
+      var copyrightLink = document.getElementById("copyrightPolicyLink");
+      var privacyLink = document.getElementById("privacyNoticeLink");
+    
+      // Get the <span> elements that close the modals
+      var closeCopyright = document.getElementById("closeCopyright");
+      var closePrivacy = document.getElementById("closePrivacy");
+    
+      // When the user clicks the link, open the modal 
+      copyrightLink.onclick = function() {
+        copyrightModal.style.display = "block";
+      }
+      privacyLink.onclick = function() {
+        privacyModal.style.display = "block";
+      }
+    
+      // When the user clicks on <span> (x), close the modal
+      closeCopyright.onclick = function() {
+        copyrightModal.style.display = "none";
+      }
+      closePrivacy.onclick = function() {
+        privacyModal.style.display = "none";
+      }
+    
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == copyrightModal) {
+          copyrightModal.style.display = "none";
+        }
+        if (event.target == privacyModal) {
+          privacyModal.style.display = "none";
+        }
+      }
+    </script>
+
+
+
+  </footer>
+
+  <!-- Footer ended-->
+  <script src="./assets/js/script.js" defer></script>
+  <script>
+    document.getElementById("newsletterForm").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+  
+    
+      var email = document.getElementById("email").value;
+  
+      document.getElementById("confirmationMessage").style.display = "block";
+  
+
+      document.getElementById("email").value = '';
+  });
+  
+  </script>
+
+  <script>
+
+    //   function sendMail(){
+    //         let params={
+    //             name:document.getElementById('name').value,
+    //             email:document.getElementById('email').value,
+    //             subject:document.getElementById('subject').value,
+    //             message:document.getElementById('message').value,
+    //             subscribe:document.getElementById('newsletter-email').value
+    //         }
+    //         EmailJSResponseStatus.send("service_lktb68z","template_w79vd94",params,"o6kveYmOSDrs0l1Mg")
+    //         .then(alert('Email sent successfully'))
+    //       }
+
+
+
+    // document.querySelector('subscribe-btn').addEventListener('submit', sendMail());
     // Function to toggle dark mode
     function toggleDarkMode() {
       const isDarkMode = isDarkModePreferred();
@@ -1774,12 +1787,11 @@
 
 
 
-  <!-- 
+  <!--
     - custom js link
   -->
-  <script src="./assets/js/script.js" defer></script>
 
-  <!-- 
+  <!--
     - ionicon link
   -->
   <script src="./assets/js/scroll-reveal.js"></script>
@@ -1916,6 +1928,9 @@
   <script src="vanilla-tilt.js"></script>
   <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
   <script src="https://mediafiles.botpress.cloud/d1b37584-4b4e-4f3a-8937-8a06cd0d822e/webchat/config.js" defer></script>
+  <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+  <script src="https://mediafiles.botpress.cloud/7f002596-82e6-4d47-a8e4-df34d38fa2d3/webchat/config.js" defer></script>
+
   <!-- Swiper JS -->
   <script src="./assets/js/swiper-bundle.min.js"></script>
   <!-- Custom JavaScript -->
@@ -1945,12 +1960,22 @@
     });
 
   </script>
-
-
+<!-- Fot Contact Send Now Button -->
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var successMessage = document.getElementById("success-message");
+      successMessage.style.display = "block";
+      document.getElementById("contact-form").reset();
+      setTimeout(function() {
+        successMessage.style.display = "none";
+      }, 3000);
+    });
+  </script>
 
   <script src="./assets/js/test-script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-
+  <script src="./scrollbar.js"></script>
 </body>
 
 </html>

@@ -4,13 +4,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const userSpan = document.getElementById('user');
     const bookList = document.getElementById('book-list');
 
-    // Simulating a database for demonstration purposes
-    const users = {};
-    const books = {};
+    function getUsers() {
+        return JSON.parse(localStorage.getItem('users')) || {};
+    }
+
+    function getBooks(username) {
+        return JSON.parse(localStorage.getItem(`books_${username}`)) || [];
+    }
+
+    function setUsers(users) {
+        localStorage.setItem('users', JSON.stringify(users));
+    }
+
+    function setBooks(username, books) {
+        localStorage.setItem(`books_${username}`, JSON.stringify(books));
+    }
 
     function login() {
         const username = document.getElementById('login-username').value;
         const password = document.getElementById('login-password').value;
+        const users = getUsers();
 
         if (users[username] && users[username] === password) {
             sessionStorage.setItem('username', username);
@@ -23,10 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function signUp() {
         const username = document.getElementById('signup-username').value;
         const password = document.getElementById('signup-password').value;
+        const users = getUsers();
 
         if (!users[username]) {
             users[username] = password;
-            books[username] = [];
+            setUsers(users);
+            setBooks(username, []);
             alert('User registered successfully.');
         } else {
             alert('Username already exists.');
@@ -38,7 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const username = sessionStorage.getItem('username');
 
         if (bookName) {
-            books[username].push(bookName);
+            const userBooks = getBooks(username);
+            userBooks.push(bookName);
+            setBooks(username, userBooks);
             displayBooks(username);
             document.getElementById('book-name').value = '';
         } else {
@@ -47,16 +64,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function displayBooks(username) {
+        const userBooks = getBooks(username);
         bookList.innerHTML = '';
-        books[username].forEach((book, index) => {
+        userBooks.forEach((book, index) => {
             const li = document.createElement('li');
-            li.textContent = book;
+            const bookText = document.createElement('span');
+            bookText.textContent = book;
             const removeButton = document.createElement('button');
             removeButton.textContent = 'Remove';
             removeButton.onclick = () => {
-                books[username].splice(index, 1);
+                userBooks.splice(index, 1);
+                setBooks(username, userBooks);
                 displayBooks(username);
             };
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Edit';
+            editButton.onclick = () => {
+                const newBookName = prompt('Enter new book name:', book);
+                if (newBookName) {
+                    userBooks[index] = newBookName;
+                    setBooks(username, userBooks);
+                    displayBooks(username);
+                }
+            };
+            li.appendChild(bookText);
+            li.appendChild(editButton);
             li.appendChild(removeButton);
             bookList.appendChild(li);
         });
