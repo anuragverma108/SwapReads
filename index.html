@@ -1072,11 +1072,13 @@
 
                 <input type="email" name="email_address" id="email" placeholder="Your Email" required class="input-field">
 
-                <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field">
+                <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field" maxlength=100>
                 <div id="subject-count" class="character-count">0/100</div>
+                <div id="subject-full" class="character-full">You have reached the character limit!</div>
 
-                <textarea name="message" id="message" placeholder="Your Message" class="input-field"></textarea>
+                <textarea name="message" id="message" placeholder="Your Message" class="input-field" maxlength=250></textarea>
                 <div id="message-count" class="character-count">0/250</div>
+                <div id="message-full" class="character-full">You have reached the character limit!</div>
 
                 <button type="submit" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
                 <div id="success-message" style="display:none">Message sent successfully!</div>
@@ -1626,6 +1628,35 @@
   <!-- Footer ended-->
   <script src="./assets/js/script.js" defer></script>
   <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      let subject_full= document.getElementById("subject-full");
+      let subject_count= document.getElementById("subject-count");
+      let subject= document.getElementById("subject");
+      subject.addEventListener('input', (e)=>{
+        let length= e.target.value.length;
+        subject_count.innerText= `${length}/100`;
+        if(length==100){
+          subject_full.style.display= "block";
+          }
+          else{
+            subject_full.style.display= "none";
+            }
+      })
+      let message_count= document.getElementById("message-count");
+      let message= document.getElementById("message");
+      let message_full= document.getElementById("message-full");
+      message.addEventListener('input', (e)=>{
+        let length= e.target.value.length;
+        message_count.innerText= `${length}/250`;
+        if(length==250){
+          message_full.style.display= "block";
+        }
+        else{
+          message_full.style.display= "none";
+        }
+      })
+    })
+    
     document.getElementById("newsletterForm").addEventListener("submit", function(event) {
       event.preventDefault(); 
   
