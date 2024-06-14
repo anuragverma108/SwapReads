@@ -75,38 +75,37 @@
       color: white;
       background-color: #A30F17;
     }
-.reject-cookies {
-  margin-top: 10px;
-  padding-top: 5px;
-  height: 40px;
-  width: 280px;
-  color: white;
-  background-color: #A30F17;
-}
+    .reject-cookies {
+      margin-top: 10px;
+      padding-top: 5px;
+      height: 40px;
+      width: 280px;
+      color: white;
+      background-color: #A30F17;
+    }
 
-.accept-cookies:hover, .reject-cookies:hover {
-  transform: scale(0.9);
-  box-shadow: 0 0 20px rgb(249, 212, 212);
-}
+    .accept-cookies:hover, .reject-cookies:hover {
+      transform: scale(0.9);
+      box-shadow: 0 0 20px rgb(249, 212, 212);
+    }
 
-.accept-cookies:hover {
-  background-color: white;
-  color: red;
-}
+    .accept-cookies:hover {
+      background-color: white;
+      color: red;
+    }
 
-.reject-cookies:hover {
-  background-color: white;
-  color: red;
-}
+    .reject-cookies:hover {
+      background-color: white;
+      color: red;
+    }
 
     #back-to-top-container {
       position: fixed;
     }
   
   <link rel="stylesheet" href="./assets/css/styles.css">
-
-
 </head>
+
 
 
 <body>
@@ -114,56 +113,7 @@
     <div class="progress-bar"></div>
   </div>
 
-  <div id="cookie-consent">
-    <p style="color: black;">
-        We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy. 
-        <a href="#" id="learn-more-link">Learn More</a>
-    </p>
-    <div id="learn-more-content" style="display: none; color: black;">
-        <p>Cookies are small text files that can be used by websites to make a user's experience more efficient. The law states that we can store cookies on your device if they are strictly necessary for the operation of this site. For all other types of cookies we need your permission.</p>
-        <p>This site uses different types of cookies. Some cookies are placed by third party services that appear on our pages.</p>
-    </div>
-    <button class="accept-cookies">Accept</button>
-    <button class="reject-cookies">Reject</button>
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const cookieConsent = document.getElementById('cookie-consent');
-    const acceptButton = document.querySelector('.accept-cookies');
-    const rejectButton = document.querySelector('.reject-cookies');
-    const learnMoreLink = document.getElementById('learn-more-link');
-    const learnMoreContent = document.getElementById('learn-more-content');
-
-    // Check if the user has already made a choice
-    if (localStorage.getItem('cookieConsent')) {
-      cookieConsent.style.display = 'none';
-    }
-
-    // Function to handle cookie consent choice
-    function handleConsent(choice) {
-      localStorage.setItem('cookieConsent', choice);
-      cookieConsent.style.display = 'none';
-    }
-
-    // Add event listeners to buttons
-    acceptButton.addEventListener('click', function() {
-      handleConsent('accepted');
-    });
-
-    rejectButton.addEventListener('click', function() {
-      handleConsent('rejected');
-    });
-
-    // Add event listener to "Learn More" link
-    learnMoreLink.addEventListener('click', function(event) {
-      event.preventDefault();
-      learnMoreContent.style.display = 'block';
-      learnMoreLink.style.display = 'none';
-    });
-  });
-</script>
-
+  
 
 
   <div id="preloader">
@@ -186,9 +136,82 @@
         </svg>
       </div>
     </div>
-
   </div>
+  
+  <div id="cookie-consent">
+    <p style="color: black;">
+        We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy. 
+        <a href="#" id="learn-more-link">Learn More</a>
+    </p>
+    <div id="learn-more-content" style="display: none; color: black;">
+        <p>Cookies are small text files that can be used by websites to make a user's experience more efficient. The law states that we can store cookies on your device if they are strictly necessary for the operation of this site. For all other types of cookies we need your permission.</p>
+        <p>This site uses different types of cookies. Some cookies are placed by third party services that appear on our pages.</p>
+    </div>
+    <button class="accept-cookies">Accept</button>
+    <button class="reject-cookies">Reject</button>
+  </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const cookieConsent = document.getElementById('cookie-consent');
+  const acceptButton = document.querySelector('.accept-cookies');
+  const rejectButton = document.querySelector('.reject-cookies');
+  const learnMoreLink = document.getElementById('learn-more-link');
+  const learnMoreContent = document.getElementById('learn-more-content');
 
+  // Hide preloader after page load
+  window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.style.display = 'none';
+    }
+    cookieConsent.style.display = 'block';
+  });
+
+  // Check if localStorage is available
+  function localStorageAvailable() {
+    try {
+      const test = '__localStorage_test__';
+      localStorage.setItem(test, test);
+      localStorage.removeItem(test);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  if (localStorageAvailable()) {
+    // Check if the user has already made a choice
+    if (localStorage.getItem('cookieConsent')) {
+      cookieConsent.style.display = 'none';
+    }
+
+    // Function to handle cookie consent choice
+    function handleConsent(choice) {
+      localStorage.setItem('cookieConsent', choice);
+      cookieConsent.style.display = 'none';
+    }
+
+    // Add event listeners to buttons
+    acceptButton.addEventListener('click', function() {
+      handleConsent('accepted');
+    });
+
+    rejectButton.addEventListener('click', function() {
+      handleConsent('rejected');
+    });
+  } else {
+    // Hide consent if localStorage is not available
+    cookieConsent.style.display = 'none';
+  }
+
+  // Add event listener to "Learn More" link
+  learnMoreLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    learnMoreContent.style.display = 'block';
+    learnMoreLink.style.display = 'none';
+  });
+});
+</script>
   <header class="header header-anim" data-header>
 
     <div class="container mobile-container-styles" style="padding-left: 0;">
@@ -1547,15 +1570,17 @@
               <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
             </div>
           </a>
-          <a href="https://github.com/anuragverma108/SwapReads" title="Github">
-            <div class="icon">
-              <i class="fab fa-github" style="cursor: pointer;"></i>
-            </div>
-          </a>
+          
 
           <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
             <div class="icon">
               <i class="fab fa-youtube" style="cursor: pointer;"></i>
+            </div>
+          </a>
+
+          <a href="https://github.com/anuragverma108" title="GitHub">
+            <div class="icon">
+                <i class="fab fa-github" style="cursor: pointer;"></i>
             </div>
           </a>
         </div>
