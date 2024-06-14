@@ -38,6 +38,27 @@
 </head>
 
 <body>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
     <div id="preloader">
         <div class="loader">
           <div class="book-wrapper">
@@ -348,6 +369,9 @@
                     <option value="comedy">Comedy</option>
                     <!-- Add more options as needed -->
                 </select>
+                <div class="author">
+            <input type="text" id="author" name="author" placeholder="Enter author name">
+            </div>
                 <button onclick="redirectToRecommendations()" class="btn-primary">Get Recommendations</button>
             </div>
         </div>
@@ -429,11 +453,12 @@
 
         function redirectToRecommendations() {
             const genre = document.getElementById('genre').value;
-            if (genre === 'select') {
-                alert('Please select a genre.');
+            const author = document.getElementById('author').value;
+
+            if (genre === 'select' && !author) {
+                alert('Please select a genre or provide an author.');
             } else {
-                // Simulate book recommendations (replace with actual data)
-                const recommendations = getRecommendations(genre);
+                const recommendations = getRecommendations(genre, author);
                 displayRecommendations(recommendations);
                 document.getElementById('recommendationResults').scrollIntoView({ behavior: 'smooth' });
             }
@@ -441,10 +466,11 @@
         
 
         // Simulated function to get book recommendations
-        function getRecommendations(genre) {
+        function getRecommendations(genre, author) {
+          let recommendations = []
             switch (genre) {
                 case 'fiction':
-                    return [
+                    recommendations = [
                         {
                             title: "To Kill a Mockingbird",
                             author: "Harper Lee",
@@ -502,8 +528,9 @@
                             description: 'A novel about Santiago, an Andalusian shepherd boy, who journeys to Egypt in search of a treasure buried in the Pyramids.'
                         }
                     ];
+                    break;
                 case 'technology':
-                    return [
+                    recommendations = [
                         {
                             title: "Clean Code: A Handbook of Agile Software Craftsmanship",
                             author: "Robert C. Martin",
@@ -561,8 +588,9 @@
                             description: "It is a gripping tale of a team of engineers racing to build a revolutionary computer in the 1970s, highlighting their dedication, challenges, and the spirit of innovation.",
                         }
                     ];
+                    break;
                 case 'classics':
-                    return [
+                    recommendations= [
                         {
                             title: "Pride and Prejudice",
                             author: "Jane Austen",
@@ -604,8 +632,9 @@
                             description: "A tale of obsession and revenge, focusing on the monomaniacal quest of Ahab, captain of the whaler Pequod, for revenge against Moby Dick, the giant white sperm whale that on the previous whaling voyage bit off Ahab's leg at the knee."
                         }
                     ];
+                    break;
                 case 'self-help':
-                    return [
+                    recommendations = [
                         {
                             title: "The Power of Positive Thinking",
                             author: "Norman Vincent Peale",
@@ -655,8 +684,9 @@
                             description: "A self-help book that emphasizes the impact of positive thinking on achieving success and personal happiness. It blends psychology, practical advice, and spiritual guidance."
                         }
                     ];
+                    break;
                 case 'science-fiction':
-                    return [
+                    recommendations = [
                         {
                             title: "Dune",
                             author: "Frank Herbert",
@@ -698,8 +728,9 @@
                             description: "A cyberpunk novel set in a future America where the internet, virtual reality, and the mafia dominate society. The story follows Hiro Protagonist, a computer hacker and pizza delivery driver.",
                         }
                     ];
+                    break;
                 case 'mystery':
-                    return [
+                    recommendations = [
                         {
                             title: "Gone Girl",
                             author: "Gillian Flynn",
@@ -749,8 +780,9 @@
                             description: "Follows three women, each at a crossroads, and explores the secrets they keep, the lies they tell, and the dangerous truths they hold. The book culminates in a shocking murder at a school trivia night."
                         }
                     ];
+                    break;
                 case 'adventure':
-                    return [
+                    recommendations =  [
                         {
                             title: "The Hobbit",
                             author: "J.R.R. Tolkien",
@@ -792,6 +824,7 @@
                             description: "The adventures of a young boy named Huck Finn and an escaped slave named Jim as they journey down the Mississippi River on a raft. Along the way, they encounter various characters and face moral dilemmas."
                         }
                     ];
+                    break;
 
                 case 'romance':
                     return [
@@ -844,11 +877,12 @@
                             description: "Follows the story of Landon Carter, a popular student, and Jamie Sullivan, the daughter of the town's Baptist minister, as they fall in love despite their differences and face challenges together."
                         }
                     ];
+                    break;
 
 
 
                 case 'fantasy':
-                    return [
+                    recommendations = [
                         {
                             title: "Harry Potter and the Sorcerer's Stone",
                             author: "J.K. Rowling",
@@ -890,10 +924,11 @@
                             description: "The first book in the epic fantasy series 'A Song of Ice and Fire', it follows the power struggles among noble families as they vie for control of the Iron Throne of the Seven Kingdoms, set against a backdrop of dark magic and political intrigue."
                         }
                     ];
+                    break; 
 
 
                 case 'biography':
-                    return [
+                    recommendations = [
                         {
                             "title": "Steve Jobs",
                             "author": "Walter Isaacson",
@@ -927,8 +962,9 @@
                             description: "Walter Isaacson's biography delves into the life and genius of Leonardo da Vinci, exploring his art, science, and enduring legacy."
                         }
                     ];
+                    break; 
                     case 'action':
-                    return[
+                    recommendations = [
                         {
                             title: "The Hunger Games",
                             author: "Suzanne Collins",
@@ -962,10 +998,11 @@
                             description: "Harvard symbologist Robert Langdon finds himself entangled in a thrilling quest to unravel a conspiracy hidden within the works of Leonardo da Vinci, racing against time and mysterious forces."
                         }
                     ];
+                    break; 
 
                     case 'comedy':
-    return [
-        {
+                  recommendations = [
+                        {
             title: "The Hitchhiker's Guide to the Galaxy",
             author: "Douglas Adams",
             genre: "Comedy",
@@ -1006,13 +1043,35 @@
             description: "A humorous account of a boating holiday on the Thames taken by three friends: J, Harris, and George, along with their dog, Montmorency. The book is filled with comedic anecdotes and observations about their misadventures."
         }
     ];
+    break; 
 
                 default:
-                    return [];
+                  recommendations = [];
+                    break;
             }
+            if (author) {
+                recommendations = recommendations.filter(book => book.author.toLowerCase().includes(author.toLowerCase()));
+            }
+
+            if (recommendations.length === 0) {
+                recommendations.push({
+                    title: 'No recommendations found',
+                    author: author || 'Any',
+                    genre: genre !== 'select' ? genre : 'Any',
+                    year: '',
+                    description: `No books found for ${author ? `author "${author}" and ` : ''}genre "${genre !== 'select' ? genre : 'Any'}".`,
+                    image: 'https://via.placeholder.com/280x400'
+                });
+            }
+
+            return recommendations;
         }
 
+
+        
         // Function to display recommendations
+        
+
         function displayRecommendations(recommendations) {
             const recommendationsContainer = document.getElementById('booksContainer');
             recommendationsContainer.innerHTML = '';
@@ -1022,15 +1081,15 @@
                 bookElement.classList.add('book');
 
                 const bookInfo = `
-          <div class="book-info">
-            <h2>${book.title}</h2>
-            <p><strong>Author:</strong> ${book.author}</p>
-            <p><strong>Genre:</strong> ${book.genre}</p>
-            <p><strong>Year:</strong> ${book.year}</p>
-            <p><strong>Description:</strong> ${book.description}</p>
-          </div>
-          <img src="${book.image}" alt="${book.title}" class="book-image" style="width: 280px; height: 400px; ">
-        `;
+                    <div class="book-info">
+                        <h2>${book.title}</h2>
+                        <p><strong>Author:</strong> ${book.author}</p>
+                        <p><strong>Genre:</strong> ${book.genre}</p>
+                        <p><strong>Year:</strong> ${book.year}</p>
+                        <p><strong>Description:</strong> ${book.description}</p>
+                    </div>
+                    <img src="${book.image}" alt="${book.title}" class="book-image" style="width: 280px; height: 400px;">
+                `;
                 bookElement.innerHTML = bookInfo;
                 recommendationsContainer.appendChild(bookElement);
             });
@@ -1039,13 +1098,11 @@
             document.getElementById('recommendationResults').style.display = 'block';
             document.getElementById('recommendationTitle').innerText = `Recommended Books for ${capitalizeFirstLetter(document.getElementById('genre').value)}`;
             const recommendationTitle = document.getElementById('recommendationTitle');
-            // recommendationTitle.style.fontFamily = 'Poppins, sans-serif';
             recommendationTitle.style.fontSize = '42px';
             recommendationTitle.style.textAlign = 'center';
             recommendationTitle.style.marginBottom = '23px';
-       }
-
-        // Helper function to capitalize the first letter of a string
+        }
+        //Helper function
         function capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
