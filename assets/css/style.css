@@ -1480,47 +1480,34 @@ textarea.input-field {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20%;
+  width: 40%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 2.5rem;
+  position: relative;
+  animation: scale-up 0.5s ease;
 }
 
 .rating_heading {
-  color: white;
-  animation: scale-up 1s ease;
-}
-
-@keyframes scale-up {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .star_rating {
   width: 100%;
   user-select: none;
-  background-color: white;
+  background-color: #f9f9f9;
   padding: 1.4rem 2.5rem;
   margin-bottom: 2rem;
   border-radius: 0.4rem;
   text-align: center;
-  animation: slide-up 1s ease;
+  animation: slide-up 0.5s ease;
 }
 
-@keyframes slide-up {
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
+.stars {
+  margin: 1rem 0;
 }
 
 .star {
@@ -1533,28 +1520,29 @@ textarea.input-field {
 
 .star:hover {
   cursor: pointer;
+  color: #ff5722;
 }
 
 .home_button {
-  align-self: start;
-  padding: 0 0.7em;
-  background-color: #fff;
-  color: var(--old-rose);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 35px;
+  height: 35px;
+  background-color: #ff5722;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
-  /* To remove the default underline */
-}
-
-.home_button:hover {
-  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home_button::before {
-  text-decoration: none;
   content: "\f00d";
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-weight: 800;
   font-family: FontAwesome;
 }
@@ -1562,21 +1550,20 @@ textarea.input-field {
 .submit_button {
   margin-top: 5px;
   padding: 10px 20px;
-  background-color: #fff;
-  color: var(--old-rose);
+  background-color: #ff5722;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   display: none;
-  /* Initially hide the submit button */
 }
 
 .thank_you_message {
-  background-color: white;
+  background-color: #ffeb3b;
   padding: 0.5em 1em;
   margin-top: 2rem;
-  animation: scale-up 1s ease;
-  font-size: 2rem;
+  animation: scale-up 0.5s ease;
+  font-size: 1.5rem;
   border-radius: 5px;
   display: none;
 }
