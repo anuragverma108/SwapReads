@@ -1576,19 +1576,23 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
       <div class="social-icons">
        
-        <form id="newsletterForm" type="newsletter">
-
-        <form action="/subscribe" method="post">
-
-          <label for="email">Subscribe to our Newsletter</label>
+        <style>
+          input[type="email"] {
+              border: 2px solid #ccc; /* Gray border */
+              border-radius: 4px; /* Rounded corners */
+              padding: 10px; /* Inner padding */
+              font-size: 16px; /* Font size */
+          }
+        </style>
+  
+        <form type="newsletter">
+          <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
           <div class="row-flex">
-
-            <input type="email" value="" name="email" placeholder="email address" id="newsletter-email">
-            <button type="submit" class="subscribe-btn">Subscribe</button>
-
-
+              <!-- Email input -->
+              <input type="email" id="newsletter-email" name="email" placeholder="email address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$" 
+              title="Please enter a valid email address that ends with '.com'" required>
+              <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
           </div>
-
       </form>
       <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
       
