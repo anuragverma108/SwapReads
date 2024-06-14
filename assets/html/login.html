@@ -385,7 +385,7 @@
           </div>
          
   
-          <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
+          <div  id="back-to-top-container">
             <div class="circle1">
               <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                 class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
@@ -843,6 +843,32 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
       }
     });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const backToTopButton = document.getElementById('back-to-top-container');
+
+      function checkButtonVisibility() {
+        if (window.innerWidth > 100 && window.scrollY > 100) {
+          backToTopButton.style.display = 'block';
+        } else {
+          backToTopButton.style.display = 'none';
+        }
+      }
+
+      window.addEventListener('scroll', checkButtonVisibility);
+      window.addEventListener('resize', checkButtonVisibility);
+
+      backToTopButton.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      checkButtonVisibility();
+    });
+
   </script>
 </body>
 
