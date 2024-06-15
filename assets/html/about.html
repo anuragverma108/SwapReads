@@ -204,7 +204,7 @@
               <a href="../../index.html" class="navbar-link" data-nav-link><i class="ri-home-fill"></i> Home</a>
             </li>
             <li class="navbar-item">
-              <a href="./about1.html"  class="navbar-link" data-nav-link><i
+              <a href="./about.html"  class="navbar-link" data-nav-link><i
                   class="ri-home-fill"></i> About Us </a>
             </li>
             <li class="navbar-item">
@@ -478,7 +478,9 @@
         display: block;
         margin: 0 auto 10px auto;
       }
-
+      .contributors h2{
+        color: var(--sonic-silver);
+      }
       .contributor-member h3 {
         font-size: 1rem;
         margin: 10px 0 5px;
@@ -496,16 +498,26 @@
       }
 
       .pagination button {
-        color: #090e11;
+        color: var(--old-rose);
         margin: 0 5px;
         padding: 10px 15px;
-        border: 1px solid #ccc;
-        background-color: #f9f9f9;
+        border: 1px solid transparent;
+        background-color: transparent;
         cursor: pointer;
       }
-
+      body.dark-mode .pagination button {
+        background-color: #333; 
+        color: #fff; 
+        border: 1px solid #444; 
+    }
+    body.dark-mode .pagination button:hover {
+        background-color: #0056b3;
+        color: #fff; 
+    }
       .pagination button.active {
-        background-color: #ddd;
+        background-color:transparent;
+        text-decoration: underline;
+        font-size:x-large;
       }
 /* General styles for the about-us-block divs */
 .about-us-block > div {
@@ -567,7 +579,7 @@
       </div>
     </div>
     <div class="foot-middle">
-      <h2>Quick Links</h2>
+      <h2 class="links">Quick Links</h2>
       <div id="quicklinks">
         <div>
         <ul>
@@ -622,7 +634,7 @@
       </style>
 
       <form type="newsletter">
-        <label for="newsletter-email">Subscribe to our Newsletter</label>
+        <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
         <div class="row-flex">
             <!-- Email input -->
             <input type="email" id="newsletter-email" name="email" placeholder="email address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$" 
@@ -643,9 +655,9 @@
           /* Scale the icon on hover */
         }
 
-        .icons .icon:hover .fab.fa-facebook {
-          color: #3B5998;
-          /* Change to Facebook color on hover */
+        .icons .icon:hover .fab.fa-linkedin {
+          color: #0A66C2;
+          /* Change to linkedin color on hover */
         }
 
         .icons .icon:hover .fab.fa-twitter{
@@ -672,13 +684,13 @@
       </style>
 
       <div class="icons">
-        <a href="#">
+        <a href="https://www.linkedin.com/in/anurag-verma-b91417253/">
           <div class="icon">
-            <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
+            <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
           </div>
         </a>
 
-        <a href="#">
+        <a href="https://x.com/anuragverma_108">
           <div class="icon">
             <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
           </div>
@@ -721,14 +733,16 @@
       </div>
     </div>
   </div>
-      <div style="text-align: center; align-items: center;">
-        <p style="text-align: center">
-          &copy;
-          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-          Hackers.
-        </p>
+  <div style="text-align: center;">
+    <p style="color: grey;">
+        &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+    </p>
+    <div class="row-copy">
+        <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
+        <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+    </div>
+</div>
 
-      </div>
 
 
               <!-- .icons .icon:hover .fab.fa-facebook {
