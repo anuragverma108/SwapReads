@@ -38,6 +38,27 @@
   <script src="../js/signinGoogle.js" defer type="module"></script>
   <!-- end -->
   <title>Login / SignUp</title>
+  <style>
+    .dark-mode .switch-label{
+      top: 1.4rem;
+    }
+    .switch-label {
+    right: 2.3rem;
+    top: 1rem;
+    position: relative;
+    width: 45px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease;
+    }
+  </style>
 </head>
 
 <body>
@@ -73,16 +94,16 @@
           <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
             <img src="../images/new_logo_banner_dark.png" class="logopic" style=" width: 200px;">
           </a>
-          <li class="navbar-item">
+           <li class="navbar-item">
             <a href="../../index.html#home" class="navbar-link" data-nav-link style="text-decoration: none;"><i
                 class="ri-home-fill"></i> Home</a>
           </li>
 
-          <li class="navbar-item">
+          <!-- <li class="navbar-item">
             <a href="../../index.html#benefits" class="navbar-link" data-nav-link style="text-decoration: none;"><i
                 class="ri-bar-chart-fill"></i> Benefits</a>
             <a href="../../index.html#home" class="navbar-link" data-nav-link><i class="ri-home-fill"></i> Home</a>
-          </li>
+          </li>  -->
 
           <li class="navbar-item">
             <a href="../../index.html#benefits" class="navbar-link" data-nav-link><i class="ri-bar-chart-fill"></i>
@@ -295,25 +316,15 @@
             <li class="foot-quick"><a href="freeBooks.html"
                 onclick="lenis.scrollTo('#contact')">E-Book</a></li>
             <li class="foot-quick"><a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+            <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
           </ul>
         </div>
         </div>
 
-        <ul>
-          <li class="foot-quick"><a href="../../index.html#home" onclick="lenis.scrollTo('#home')">Home</a></li>
-          <li class="foot-quick"><a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a>
-          </li>
-          <li class="foot-quick"><a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary
-              Realms</a></li>
-          <li class="foot-quick"><a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a>
-          </li>
-          <li class="foot-quick"><a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a>
-          </li>
-          <li class="foot-quick"><a href="../../index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
-        </ul>
+      
 
       </div>
-      <div class="social-icons">
+      
         <!-- <h5>Newsletter</h5> -->
         <!-- <div class="input-newletter">
           <label for="newsletter"><h5>Newsletter</h5></label>
@@ -321,15 +332,164 @@
           <button class="btn-subs">Subscribe</button>
         </div> -->
   
-        <form action="/subscribe" method="post" class="subscribe-section">
-          <h2 class="subscribe-label">Subscribe to our Newsletter</h2>
-          <div class="row-flex">
-              <input type="email" value="" name="email" placeholder="email address" id="newsletter-email">
+        <div class="social-icons">
+       
+          <form id="newsletterForm" type="newsletter">
+  
+          <form action="/subscribe" method="post">
+  
+            <label for="email" style="color: rgb(108, 108, 108);font-family:Arial, Helvetica, sans-serif;">Subscribe to our Newsletter</label>
+            <div class="row-flex">
+  
+              <input type="email" value="" name="email" placeholder="EMAIL ADDRESS" id="newsletter-email" style="font-family: Arial, Helvetica, sans-serif;background-color:white; padding:5px;width:200px">
               <button type="submit" class="subscribe-btn">Subscribe</button>
+  
+  
+            </div>
+  
+        </form>
+        <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+        
+          
+          <div class="icons">
+            <a href="https://www.linkedin.com/in/anurag-verma-b91417253/">
+              <div class="icon">
+                <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
+              </div>
+            </a>
+  
+            <a href="https://x.com/anuragverma_108">
+              <div class="icon">
+                <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
+              </div>
+            </a>
+  
+            <a href="#">
+              <div class="icon">
+                <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
+              </div>
+            </a>
+            
+  
+            <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
+              <div class="icon">
+                <i class="fab fa-youtube" style="cursor: pointer;"></i>
+              </div>
+            </a>
+  
+            <a href="https://github.com/anuragverma108" title="GitHub">
+              <div class="icon">
+                  <i class="fab fa-github" style="cursor: pointer;"></i>
+              </div>
+            </a>
           </div>
-      </form>
-      <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
-
+         
+  
+          <div  id="back-to-top-container">
+            <div class="circle1">
+              <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                <path
+                  d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+              </svg>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+  
+          
+  
+  
+      <!-- adding privacy policy and copyright popup-->
+      <div style="text-align: center; align-items: center;">
+        <p style="text-align: center">
+          <h4>&copy;
+          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.</h4>
+        </p>
+        <div class="row-copy">
+  
+      
+        <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
+        <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+      </div>
+      </div>
+      
+      <!-- Copyright Policy Modal -->
+      <div id="copyrightPolicyModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeCopyright">&times;</span>
+          <h1>Copyright Policy</h1>
+          <p>Welcome to SwapReads. Here is our copyright policy:</p>
+          <ul>
+            <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
+            <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
+            <li>Users may download and print content for personal use only.</li>
+            <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
+            <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Privacy Notice Modal -->
+      <div id="privacyNoticeModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closePrivacy">&times;</span>
+          <h1>Privacy Notice</h1>
+          <p>Welcome to SwapReads. Here is our privacy notice:</p>
+          <ul>
+            <li>We collect personal information when you register, buy, or sell books.</li>
+            <li>We use this information to provide and improve our services.</li>
+            <li>We do not share your personal information with third parties without your consent.</li>
+            <li>We take reasonable measures to protect your data from unauthorized access.</li>
+            <li>You can contact us to update or delete your personal information.</li>
+            <li>By using our site, you consent to our privacy practices.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <script>
+        // Get the modal elements
+        var copyrightModal = document.getElementById("copyrightPolicyModal");
+        var privacyModal = document.getElementById("privacyNoticeModal");
+      
+        // Get the link elements
+        var copyrightLink = document.getElementById("copyrightPolicyLink");
+        var privacyLink = document.getElementById("privacyNoticeLink");
+      
+        // Get the <span> elements that close the modals
+        var closeCopyright = document.getElementById("closeCopyright");
+        var closePrivacy = document.getElementById("closePrivacy");
+      
+        // When the user clicks the link, open the modal 
+        copyrightLink.onclick = function() {
+          copyrightModal.style.display = "block";
+        }
+        privacyLink.onclick = function() {
+          privacyModal.style.display = "block";
+        }
+      
+        // When the user clicks on <span> (x), close the modal
+        closeCopyright.onclick = function() {
+          copyrightModal.style.display = "none";
+        }
+        closePrivacy.onclick = function() {
+          privacyModal.style.display = "none";
+        }
+      
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == copyrightModal) {
+            copyrightModal.style.display = "none";
+          }
+          if (event.target == privacyModal) {
+            privacyModal.style.display = "none";
+          }
+        }
+      </script>
+  
+  
+  
         <style>
           .icons .icon i {
             font-size: 24px;
@@ -353,6 +513,7 @@
             color: #090e11;
 
 
+          }
 
           .icons .icon:hover .fa-brands .fa-square-x-twitter {
             color: #555;
@@ -385,37 +546,7 @@
 
         </style>
   
-        <div class="icons">
-          <a href="https://www.facebook.com">
-            <div class="icon">
-              <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
-            </div>
-          </a>
-  
-          <a href="https://www.twitter.com">
-            <div class="icon">
-              <i class="fa-brands fa-square-x-twitter" title="X"style="cursor: pointer;"></i>
-            </div>
-          </a>
-  
-          <a href="https://www.instagram.com">
-            <div class="icon">
-              <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
-            </div>
-          </a>
-  
-          <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
-            <div class="icon">
-              <i class="fab fa-youtube" style="cursor: pointer;"></i>
-            </div>
-          </a>
-
-          <a href="https://github.com/anuragverma108" title="GitHub">
-            <div class="icon">
-                <i class="fab fa-github" style="cursor: pointer;"></i>
-            </div>
-          </a>
-        </div>
+        
         <!-- <div style="text-align: center; align-items: center;">
           <p style="text-align: center">
             &copy;
@@ -425,23 +556,6 @@
   
         </div> -->
   
-        <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">
-          <div class="circle1">
-            <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-              class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-              <path
-                d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-            </svg>
-          </div>
-        </div>
-        </div>
-        <div class="footer-bottom">
-          <p class="copyright" style="text-align: center">
-            &copy;
-            <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-            Hackers.
-          </p>
-        </div>
 
   </footer>
  
@@ -729,6 +843,32 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
       }
     });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const backToTopButton = document.getElementById('back-to-top-container');
+
+      function checkButtonVisibility() {
+        if (window.innerWidth > 100 && window.scrollY > 100) {
+          backToTopButton.style.display = 'block';
+        } else {
+          backToTopButton.style.display = 'none';
+        }
+      }
+
+      window.addEventListener('scroll', checkButtonVisibility);
+      window.addEventListener('resize', checkButtonVisibility);
+
+      backToTopButton.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      checkButtonVisibility();
+    });
+
   </script>
 </body>
 
