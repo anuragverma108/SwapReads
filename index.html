@@ -79,11 +79,6 @@
         margin-left: 2.2rem;
       }
     }
-    @media (max-width:575px){
-      .action.profile{
-        margin-right:-0.2rem ;
-      }
-    }
 
 /* testimonal card fix by harshcodesit */
     swiper-slide {
@@ -360,108 +355,7 @@
   background-color: #efefef; /* Change to a darker color when scrolled */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
 }
-/*user profile*/
-.action {
-  position: fixed;
-  top: 20px;
-  right: 30px;
-}
 
-.action .profile {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.action .profile img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.action .menu {
-  position: absolute;
-  top: 120px;
-  right: -10px;
-  padding: 10px 20px;
-  background: #fff;
-  width: 200px;
-  box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
-  transition: 0.5s;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.action .menu.active {
-  top: 80px;
-  visibility: visible;
-  opacity: 1;
-}
-
-.action .menu::before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  right: 28px;
-  width: 20px;
-  height: 20px;
-  background: #fff;
-  transform: rotate(45deg);
-}
-
-.action .menu h3 {
-  width: 100%;
-  text-align: center;
-  font-size: 18px;
-  padding: 20px 0;
-  font-weight: 500;
-  color: #555;
-  line-height: 1.5em;
-}
-
-.action .menu h3 span {
-  font-size: 14px;
-  color: #cecece;
-  font-weight: 300;
-}
-
-.action .menu ul li {
-  list-style: none;
-  padding: 16px 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  display: flex;
-  align-items: center;
-}
-
-.action .menu ul li img {
-  max-width: 20px;
-  margin-right: 10px;
-  opacity: 0.5;
-  transition: 0.5s;
-}
-
-.action .menu ul li:hover img {
-  opacity: 1;
-}
-
-.action .menu ul li a {
-  display: inline-block;
-  text-decoration: none;
-  color: #555;
-  font-weight: 500;
-  transition: 0.5s;
-}
-
-.action .menu ul li:hover a {
-  color: #ff5d94;
-}
 
   </style>
 </head>
@@ -471,21 +365,49 @@
   <div class="nav-wrapper">
     <div class="progress-bar"></div>
   </div>
-
+  
   <div id="cookie-consent">
-
-   
-    <p style="color: black;">We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with
-      our Cookie Policy. <a href="#">Learn More</a></p>
+    <p style="color: black;">
+        We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy. 
+        <a href="#" id="learn-more-link">Learn More</a>
+    </p>
+    <div id="learn-more-content" style="display: none; color: black;">
+        <p>Cookies are small text files that can be used by websites to make a user's experience more efficient. The law states that we can store cookies on your device if they are strictly necessary for the operation of this site. For all other types of cookies we need your permission.</p>
+        <p>This site uses different types of cookies. Some cookies are placed by third party services that appear on our pages.</p>
+    </div>
     <button class="accept-cookies">Accept</button>
     <button class="reject-cookies">Reject</button>
-</div>
+  </div>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const cookieConsent = document.getElementById('cookie-consent');
-    const acceptButton = document.querySelector('.accept-cookies');
-    const rejectButton = document.querySelector('.reject-cookies');
+document.addEventListener('DOMContentLoaded', function() {
+  const cookieConsent = document.getElementById('cookie-consent');
+  const acceptButton = document.querySelector('.accept-cookies');
+  const rejectButton = document.querySelector('.reject-cookies');
+  const learnMoreLink = document.getElementById('learn-more-link');
+  const learnMoreContent = document.getElementById('learn-more-content');
 
+  // Hide preloader after page load
+  window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.style.display = 'none';
+    }
+    cookieConsent.style.display = 'block';
+  });
+
+  // Check if localStorage is available
+  function localStorageAvailable() {
+    try {
+      const test = '__localStorage_test__';
+      localStorage.setItem(test, test);
+      localStorage.removeItem(test);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  if (localStorageAvailable()) {
     // Check if the user has already made a choice
     if (localStorage.getItem('cookieConsent')) {
       cookieConsent.style.display = 'none';
@@ -505,31 +427,19 @@
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
     });
+  } else {
+    // Hide consent if localStorage is not available
+    cookieConsent.style.display = 'none';
+  }
+
+  // Add event listener to "Learn More" link
+  learnMoreLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    learnMoreContent.style.display = 'block';
+    learnMoreLink.style.display = 'none';
   });
+});
 </script>
-  <div id="preloader">
-    <div class="loader">
-      <div class="book-wrapper">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 126 75" class="book">
-          <rect stroke-width="5" stroke="#e05452" rx="7.5" height="70" width="121" y="2.5" x="2.5"></rect>
-          <line stroke-width="5" stroke="#e05452" y2="75" x2="63.5" x1="63.5"></line>
-          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M25 20H50"></path>
-          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M101 20H76"></path>
-          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M16 30L50 30"></path>
-          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M110 30L76 30"></path>
-        </svg>
-
-        <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff74" viewBox="0 0 65 75" class="book-page">
-          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M40 20H15"></path>
-          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M49 30L15 30"></path>
-          <path stroke-width="5" stroke="#e05452"
-            d="M2.5 2.5H55C59.1421 2.5 62.5 5.85786 62.5 10V65C62.5 69.1421 59.1421 72.5 55 72.5H2.5V2.5Z"></path>
-        </svg>
-      </div>
-    </div>
-
-  </div>
-
   <header class="header header-anim" data-header>
 
     <div class="container mobile-container-styles" style="padding-left: 0;">
@@ -658,7 +568,23 @@
         }, 'google_element');
       }
     </script>
+<script>
+  let lastScrollTop = 0;
 
+  function onScroll() {
+      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      const header = document.querySelector('.header');
+
+      if (currentScroll > lastScrollTop) {
+          header.classList.add('hidden');
+      } else {
+          header.classList.remove('hidden');
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+  }
+
+  window.addEventListener("scroll", onScroll);
+</script>
 
 
     </li>
@@ -1386,94 +1312,163 @@
         - #CHAPTERS
       -->
 
-      <!-- Exchange Exchnage Exchange -->
+      <!--Book Exchange Hub-->
       <section class="section preview" aria-label="preview">
-        <div class="container1">
+  <div class="container1">
+    <h2 class="h2 section-title has-underline">
+      Book Exchange Hub
+      <span class="span has-before"></span>
+    </h2>
+    <p class="section-text booktext">
+      Connect with fellow readers in our Book Exchange Hub. Sell your old books at half price and give your
+      favorite reads a new home. Fill out the form below to get started!
+    </p>
 
-          <h2 class="h2 section-title has-underline">
+    <div class="exchange-form">
+      <div class="form-fields">
+        <label class="form-label" for="bookTitle">Book Title:</label>
+        <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the title of your book" required class="input-field">
+        <span id="bookTitle-error" class="error"></span>
 
-            Book Exchange Hub
-            <span class="span has-before"></span>
-          </h2>
+        <label class="form-label" for="bookAuthor">Author:</label>
+        <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter the author's name" required class="input-field">
+        <span id="bookAuthor-error" class="error"></span>
 
-          <p class="section-text booktext">
-            Connect with fellow readers in our Book Exchange Hub. Sell your old books at half price and give your
-            favorite reads a new home. Fill out the form below to get started!
-          </p>
+        <label class="form-label" for="yourPrice">Your Price (50% Off):</label>
+        <div class="currency-container">
+          <label class="currency-label" for="currency">Currency: </label>
+          <select id="currency" name="currency" class="input-field currency-select">
+            <option value="INR">INR</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+          </select>
+        </div>
+        <input type="number" min="1" id="yourPrice" name="yourPrice" placeholder="Enter your desired selling price" required class="input-field">
+        <span id="yourPrice-error" class="error"></span>
+      </div>
 
-          <div class="exchange-form">
+      <button type="button" class="btn btn-primary" id="connectReaderBtn" disabled onclick="validateAndConnect()">Connect with a Reader</button>
+    </div>
 
-            <div class="form-fields">
-              <div class="form-fields">
-                <label class="form-label" for="bookTitle">Book Title:</label>
-                <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the title of your book" required
-                  class="input-field">
+    <script>
+      function validateBookTitle() {
+        const bookTitleInput = document.getElementById('bookTitle');
+        const bookTitleValue = bookTitleInput.value.trim();
+        let isValid = true;
 
-                <label class="formform-label" for="bookAuthor">Author:</label>
-                <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter the author's name" required
-                  class="input-field">
+        for (let i = 0; i < bookTitleValue.length; i++) {
+          const char = bookTitleValue.charCodeAt(i);
+          if (!((char >= 65 && char <= 90) || (char >= 97 && char <= 122) || char === 32)) {
+            isValid = false;
+            break;
+          }
+        }
 
-                <label class="form-label" for="yourPrice">Your Price (50% Off):</label>
-                <div class="currency-container">
-                  <label class="currency-label" for="currency">Currency: </label>
-                  <select id="currency" name="currency" class="input-field currency-select">
+        if (bookTitleValue.length === 0) {
+          isValid = false;
+        }
 
-                    <option value="INR">INR</option>
-                    <option value="USD">USD</option>
-                    <option value="EUR">EUR</option>
-                    <option value="GBP">GBP</option>
-                  </select>
-                </div>
-                <input type="number" min="0" id="yourPrice" name="yourPrice"
-                  placeholder="Enter your desired selling price" required class="input-field">
+        const bookTitleError = document.getElementById('bookTitle-error');
+        if (!isValid) {
+          bookTitleError.textContent = "Please enter a valid title (alphabets and spaces only).";
+          bookTitleInput.style.borderColor = 'red';
+        } else {
+          bookTitleError.textContent = "";
+          bookTitleInput.style.borderColor = '';
+        }
 
-                <!-- Error message container -->
-                <span id="yourPrice-error" class="error"></span>
-              </div>
+        return isValid;
+      }
 
-              <button type="button" class="btn btn-primary" onclick="validateAndConnect()">Connect with a
-                Reader</button>
-            </div>
-            <script>
-              // Function to validate the price input
-              function validatePriceInput() {
-                var yourPriceInput = document.getElementById('yourPrice');
-                var yourPriceValue = yourPriceInput.value.trim();
+      function validateBookAuthor() {
+        const bookAuthorInput = document.getElementById('bookAuthor');
+        const bookAuthorValue = bookAuthorInput.value.trim();
+        let isValid = true;
 
-                // Check if the price is a valid number
-                if (isNaN(yourPriceValue) || yourPriceValue === "" || parseFloat(yourPriceValue) < 0) {
-                  // If not, display error message
-                  document.getElementById('yourPrice-error').textContent = "Please enter a valid number";
-                  // Change border color to red to indicate error
-                  yourPriceInput.style.borderColor = 'red';
-                } else {
-                  // If price is valid, clear error message and reset border color
-                  document.getElementById('yourPrice-error').textContent = "";
-                  yourPriceInput.style.borderColor = '';
-                }
-              }
+        for (let i = 0; i < bookAuthorValue.length; i++) {
+          const char = bookAuthorValue.charCodeAt(i);
+          if (!((char >= 65 && char <= 90) || (char >= 97 && char <= 122) || char === 32)) {
+            isValid = false;
+            break;
+          }
+        }
 
-              // Add event listener to validate price input on every input change
-              document.getElementById('yourPrice').addEventListener('input', validatePriceInput);
+        if (bookAuthorValue.length === 0) {
+          isValid = false;
+        }
 
-              // Function to validate and connect when the form is submitted
-              function validateAndConnect() {
-                // Trigger input validation before submitting the form
-                validatePriceInput();
+        const bookAuthorError = document.getElementById('bookAuthor-error');
+        if (!isValid) {
+          bookAuthorError.textContent = "Please enter a valid author name (alphabets and spaces only).";
+          bookAuthorInput.style.borderColor = 'red';
+        } else {
+          bookAuthorError.textContent = "";
+          bookAuthorInput.style.borderColor = '';
+        }
 
-                // Proceed with form submission only if price is valid
-                var errorElement = document.getElementById('yourPrice-error');
-                if (errorElement.textContent === "") {
-                  // If no error, proceed with further actions, such as form submission
-                  // Example: document.getElementById('yourForm').submit();
-                  alert("Form submitted successfully!");
-                }
-              }
-            </script>
+        return isValid;
+      }
 
+      function validatePriceInput() {
+        const yourPriceInput = document.getElementById('yourPrice');
+        const yourPriceValue = parseFloat(yourPriceInput.value.trim());
+        let isValid = true;
 
-          </div>
-        </section>
+        if (isNaN(yourPriceValue) || yourPriceValue < 1) {
+          isValid = false;
+          document.getElementById('yourPrice-error').textContent = "Please enter a valid number greater than or equal to 1.";
+          yourPriceInput.style.borderColor = 'red';
+        } else {
+          document.getElementById('yourPrice-error').textContent = "";
+          yourPriceInput.style.borderColor = '';
+        }
+
+        return isValid;
+      }
+
+      function validateAndConnect() {
+        const isTitleValid = validateBookTitle();
+        const isAuthorValid = validateBookAuthor();
+        const isPriceValid = validatePriceInput();
+
+        if (isTitleValid && isAuthorValid && isPriceValid) {
+          alert("Form submitted successfully!");
+        } else {
+          alert("Please correct the errors in the form before submitting.");
+        }
+      }
+
+      function checkAllValidations() {
+        const isTitleValid = validateBookTitle();
+        const isAuthorValid = validateBookAuthor();
+        const isPriceValid = validatePriceInput();
+
+        const connectReaderBtn = document.getElementById('connectReaderBtn');
+        if (isTitleValid && isAuthorValid && isPriceValid) {
+          connectReaderBtn.disabled = false;
+        } else {
+          connectReaderBtn.disabled = true;
+        }
+      }
+
+      document.getElementById('bookTitle').addEventListener('blur', function() {
+        validateBookTitle();
+        checkAllValidations();
+      });
+
+      document.getElementById('bookAuthor').addEventListener('blur', function() {
+        validateBookAuthor();
+        checkAllValidations();
+      });
+
+      document.getElementById('yourPrice').addEventListener('blur', function() {
+        validatePriceInput();
+        checkAllValidations();
+      });
+    </script>
+  </div>
+</section>
 
       <!-- - #CONTACT -->
 
@@ -1491,11 +1486,13 @@
 
                 <input type="email" name="email_address" id="email" placeholder="Your Email" required class="input-field">
 
-                <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field">
+                <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field" maxlength=100>
                 <div id="subject-count" class="character-count">0/100</div>
+                <div id="subject-full" class="character-full">You have reached the character limit!</div>
 
-                <textarea name="message" id="message" placeholder="Your Message" class="input-field"></textarea>
+                <textarea name="message" id="message" placeholder="Your Message" class="input-field" maxlength=250></textarea>
                 <div id="message-count" class="character-count">0/250</div>
+                <div id="message-full" class="character-full">You have reached the character limit!</div>
 
                 <button type="submit" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
                 <div id="success-message" style="display:none">Message sent successfully!</div>
@@ -1886,62 +1883,27 @@
       </div>
       <div class="social-icons">
        
-        <form id="newsletterForm" type="newsletter">
-
-        <form action="/subscribe" method="post">
-
-          <label for="email">Subscribe to our Newsletter</label>
+        <style>
+          input[type="email"] {
+              border: 2px solid #ccc; /* Gray border */
+              border-radius: 4px; /* Rounded corners */
+              padding: 10px; /* Inner padding */
+              font-size: 16px; /* Font size */
+          }
+        </style>
+  
+        <form type="newsletter">
+          <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
           <div class="row-flex">
-
-            <input type="news" value="" name="email" placeholder="email address" id="newsletter-email">
-            <button type="submit" class="subscribe-btn">Subscribe</button>
-
+              <!-- Email input -->
+              <input type="email" id="newsletter-email" name="email" placeholder="email address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$" 
+              title="Please enter a valid email address that ends with '.com'" required>
+              <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
           </div>
-
       </form>
       <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
       
-        <style>
-          .icons .icon i {
-            font-size: 24px;
-            /* Set the default font size for icons */
-            transition: all 0.3s ease;
-            /* Add transition for smooth animation */
-          }
-
-          .icons .icon:hover i {
-            transform: scale(1.2);
-            /* Scale the icon on hover */
-          }
-
-          .icons .icon:hover .fab.fa-facebook {
-            color: #3B5998;
-            /* Change to Facebook color on hover */
-          }
-
-          .icons .icon:hover .fab.fa-twitter{
-            color: #090e11;
-            /* Change to Twitter color on hover */
-          }
-
-          .icons .icon:hover .fab.fa-instagram {
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-            background-clip: text;
-            border-radius: 20%;
-            transform: scale(1.5);
-            color:transparent;
-            /* Change to Instagram color on hover */
-          }
-
-          .icons .icon:hover .fab.fa-youtube {
-            color: #C31A1E;
-            /* Change to YouTube color on hover */
-          }
-          .icons .icon:hover .fab.fa-github {
-                    color: #333;
-                }
-        </style>
-
+        
         <div class="icons">
           <a href="https://www.linkedin.com/in/anurag-verma-b91417253/">
             <div class="icon">
@@ -1960,15 +1922,17 @@
               <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
             </div>
           </a>
-          <a href="https://github.com/anuragverma108/SwapReads" title="Github">
-            <div class="icon">
-              <i class="fab fa-github" style="cursor: pointer;"></i>
-            </div>
-          </a>
+          
 
           <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
             <div class="icon">
               <i class="fab fa-youtube" style="cursor: pointer;"></i>
+            </div>
+          </a>
+
+          <a href="https://github.com/anuragverma108" title="GitHub">
+            <div class="icon">
+                <i class="fab fa-github" style="cursor: pointer;"></i>
             </div>
           </a>
         </div>
@@ -2084,6 +2048,35 @@
   <!-- Footer ended-->
   <script src="./assets/js/script.js" defer></script>
   <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      let subject_full= document.getElementById("subject-full");
+      let subject_count= document.getElementById("subject-count");
+      let subject= document.getElementById("subject");
+      subject.addEventListener('input', (e)=>{
+        let length= e.target.value.length;
+        subject_count.innerText= `${length}/100`;
+        if(length==100){
+          subject_full.style.display= "block";
+          }
+          else{
+            subject_full.style.display= "none";
+            }
+      })
+      let message_count= document.getElementById("message-count");
+      let message= document.getElementById("message");
+      let message_full= document.getElementById("message-full");
+      message.addEventListener('input', (e)=>{
+        let length= e.target.value.length;
+        message_count.innerText= `${length}/250`;
+        if(length==250){
+          message_full.style.display= "block";
+        }
+        else{
+          message_full.style.display= "none";
+        }
+      })
+    })
+    
     document.getElementById("newsletterForm").addEventListener("submit", function(event) {
       event.preventDefault(); 
   
