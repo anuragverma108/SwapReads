@@ -109,70 +109,7 @@
     <button class="reject-cookies">Reject</button>
   </div>
 
-  <script src="script.js"></script>
-<script>
-
-  document.addEventListener('DOMContentLoaded', function() {
-  const cookieConsent = document.getElementById('cookie-consent');
-  const acceptButton = document.querySelector('.accept-cookies');
-  const rejectButton = document.querySelector('.reject-cookies');
-  const learnMoreLink = document.getElementById('learn-more-link');
-  const learnMoreContent = document.getElementById('learn-more-content');
-
-  // Hide preloader after page load
-  window.addEventListener('load', function() {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-      preloader.style.display = 'none';
-    }
-    cookieConsent.style.display = 'block';
-  });
-
-  // Check if localStorage is available
-  function localStorageAvailable() {
-    try {
-      const test = '__localStorage_test__';
-      localStorage.setItem(test, test);
-      localStorage.removeItem(test);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
-
-  if (localStorageAvailable()) {
-    // Check if the user has already made a choice
-    if (localStorage.getItem('cookieConsent')) {
-      cookieConsent.style.display = 'none';
-    }
-
-    // Function to handle cookie consent choice
-    function handleConsent(choice) {
-      localStorage.setItem('cookieConsent', choice);
-      cookieConsent.style.display = 'none';
-    }
-
-    // Add event listeners to buttons
-    acceptButton.addEventListener('click', function() {
-      handleConsent('accepted');
-    });
-
-    rejectButton.addEventListener('click', function() {
-      handleConsent('rejected');
-    });
-  } else {
-    // Hide consent if localStorage is not available
-    cookieConsent.style.display = 'none';
-  }
-
-  // Add event listener to "Learn More" link
-  learnMoreLink.addEventListener('click', function(event) {
-    event.preventDefault();
-    learnMoreContent.style.display = 'block';
-    learnMoreLink.style.display = 'none';
-  });
-});
-</script>
+   <script src="script.js"></script>
   <header class="header header-anim" data-header>
 
     <div class="container mobile-container-styles" style="padding-left: 0;">
@@ -268,23 +205,6 @@
         }, 'google_element');
       }
     </script>
-<script>
-  let lastScrollTop = 0;
-
-  function onScroll() {
-      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-      const header = document.querySelector('.header');
-
-      if (currentScroll > lastScrollTop) {
-          header.classList.add('hidden');
-      } else {
-          header.classList.remove('hidden');
-      }
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-  }
-
-  window.addEventListener("scroll", onScroll);
-</script>
 
 
     </li>
@@ -1050,123 +970,6 @@
 
       <button type="button" class="btn btn-primary" id="connectReaderBtn" disabled onclick="validateAndConnect()">Connect with a Reader</button>
     </div>
-
-    <script>
-      function validateBookTitle() {
-        const bookTitleInput = document.getElementById('bookTitle');
-        const bookTitleValue = bookTitleInput.value.trim();
-        let isValid = true;
-
-        for (let i = 0; i < bookTitleValue.length; i++) {
-          const char = bookTitleValue.charCodeAt(i);
-          if (!((char >= 65 && char <= 90) || (char >= 97 && char <= 122) || char === 32)) {
-            isValid = false;
-            break;
-          }
-        }
-
-        if (bookTitleValue.length === 0) {
-          isValid = false;
-        }
-
-        const bookTitleError = document.getElementById('bookTitle-error');
-        if (!isValid) {
-          bookTitleError.textContent = "Please enter a valid title (alphabets and spaces only).";
-          bookTitleInput.style.borderColor = 'red';
-        } else {
-          bookTitleError.textContent = "";
-          bookTitleInput.style.borderColor = '';
-        }
-
-        return isValid;
-      }
-
-      function validateBookAuthor() {
-        const bookAuthorInput = document.getElementById('bookAuthor');
-        const bookAuthorValue = bookAuthorInput.value.trim();
-        let isValid = true;
-
-        for (let i = 0; i < bookAuthorValue.length; i++) {
-          const char = bookAuthorValue.charCodeAt(i);
-          if (!((char >= 65 && char <= 90) || (char >= 97 && char <= 122) || char === 32)) {
-            isValid = false;
-            break;
-          }
-        }
-
-        if (bookAuthorValue.length === 0) {
-          isValid = false;
-        }
-
-        const bookAuthorError = document.getElementById('bookAuthor-error');
-        if (!isValid) {
-          bookAuthorError.textContent = "Please enter a valid author name (alphabets and spaces only).";
-          bookAuthorInput.style.borderColor = 'red';
-        } else {
-          bookAuthorError.textContent = "";
-          bookAuthorInput.style.borderColor = '';
-        }
-
-        return isValid;
-      }
-
-      function validatePriceInput() {
-        const yourPriceInput = document.getElementById('yourPrice');
-        const yourPriceValue = parseFloat(yourPriceInput.value.trim());
-        let isValid = true;
-
-        if (isNaN(yourPriceValue) || yourPriceValue < 1) {
-          isValid = false;
-          document.getElementById('yourPrice-error').textContent = "Please enter a valid number greater than or equal to 1.";
-          yourPriceInput.style.borderColor = 'red';
-        } else {
-          document.getElementById('yourPrice-error').textContent = "";
-          yourPriceInput.style.borderColor = '';
-        }
-
-        return isValid;
-      }
-
-      function validateAndConnect() {
-        const isTitleValid = validateBookTitle();
-        const isAuthorValid = validateBookAuthor();
-        const isPriceValid = validatePriceInput();
-
-        if (isTitleValid && isAuthorValid && isPriceValid) {
-          alert("Form submitted successfully!");
-        } else {
-          alert("Please correct the errors in the form before submitting.");
-        }
-      }
-
-      function checkAllValidations() {
-        const isTitleValid = validateBookTitle();
-        const isAuthorValid = validateBookAuthor();
-        const isPriceValid = validatePriceInput();
-
-        const connectReaderBtn = document.getElementById('connectReaderBtn');
-        if (isTitleValid && isAuthorValid && isPriceValid) {
-          connectReaderBtn.disabled = false;
-        } else {
-          connectReaderBtn.disabled = true;
-        }
-      }
-
-      document.getElementById('bookTitle').addEventListener('blur', function() {
-        validateBookTitle();
-        checkAllValidations();
-      });
-
-      document.getElementById('bookAuthor').addEventListener('blur', function() {
-        validateBookAuthor();
-        checkAllValidations();
-      });
-
-      document.getElementById('yourPrice').addEventListener('blur', function() {
-        validatePriceInput();
-        checkAllValidations();
-      });
-    </script>
   </div>
 </section>
 
@@ -1198,7 +1001,7 @@
                 <div id="success-message" style="display:none">Message sent successfully!</div>
               </form>
             </div>
-            <script>
+            <!-- <script>
               document.addEventListener('DOMContentLoaded', function() {
               var form = document.getElementById('contact-form');
               var message = document.getElementById('message');
@@ -1208,7 +1011,7 @@
               alert("Message length can't be less than 50 characters.");
               event.preventDefault(); // Prevent the form from being submitted
             }});});
-            </script>
+            </script> -->
 
             <ul class="contact-card">
             <ul class="contact-card ">
@@ -1530,6 +1333,7 @@
                       {pageLanguage: 'en'},
                       'google_translate_element'
                   );
+                  
               }
           </script>
 
@@ -1701,7 +1505,7 @@
       </div>
     </div>
     
-    <script>
+    <!-- <script>
       // Get the modal elements
       var copyrightModal = document.getElementById("copyrightPolicyModal");
       var privacyModal = document.getElementById("privacyNoticeModal");
@@ -1739,7 +1543,7 @@
           privacyModal.style.display = "none";
         }
       }
-    </script>
+    </script> -->
 
 
 
@@ -1747,7 +1551,7 @@
 
   <!-- Footer ended-->
   <script src="./assets/js/script.js" defer></script>
-  <script>
+  <!-- <script>
     document.addEventListener('DOMContentLoaded', (event) => {
       let subject_full= document.getElementById("subject-full");
       let subject_count= document.getElementById("subject-count");
@@ -1789,9 +1593,9 @@
       document.getElementById("email").value = '';
   });
   
-  </script>
+  </script> -->
 
-  <script>
+  <!-- <script>
 
     //   function sendMail(){
     //         let params={
@@ -1869,7 +1673,7 @@
         console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
       }
     });
-  </script>
+  </script> -->
 
 
 
@@ -1885,7 +1689,7 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
   <!-- Lenis smooth scrolling -->
-  <script>
+  <!-- <script>
     document.addEventListener("scroll", function () {
       var scrollPosition = window.scrollY;
 
@@ -1968,7 +1772,7 @@
 
 
 
-  </script>
+  </script> -->
   <script type="module">
     import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
@@ -2020,7 +1824,7 @@
   <!-- Swiper JS -->
   <script src="./assets/js/swiper-bundle.min.js"></script>
   <!-- Custom JavaScript -->
-  <script>
+  <!-- <script>
     document.addEventListener("DOMContentLoaded", function () {
       const backToTopButton = document.getElementById('back-to-top-container');
 
@@ -2045,9 +1849,9 @@
       checkButtonVisibility();
     });
 
-  </script>
+  </script> -->
 <!-- Fot Contact Send Now Button -->
-  <script>
+  <!-- <script>
     document.getElementById("contact-form").addEventListener("submit", function(event) {
       event.preventDefault();
       var successMessage = document.getElementById("success-message");
@@ -2057,11 +1861,12 @@
         successMessage.style.display = "none";
       }, 3000);
     });
-  </script>
+  </script> -->
 
   <script src="./assets/js/test-script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
   <script src="./scrollbar.js"></script>
+  <script src="index.js"></script>
 </body>
 
 </html>
