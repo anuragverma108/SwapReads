@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="../css/addremove.css">
 		<link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="../css/preloader.css">
+		<link rel="stylesheet" href="./assets/css/MenuClick.css">
 		<script src="../js/preloader.js"></script>
 
 		</head>
@@ -91,7 +92,7 @@
 				</div>
 				
 			  </div>
-			<div class="navbar">
+			<div class="navbar nav_activated">
 				<div class="navbar-header">
 				  <a href="../../index.html">
 					<img class="close-icon" src="../images/close1.png" alt="Close" />
@@ -162,5 +163,31 @@
 			}
 		};
 		</script>
+<script>
+const navbar=document.querySelector('.navbar'),
+NavButton=document.querySelector('.nav-toggle-btn'),
+open=document.querySelector('.open'),
+close=document.querySelector('.close');
+let count=0
+NavButton.addEventListener('click',()=>{
+      
+if(count===0){
+navbar.classList.remove('nav_activated')
+open.classList.add('close')
+close.classList.add('open')
+open.classList.remove('open')
+close.classList.remove('close')
+count++
+}
+else{
+navbar.classList.add('nav_activated')
+open.classList.add('open')
+close.classList.add('close')
+open.classList.remove('close')
+close.classList.remove('open')
+count=0
+}
+})
+</script>
 		</body>
 		</html>
