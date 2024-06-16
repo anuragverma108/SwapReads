@@ -243,6 +243,7 @@
                 aria-valuemax="100"></div>
             </div>
             <ul class="list-unstyled">
+
               <li><span class="low-upper-case">&nbsp;Lowercase &amp; Uppercase</span></li>
               <li><span class="one-number">&nbsp;Number (0-9)</span></li>
               <li><span class="one-special-char">&nbsp;Special Character (!@#$%^&*)</span></li>
@@ -562,6 +563,45 @@
  
 
   <script>
+
+    document.addEventListener("DOMContentLoaded",()=>{
+      let low_upper_case= document.getElementsByClassName("low-upper-case")[0];
+      let one_number= document.getElementsByClassName("one-number")[0];
+      let one_special_char= document.getElementsByClassName("one-special-char")[0];
+      let eight_character= document.getElementsByClassName("eight-character")[0];
+      let password= document.getElementById("password");
+      password.addEventListener("input", ()=>{
+        if(password.value.length>=8){
+          eight_character.classList.add("fade");
+        }
+        else{
+          eight_character.classList.remove("fade");
+        }
+
+        function containsLowerCaseOrUpperCase(password) {
+          const hasLowerCase = /[a-z]/.test(password);
+          const hasUpperCase = /[A-Z]/.test(password);
+          return hasLowerCase || hasUpperCase;
+        }
+        if (containsLowerCaseOrUpperCase(password.value)) {
+            low_upper_case.classList.add("fade")
+          } else {
+            low_upper_case.classList.remove("fade")
+        }
+        if(/[0-9]/.test(password.value)){
+          one_number.classList.add("fade")
+          } else {
+            one_number.classList.remove("fade")
+        }
+
+        if (/[!@#$%^&*]/.test(password.value)) {
+            one_special_char.classList.add("fade");
+        } else {
+            one_special_char.classList.remove("fade");
+        }
+      })
+      
+    });
     const coords = { x: 0, y: 0 };
     const circles = document.querySelectorAll(".circle");
 
