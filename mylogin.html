@@ -7,6 +7,7 @@
     <!-- Bootstrap theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./assets/css/MenuClick.css">
     <title>How to create Firebase login and register?</title>
     <link rel="stylesheet" href="./assets/css/login.css" />
     <style>
@@ -26,7 +27,7 @@
 </head>
 
 <body>
-    <div class="navbar">
+    <div class="navbar nav_activated">
         <div class="navbar-header">
             <a href="index.html">
                 <img class="close-icon" src="./assets/images/close.png" alt="Close">
@@ -171,5 +172,31 @@
                 });
         });
     </script>
+<script>
+const navbar=document.querySelector('.navbar'),
+NavButton=document.querySelector('.nav-toggle-btn'),
+open=document.querySelector('.open'),
+close=document.querySelector('.close');
+let count=0
+NavButton.addEventListener('click',()=>{
+      
+if(count===0){
+navbar.classList.remove('nav_activated')
+open.classList.add('close')
+close.classList.add('open')
+open.classList.remove('open')
+close.classList.remove('close')
+count++
+}
+else{
+navbar.classList.add('nav_activated')
+open.classList.add('open')
+close.classList.add('close')
+open.classList.remove('close')
+close.classList.remove('open')
+count=0
+}
+})
+</script>
 </body>
 </html>
