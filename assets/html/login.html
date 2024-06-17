@@ -11,6 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../css/login.css" />
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="./assets/css/MenuClick.css">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon_package_v0.16/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon_package_v0.16/favicon-16x16.png">
   <link rel="manifest" href="../favicon_package_v0.16/site.webmanifest">
@@ -81,7 +82,7 @@
 
     <div class="container">
 
-      <nav class="navbar" data-navbar>
+      <nav class="navbar nav_activated" data-navbar>
         <a href="SwapReads\index.html" class="logo" style="display:flex;">
           <img src="../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
         </a>
@@ -181,9 +182,9 @@
     </nav>
 
     <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
-      <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
+      <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
 
-      <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
+      <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
     </button>
 
     </div>
@@ -232,6 +233,7 @@
                 aria-valuemax="100"></div>
             </div>
             <ul class="list-unstyled">
+
               <li><span class="low-upper-case">&nbsp;Lowercase &amp; Uppercase</span></li>
               <li><span class="one-number">&nbsp;Number (0-9)</span></li>
               <li><span class="one-special-char">&nbsp;Special Character (!@#$%^&*)</span></li>
@@ -458,6 +460,45 @@
  
 
   <script>
+
+    document.addEventListener("DOMContentLoaded",()=>{
+      let low_upper_case= document.getElementsByClassName("low-upper-case")[0];
+      let one_number= document.getElementsByClassName("one-number")[0];
+      let one_special_char= document.getElementsByClassName("one-special-char")[0];
+      let eight_character= document.getElementsByClassName("eight-character")[0];
+      let password= document.getElementById("password");
+      password.addEventListener("input", ()=>{
+        if(password.value.length>=8){
+          eight_character.classList.add("fade");
+        }
+        else{
+          eight_character.classList.remove("fade");
+        }
+
+        function containsLowerCaseOrUpperCase(password) {
+          const hasLowerCase = /[a-z]/.test(password);
+          const hasUpperCase = /[A-Z]/.test(password);
+          return hasLowerCase || hasUpperCase;
+        }
+        if (containsLowerCaseOrUpperCase(password.value)) {
+            low_upper_case.classList.add("fade")
+          } else {
+            low_upper_case.classList.remove("fade")
+        }
+        if(/[0-9]/.test(password.value)){
+          one_number.classList.add("fade")
+          } else {
+            one_number.classList.remove("fade")
+        }
+
+        if (/[!@#$%^&*]/.test(password.value)) {
+            one_special_char.classList.add("fade");
+        } else {
+            one_special_char.classList.remove("fade");
+        }
+      })
+      
+    });
     const coords = { x: 0, y: 0 };
     const circles = document.querySelectorAll(".circle");
 
@@ -739,5 +780,58 @@
       }
     });
   </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const backToTopButton = document.getElementById('back-to-top-container');
+
+      function checkButtonVisibility() {
+        if (window.innerWidth > 100 && window.scrollY > 100) {
+          backToTopButton.style.display = 'block';
+        } else {
+          backToTopButton.style.display = 'none';
+        }
+      }
+
+      window.addEventListener('scroll', checkButtonVisibility);
+      window.addEventListener('resize', checkButtonVisibility);
+
+      backToTopButton.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      checkButtonVisibility();
+    });
+
+  </script>
+<script>
+const navbar=document.querySelector('.navbar'),
+NavButton=document.querySelector('.nav-toggle-btn'),
+open=document.querySelector('.open'),
+close=document.querySelector('.close');
+let count=0
+NavButton.addEventListener('click',()=>{
+      
+if(count===0){
+navbar.classList.remove('nav_activated')
+open.classList.add('close')
+close.classList.add('open')
+open.classList.remove('open')
+close.classList.remove('close')
+count++
+}
+else{
+navbar.classList.add('nav_activated')
+open.classList.add('open')
+close.classList.add('close')
+open.classList.remove('close')
+close.classList.remove('open')
+count=0
+}
+})
+</script>
 </body>
 </html>

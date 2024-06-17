@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/font-6/css/all.css">
   <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="./assets/css/MenuClick.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,19 +94,26 @@
   </div>
   
   <div id="cookie-consent">
+    <button class="close-btn" id="closeBtn">&times;</button>
     <p>
         We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy. 
         <a href="#" id="learn-more-link">Learn More</a>
+        
     </p>
     <div id="learn-more-content" style="display: none;">
         <p>Cookies are small text files that can be used by websites to make a user's experience more efficient. The law states that we can store cookies on your device if they are strictly necessary for the operation of this site. For all other types of cookies we need your permission.</p>
         <p>This site uses different types of cookies. Some cookies are placed by third party services that appear on our pages.</p>
     </div>
+   
+    <a href="#" id="show-less-link" style="display: none;">Show Less</a>
     <button class="accept-cookies">Accept</button>
     <button class="reject-cookies">Reject</button>
   </div>
+
+  <script src="script.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+
+  document.addEventListener('DOMContentLoaded', function() {
   const cookieConsent = document.getElementById('cookie-consent');
   const acceptButton = document.querySelector('.accept-cookies');
   const rejectButton = document.querySelector('.reject-cookies');
@@ -170,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <div class="container mobile-container-styles" style="padding-left: 0;">
 
-      <nav class="navbar" data-navbar>
+      <nav class="navbar nav_activated" data-navbar>
 
 
         <ul class="navbar-list">
@@ -229,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <a href="./assets/html/booklistswap.html" class="navbar-link">Booklist for Swapping</a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href="./assets/html/bookrecommend.html" class="navbar-link" data-nav-link>
+                  <a href="./assets/html/book_recommend.html" class="navbar-link" data-nav-link>
                     <i class="ri-customer-service-2-fill"></i> Book Recommendation
                   </a>
                 </li>
@@ -289,10 +297,10 @@ document.addEventListener('DOMContentLoaded', function() {
         </label>
       </div>
 
-      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
-        <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
+      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler id="nav-toggle-button">
+        <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
 
-        <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
+        <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
       </button>
     </div>
 
@@ -1269,7 +1277,7 @@ document.addEventListener('DOMContentLoaded', function() {
               </div>
             </div>
           </div>
-          <div class="flip-card-back backs"  >
+          <div class="flip-card-back backs">
             SwapReads has completely transformed my reading experience! Not only have I discovered new books I never
             would have picked up otherwise, but I've also connected with fellow book lovers who share my passion. It's
             like having a personalized library with endless possibilities. Highly recommend!
@@ -1616,12 +1624,7 @@ document.addEventListener('DOMContentLoaded', function() {
               <i class="fab fa-youtube" style="cursor: pointer;"></i>
             </div>
           </a>
-
-          <a href="https://github.com/anuragverma108" title="GitHub">
-            <div class="icon">
-                <i class="fab fa-github" style="cursor: pointer;"></i>
-            </div>
-          </a>
+         
         </div>
        
 
@@ -1873,6 +1876,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <!-- Lenis smooth scrolling -->
   <script>
+    // const navbar=document.querySelector('.navbar'),
+    //       NavButton=document.getElementById('nav-toggle-button'),
+    //       open=document.querySelector('.open'),
+    //       close=document.querySelector('.close');
+    // let count=0
+    // NavButton.addEventListener('click',()=>{
+    //   if(count===0){
+    //      navbar.classList.remove('nav_activated')
+    //      open.classList.add('close')
+    //   close.classList.add('open')
+    //   open.classList.remove('open')
+    //   close.classList.remove('close')
+    //      count++
+    //   }
+    //   else{
+    //     navbar.classList.add('nav_activated')
+    //     open.classList.add('open')
+    //   close.classList.add('close')
+    //   open.classList.remove('close')
+    //   close.classList.remove('open')
+    //     count=0
+    //   }
+    // })
     document.addEventListener("scroll", function () {
       var scrollPosition = window.scrollY;
 
@@ -2049,6 +2075,32 @@ document.addEventListener('DOMContentLoaded', function() {
   <script src="./assets/js/test-script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
   <script src="./scrollbar.js"></script>
+<script>
+const navbar=document.querySelector('.navbar'),
+NavButton=document.querySelector('.nav-toggle-btn'),
+open=document.querySelector('.open'),
+close=document.querySelector('.close');
+let count=0
+NavButton.addEventListener('click',()=>{
+      
+if(count===0){
+navbar.classList.remove('nav_activated')
+open.classList.add('close')
+close.classList.add('open')
+open.classList.remove('open')
+close.classList.remove('close')
+count++
+}
+else{
+navbar.classList.add('nav_activated')
+open.classList.add('open')
+close.classList.add('close')
+open.classList.remove('close')
+close.classList.remove('open')
+count=0
+}
+})
+</script>
 </body>
 
 </html>
