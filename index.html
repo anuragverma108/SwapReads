@@ -261,29 +261,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 'google_element');
       }
     </script>
-<script>
-  let lastScrollTop = 0;
+    <script>
+      let lastScrollTop = 0;
 
-  function onScroll() {
-      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-      const header = document.querySelector('.header');
+      function onScroll() {
+          let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+          const header = document.querySelector('.header');
 
-      if (currentScroll > lastScrollTop) {
-          header.classList.add('hidden');
-      } else {
-          header.classList.remove('hidden');
+          if (currentScroll > lastScrollTop) {
+              header.classList.add('hidden');
+          } else {
+              header.classList.remove('hidden');
+          }
+          lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
       }
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-  }
 
-  window.addEventListener("scroll", onScroll);
-</script>
-
-
-    </li>
-    </ul>
-    </nav>
-
+      window.addEventListener("scroll", onScroll);
+    </script>
     <div class="switch-toggle-container">
       <div class="switch-container switch-container-mobile">
         <input type="checkbox" id="switch" class="switch-checkbox">
