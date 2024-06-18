@@ -31,7 +31,7 @@
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #f9f9f9;
-      color: #f5f1f1;
+      /* color: #f5f1f1; */
       margin: 0;
       padding: 0;
     }
@@ -743,75 +743,79 @@
         <a href="#" id="privacyNoticeLink">Privacy Notice</a>
     </div>
 </div>
+<div id="copyrightPolicyModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeCopyright">&times;</span>
+    <h1>Copyright Policy</h1>
+    <p>Welcome to SwapReads. Here is our copyright policy:</p>
+    <ul>
+      <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
+      <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
+      <li>Users may download and print content for personal use only.</li>
+      <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
+      <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Privacy Notice Modal -->
+<div id="privacyNoticeModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closePrivacy">&times;</span>
+    <h1>Privacy Notice</h1>
+    <p>Welcome to SwapReads. Here is our privacy notice:</p>
+    <ul>
+      <li>We collect personal information when you register, buy, or sell books.</li>
+      <li>We use this information to provide and improve our services.</li>
+      <li>We do not share your personal information with third parties without your consent.</li>
+      <li>We take reasonable measures to protect your data from unauthorized access.</li>
+      <li>You can contact us to update or delete your personal information.</li>
+      <li>By using our site, you consent to our privacy practices.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  // Get the modal elements
+  var copyrightModal = document.getElementById("copyrightPolicyModal");
+  var privacyModal = document.getElementById("privacyNoticeModal");
+
+  // Get the link elements
+  var copyrightLink = document.getElementById("copyrightPolicyLink");
+  var privacyLink = document.getElementById("privacyNoticeLink");
+
+  // Get the <span> elements that close the modals
+  var closeCopyright = document.getElementById("closeCopyright");
+  var closePrivacy = document.getElementById("closePrivacy");
+
+  // When the user clicks the link, open the modal 
+  copyrightLink.onclick = function() {
+    copyrightModal.style.display = "block";
+  }
+  privacyLink.onclick = function() {
+    privacyModal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  closeCopyright.onclick = function() {
+    copyrightModal.style.display = "none";
+  }
+  closePrivacy.onclick = function() {
+    privacyModal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == copyrightModal) {
+      copyrightModal.style.display = "none";
+    }
+    if (event.target == privacyModal) {
+      privacyModal.style.display = "none";
+    }
+  }
+</script>
 
 
-
-              <!-- .icons .icon:hover .fab.fa-facebook {
-                color: #3B5998;
-                /* Change to Facebook color on hover */
-              }
-
-              .icons .icon:hover .fab.fa-twitter {
-                color: #090e11;
-                /* Change to Twitter color on hover */
-              }
-
-              .icons .icon:hover .fab.fa-instagram {
-                background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-                background-clip: text;
-                border-radius: 20%;
-                transform: scale(1.5);
-                color: transparent;
-                /* Change to Instagram color on hover */
-              }
-
-              .icons .icon:hover .fab.fa-youtube {
-                color: #C31A1E;
-                /* Change to YouTube color on hover */
-              }
-
-              .icons .icon:hover .fab.fa-github {
-                color: #333;
-              }
-            </style>
-
-            <div class="icons">
-              <a href="#">
-                <div class="icon">
-                  <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
-                </div>
-              </a>
-
-              <a href="#">
-                <div class="icon">
-                  <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
-                </div>
-              </a>
-
-              <a href="#">
-                <div class="icon">
-                  <i class="fab fa-instagram" title="Instagram" style="cursor: pointer;"></i>
-                </div>
-              </a>
-
-              <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
-                <div class="icon">
-                  <i class="fab fa-youtube" style="cursor: pointer;"></i>
-                </div>
-              </a>
-              <a href="https://github.com/anuragverma108">
-                <div class="icon">
-                  <i class="fab fa-github" style="cursor: pointer;"></i>
-                </div>
-              </a>
-            </div>
-            <div class="footer-bottom">
-              <p class="copyright" style="text-align: center">
-                &copy;
-                <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-                Hackers.
-              </p>
-            </div> -->
 
 
 
