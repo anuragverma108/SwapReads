@@ -1527,7 +1527,7 @@ body.dark-mode .chapter-card:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(93, 90, 90, 0.7);
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -1544,7 +1544,9 @@ body.dark-mode .chapter-card:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20%;
+  width: 30%;
+  height: 70%;
+  /* border: 2px solid black; */
 }
 
 .rating_heading {
@@ -1563,17 +1565,182 @@ body.dark-mode .chapter-card:hover {
     transform: scale(1);
   }
 }
-
 .star_rating {
   width: 100%;
-  user-select: none;
-  background-color: white;
-  padding: 1.4rem 2.5rem;
+  position: relative;
+  /* height: 600px; */
+  /* user-select: none; */
+  background-color: white; 
+  padding:1.4rem 2.5rem; 
   margin-bottom: 2rem;
   border-radius: 0.4rem;
+  justify-content: center;
   text-align: center;
-  animation: slide-up 1s ease;
+  /* animation: all  2s ease; */
+  flex-direction: column;
+  /* align-items: center; */
+  
+} 
+.rate-us-modal .post{
+  display: none;
 }
+.rate-us-modal .text{
+  font-size: 25px;
+  /* color: #666; */
+  font-weight: 500;
+  color: white;
+  /* animation: scale-up 1s ease; */
+}
+.rate-us-modal .edit{
+position: absolute;
+right: 520px;
+ top: 260px;
+font-size: 16px;
+color: rgb(20, 18, 18);
+font-weight: 500;
+cursor: pointer;
+z-index: 1;
+}
+.rate-us-modal .edit:hover{
+  text-decoration: underline;
+}
+@keyframes scale-up {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+
+ /* .star_rating
+ {
+  width: 500px;
+  background-color: #111; */
+  /* padding: 2 0px 30px; */
+  /* padding: 1.5rem 2.5rem;
+  border-radius: 0.4rem;
+  border: 1px solid black;
+  /* display: flex; */
+  /* align-items: center;
+  justify-content: center;
+  flex-direction: column;
+ }  */
+ .star_rating input
+ {
+   display: none;
+ }
+
+
+/* <something new> */
+.star_rating label{
+  font-size:40px;
+  color: #444;
+  padding: 10px;
+  float:right;
+  transition: all 0.2s ease;
+}
+
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label{
+  color: #fd4;
+}
+
+input:checked ~ label{
+  color: #fd4;
+ 
+}
+input#rate-5:checked ~ label{
+  color: #fe7;
+  text-shadow: 0 0 20px #952;
+}
+
+#rate-1:checked ~ form header:before{
+  content: "I got bored😒";
+}
+#rate-2:checked ~ form header:before{
+  content: "I don't like it 😐";
+}
+#rate-3:checked ~ form header:before{
+  content: "It's good 🙂";
+}
+#rate-4:checked ~ form header:before{
+  content: "I just like it 😃";
+}
+#rate-5:checked ~ form header:before{
+  content: "I just love it 😍";
+}
+
+.rate-us-modal form{
+  display: none;
+}
+
+input:checked ~ form{
+  display: block;
+}
+form header{
+  /* height: 100%; */
+  width: 100%;
+  font-size: 25px;
+  columns:rgb(15, 14, 14);
+  font-weight: 500;
+  margin: 5px 0 20px 0;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+
+
+form .textarea{
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+  border: #000;
+}
+
+form .textarea textarea{
+  height: 100%;
+  width:100%;
+  outline: none;
+  padding: 10px;
+  font-size: 17px;
+  color: #181515;
+  border: 1px solid #333;
+  /* background: #222; */
+  background: white;
+  resize: none;
+  
+}
+form .btn{
+  height: 55px;
+  width: 100%;
+  margin: 15px 0;
+}
+
+form .btn button{
+  height: 100%;
+  width: 100%;
+  border: 1px solid #444;
+  outline: none;
+  color: white;
+  background:#C08081;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: all 0.3s ease;
+}
+
+/* form .btn button:hover{
+  background:#C08081;
+  color:white ;
+} */
 
 @keyframes slide-up {
   0% {
@@ -1587,13 +1754,13 @@ body.dark-mode .chapter-card:hover {
   }
 }
 
-.star {
+/* .star {
   font-size: 3rem;
   color: #ff9800;
   background-color: unset;
   border: none;
   display: inline;
-}
+} */
 
 .star:hover {
   cursor: pointer;
@@ -1626,8 +1793,8 @@ body.dark-mode .chapter-card:hover {
 .submit_button {
   margin-top: 5px;
   padding: 10px 20px;
-  background-color: #fff;
-  color: var(--old-rose);
+  background-color: #1b1818;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -1636,7 +1803,7 @@ body.dark-mode .chapter-card:hover {
 }
 
 .thank_you_message {
-  background-color: white;
+  background-color: rgb(19, 1, 1);
   padding: 0.5em 1em;
   margin-top: 2rem;
   animation: scale-up 1s ease;
@@ -1652,11 +1819,20 @@ body.light-mode .flip-card-back {
 }
 
 /* Media Query for Responsive Design */
-
+/* .rate-us-modal
+{
+  display: grid;
+  height: 100%;
+  place-items: center;
+  text-align: center;
+  background: rgba(93, 90, 90, 0.7);
+  z-index: 101;
+} */
 @media only screen and (max-width: 900px) {
   .rate-us-modal {
     width: 50%;
   }
+
 
   .contact iframe {
     width: 350px;
@@ -1685,6 +1861,7 @@ body.light-mode .flip-card-back {
 
   .rate-us-modal {
     width: 90%;
+   
   }
 }
 
