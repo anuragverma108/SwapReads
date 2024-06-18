@@ -536,16 +536,30 @@ body {
   height: 90px;
   
 }
-
 .logo {
-  font-family: var(--ff-philosopher);
-  font-size: 4rem;
-  color: var(--charcoal);
-  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.logopic {
+  max-height: 100px; /* Adjust this value as needed */
+  height: auto;
+  width: auto;
+  transition: all 0.3s ease;
+}
+.logopic:hover {
+  transform: scale(1.3); /* Makes the logo 20% larger on hover */
+}
+
+
+@media (max-width: 768px) {
+  .logopic {
+      max-height: 70px; /* Smaller logo on smaller screens */
+  }
 }
 
 .dark-mode .logopic {
-  content: url("./../images/new_logo_banner_light.png");
+  content: url("./../images/final.png");
 }
 
 .nav-toggle-btn {
@@ -575,7 +589,7 @@ body {
   left: 0;
   width: 100%;
   background-color: var(--white);
-  padding-inline: 15px;
+  padding-inline: 1px;
   max-height: 0;
   overflow: hidden;
   visibility: hidden;
@@ -602,7 +616,10 @@ body {
   /* Remove default margin */
   padding: 0;
   /* Remove default padding */
+  height: 80px;
+  
 }
+
 
 .navbar-item {
   margin: 0 5px;
@@ -619,6 +636,7 @@ body {
   position: relative;
   color: var(--charcoal);
   padding: 8px 12px;
+  height : 120px;
   /* Adjust padding as needed */
   line-height: 2;
   transition: var(--transition-1);
