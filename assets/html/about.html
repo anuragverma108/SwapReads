@@ -18,6 +18,9 @@
   <!-- <link rel="stylesheet" href="../css/login.css" /> -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/aboutus.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/MenuClick.css">
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="../js/script.js" defer></script>
@@ -30,7 +33,7 @@
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #f9f9f9;
-      color: #f5f1f1;
+      /* color: #f5f1f1; */
       margin: 0;
       padding: 0;
     }
@@ -163,9 +166,6 @@
       font-size: 16px;
       line-height: 1.6;
     }
-    .dark-mode .switch-label{
-      top: 2.5rem;
-    }
     .switch-label {
     right: 2.3rem;
     top: 1.4rem;
@@ -182,6 +182,57 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.5s ease;
     }
+    .switch-label .sun-icon,
+    .switch-label .moon-icon {
+      font-size: 19px;
+      position: absolute;
+      cursor: pointer;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: opacity 0.5s ease, color 0.5s ease;
+    }
+
+    .switch-label .sun-icon {
+      color: #f39c12;
+      left: 2px;
+    }
+
+    .switch-label .moon-icon {
+      color: #bdc3c7;
+      opacity: 0;
+      left: 5px;
+    }
+
+    /* Switch Button */
+    .switch-button {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 25px;
+      height: 25px;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      transition: transform 0.5s ease, background-color 0.5s ease;
+    }
+
+    /* Checkbox Checked State */
+    .switch-checkbox:checked+.switch-label {
+      background-color: #34495e;
+    }
+
+    .switch-checkbox:checked+.switch-label .sun-icon {
+      opacity: 0;
+    }
+
+    .switch-checkbox:checked+.switch-label .moon-icon {
+      opacity: 1;
+    }
+
+    .switch-checkbox:checked+.switch-label .switch-button {
+      transform: translateX(13px);
+      /* background-color: #34495e; */
+    }
   </style>
 </head>
 
@@ -191,7 +242,7 @@
 
     <div class="container">
 
-      <nav class="navbar" data-navbar>
+      <nav class="navbar nav_activated" data-navbar>
         <a href="../../index.html" class="logo" style="display:flex;">
           <img src="../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
         </a>
@@ -269,26 +320,20 @@
                 </ul>
               </div>
             </li>
-
-            <li>
-
-              <div class="switch-container">
-                <input type="checkbox" id="switch" class="switch-checkbox">
-                <label for="switch" class="switch-label">
-                  <div class="switch-button">
-                    <span class="material-icons sun-icon"></span>
-                    <span class="material-icons moon-icon"></span>
-                  </div>
-                </label>
-              </div>
-
-            </li>
             <!-- Google Translate Element -->
             <!-- <li class="navbar-item">
               <div id="google_element"></div>
             </li> -->
-        </ul>
       </nav>
+      <div class="switch-container">
+        <input type="checkbox" id="switch" class="switch-checkbox">
+          <label for="switch" class="switch-label">
+            <div class="switch-button">
+              <span class="material-icons sun-icon">wb_sunny</span>
+              <span class="material-icons moon-icon">brightness_2</span>
+            </div>
+          </label>
+      </div>
       <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
       <script>
         function loadGoogleTranslate() {
@@ -299,9 +344,9 @@
       </script>
 
       <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
-        <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
+        <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
 
-        <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
+        <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
       </button>
 
     </div>
@@ -742,33 +787,80 @@
         <a href="#" id="privacyNoticeLink">Privacy Notice</a>
     </div>
 </div>
+<div id="copyrightPolicyModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeCopyright">&times;</span>
+    <h1>Copyright Policy</h1>
+    <p>Welcome to SwapReads. Here is our copyright policy:</p>
+    <ul>
+      <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
+      <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
+      <li>Users may download and print content for personal use only.</li>
+      <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
+      <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
+    </ul>
+  </div>
+</div>
 
+<!-- Privacy Notice Modal -->
+<div id="privacyNoticeModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closePrivacy">&times;</span>
+    <h1>Privacy Notice</h1>
+    <p>Welcome to SwapReads. Here is our privacy notice:</p>
+    <ul>
+      <li>We collect personal information when you register, buy, or sell books.</li>
+      <li>We use this information to provide and improve our services.</li>
+      <li>We do not share your personal information with third parties without your consent.</li>
+      <li>We take reasonable measures to protect your data from unauthorized access.</li>
+      <li>You can contact us to update or delete your personal information.</li>
+      <li>By using our site, you consent to our privacy practices.</li>
+    </ul>
+  </div>
+</div>
 
+<script>
+  // Get the modal elements
+  var copyrightModal = document.getElementById("copyrightPolicyModal");
+  var privacyModal = document.getElementById("privacyNoticeModal");
 
-              <!-- .icons .icon:hover .fab.fa-facebook {
-                color: #3B5998;
-                /* Change to Facebook color on hover */
-              }
+  // Get the link elements
+  var copyrightLink = document.getElementById("copyrightPolicyLink");
+  var privacyLink = document.getElementById("privacyNoticeLink");
 
-              .icons .icon:hover .fab.fa-twitter {
-                color: #090e11;
-                /* Change to Twitter color on hover */
-              }
+  // Get the <span> elements that close the modals
+  var closeCopyright = document.getElementById("closeCopyright");
+  var closePrivacy = document.getElementById("closePrivacy");
 
-              .icons .icon:hover .fab.fa-instagram {
-                background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-                background-clip: text;
-                border-radius: 20%;
-                transform: scale(1.5);
-                color: transparent;
-                /* Change to Instagram color on hover */
-              }
+  // When the user clicks the link, open the modal 
+  copyrightLink.onclick = function() {
+    copyrightModal.style.display = "block";
+  }
+  privacyLink.onclick = function() {
+    privacyModal.style.display = "block";
+  }
 
-              .icons .icon:hover .fab.fa-youtube {
-                color: #C31A1E;
-                /* Change to YouTube color on hover */
-              }
+  // When the user clicks on <span> (x), close the modal
+  closeCopyright.onclick = function() {
+    copyrightModal.style.display = "none";
+  }
+  closePrivacy.onclick = function() {
+    privacyModal.style.display = "none";
+  }
 
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == copyrightModal) {
+      copyrightModal.style.display = "none";
+    }
+    if (event.target == privacyModal) {
+      privacyModal.style.display = "none";
+    }
+  }
+</script>
+
+  
+  
               .icons .icon:hover .fab.fa-github {
                 color: #333;
               }
@@ -811,105 +903,92 @@
                 Hackers.
               </p>
             </div> -->
-
-
-
 </footer>
+<script>
+  // Function to animate counting from 0 to a target number
+  function countUp(target, elementId) {
+    let count = 0;
+    const increment = target / 100; // Increment by a fraction of the target number
+    const interval = setInterval(() => {
+      count += increment;
+      document.getElementById(elementId).textContent = Math.round(count) + "+"; // Add the "+" sign
+      // Stop the interval when count reaches or exceeds the target number
+      if (count >= target) {
+        clearInterval(interval);
+        document.getElementById(elementId).textContent = target + "+"; // Ensure final value is exact with the "+"
+        // Start counting animation again after a delay
+        setTimeout(() => {
+          countUp(target, elementId);
+        }, 3000); // Delay before restarting the animation (adjust as needed)
+      }
+    }, 20); // Adjust interval speed as needed
+  }
 
-      <script>
-        // Function to animate counting from 0 to a target number
-        function countUp(target, elementId) {
-          let count = 0;
-          const increment = target / 100; // Increment by a fraction of the target number
+  // Start counting animation for each stat
+  countUp(150, 'stat1'); // Example target number for stat 1
+  countUp(100, 'stat2'); // Example target number for stat 2
+  countUp(500, 'stat3'); // Example target number for stat 3
+  // JavaScript for hover effects
+  document.querySelectorAll('.about-us-community').forEach(function (element) {
+    element.addEventListener('mouseover', function () {
+      element.querySelector('img').src = '../images/bookhover.png';
+    });
+    element.addEventListener('mouseleave', function () {
+      element.querySelector('img').src = '../images/book.png';
+    });
+  });
+  document.querySelectorAll('.about-us-event').forEach(function (element) {
+    element.addEventListener('mouseover', function () {
+      element.querySelector('img').src = '../images/bookshelfhover.png';
+    });
+    element.addEventListener('mouseleave', function () {
+      element.querySelector('img').src = '../images/bookshelf.png';
+    });
+  });
+  document.querySelectorAll('.about-us-product').forEach(function (element) {
+    element.addEventListener('mouseover', function () {
+      element.querySelector('img').src = '../images/communityhover.png';
+    });
+    element.addEventListener('mouseleave', function () {
+      element.querySelector('img').src = '../images/community.png';
+    });
+  });
+  document.querySelectorAll('.about-us-location').forEach(function (element) {
+    element.addEventListener('mouseover', function () {
+      element.querySelector('img').src = '../images/readhover.png';
+     });
+    element.addEventListener('mouseleave', function () {
+      element.querySelector('img').src = '../images/read.png';
+    });
+  });
+  //Custom Cursor
 
-          const interval = setInterval(() => {
-            count += increment;
-            document.getElementById(elementId).textContent = Math.round(count) + "+"; // Add the "+" sign
-
-            // Stop the interval when count reaches or exceeds the target number
-            if (count >= target) {
-              clearInterval(interval);
-              document.getElementById(elementId).textContent = target + "+"; // Ensure final value is exact with the "+"
-              // Start counting animation again after a delay
-              setTimeout(() => {
-                countUp(target, elementId);
-              }, 3000); // Delay before restarting the animation (adjust as needed)
-            }
-          }, 20); // Adjust interval speed as needed
-        }
-
-        // Start counting animation for each stat
-        countUp(150, 'stat1'); // Example target number for stat 1
-        countUp(100, 'stat2'); // Example target number for stat 2
-        countUp(500, 'stat3'); // Example target number for stat 3
-
-
-        // JavaScript for hover effects
-        document.querySelectorAll('.about-us-community').forEach(function (element) {
-          element.addEventListener('mouseover', function () {
-            element.querySelector('img').src = '../images/bookhover.png';
-          });
-          element.addEventListener('mouseleave', function () {
-            element.querySelector('img').src = '../images/book.png';
-          });
-        });
-
-        document.querySelectorAll('.about-us-event').forEach(function (element) {
-          element.addEventListener('mouseover', function () {
-            element.querySelector('img').src = '../images/bookshelfhover.png';
-          });
-          element.addEventListener('mouseleave', function () {
-            element.querySelector('img').src = '../images/bookshelf.png';
-          });
-        });
-
-        document.querySelectorAll('.about-us-product').forEach(function (element) {
-          element.addEventListener('mouseover', function () {
-            element.querySelector('img').src = '../images/communityhover.png';
-          });
-          element.addEventListener('mouseleave', function () {
-            element.querySelector('img').src = '../images/community.png';
-          });
-        });
-
-        document.querySelectorAll('.about-us-location').forEach(function (element) {
-          element.addEventListener('mouseover', function () {
-            element.querySelector('img').src = '../images/readhover.png';
-          });
-          element.addEventListener('mouseleave', function () {
-            element.querySelector('img').src = '../images/read.png';
-          });
-        });
-
-        //Custom Cursor
-
-        const coords = { x: 0, y: 0 };
-        const circles = document.querySelectorAll(".circle");
-
-        const colors = [
-          "#ffb56b",
-          "#fdaf69",
-          "#f89d63",
-          "#f59761",
-          "#ef865e",
-          "#ec805d",
-          "#e36e5c",
-          "#df685c",
-          "#d5585c",
-          "#d1525c",
-          "#c5415d",
-          "#c03b5d",
-          "#b22c5e",
-          "#ac265e",
-          "#9c155f",
-          "#950f5f",
-          "#830060",
-          "#7c0060",
-          "#680060",
-          "#60005f",
-          "#48005f",
-          "#3d005e"
-        ];
+   const coords = { x: 0, y: 0 };
+   const circles = document.querySelectorAll(".circle");
+   const colors = [
+     "#ffb56b",
+     "#fdaf69",
+     "#f89d63",
+     "#f59761",
+     "#ef865e",
+     "#ec805d",
+     "#e36e5c",
+     "#df685c",
+     "#d5585c",
+     "#d1525c",
+     "#c5415d",
+     "#c03b5d",
+     "#b22c5e",
+     "#ac265e",
+     "#9c155f",
+     "#950f5f",
+     "#830060",
+     "#7c0060",
+     "#680060",
+     "#60005f",
+     "#48005f",
+     "#3d005e"
+   ];
 
         circles.forEach(function (circle, index) {
           circle.x = 0;
@@ -943,68 +1022,67 @@
           });
 
           requestAnimationFrame(animateCircles);
-        }
-
-        animateCircles();
-
-      // Function to toggle dark mode
-    function toggleDarkMode() {
-      const isDarkMode = isDarkModePreferred();
-      setDarkModePreference(!isDarkMode);
-      applyDarkModePreference();
     }
-     // Function to apply dark mode preference
-     function applyDarkModePreference() {
-      const isDarkMode = isDarkModePreferred();
-      if (isDarkMode) {
-        document.body.classList.add('dark-mode');
-        document.getElementById('theme-icon').src = '../images/icons8-sun.svg';
-      } else {
-        document.body.classList.remove('dark-mode');
-        document.getElementById('theme-icon').src = '../images/moon_solid.svg';
-      }
-    }
-      // Function to set dark mode preference
-      document.addEventListener('DOMContentLoaded', () => {
-      const currentTheme = localStorage.getItem('theme');
-      const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
-   
-      if (switchCheckbox) { // Check if switchCheckbox is not null
-        function applyDarkModeStyles() {
-          document.body.classList.remove('light-mode');
-          document.body.classList.add('dark-mode');
-          
+  animateCircles();
+
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+          const isDarkMode = isDarkModePreferred();
+          setDarkModePreference(!isDarkMode);
+          applyDarkModePreference();
         }
-        function applyLightModeStyles() {
-          document.body.classList.remove('dark-mode');
-          document.body.classList.add('light-mode');
-          // starRating.style.backgroundColor = 'white';
-          // thankYouMessage.style.backgroundColor = 'white';
-        }
-        if (currentTheme) {
-          if (currentTheme === 'dark-mode') {
-            applyDarkModeStyles();
-            switchCheckbox.checked = true;
+        // Function to apply dark mode preference
+        function applyDarkModePreference() {
+          const isDarkMode = isDarkModePreferred();
+          if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
           } else {
-            applyLightModeStyles();
+            document.body.classList.remove('dark-mode');
+            document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
           }
         }
-
-        switchCheckbox.addEventListener('change', () => {
-          if (switchCheckbox.checked) {
-            applyDarkModeStyles();
-            localStorage.setItem('theme', 'dark-mode');
-          } else {
-            applyLightModeStyles();
-            localStorage.setItem('theme', 'light-mode');
+        // Function to set dark mode preference
+        document.addEventListener('DOMContentLoaded', () => {
+        const currentTheme = localStorage.getItem('theme');
+        const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
+    
+        if (switchCheckbox) { // Check if switchCheckbox is not null
+          function applyDarkModeStyles() {
+            document.body.classList.remove('light-mode');
+            document.body.classList.add('dark-mode');
+            
           }
-        });
-      } else {
-        console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
-      }
-    });
-      </script>
-      <script>
+
+          function applyLightModeStyles() {
+            document.body.classList.remove('dark-mode');
+            document.body.classList.add('light-mode');
+          }
+
+          if (currentTheme) {
+            if (currentTheme === 'dark-mode') {
+              applyDarkModeStyles();
+              switchCheckbox.checked = true;
+            } else {
+              applyLightModeStyles();
+            }
+          }
+
+          switchCheckbox.addEventListener('change', () => {
+            if (switchCheckbox.checked) {
+              applyDarkModeStyles();
+              localStorage.setItem('theme', 'dark-mode');
+            } else {
+              applyLightModeStyles();
+              localStorage.setItem('theme', 'light-mode');
+            }
+          });
+        } else {
+          console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
+        }
+       });
+</script>
+<script>
         document.addEventListener("DOMContentLoaded", function () {
           const backToTopButton = document.getElementById('back-to-top-container');
 
@@ -1110,8 +1188,33 @@
         }
 
         fetchContributors();
-      </script>
+    </script>
+<script>
+const navbar=document.querySelector('.navbar'),
+NavButton=document.querySelector('.nav-toggle-btn'),
+open=document.querySelector('.open'),
+close=document.querySelector('.close');
+let count=0
+NavButton.addEventListener('click',()=>{
+      
+if(count===0){
+navbar.classList.remove('nav_activated')
+open.classList.add('close')
+close.classList.add('open')
+open.classList.remove('open')
+close.classList.remove('close')
+count++
+}
+else{
+navbar.classList.add('nav_activated')
+open.classList.add('open')
+close.classList.add('close')
+open.classList.remove('close')
+close.classList.remove('open')
+count=0
+}
+})
+</script>
 
-    </body>
-
+   </body>
 </html>
