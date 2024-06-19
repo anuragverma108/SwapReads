@@ -155,7 +155,7 @@ body {
 
   --fs-1: 4rem;
   --fs-2: 3.2rem;
-  --fs-3: 2.7rem;
+  --fs-3: 2.7rem; 
   --fs-4: 2.4rem;
   --fs-5: 2.2rem;
   --fs-6: 2rem;
@@ -477,8 +477,9 @@ body {
 }
 
 .btn-secondary:is(:hover, :focus) {
-  background-color: var(--chinese-violet);
-  color: var(--white);
+  background-color: white;
+  color: #000;
+  border: #d26d6d 2px solid;
 }
 
 .img-holder {
@@ -536,16 +537,30 @@ body {
   height: 90px;
   
 }
-
 .logo {
-  font-family: var(--ff-philosopher);
-  font-size: 4rem;
-  color: var(--charcoal);
-  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.logopic {
+  max-height: 100px; /* Adjust this value as needed */
+  height: auto;
+  width: auto;
+  transition: all 0.3s ease;
+}
+.logopic:hover {
+  transform: scale(1.3); /* Makes the logo 20% larger on hover */
+}
+
+
+@media (max-width: 768px) {
+  .logopic {
+      max-height: 70px; /* Smaller logo on smaller screens */
+  }
 }
 
 .dark-mode .logopic {
-  content: url("./../images/new_logo_banner_light.png");
+  content: url("./../images/final.png");
 }
 
 .nav-toggle-btn {
@@ -575,7 +590,7 @@ body {
   left: 0;
   width: 100%;
   background-color: var(--white);
-  padding-inline: 15px;
+  padding-inline: 1px;
   max-height: 0;
   overflow: hidden;
   visibility: hidden;
@@ -602,7 +617,10 @@ body {
   /* Remove default margin */
   padding: 0;
   /* Remove default padding */
+  height: 80px;
+  
 }
+
 
 .navbar-item {
   margin: 0 5px;
@@ -619,6 +637,7 @@ body {
   position: relative;
   color: var(--charcoal);
   padding: 8px 12px;
+  height : 120px;
   /* Adjust padding as needed */
   line-height: 2;
   transition: var(--transition-1);
@@ -1373,31 +1392,34 @@ body.dark-mode .chapter-card:hover {
   border-radius: 5px;
 }
 
-.contact-form {
+.contact-card {
   background-color: var(--seashell);
   padding: 20px;
   border-radius: var(--radius-5);
-
 }
 
-.input-field {
+.contact-card .input-field {
   background-color: hsl(0, 0%, 100%);
   padding: 7px;
   margin-block-end: 15px;
   outline: none;
   border-radius: var(--radius-5);
-  border-block-end: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.5s, box-shadow 0.5s;
+  width: 100%; 
 }
 
-.input-field:hover{
-  box-shadow: #d26d6d 8px 14px 69px -20px;}
+.contact-card .input-field:hover {
+  box-shadow: 0 0 30px rgba(210, 109, 109, 0.5);
+  background-color: #f2f2f2; 
+  border-bottom: 3px solid var(--charcoal); 
+}
 
-.input-field:focus {
-  border-color: black;
+.contact-card .input-field:focus {
   border-color: var(--old-rose);
 }
 
-textarea.input-field {
+.contact-card textarea.input-field {
   resize: vertical;
   min-height: 120px;
   height: 120px;
@@ -1406,26 +1428,17 @@ textarea.input-field {
 
 .character-count {
   font-size: 0.7em;
-  /* Make the character count slightly smaller */
-  color: hsl(20, 43%, 93%);
-  /* Set the color */
+  color: var( --charcoal);
   position: relative;
-  /* Enable positioning */
   float: right;
-  /* Move the character count indicators to the right */
   margin-top: -10px;
-  /* Adjust the vertical position */
 }
 
-.input-field,
-.input-field.select {
-  background-color: hsl(0, 0%, 100%);
-  padding: 7px;
-  margin-block-end: 15px;
-  outline: none;
-  border-radius: var(--radius-5);
-  border-bottom: 1.6px solid #d26d6d;
-  transition: border-color 0.3s;
+.contact-card .btn:is(:hover, :focus) {
+  /* margin-inline: auto; */
+  background-color: var(--light-pink);
+  color: #000;
+  border: var(--old-rose) 2px solid;
 }
 
 .input-field:focus,
@@ -1435,6 +1448,11 @@ textarea.input-field {
 
 #contact-form .btn {
   margin-inline: auto;
+}
+.send-now:is(:hover, :focus) {
+  background-color: white;
+  color: #000;
+  border: #d26d6d  2px solid;
 }
 
 .contact-card {
@@ -1447,6 +1465,7 @@ textarea.input-field {
   font-family: var(--ff-philosopher);
   text-transform: uppercase;
   font-weight: var(--fw-700);
+  font-size: 1.5em;
 }
 
 .contact-card>li:not(:last-child) {
@@ -1952,7 +1971,7 @@ footer {
 
 }
 
-form[type="newsletter"]:before {
+.social-icons form[type="newsletter"]:before {
   content: "";
   /*   background: rgba(255, 255, 0, 0.8);  */
   display: flex;
@@ -1967,7 +1986,7 @@ form[type="newsletter"]:before {
   left: -60px;
 }
 
-form[type="newsletter"] {
+.social-icons form[type="newsletter"] {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1978,7 +1997,7 @@ form[type="newsletter"] {
   /* Adjusted padding */
 }
 
-label[for="email"] {
+.social-icons label[for="email"] {
   display: block;
   font-size: 16px;
   /* Increased font size */
@@ -1990,11 +2009,11 @@ label[for="email"] {
   text-align: center;
 }
 
-input:focus {
+.social-icons input:focus {
   outline: 0;
 }
 
-input[type="email"] {
+.social-icons input[type="email"] {
   width: 100%;
   /* Adjusted width */
   max-width: 300px;
@@ -2013,11 +2032,11 @@ input[type="email"] {
   text-transform: uppercase;
 }
 
-input[type="email"]:focus {
+.social-icons input[type="email"]:focus {
   border: 2px solid #c27a7e;
 }
 
-input[type="submit"] {
+.social-icons input[type="submit"] {
   width: 100%;
   /* Adjusted width */
   max-width: 300px;
@@ -2036,7 +2055,7 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover {
+.social-icons input[type="submit"]:hover {
   background: linear-gradient(to right, #000 50%, #36363b 50%);
   background-size: 200% 100%;
   color: white;
@@ -2909,8 +2928,8 @@ body.dark-mode {
 
 /* Dark Mode Switch */
 .dark-mode .switch-container {
-  right: 14px;
-  top: 5px;
+  right: 140px;
+  top: 10px;
 }
 
 .dark-mode {
@@ -3022,8 +3041,8 @@ footer {
 }
 
 .light-mode .switch-container {
-  right: 14px;
-  top: 5px;
+  right: 140px;
+  top: 10px;
 }
 
 /* Hidden Checkbox */
@@ -3735,6 +3754,27 @@ body.dark-mode .h3 {
   
 } */
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+  background-color: var(--white);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  
+}
+
 @media (max-width: 768px) {
   .icons {
     display: flex;
@@ -3773,4 +3813,5 @@ body.dark-mode .h3 {
     padding: 0;
     height: 60px;
   }
+
 }
