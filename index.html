@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/font-6/css/all.css">
   <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="./assets/css/MenuClick.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,57 +56,448 @@
   <link rel="stylesheet" href="assets/css/preloader.css">
   <script src="https://cdn.lordicon.com/lordicon.js"></script>
   <script src="./assets/js/preloader.js" defer></script>
+  <style>
+    swiper-container {
+      width: 100%;
+      height: 75%;
+    }
 
-  
-  <link rel="stylesheet" href="./assets/css/styles.css">
+    /* Theme Change Button Style */
+    @media (max-width: 990px) {
+      .switch-container {
+        margin-top: 3.2rem;
+        margin-right: -0.5rem;
+      }
+    }
+    @media (max-width: 575px) {
+      .switch-container {
+        margin-top: 2.4rem;
+        margin-right: -0.5rem;
+      }
+      /* Navbar Toggle Button placed in center */
+      .nav-toggle-btn{
+        margin-top: -2rem;
+        margin-left: 2.2rem;
+      }
+    }
+
+/* testimonal card fix by harshcodesit */
+    swiper-slide {
+      text-align: center;
+      font-size: 15;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+    /* ########### */
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      color: hsl(357, 37%, 62%);
+    }
+
+    swiper-container {
+
+       margin: auto;
+      
+    }
+
+    .flip-card {
+      background-color: transparent;
+      width: 400px;
+      height: 370px;
+      /* margin: 2px; */
+      /* border: 1px solid #f1f1f1; */
+      perspective: 1000px;
+      /* Remove this if you don't want the 3D effect */
+    }
+
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.7s;
+      transform-style: preserve-3d;
+      padding: 10px;
+    }
+
+    /* Do an horizontal flip when you move the mouse over the flip box container */
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Position the front and back side */
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      /* Safari */
+      backface-visibility: hidden;
+    }
+
+    /* Style the front side (fallback if image is missing) */
+    .flip-card-front {
+      background-color: white;
+      color: black;
+    }
+
+    /* Style the back side */
+    .flip-card-back {
+      background-color: white;
+      color: black;
+      transform: rotateY(180deg);
+    }
+
+    /* Light mode styles */
+    .light-mode .readmore-anim {
+      font-size: 18px;
+      letter-spacing: 0;
+      color: hsl(357, 37%, 62%);
+    }
+
+    .light-mode .readmore-anim:hover {
+      color: red;
+      letter-spacing: 1px;
+      transition: ease-in-out;
+    }
+
+.cta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: auto;
+  padding: 20px 24px;
+  color:  hsl(357, 37%, 62%);
+  font-family: Avenir, sans-serif;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 28px;
+    background: rgba(255, 171, 157, 0.5);
+    width: 56px;
+    height: 56px;
+    transition: all 0.3s ease;
+  }
+  span {
+    position: relative;
+    font-size: 8px;
+    line-height: 18px;
+    font-weight: 900;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    vertical-align: middle;
+    color: var(--charcoal);
+  }
+  svg {
+    position: relative;
+    top: 0;
+    margin-left: 5px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: hsl(357, 37%, 62%);
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    &:before {
+      width: 9%;
+      background: #ffab9d;
+    }
+    svg {
+      transform: translateX(0);
+    }
+    .active {
+      transform: scale(0.96);
+    }
+  }
+}
+
+
+
+    /* Dark Mode Styles */
+    .dark-mode .readmore-anim {
+      font-size: 18px;
+      letter-spacing: 0;
+      color: hsl(357, 37%, 62%);
+    }
+
+    .readmore-anim .icon:hover {
+      color: red;
+    }
+
+    .dark-mode .readmore-anim:hover {
+      color: red;
+      letter-spacing: 1px;
+      transition: ease-in-out;
+    }
+
+    .dark-mode .header.scrolled {
+      background-color: #232222; /* Change to a darker color when scrolled */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+    }
+
+    /* pankaj bind */
+    #cookie-consent {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      background-color: #f1f1f1;
+      padding: 20px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 300px;
+      height: fit-content;
+      z-index: 100;
+      border-radius: 10px;
+      margin-bottom: 5px;
+      margin: 20px;
+      border-right: 4px solid transparent; 
+      border-bottom: 4px solid transparent; 
+      transition: border-color 0.3s; 
+    }
+    #cookie-consent:hover {
+      border-right-color: #A30F17; 
+      border-bottom-color: #A30F17; 
+    }
+
+    
+    .accept-cookies {
+
+      width: 280px;
+      height: 40px;
+      color: white;
+      background-color: #A30F17;
+    }
+    .reject-cookies {
+      margin-top: 10px;
+      padding-top: 5px;
+      height: 40px;
+      width: 280px;
+      color: white;
+      background-color: #A30F17;
+      width: 280px;
+      height: 40px;
+      color: white;
+      background-color: #A30F17;
+}
+.reject-cookies {
+  margin-top: 10px;
+  padding-top: 5px;
+  height: 40px;
+  width: 280px;
+  color: white;
+  background-color: #A30F17;
+}
+
+.accept-cookies:hover, .reject-cookies:hover {
+  transform: scale(0.9);
+  box-shadow: 0 0 20px rgb(249, 212, 212);
+}
+
+.accept-cookies:hover {
+  background-color: white;
+  color: red;
+}
+
+.reject-cookies:hover {
+  background-color: white;
+  color: red;
+}
+
+    #back-to-top-container {
+      position: fixed;
+    }
+
+    
+
+        #cookie-content {
+            display: none;
+            margin-top: 10px;
+        }
+    
+
+    
+    /* Basic navbar styling */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 10;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+/* Hide the navbar */
+.header.hidden {
+  top: -93px; /* Adjust according to your header height */
+}
+
+/* Navbar styling when scrolled */
+.header.scrolled {
+  background-color: #efefef; /* Change to a darker color when scrolled */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #ffccbc;
+}
+
+.action {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+}
+
+.action .profile {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.action .profile img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.action .menu {
+  position: absolute;
+  top: 120px;
+  right: -10px;
+  padding: 10px 20px;
+  background: #fff;
+  width: 200px;
+  box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  transition: 0.5s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.action .menu.active {
+  top: 80px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.action .menu::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 28px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.action .menu h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px 0;
+  font-weight: 500;
+  color: #555;
+  line-height: 1.5em;
+}
+
+.action .menu h3 span {
+  font-size: 14px;
+  color: #cecece;
+  font-weight: 300;
+}
+
+.action .menu ul li {
+  list-style: none;
+  padding: 16px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+}
+
+.action .menu ul li img {
+  max-width: 20px;
+  margin-right: 10px;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.action .menu ul li:hover img {
+  opacity: 1;
+}
+
+.action .menu ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.action .menu ul li:hover a {
+  color: #ff5d94;
+}
+
+  </style>
 </head>
-
 
 
 <body>
   <div class="nav-wrapper">
     <div class="progress-bar"></div>
   </div>
-
-  
-
-
-  <div id="preloader">
-    <div class="loader">
-      <div class="book-wrapper">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 126 75" class="book">
-          <rect stroke-width="5" stroke="#e05452" rx="7.5" height="70" width="121" y="2.5" x="2.5"></rect>
-          <line stroke-width="5" stroke="#e05452" y2="75" x2="63.5" x1="63.5"></line>
-          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M25 20H50"></path>
-          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M101 20H76"></path>
-          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M16 30L50 30"></path>
-          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M110 30L76 30"></path>
-        </svg>
-
-        <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff74" viewBox="0 0 65 75" class="book-page">
-          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M40 20H15"></path>
-          <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M49 30L15 30"></path>
-          <path stroke-width="5" stroke="#e05452"
-            d="M2.5 2.5H55C59.1421 2.5 62.5 5.85786 62.5 10V65C62.5 69.1421 59.1421 72.5 55 72.5H2.5V2.5Z"></path>
-        </svg>
-      </div>
-    </div>
-  </div>
   
   <div id="cookie-consent">
-    <p style="color: black;">
+    <button class="close-btn" id="closeBtn">&times;</button>
+    <p>
         We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy. 
         <a href="#" id="learn-more-link">Learn More</a>
+        
     </p>
-    <div id="learn-more-content" style="display: none; color: black;">
+    <div id="learn-more-content" style="display: none;">
         <p>Cookies are small text files that can be used by websites to make a user's experience more efficient. The law states that we can store cookies on your device if they are strictly necessary for the operation of this site. For all other types of cookies we need your permission.</p>
         <p>This site uses different types of cookies. Some cookies are placed by third party services that appear on our pages.</p>
     </div>
+   
+    <a href="#" id="show-less-link" style="display: none;">Show Less</a>
     <button class="accept-cookies">Accept</button>
     <button class="reject-cookies">Reject</button>
   </div>
+
+  <script src="script.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+
+  document.addEventListener('DOMContentLoaded', function() {
   const cookieConsent = document.getElementById('cookie-consent');
   const acceptButton = document.querySelector('.accept-cookies');
   const rejectButton = document.querySelector('.reject-cookies');
@@ -170,12 +562,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <div class="container mobile-container-styles" style="padding-left: 0;">
 
-      <nav class="navbar" data-navbar>
+      <nav class="navbar nav_activated" data-navbar>
 
 
         <ul class="navbar-list">
           <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="./assets/images/new_logo_banner_dark.png" class="logopic" style=" width: 200px;">
+            <img src="./assets/images/final.png" class="logopic" style=" width: 150px;">
           </a>
           <li class="navbar-item">
             <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
@@ -198,14 +590,20 @@ document.addEventListener('DOMContentLoaded', function() {
           <li class="navbar-item">
             <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
                 class="ri-customer-service-2-fill"></i> Contact</a>
+            </li>
+            <li class="navbar-item">
+              <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
+                  <i class="ri-questionnaire-fill"></i> FAQ
+              </a>
           </li>
-
+          
           <li class="navbar-item">
-            <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
-          </li>
+            <a href="#rate-us-modal" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+          
           <li class="navbar-item" id="login-signup-link">
             <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
           </li>
+          
 
 
           <li class="navbar-item dropdown" id="more-dropdown">
@@ -229,7 +627,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <a href="./assets/html/booklistswap.html" class="navbar-link">Booklist for Swapping</a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href="./assets/html/bookrecommend.html" class="navbar-link" data-nav-link>
+                  <a href="./assets/html/book_recommend.html" class="navbar-link" data-nav-link>
                     <i class="ri-customer-service-2-fill"></i> Book Recommendation
                   </a>
                 </li>
@@ -246,6 +644,38 @@ document.addEventListener('DOMContentLoaded', function() {
               </ul>
             </div>
           </li>
+          <div class="action">
+            <div class="profile" onclick="menuToggle();">
+              <img src="./assets/images/avatar.jpg" />
+            </div>
+            <div class="menu">
+              <h3>XYZ<br /><span>Book Lover</span></h3>
+              <ul>
+                <li>
+                  <img src="./assets/images/user.jpg" /><a href="#">My profile</a>
+                </li>
+                <li>
+                  <img src="./assets/images/edit profile.jpg" /><a href="#">Edit profile</a>
+                </li>
+                <li>
+                  <img src="./assets/images/inbox.png" /><a href="#">Inbox</a>
+                </li>
+                <li>
+                  <img src="./assets/images/settings.png" /><a href="#">Setting</a>
+                </li>
+                <li><img src="./assets/images/help.png" /><a href="#">Help</a></li>
+                <li>
+                  <img src="./assets/images/logout.png" /><a href="#">Logout</a>
+                </li>
+              </ul>
+              </div>
+              </div>
+              <script>
+                function menuToggle() {
+                  const toggleMenu = document.querySelector(".menu");
+                  toggleMenu.classList.toggle("active");
+                }
+              </script>
           <!-- Google Translate Element -->
           <!-- <li class="navbar-item">
             <div id="google_element"></div>
@@ -261,29 +691,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 'google_element');
       }
     </script>
-<script>
-  let lastScrollTop = 0;
+    <script>
+      let lastScrollTop = 0;
 
-  function onScroll() {
-      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-      const header = document.querySelector('.header');
+      function onScroll() {
+          let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+          const header = document.querySelector('.header');
 
-      if (currentScroll > lastScrollTop) {
-          header.classList.add('hidden');
-      } else {
-          header.classList.remove('hidden');
+          if (currentScroll > lastScrollTop) {
+              header.classList.add('hidden');
+          } else {
+              header.classList.remove('hidden');
+          }
+          lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
       }
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-  }
 
-  window.addEventListener("scroll", onScroll);
-</script>
-
-
-    </li>
-    </ul>
-    </nav>
-
+      window.addEventListener("scroll", onScroll);
+    </script>
     <div class="switch-toggle-container">
       <div class="switch-container switch-container-mobile">
         <input type="checkbox" id="switch" class="switch-checkbox">
@@ -295,10 +719,10 @@ document.addEventListener('DOMContentLoaded', function() {
         </label>
       </div>
 
-      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
-        <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
+      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler id="nav-toggle-button">
+        <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
 
-        <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
+        <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
       </button>
     </div>
 
@@ -313,7 +737,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <main>
 
-    <!-- Rate Us Modal Pop up -->
+    <!-- Rate Us Modal Pop up
     <div class="rate-us-modal-wrapper">
       <div class="rate-us-modal">
         <a onclick="closeRateUsModal()" class="home_button"></a>
@@ -330,7 +754,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <button id="submit_rating" class="submit_button">Submit Rating</button>
         <p class="thank_you_message">Thank you for rating us!</p>
       </div>
-    </div>
+    </div> -->
 
     <article>
 
@@ -1199,9 +1623,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       <section class="section contact" id="contact" aria-label="contact">
         <div class="container">
-          <p class="section-subtitle">Contact</p>
+          <p class="section-subtitle">Contact Us</p>
           <h2 class="h2 section-title has-underline">
-            Write me anything
+            Have a Question ?
             <span class="span has-before"></span>
           </h2>
           <div class="wrapper">
@@ -1213,11 +1637,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field" maxlength=100>
                 <div id="subject-count" class="character-count">0/100</div>
-                <div id="subject-full" class="character-full">You have reached the character limit!</div>
+                <!-- <div id="subject-full" class="character-full">You have reached the character limit!</div> -->
 
                 <textarea name="message" id="message" placeholder="Your Message" class="input-field" maxlength=250></textarea>
                 <div id="message-count" class="character-count">0/250</div>
-                <div id="message-full" class="character-full">You have reached the character limit!</div>
+                <!-- <div id="message-full" class="character-full">You have reached the character limit!</div> -->
 
                 <button type="submit" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
                 <div id="success-message" style="display:none">Message sent successfully!</div>
@@ -1236,14 +1660,8 @@ document.addEventListener('DOMContentLoaded', function() {
             </script>
 
             <ul class="contact-card">
-            <ul class="contact-card ">
-              <style>
-                .address {
-                  color: hsl(304, 14%, 46%);
-                }
-              </style>
               <li>
-                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json" trigger="hover" colors="primary:#000000" style="width:25px;height:25px"></lord-icon> Address:</p>
+                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json" trigger="hover" colors="primary:#000000" style="width:25px;height:25px"></lord-icon> Address :</p>
                 <address class="address">
                   12, Nayabad <br>
                   Kolkata, India 700054
@@ -1251,12 +1669,12 @@ document.addEventListener('DOMContentLoaded', function() {
               </li>
 
               <li>
-                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/srsgifqc.json" trigger="hover" style="width:20px;height:20px;"></lord-icon> Phone:</p>
+                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/srsgifqc.json" trigger="hover" style="width:20px;height:20px;"></lord-icon> Phone :</p>
                 <a href="tel:1234567890" class="card-link">+91 9124421980</a>
               </li>
 
               <li>
-                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/xtzvywzp.json" trigger="hover" style="width:20px;height:20px;"></lord-icon> Email:</p>
+                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/xtzvywzp.json" trigger="hover" style="width:20px;height:20px;"></lord-icon> Email :</p>
                 <a href="mailto:support@support.com" class="card-link">support@swapreads.com</a>
               </li>
             </ul>
@@ -1307,7 +1725,7 @@ document.addEventListener('DOMContentLoaded', function() {
               </div>
             </div>
           </div>
-          <div class="flip-card-back backs"  >
+          <div class="flip-card-back backs">
             SwapReads has completely transformed my reading experience! Not only have I discovered new books I never
             would have picked up otherwise, but I've also connected with fellow book lovers who share my passion. It's
             like having a personalized library with endless possibilities. Highly recommend!
@@ -1609,7 +2027,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="social-icons">
        
         <style>
-          input[type="email"] {
+          .social-icons input[type="email"] {
               border: 2px solid #ccc; /* Gray border */
               border-radius: 4px; /* Rounded corners */
               padding: 10px; /* Inner padding */
@@ -1621,7 +2039,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
           <div class="row-flex">
               <!-- Email input -->
-              <input type="email" id="newsletter-email" name="email" placeholder="email address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$" 
+              <input type="email" id="newsletter-email" name="email" placeholder="E mail address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$" 
               title="Please enter a valid email address that ends with '.com'" required>
               <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
           </div>
@@ -1654,12 +2072,7 @@ document.addEventListener('DOMContentLoaded', function() {
               <i class="fab fa-youtube" style="cursor: pointer;"></i>
             </div>
           </a>
-
-          <a href="https://github.com/anuragverma108" title="GitHub">
-            <div class="icon">
-                <i class="fab fa-github" style="cursor: pointer;"></i>
-            </div>
-          </a>
+         
         </div>
        
 
@@ -1911,6 +2324,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <!-- Lenis smooth scrolling -->
   <script>
+    // const navbar=document.querySelector('.navbar'),
+    //       NavButton=document.getElementById('nav-toggle-button'),
+    //       open=document.querySelector('.open'),
+    //       close=document.querySelector('.close');
+    // let count=0
+    // NavButton.addEventListener('click',()=>{
+    //   if(count===0){
+    //      navbar.classList.remove('nav_activated')
+    //      open.classList.add('close')
+    //   close.classList.add('open')
+    //   open.classList.remove('open')
+    //   close.classList.remove('close')
+    //      count++
+    //   }
+    //   else{
+    //     navbar.classList.add('nav_activated')
+    //     open.classList.add('open')
+    //   close.classList.add('close')
+    //   open.classList.remove('close')
+    //   close.classList.remove('open')
+    //     count=0
+    //   }
+    // })
     document.addEventListener("scroll", function () {
       var scrollPosition = window.scrollY;
 
@@ -2087,6 +2523,32 @@ document.addEventListener('DOMContentLoaded', function() {
   <script src="./assets/js/test-script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
   <script src="./scrollbar.js"></script>
+<script>
+const navbar=document.querySelector('.navbar'),
+NavButton=document.querySelector('.nav-toggle-btn'),
+open=document.querySelector('.open'),
+close=document.querySelector('.close');
+let count=0
+NavButton.addEventListener('click',()=>{
+      
+if(count===0){
+navbar.classList.remove('nav_activated')
+open.classList.add('close')
+close.classList.add('open')
+open.classList.remove('open')
+close.classList.remove('close')
+count++
+}
+else{
+navbar.classList.add('nav_activated')
+open.classList.add('open')
+close.classList.add('close')
+open.classList.remove('close')
+close.classList.remove('open')
+count=0
+}
+})
+</script>
 </body>
 
 </html>

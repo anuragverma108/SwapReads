@@ -4,10 +4,16 @@
 		<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="apple-touch-icon" sizes="180x180" href="../favicon_package_v0.16/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../favicon_package_v0.16/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../favicon_package_v0.16/favicon-16x16.png">
+		<link rel="manifest" href="../favicon_package_v0.16/site.webmanifest">
+		<link rel="mask-icon" href="../favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
 		<title>Book Management</title>
 		<link rel="stylesheet" href="../css/addremove.css">
 		<link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="../css/preloader.css">
+		<link rel="stylesheet" href="./assets/css/MenuClick.css">
 		<script src="../js/preloader.js"></script>
 
 		</head>
@@ -91,7 +97,7 @@
 				</div>
 				
 			  </div>
-			<div class="navbar">
+			<div class="navbar nav_activated">
 				<div class="navbar-header">
 				  <a href="../../index.html">
 					<img class="close-icon" src="../images/close1.png" alt="Close" />
@@ -162,5 +168,31 @@
 			}
 		};
 		</script>
+<script>
+const navbar=document.querySelector('.navbar'),
+NavButton=document.querySelector('.nav-toggle-btn'),
+open=document.querySelector('.open'),
+close=document.querySelector('.close');
+let count=0
+NavButton.addEventListener('click',()=>{
+      
+if(count===0){
+navbar.classList.remove('nav_activated')
+open.classList.add('close')
+close.classList.add('open')
+open.classList.remove('open')
+close.classList.remove('close')
+count++
+}
+else{
+navbar.classList.add('nav_activated')
+open.classList.add('open')
+close.classList.add('close')
+open.classList.remove('close')
+close.classList.remove('open')
+count=0
+}
+})
+</script>
 		</body>
 		</html>

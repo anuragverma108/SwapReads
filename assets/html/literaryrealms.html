@@ -14,6 +14,7 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="./assets/css/MenuClick.css">
   <link rel="stylesheet" href="./../css/style.css">
   <link rel="stylesheet" href="./../css/Available.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -246,8 +247,9 @@
 
     <div class="container">
 
-      <nav class="navbar" data-navbar>
-        <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
+
+      <nav class="navbar nav_activated" data-navbar>
+        <a href="../../index.html#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
           <img src="./../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
         </a>
 
@@ -260,18 +262,18 @@
           </li>
 
           <li class="navbar-item">
-            <a href="./index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
+            <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
                 class="ri-bar-chart-fill"></i> Benefits</a>
           </li>
 
           <li class="navbar-item">
-            <a href="./index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+            <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
                 class="ri-bar-chart-fill"></i> Genre</a>
           </li>
 
           <li class="navbar-item">
 
-            <a href="/assets/html/index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link"
+            <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link"
               data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
           </li>
 
@@ -291,11 +293,11 @@
 
               <ul class="dropdown-menu-list">
                 <li class="dropdown-menu-item">
-                  <a href="./index.html#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link"
+                  <a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link"
                     data-nav-link><i class="ri-medal-fill"></i> Literary Realms</a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href="./index.html#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link"
+                  <a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link"
                     data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
                 </li>
                 <li class="dropdown-menu-item">
@@ -348,9 +350,9 @@
     </nav>
 
     <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
-      <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
+      <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
 
-      <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
+      <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
     </button>
 
     </div>
@@ -744,6 +746,32 @@
     });
 
   </script>
+<script>
+const navbar=document.querySelector('.navbar'),
+NavButton=document.querySelector('.nav-toggle-btn'),
+open=document.querySelector('.open'),
+close=document.querySelector('.close');
+let count=0
+NavButton.addEventListener('click',()=>{
+      
+if(count===0){
+navbar.classList.remove('nav_activated')
+open.classList.add('close')
+close.classList.add('open')
+open.classList.remove('open')
+close.classList.remove('close')
+count++
+}
+else{
+navbar.classList.add('nav_activated')
+open.classList.add('open')
+close.classList.add('close')
+open.classList.remove('close')
+close.classList.remove('open')
+count=0
+}
+})
+</script>
 </body>
 
 </html>

@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Booklist for Swapping</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="./../favicon_package_v0.16/apple-touch-icon.png"> 
-    <link rel="icon" type="image/png" sizes="32x32" href="./../favicon_package_v0.16/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./../favicon_package_v0.16/favicon-16x16.png">
-    <link rel="manifest" href="./../favicon_package_v0.16/site.webmanifest">
-    <link rel="mask-icon" href="./../favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon_package_v0.16/favicon-16x16.png">
+  <link rel="manifest" href="../favicon_package_v0.16/site.webmanifest">
+  <link rel="mask-icon" href="../favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
+    <link rel="stylesheet" href="./assets/css/MenuClick.css"> 
     <link rel="stylesheet" href="./../css/style.css">
     <link rel="stylesheet" href="./../css/Available.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -54,25 +55,25 @@
     <link rel="stylesheet" href="./../css/preloader.css">
     <script src="./../js/preloader.js" defer></script>
     <style>
-      .dark-mode .switch-label{
-      top: 1.4rem;
-    }
-    .switch-label {
-    right: 2.3rem;
-    top: 1rem;
-    position: relative;
-    width: 45px;
-    height: 30px;
-    background-color: #ccc;
-    border-radius: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.5s ease;
-    }
+        .dark-mode .switch-label{
+          top: 1.4rem;
+        }
+        .switch-label {
+        right: 2.3rem;
+        top: 1rem;
+        position: relative;
+        width: 45px;
+        height: 30px;
+        background-color: #ccc;
+        border-radius: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.5s ease;
+        }
         :root {
             --chinese-violet_30: hsla(304, 14%, 46%, 0.3);
             --chinese-violet: hsl(304, 14%, 46%);
@@ -258,7 +259,7 @@
 
         <div class="container">
     
-          <nav class="navbar" data-navbar>
+          <nav class="navbar nav_activated" data-navbar>
             <a href="../../index.html" class="logo" style="display:flex;">
               <img src="../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
             </a>
@@ -384,9 +385,9 @@
           </nav>
     
           <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
-            <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
+            <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
     
-            <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
+            <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
           </button>
     
         </div>
@@ -683,5 +684,31 @@
             });
             
               </script>
+<script>
+const navbar=document.querySelector('.navbar'),
+NavButton=document.querySelector('.nav-toggle-btn'),
+open=document.querySelector('.open'),
+close=document.querySelector('.close');
+let count=0
+NavButton.addEventListener('click',()=>{
+      
+if(count===0){
+navbar.classList.remove('nav_activated')
+open.classList.add('close')
+close.classList.add('open')
+open.classList.remove('open')
+close.classList.remove('close')
+count++
+}
+else{
+navbar.classList.add('nav_activated')
+open.classList.add('open')
+close.classList.add('close')
+open.classList.remove('close')
+close.classList.remove('open')
+count=0
+}
+})
+</script>
 </body>
 </html>
