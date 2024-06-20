@@ -7,22 +7,8 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js';
-//const credential = EmailAuthProvider.credential(email, password);
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// const firebaseConfig = {
-//   apiKey: 'AIzaSyCu2WXknNce_49J5BLuR1DyHm319hu6dWc',
-//   authDomain: 'login-13127.firebaseapp.com',
-//   projectId: 'login-13127',
-//   storageBucket: 'login-13127.appspot.com',
-//   messagingSenderId: '151656578300',
-//   appId: '1:151656578300:web:c67208ab6ec437c844ab79',
-//   measurementId: 'G-L3PPD58MZ8',
-// };
-
 const firebaseConfig = {
   apiKey: "AIzaSyAIDh842xGC_NZj6pMcB9THjNQ1DyUVnZU",
   authDomain: "swapreads-c7d1d.firebaseapp.com",
@@ -35,27 +21,51 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-//console.log(app);
 const auth = getAuth();
 
-//----- Login code start
-console.log(document.querySelector('#login-form'))
+// Confirm Password Functionality
+document.getElementById('register-form').addEventListener('submit', function(event) {
+  var password = document.getElementById('password').value;
+  var confirmPassword = document.getElementById('confirm-password').value;
+  var errorElement = document.getElementById('confirm-password-error');
+
+  if (password !== confirmPassword) {
+    errorElement.style.display = 'block';
+    event.preventDefault(); // Prevent the form from submitting
+  } else {
+    errorElement.style.display = 'none';
+
+    // Firebase Authentication for Registering a New User
+    var email = document.getElementById('email').value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        alert(user.email + " registered successfully!!!");
+        window.location.href = "./index.html";
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        alert(errorMessage);
+      });
+    event.preventDefault(); // Prevent the form from submitting normally to handle via Firebase
+  }
+});
+
+// Login code start
 document.querySelector('#login-form').addEventListener('submit', function (e) {
-  e.preventDefault()
+  e.preventDefault();
   let email = document.querySelector('#login_email').value;
   let password = document.querySelector('#login_password').value;
-  console.log(password)
 
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      //console.log(user);
-      //window.location.href = '../../index.html';
-      alert(user.email+" Login successfully!!!");
-      window.location.href="./index.html";
-      // document.querySelector('#logout').style.display = 'block';
-      // ...
+      alert(user.email + " Login successfully!!!");
+      window.location.href = "./index.html";
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -63,9 +73,8 @@ document.querySelector('#login-form').addEventListener('submit', function (e) {
       alert(errorMessage);
     });
 });
-//----- End
 
-//----- Logout code start
+// Logout code start
 document.getElementById('logout').addEventListener('click', function () {
   signOut(auth)
     .then(() => {
@@ -79,10 +88,8 @@ document.getElementById('logout').addEventListener('click', function () {
       console.log('An error happened.');
     });
 });
-//----- End
 
-// google auth
-
+// Google Auth
 function signInWithGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase
@@ -90,8 +97,6 @@ function signInWithGoogle() {
     .signInWithPopup(provider)
     .then((result) => {
       // Handle successful sign-in
-      // const user = result.user;
-      // console.log(user);
       window.location.href = '../../index.html';
     })
     .catch((error) => {
@@ -105,31 +110,30 @@ function signInWithGoogle() {
 document.getElementById('google').addEventListener('click', function () {
   signInWithGoogle();
 });
+
 function applyDarkModePreferenceOnLoginPage() {
-const isDarkMode = isDarkModePreferred();
-if (isDarkMode) {
-  document.body.classList.add("dark-mode");
-  document.querySelector('.navbar').classList.add('dark-mode');
-  const closeButton = document.querySelector('.close-icon');
-  closeButton.src = "../images/close-white.png";
-  // For darkmode styles
-  const noteElements = document.querySelectorAll('.note *');
-  noteElements.forEach(element => {
-    element.classList.add('dark-mode');
-  })
+  const isDarkMode = isDarkModePreferred();
+  if (isDarkMode) {
+    document.body.classList.add("dark-mode");
+    document.querySelector('.navbar').classList.add('dark-mode');
+    const closeButton = document.querySelector('.close-icon');
+    closeButton.src = "../images/close-white.png";
+    // For darkmode styles
+    const noteElements = document.querySelectorAll('.note *');
+    noteElements.forEach(element => {
+      element.classList.add('dark-mode');
+    })
 
-  const containerElements = document.querySelectorAll('.container *');
-  containerElements.forEach(element => {
-    element.classList.add('dark-mode');
-  })
-
-
-} else {
-  document.body.classList.remove("dark-mode");
-  document.querySelector('.navbar').classList.remove('dark-mode');
-  const closeButton = document.querySelector('.close-icon');
-  closeButton.src = "../images/close1.png";
-}
+    const containerElements = document.querySelectorAll('.container *');
+    containerElements.forEach(element => {
+      element.classList.add('dark-mode');
+    })
+  } else {
+    document.body.classList.remove("dark-mode");
+    document.querySelector('.navbar').classList.remove('dark-mode');
+    const closeButton = document.querySelector('.close-icon');
+    closeButton.src = "../images/close1.png";
+  }
 }
 
 // Function to check if dark mode preference exists
@@ -142,9 +146,9 @@ document.addEventListener('DOMContentLoaded', function () {
   applyDarkModePreferenceOnLoginPage();
 });
 
-//forgot password event listener 
-const forgotPasswordLink = document.querySelector("#forgot_password_link")
+// Forgot password event listener 
+const forgotPasswordLink = document.querySelector("#forgot_password_link");
 
-forgotPasswordLink.addEventListener("click", (e)=>{
+forgotPasswordLink.addEventListener("click", (e) => {
   const email = document.getElementById('login_email').value;
-})
+});
