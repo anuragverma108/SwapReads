@@ -775,7 +775,6 @@
 
         </div>
 
-
         <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
           <div class="circle1">
             <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
@@ -785,12 +784,8 @@
             </svg>
           </div>
         </div>
-
       </div>
     </div>
-
-
-
 
     <!-- adding privacy policy and copyright popup-->
     <div style="text-align: center; align-items: center;">
@@ -877,6 +872,20 @@
           privacyModal.style.display = "none";
         }
       }
+      document.getElementById('back-to-top-container').onclick = function () {// logic for scroll to top
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      };
+      window.onscroll = function () {
+    const backToTopButton = document.getElementById('back-to-top-container'); // for scroll to top button visibility
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      backToTopButton.style.display = 'block';
+    } else {
+      backToTopButton.style.display = 'none';
+    }
+  };
     </script>
 
 
