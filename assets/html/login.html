@@ -24,7 +24,7 @@
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <script src="../js/script.js" defer></script>
 
 
@@ -196,7 +196,7 @@
   </div>
   <br />
 
-  <div class="container">
+  <div class="container" style="width: 100%;">
     <div class="main">
       <input type="checkbox" id="chk" aria-hidden="true" />
 
@@ -234,10 +234,10 @@
             </div>
             <ul class="list-unstyled">
 
-              <li><span class="low-upper-case">&nbsp;Lowercase &amp; Uppercase</span></li>
-              <li><span class="one-number">&nbsp;Number (0-9)</span></li>
-              <li><span class="one-special-char">&nbsp;Special Character (!@#$%^&*)</span></li>
-              <li><span class="eight-character">&nbsp;At least 8 Character</span></li>
+              <li class="list-item" ><i class="fa-solid fa-check" id="uppercaseCheck" style="display: none;" ></i><span class="low-upper-case fade "> Lowercase &amp; Uppercase</span></li>
+              <li class="list-item" ><i class="fa-solid fa-check" id="numberCheck" style="display: none;" ></i><span class="one-number fade ">Number (0-9)</span></li>
+              <li class="list-item" ><i class="fa-solid fa-check" id="specialCheck" style="display: none;" ></i><span class="one-special-char fade ">Special Character (!@#$%^&*)</span></li>
+              <li class="list-item" ><i class="fa-solid fa-check" id="eightCharacter" style="display: none;" ></i><span class="eight-character fade ">At least 8 Character</span></li>
             </ul>
           </div>
 
@@ -344,6 +344,9 @@
       <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
 
         <style>
+          li{
+            list-style: none !important;
+          }
           .icons .icon i {
             font-size: 24px;
             /* Set the default font size for icons */
@@ -461,44 +464,58 @@
 
   <script>
 
-    document.addEventListener("DOMContentLoaded",()=>{
-      let low_upper_case= document.getElementsByClassName("low-upper-case")[0];
-      let one_number= document.getElementsByClassName("one-number")[0];
-      let one_special_char= document.getElementsByClassName("one-special-char")[0];
-      let eight_character= document.getElementsByClassName("eight-character")[0];
-      let password= document.getElementById("password");
-      password.addEventListener("input", ()=>{
-        if(password.value.length>=8){
-          eight_character.classList.add("fade");
-        }
-        else{
-          eight_character.classList.remove("fade");
-        }
+document.addEventListener("DOMContentLoaded", () => {
+            let low_upper_case = document.getElementsByClassName("low-upper-case")[0];
+            let one_number = document.getElementsByClassName("one-number")[0];
+            let one_special_char = document.getElementsByClassName("one-special-char")[0];
+            let eight_character = document.getElementsByClassName("eight-character")[0];
+            let password = document.getElementById("password");
+            let uppercaseCheck = document.getElementById('uppercaseCheck');
+            let eightCharacter = document.getElementById('eightCharacter');
+            let numberCheck = document.getElementById('numberCheck');
+            let specialCheck = document.getElementById('specialCheck');
 
-        function containsLowerCaseOrUpperCase(password) {
-          const hasLowerCase = /[a-z]/.test(password);
-          const hasUpperCase = /[A-Z]/.test(password);
-          return hasLowerCase || hasUpperCase;
-        }
-        if (containsLowerCaseOrUpperCase(password.value)) {
-            low_upper_case.classList.add("fade")
-          } else {
-            low_upper_case.classList.remove("fade")
-        }
-        if(/[0-9]/.test(password.value)){
-          one_number.classList.add("fade")
-          } else {
-            one_number.classList.remove("fade")
-        }
+            function containsLowerCaseOrUpperCase(password) {
+                const hasLowerCase = /[a-z]/.test(password);
+                const hasUpperCase = /[A-Z]/.test(password);
+                return hasLowerCase || hasUpperCase;
+            }
 
-        if (/[!@#$%^&*]/.test(password.value)) {
-            one_special_char.classList.add("fade");
-        } else {
-            one_special_char.classList.remove("fade");
-        }
-      })
-      
-    });
+            password.addEventListener("input", () => {
+                if (password.value.length >= 8) {
+                    eightCharacter.style.display = 'block';
+                    eight_character.classList.remove("fade");
+                } else {
+                    eightCharacter.style.display = 'none';
+                    eight_character.classList.add("fade");
+                }
+
+                if (containsLowerCaseOrUpperCase(password.value)) {
+                    uppercaseCheck.style.display = 'block';
+                    low_upper_case.parentElement.style.listStyleType = 'none'
+                    low_upper_case.classList.remove("fade");
+                } else {
+                    uppercaseCheck.style.display = 'none';
+                    low_upper_case.classList.add("fade");
+                }
+
+                if (/[0-9]/.test(password.value)) {
+                    numberCheck.style.display = 'block';
+                    one_number.classList.remove("fade");
+                } else {
+                    numberCheck.style.display = 'none';
+                    one_number.classList.add("fade");
+                }
+
+                if (/[!@#$%^&*]/.test(password.value)) {
+                    specialCheck.style.display = 'block';
+                    one_special_char.classList.remove("fade");
+                } else {
+                    specialCheck.style.display = 'none';
+                    one_special_char.classList.add("fade");
+                }
+            });
+        });
     const coords = { x: 0, y: 0 };
     const circles = document.querySelectorAll(".circle");
 
@@ -835,3 +852,4 @@ count=0
 </script>
 </body>
 </html>
+
