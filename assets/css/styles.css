@@ -3,13 +3,24 @@ swiper-container {
   width: 100%;
   height: 75%;
 }
+/* cookies close button */
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #050505;
+  font-size: 24px;
+  cursor: pointer;
+}
 
 /* Theme Change Button Style */
 .switch-container {
   margin-right: 2rem;
   margin-top: 3.5rem;
 }
-@media (max-width: 990px) {
+@media (max-width: 988px) {
   .switch-container {
     margin-top: 3.2rem;
     margin-right: -0.5rem;
@@ -225,8 +236,8 @@ swiper-container {
   swiper-container {
 
      margin: auto;
-  }    
   }
+}
 /* Dark Mode Styles */
 .dark-mode .readmore-anim {
   font-size: 18px;
@@ -235,11 +246,11 @@ swiper-container {
 }
 
 .readmore-anim .icon:hover {
-  color: red;
+  color:hsl(357, 37%, 62%);
 }
 
 .dark-mode .readmore-anim:hover {
-  color: red;
+  color: hsl(357, 37%, 62%);
   letter-spacing: 1px;
   transition: ease-in-out;
 }
@@ -263,7 +274,7 @@ swiper-container {
   align-items: center;
   width: 300px;
   height: fit-content;
-  z-index: 100;
+  z-index: 10000;
   border-radius: 10px;
   margin-bottom: 5px;
   margin: 20px;
@@ -277,40 +288,44 @@ swiper-container {
 }
 
 
+.dark-mode #cookie-consent{
+  background-color: #252423;
+}
+
 .accept-cookies {
-width: 280px;
+width: 260px;
 height: 40px;
 color: white;
+border-radius:6px;
 background-color: #A30F17;
+margin: auto;
 }
 .reject-cookies {
 margin-top: 10px;
 padding-top: 5px;
 height: 40px;
-width: 280px;
+width: 260px;
+border-radius:6px;
 color: white;
 background-color: #A30F17;
+
 }
 
 .accept-cookies:hover, .reject-cookies:hover {
 transform: scale(0.9);
-box-shadow: 0 0 20px rgb(249, 212, 212);
+
 }
 
 .accept-cookies:hover {
 background-color: white;
 color: red;
+border: 1px solid #A30F17;
 }
 
 .reject-cookies:hover{
-  margin-top: 10px;
-  height: 40px;
-  width: 280px;
   background-color: white;
   color: red;
-}
-.dark-mode .switch-label{
-  top: 1rem;
+  border: 1px solid #A30F17;
 }
 
 
@@ -482,68 +497,10 @@ svg {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
   }
 
-  /* pankaj bind */
-  #cookie-consent {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    background-color: #f1f1f1;
-    padding: 20px;
-    z-index: 10000;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 300px;
-    height: fit-content;
-    
-    border-radius: 10px;
-    margin-bottom: 5px;
-    margin: 20px;
-    border-right: 4px solid transparent; 
-    border-bottom: 4px solid transparent; 
-    transition: border-color 0.3s; 
-  }
-  #cookie-consent:hover {
-    border-right-color: #A30F17; 
-    border-bottom-color: #A30F17; 
-  }
-
-  
-  .accept-cookies {
-width: 280px;
-height: 40px;
-color: white;
-border-radius:5px;
-background-color: #A30F17;
-}
-.reject-cookies {
-margin-top: 10px;
-padding-top: 5px;
-height: 40px;
-width: 280px;
-border-radius: 5px;
-color:white;
-background-color: #A30F17;
-}
-
-.accept-cookies:hover, .reject-cookies:hover {
-transform: scale(0.9);
-box-shadow: 0 0 20px rgb(249, 212, 212);
-}
-
-.accept-cookies:hover {
-background-color: white;
-color: red;
-}
-
-.reject-cookies:hover {
-background-color: white;
-color: red;
-}
 
   #back-to-top-container {
     position: fixed;
+    display: none;
   }
 
   
@@ -556,25 +513,25 @@ color: red;
 
   
   /* Basic navbar styling */
-.header {
-position: fixed;
-width: 100%;
-top: 10;
-z-index: 1000;
-transition: top 0.3s;
-}
+  .header {
+  position: fixed;
+  width: 100%;
+  top: 10;
+  z-index: 1000;
+  transition: top 0.3s;
+  }
 
-/* Hide the navbar */
-.header.hidden {
-top: -93px; /* Adjust according to your header height */
-}
+  /* Hide the navbar */
+  .header.hidden {
+  top: -93px; /* Adjust according to your header height */
+  }
 
-/* Navbar styling when scrolled */
-.header.scrolled {
-background-color: #efefef; /* Change to a darker color when scrolled */
-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
-}
-.icons .icon i {
+  /* Navbar styling when scrolled */
+  .header.scrolled {
+  background-color: #efefef; /* Change to a darker color when scrolled */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+  }
+ .icons .icon i {
     font-size: 24px;
     /* Set the default font size for icons */
     transition: all 0.3s ease;
@@ -612,7 +569,6 @@ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
   .icons .icon:hover .fab.fa-github {
             color: #333;
   }
-  
-            .icons .icon:hover .fab.fa-linkedin   {
-              color:#0077B5;
-            }   
+  .icons .icon:hover .fab.fa-linkedin   {
+    color:#0077B5;
+  }   

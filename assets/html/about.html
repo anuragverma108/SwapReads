@@ -17,20 +17,29 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- <link rel="stylesheet" href="../css/login.css" /> -->
   <link rel="stylesheet" href="../css/style.css">
+
   <link rel="stylesheet" href="../css/aboutus.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/MenuClick.css">
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="../js/script.js" defer></script>
   <script src="../js/scroll-reveal.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="../css/styles.css">
   <title>About Us</title>
   
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #f9f9f9;
-      color: #f5f1f1;
+
+      color: #0a0000;
+=======
+      /* color: #f5f1f1; */
+
       margin: 0;
       padding: 0;
     }
@@ -127,7 +136,7 @@
       margin-bottom: 5rem;
       margin-top: 160px;
       /* Adjust this value to position it below the header */
-      color: var(--charcoal);
+      color: red;
 
     }
 
@@ -163,9 +172,6 @@
       font-size: 16px;
       line-height: 1.6;
     }
-    .dark-mode .switch-label{
-      top: 2.5rem;
-    }
     .switch-label {
     right: 2.3rem;
     top: 1.4rem;
@@ -182,6 +188,67 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.5s ease;
     }
+    .switch-label .sun-icon,
+    .switch-label .moon-icon {
+      font-size: 19px;
+      position: absolute;
+      cursor: pointer;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: opacity 0.5s ease, color 0.5s ease;
+    }
+
+    .switch-label .sun-icon {
+      color: #f39c12;
+      left: 2px;
+    }
+
+    .switch-label .moon-icon {
+      color: #bdc3c7;
+      opacity: 0;
+      left: 5px;
+    }
+
+    /* Switch Button */
+    .switch-button {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 25px;
+      height: 25px;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      transition: transform 0.5s ease, background-color 0.5s ease;
+    }
+
+    /* Checkbox Checked State */
+    .switch-checkbox:checked+.switch-label {
+      background-color: #34495e;
+    }
+
+    .switch-checkbox:checked+.switch-label .sun-icon {
+      opacity: 0;
+    }
+
+    .switch-checkbox:checked+.switch-label .moon-icon {
+      opacity: 1;
+    }
+
+    .switch-checkbox:checked+.switch-label .switch-button {
+      transform: translateX(13px);
+      /* background-color: #34495e; */
+    }
+
+    .team-member{
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
   </style>
 </head>
 
@@ -191,7 +258,7 @@
 
     <div class="container">
 
-      <nav class="navbar" data-navbar>
+      <nav class="navbar nav_activated" data-navbar>
         <a href="../../index.html" class="logo" style="display:flex;">
           <img src="../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
         </a>
@@ -270,25 +337,20 @@
               </div>
             </li>
 
-            <li>
-
-              <div class="switch-container">
-                <input type="checkbox" id="switch" class="switch-checkbox">
-                <label for="switch" class="switch-label">
-                  <div class="switch-button">
-                    <span class="material-icons sun-icon"></span>
-                    <span class="material-icons moon-icon"></span>
-                  </div>
-                </label>
-              </div>
-
-            </li>
             <!-- Google Translate Element -->
             <!-- <li class="navbar-item">
               <div id="google_element"></div>
             </li> -->
-        </ul>
       </nav>
+      <div class="switch-container">
+        <input type="checkbox" id="switch" class="switch-checkbox">
+          <label for="switch" class="switch-label">
+            <div class="switch-button">
+              <span class="material-icons sun-icon">wb_sunny</span>
+              <span class="material-icons moon-icon">brightness_2</span>
+            </div>
+          </label>
+      </div>
       <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
       <script>
         function loadGoogleTranslate() {
@@ -299,9 +361,9 @@
       </script>
 
       <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
-        <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
+        <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
 
-        <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
+        <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
       </button>
 
     </div>
@@ -311,26 +373,26 @@
     <div class="container">
       <section class="about">
 
-        <h2>About SwapReads</h2>
-        <p>
+        <h2 style="color: #0a0000;">About SwapReads</h2>
+        <p style="color: #444;">
           SwapReads is an online platform dedicated to connecting book lovers and facilitating the exchange of books. Our mission is to promote a vibrant reading culture by making it easier for readers to discover new titles, share their favorite books, and connect with fellow enthusiasts. Users can list books they want to swap, browse available titles, and engage in discussions and reviews. SwapReads also offers personalized recommendations to help users find their next great read. By encouraging sustainable reading habits and reducing the need for new book purchases, SwapReads supports eco-friendly practices. Join SwapReads to share your passion for books, discover new reads, and become part of a community that celebrates the joy of reading.
         </p>
       </section>
       <section class="stats-box">
         <div class="stats-container">
-          <h2>Our Stats</h2>
+          <h2 style="color: #090e11;">Our Stats</h2>
           <div class="stats">
             <div class="stat">
-              <h3 id="stat1">0</h3>
-              <p>Books Available</p>
+              <h3 id="stat1"style="color: #090e11;">0</h3>
+              <p style="color: #090e11;" >Books Available</p>
             </div>
             <div class="stat">
-              <h3 id="stat2">0</h3>
-              <p>Genres Covered</p>
+              <h3 id="stat2"style="color: #090e11;">0</h3>
+              <p style="color: #090e11;">Genres Covered</p>
             </div>
             <div class="stat">
-              <h3 id="stat3">0</h3>
-              <p>Happy Readers</p>
+              <h3 id="stat3"style="color: #090e11;">0</h3>
+              <p style="color: #090e11;">Happy Readers</p>
             </div>
           </div>
         </div>
@@ -338,24 +400,24 @@
       </section>
       
       <section class="mission-values">
-        <h2>Our Mission and Values</h2>
+        <h2 style="color: #090e11;">Our Mission and Values</h2>
         <div class="about-us-block">
           <div class="about-us-community">
             <div style="display: flex; align-items: center; gap: 1rem;">
               <img id="community-img" src="../images/book.png" alt=""
                 style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-              <div class="about-us-blk-text">Book Swapping</div>
+              <div class="about-us-blk-text"style="color: #011521;">Book Swapping</div>
             </div>
-            <p class="about-us-blk-para">Easily list the books you’re willing to exchange and browse through a vast
+            <p class="about-us-blk-para" style="color: #011521;">Easily list the books you’re willing to exchange and browse through a vast
               collection of available titles, facilitating smooth and hassle-free book swaps with other members.</p>
           </div>
           <div class="about-us-product">
             <div style="display: flex; align-items: center; gap: 1rem;">
               <img id="product-img" src="../images/community.png" alt=""
                 style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-              <div class="about-us-blk-text">Community Engagement</div>
+              <div class="about-us-blk-text"style="color: #011521;">Community Engagement</div>
             </div>
-            <p class="about-us-blk-para">Join a vibrant community of book lovers through discussion forums, reading
+            <p class="about-us-blk-para"style="color: #011521;">Join a vibrant community of book lovers through discussion forums, reading
               groups,
               and event participation, fostering a collaborative and engaging literary environment.</p>
           </div>
@@ -365,9 +427,9 @@
             <div style="display: flex; align-items: center; gap: 1rem;">
               <img id="location-img" src="../images/read.png" alt=""
                 style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-              <div class="about-us-blk-text">Reading Recommendations</div>
+              <div class="about-us-blk-text"style="color: #011521;">Reading Recommendations</div>
             </div>
-            <p class="about-us-blk-para">Receive personalized book suggestions based on your reading history and
+            <p class="about-us-blk-para"style="color: #011521;">Receive personalized book suggestions based on your reading history and
               preferences, ensuring you always have a new and exciting read lined up for your next literary adventure.
             </p>
           </div>
@@ -375,9 +437,9 @@
             <div style="display: flex; align-items: center; gap: 1rem;">
               <img id="event-img" src="../images/bookshelf.png" alt=""
                 style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-              <div class="about-us-blk-text">Virtual Bookshelf</div>
+              <div class="about-us-blk-text"style="color: #011521;">Virtual Bookshelf</div>
             </div>
-            <p class="about-us-blk-para">Organize and manage your virtual bookshelf, keeping track of books you've read,
+            <p class="about-us-blk-para"style="color: #011521;">Organize and manage your virtual bookshelf, keeping track of books you've read,
               want to read, and are currently reading. Easily access your collection and track your reading progress.
             </p>
           </div>
@@ -579,53 +641,36 @@
       </div>
     </div>
     <div class="foot-middle">
-      <h2 class="links">Quick Links</h2>
+      <h2>Quick Links</h2>
       <div id="quicklinks">
         <div>
         <ul>
-          <li class="foot-quick"><a href="../../index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
-          <li class="foot-quick"><a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
-          <li class="foot-quick"><a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
-          <li class="foot-quick"><a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
-          <li class="foot-quick"><a href="book_recommend.html"
+          <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')">Home</a></li>
+          <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
+          <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+          <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
+          <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
             onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
         </ul>
       </div>
       <div>
         <ul>
-          <li class="foot-quick"><a href="addremovebook.html" onclick="lenis.scrollTo('#contact')">Swap
+          <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')">Swap
               BookList</a></li>
-          <li class="foot-quick"><a href="freeBooks.html"
+          <li class="foot-quick"><a href="./assets/html/freeBooks.html"
               onclick="lenis.scrollTo('#contact')">E-Book</a></li>
-          <li class="foot-quick"><a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+          <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
+          </li>
+          <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+          <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
         </ul>
       </div>
       </div>
     </div>
     <div class="social-icons">
-      <!-- <h5>Newsletter</h5> -->
-      <!-- <div class="input-newletter">
-        <label for="newsletter"><h5>Newsletter</h5></label>
-        <input placeholder="Enter your email" type="email" ></input>
-        <button class="btn-subs">Subscribe</button>
-      </div> -->
-
-      <!-- <form type="newsletter">
-        <label for="email">Subscribe to our Newsletter</label>
-        <div class="row-flex">
-
-
-
-
-          <input type="news" value="" name="email" placeholder="email address">
-          <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
-          <input type="news" value="" name="email" placeholder="email address" id="newsletter-email">
-          <button type="submit" class="subscribe-btn">subscribe</button>
-
-        </div>
-      </form> -->
+     
       <style>
-        input[type="email"] {
+        .social-icons input[type="email"] {
             border: 2px solid #ccc; /* Gray border */
             border-radius: 4px; /* Rounded corners */
             padding: 10px; /* Inner padding */
@@ -637,52 +682,14 @@
         <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
         <div class="row-flex">
             <!-- Email input -->
-            <input type="email" id="newsletter-email" name="email" placeholder="email address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$" 
+            <input type="email" id="newsletter-email" name="email" placeholder="E mail address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$" 
             title="Please enter a valid email address that ends with '.com'" required>
             <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
         </div>
     </form>
-      <style>
-        .icons .icon i {
-          font-size: 24px;
-          /* Set the default font size for icons */
-          transition: all 0.3s ease;
-          /* Add transition for smooth animation */
-        }
-
-        .icons .icon:hover i {
-          transform: scale(1.2);
-          /* Scale the icon on hover */
-        }
-
-        .icons .icon:hover .fab.fa-linkedin {
-          color: #0A66C2;
-          /* Change to linkedin color on hover */
-        }
-
-        .icons .icon:hover .fab.fa-twitter{
-          color: #090e11;
-          /* Change to Twitter color on hover */
-        }
-
-        .icons .icon:hover .fab.fa-instagram {
-          background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-          background-clip: text;
-          border-radius: 20%;
-          transform: scale(1.5);
-          color:transparent;
-          /* Change to Instagram color on hover */
-        }
-
-        .icons .icon:hover .fab.fa-youtube {
-          color: #C31A1E;
-          /* Change to YouTube color on hover */
-        }
-        .icons .icon:hover .fab.fa-github {
-                  color: #333;
-              }
-      </style>
-
+    <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+    
+      
       <div class="icons">
         <a href="https://www.linkedin.com/in/anurag-verma-b91417253/">
           <div class="icon">
@@ -701,28 +708,18 @@
             <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
           </div>
         </a>
+        
 
         <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
           <div class="icon">
             <i class="fab fa-youtube" style="cursor: pointer;"></i>
           </div>
         </a>
-        <a href="https://github.com/anuragverma108" title="GitHub">
-          <div class="icon">
-              <i class="fab fa-github" style="cursor: pointer;"></i>
-          </div>
-        </a>
+       
       </div>
-      <!-- <div style="text-align: center; align-items: center;">
-        <p style="text-align: center">
-          &copy;
-          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-          Hackers.
-        </p>
+     
 
-      </div> -->
-
-      <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">
+      <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
         <div class="circle1">
           <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
             class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
@@ -731,185 +728,185 @@
           </svg>
         </div>
       </div>
+      
     </div>
   </div>
-  <div style="text-align: center;">
-    <p style="color: grey;">
-        &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+
+      
+
+
+  <!-- adding privacy policy and copyright popup-->
+  <div style="text-align: center; align-items: center;">
+    <p style="text-align: center">
+      &copy;
+      <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
     </p>
     <div class="row-copy">
-        <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
-        <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+
+  
+    <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
+    <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+  </div>
+  </div>
+  
+  <!-- Copyright Policy Modal -->
+  <div id="copyrightPolicyModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeCopyright">&times;</span>
+      <h1>Copyright Policy</h1>
+      <p>Welcome to SwapReads. Here is our copyright policy:</p>
+      <ul>
+        <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
+        <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
+        <li>Users may download and print content for personal use only.</li>
+        <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
+        <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
+      </ul>
     </div>
-</div>
-
-
-
-              <!-- .icons .icon:hover .fab.fa-facebook {
-                color: #3B5998;
-                /* Change to Facebook color on hover */
-              }
-
-              .icons .icon:hover .fab.fa-twitter {
-                color: #090e11;
-                /* Change to Twitter color on hover */
-              }
-
-              .icons .icon:hover .fab.fa-instagram {
-                background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-                background-clip: text;
-                border-radius: 20%;
-                transform: scale(1.5);
-                color: transparent;
-                /* Change to Instagram color on hover */
-              }
-
-              .icons .icon:hover .fab.fa-youtube {
-                color: #C31A1E;
-                /* Change to YouTube color on hover */
-              }
-
-              .icons .icon:hover .fab.fa-github {
-                color: #333;
-              }
-            </style>
-
-            <div class="icons">
-              <a href="#">
-                <div class="icon">
-                  <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
-                </div>
-              </a>
-
-              <a href="#">
-                <div class="icon">
-                  <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
-                </div>
-              </a>
-
-              <a href="#">
-                <div class="icon">
-                  <i class="fab fa-instagram" title="Instagram" style="cursor: pointer;"></i>
-                </div>
-              </a>
-
-              <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
-                <div class="icon">
-                  <i class="fab fa-youtube" style="cursor: pointer;"></i>
-                </div>
-              </a>
-              <a href="https://github.com/anuragverma108">
-                <div class="icon">
-                  <i class="fab fa-github" style="cursor: pointer;"></i>
-                </div>
-              </a>
-            </div>
-            <div class="footer-bottom">
-              <p class="copyright" style="text-align: center">
-                &copy;
-                <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-                Hackers.
-              </p>
-            </div> -->
-
-
-
+  </div>
+  
+  <!-- Privacy Notice Modal -->
+  <div id="privacyNoticeModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closePrivacy">&times;</span>
+      <h1>Privacy Notice</h1>
+      <p>Welcome to SwapReads. Here is our privacy notice:</p>
+      <ul>
+        <li>We collect personal information when you register, buy, or sell books.</li>
+        <li>We use this information to provide and improve our services.</li>
+        <li>We do not share your personal information with third parties without your consent.</li>
+        <li>We take reasonable measures to protect your data from unauthorized access.</li>
+        <li>You can contact us to update or delete your personal information.</li>
+        <li>By using our site, you consent to our privacy practices.</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    // Get the modal elements
+    var copyrightModal = document.getElementById("copyrightPolicyModal");
+    var privacyModal = document.getElementById("privacyNoticeModal");
+  
+    // Get the link elements
+    var copyrightLink = document.getElementById("copyrightPolicyLink");
+    var privacyLink = document.getElementById("privacyNoticeLink");
+  
+    // Get the <span> elements that close the modals
+    var closeCopyright = document.getElementById("closeCopyright");
+    var closePrivacy = document.getElementById("closePrivacy");
+  
+    // When the user clicks the link, open the modal 
+    copyrightLink.onclick = function() {
+      copyrightModal.style.display = "block";
+    }
+    privacyLink.onclick = function() {
+      privacyModal.style.display = "block";
+    }
+  
+    // When the user clicks on <span> (x), close the modal
+    closeCopyright.onclick = function() {
+      copyrightModal.style.display = "none";
+    }
+    closePrivacy.onclick = function() {
+      privacyModal.style.display = "none";
+    }
+  
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == copyrightModal) {
+        copyrightModal.style.display = "none";
+      }
+      if (event.target == privacyModal) {
+        privacyModal.style.display = "none";
+      }
+    }
+  </script>
 </footer>
+<script>
+  // Function to animate counting from 0 to a target number
+  function countUp(target, elementId) {
+    let count = 0;
+    const increment = target / 100; // Increment by a fraction of the target number
+    const interval = setInterval(() => {
+      count += increment;
+      document.getElementById(elementId).textContent = Math.round(count) + "+"; // Add the "+" sign
+      // Stop the interval when count reaches or exceeds the target number
+      if (count >= target) {
+        clearInterval(interval);
+        document.getElementById(elementId).textContent = target + "+"; // Ensure final value is exact with the "+"
+        // Start counting animation again after a delay
+        setTimeout(() => {
+          countUp(target, elementId);
+        }, 3000); // Delay before restarting the animation (adjust as needed)
+      }
+    }, 20); // Adjust interval speed as needed
+  }
 
-      <script>
-        // Function to animate counting from 0 to a target number
-        function countUp(target, elementId) {
-          let count = 0;
-          const increment = target / 100; // Increment by a fraction of the target number
+  // Start counting animation for each stat
+  countUp(150, 'stat1'); // Example target number for stat 1
+  countUp(100, 'stat2'); // Example target number for stat 2
+  countUp(500, 'stat3'); // Example target number for stat 3
+  // JavaScript for hover effects
+  document.querySelectorAll('.about-us-community').forEach(function (element) {
+    element.addEventListener('mouseover', function () {
+      element.querySelector('img').src = '../images/bookhover.png';
+    });
+    element.addEventListener('mouseleave', function () {
+      element.querySelector('img').src = '../images/book.png';
+    });
+  });
+  document.querySelectorAll('.about-us-event').forEach(function (element) {
+    element.addEventListener('mouseover', function () {
+      element.querySelector('img').src = '../images/bookshelfhover.png';
+    });
+    element.addEventListener('mouseleave', function () {
+      element.querySelector('img').src = '../images/bookshelf.png';
+    });
+  });
+  document.querySelectorAll('.about-us-product').forEach(function (element) {
+    element.addEventListener('mouseover', function () {
+      element.querySelector('img').src = '../images/communityhover.png';
+    });
+    element.addEventListener('mouseleave', function () {
+      element.querySelector('img').src = '../images/community.png';
+    });
+  });
+  document.querySelectorAll('.about-us-location').forEach(function (element) {
+    element.addEventListener('mouseover', function () {
+      element.querySelector('img').src = '../images/readhover.png';
+     });
+    element.addEventListener('mouseleave', function () {
+      element.querySelector('img').src = '../images/read.png';
+    });
+  });
+  //Custom Cursor
 
-          const interval = setInterval(() => {
-            count += increment;
-            document.getElementById(elementId).textContent = Math.round(count) + "+"; // Add the "+" sign
-
-            // Stop the interval when count reaches or exceeds the target number
-            if (count >= target) {
-              clearInterval(interval);
-              document.getElementById(elementId).textContent = target + "+"; // Ensure final value is exact with the "+"
-              // Start counting animation again after a delay
-              setTimeout(() => {
-                countUp(target, elementId);
-              }, 3000); // Delay before restarting the animation (adjust as needed)
-            }
-          }, 20); // Adjust interval speed as needed
-        }
-
-        // Start counting animation for each stat
-        countUp(150, 'stat1'); // Example target number for stat 1
-        countUp(100, 'stat2'); // Example target number for stat 2
-        countUp(500, 'stat3'); // Example target number for stat 3
-
-
-        // JavaScript for hover effects
-        document.querySelectorAll('.about-us-community').forEach(function (element) {
-          element.addEventListener('mouseover', function () {
-            element.querySelector('img').src = '../images/bookhover.png';
-          });
-          element.addEventListener('mouseleave', function () {
-            element.querySelector('img').src = '../images/book.png';
-          });
-        });
-
-        document.querySelectorAll('.about-us-event').forEach(function (element) {
-          element.addEventListener('mouseover', function () {
-            element.querySelector('img').src = '../images/bookshelfhover.png';
-          });
-          element.addEventListener('mouseleave', function () {
-            element.querySelector('img').src = '../images/bookshelf.png';
-          });
-        });
-
-        document.querySelectorAll('.about-us-product').forEach(function (element) {
-          element.addEventListener('mouseover', function () {
-            element.querySelector('img').src = '../images/communityhover.png';
-          });
-          element.addEventListener('mouseleave', function () {
-            element.querySelector('img').src = '../images/community.png';
-          });
-        });
-
-        document.querySelectorAll('.about-us-location').forEach(function (element) {
-          element.addEventListener('mouseover', function () {
-            element.querySelector('img').src = '../images/readhover.png';
-          });
-          element.addEventListener('mouseleave', function () {
-            element.querySelector('img').src = '../images/read.png';
-          });
-        });
-
-        //Custom Cursor
-
-        const coords = { x: 0, y: 0 };
-        const circles = document.querySelectorAll(".circle");
-
-        const colors = [
-          "#ffb56b",
-          "#fdaf69",
-          "#f89d63",
-          "#f59761",
-          "#ef865e",
-          "#ec805d",
-          "#e36e5c",
-          "#df685c",
-          "#d5585c",
-          "#d1525c",
-          "#c5415d",
-          "#c03b5d",
-          "#b22c5e",
-          "#ac265e",
-          "#9c155f",
-          "#950f5f",
-          "#830060",
-          "#7c0060",
-          "#680060",
-          "#60005f",
-          "#48005f",
-          "#3d005e"
-        ];
+   const coords = { x: 0, y: 0 };
+   const circles = document.querySelectorAll(".circle");
+   const colors = [
+     "#ffb56b",
+     "#fdaf69",
+     "#f89d63",
+     "#f59761",
+     "#ef865e",
+     "#ec805d",
+     "#e36e5c",
+     "#df685c",
+     "#d5585c",
+     "#d1525c",
+     "#c5415d",
+     "#c03b5d",
+     "#b22c5e",
+     "#ac265e",
+     "#9c155f",
+     "#950f5f",
+     "#830060",
+     "#7c0060",
+     "#680060",
+     "#60005f",
+     "#48005f",
+     "#3d005e"
+   ];
 
         circles.forEach(function (circle, index) {
           circle.x = 0;
@@ -943,68 +940,67 @@
           });
 
           requestAnimationFrame(animateCircles);
-        }
-
-        animateCircles();
-
-      // Function to toggle dark mode
-    function toggleDarkMode() {
-      const isDarkMode = isDarkModePreferred();
-      setDarkModePreference(!isDarkMode);
-      applyDarkModePreference();
     }
-     // Function to apply dark mode preference
-     function applyDarkModePreference() {
-      const isDarkMode = isDarkModePreferred();
-      if (isDarkMode) {
-        document.body.classList.add('dark-mode');
-        document.getElementById('theme-icon').src = '../images/icons8-sun.svg';
-      } else {
-        document.body.classList.remove('dark-mode');
-        document.getElementById('theme-icon').src = '../images/moon_solid.svg';
-      }
-    }
-      // Function to set dark mode preference
-      document.addEventListener('DOMContentLoaded', () => {
-      const currentTheme = localStorage.getItem('theme');
-      const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
-   
-      if (switchCheckbox) { // Check if switchCheckbox is not null
-        function applyDarkModeStyles() {
-          document.body.classList.remove('light-mode');
-          document.body.classList.add('dark-mode');
-          
+  animateCircles();
+
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+          const isDarkMode = isDarkModePreferred();
+          setDarkModePreference(!isDarkMode);
+          applyDarkModePreference();
         }
-        function applyLightModeStyles() {
-          document.body.classList.remove('dark-mode');
-          document.body.classList.add('light-mode');
-          // starRating.style.backgroundColor = 'white';
-          // thankYouMessage.style.backgroundColor = 'white';
-        }
-        if (currentTheme) {
-          if (currentTheme === 'dark-mode') {
-            applyDarkModeStyles();
-            switchCheckbox.checked = true;
+        // Function to apply dark mode preference
+        function applyDarkModePreference() {
+          const isDarkMode = isDarkModePreferred();
+          if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
           } else {
-            applyLightModeStyles();
+            document.body.classList.remove('dark-mode');
+            document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
           }
         }
-
-        switchCheckbox.addEventListener('change', () => {
-          if (switchCheckbox.checked) {
-            applyDarkModeStyles();
-            localStorage.setItem('theme', 'dark-mode');
-          } else {
-            applyLightModeStyles();
-            localStorage.setItem('theme', 'light-mode');
+        // Function to set dark mode preference
+        document.addEventListener('DOMContentLoaded', () => {
+        const currentTheme = localStorage.getItem('theme');
+        const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
+    
+        if (switchCheckbox) { // Check if switchCheckbox is not null
+          function applyDarkModeStyles() {
+            document.body.classList.remove('light-mode');
+            document.body.classList.add('dark-mode');
+            
           }
-        });
-      } else {
-        console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
-      }
-    });
-      </script>
-      <script>
+
+          function applyLightModeStyles() {
+            document.body.classList.remove('dark-mode');
+            document.body.classList.add('light-mode');
+          }
+
+          if (currentTheme) {
+            if (currentTheme === 'dark-mode') {
+              applyDarkModeStyles();
+              switchCheckbox.checked = true;
+            } else {
+              applyLightModeStyles();
+            }
+          }
+
+          switchCheckbox.addEventListener('change', () => {
+            if (switchCheckbox.checked) {
+              applyDarkModeStyles();
+              localStorage.setItem('theme', 'dark-mode');
+            } else {
+              applyLightModeStyles();
+              localStorage.setItem('theme', 'light-mode');
+            }
+          });
+        } else {
+          console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
+        }
+       });
+</script>
+<script>
         document.addEventListener("DOMContentLoaded", function () {
           const backToTopButton = document.getElementById('back-to-top-container');
 
@@ -1110,8 +1106,33 @@
         }
 
         fetchContributors();
-      </script>
+    </script>
+<script>
+const navbar=document.querySelector('.navbar'),
+NavButton=document.querySelector('.nav-toggle-btn'),
+open=document.querySelector('.open'),
+close=document.querySelector('.close');
+let count=0
+NavButton.addEventListener('click',()=>{
+      
+if(count===0){
+navbar.classList.remove('nav_activated')
+open.classList.add('close')
+close.classList.add('open')
+open.classList.remove('open')
+close.classList.remove('close')
+count++
+}
+else{
+navbar.classList.add('nav_activated')
+open.classList.add('open')
+close.classList.add('close')
+open.classList.remove('close')
+close.classList.remove('open')
+count=0
+}
+})
+</script>
 
-    </body>
-
+   </body>
 </html>
