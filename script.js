@@ -1,3 +1,19 @@
+/*
+gets user details from session storage ans sets it as username
+*/
+function setusername(){
+    const usercreds= JSON.parse(sessionStorage.getItem('user-info'))
+    const userid=document.getElementById("login")
+    const logout=document.getElementById("logout")
+	if(usercreds)
+		{
+            userid.innerHTML=usercreds.username;
+            logout.toggleAttribute('style')
+		}
+}
+
+window.addEventListener('load',setusername);
+
 document.addEventListener("DOMContentLoaded", function() {
     var learnMoreLink = document.getElementById('learn-more-link');
     var showLessLink = document.getElementById('show-less-link');
