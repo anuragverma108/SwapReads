@@ -58,7 +58,61 @@
 
   <!-- Free E-Book Css -->
   <link rel="stylesheet" href="../css/Available.css">
+<style>
+  
+.premodal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index:101;
+}
 
+.modal-content {
+  /* position: relative; */
+  top: 10%;
+  left: 50%;
+  /* right: 10%; */
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 2px solid #960d0d;
+  width: 80%;
+  height: 450px;
+  overflow: auto;
+  
+}
+
+.modal-overlay {
+  /* position: absolute; */
+  display: none;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 80%;
+  background-color: rgba(232, 13, 13, 0.5);
+}
+iframe {
+  overflow: auto;
+}
+/* .v-window-modalitycurtain {
+  animation: valo-animate-in-fade 400ms 0; 
+} */
+.v-window-modalitycurtain {
+  animation: none;
+}
+/* .prebut
+{ */
+  /* position: fixed; */
+  /* bottom: 200px;
+  right: 1000px;
+  width: 300px;
+}  */
+
+</style>
 
 
 
@@ -226,11 +280,11 @@
         </li>
       </nav>
     </div>
-  <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
   <script>
     function loadGoogleTranslate() {
       new google.translate.TranslateElement({
-        pageLanguage: 'en'
+        // pageLanguage: 'en'
       }, 'google_element');
     }
   </script>
@@ -258,7 +312,10 @@
     color:white;
   text-shadow: 3px 3px 20px #d1c4c4;
   }
-</style>
+</style><br><br><br><br><br><br><br>
+<div style="background-color: hsl(357, 37%, 62%);color: white; width:100% ;height:50px;right: 0 ;padding: 1px;">
+  <marquee><h2> <p style="font-size: 10;">!!You can have the preview of the books just by clicking on them!! </p></h2></marquee>
+</div>
 
 
 
@@ -272,49 +329,245 @@
         </div>
         <div class="book-list">
             <div class="book-item">
-                <img src="https://www.gutenberg.org/cache/epub/11/pg11.cover.medium.jpg" alt="Alice's Adventures in Wonderland" class="book-cover">
+                <img id="open-modal" src="https://www.gutenberg.org/cache/epub/11/pg11.cover.medium.jpg" alt="Alice's Adventures in Wonderland" class="book-cover">
                 <h3 class="book_title">Alice's Adventures in Wonderland</h3>
+                <li>
                 <a href="https://www.gutenberg.org/ebooks/11" class="btn btn-secondary">Download</a>
-                <button onclick="addToReadLater(1)" class="read_later_button">Add to Read Later</button>
+               
+                
+              <button onclick="addToReadLater(1)" class="read_later_button">Add to Read Later</button>
             </div>
+             <!-- adding preview button -->
+           <!-- <div class="prebut"><img id="open-modal" width="34" height="74" src="https://img.icons8.com/pastel-glyph/64/813b3f/file-preview--v2.png" alt="file-preview--v2"/></div> -->
+             <div id="previewmodal" class="premodal">
+                 <div class="modal-content">
+                  
+                   <iframe src="https://www.gutenberg.org/cache/epub/11/pg11-images.html" frameborder="0" width="100%" height="500" scrolling="yes" seamless></iframe>
+                 </div>
+                 <div class="modal-overlay"></div>
+               </div></li>
+               <!-- script to open modal when preview button clicked -->
+               <script>
+                 document.getElementById("open-modal").addEventListener("click", function() {
+               document.getElementById("previewmodal").style.display = "block";
+             });
+             
+
+             document.addEventListener("click", function(event) {
+ if (event.target === document.getElementById("previewmodal")) {
+   document.getElementById("previewmodal").style.display = "none";
+ }
+ document.getElementById("previewmodal").addEventListener("click", function(event) {
+if (event.target === this || event.target.tagName === "IFRAME") {
+ return;}
+
+this.style.display = "none";
+});
+});
+</script>
+             
+
+
+
             <div class="book-item">
-                <img src="https://th.bing.com/th/id/OIP.wcZjPkH4FZD5QYi_2kfxxAAAAA?rs=1&pid=ImgDetMain" alt="Pride and Prejudice" class="book-cover">
-                <h3 class="book_title">Pride and Prejudice</h3>
+                <img id="open-modal2" src="https://th.bing.com/th/id/OIP.wcZjPkH4FZD5QYi_2kfxxAAAAA?rs=1&pid=ImgDetMain" alt="Pride and Prejudice" class="book-cover">
+                <h3 class="book_title">Pride and Prejudices</h3>
                 <a href="https://www.gutenberg.org/ebooks/1342" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(2)" class="read_later_button">Add to Read Later</button>
             </div>
+            <div id="previewmodal2" class="premodal">
+              <div class="modal-content">
+               
+                <iframe src="https://www.gutenberg.org/cache/epub/1342/pg1342-images.html#Chapter_I" frameborder="0" width="100%" height="500" scrolling="yes" seamless></iframe>
+              </div>
+              <div class="modal-overlay"></div>
+            </div>
+            <!-- script to open modal when preview button clicked -->
+            <script>
+              document.getElementById("open-modal2").addEventListener("click", function() {
+            document.getElementById("previewmodal2").style.display = "block";
+          });
+          
+
+          document.addEventListener("click", function(event) {
+if (event.target === document.getElementById("previewmodal2")) {
+document.getElementById("previewmodal2").style.display = "none";
+}
+document.getElementById("previewmodal2").addEventListener("click", function(event) {
+if (event.target === this || event.target.tagName === "IFRAME") {
+return;}
+
+this.style.display = "none";
+});
+});
+</script>
             <div class="book-item">
-                <img src="https://th.bing.com/th/id/OIP.0pGf5-srfkBJaBeljJn3KgHaLX?rs=1&pid=ImgDetMain" alt="Jane Eyre" class="book-cover">
+                <img id="open-modal3" src="https://th.bing.com/th/id/OIP.0pGf5-srfkBJaBeljJn3KgHaLX?rs=1&pid=ImgDetMain" alt="Jane Eyre" class="book-cover">
                 <h3 class="book_title">Jane Eyre</h3>
                 <a href="https://www.gutenberg.org/ebooks/1260" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(3)" class="read_later_button">Add to Read Later</button>
             </div>
+            <!-- code to add preview to the book image -->
+            <div id="previewmodal3" class="premodal">
+              <div class="modal-content">
+               
+                <iframe src="https://www.gutenberg.org/cache/epub/1260/pg1260-images.html" frameborder="0" width="100%" height="500" scrolling="yes" seamless></iframe>
+              </div>
+              <div class="modal-overlay"></div>
+            </div>
+            <!-- script to open modal when preview button clicked -->
+            <script>
+              document.getElementById("open-modal3").addEventListener("click", function() {
+            document.getElementById("previewmodal2").style.display = "block";
+          });
+          
+
+          document.addEventListener("click", function(event) {
+if (event.target === document.getElementById("previewmodal2")) {
+document.getElementById("previewmodal3").style.display = "none";
+}
+document.getElementById("previewmodal3").addEventListener("click", function(event) {
+if (event.target === this || event.target.tagName === "IFRAME") {
+return;}
+
+this.style.display = "none";
+});
+});
+</script>
             <div class="book-item">
-                <img src="https://th.bing.com/th/id/OIP.Dq67ImUtHy4wvtf4fQWrhgHaL9?rs=1&pid=ImgDetMain" alt="Metamorphosis" class="book-cover">
+                <img id="open-modal4"src="https://th.bing.com/th/id/OIP.Dq67ImUtHy4wvtf4fQWrhgHaL9?rs=1&pid=ImgDetMain" alt="Metamorphosis" class="book-cover">
                 <h3 class="book_title"> The Metamorphosis</h3>
                 <a href="https://www.gutenberg.org/ebooks/5200" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(4)" class="read_later_button">Add to Read Later</button>
             </div>
+             <!-- code to add preview to the book image -->
+             <div id="previewmodal4" class="premodal">
+              <div class="modal-content">
+               
+                <iframe src="https://www.gutenberg.org/cache/epub/5200/pg5200-images.html" frameborder="0" width="100%" height="500" scrolling="yes" seamless></iframe>
+              </div>
+              <div class="modal-overlay"></div>
+            </div>
+            <!-- script to open modal when preview button clicked -->
+            <script>
+              document.getElementById("open-modal4").addEventListener("click", function() {
+            document.getElementById("previewmodal4").style.display = "block";
+          });
+          
+
+          document.addEventListener("click", function(event) {
+if (event.target === document.getElementById("previewmodal2")) {
+document.getElementById("previewmodal2").style.display = "none";
+}
+document.getElementById("previewmodal2").addEventListener("click", function(event) {
+if (event.target === this || event.target.tagName === "IFRAME") {
+return;}
+
+this.style.display = "none";
+});
+});
+</script>
             <div class="book-item">
-                <img src="https://www.gutenberg.org/cache/epub/1661/pg1661.cover.medium.jpg" alt="The Adventures of Sherlock Holmes" class="book-cover">
+                <img id="open-modal5"src="https://www.gutenberg.org/cache/epub/1661/pg1661.cover.medium.jpg" alt="The Adventures of Sherlock Holmes" class="book-cover">
                 <h3 class="book_title">The Adventures of Sherlock Holmes</h3>
                 <a href="https://www.gutenberg.org/ebooks/1661" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(5)" class="read_later_button">Add to Read Later</button>
             </div>
+             <!-- code to add preview to the book image -->
+             <div id="previewmodal5" class="premodal">
+              <div class="modal-content">
+               
+                <iframe src="https://www.gutenberg.org/cache/epub/1661/pg1661-images.html" frameborder="0" width="100%" height="500" scrolling="yes" seamless></iframe>
+              </div>
+              <div class="modal-overlay"></div>
+            </div>
+            <!-- script to open modal when preview button clicked -->
+            <script>
+              document.getElementById("open-modal5").addEventListener("click", function() {
+            document.getElementById("previewmodal5").style.display = "block";
+          });
+          
+
+          document.addEventListener("click", function(event) {
+if (event.target === document.getElementById("previewmodal2")) {
+document.getElementById("previewmodal2").style.display = "none";
+}
+document.getElementById("previewmodal2").addEventListener("click", function(event) {
+if (event.target === this || event.target.tagName === "IFRAME") {
+return;}
+
+this.style.display = "none";
+});
+});
+</script>
             <div class="book-item">
-                <img src="https://th.bing.com/th/id/OIP.i4wGILb5pOCB68s5SDIMcwHaLH?rs=1&pid=ImgDetMain" alt="Oliver Twist" class="book-cover">
+                <img id="open-modal6" src="https://th.bing.com/th/id/OIP.i4wGILb5pOCB68s5SDIMcwHaLH?rs=1&pid=ImgDetMain" alt="Oliver Twist" class="book-cover">
                 <h3 class="book_title">Oliver Twist</h3>
                 <a href="https://www.gutenberg.org/ebooks/730" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(6)" class="read_later_button">Add to Read Later</button>
             </div>
+             <!-- code to add preview to the book image -->
+             <div id="previewmodal2" class="premodal">
+              <div class="modal-content">
+               
+                <iframe src="https://www.gutenberg.org/cache/epub/1260/pg1260-images.html" frameborder="0" width="100%" height="500" scrolling="yes" seamless></iframe>
+              </div>
+              <div class="modal-overlay"></div>
+            </div>
+            <!-- script to open modal when preview button clicked -->
+            <script>
+              document.getElementById("open-modal6").addEventListener("click", function() {
+            document.getElementById("previewmodal2").style.display = "block";
+          });
+          
+
+          document.addEventListener("click", function(event) {
+if (event.target === document.getElementById("previewmodal2")) {
+document.getElementById("previewmodal2").style.display = "none";
+}
+document.getElementById("previewmodal2").addEventListener("click", function(event) {
+if (event.target === this || event.target.tagName === "IFRAME") {
+return;}
+
+this.style.display = "none";
+});
+});
+</script>
             <div class="book-item">
-                <img src="https://th.bing.com/th/id/OIP.S0qQ8zdSHnFSzr-14H0KnAAAAA?rs=1&pid=ImgDetMain" alt="The Hunger Games" class="book-cover">
+                <img id="open-modal7"src="https://th.bing.com/th/id/OIP.S0qQ8zdSHnFSzr-14H0KnAAAAA?rs=1&pid=ImgDetMain" alt="The Hunger Games" class="book-cover">
                 <h3 class="book_title">The Hunger Games</h3>
                 <a href="https://archive.org/details/the-hunger-games-pdf-download" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(7)" class="read_later_button">Add to Read Later</button>
             </div>
+             <!-- code to add preview to the book image -->
+             <div id="previewmodal2" class="premodal">
+              <div class="modal-content">
+               
+                <iframe src="https://www.gutenberg.org/cache/epub/1260/pg1260-images.html" frameborder="0" width="100%" height="500" scrolling="yes" seamless></iframe>
+              </div>
+              <div class="modal-overlay"></div>
+            </div>
+            <!-- script to open modal when preview button clicked -->
+            <script>
+              document.getElementById("open-modal7").addEventListener("click", function() {
+            document.getElementById("previewmodal2").style.display = "block";
+          });
+          
+
+          document.addEventListener("click", function(event) {
+if (event.target === document.getElementById("previewmodal2")) {
+document.getElementById("previewmodal2").style.display = "none";
+}
+document.getElementById("previewmodal2").addEventListener("click", function(event) {
+if (event.target === this || event.target.tagName === "IFRAME") {
+return;}
+
+this.style.display = "none";
+});
+});
+</script>
             <div class="book-item">
-                <img src="https://th.bing.com/th/id/OIP.yh6cLnWQBJegPIzFO8Y-1QAAAA?rs=1&pid=ImgDetMain" alt="The island of Doctor Moreau" class="book-cover">
+                <img  id="open-modal8" src="https://th.bing.com/th/id/OIP.yh6cLnWQBJegPIzFO8Y-1QAAAA?rs=1&pid=ImgDetMain" alt="The island of Doctor Moreau" class="book-cover">
                 <h3 class="book_title">The island of Doctor Moreau</h3>
                 <a href="https://www.gutenberg.org/ebooks/159" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(8)" class="read_later_button">Add to Read Later</button>
@@ -416,11 +669,38 @@
                 <button onclick="addToReadLater(24)" class="read_later_button">Add to Read Later</button>
             </div>
             <div class="book-item">
-              <img src="https://th.bing.com/th/id/OIP.mrC9XwFXYEhTKormpnilQwAAAA?rs=1&pid=ImgDetMain" alt="Fire and Blood" class="book-cover">
+              <img id="open-modal24" src="https://th.bing.com/th/id/OIP.mrC9XwFXYEhTKormpnilQwAAAA?rs=1&pid=ImgDetMain" alt="Fire and Blood" class="book-cover">
               <h3 class="book_title">Fire and Blood</h3>
               <a href="https://archive.org/details/fire-blood-by-george-r-r-martin" class="btn btn-secondary">Download</a>
               <button onclick="addToReadLater(24)" class="read_later_button">Add to Read Later</button>
           </div>
+           <!-- code to add preview to the book image -->
+           <div id="previewmodal2" class="premodal">
+            <div class="modal-content">
+             
+              <iframe src="https://www.gutenberg.org/cache/epub/1260/pg1260-images.html" frameborder="0" width="100%" height="500" scrolling="yes" seamless></iframe>
+            </div>
+            <div class="modal-overlay"></div>
+          </div>
+          <!-- script to open modal when preview button clicked -->
+          <script>
+            document.getElementById("open-modal24").addEventListener("click", function() {
+          document.getElementById("previewmodal2").style.display = "block";
+        });
+        
+
+        document.addEventListener("click", function(event) {
+if (event.target === document.getElementById("previewmodal2")) {
+document.getElementById("previewmodal2").style.display = "none";
+}
+document.getElementById("previewmodal2").addEventListener("click", function(event) {
+if (event.target === this || event.target.tagName === "IFRAME") {
+return;}
+
+this.style.display = "none";
+});
+});
+</script>
         </div>
     </div>
 </section>
@@ -449,8 +729,7 @@
 
         <script type="text/javascript"
                 src=
-    "https://translate.google.com/translate_a/element.js?
-    cb=googleTranslateElementInit">
+    "https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate">
         </script>
         <div><a href="#" class="logo">SwapReads</a></div>
         <div>
