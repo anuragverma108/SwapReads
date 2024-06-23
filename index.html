@@ -279,26 +279,23 @@
   border-bottom-color: #A30F17;
 }
 
-
-    .accept-cookies {
-
-      width: 280px;
-      height: 40px;
-      color: white;
-      background-color: #A30F17;
-    }
-    .reject-cookies {
-      margin-top: 10px;
-      padding-top: 5px;
-      height: 40px;
-      width: 280px;
-      color: white;
-      background-color: #A30F17;
-      width: 280px;
-      height: 40px;
-      color: white;
-      background-color: #A30F17;
+#cookie-consent p {
+  color: black;  /* Make the text black for better visibility */
+  text-align: center;  /* Center align the text */
 }
+
+.accept-cookies,
+.reject-cookies {
+  width: 260px;  /* Decrease the button width */
+  height: 35px;  /* Decrease the button height */
+  color: white;
+  background-color: #A30F17;
+  border: none;
+  border-radius: 5px;  /* Add rounded corners */
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;  /* Smooth transition for effects */
+}
+
 .reject-cookies {
   margin-top: 10px;
 }
@@ -345,25 +342,17 @@
 
 
     /* Basic navbar styling */
-/* .header {
+.header {
   position: fixed;
   width: 100%;
   top: 10;
   z-index: 1000;
   transition: top 0.3s;
-} */
-.header {
-  position: sticky;
-  width: 100%;
-  top: 0; /* Ensure the navbar sticks to the top */
-  z-index: 1000;
-  transition: top 0.3s;
-  background-color: #ffffff; /* Ensure background color */
 }
+
 /* Hide the navbar */
 .header.hidden {
-  /* top: -93px; */
-  display:block;
+  top: -93px; /* Adjust according to your header height */
 }
 
 /* Navbar styling when scrolled */
@@ -407,7 +396,7 @@ body {
 
 .action .menu {
   position: absolute;
-  top: 80px; /*120px */
+  top: 120px;
   right: -10px;
   padding: 10px 20px;
   background: #fff;
@@ -420,7 +409,7 @@ body {
 }
 
 .action .menu.active {
-  /* top: 80px; */
+  top: 80px;
   visibility: visible;
   opacity: 1;
 }
@@ -482,18 +471,7 @@ body {
 .action .menu ul li:hover a {
   color: #ff5d94;
 }
-.dark-mode-toggle {
-      position: fixed;
-      top: 20px;
-      right: 90px; /* Adjust this value to move the button left */
-      z-index: 1100;
-      background-color: #ffffff;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      box-shadow: 0 2px 5px rgba(85, 67, 67, 0.2);
-    }
+
   </style>
 </head>
 
@@ -627,12 +605,10 @@ body {
             <a href="#rate-us-modal" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
 
           <li class="navbar-item" id="login-signup-link">
-            <a href="./assets/html/login.html" id="login" class="navbar-link">Login/Signup</a>
+            <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
           </li>
 
-          <li class="navbar-item" id="login-signup-link">
-            <a href="#" id="logout" class="navbar-link" style="display: none;">LogOut</a>
-          </li>
+
 
           <li class="navbar-item dropdown" id="more-dropdown">
             <a href="#" class="navbar-link" id="more-link">More
@@ -763,24 +739,16 @@ body {
 
         <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
       </button> -->
-      <!-- <div class="switch-container">
+      <div class="switch-container">
         <input type="checkbox" id="switch" class="switch-checkbox">
         <label for="switch" class="switch-label">
           <div class="switch-button">
-            <span class="material-icons sun-icon">wb_sunny</span>
-            <span class="material-icons moon-icon">brightness_2</span>
+            <span class="material-icons sun-icon"></span>
+            <span class="material-icons moon-icon"></span>
           </div>
         </label>
       </div>
-    </div> -->
-    <div class="switch-container dark-mode-toggle">
-      <input type="checkbox" id="switch" class="switch-checkbox">
-      <label for="switch" class="switch-label">
-        <div class="switch-button">
-          <span class="material-icons sun-icon"></span>
-          <span class="material-icons moon-icon"></span>
-        </div>
-      </label>
+    </div>
 
 
 
@@ -1076,7 +1044,7 @@ body {
             </li>
             <li>
 
-              <a class="cardo" href="thrilling-adventures.html">
+              <a class="cardo" href="#">
                 <h3 class="lithead">02. &nbsp;Thrilling Adventures</h3>
                 <p class="small"> Dive into heart-pounding tales and gripping narratives that will keep you on the edge
                   of your seat.</p>
@@ -1090,7 +1058,7 @@ body {
 
             <li>
 
-              <a class="cardo" href="mindful-living.html">
+              <a class="cardo" href="#">
                 <h3 class="lithead">03. &nbsp;Mindful Living</h3>
                 <p class="small"> Discover the secrets to a fulfilling life with our collection of insightful and
                   empowering self-help
@@ -1291,7 +1259,7 @@ body {
 
                 <h3 class="h3 card-title">Classic Literature</h3>
 
-                <p class="card-text" >
+                <p class="card-text" style="color: black;">
                   The category of classic literature contains literature that is worthy of being read through the ages.
                   Classic literature is timeless and well-written. Sophocles,Charles Dickens, Jane Austen and Virgil are
                   all writers whose works are considered classical literature.
@@ -1306,7 +1274,7 @@ body {
                 <p class="card-subtitle">02</p>
 
                 <h3 class="h3 card-title">Romance</h3>
-                <p class="card-text" >
+                <p class="card-text"style="color: black;">
                   A romance is understood to be 'love stories,' which are primarily focused on the relationship between
                   the main characters of the story. The biggest defining characteristic of the romance genre is that a
                   happy ending is always guaranteed, perhaps living 'happily ever after.
@@ -1322,7 +1290,7 @@ body {
 
                 <h3 class="h3 card-title">Suspense Thriller</h3>
 
-                <p class="card-text" >
+                <p class="card-text"style="color: black;">
                   Readers are taken on a rollercoaster ride of tension and intrigue. These gripping tales are filled
                   with twists and turns, keeping readers guessing until the very last page as protagonists navigate
                   dangerous situations.
@@ -1338,7 +1306,7 @@ body {
 
                 <h3 class="h3 card-title">Science Fiction</h3>
 
-                <p class="card-text" >
+                <p class="card-text"style="color: black;">
                   Embarking on voyages across the cosmos and exploring the possibilities of future technology, science
                   fiction books ignite the imagination with visions of advanced civilizations, space exploration, and
                   speculative science.
@@ -1354,7 +1322,7 @@ body {
 
                 <h3 class="h3 card-title">Fantasy</h3>
 
-                <p class="card-text" >
+                <p class="card-text"style="color: black;">
                   Immersed in magical realms and mythical creatures, fantasy books transport readers to worlds where
                   anything is possible, weaving tales of epic quests, ancient prophecies, and battles between good and
                   evil.
@@ -1370,7 +1338,7 @@ body {
 
                 <h3 class="h3 card-title">Horror</h3>
 
-                <p class="card-text" >
+                <p class="card-text"style="color: black;">
                   Sending shivers down readers' spines, horror books delve into the macabre and the supernatural,
                   exploring fear, dread, and the unknown through chilling tales of monsters, ghosts, and psychological
                   terror.
@@ -1386,7 +1354,7 @@ body {
 
                 <h3 class="h3 card-title">Biography</h3>
 
-                <p class="card-text" >
+                <p class="card-text"style="color: black;">
                   Providing insight into real lives and experiences, biography books recount the journeys, triumphs, and
                   struggles of notable individuals, offering inspiration and understanding through their personal
                   stories and achievements.
@@ -1402,7 +1370,7 @@ body {
 
                 <h3 class="h3 card-title">Self Help</h3>
 
-                <p class="card-text" >
+                <p class="card-text"style="color: black;">
                   Empowering readers to improve their lives and well-being, self-help books offer practical advice,
                   strategies, and insights for personal growth, happiness, and success, covering topics such as
                   relationships, productivity, and mental health.
@@ -1416,7 +1384,7 @@ body {
 
               <h3 class="h3 card-title">Historical Fiction</h3>
 
-              <p class="card-text" >
+              <p class="card-text"style="color: black;">
                 Offering a glimpse into the past, historical fiction books blend real events with fictional
                 narratives, transporting readers to different eras and cultures, bringing history to life through
                 vivid characters and immersive storytelling.
@@ -1432,7 +1400,7 @@ body {
 
                 <h3 class="h3 card-title">Poetry</h3>
 
-                <p class="card-text" >
+                <p class="card-text"style="color: black;">
                   Distilling emotions into rhythmic language, they inspire reflection, evoke vivid imagery, and offer
                   solace.
                   From ancient epics to modern verses, they celebrate the power of words and the timeless beauty of
@@ -1449,7 +1417,7 @@ body {
 
                 <h3 class="h3 card-title">Philosophy</h3>
 
-                <p class="card-text" >
+                <p class="card-text"style="color: black;">
                   Delve into life's fundamental questions, exploring existence, ethics,
                   and knowledge, they provoke deep thought, challenge assumptions, and offer
                   diverse perspectives, fostering critical thinking and a deeper understanding of the human condition.
@@ -1465,7 +1433,7 @@ body {
 
                 <h3 class="h3 card-title">Adventure Fiction</h3>
 
-                <p class="card-text" >
+                <p class="card-text"style="color: black;">
                   Captivates with thrilling journeys, daring heroes, and unexpected twists,
                   transports readers to exotic locales, ignites the imagination, and offers escapism,
                   excitement, and a sense of discovery and wonder.
@@ -1488,7 +1456,6 @@ body {
       <!--Book Exchange Hub-->
       <section class="section preview" aria-label="preview">
   <div class="container1">
-    <!-- <br><br><br><br><br> -->
     <h2 class="h2 section-title has-underline">
       Book Exchange Hub
       <span class="span has-before"></span>
@@ -1557,7 +1524,6 @@ body {
                   placeholder="Enter your desired selling price" required class="input-field">
 =======
     <script>
-
       function validateBookTitle() {
         const bookTitleInput = document.getElementById('bookTitle');
         const bookTitleValue = bookTitleInput.value.trim();
@@ -2335,45 +2301,68 @@ function validateEmail(email_input) {
 
 
     // document.querySelector('subscribe-btn').addEventListener('submit', sendMail());
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+      const isDarkMode = isDarkModePreferred();
+      setDarkModePreference(!isDarkMode);
+      applyDarkModePreference();
+    }
+
+    // Function to apply dark mode preference
+    function applyDarkModePreference() {
+      const isDarkMode = isDarkModePreferred();
+      if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
+      } else {
+        document.body.classList.remove('dark-mode');
+        document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
+      }
+    }
+
     // Function to set dark mode preference
     document.addEventListener('DOMContentLoaded', () => {
-        const currentTheme = localStorage.getItem('theme');
-        const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
-    
-        if (switchCheckbox) { // Check if switchCheckbox is not null
-          function applyDarkModeStyles() {
-            document.body.classList.remove('light-mode');
-            document.body.classList.add('dark-mode');
-            
-          }
-
-          function applyLightModeStyles() {
-            document.body.classList.remove('dark-mode');
-            document.body.classList.add('light-mode');
-          }
-
-          if (currentTheme) {
-            if (currentTheme === 'dark-mode') {
-              applyDarkModeStyles();
-              switchCheckbox.checked = true;
-            } else {
-              applyLightModeStyles();
-            }
-          }
-
-          switchCheckbox.addEventListener('change', () => {
-            if (switchCheckbox.checked) {
-              applyDarkModeStyles();
-              localStorage.setItem('theme', 'dark-mode');
-            } else {
-              applyLightModeStyles();
-              localStorage.setItem('theme', 'light-mode');
-            }
-          });
-        } else {
-          console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
+      const currentTheme = localStorage.getItem('theme');
+      const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
+      const starRating = document.querySelector('.star_rating');
+      const thankYouMessage = document.querySelector(".thank_you_message");
+      if (switchCheckbox) { // Check if switchCheckbox is not null
+        function applyDarkModeStyles() {
+          document.body.classList.remove('light-mode');
+          document.body.classList.add('dark-mode');
+          starRating.style.backgroundColor = '#2d2828';
+          thankYouMessage.style.backgroundColor = '#2d2828';
         }
-       });
+
+        function applyLightModeStyles() {
+          document.body.classList.remove('dark-mode');
+          document.body.classList.add('light-mode');
+          starRating.style.backgroundColor = 'white';
+          thankYouMessage.style.backgroundColor = 'white';
+        }
+
+        if (currentTheme) {
+          if (currentTheme === 'dark-mode') {
+            applyDarkModeStyles();
+            switchCheckbox.checked = true;
+          } else {
+            applyLightModeStyles();
+          }
+        }
+
+        switchCheckbox.addEventListener('change', () => {
+          if (switchCheckbox.checked) {
+            applyDarkModeStyles();
+            localStorage.setItem('theme', 'dark-mode');
+          } else {
+            applyLightModeStyles();
+            localStorage.setItem('theme', 'light-mode');
+          }
+        });
+      } else {
+        console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
+      }
+    });
   </script>
 
 
@@ -2528,15 +2517,9 @@ function validateEmail(email_input) {
     });
 
     // Logout function
-    document.getElementById("logout").addEventListener("click", (e) => {
+    document.getElementById("logout-r").addEventListener("click", (e) => {
       e.preventDefault();
       signOut(auth).then(() => {
-        const userid=document.getElementById("login")
-      const logout=document.getElementById("logout")       // removes session storage items and adjusts the homepage 
-      console.log('hh');
-      sessionStorage.removeItem('user-info')
-      userid.innerHTML='Login/Signup'
-      logout.toggleAttribute('style')
         alert("Logged out successfully.");
         window.location.href = "../../index.html";
       }).catch((error) => {
@@ -2550,26 +2533,7 @@ function validateEmail(email_input) {
   <script src="https://mediafiles.botpress.cloud/d1b37584-4b4e-4f3a-8937-8a06cd0d822e/webchat/config.js" defer></script>
   <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
   <script src="https://mediafiles.botpress.cloud/7f002596-82e6-4d47-a8e4-df34d38fa2d3/webchat/config.js" defer></script>
-  <script>
-    window.botpressWebChat.init({
-    "composerPlaceholder": "Chat with SwapReads",
-    "botConversationDescription": "Welcome to SwapReads",
-    "botId": "d1b37584-4b4e-4f3a-8937-8a06cd0d822e",
-    "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
-    "messagingUrl": "https://messaging.botpress.cloud",
-    "clientId": "d1b37584-4b4e-4f3a-8937-8a06cd0d822e",
-    "webhookId": "2391288e-ad53-4afe-94b4-e0460950c3de",
-    "lazySocket": true,
-    "themeName": "prism",
-    "botName": "SwapReads",
-    "stylesheet": "https://webchat-styler-css.botpress.app/prod/code/77b1269d-3530-4801-8778-ecf51d43dac4/v12706/style.css",
-    "frontendVersion": "v1",
-    "theme": "prism",
-    "themeColor": "#2563eb",
-    "allowedOrigins": [],
-    "enableConversationDeletion": true
-});
-  </script>
+
   <!-- Swiper JS -->
   <script src="./assets/js/swiper-bundle.min.js"></script>
   <!-- Custom JavaScript -->
