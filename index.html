@@ -338,17 +338,25 @@
 
 
     /* Basic navbar styling */
-.header {
+/* .header {
   position: fixed;
   width: 100%;
   top: 10;
   z-index: 1000;
   transition: top 0.3s;
+} */
+.header {
+  position: sticky;
+  width: 100%;
+  top: 0; /* Ensure the navbar sticks to the top */
+  z-index: 1000;
+  transition: top 0.3s;
+  background-color: #ffffff; /* Ensure background color */
 }
-
 /* Hide the navbar */
 .header.hidden {
-  top: -93px; /* Adjust according to your header height */
+  /* top: -93px; */
+  display:block;
 }
 
 /* Navbar styling when scrolled */
@@ -392,7 +400,7 @@ body {
 
 .action .menu {
   position: absolute;
-  top: 120px;
+  top: 80px; /*120px */
   right: -10px;
   padding: 10px 20px;
   background: #fff;
@@ -405,7 +413,7 @@ body {
 }
 
 .action .menu.active {
-  top: 80px;
+  /* top: 80px; */
   visibility: visible;
   opacity: 1;
 }
@@ -467,7 +475,18 @@ body {
 .action .menu ul li:hover a {
   color: #ff5d94;
 }
-
+.dark-mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 90px; /* Adjust this value to move the button left */
+      z-index: 1100;
+      background-color: #ffffff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(85, 67, 67, 0.2);
+    }
   </style>
 </head>
 
@@ -737,7 +756,7 @@ body {
 
         <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
       </button> -->
-      <div class="switch-container">
+      <!-- <div class="switch-container">
         <input type="checkbox" id="switch" class="switch-checkbox">
         <label for="switch" class="switch-label">
           <div class="switch-button">
@@ -746,7 +765,15 @@ body {
           </div>
         </label>
       </div>
-    </div>
+    </div> -->
+    <div class="switch-container dark-mode-toggle">
+      <input type="checkbox" id="switch" class="switch-checkbox">
+      <label for="switch" class="switch-label">
+        <div class="switch-button">
+          <span class="material-icons sun-icon"></span>
+          <span class="material-icons moon-icon"></span>
+        </div>
+      </label>
 
 
 
