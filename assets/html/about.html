@@ -33,6 +33,8 @@
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #f9f9f9;
+
+      color: #0a0000;
       /* color: #f5f1f1; */
       margin: 0;
       padding: 0;
@@ -233,10 +235,21 @@
       transform: translateX(13px);
       /* background-color: #34495e; */
     }
+
+    .team-member{
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
   </style>
 </head>
 
 <body>
+
 
   <header class="header header-anim" data-header>
 
@@ -363,6 +376,20 @@
 
     </div>
   </header>
+ 
+<!-- Progress bar -->
+  <div id="progressBar"></div>
+
+  <script>
+    window.onscroll = function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      document.getElementById("progressBar").style.width = scrolled + "%";
+    };
+  </script>
+  <!-- Progress bar close -->
+   
   <div id="about-us">
     <h1 class="about-us-heading">About Us</h1>
     <div class="container">
