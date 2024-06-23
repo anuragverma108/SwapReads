@@ -601,10 +601,12 @@ body {
             <a href="#rate-us-modal" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
 
           <li class="navbar-item" id="login-signup-link">
-            <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
+            <a href="./assets/html/login.html" id="login" class="navbar-link">Login/Signup</a>
           </li>
 
-
+          <li class="navbar-item" id="login-signup-link">
+            <a href="#" id="logout" class="navbar-link" style="display: none;">LogOut</a>
+          </li>
 
           <li class="navbar-item dropdown" id="more-dropdown">
             <a href="#" class="navbar-link" id="more-link">More
@@ -1520,6 +1522,7 @@ body {
                   placeholder="Enter your desired selling price" required class="input-field">
 =======
     <script>
+
       function validateBookTitle() {
         const bookTitleInput = document.getElementById('bookTitle');
         const bookTitleValue = bookTitleInput.value.trim();
@@ -2513,9 +2516,15 @@ function validateEmail(email_input) {
     });
 
     // Logout function
-    document.getElementById("logout-r").addEventListener("click", (e) => {
+    document.getElementById("logout").addEventListener("click", (e) => {
       e.preventDefault();
       signOut(auth).then(() => {
+        const userid=document.getElementById("login")
+      const logout=document.getElementById("logout")       // removes session storage items and adjusts the homepage 
+      console.log('hh');
+      sessionStorage.removeItem('user-info')
+      userid.innerHTML='Login/Signup'
+      logout.toggleAttribute('style')
         alert("Logged out successfully.");
         window.location.href = "../../index.html";
       }).catch((error) => {
