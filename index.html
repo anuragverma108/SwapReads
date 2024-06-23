@@ -253,87 +253,91 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
     }
 
-    /* pankaj bind */
     #cookie-consent {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      background-color: #f1f1f1;
-      padding: 20px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      width: 300px;
-      height: fit-content;
-      z-index: 100;
-      border-radius: 10px;
-      margin-bottom: 5px;
-      margin: 20px;
-      border-right: 4px solid transparent;
-      border-bottom: 4px solid transparent;
-      transition: border-color 0.3s;
-    }
-    #cookie-consent:hover {
-      border-right-color: #A30F17;
-      border-bottom-color: #A30F17;
-    }
-
-
-    .accept-cookies {
-
-      width: 280px;
-      height: 40px;
-      color: white;
-      background-color: #A30F17;
-    }
-    .reject-cookies {
-      margin-top: 10px;
-      padding-top: 5px;
-      height: 40px;
-      width: 280px;
-      color: white;
-      background-color: #A30F17;
-      width: 280px;
-      height: 40px;
-      color: white;
-      background-color: #A30F17;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background-color: #f1f1f1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  height: fit-content;
+  z-index: 100;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  margin: 20px;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  transition: border-color 0.3s;
 }
+
+#cookie-consent:hover {
+  border-right-color: #A30F17;
+  border-bottom-color: #A30F17;
+}
+
+#cookie-consent p {
+  color: black;  /* Make the text black for better visibility */
+  text-align: center;  /* Center align the text */
+}
+
+.accept-cookies,
 .reject-cookies {
-  margin-top: 10px;
-  padding-top: 5px;
-  height: 40px;
-  width: 280px;
+  width: 260px;  /* Decrease the button width */
+  height: 35px;  /* Decrease the button height */
   color: white;
   background-color: #A30F17;
+  border: none;
+  border-radius: 5px;  /* Add rounded corners */
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;  /* Smooth transition for effects */
 }
 
-.accept-cookies:hover, .reject-cookies:hover {
-  transform: scale(0.9);
-  box-shadow: 0 0 20px rgb(249, 212, 212);
+.reject-cookies {
+  margin-top: 10px;
+}
+
+.accept-cookies:hover,
+.reject-cookies:hover {
+  transform: scale(0.95);
+  box-shadow: 0 0 15px rgb(249, 212, 212);  /* Reduce the shadow size */
 }
 
 .accept-cookies:hover {
-  background-color: white;
-  color: red;
+  background-color: rgb(245, 202, 202);
+  color: #A30F17;
 }
 
 .reject-cookies:hover {
-  background-color: white;
-  color: red;
+  background-color: rgb(250, 192, 192);
+  color: #A30F17;
 }
 
-    #back-to-top-container {
-      position: fixed;
-    }
+#learn-more-link,
+#show-less-link {
+  color: #A30F17;  
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#learn-more-link:hover,
+#show-less-link:hover {
+  text-decoration: underline; 
+}
+
+#cookie-content {
+  display: none;
+  margin-top: 10px;
+}
 
 
-
-        #cookie-content {
-            display: none;
-            margin-top: 10px;
-        }
+#back-to-top-container {
+  position: fixed;
+}
 
 
 
@@ -1099,7 +1103,7 @@ body {
             </li>
             <li>
 
-              <a class="cardo" href="#">
+              <a class="cardo" href="scifi.html">
                 <h3 class="lithead">06. &nbsp;Science Fiction Wonders</h3>
                 <p class="small"> Ignite your imagination with mind-bending concepts and futuristic worlds in our
                   science fiction.</p>
@@ -2059,12 +2063,13 @@ body {
           <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
           <div class="row-flex">
               <!-- Email input -->
-              <input type="email" id="newsletter-email" name="email" placeholder="E mail address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+              <input type="email" id="newsletter-email" name="email" placeholder="Email address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
               title="Please enter a valid email address that ends with '.com'" required>
-              <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
+              <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
+              <div id="confirmationMessage"></div>
           </div>
       </form>
-      <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+
 
 
         <div class="icons">
@@ -2244,7 +2249,7 @@ body {
       })
     })
 
-    document.getElementById("newsletterForm").addEventListener("submit", function(event) {
+   /* document.getElementById("newsletterForm").addEventListener("submit", function(event) {
       event.preventDefault();
 
 
@@ -2255,6 +2260,28 @@ body {
 
       document.getElementById("email").value = '';
   });
+  */
+
+  document.getElementById("subs_btn").addEventListener("submit", function(event) {
+  event.preventDefault(); 
+
+  const email_input = document.getElementById("newsletter-email").value;
+
+  if (!validateEmail(email_input)) {
+   /* alert("Please enter a valid email address.");*/
+    document.getElementById("confirmationMessage").textContent = "Please enter a valid email address." ;
+  }
+  else{
+  document.getElementById("confirmationMessage").textContent = "Thank you for subscribing!" ;
+  }
+  document.getElementById("newsletter-email").value = '';
+});
+
+function validateEmail(email_input) {
+  const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return re.test(email_input.toLowerCase());
+}
+
 
   </script>
 

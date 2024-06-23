@@ -3,10 +3,10 @@
     import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js';
     import {
       getAuth,
-      createUserWithEmailAndPassword,
       signInWithEmailAndPassword,
       signOut,
     } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js';
+    import {getDatabase,set,ref,get,child} from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js'
     //const credential = EmailAuthProvider.credential(email, password);
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -37,6 +37,7 @@
     const analytics = getAnalytics(app);
     //console.log(app);
     const auth = getAuth();
+    const dbref=getDatabase(app);
 
     //----- Login code start
     console.log(document.querySelector('#login-form'))
@@ -49,7 +50,18 @@
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Signed in
-          const user = userCredential.user;
+          get(child(dbref,'UsersAuthList/' + userCredential.user.uid))
+          .then((snapshot)=>{
+            if(snapshot.exists()){
+              sessionStorage.setItem('user-info',JSON.stringify({
+                username:snapshot.val().email,
+                password:snapshot.val().password
+              }))
+              sessionStorage.setItem('user-creds',JSON.stringify(userCredential.user))
+            }
+          })
+          email="";
+          password="";
           //console.log(user);
           //window.location.href = '../../index.html';
           alert(user.email+" Login successfully!!!");
@@ -69,6 +81,7 @@
     document.getElementById('logout').addEventListener('click', function () {
       signOut(auth)
         .then(() => {
+          sessionStorage.removeItem('user-info')
           // Sign-out successful.
           console.log('Sign-out successful.');
           alert('Sign-out successful.');
@@ -89,10 +102,11 @@
         .auth()
         .signInWithPopup(provider)
         .then((result) => {
+          console.log(result);
           // Handle successful sign-in
           // const user = result.user;
           // console.log(user);
-          window.location.href = '../../index.html';
+        //  window.location.href = '../../index.html';
         })
         .catch((error) => {
           // Handle errors
