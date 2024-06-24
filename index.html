@@ -15,6 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/litrary_realms.css">
   <link rel="stylesheet" href="./assets/font-6/css/all.css">
   <link rel="stylesheet" href="header.css">
   <link rel="stylesheet" href="./assets/css/MenuClick.css">
@@ -1016,8 +1017,175 @@ body {
 
         </div>
       </section>
-      <!--Chapters -->
+
+
+      <!--Chapters-->
+
       <section class="section chapters" id="chapters">
+        <div class="containerr">
+          <p class="section-subtitle" style="color: brown;">Literary Realms</p>
+          <h1 class="h1 section-title has-underline" id="section-title2">
+            Literary Realms we've covered
+            <span class="span has-before"></span>
+          </h1>
+
+          <div class="carousell-wrapper">
+            <i id="left-arrow" class="fa-solid fa-angle-left"></i>
+            
+            <div class="carousell">
+              <div class="cardd">
+                <a class="cardo" href="romantic-esc.html">
+                  <h3 class="lithead"> &nbsp;Romantic Escapes</h3>
+                  <p class="small">Immerse yourself in the enchanting world of love and passion with our curated selection of romance fiction.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+              <div class="cardd">
+                <a class="cardo" href="thrilling-adventures.html">
+                  <h3 class="lithead"> &nbsp;Thrilling Adventures</h3>
+                  <p class="small">Dive into heart-pounding tales and gripping narratives that will keep you on the edge of your seat.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+              <div class="cardd">
+                <a class="cardo" href="mindful-living.html">
+                  <h3 class="lithead"> &nbsp;Mindful Living</h3>
+                  <p class="small">Discover the secrets to a fulfilling life with our collection of insightful and empowering self-help books.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+              <div class="cardd">
+                <a class="cardo" href="Mystical-fantaies.html">
+                  <h3 class="lithead"> &nbsp;Mystical Fantasies</h3>
+                  <p class="small">Embark on fantastical journeys to magical realms with our captivating fantasy fiction picks.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+              <div class="cardd">
+                <a class="cardo" href="historical-chronicals.html">
+                  <h3 class="lithead"> &nbsp;Historical Chronicles</h3>
+                  <p class="small">Travel back in time and explore the rich tapestry of history through our curated historical fiction selection.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+              <div class="cardd">
+                <a class="cardo" href="scifi.html">
+                  <h3 class="lithead"> &nbsp;Science Fiction Wonders</h3>
+                  <p class="small">Ignite your imagination with mind-bending concepts and futuristic worlds in our science fiction.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+              <div class="cardd">
+                <a class="cardo" href="lol.html">
+                  <h3 class="lithead"> &nbsp;Laugh Out Loud Comedy</h3>
+                  <p class="small">Find joy and laughter in our comedy section, featuring witty and humorous tales that will brighten your day.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+              <div class="cardd">
+                <a class="cardo" href="intriguing-mysteries.html">
+                  <h3 class="lithead"> &nbsp;Intriguing Mysteries</h3>
+                  <p class="small">Unravel gripping mysteries and suspenseful plots that will keep you guessing until the last page.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+              <div class="cardd">
+                <a class="cardo" href="biographies.html">
+                  <h3 class="lithead"> &nbsp;Inspiring Biographies</h3>
+                  <p class="small">Gain insights into the lives of remarkable individuals through our collection of inspiring biographies and memoirs.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            
+            <i id="right-arrow" class="fa-solid fa-angle-right"></i>
+          </div>
+        </div>
+      </section>
+
+      <script>
+       document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.querySelector(".carousell");
+    const firstCardWidth = carousel.querySelector(".cardd").offsetWidth;
+    const arrowBtns = document.querySelectorAll(".carousell-wrapper i");
+    const carouselChildrens = [...carousel.children];
+
+    let isDragging = false, startX, startScrollLeft;
+
+    let cardPerView = 3; 
+
+    // Insert copies of the last few cards to beginning of carousel for infinite scrolling
+    carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
+        carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+    });
+
+    // Insert copies of the first few cards to end of carousel for infinite scrolling
+    carouselChildrens.slice(0, cardPerView).forEach(card => {
+        carousel.insertAdjacentHTML("beforeend", card.outerHTML);
+    });
+
+    // Scroll the carousel to hide the duplicates and position it correctly
+    carousel.scrollLeft = carousel.offsetWidth * cardPerView;
+
+    // Add event listeners for the arrow buttons to scroll the carousel left and right
+    arrowBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            carousel.scrollLeft += btn.id === "left-arrow" ? -firstCardWidth : firstCardWidth;
+        });
+    });
+
+    const dragStart = (e) => {
+        isDragging = true;
+        startX = e.pageX;
+        startScrollLeft = carousel.scrollLeft;
+    }
+
+    const dragging = (e) => {
+        if (!isDragging) return;
+        carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+    }
+
+    const dragStop = () => {
+        isDragging = false;
+    }
+
+    const infiniteScroll = () => {
+        // If at the beginning, scroll to the end
+        if (carousel.scrollLeft === 0) {
+            carousel.scrollLeft = carousel.scrollWidth - (2 * carousel.offsetWidth);
+        }
+        // If at the end, scroll to the beginning
+        else if (Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offsetWidth) {
+            carousel.scrollLeft = carousel.offsetWidth;
+        }
+    }
+
+    carousel.addEventListener("mousedown", dragStart);
+    carousel.addEventListener("mousemove", dragging);
+    document.addEventListener("mouseup", dragStop);
+    carousel.addEventListener("scroll", infiniteScroll);
+});
+      </script>
+
+      <!-- <section class="section chapters" id="chapters">
         <div class="container">
 
           <p class="section-subtitle" style="color: brown;">Literary Realms</p>
@@ -1030,7 +1198,7 @@ body {
           <ul class="grid-list">
 
             <li>
-              <!---jfdb-->
+              
               <a class="cardo" href="romantic-esc.html">
                 <h3 class="lithead">01. &nbsp;Romantic Escapes</h3>
                 <p class="small"> Immerse yourself in the enchanting world of love and passion with our curated
@@ -1163,7 +1331,7 @@ body {
           </ul>
         </div>
       </section>
-
+ -->
 
 
 <!--
