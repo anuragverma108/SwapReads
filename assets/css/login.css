@@ -892,9 +892,14 @@ body.dark-mode {
   /* background-color: #34495e; */
 }
 
+/*-----------------------------------*\
+  #FOOTER
+\*-----------------------------------*/
+
 footer {
   background-color: var(--seashell);
   padding: 20px 30px;
+  width: 100vw;
 }
 
 .foot-top {
@@ -909,8 +914,8 @@ footer {
 
 .desc{
   display: flex;
-    flex-direction: column;
-    gap: 21px
+  flex-direction: column;
+  gap: 21px
 }
 
 .description {
@@ -925,12 +930,9 @@ footer {
   font-size: 1.6rem;
   text-align: center;
 }
-.foot-middle a{
-  font-size: 2rem;
-}
 
 .foot-quick :hover {
-  color: rgb(201, 168, 168);
+  color: red;
 }
 
 .foot-middle ul {
@@ -994,7 +996,7 @@ footer {
 
 }
 
-form[type="newsletter"]:before {
+.social-icons form[type="newsletter"]:before {
   content: "";
   /*   background: rgba(255, 255, 0, 0.8);  */
   display: flex;
@@ -1009,7 +1011,7 @@ form[type="newsletter"]:before {
   left: -60px;
 }
 
-form[type="newsletter"] {
+.social-icons form[type="newsletter"] {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1020,26 +1022,29 @@ form[type="newsletter"] {
   /* Adjusted padding */
 }
 
-label[for="email"] {
+.social-icons label[for="email"] {
   display: block;
   font-size: 16px;
   /* Increased font size */
   font-weight: 700;
   letter-spacing: 1px;
   /* Decreased letter spacing */
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   margin-bottom: 10px;
   text-align: center;
-  color: black;
 }
-label[for="email"]{
-  color: white;
+
+.newsletter-form{
+  font-size: 20px;
+  color: inherit;
+  font-weight: 500;
 }
-input:focus {
+
+.social-icons input:focus {
   outline: 0;
 }
 
-input[type="news"] {
+.social-icons input[type="email"] {
   width: 100%;
   /* Adjusted width */
   max-width: 300px;
@@ -1055,14 +1060,14 @@ input[type="news"] {
   border-radius: var(--radius-1);
 
   transition: border-color 0.3s;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 
-input[type="news"]:focus {
+.social-icons input[type="email"]:focus {
   border: 2px solid #c27a7e;
 }
 
-input[type="submit"] {
+.social-icons input[type="submit"] {
   width: 100%;
   /* Adjusted width */
   max-width: 300px;
@@ -1081,7 +1086,7 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover {
+.social-icons input[type="submit"]:hover {
   background: linear-gradient(to right, #000 50%, #36363b 50%);
   background-size: 200% 100%;
   color: white;
@@ -1132,6 +1137,32 @@ input[type="submit"]:hover {
   gap: 20px;
   /* Increased gap for larger icons */
 }
+.icons .icon i {
+  font-size: 24px;
+  /* Set the default font size for icons */
+  transition: all 0.15s ease;
+  /* Add transition for smooth animation */
+}
+
+.icons .icon:hover {
+  transform: scale(1.5);
+  /* Scale the icon on hover */
+}
+
+.icons .icon:hover .fa-brands.fa-square-x-twitter {
+  color: #1da1f3;
+  /* Change to Twitter color on hover */
+}
+
+.icons .icon:hover .fab.fa-instagram-square {
+  color: #c13583;
+  /* Change to Instagram color on hover */
+}
+
+.icons .icon:hover .fab.fa-youtube-square {
+  color: #ff0001;
+  /* Change to YouTube color on hover */
+}
 
 .icon-set {
   height: 40px;
@@ -1177,6 +1208,16 @@ input[type="submit"]:hover {
   color: var(--charcoal);
   transition: var(--transition-1);
 } */
+
+.footer-link:is(:hover, :focus) {
+  color: var(--old-rose);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+}
+
 /* Mobile or small devices */
 @media (max-width: 768px) {
   .foot-top {
