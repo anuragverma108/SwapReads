@@ -1,4 +1,3 @@
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
 
@@ -33,20 +32,21 @@ google_login.addEventListener("click", function () {
         .then((result) => {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const user = result.user;
-            console.log(user);
-            
-            window.location.href="./index.html";
+            //console.log(user);
+            sessionStorage.setItem('user-info',JSON.stringify({ //set user details in session storage 
+                username:user.displayName
+            }))
+
+          //  window.location.href="./index.html";
             alert(user.email + " Login successfully!!!");
             
             // document.querySelector('#logout').style.display = 'block';
             // alert("success");
-
-           
-
         }).catch((error) => {
 
             const errorCode = error.code;
             const errorMessage = error.message;
+            alert(errorMessage);
         });
 
 })
@@ -62,7 +62,7 @@ google_signup.addEventListener("click", function () {
             const user = result.user;
             console.log(user);
             
-            window.location.href="./index.html";
+            //window.location.href="./index.html";
             alert(user.email + " Login successfully!!!");
           
         }).catch((error) => {
