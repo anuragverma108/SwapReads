@@ -217,11 +217,49 @@
       <p class="ver-code"> Enter your registered email address:</p>
       <input class="input" type="email" name="email" id="login_email" placeholder="Email" required/>
       <button class="submit" type="submit" name="Login" id="login">Submit</button>
-      
       <a href="./login.html" class="back">Back to Login </a>
     </form>
   </div>
 </div>
+
+<script type="module">
+  let forgotpassword = document.getElementById('login');
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import {getAuth, sendPasswordResetEmail}  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";    
+  const firebaseConfig = {
+    apiKey: "AIzaSyAIDh842xGC_NZj6pMcB9THjNQ1DyUVnZU",
+    authDomain: "swapreads-c7d1d.firebaseapp.com",
+    projectId: "swapreads-c7d1d",
+    storageBucket: "swapreads-c7d1d.appspot.com",
+    messagingSenderId: "912206670085",
+    appId: "1:912206670085:web:9a6182b16ac2529510ef6c"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  let ForgotPassword = ()=>{
+    sendPasswordResetEmail(auth,login_email.value)
+    .then(()=>{
+      alert("working");
+    })
+
+    .catch((error)=>{
+      console.log(error.code)
+      console.log(error.message);
+    })
+
+  }
+
+  forgotpassword.addEventListener('click',ForgotPassword);
+
+
+
+</script>
+
+
 
   <script>
     // Function to toggle dark mode

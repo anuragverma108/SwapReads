@@ -37,7 +37,7 @@
       background-color: #f9f9f9;
 
       color: #0a0000;
-=======
+
       /* color: #f5f1f1; */
 
       margin: 0;
@@ -249,24 +249,33 @@
       
     }
 
+    #progressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 5px;
+      background-color: #ff2525;
+      z-index: 99;
+    }
+
+
   </style>
 </head>
 
 <body>
+
 
   <header class="header header-anim" data-header>
 
     <div class="container">
 
       <nav class="navbar nav_activated" data-navbar>
-        <a href="../../index.html" class="logo" style="display:flex;">
-          <img src="../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
-        </a>
 
         <ul class="navbar-list">
-          <a href="../../index.html">
-            <img src="../images/new_logo_banner_dark.png" class="logopic" style=" width: 150px;">
-
+          <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+            <img src="../images/final.png" class="logopic" style=" width: 150px;">
+          </a>
             <li class="navbar-item">
               <a href="../../index.html" class="navbar-link" data-nav-link><i class="ri-home-fill"></i> Home</a>
             </li>
@@ -368,6 +377,20 @@
 
     </div>
   </header>
+ 
+<!-- Progress bar -->
+  <div id="progressBar"></div>
+
+  <script>
+    window.onscroll = function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      document.getElementById("progressBar").style.width = scrolled + "%";
+    };
+  </script>
+  <!-- Progress bar close -->
+   
   <div id="about-us">
     <h1 class="about-us-heading">About Us</h1>
     <div class="container">
@@ -676,18 +699,33 @@
             padding: 10px; /* Inner padding */
             font-size: 16px; /* Font size */
         }
+        #confirmationMessage{
+            margin-left: 50px;
+            font-size: 23px;
+            color: rgb(15, 15, 16);
+          }
       </style>
 
-      <form type="newsletter">
-        <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
-        <div class="row-flex">
-            <!-- Email input -->
-            <input type="email" id="newsletter-email" name="email" placeholder="E mail address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$" 
-            title="Please enter a valid email address that ends with '.com'" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
-        </div>
-    </form>
-    <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+<form type="newsletter" onsubmit="return showConfirmationMessage()">
+  <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
+  <div class="row-flex">
+      <!-- Email input -->
+      <input type="email" id="newsletter-email" name="email" placeholder="Email address"
+             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+             title="Please enter a valid email address that ends with '.com'" required>
+      <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
+  </div>
+</form>
+<div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+
+<script>
+function showConfirmationMessage() {
+  var confirmationMessage = document.getElementById("confirmationMessage");
+  confirmationMessage.style.display = "block";
+
+  return false;
+}
+</script>
     
       
       <div class="icons">
@@ -810,8 +848,9 @@
     closePrivacy.onclick = function() {
       privacyModal.style.display = "none";
     }
+</script>
   
-    // When the user clicks anywhere outside of the modal, close it
+    <!-- // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
       if (event.target == copyrightModal) {
         copyrightModal.style.display = "none";
@@ -820,7 +859,7 @@
         privacyModal.style.display = "none";
       }
     }
-  </script>
+  </script> -->
 </footer>
 <script>
   // Function to animate counting from 0 to a target number
