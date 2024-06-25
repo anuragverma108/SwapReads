@@ -1,26 +1,105 @@
-@media (max-width: 961px) {
+@media (max-width: 990px) {
+  
+  /* Theme Change Button Style */ 
+    .switch-container {
+      margin-top: 3.2rem;
+      margin-right: -0.5rem;
+    }
+    #mobile_View_Menu{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative; 
+      margin-left: 1rem;
+    }
+    #menu_lines,#menu_lines::before,#menu_lines::after{
+      height: 2px;
+      width: 15px; 
+      background: black; 
+      transition: 0.2s ease-in;
+    }
+    #menu_lines::before{
+      content: "";
+      position: absolute;
+      top: -5px;
+    }
+    #menu_lines::after{
+      content: "";
+      position: absolute;
+      top: 5px;
+    } 
     .light-mode .navbar{
       background-color: white;
     }
     .dark-mode .navbar{
      background-color: black;
     }
-    body .navbar{
-     display: flex;
-     justify-content: center;
-     position:absolute;
-     width:100%;
-     height: auto;
-     max-height: unset;
-     visibility: unset;
-     overflow: unset;
-     max-height: unset;
-     transition: 0.3s ease-in;
-     border: none;
+    .dark-mode #menu_lines,.dark-mode #menu_lines::before,.dark-mode #menu_lines::after{
+      background-color: white;
     }
-     body .nav_activated{transform:translateX(-200%)}
-    .navbar-list {
-      flex-direction: column;
+    .pricing{display: flex;flex-direction: column;justify-content: center;align-items: center;}
+    .pricing .container{
+      max-width: 560px;
+    }
+    body .navbar{ 
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 70%; 
+  transform: translateX(-80%);
+    top: 0;
+    }  
+  body .nav_activated{
+  transform: translateX(-200%);
+   }
+    .navbar-list{
+      gap: 0.5rem;  
+    }
+    body .header{
+      top: 0.5rem;
+      height: 9rem;
+      left: 0;
+      right: 0;
+      width: 90%;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: auto;
+    }
+    .header .container{
+      flex-direction: row;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 90px;
+      width: 100%;
+    }
+    .navbar-link{
+      height: auto;
+    }
+    .icons{
+      width: auto;
+    }
+    .open_menu #menu_lines::before,.open_menu #menu_lines::after{
+      top: 0px;
+    }
+    .open_menu #menu_lines{background: transparent;}
+    .open_menu #menu_lines::before{rotate: 45deg;}.open_menu #menu_lines::after{rotate: -45deg;}
+  }
+  @media (max-width:575px) {
+    body .navbar{
+      transform: translateX(0%);
+    }
+    body .nav_activated{
+      transform: translateX(-200%);
+    }
+  }
+  @media (min-width: 990px) {
+    #mobile_View_Menu{
+      display: none;
     }
   }
   

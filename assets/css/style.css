@@ -1,5 +1,10 @@
 body {
   user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
 }
 
 .container {
@@ -79,14 +84,7 @@ body > main > article > section.section.preview > div > p:nth-child(4){
   display: none;
  }
 }
-
-.navbar-list {
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
+ 
 
 .navbar-item {
   cursor: pointer;
@@ -519,9 +517,7 @@ body {
   background-color: var(--white);
 
   position: absolute;
-  top: 10px;
-  right: 10px;
-  left: 10px;
+  top: 10px; 
   padding-block: 12px;
   z-index: 4;
   transition: var(--transition-2);
@@ -624,20 +620,7 @@ body {
   overflow-y: scroll;
 }
 
-
-.navbar-list {
-  display: flex;
-  justify-content: center;
-  /* Center align the navbar items */
-  align-items: center;
-  /* Vertically center the navbar items */
-  margin: 0;
-  /* Remove default margin */
-  padding: 0;
-  /* Remove default padding */
-  height: 80px;
-  
-}
+ 
 
 
 .navbar-item {
@@ -800,6 +783,7 @@ body {
 
 .navbar-list {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0;
@@ -840,11 +824,7 @@ body {
   
   margin: 0;
   padding: 0;
-}
-
-.dropdown-menu-item {
- 
-}
+} 
 
 .dropdown-menu-item a {
   text-decoration: none;
@@ -1640,7 +1620,11 @@ z-index: 1;
 
 
 
-
+@media (min-width:900px) {
+  .header {
+    top: 30px;
+}
+}
  .star_rating input
  {
    display: none;
@@ -1854,18 +1838,7 @@ body.light-mode .flip-card-back {
 }
 @media only screen and (max-width: 600px) {
 
-  /* Adjustments for smaller screens */
-  .navbar-list {
-    display: flex;
-    flex-direction: column;
-
-  }
-
-  .navbar {
-    display: flex;
-    justify-content: center;
-  }
-
+  
   .star {
     font-size: 2rem;
   }
@@ -2278,17 +2251,8 @@ footer {
   /**
    * REUSED STYLE
    */
-
-  .container,
-  .container1,
-  .header,
-  .navbar {
-    max-width: 540px;
-    width: 100%;
-    margin-inline: auto;
-    padding: 0;
-    /* border-radius: var(--radius-5); */
-  }
+ 
+ 
 
   .section-text {
     --fs-7: 2rem;
@@ -2297,10 +2261,6 @@ footer {
   /**
    * HEADER
    */
-
-  .header {
-    top: 30px;
-  }
 
   .header.active {
     max-width: unset;
@@ -2357,6 +2317,16 @@ footer {
 /**
  * responsive for large than 768px screen
  */
+ @media (min-width:990px) {
+  
+  .container,
+  .container1,
+  .header,
+  .navbar {
+    max-width: 720px;
+    /* border-radius:61px; */
+  }
+ }
 
 @media (min-width: 768px) {
   /**
@@ -2374,14 +2344,6 @@ footer {
   /**
    * REUSED STYLE
    */
-
-  .container,
-  .container1,
-  .header,
-  .navbar {
-    max-width: 720px;
-    /* border-radius:61px; */
-  }
 
   .grid-list {
     grid-template-columns: 1fr 1fr;
@@ -2933,7 +2895,7 @@ body.dark-mode {
   top: -16px;
 }
 .icons{
-  width: 400px;
+  max-width: 400px;
     flex-wrap: wrap;
     align-items: center;
 }
@@ -3139,19 +3101,7 @@ footer {
     width: 100%;
   }
 }
-
-@media (min-width: 320px) {
-  .navbar-list {
-    flex-direction: column;
-  }
-
-}
-
-@media (min-width: 881px) {
-  .navbar-list {
-    flex-direction: column;
-  }
-}
+ 
 @media (max-width: 961px) {
   .light-mode .navbar{
     background-color: white;
@@ -3173,20 +3123,11 @@ footer {
    border: none;
   }
    body .nav_activated{transform:translateX(-200%)}
-  .navbar-list {
-    flex-direction: column;
-  }
+ 
 }
-
-@media (min-width: 641px) {
-  .navbar-list {
-    flex-direction: column;
-  }
-}
+ 
 @media (min-width: 961px) {
-  .navbar-list {
-    flex-direction: row;
-  }
+ 
 
   #back-to-top-container {
     position: fixed;
@@ -3196,16 +3137,11 @@ footer {
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 990px) {
   .navbar-list {
     flex-direction: row;
   }
-}
-@media (min-width: 1281px) {
-  .navbar-list {
-    flex-direction: row;
-  }
-}
+} 
 
 /* genre */
 #genre .chapter-card {
@@ -3797,7 +3733,7 @@ body.dark-mode .h3 {
   width: 80%;
   
 }
-
+/* 
 @media (max-width: 768px) {
   .icons {
     display: flex;
@@ -3836,5 +3772,4 @@ body.dark-mode .h3 {
     padding: 0;
     height: 60px;
   }
-
-}
+} */
