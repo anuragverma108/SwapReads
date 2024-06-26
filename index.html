@@ -746,7 +746,23 @@ body {
           </li> -->
         </ul>
       </nav>
-
+      <div id="mobile_View_Menu">
+        <span id="menu_lines"></span>
+       </div>
+    <script>
+        let menu=document.getElementById('mobile_View_Menu')
+        let navbar_con=document.querySelector('.navbar')
+        menu.addEventListener('click',()=>{
+          if(menu.classList.contains('open_menu')){
+            menu.classList.remove('open_menu')
+            navbar_con.classList.add('nav_activated')
+          }
+          else{
+            menu.classList.add('open_menu')
+            navbar_con.classList.remove('nav_activated')
+          }
+        })
+      </script>
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script>
       function loadGoogleTranslate() {
