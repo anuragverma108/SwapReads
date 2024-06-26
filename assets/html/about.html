@@ -283,6 +283,7 @@
     cursor: pointer;
 }
 
+
   </style>
 </head>
 
@@ -570,7 +571,7 @@
       <h2>Meet Our Team</h2>
       <div class="team-cards">
         <!-- Team member cards will go here -->
-        <div class="team-member">
+        <div class="team-member" data-tilt>
           <img src="../images/pic1.jpeg" alt="Team Member 1">
           <div class="member-info">
             <h3>Anurag Verma</h3>
@@ -610,7 +611,7 @@
         <div class="contributor-cards" id="contributor-cards">
           <!-- Contributor cards will be inserted here -->
         </div>
-        <div class="pagination" id="pagination">
+        <div class="pagination" id="pagination" >
           <!-- Pagination buttons will be inserted here -->
         </div>
       </section>
@@ -1136,6 +1137,8 @@ function showConfirmationMessage() {
         }
        });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+
 <script>
         document.addEventListener("DOMContentLoaded", function () {
           const backToTopButton = document.getElementById('back-to-top-container');
@@ -1160,7 +1163,12 @@ function showConfirmationMessage() {
           checkButtonVisibility();
         });
       </script>
-
+<script>
+  VanillaTilt.init(document.querySelectorAll(".team-member"), {
+    max: 25,
+    speed: 400
+  });
+</script>
       <script>
 
         // Function for the contributors section
@@ -1192,6 +1200,7 @@ function showConfirmationMessage() {
           currentContributors.forEach(contributor => {
             const card = document.createElement('div');
             card.className = 'contributor-member';
+            card.setAttribute('data-tilt','');
 
             const img = document.createElement('img');
             img.src = contributor.avatar_url;
