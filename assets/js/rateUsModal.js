@@ -51,6 +51,7 @@ submitButton.onclick = function() {
 
 const openRateUsModal = ()=>{
     rateUsModalWrapper.style.display = "flex";
+   
     document.body.classList.add("rate-us-modal-open")
 }
 
