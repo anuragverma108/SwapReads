@@ -1919,16 +1919,6 @@ footer {
     top: 140px;
   }
   
-  #back-to-top-container {
-  
-    /* position: fixed; */
-    top: 70%;
-    right: 2.8%;
-    /* Changed left to right */
-    cursor: pointer;
-    z-index: 1000;
-  }
-  
   .circle1 {
    
     background-color: white;
@@ -1945,15 +1935,24 @@ footer {
     fill: #d26d6d;
     transition: fill 0.3s;
   }
-  
-  .circle1:hover {
-    background-color: white;
-  }
-  
-  #back-to-top:hover {
-    fill: black;
-  }
-  
+  #back-to-top-container {
+    position: fixed;
+    bottom: 160px;
+    right: 40px;
+    cursor: pointer;
+    z-index: 1000; /* Ensures it appears above other elements */
+}
+
+#back-to-top {
+  color: white; /* Initial arrow color */
+  transition: fill 0.3s ease, background-color 0.3s ease;
+}
+
+#back-to-top:hover{
+  fill: black; /* Background color on hover */
+
+}
+
   /* Switch Container */
   .switch-container {
     position: absolute;
@@ -2072,35 +2071,7 @@ footer {
       flex-direction: row;
     }
   }  
-  
-  @media (min-width: 960px) and (max-width:1010px){
-    #back-to-top-container {
-    position: fixed;
-    top: 70% !important;
-    right: 3.4% !important;
-    /* Changed left to right */
-    }
-  }
-  @media(max-width : 960px){
-    #back-to-top-container{
-      position: fixed;
-      top: 70% !important;
-      right: 3.4% !important;
-      cursor: pointer;
-      z-index: 1000;
-    }
-  }
-  
-  
-  @media only screen and (max-width: 598px) {
-    #back-to-top-container {
-      position: fixed;
-      top: 70% !important;
-      right: 4.95% !important;
-    }
-  }
-  
-  
+    
   @media (min-width: 1025px) {
     .navbar-list {
       flex-direction: row;
