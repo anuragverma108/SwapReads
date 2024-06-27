@@ -57,12 +57,116 @@
   <link rel="stylesheet" href="assets/css/preloader.css">
   <script src="https://cdn.lordicon.com/lordicon.js"></script>
   <script src="./assets/js/preloader.js" defer></script>
+  <script src="./script.js"></script>
   
   <style>
     swiper-container {
       width: 100%;
       height: 75%;
     }
+    .section.rate-us {
+  padding:20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: 1px solid #eaeaea;
+
+}
+
+.rate-us-card {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+}
+
+.rate-us-card form {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.star_rating {
+  margin: 20px 0;
+}
+
+.star {
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: grey;
+  transition: color 0.3s ease;
+}
+
+.star:hover,
+.star.selected {
+  color: gold;
+}
+
+.current_rating {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+#thankYouMessage {
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.h2.section-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.has-underline {
+  position: relative;
+}
+
+.has-underline .span {
+  display: block;
+  height: 2px;
+  background: #007bff;
+  width: 50px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
     
    
     /* Theme Change Button Style */
@@ -721,7 +825,7 @@ body {
           </li>
 
           <li class="navbar-item">
-            <a href="#rate-us-modal" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+            <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
 
           <li class="navbar-item" id="login-signup-link">
             <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
@@ -1878,7 +1982,33 @@ body {
           </script>
         </div>
       </section>
-      
+      <!-- rate us -->
+      <p class="section-subtitle">Rate Us</p>
+      <h2 class="h2 section-title has-underline">
+        How Was Your Experience?
+        <span class="span has-before"></span>
+      </h2>
+      <section class="section rate-us" id="rate-us" aria-label="rate-us">
+        <div class="container">
+          <div class="wrapper">
+            <div class="rate-us-card">
+              <form action="" id="rate-us-form">
+                <p>How would you rate your experience?</p>
+                <div class="star_rating">
+                  <button class="star" type="button" onclick="rateExperience(1)">&#9734;</button>
+                  <button class="star" type="button" onclick="rateExperience(2)">&#9734;</button>
+                  <button class="star" type="button" onclick="rateExperience(3)">&#9734;</button>
+                  <button class="star" type="button" onclick="rateExperience(4)">&#9734;</button>
+                  <button class="star" type="button" onclick="rateExperience(5)">&#9734;</button>
+                  <p class="current_rating" id="currentRating">0 of 5</p>
+                </div>
+                <button type="submit" id="submitRatingBtn" class="btn btn-primary">Submit Rating</button>
+                <div id="thankYouMessage" style="display:none">Thank you for rating us!</div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- - #CONTACT -->
 
