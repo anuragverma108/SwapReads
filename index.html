@@ -694,7 +694,7 @@ body {
       <nav class="navbar nav_activated" data-navbar>
 
 
-        <ul class="navbar-list nav vis-h">
+        <ul class="navbar-list nav">
           <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
             <img src="./assets/images/final.png" class="logopic" style=" width: 150px;">
           </a>
@@ -810,13 +810,29 @@ body {
             <div id="google_element"></div>
           </li> -->
         </ul>
-        <div class="hamburger">
+        <!-- <div class="hamburger">
           <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
-        </div>
+        </div> -->
       </nav>
-
+      <div id="mobile_View_Menu">
+        <span id="menu_lines"></span>
+       </div>
+    <script>
+        let menu=document.getElementById('mobile_View_Menu')
+        let navbar_con=document.querySelector('.navbar')
+        menu.addEventListener('click',()=>{
+          if(menu.classList.contains('open_menu')){
+            menu.classList.remove('open_menu')
+            navbar_con.classList.add('nav_activated')
+          }
+          else{
+            menu.classList.add('open_menu')
+            navbar_con.classList.remove('nav_activated')
+          }
+        })
+      </script>
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script>
       function loadGoogleTranslate() {
@@ -826,25 +842,25 @@ body {
       }
     </script>
     <script>
-      const hamburger=document.querySelector('.hamburger');
-      const head=document.querySelector('.header');
-      const nav=document.querySelector('.nav');
-      hamburger.addEventListener('click',()=>{
-        head.classList.toggle('nav-h');
-        nav.classList.toggle('vis-h');
-      })
-      let lastScrollTop = 0;
-      function onScroll() {
-          let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-          const header = document.querySelector('.header');
+      // const hamburger=document.querySelector('.hamburger');
+      // const head=document.querySelector('.header');
+      // const nav=document.querySelector('.nav');
+      // hamburger.addEventListener('click',()=>{
+      //   head.classList.toggle('nav-h');
+      //   nav.classList.toggle('vis-h');
+      // })
+      // let lastScrollTop = 0;
+      // function onScroll() {
+      //     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      //     const header = document.querySelector('.header');
 
-          if (currentScroll > lastScrollTop) {
-              header.classList.add('hidden');
-          } else {
-              header.classList.remove('hidden');
-          }
-          lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-      }
+      //     if (currentScroll > lastScrollTop) {
+      //         header.classList.add('hidden');
+      //     } else {
+      //         header.classList.remove('hidden');
+      //     }
+      //     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+      // }
 
 
   window.addEventListener("scroll", onScroll);
