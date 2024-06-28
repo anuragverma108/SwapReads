@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preload" as="image" href="../images/hero-banner.png">
+    <link rel="stylesheet" href="../css/style.css">
     
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -299,7 +300,7 @@
       <main>
     
         <!-- Rate Us Modal Pop up -->
-        <div class="rate-us-modal-wrapper">
+        <!-- <div class="rate-us-modal-wrapper">
           <div class="rate-us-modal">
             <a onclick="closeRateUsModal()" class="home_button"></a>
             <h1 class="rating_heading">Rate Us</h1>
@@ -316,7 +317,35 @@
             <p class="thank_you_message">Thank you for rating us!</p>
           </div>
 
+        </div> -->
+    <!-- //------------------ -->
+    <section class="section rate-us" id="rate-us" aria-label="rate-us">
+      <div class="container">
+        <p class="section-subtitle">Rate Us</p>
+        <h2 class="h2 section-title has-underline">
+          How Was Your Experience?
+          <span class="span has-before"></span>
+        </h2>
+        <div class="wrapper">
+          <div class="rate-us-card">
+            <form action="" id="rate-us-form">
+              <p>How would you rate your experience?</p>
+              <div class="star_rating">
+                <button class="star" type="button" onclick="rateExperience(1)">&#9734;</button>
+                <button class="star" type="button" onclick="rateExperience(2)">&#9734;</button>
+                <button class="star" type="button" onclick="rateExperience(3)">&#9734;</button>
+                <button class="star" type="button" onclick="rateExperience(4)">&#9734;</button>
+                <button class="star" type="button" onclick="rateExperience(5)">&#9734;</button>
+                <p class="current_rating" id="currentRating">0 of 5</p>
+              </div>
+              <button type="submit" id="submitRatingBtn" class="btn btn-primary">Submit Rating</button>
+              <div id="thankYouMessage" style="display:none">Thank you for rating us!</div>
+            </form>
+          </div>
         </div>
+      </div>
+    </section>
+    
     
     
         <article>
