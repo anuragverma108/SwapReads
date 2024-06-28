@@ -58,6 +58,8 @@
 
   <!-- Free E-Book Css -->
   <link rel="stylesheet" href="../css/Available.css">
+  <link rel="stylesheet" href="./../css/styles.css">
+
 <style>
   
 .premodal {
@@ -729,7 +731,8 @@ this.style.display = "none";
 
         <script type="text/javascript"
                 src=
-    "https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate">
+    "https://translate.google.com/translate_a/element.js?
+    cb=googleTranslateElementInit">
         </script>
         <div><a href="#" class="logo">SwapReads</a></div>
         <div>
@@ -748,11 +751,11 @@ this.style.display = "none";
       </div>
     </div>
     <div class="foot-middle">
-      <h2 class="links">Quick Links</h2>
+      <h2>Quick Links</h2>
       <div id="quicklinks">
         <div>
         <ul>
-          <li class="foot-quick"><a href="../../index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
+          <li class="foot-quick"><a href="index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
           <li class="foot-quick"><a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
           <li class="foot-quick"><a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
           <li class="foot-quick"><a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
@@ -762,110 +765,56 @@ this.style.display = "none";
       </div>
       <div>
         <ul>
-          <li class="foot-quick"><a href="addremovebook.html" onclick="lenis.scrollTo('#contact')">Swap
+          <li class="foot-quick"><a href="addremovebook.html" >Swap
               BookList</a></li>
           <li class="foot-quick"><a href="freeBooks.html"
               onclick="lenis.scrollTo('#contact')">E-Book</a></li>
+          <li class="foot-quick"><a href="about.html" >About</a>
+          </li>
           <li class="foot-quick"><a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+          <li class="foot-quick"><a href="../../index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
         </ul>
       </div>
       </div>
     </div>
     <div class="social-icons">
-      <!-- <h5>Newsletter</h5> -->
-      <!-- <div class="input-newletter">
-        <label for="newsletter"><h5>Newsletter</h5></label>
-        <input placeholder="Enter your email" type="email" ></input>
-        <button class="btn-subs">Subscribe</button>
-      </div> -->
-
-      <!-- <form type="newsletter">
-        <label for="email">Subscribe to our Newsletter</label>
-        <div class="row-flex">
-
-
-
-
-          <input type="news" value="" name="email" placeholder="email address">
-          <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
-          <input type="news" value="" name="email" placeholder="email address" id="newsletter-email">
-          <button type="submit" class="subscribe-btn">subscribe</button>
-
-        </div>
-      </form> -->
+     
       <style>
-        input[type="email"] {
+        .social-icons input[type="email"] {
             border: 2px solid #ccc; /* Gray border */
             border-radius: 4px; /* Rounded corners */
             padding: 10px; /* Inner padding */
             font-size: 16px; /* Font size */
         }
-      </style>
-      <style>
-        .icons .icon i {
-          font-size: 24px;
-          /* Set the default font size for icons */
-          transition: all 0.3s ease;
-          /* Add transition for smooth animation */
-        }
-
-        .icons .icon:hover i {
-          transform: scale(1.2);
-          /* Scale the icon on hover */
-        }
-
-        .icons .icon:hover .fab.fa-linkedin {
-          color: #0A66C2;
-          /* Change to linkedin color on hover */
-        }
-
-        .icons .icon:hover .fab.fa-twitter{
-          color: #090e11;
-          /* Change to Twitter color on hover */
-        }
-
-        .icons .icon:hover .fab.fa-instagram {
-          background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-          background-clip: text;
-          border-radius: 20%;
-          transform: scale(1.5);
-          color:transparent;
-          /* Change to Instagram color on hover */
-        }
-
-        .icons .icon:hover .fab.fa-youtube {
-          color: #C31A1E;
-          /* Change to YouTube color on hover */
-        }
-        .icons .icon:hover .fab.fa-github {
-                  color: #333;
-              }
-              #confirmationMessage{
+        #confirmationMessage{
             margin-left: 50px;
             font-size: 23px;
             color: rgb(15, 15, 16);
           }
       </style>
-      <form type="newsletter" onsubmit="return showConfirmationMessage()">
-        <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
-        <div class="row-flex">
-            <!-- Email input -->
-            <input type="email" id="newsletter-email" name="email" placeholder="Email address"
-                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
-                   title="Please enter a valid email address that ends with '.com'" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
-        </div>
-      </form>
-      <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+
+<form type="newsletter" onsubmit="return showConfirmationMessage()">
+  <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
+  <div class="row-flex">
+      <!-- Email input -->
+      <input type="email" id="newsletter-email" name="email" placeholder="Email address"
+             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+             title="Please enter a valid email address that ends with '.com'" required>
+      <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
+  </div>
+</form>
+<div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+
+<script>
+function showConfirmationMessage() {
+  var confirmationMessage = document.getElementById("confirmationMessage");
+  confirmationMessage.style.display = "block";
+
+  return false;
+}
+</script>
+    
       
-      <script>
-      function showConfirmationMessage() {
-        var confirmationMessage = document.getElementById("confirmationMessage");
-        confirmationMessage.style.display = "block";
-      
-        return false;
-      }
-      </script>
       <div class="icons">
         <a href="https://www.linkedin.com/in/anurag-verma-b91417253/">
           <div class="icon">
@@ -884,28 +833,24 @@ this.style.display = "none";
             <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
           </div>
         </a>
+        
 
         <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
           <div class="icon">
             <i class="fab fa-youtube" style="cursor: pointer;"></i>
           </div>
         </a>
-        <a href="https://github.com/anuragverma108" title="GitHub">
+
+        <a href="">
           <div class="icon">
-              <i class="fab fa-github" style="cursor: pointer;"></i>
+            <i class="fab fa-github" title="Github"></i>
           </div>
         </a>
+       
       </div>
-      <!-- <div style="text-align: center; align-items: center;">
-        <p style="text-align: center">
-          &copy;
-          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-          Hackers.
-        </p>
+     
 
-      </div> -->
-
-      <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">
+      <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
         <div class="circle1">
           <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
             class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
@@ -914,155 +859,100 @@ this.style.display = "none";
           </svg>
         </div>
       </div>
+      
     </div>
   </div>
-  <div style="text-align: center;">
-    <p style="color: grey;">
-        &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+
+      
+
+
+  <!-- adding privacy policy and copyright popup-->
+  <div style="text-align: center; align-items: center;">
+    <p style="text-align: center">
+      &copy;
+      <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
     </p>
     <div class="row-copy">
-        <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
-        <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+
+  
+    <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
+    <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+  </div>
+  </div>
+  
+  <!-- Copyright Policy Modal -->
+  <div id="copyrightPolicyModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeCopyright">&times;</span>
+      <h1>Copyright Policy</h1>
+      <p>Welcome to SwapReads. Here is our copyright policy:</p>
+      <ul>
+        <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
+        <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
+        <li>Users may download and print content for personal use only.</li>
+        <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
+        <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
+      </ul>
     </div>
-  </a>
-</div> -->
-
-            <!-- <ul>
-              <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')">Swap
-                  BookList</a></li>
-              <li class="foot-quick"><a href="./assets/html/freeBooks.html"
-                  onclick="lenis.scrollTo('#contact')">E-Book</a></li>
-              <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
-              </li>
-              <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
-              <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
-            </ul>
-          </div> -->
-        <!-- <div class="social-icons">
-</div>
-
-
-
-              <!-- .icons .icon:hover .fab.fa-facebook {
-                color: #3B5998;
-                /* Change to Facebook color on hover */
-              }
-
-              .icons .icon:hover .fab.fa-twitter {
-                color: #090e11;
-                /* Change to Twitter color on hover */
-              }
-
-              .icons .icon:hover .fab.fa-instagram {
-                background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-                background-clip: text;
-                border-radius: 20%;
-                transform: scale(1.5);
-                color: transparent;
-                /* Change to Instagram color on hover */
-              }
-
-              .icons .icon:hover .fab.fa-youtube {
-                color: #C31A1E;
-                /* Change to YouTube color on hover */
-              }
-
-              .icons .icon:hover .fab.fa-github {
-                color: #333;
-              }
-            </style>
-
-            <div class="icons">
-              <a href="#">
-                <div class="icon">
-                  <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
-                </div>
-              </a>
-
-              <a href="#">
-                <div class="icon">
-                  <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
-                </div>
-              </a>
-
-              <a href="#">
-                <div class="icon">
-                  <i class="fab fa-instagram" title="Instagram" style="cursor: pointer;"></i>
-                </div>
-              </a>
-
-              <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
-                <div class="icon">
-                  <i class="fab fa-youtube" style="cursor: pointer;"></i>
-                </div>
-              </a>
-              <a href="https://github.com/anuragverma108">
-                <div class="icon">
-                  <i class="fab fa-github" style="cursor: pointer;"></i>
-                </div>
-              </a>
-            </div>
-
-          </a>
-
-        </div>
-       
+  </div>
   
-
-
-        </div>
-
-
-       <!-- <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">-->
-          <div class="circle1">
-            <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-              class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-              <path
-                d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-            </svg>
-          </div>
-        </div>
-      </div>
+  <!-- Privacy Notice Modal -->
+  <div id="privacyNoticeModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closePrivacy">&times;</span>
+      <h1>Privacy Notice</h1>
+      <p>Welcome to SwapReads. Here is our privacy notice:</p>
+      <ul>
+        <li>We collect personal information when you register, buy, or sell books.</li>
+        <li>We use this information to provide and improve our services.</li>
+        <li>We do not share your personal information with third parties without your consent.</li>
+        <li>We take reasonable measures to protect your data from unauthorized access.</li>
+        <li>You can contact us to update or delete your personal information.</li>
+        <li>By using our site, you consent to our privacy practices.</li>
+      </ul>
     </div>
-        <div style="text-align: center; align-items: center;">
-          <p style="text-align: center">
-            &copy;
-            <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-            Hackers.
-          </p>
-
+  </div>
   
-        </div>
+  <script>
+    // Get the modal elements
+    var copyrightModal = document.getElementById("copyrightPolicyModal");
+    var privacyModal = document.getElementById("privacyNoticeModal");
   
+    // Get the link elements
+    var copyrightLink = document.getElementById("copyrightPolicyLink");
+    var privacyLink = document.getElementById("privacyNoticeLink");
   
+    // Get the <span> elements that close the modals
+    var closeCopyright = document.getElementById("closeCopyright");
+    var closePrivacy = document.getElementById("closePrivacy");
   
-
-        </div>
-
-
-
-          </div>
-        </div>
-      </div>
-      <!-- adding privacy policy and copyright popup-->
-      <!-- <div style="text-align: center; align-items: center;">
-        <p style="text-align: center">
-          &copy;
-          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
-        </p>
-      </div> -->
-
-
-            <div class="footer-bottom">
-              <p class="copyright" style="text-align: center">
-                &copy;
-                <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-                Hackers.
-              </p>
-            </div> -->
-
-
-
+    // When the user clicks the link, open the modal 
+    copyrightLink.onclick = function() {
+      copyrightModal.style.display = "block";
+    }
+    privacyLink.onclick = function() {
+      privacyModal.style.display = "block";
+    }
+  
+    // When the user clicks on <span> (x), close the modal
+    closeCopyright.onclick = function() {
+      copyrightModal.style.display = "none";
+    }
+    closePrivacy.onclick = function() {
+      privacyModal.style.display = "none";
+    }
+</script>
+  
+    <!-- // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == copyrightModal) {
+        copyrightModal.style.display = "none";
+      }
+      if (event.target == privacyModal) {
+        privacyModal.style.display = "none";
+      }
+    }
+  </script> -->
 </footer>
   <!-- Footer ended-->
 
