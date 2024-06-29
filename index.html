@@ -14,11 +14,13 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="./assets/css/rate.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/litrary_realms.css">
   <link rel="stylesheet" href="./assets/font-6/css/all.css">
   <link rel="stylesheet" href="header.css">
   <link rel="stylesheet" href="./assets/css/MenuClick.css">
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -599,6 +601,9 @@ body {
     left: 50px;
   }
 }
+.navbar-item {
+  margin-top: 10px; /* Increase the top margin of each item */
+}
 
   </style>
 </head>
@@ -776,9 +781,11 @@ body {
               </ul>
             </div>
           </li>
+
+
           <div class="action">
             <div class="profile" onclick="menuToggle();">
-              <img src="./assets/images/avatar.jpg" />
+              <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
             </div>
             <div class="menu">
               <h3>XYZ<br /><span>Book Lover</span></h3>
@@ -787,7 +794,7 @@ body {
                   <img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a>
                 </li>
                 <li>
-                  <img src="./assets/images/edit profile.jpg" /><a href="#">Edit profile</a>
+                  <img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit profile</a>
                 </li>
                 <li>
                   <img src="./assets/images/inbox.png" /><a href="#">Inbox</a>
@@ -803,11 +810,19 @@ body {
               </div>
               </div>
               <script>
+               document.addEventListener("DOMContentLoaded", () => {
+    const savedAvatar = localStorage.getItem("selectedAvatar");
+    if (savedAvatar) {
+        document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+    }
+});
+
+        
                 function menuToggle() {
-                  const toggleMenu = document.querySelector(".menu");
-                  toggleMenu.classList.toggle("active");
+                    const toggleMenu = document.querySelector(".menu");
+                    toggleMenu.classList.toggle("active");
                 }
-              </script>
+            </script>
           <!-- Google Translate Element -->
           <!-- <li class="navbar-item">
             <div id="google_element"></div>
@@ -1974,6 +1989,52 @@ body {
         </div>
 
       </section>
+       <!-- Rate Us Componenet -->
+<div id="rate-us">
+  <div class="heading">
+    <h3>Rate Us!</h3>
+    <p>Tell us your experience</p>
+    <br><br><br>
+</div>
+  <div class="wrapper">
+    <input type="radio" name="rate" id="star-1">
+    <input type="radio" name="rate" id="star-2">
+    <input type="radio" name="rate" id="star-3">
+    <input type="radio" name="rate" id="star-4">
+    <input type="radio" name="rate" id="star-5">
+    <div class="content">
+      <div class="outer">
+        <div class="emojis">
+          <li class="slideImg"><img src="/assets/images/emoji/emoji-1.png" alt=""></li>
+          <li><img src="/assets/images/emoji/emoji-2.png" alt=""></li>
+          <li><img src="/assets/images/emoji/emoji-3.png" alt=""></li>
+          <li><img src="/assets/images/emoji/emoji-4.png" alt=""></li>
+          <li><img src="/assets/images/emoji/emoji-5.png" alt=""></li>
+        </div>
+      </div>
+      <div class="stars">
+        <label for="star-1" class="star-1 fas fa-star"></label>
+        <label for="star-2" class="star-2 fas fa-star"></label>
+        <label for="star-3" class="star-3 fas fa-star"></label>
+        <label for="star-4" class="star-4 fas fa-star"></label>
+        <label for="star-5" class="star-5 fas fa-star"></label>
+      </div>
+    </div>
+    <div class="footer">
+      <span class="text"></span>
+      <span class="numb"></span>
+    </div>
+    <div class="footer-2">
+      <label for="">Enter your Feedback</label> <br>
+      <textarea name="" id="" cols="50" rows="10"></textarea>
+    </div>
+    <div class="button">
+      <a href="">Submit</a>
+  </div> 
+
+  </div>
+</div>
+</div>
 
     </article>
   </main>
@@ -2240,6 +2301,12 @@ body {
   </div>
   <br /><br />
 
+
+ 
+    <script src="./assets/js/rate.js"></script>
+
+
+
   <!-- FAQ section end -->
 
   <!--
@@ -2268,7 +2335,7 @@ body {
       "https://translate.google.com/translate_a/element.js?
       cb=googleTranslateElementInit">
           </script>
-          <div><a href="#" class="logo">SwapReads</a></div>
+          <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
           <div>
             <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
               lovers
