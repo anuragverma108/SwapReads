@@ -1,67 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
-    <link rel="stylesheet" href="profile.css" />
-    <link rel="icon" type="image/x-icon" href="/images/icon.png" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
+    <link rel="stylesheet" href="profile.css">
+    <style>
+        /* Additional CSS for styling */
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            height: 100vh; /* Ensure body takes full height of the viewport */
+            overflow: hidden; /* Prevent scrolling on the body */
+        }
+
+        .profile-container {
+            display: flex;
+            height: 100vh; /* Ensure it takes the full height of the viewport */
+            overflow-y:scroll;
+        }
+
+        .profile-sidebar {
+            width: 250px;
+            padding: 20px;
+            background: #f57d7d;
+            border-right: 1px solid #ddd;
+            box-sizing: border-box;
+            overflow-y: auto; /* Allow scrolling if content overflows */
+        }
+
+        .profile-main {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto; /* Allow scrolling if content overflows */
+        }
+
+        .profile-last-login {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #0e0d0d;
+            text-align: center;
+            opacity: 0;
+            animation: fade-in 1s ease-in-out forwards;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .activity-list li {
+            display: none;
+        }
+
+        .activity-list li.visible {
+            display: list-item;
+        }
+
+        .read-more {
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: underline;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .profile-section {
+            margin-bottom: 20px;
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .profile-details {
+            text-align: center;
+        }
+
+        .profile-details h1 {
+            margin: 10px 0;
+        }
+
+        .profile-details p {
+            margin: 5px 0;
+        }
+
+        .edit-profile-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .edit-profile-btn:hover {
+            background: #0056b3;
+        }
+
+        .profile-completion {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .profile-completion .progress-bar-container {
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 80%;
+            margin: 10px auto;
+        }
+
+        .profile-completion .progress-bar {
+            height: 20px;
+            width: 0;
+            background: #007bff;
+            transition: width 0.5s;
+        }
+
+        .personalized-greeting {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
     <div class="profile-container">
-      <div class="profile-sidebar">
-        <div class="profile-picture">
-          <img src="https://via.placeholder.com/150" alt="Profile Picture" />
+        <div class="profile-sidebar">
+            <div class="profile-picture">
+                <img id="profile-avatar" src="https://via.placeholder.com/150" alt="Profile Picture">
+            </div>
+            <div class="profile-details">
+                <div class="personalized-greeting" id="greeting"></div>
+                <h1 class="profile-name">John Doe</h1>
+                <p class="profile-email"><i class="fas fa-envelope"></i> email@example.com</p>
+                <p class="profile-phone"><i class="fas fa-phone"></i> +123 456 7890</p>
+                <p class="profile-last-login" id="last-login-time">Last login: Not available</p>
+                <button class="edit-profile-btn" onclick="editProfile()"><i class="fas fa-edit"></i> Edit Profile</button>
+                <div class="profile-completion">
+                    <p>Profile Completion: <span id="completion-percentage">0%</span></p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="profile-details">
-          <h1 class="profile-name">John Doe</h1>
-          <p class="profile-email">
-            <i class="fas fa-envelope"></i> email@example.com
-          </p>
-          <p class="profile-phone">
-            <i class="fas fa-phone"></i> +123 456 7890
-          </p>
-          <button class="edit-profile-btn">
-            <i class="fas fa-edit"></i> Edit Profile
-          </button>
+        <div class="profile-main">
+            <div class="profile-section">
+                <h2>Order History</h2>
+                <ul class="order-list">
+                    <li>Order #1234 - <span class="order-status">Delivered</span></li>
+                    <li>Order #5678 - <span class="order-status">Shipped</span></li>
+                    <li>Order #91011 - <span class="order-status">Processing</span></li>
+                </ul>
+            </div>
+            <div class="profile-section">
+                <h2>Wishlist</h2>
+                <ul class="wishlist">
+                    <li>Product 1</li>
+                    <li>Product 2</li>
+                    <li>Product 3</li>
+                </ul>
+            </div>
+            <div class="profile-section">
+                <h2>Saved Addresses</h2>
+                <ul class="address-list">
+                    <li>123 Main St, San Francisco, CA</li>
+                    <li>456 Maple Rd, Los Angeles, CA</li>
+                </ul>
+            </div>
+            <div class="profile-section">
+                <h2>Payment Methods</h2>
+                <ul class="payment-methods">
+                    <li>Visa ending in 1234</li>
+                    <li>MasterCard ending in 5678</li>
+                </ul>
+            </div>
+            <div class="profile-section">
+                <h2>Recent Activities</h2>
+                <ul class="activity-list" id="activity-list">
+                    <!-- Activities will be dynamically added here -->
+                </ul>
+                <span class="read-more" id="read-more" onclick="toggleActivities()">Read More</span>
+            </div>
+            <div class="profile-section">
+                <h2>Notifications</h2>
+                <ul class="notification-list" id="notification-list">
+                    <!-- Notifications will be dynamically added here -->
+                </ul>
+            </div>
         </div>
-      </div>
-      <div class="profile-main">
-        <div class="profile-section">
-          <h2>Order History</h2>
-          <ul class="order-list">
-            <li>Order #1234 - <span class="order-status">Delivered</span></li>
-            <li>Order #5678 - <span class="order-status">Shipped</span></li>
-            <li>Order #91011 - <span class="order-status">Processing</span></li>
-          </ul>
-        </div>
-        <div class="profile-section">
-          <h2>Wishlist</h2>
-          <ul class="wishlist">
-            <li>Product 1</li>
-            <li>Product 2</li>
-            <li>Product 3</li>
-          </ul>
-        </div>
-        <div class="profile-section">
-          <h2>Saved Addresses</h2>
-          <ul class="address-list">
-            <li>123 Main St, San Francisco, CA</li>
-            <li>456 Maple Rd, Los Angeles, CA</li>
-          </ul>
-        </div>
-        <div class="profile-section">
-          <h2>Payment Methods</h2>
-          <ul class="payment-methods">
-            <li>Visa ending in 1234</li>
-            <li>MasterCard ending in 5678</li>
-          </ul>
-        </div>
-      </div>
     </div>
-  </body>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedAvatar = localStorage.getItem("selectedAvatar");
+            if (savedAvatar) {
+                const profileAvatar = document.getElementById("profile-avatar");
+                profileAvatar.src = `../assets/images/${savedAvatar}`;
+            }
+
+            const savedName = localStorage.getItem("profileName");
+            const savedEmail = localStorage.getItem("profileEmail");
+            const savedPhone = localStorage.getItem("profilePhone");
+            const lastLoginTime = localStorage.getItem("lastLoginTime");
+
+            if (savedName) {
+                document.querySelector(".profile-name").textContent = savedName;
+            }
+            if (savedEmail) {
+                document.querySelector(".profile-email").innerHTML = `<i class="fas fa-envelope"></i> ${savedEmail}`;
+            }
+            if (savedPhone) {
+                document.querySelector(".profile-phone").innerHTML = `<i class="fas fa-phone"></i> ${savedPhone}`;
+            }
+            if (lastLoginTime) {
+                const loginTimeElement = document.getElementById("last-login-time");
+                loginTimeElement.textContent = `Last login: ${new Date(lastLoginTime).toLocaleString()}`;
+                loginTimeElement.style.opacity = 1; // Ensure it's visible after animation
+            } else {
+                // Set last login time if not already set
+                setLastLoginTime();
+            }
+
+            // Calculate profile completion percentage
+            calculateProfileCompletion();
+
+            // Add personalized greeting
+            addPersonalizedGreeting();
+
+            // Dynamically add recent activities
+            const activities = [
+                "Logged in",
+                "Viewed product 'Product 1'",
+                "Added 'Product 2' to wishlist",
+                "Checked out order #1234"
+            ];
+            const activityList = document.getElementById("activity-list");
+            activities.forEach((activity, index) => {
+                const li = document.createElement("li");
+                li.textContent = activity;
+                if (index < 2) {
+                    li.classList.add("visible");
+                }
+                activityList.appendChild(li);
+            });
+
+            // Dynamically add notifications
+            const notifications = [
+                "Your order #5678 has been shipped",
+                "New product 'Product 4' added to wishlist",
+                "Price drop alert on 'Product 3'"
+            ];
+            const notificationList = document.getElementById("notification-list");
+            notifications.forEach(notification => {
+                const li = document.createElement("li");
+                li.textContent = notification;
+                notificationList.appendChild(li);
+            });
+        });
+
+        function editProfile() {
+            window.location.href = "./assets/html/profileedit.html";
+        }
+
+        // Set last login time when the user logs in (first visit)
+        function setLastLoginTime() {
+            const now = new Date().toISOString();
+            localStorage.setItem("lastLoginTime", now);
+            const loginTimeElement = document.getElementById("last-login-time");
+            loginTimeElement.textContent = `Last login: ${new Date(now).toLocaleString()}`;
+            loginTimeElement.style.opacity = 1; // Ensure it's visible after animation
+        }
+
+        function calculateProfileCompletion() {
+            let completedFields = 0;
+            const totalFields = 3; // Assuming name, email, and phone are the fields
+
+            if (localStorage.getItem("profileName")) completedFields++;
+            if (localStorage.getItem("profileEmail")) completedFields++;
+            if (localStorage.getItem("profilePhone")) completedFields++;
+
+            const completionPercentage = Math.round((completedFields / totalFields) * 100);
+            document.getElementById("completion-percentage").textContent = `${completionPercentage}%`;
+            document.getElementById("progress-bar").style.width = `${completionPercentage}%`;
+        }
+
+        function addPersonalizedGreeting() {
+            const now = new Date();
+            const hour = now.getHours();
+            let greeting = "Hello";
+
+            if (hour < 12) {
+                greeting = "Good morning";
+            } else if (hour < 18) {
+                greeting = "Good afternoon";
+            } else {
+                greeting = "Good evening";
+            }
+
+            const name = localStorage.getItem("profileName") || "User";
+            document.getElementById("greeting").textContent = `${greeting}, ${name}!`;
+        }
+
+        function toggleActivities() {
+            const activityList = document.getElementById("activity-list");
+            const readMore = document.getElementById("read-more");
+            const activities = activityList.querySelectorAll("li");
+
+            activities.forEach((activity, index) => {
+                if (index >= 2) {
+                    activity.classList.toggle("visible");
+                }
+            });
+
+            if (readMore.textContent === "Read More") {
+                readMore.textContent = "Show Less";
+            } else {
+                readMore.textContent = "Read More";
+            }
+        }
+    </script>
+</body>
 </html>
