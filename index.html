@@ -776,9 +776,11 @@ body {
               </ul>
             </div>
           </li>
+
+
           <div class="action">
             <div class="profile" onclick="menuToggle();">
-              <img src="./assets/images/avatar.jpg" />
+              <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
             </div>
             <div class="menu">
               <h3>XYZ<br /><span>Book Lover</span></h3>
@@ -787,7 +789,7 @@ body {
                   <img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a>
                 </li>
                 <li>
-                  <img src="./assets/images/edit profile.jpg" /><a href="#">Edit profile</a>
+                  <img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit profile</a>
                 </li>
                 <li>
                   <img src="./assets/images/inbox.png" /><a href="#">Inbox</a>
@@ -803,11 +805,19 @@ body {
               </div>
               </div>
               <script>
+               document.addEventListener("DOMContentLoaded", () => {
+    const savedAvatar = localStorage.getItem("selectedAvatar");
+    if (savedAvatar) {
+        document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+    }
+});
+
+        
                 function menuToggle() {
-                  const toggleMenu = document.querySelector(".menu");
-                  toggleMenu.classList.toggle("active");
+                    const toggleMenu = document.querySelector(".menu");
+                    toggleMenu.classList.toggle("active");
                 }
-              </script>
+            </script>
           <!-- Google Translate Element -->
           <!-- <li class="navbar-item">
             <div id="google_element"></div>
