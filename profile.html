@@ -11,13 +11,13 @@
     <div class="profile-container">
         <div class="profile-sidebar">
             <div class="profile-picture">
-                <img src="https://via.placeholder.com/150" alt="Profile Picture">
+                <img id="profile-avatar" src="https://via.placeholder.com/150" alt="Profile Picture">
             </div>
             <div class="profile-details">
                 <h1 class="profile-name">John Doe</h1>
                 <p class="profile-email"><i class="fas fa-envelope"></i> email@example.com</p>
                 <p class="profile-phone"><i class="fas fa-phone"></i> +123 456 7890</p>
-                <button class="edit-profile-btn"><i class="fas fa-edit"></i> Edit Profile</button>
+                <button class="edit-profile-btn" onclick="editProfile()"><i class="fas fa-edit"></i> Edit Profile</button>
             </div>
         </div>
         <div class="profile-main">
@@ -53,5 +53,35 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Function to retrieve and display the selected avatar from local storage
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedAvatar = localStorage.getItem("selectedAvatar");
+            if (savedAvatar) {
+                const profileAvatar = document.getElementById("profile-avatar");
+                profileAvatar.src = `../assets/images/${savedAvatar}`;
+            }
+
+            const savedName = localStorage.getItem("profileName");
+            const savedEmail = localStorage.getItem("profileEmail");
+            const savedPhone = localStorage.getItem("profilePhone");
+
+            if (savedName) {
+                document.querySelector(".profile-name").textContent = savedName;
+            }
+            if (savedEmail) {
+                document.querySelector(".profile-email").textContent = `Email: ${savedEmail}`;
+            }
+            if (savedPhone) {
+                document.querySelector(".profile-phone").textContent = `Phone: ${savedPhone}`;
+            }
+        });
+
+        // Function to redirect to profile edit page
+        function editProfile() {
+            window.location.href = "./assets/html/profileedit.html";
+        }
+    </script>
 </body>
 </html>
