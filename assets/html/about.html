@@ -43,7 +43,9 @@
       margin: 0;
       padding: 0;
     }
-
+    .header{
+      position: fixed;
+    }
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -282,6 +284,62 @@
     overflow: hidden;
     cursor: pointer;
 }
+.hamburger{
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 24px;
+    left: 1.5%;
+}
+.line{
+    width: 36px;
+    height: 5px;
+    margin: 4px 4px;
+    background-color: rgb(240, 15, 15);
+}
+@media only screen and (max-width:1063px){
+    .nav{
+        flex-direction: column;
+    }
+    .header{
+        flex-direction: column;
+        height: 62rem;
+        transition: 0.55s all ease-out;
+        padding-top: 5px;
+    }
+    .navbar-item{
+        margin-right: 40px;
+    }
+    .navbar-list{
+      position: relative;
+      top: 265px;
+      left: 163px;
+    }
+    .hamburger{
+        display: block;
+    }
+    .nav-h{
+        height: 78px;
+        width: 100vw;
+    }
+    .vis-h{
+        opacity: 0;
+    }
+    /* .logo img{
+      position: relative;
+      top: 72px;
+      left: 145px;
+    } */
+}
+@media only screen and (max-width:990px){
+  .header{
+    height: 84px;
+  }
+  .logo img{
+    position: relative;
+    left: 50px;
+  }
+}
 
 
   </style>
@@ -290,13 +348,13 @@
 <body>
 
 
-  <header class="header header-anim" data-header>
+  <header class="header header-anim nav-h" data-header>
 
     <div class="container">
 
       <nav class="navbar nav_activated" data-navbar>
 
-        <ul class="navbar-list">
+        <ul class="navbar-list nav vis-h">
           <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
             <img src="../images/final.png" class="logopic" style="width:100px;">
           </a>
@@ -376,8 +434,8 @@
             <!-- <div class="action">
               <div class="profile" onclick="menuToggle();">
                 <img src="../images/avatar.jpg">
-              </div> -->
-              <!-- <div class="menu">
+              </div>
+              <div class="menu">
                 <h3>XYZ<br /><span>Book Lover</span></h3>
                 <ul>
                   <li>
@@ -392,8 +450,8 @@
                   <li>
                     <img src="./assets/images/settings.png" /><a href="#">Setting</a>
                   </li>
-                  <li><img src="./assets/images/help.png" /><a href="#">Help</a></li> -->
-                  <!-- <li>
+                  <li><img src="./assets/images/help.png" /><a href="#">Help</a></li>
+                  <li>
                     <img src="./assets/images/logout.png" /><a href="#">Logout</a>
                   </li>
                 </ul>
@@ -409,8 +467,13 @@
             <!-- <li class="navbar-item">
               <div id="google_element"></div>
             </li> -->
-          <!-- </ul>
-        </nav> -->
+          </ul>
+          <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </nav>
   
       <!-- <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
       <script>
@@ -421,6 +484,13 @@
         }
       </script> -->
       <script>
+        const hamburger=document.querySelector('.hamburger');
+        const head=document.querySelector('.header');
+        const nav=document.querySelector('.nav');
+        hamburger.addEventListener('click',()=>{
+          head.classList.toggle('nav-h');
+          nav.classList.toggle('vis-h');
+        })
         let lastScrollTop = 0;
   
         function onScroll() {
@@ -571,34 +641,38 @@
       <h2>Meet Our Team</h2>
       <div class="team-cards">
         <!-- Team member cards will go here -->
+         <a id="gitlin"  href="https://github.com/anuragverma108" style="text-decoration: none;">
         <div class="team-member" data-tilt>
           <img src="../images/pic1.jpeg" alt="Team Member 1">
           <div class="member-info">
             <h3>Anurag Verma</h3>
             <p>Project Admin</p>
           </div>
-        </div>
+        </div></a>
+       <a id="gitlin" href="https://github.com/huamanraj"style="text-decoration: none;">
         <div class="team-member">
           <img src="../images/pic2.jpeg" alt="Team Member 2">
           <div class="member-info">
             <h3>Aman Raj</h3>
             <p>Mentor</p>
           </div>
-        </div>
+        </div></a>
+        <a class="gitlin" href="https://github.com/RitiChandak"style="text-decoration: none;">
         <div class="team-member">
           <img src="../images/pic3.jpeg" alt="Team Member 3">
           <div class="member-info">
             <h3>Riti Chandak</h3>
             <p>Mentor</p>
           </div>
-        </div>
+        </div></a>
+        <a class="gitlin" href="https://github.com/RishabhDhawad"style="text-decoration: none;">
         <div class="team-member">
           <img src="../images/pic4.jpeg" alt="Team Member 4">
           <div class="member-info">
             <h3>Rishabh Dhawad</h3>
             <p>Mentor</p>
           </div>
-        </div>
+        </div></a>
         <!-- Add more team member cards as needed -->
       </div>
     </section>
