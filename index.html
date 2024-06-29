@@ -57,12 +57,15 @@
   <link rel="stylesheet" href="assets/css/preloader.css">
   <script src="https://cdn.lordicon.com/lordicon.js"></script>
   <script src="./assets/js/preloader.js" defer></script>
+  <script src="./script.js"></script>
   
   <style>
     swiper-container {
       width: 100%;
       height: 75%;
     }
+
+
     
    
     /* Theme Change Button Style */
@@ -522,7 +525,11 @@ body {
 }
 
 .action .menu ul li a {
-  display: inline-block;
+  display: inline-flex;
+  text-align: center;
+  padding-left: 5%;
+  font-weight: 300;
+  font-size: 19px;
   text-decoration: none;
   color: #555;
   font-weight: 500;
@@ -531,6 +538,66 @@ body {
 
 .action .menu ul li:hover a {
   color: #ff5d94;
+  font-size: 21px;
+
+}
+.hamburger{
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 24px;
+    left: 1.5%;
+}
+.line{
+    width: 36px;
+    height: 5px;
+    margin: 4px 4px;
+    background-color: rgb(240, 15, 15);
+}
+@media only screen and (max-width:1063px){
+    .nav{
+        flex-direction: column;
+    }
+    .header{
+        flex-direction: column;
+        height: 53.8rem;
+        transition: 0.55s all ease-out;
+        padding-top: 5px;
+    }
+    .navbar-item{
+        margin-right: 40px;
+    }
+    .navbar-list{
+      position: relative;
+      top: 200px;
+    }
+    .hamburger{
+        display: block;
+    }
+    .nav-h{
+        height: 78px;
+        width: 100vw;
+    }
+    .vis-h{
+        opacity: 0;
+    }
+    .logo img{
+      position: relative;
+      top: 17px;
+      left: 350px;
+    }
+}
+@media only screen and (max-width:990px){
+  .header{
+    height: 0;
+  }
+  .navbar-list{
+    top: 0;
+  }
+  .logo img{
+    top: -9px;
+    left: 50px;
+  }
 }
 
   </style>
@@ -623,14 +690,14 @@ body {
   });
 });
 </script>
-  <header class="header header-anim" data-header>
+  <header class="header header-anim nav-h" data-header>
 
     <div class="container mobile-container-styles" style="padding-left: 0;">
 
       <nav class="navbar nav_activated" data-navbar>
 
 
-        <ul class="navbar-list">
+        <ul class="navbar-list nav">
           <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
             <img src="./assets/images/final.png" class="logopic" style=" width: 150px;">
           </a>
@@ -663,7 +730,7 @@ body {
           </li>
 
           <li class="navbar-item">
-            <a href="#rate-us-modal" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+            <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
 
           <li class="navbar-item" id="login-signup-link">
             <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
@@ -746,8 +813,29 @@ body {
             <div id="google_element"></div>
           </li> -->
         </ul>
+        <!-- <div class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div> -->
       </nav>
-
+      <div id="mobile_View_Menu">
+        <span id="menu_lines"></span>
+       </div>
+    <script>
+        let menu=document.getElementById('mobile_View_Menu')
+        let navbar_con=document.querySelector('.navbar')
+        menu.addEventListener('click',()=>{
+          if(menu.classList.contains('open_menu')){
+            menu.classList.remove('open_menu')
+            navbar_con.classList.add('nav_activated')
+          }
+          else{
+            menu.classList.add('open_menu')
+            navbar_con.classList.remove('nav_activated')
+          }
+        })
+      </script>
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script>
       function loadGoogleTranslate() {
@@ -757,19 +845,25 @@ body {
       }
     </script>
     <script>
-      let lastScrollTop = 0;
+      // const hamburger=document.querySelector('.hamburger');
+      // const head=document.querySelector('.header');
+      // const nav=document.querySelector('.nav');
+      // hamburger.addEventListener('click',()=>{
+      //   head.classList.toggle('nav-h');
+      //   nav.classList.toggle('vis-h');
+      // })
+      // let lastScrollTop = 0;
+      // function onScroll() {
+      //     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      //     const header = document.querySelector('.header');
 
-      function onScroll() {
-          let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-          const header = document.querySelector('.header');
-
-          if (currentScroll > lastScrollTop) {
-              header.classList.add('hidden');
-          } else {
-              header.classList.remove('hidden');
-          }
-          lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-      }
+      //     if (currentScroll > lastScrollTop) {
+      //         header.classList.add('hidden');
+      //     } else {
+      //         header.classList.remove('hidden');
+      //     }
+      //     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+      // }
 
 
   window.addEventListener("scroll", onScroll);
@@ -848,7 +942,7 @@ body {
           <div class="hero-content">
             <p class="section-subtitle"> Let's Exchange Old Books and Discover New Stories Together!</p>
 
-            <h1 class="h1 hero-title" style="color: blueviolet;">SwapReads.com - Where Books Find New Adventures!</h1>
+            <h1 class="h1 hero-title" style="color: rgb(255, 255, 255);">SwapReads.com - Where Books Find New Adventures!</h1>
 
             <p class="section-text " >
               Join SwapReads.com, the ultimate online community for book enthusiasts! Create your profile, list your
@@ -1809,7 +1903,8 @@ body {
           </script>
         </div>
       </section>
-      
+      <!-- rate us -->
+     
 
       <!-- - #CONTACT -->
 

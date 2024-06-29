@@ -666,7 +666,6 @@ body {
   position: relative;
   color: var(--charcoal);
   padding: 8px 12px;
-  height: 80px;
   /* Adjust padding as needed */
   line-height: 2;
   transition: var(--transition-1);
@@ -846,10 +845,7 @@ body {
   margin: 0;
   padding: 0;
 }
-
-.dropdown-menu-item {
-}
-
+ 
 .dropdown-menu-item a {
   text-decoration: none;
   color: #000;
@@ -2728,6 +2724,7 @@ footer {
   transition: all 0.3s ease;
   padding-left: 4px;
   padding-right: 4px;
+  padding-top: 0px;
   text-decoration: none;
 }
 
@@ -2957,7 +2954,49 @@ footer {
     z-index: 1000;
   }
 }
+@media(min-width: 1201px) {
+  #back-to-top-container {
+    top: 70%;
+    right: 2%;
+  }
+}/* For screens between 901px and 1200px */
+@media(max-width: 1200px) and (min-width: 901px) {
+  #back-to-top-container {
+    top: 65%;
+   margin-right: 5px;
+  }
+}
 
+/* For screens between 769px and 900px */
+@media(max-width: 900px) and (min-width: 769px) {
+  #back-to-top-container {
+    top: 65%;
+    margin-right: 30px;
+  }
+}
+/* For screens between 601px and 768px */
+@media(max-width: 768px) and (min-width: 601px) {
+  #back-to-top-container {
+    top: 76%;
+    margin-right: 40px;
+  }
+}
+
+/* For screens between 401px and 600px */
+@media(max-width: 600px) and (min-width: 401px) {
+  #back-to-top-container {
+    top: 80%;
+    margin-right: 10px;
+  }
+}
+
+/* For screens up to 400px */
+@media(max-width: 400px) {
+  #back-to-top-container {
+    top: 85%;
+    right: 5%;
+  }
+}
 .circle1 {
   background-color: white;
   border-radius: 50%;
@@ -3094,25 +3133,25 @@ footer {
   .light-mode .navbar {
     background-color: white;
   }
-  .dark-mode .navbar {
-    background-color: black;
+  .dark-mode .navbar{
+   background-color: black;
   }
-  body .navbar {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    width: 100%;
-    height: auto;
-    max-height: unset;
-    visibility: unset;
-    overflow: unset;
-    max-height: unset;
-    transition: 0.3s ease-in;
-    border: none;
+  body .navbar{
+   display: flex;
+   justify-content: center;
+   position:absolute;
+   width:100%;
+   height: auto;
+   max-height: unset;
+   visibility: unset;
+   overflow: unset;
+   max-height: unset;
+   transition: 0.3s ease-in;
+   border: none;
   }
-  body .nav_activated {
-    transform: translateX(-200%);
-  }
+   /* body .nav_activated{
+    transform:translateX(-200%)
+  } */
   .navbar-list {
     flex-direction: column;
   }
@@ -3147,7 +3186,11 @@ footer {
     flex-direction: row;
   }
 }
-
+@media (max-width:1060px) {
+  .icons{
+    width: auto;
+  }
+}
 /* genre */
 #genre .chapter-card {
   background-color: var(--seashell);
@@ -3184,7 +3227,7 @@ body.dark-mode .pricing-card h3 {
 }
 
 /* Medium devices (large tablets and small laptops, 768px to 1060px) */
-@media (min-width: 768px) and (max-width: 1060px) {
+@media (min-width: 950px) and (max-width: 1060px) {
   .foot-top {
     flex-direction: row;
     justify-content: space-between;
@@ -3230,8 +3273,19 @@ body.dark-mode .pricing-card h3 {
     text-decoration: none;
   }
 }
-
-@media (max-width: 768px) {
+.team{
+  max-width: 1200px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 600px) and (max-width: 1060px) {
+  .team-cards{
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 950px) {
   .foot-top {
     flex-direction: column;
     align-items: center;
@@ -3506,7 +3560,7 @@ body.dark-mode .h3 {
   }
 
   .container01 {
-    padding: 30px;
+    padding: 5px;
     margin-bottom: 30px;
     margin-left: 20px;
     margin-right: 20px;
@@ -3736,27 +3790,28 @@ body.dark-mode .h3 {
   }
   #benefits {
     padding: 1rem;
-    padding-top: 1311px;
+    
   }
   #genre {
-    padding-top: 1100px;
+    padding-top: 10px;
   }
   #chapters {
-    padding-top: 3500px;
+    padding-top: 30px;
   }
   #preview {
-    padding-top: 2000px;
+    padding-top: 20px;
   }
   #contact {
-    padding-top: 2500px;
-    padding-bottom: 500px;
+    padding-top: 20px;
+    padding-bottom: 5px;
   }
   .hero .container {
     flex-wrap: nowrap;
+    padding-top: 150px;
   }
   #home {
-    padding-top: 600px;
-    padding-bottom: 300px;
+    padding-top: 50px;
+    padding-bottom: 30px;
   }
   .header .container {
     padding: 0;
@@ -3869,4 +3924,26 @@ body.dark-mode .h3 {
 
 .swal-confirm-button:hover {
   background-color: #f46475; /* Hover state */
+}
+
+ /* //-------------------------------------// */
+
+ .icons .icon:hover .fab.fa-linkedin {
+  color: #1877f2;
+  /* Change to Facebook color on hover */
+}
+
+.icons .icon:hover .fab.fa-twitter {
+  color: #1da1f3;
+  /* Change to Twitter color on hover */
+}
+
+.icons .icon:hover .fab.fa-instagram {
+  color: #c13583;
+  /* Change to Instagram color on hover */
+}
+
+.icons .icon:hover .fab.fa-youtube {
+  color: #ff0001;
+  /* Change to YouTube color on hover */
 }
