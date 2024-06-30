@@ -1,456 +1,474 @@
 /* recommendation system */
 .section-subtitle {
-    color: var(--old-rose);
-    text-transform: uppercase;
-    font-weight: var(--fw-700);
-    letter-spacing: 4px;
-    margin-bottom: 20px;
-    font-size: 2.5rem;
-    text-align: center;
+  color: var(--old-rose);
+  text-transform: uppercase;
+  font-weight: var(--fw-700);
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  text-align: center;
 
-  }
-#recommend{
-    /* margin-top: 160px; */
-    justify-content: center;
-    align-items: center;
 }
-#heading{
-    /* margin-top: 50px; */
-    justify-content: center;
-    align-items: center;
+
+#recommend {
+  /* margin-top: 160px; */
+  justify-content: center;
+  align-items: center;
 }
+
+#heading {
+  /* margin-top: 50px; */
+  justify-content: center;
+  align-items: center;
+}
+
 .container00 {
-    max-width: 900px;
-    max-height: 800px;
-    margin: 20px auto;
-    padding: 80px;
-    border: 1px solid #ccc;
-    /* border-radius: 5px; */
-    background-color: var(--seashell);
-    border-radius: var(--radius-5);
-    margin-bottom: 50px;
-  }
-  
-  .container01 {
-    background-color: var(--seashell);
-    border-radius: var(--radius-5);
-    margin-bottom: 50px;
-    margin-left: 310px;
-    margin-right: 310px;
-    padding: 80px;
-    border: 2px solid #b49393;
-    color: black;
-  }
-  
-  .preference-bar {
-    display: flex;
-    justify-content: center;
-    /* Center items horizontally */
-    align-items: center;
-    flex-wrap: wrap;
-    /* Allow items to wrap if they exceed container width */
+  max-width: 900px;
+  max-height: 800px;
+  margin: 20px auto;
+  padding: 80px;
+  border: 1px solid #ccc;
+  /* border-radius: 5px; */
+  background-color: var(--seashell);
+  border-radius: var(--radius-5);
+  margin-bottom: 50px;
+}
+
+.container01 {
+  background-color: var(--seashell);
+  border-radius: var(--radius-5);
+  margin-bottom: 50px;
+  margin-left: 310px;
+  margin-right: 310px;
+  padding: 80px;
+  border: 2px solid #b49393;
+  color: black;
+}
+
+.preference-bar {
+  display: flex;
+  justify-content: center;
+  /* Center items horizontally */
+  align-items: center;
+  flex-wrap: wrap;
+  /* Allow items to wrap if they exceed container width */
+}
+
+.author {
+  border: 2px solid black;
+  padding: 8px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.preference-bar>* {
+  margin: 0 10px;
+  /* Add spacing between items */
+}
+
+.preference-bar label {
+  font-weight: bold;
+  font-size: 20px;
+  color: #474646;
+}
+
+select {
+  /* Remove default blue background color */
+  background-color: transparent;
+  /* Optional: Remove default blue text color */
+  color: black;
+  /* or whatever color you want */
+}
+
+.preference-bar button {
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 5px;
+  /* background-color: #007bff; */
+  /* color: #fff; */
+  border: none;
+  cursor: pointer;
+}
+
+/* .preference-bar button:hover { */
+/* background-color: #0056b3; */
+/* } */
+
+.preference-bar select {
+  padding: 8px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 2px solid #444242;
+  outline: none;
+  background-color: rgb(235, 124, 91);
+  color: #333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.preference-bar select option {
+  background-color: rgb(237, 134, 134);
+  color: #333;
+  padding: 8px;
+}
+
+.container00 h2 {
+  color: rgb(62, 60, 60);
+  margin-bottom: 50px;
+  margin-left: 230px;
+  font-size: 30px;
+}
+
+.preference-bar select:hover {
+  background-color: var(--old-rose_30);
+}
+
+.preference-bar select:focus {
+  border-color: #1e1e1f;
+  /* Border color when the select element is focused */
+  box-shadow: 0 0 5px rgb(232, 167, 137);
+  /* Adding a shadow for better focus indication */
+}
+
+.dark-mode .preference-bar label,
+.dark-mode .preference-bar select:hover,
+.dark-mode .container00 h2 {
+  color: white;
+  /* Color for dark mode */
+}
+
+
+
+.book {
+  display: flex;
+  margin-bottom: 20px;
+  border: 3px double #7c7b7a;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.book .book-info {
+  flex: 1;
+  padding: 20px;
+  background-color: #f18ef6;
+}
+
+.book .book-info h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.book .book-info p {
+  margin: 5px 0;
+}
+
+.book .book-info img {
+  width: 120px;
+  /* Adjust the width as needed */
+  height: auto;
+  float: right;
+  margin-left: 20px;
+}
+
+.book .book-info h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+#recommendationTitle {
+  color: rgb(62, 60, 60);
+  font-size: larger;
+  margin-bottom: 20px;
+}
+
+
+body {
+  overflow-x: hidden;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .h1,
+body.dark-mode .h2,
+body.dark-mode .h3 {
+  color: #ffffff;
+  margin: 0 10px;
+}
+
+.container00.dark-mode,
+.container01.dark-mode {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.section-subtitle.dark-mode,
+.h2.section-title.has-underline.dark-mode {
+  color: #ffffff;
+}
+
+.btn-primary.dark-mode {
+  background-color: #333333;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.book-info.dark-mode {
+  background-color: #2c2c2c;
+  color: #ffffff;
+}
+
+.book-image.dark-mode {
+  border: 1px solid #ffffff;
+}
+
+.cards {
+  height: 28rem;
+}
+
+.pricing-card {
+  height: 70rem
+}
+
+.card-title {
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+
+/* Media Queries for Recommended Books section */
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .container00 {
+    padding: 30px;
+    margin-bottom: 30px;
   }
 
-  .author{
-    border: 2px solid black;
-    padding: 8px;
-    font-size: 15px;
-    border-radius: 5px;
+  .container01 {
+    padding: 30px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
-  
-  .preference-bar>* {
-    margin: 0 10px;
-    /* Add spacing between items */
+
+  .preference-bar {
+    flex-direction: column;
+    /* Stack items vertically */
   }
-  
-  .preference-bar label {
-    font-weight: bold;
-    font-size: 20px;
-    color: #474646;
-  }
-  
-  select {
-    /* Remove default blue background color */
-    background-color: transparent;
-    /* Optional: Remove default blue text color */
-    color: black;
-    /* or whatever color you want */
-  }
-  
-  .preference-bar button {
-    padding: 10px 16px;
-    font-size: 16px;
-    border-radius: 5px;
-    /* background-color: #007bff; */
-    /* color: #fff; */
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* .preference-bar button:hover { */
-  /* background-color: #0056b3; */
-  /* } */
-  
+
+  .preference-bar label,
   .preference-bar select {
-    padding: 8px;
-    font-size: 20px;
-    border-radius: 5px;
-    border: 2px solid #444242;
-    outline: none;
-    background-color: rgb(235, 124, 91);
-    color: #333;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    /* Reduce font size for better fit */
   }
-  
-  .preference-bar select option {
-    background-color: rgb(237, 134, 134);
-    color: #333;
-    padding: 8px;
-  }
-  
+
   .container00 h2 {
-    color: rgb(62, 60, 60);
-    margin-bottom: 50px;
-    margin-left: 230px;
-    font-size: 30px;
+    font-size: 24px;
+    margin-left: 0;
   }
-  
-  .preference-bar select:hover {
-    background-color: var(--old-rose_30);
+
+}
+
+
+/* Devices between 600px and 768px */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  .container00 {
+    padding: 40px;
+    /* Adjust padding for better spacing */
+    margin-bottom: 40px;
+    /* Adjust margin for better spacing */
   }
-  
-  .preference-bar select:focus {
-    border-color: #1e1e1f;
-    /* Border color when the select element is focused */
-    box-shadow: 0 0 5px rgb(232, 167, 137);
-    /* Adding a shadow for better focus indication */
+
+  .container01 {
+    padding: 40px;
+    /* Adjust padding for better spacing */
+    margin-bottom: 40px;
+    /* Adjust margin for better spacing */
+    margin-left: 20px;
+    margin-right: 20px;
   }
-  
-  .dark-mode .preference-bar label,
-  .dark-mode .preference-bar select:hover,
-  .dark-mode .container00 h2 {
-    color: white;
-    /* Color for dark mode */
+
+  .preference-bar {
+    flex-direction: column;
+    /* Stack items vertically */
   }
-  
-  
-  
+
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 16px;
+    /* Reduce font size for better fit */
+  }
+
+  .container00 h2 {
+    font-size: 26px;
+    /* Increase font size for better readability */
+    margin-left: 0;
+  }
+}
+
+
+/* Small devices (landscape phones, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+  /* No changes needed from the base styles */
+  .container00 {
+    max-width: 700px;
+    /* Adjust the max-width for better layout on landscape phones */
+    padding: 50px;
+    /* Increase padding for better spacing */
+  }
+
+  .container01 {
+    max-width: 700px;
+    /* Adjust the max-width for better layout on landscape phones */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    /* Increase padding for better spacing */
+  }
+
+  .preference-bar {
+    justify-content: space-between;
+    /* Maintain space between items */
+    flex-wrap: wrap;
+    /* Allow items to wrap */
+  }
+
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 18px;
+    /* Increase font size for better readability */
+  }
+}
+
+
+/* Medium devices (tablets, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .container00 {
+    max-width: 800px;
+  }
+
+  .container01 {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .preference-bar {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 18px;
+  }
+}
+
+/* Large devices (desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .container00 {
+    max-width: 1000px;
+  }
+
+  .container01 {
+    max-width: 1000px;
+  }
+
+  .preference-bar label,
+  .preference-bar select {
+    font-size: 20px;
+  }
+}
+
+/* media queries for chat widget  */
+
+@media screen and (max-width:1010px) {
+  .bp-widget-web.bp-widget-web {
+    right: calc(3.4% - 23px);
+  }
+}
+
+@media screen and (min-width:1010px) {
+  .bp-widget-web.bp-widget-web {
+    right: calc(2.8% - 23px);
+  }
+}
+
+@media only screen and (max-width: 598px) {
+
+  .bp-widget-web.bp-widget-web {
+    right: calc(4.95% - 23px);
+  }
+}
+
+/* trending book section css */
+.gallery-container {
+  background-color: hsl(22, 60%, 92%);
+  /* old rose color */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 70%;
+  margin: 40px auto;
+}
+
+/* hsl(20, 43%, 93%) */
+.gallery {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.gallery img {
+  width: 75%;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  height: 70%;
+}
+
+.preview-button {
+  background-color: hwb(357 6% 36%);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+
+}
+
+.preview-button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-color: hwb(357 6% 36%);
+}
+
+.trending {
+  /* font-family:"Lucida Console", "Courier New", monospace; */
+
+  font-family: "Philosopher", sans-serif;
+  color: hsl(203, 30%, 26%);
+  /* font-weight: bold; */
+  font-size: 45px;
+
+
+}
+
+@media only screen and (max-width:700px) {
   .book {
     display: flex;
     margin-bottom: 20px;
-    border: 3px double #7c7b7a;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  
-  .book .book-info {
-    flex: 1;
-    padding: 20px;
-    background-color: #f18ef6;
-  }
-  
-  .book .book-info h2 {
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
-  
-  .book .book-info p {
-    margin: 5px 0;
-  }
-  
-  .book .book-info img {
-    width: 120px;
-    /* Adjust the width as needed */
-    height: auto;
-    float: right;
-    margin-left: 20px;
-  }
-  
-  .book .book-info h2 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    margin-left: 10px;
-  }
-  
-  .recommendationTitle {
-    font-size: larger;
-    margin-left: 200px;
-    margin-bottom: 20px;
-  }
-  
-  body {
-    overflow-x: hidden;
-  }
-  
-  body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-  }
-  
-  body.dark-mode .h1,
-  body.dark-mode .h2,
-  body.dark-mode .h3 {
-    color: #ffffff;
-    margin: 0 10px;
-  }
-  
-  .container00.dark-mode,
-  .container01.dark-mode {
-    background-color: #1e1e1e;
-    color: #ffffff;
-  }
-  
-  .section-subtitle.dark-mode,
-  .h2.section-title.has-underline.dark-mode {
-    color: #ffffff;
-  }
-  
-  .btn-primary.dark-mode {
-    background-color: #333333;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-  }
-  
-  .book-info.dark-mode {
-    background-color: #2c2c2c;
-    color: #ffffff;
-  }
-  
-  .book-image.dark-mode {
-    border: 1px solid #ffffff;
-  }
-  
-  .cards {
-    height: 28rem;
-  }
-  
-  .pricing-card {
-    height: 70rem
-  }
-  
-  .card-title {
-    padding: 2px;
-    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    flex-flow: column-reverse;
     align-items: center;
-    gap: 2px;
   }
-  
-  
-  /* Media Queries for Recommended Books section */
-  
-  
-  /* Extra small devices (phones, 600px and down) */
-  @media only screen and (max-width: 600px) {
-    .container00 {
-      padding: 30px;
-      margin-bottom: 30px;
-    }
-  
-    .container01 {
-      padding: 30px;
-      margin-bottom: 30px;
-      margin-left: 20px;
-      margin-right: 20px;
-    }
-  
-    .preference-bar {
-      flex-direction: column;
-      /* Stack items vertically */
-    }
-  
-    .preference-bar label,
-    .preference-bar select {
-      font-size: 16px;
-      /* Reduce font size for better fit */
-    }
-  
-    .container00 h2 {
-      font-size: 24px;
-      margin-left: 0;
-    }
-  }
-  
-  
-  /* Devices between 600px and 768px */
-  @media only screen and (min-width: 600px) and (max-width: 767px) {
-    .container00 {
-      padding: 40px;
-      /* Adjust padding for better spacing */
-      margin-bottom: 40px;
-      /* Adjust margin for better spacing */
-    }
-  
-    .container01 {
-      padding: 40px;
-      /* Adjust padding for better spacing */
-      margin-bottom: 40px;
-      /* Adjust margin for better spacing */
-      margin-left: 20px;
-      margin-right: 20px;
-    }
-  
-    .preference-bar {
-      flex-direction: column;
-      /* Stack items vertically */
-    }
-  
-    .preference-bar label,
-    .preference-bar select {
-      font-size: 16px;
-      /* Reduce font size for better fit */
-    }
-  
-    .container00 h2 {
-      font-size: 26px;
-      /* Increase font size for better readability */
-      margin-left: 0;
-    }
-  }
-  
-  
-  /* Small devices (landscape phones, 768px and up) */
-  @media only screen and (min-width: 768px) {
-  
-    /* No changes needed from the base styles */
-    .container00 {
-      max-width: 700px;
-      /* Adjust the max-width for better layout on landscape phones */
-      padding: 50px;
-      /* Increase padding for better spacing */
-    }
-  
-    .container01 {
-      max-width: 700px;
-      /* Adjust the max-width for better layout on landscape phones */
-      margin-left: auto;
-      margin-right: auto;
-      padding: 50px;
-      /* Increase padding for better spacing */
-    }
-  
-    .preference-bar {
-      justify-content: space-between;
-      /* Maintain space between items */
-      flex-wrap: wrap;
-      /* Allow items to wrap */
-    }
-  
-    .preference-bar label,
-    .preference-bar select {
-      font-size: 18px;
-      /* Increase font size for better readability */
-    }
-  }
-  
-  
-  /* Medium devices (tablets, 992px and up) */
-  @media only screen and (min-width: 992px) {
-    .container00 {
-      max-width: 800px;
-    }
-  
-    .container01 {
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  
-    .preference-bar {
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-  
-    .preference-bar label,
-    .preference-bar select {
-      font-size: 18px;
-    }
-  }
-  
-  /* Large devices (desktops, 1200px and up) */
-  @media only screen and (min-width: 1200px) {
-    .container00 {
-      max-width: 1000px;
-    }
-  
-    .container01 {
-      max-width: 1000px;
-    }
-  
-    .preference-bar label,
-    .preference-bar select {
-      font-size: 20px;
-    }
-  }
-  
-  /* media queries for chat widget  */
-  
-  @media screen and (max-width:1010px){
-   .bp-widget-web.bp-widget-web{
-    right: calc(3.4% - 23px) ;
-    } 
-  }
-  
-  @media screen and (min-width:1010px) {
-    .bp-widget-web.bp-widget-web{
-    right: calc(2.8% - 23px) ;
-  }
-  }
-  
-  @media only screen and (max-width: 598px) {
-    
-    .bp-widget-web.bp-widget-web{
-      right: calc(4.95% - 23px) ;
-    }
-  }
-  /* trending book section css */
-  .gallery-container {
-    background-color: hsl(22, 60%, 92%); /* old rose color */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    width: 70%;
-    margin: 40px auto;
-  }
-  /* hsl(20, 43%, 93%) */
-  .gallery {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-  }
-  
-  .gallery img {
-    width: 75%;
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    height: 70%;
-  }
-  
-  .preview-button {
-    background-color: hwb(357 6% 36%);
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    
-  }
-  
-  .preview-button:hover {
-    background-color: white;
-    color: black;
-    border: 2px solid black;
-    border-color: hwb(357 6% 36%);
-  }
-.trending {
-    /* font-family:"Lucida Console", "Courier New", monospace; */
-
-    font-family: "Philosopher", sans-serif;
-    color:hsl(203, 30%, 26%);
-    /* font-weight: bold; */
-    font-size: 45px;
-    
-    
-  }
-
-  
+}
