@@ -1417,7 +1417,7 @@ footer {
     }
   }
   
-  @media (max-width: 992px) {
+  @media (max-width: 990px) {
     .switch-container {
       /* right: -20px; */
       bottom: 20px;
@@ -1449,7 +1449,7 @@ footer {
    * responsive for large than 992px screen
    */
   
-  @media (min-width: 992px) {
+  @media (min-width: 990px) {
     /**
      * CUSTOM PROPERTY
      */
@@ -1919,16 +1919,6 @@ footer {
     top: 140px;
   }
   
-  #back-to-top-container {
-  
-    /* position: fixed; */
-    top: 83%;
-    right: 2.8%;
-    /* Changed left to right */
-    cursor: pointer;
-    z-index: 1000;
-  }
-  
   .circle1 {
    
     background-color: white;
@@ -1945,15 +1935,24 @@ footer {
     fill: #d26d6d;
     transition: fill 0.3s;
   }
-  
-  .circle1:hover {
-    background-color: white;
-  }
-  
-  #back-to-top:hover {
-    fill: black;
-  }
-  
+  #back-to-top-container {
+    position: fixed;
+    bottom: 160px;
+    right: 40px;
+    cursor: pointer;
+    z-index: 1000; /* Ensures it appears above other elements */
+}
+
+#back-to-top {
+  color: white; /* Initial arrow color */
+  transition: fill 0.3s ease, background-color 0.3s ease;
+}
+
+#back-to-top:hover{
+  fill: black; /* Background color on hover */
+
+}
+
   /* Switch Container */
   .switch-container {
     position: absolute;
@@ -2067,19 +2066,12 @@ footer {
     }
   }
   
-  @media (min-width: 961px) {
+  @media (min-width: 960px) {
     .navbar-list {
       flex-direction: row;
     }
-  
-    #back-to-top-container {
-      position: fixed;
-      top: 82%;
-      right: 8%;
-      /* Changed left to right */
-    }
-  }
-  
+  }  
+    
   @media (min-width: 1025px) {
     .navbar-list {
       flex-direction: row;
@@ -2183,14 +2175,6 @@ footer {
       width: 100%;
       margin: 5px 0;
     }
-  
-    #back-to-top-container {
-      position: fixed;
-      top: 76%;
-      right: 4.95%;
-      /* Changed left to right */
-    }
-  
   }
   
   /* recommendation system */
@@ -2538,7 +2522,7 @@ footer {
   
   
   /* Medium devices (tablets, 992px and up) */
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: 990px) {
     .container00 {
       max-width: 800px;
     }
@@ -2578,7 +2562,7 @@ footer {
   
   /* media queries for chat widget  */
   
-  @media screen and (min-width:960px){
+  @media screen and (max-width:1010px){
    .bp-widget-web.bp-widget-web{
       right: calc(3.4% - 23px) ;
     } 
@@ -2622,3 +2606,11 @@ footer {
           background-color: rgb(0, 0, 0);
           background-color: rgba(0, 0, 0, 0.4);
       }
+      .modal-content {
+        background-color: var(--white);
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width:80% ;
+    }
+     

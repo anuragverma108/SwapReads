@@ -1,18 +1,20 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const nodemailer = require("nodemailer");
-const RegisterSchema = require("./assets/validation/zodschema");
-const validate = require("./assets/validation/validate.schema");
-const cors=require("cors")
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import nodemailer from 'nodemailer';
+import { RegisterSchema } from './assets/validation/zodschema.js';
+import validate from './assets/validation/validate.schema.js';
+
+import cors from 'cors';
+
+
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
-app.use(cors()); 
+app.use(cors());
 
 const MONGO_URI = "mongodb+srv://nishantkaushal0708:jhn14300@cluster0.vye07az.mongodb.net/";
-
 
 const dbConnect = async () => {
   try {
@@ -133,16 +135,17 @@ dbConnect().then(() => {
     }
   });
 
-  const PORT = process.env.PORT || 3000;
+  // Subscribe endpoint
+  app.post('/subscribe', (req, res) => {
+    let email = req.body.email;
+    console.log(email);
+    res.json({ success: true, message: "Subscribed successfully" });
+  });
+
+  const PORT = process.env.PORT || 4000;
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
 });
 
-
-app.post('/subscribe',(req,res)=>{
-  let email = req.body;
-  console.log(email);
-})
-
-app.listen(3000, () => console.log("Server is running on port 3000"));
+app.listen(4000, () => console.log("Server is running on port 3000"));

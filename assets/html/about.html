@@ -43,7 +43,9 @@
       margin: 0;
       padding: 0;
     }
-
+    .header{
+      position: fixed;
+    }
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -284,6 +286,63 @@
     overflow: hidden;
     cursor: pointer;
 }
+.hamburger{
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 24px;
+    left: 1.5%;
+}
+.line{
+    width: 36px;
+    height: 5px;
+    margin: 4px 4px;
+    background-color: rgb(240, 15, 15);
+}
+@media only screen and (max-width:1063px){
+    .nav{
+        flex-direction: column;
+    }
+    .header{
+        flex-direction: column;
+        height: 62rem;
+        transition: 0.55s all ease-out;
+        padding-top: 5px;
+    }
+    .navbar-item{
+        margin-right: 40px;
+    }
+    .navbar-list{
+      position: relative;
+      top: 265px;
+      left: 163px;
+    }
+    .hamburger{
+        display: block;
+    }
+    .nav-h{
+        height: 78px;
+        width: 100vw;
+    }
+    .vis-h{
+        opacity: 0;
+    }
+    /* .logo img{
+      position: relative;
+      top: 72px;
+      left: 145px;
+    } */
+}
+@media only screen and (max-width:990px){
+  .header{
+    height: 84px;
+  }
+  .logo img{
+    position: relative;
+    left: 50px;
+  }
+}
+
 
   </style>
 </head>
@@ -291,13 +350,13 @@
 <body>
 
 
-  <header class="header header-anim" data-header>
+  <header class="header header-anim nav-h" data-header>
 
     <div class="container">
 
       <nav class="navbar nav_activated" data-navbar>
 
-        <ul class="navbar-list">
+        <ul class="navbar-list nav vis-h">
           <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
             <img src="../images/final.png" class="logopic" style="width:100px;">
           </a>
@@ -377,8 +436,8 @@
             <!-- <div class="action">
               <div class="profile" onclick="menuToggle();">
                 <img src="../images/avatar.jpg">
-              </div> -->
-              <!-- <div class="menu">
+              </div>
+              <div class="menu">
                 <h3>XYZ<br /><span>Book Lover</span></h3>
                 <ul>
                   <li>
@@ -393,8 +452,8 @@
                   <li>
                     <img src="./assets/images/settings.png" /><a href="#">Setting</a>
                   </li>
-                  <li><img src="./assets/images/help.png" /><a href="#">Help</a></li> -->
-                  <!-- <li>
+                  <li><img src="./assets/images/help.png" /><a href="#">Help</a></li>
+                  <li>
                     <img src="./assets/images/logout.png" /><a href="#">Logout</a>
                   </li>
                 </ul>
@@ -410,8 +469,13 @@
             <!-- <li class="navbar-item">
               <div id="google_element"></div>
             </li> -->
-          <!-- </ul>
-        </nav> -->
+          </ul>
+          <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </nav>
   
       <!-- <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
       <script>
@@ -422,6 +486,13 @@
         }
       </script> -->
       <script>
+        const hamburger=document.querySelector('.hamburger');
+        const head=document.querySelector('.header');
+        const nav=document.querySelector('.nav');
+        hamburger.addEventListener('click',()=>{
+          head.classList.toggle('nav-h');
+          nav.classList.toggle('vis-h');
+        })
         let lastScrollTop = 0;
   
         function onScroll() {
@@ -495,31 +566,26 @@
     <div class="container">
       <section class="about">
 
-        <h2 style="color: grey;">About SwapReads</h2>
-        <p style="color: #6a6969;">
+        <h2 style="color: #0a0000;">About SwapReads</h2>
+        <p style="color: #444;">
           SwapReads is an online platform dedicated to connecting book lovers and facilitating the exchange of books. Our mission is to promote a vibrant reading culture by making it easier for readers to discover new titles, share their favorite books, and connect with fellow enthusiasts. Users can list books they want to swap, browse available titles, and engage in discussions and reviews. SwapReads also offers personalized recommendations to help users find their next great read. By encouraging sustainable reading habits and reducing the need for new book purchases, SwapReads supports eco-friendly practices. Join SwapReads to share your passion for books, discover new reads, and become part of a community that celebrates the joy of reading.
         </p>
       </section>
       <section class="stats-box">
         <div class="stats-container">
-          <h2 style="color: grey;">Our Stats</h2>
+          <h2 style="color: #090e11;">Our Stats</h2>
           <div class="stats">
             <div class="stat">
-              <h3 id="stat1"style="color:white;-webkit-text-stroke-width: 2px;
-            -webkit-text-stroke-color: black;">0</h3>
-              <p style="color: white;text-shadow: -1px 1px 0 #000,1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000;">
-              
-              Books Available</p>
+              <h3 id="stat1"style="color: #090e11;">0</h3>
+              <p style="color: #090e11;" >Books Available</p>
             </div>
             <div class="stat">
-              <h3 id="stat2"style="color:white;-webkit-text-stroke-width: 2px;
-            -webkit-text-stroke-color: black;">0</h3>
-              <p style="color: white;text-shadow: -1px 1px 0 #000,1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000;">Genres Covered</p>
+              <h3 id="stat2"style="color: #090e11;">0</h3>
+              <p style="color: #090e11;">Genres Covered</p>
             </div>
             <div class="stat">
-              <h3 id="stat3"style="color:white;-webkit-text-stroke-width: 2px;
-            -webkit-text-stroke-color: black;">0</h3>
-              <p style="color: white;text-shadow: -1px 1px 0 #000,1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000;">Happy Readers</p>
+              <h3 id="stat3"style="color: #090e11;">0</h3>
+              <p style="color: #090e11;">Happy Readers</p>
             </div>
           </div>
         </div>
@@ -527,24 +593,24 @@
       </section>
       
       <section class="mission-values">
-        <h2 style="color: grey;">Our Mission and Values</h2>
+        <h2 style="color: #090e11;">Our Mission and Values</h2>
         <div class="about-us-block">
           <div class="about-us-community">
             <div style="display: flex; align-items: center; gap: 1rem;">
               <img id="community-img" src="../images/book.png" alt=""
                 style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-              <div class="about-us-blk-text" style="color:grey;">Book Swapping</div>
+              <div class="about-us-blk-text"style="color: #011521;">Book Swapping</div>
             </div>
-            <p class="about-us-blk-para" style="color: rgb(138, 138, 138);">Easily list the books you’re willing to exchange and browse through a vast
+            <p class="about-us-blk-para" style="color: #011521;">Easily list the books you’re willing to exchange and browse through a vast
               collection of available titles, facilitating smooth and hassle-free book swaps with other members.</p>
           </div>
           <div class="about-us-product">
             <div style="display: flex; align-items: center; gap: 1rem;">
               <img id="product-img" src="../images/community.png" alt=""
                 style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-              <div class="about-us-blk-text"style="color: grey;">Community Engagement</div>
+              <div class="about-us-blk-text"style="color: #011521;">Community Engagement</div>
             </div>
-            <p class="about-us-blk-para"style="color: rgb(138, 138, 138);">Join a vibrant community of book lovers through discussion forums, reading
+            <p class="about-us-blk-para"style="color: #011521;">Join a vibrant community of book lovers through discussion forums, reading
               groups,
               and event participation, fostering a collaborative and engaging literary environment.</p>
           </div>
@@ -554,9 +620,9 @@
             <div style="display: flex; align-items: center; gap: 1rem;">
               <img id="location-img" src="../images/read.png" alt=""
                 style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-              <div class="about-us-blk-text"style="color: grey;">Reading Recommendations</div>
+              <div class="about-us-blk-text"style="color: #011521;">Reading Recommendations</div>
             </div>
-            <p class="about-us-blk-para"style="color:rgb(138, 138, 138);">Receive personalized book suggestions based on your reading history and
+            <p class="about-us-blk-para"style="color: #011521;">Receive personalized book suggestions based on your reading history and
               preferences, ensuring you always have a new and exciting read lined up for your next literary adventure.
             </p>
           </div>
@@ -564,9 +630,9 @@
             <div style="display: flex; align-items: center; gap: 1rem;">
               <img id="event-img" src="../images/bookshelf.png" alt=""
                 style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-              <div class="about-us-blk-text"style="color: grey">Virtual Bookshelf</div>
+              <div class="about-us-blk-text"style="color: #011521;">Virtual Bookshelf</div>
             </div>
-            <p class="about-us-blk-para"style="color:rgb(138, 138, 138) ">Organize and manage your virtual bookshelf, keeping track of books you've read,
+            <p class="about-us-blk-para"style="color: #011521;">Organize and manage your virtual bookshelf, keeping track of books you've read,
               want to read, and are currently reading. Easily access your collection and track your reading progress.
             </p>
           </div>
@@ -577,34 +643,38 @@
       <h2>Meet Our Team</h2>
       <div class="team-cards">
         <!-- Team member cards will go here -->
-        <div class="team-member">
+         <a id="gitlin"  href="https://github.com/anuragverma108" style="text-decoration: none;">
+        <div class="team-member" data-tilt>
           <img src="../images/pic1.jpeg" alt="Team Member 1">
           <div class="member-info">
             <h3>Anurag Verma</h3>
             <p>Project Admin</p>
           </div>
-        </div>
+        </div></a>
+       <a id="gitlin" href="https://github.com/huamanraj"style="text-decoration: none;">
         <div class="team-member">
           <img src="../images/pic2.jpeg" alt="Team Member 2">
           <div class="member-info">
             <h3>Aman Raj</h3>
             <p>Mentor</p>
           </div>
-        </div>
+        </div></a>
+        <a class="gitlin" href="https://github.com/RitiChandak"style="text-decoration: none;">
         <div class="team-member">
           <img src="../images/pic3.jpeg" alt="Team Member 3">
           <div class="member-info">
             <h3>Riti Chandak</h3>
             <p>Mentor</p>
           </div>
-        </div>
+        </div></a>
+        <a class="gitlin" href="https://github.com/RishabhDhawad"style="text-decoration: none;">
         <div class="team-member">
           <img src="../images/pic4.jpeg" alt="Team Member 4">
           <div class="member-info">
             <h3>Rishabh Dhawad</h3>
             <p>Mentor</p>
           </div>
-        </div>
+        </div></a>
         <!-- Add more team member cards as needed -->
       </div>
     </section>
@@ -617,13 +687,14 @@
         <div class="contributor-cards" id="contributor-cards">
           <!-- Contributor cards will be inserted here -->
         </div>
-        <div class="pagination" id="pagination">
+        <div class="pagination" id="pagination" >
           <!-- Pagination buttons will be inserted here -->
         </div>
       </section>
 
     <style>
       .contributors {
+        width: 90%;
         margin: 0 auto;
         background: var(--seashell);
         border-radius: 10px;
@@ -772,24 +843,24 @@
       <div id="quicklinks">
         <div>
         <ul>
-          <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')">Home</a></li>
-          <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
-          <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
-          <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
-          <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
+          <li class="foot-quick"><a href="index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
+          <li class="foot-quick"><a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
+          <li class="foot-quick"><a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+          <li class="foot-quick"><a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
+          <li class="foot-quick"><a href="book_recommend.html"
             onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
         </ul>
       </div>
       <div>
         <ul>
-          <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')">Swap
+          <li class="foot-quick"><a href="addremovebook.html" >Swap
               BookList</a></li>
-          <li class="foot-quick"><a href="./assets/html/freeBooks.html"
+          <li class="foot-quick"><a href="freeBooks.html"
               onclick="lenis.scrollTo('#contact')">E-Book</a></li>
-          <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
+          <li class="foot-quick"><a href="about.html" >About</a>
           </li>
-          <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
-          <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
+          <li class="foot-quick"><a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+          <li class="foot-quick"><a href="../../index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
         </ul>
       </div>
       </div>
@@ -803,18 +874,33 @@
             padding: 10px; /* Inner padding */
             font-size: 16px; /* Font size */
         }
+        #confirmationMessage{
+            margin-left: 50px;
+            font-size: 23px;
+            color: rgb(15, 15, 16);
+          }
       </style>
 
-      <form type="newsletter">
-        <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
-        <div class="row-flex">
-            <!-- Email input -->
-            <input type="email" id="newsletter-email" name="email" placeholder="E mail address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$" 
-            title="Please enter a valid email address that ends with '.com'" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
-        </div>
-    </form>
-    <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+<form type="newsletter" onsubmit="return showConfirmationMessage()">
+  <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
+  <div class="row-flex">
+      <!-- Email input -->
+      <input type="email" id="newsletter-email" name="email" placeholder="Email address"
+             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+             title="Please enter a valid email address that ends with '.com'" required>
+      <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
+  </div>
+</form>
+<div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+
+<script>
+function showConfirmationMessage() {
+  var confirmationMessage = document.getElementById("confirmationMessage");
+  confirmationMessage.style.display = "block";
+
+  return false;
+}
+</script>
     
       
       <div class="icons">
@@ -840,6 +926,12 @@
         <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
           <div class="icon">
             <i class="fab fa-youtube" style="cursor: pointer;"></i>
+          </div>
+        </a>
+
+        <a href="">
+          <div class="icon">
+            <i class="fab fa-github" title="Github"></i>
           </div>
         </a>
        
@@ -1128,6 +1220,8 @@
         }
        });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+
 <script>
         document.addEventListener("DOMContentLoaded", function () {
           const backToTopButton = document.getElementById('back-to-top-container');
@@ -1152,7 +1246,12 @@
           checkButtonVisibility();
         });
       </script>
-
+<script>
+  VanillaTilt.init(document.querySelectorAll(".team-member"), {
+    max: 25,
+    speed: 400
+  });
+</script>
       <script>
 
         // Function for the contributors section
@@ -1184,6 +1283,7 @@
           currentContributors.forEach(contributor => {
             const card = document.createElement('div');
             card.className = 'contributor-member';
+            card.setAttribute('data-tilt','');
 
             const img = document.createElement('img');
             img.src = contributor.avatar_url;

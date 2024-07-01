@@ -14,10 +14,13 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="./assets/css/rate.css">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/litrary_realms.css">
   <link rel="stylesheet" href="./assets/font-6/css/all.css">
   <link rel="stylesheet" href="header.css">
   <link rel="stylesheet" href="./assets/css/MenuClick.css">
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,6 +59,7 @@
   <link rel="stylesheet" href="assets/css/preloader.css">
   <script src="https://cdn.lordicon.com/lordicon.js"></script>
   <script src="./assets/js/preloader.js" defer></script>
+  <script src="./script.js"></script>
   
   <style>
     swiper-container {
@@ -63,6 +67,9 @@
       height: 75%;
     }
 
+
+    
+   
     /* Theme Change Button Style */
     @media (max-width: 990px) {
       .switch-container {
@@ -170,6 +177,64 @@
       letter-spacing: 1px;
       transition: ease-in-out;
     }
+    .cta1{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: auto;
+  padding: 20px 24px;
+  color:  hsl(357, 37%, 62%);
+  font-family: Avenir, sans-serif;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 27px;
+    left: 0;
+    display: block;
+    border-radius: 28px;
+    background: rgba(255, 171, 157, 0.5);
+    width: 56px;
+    height: 56px;
+    transition: all 0.3s ease;
+  }
+  span {
+    position: relative;
+    font-size: 8px;
+    line-height: 18px;
+    font-weight: 900;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    vertical-align: middle;
+    color: var(--charcoal);
+  }
+  svg {
+    position: relative;
+    top: 27px;
+    margin-left: 5px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: hsl(357, 37%, 62%);
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    &:before {
+      width: 9%;
+      background: #ffab9d;
+    }
+    svg {
+      transform: translateX(0);
+    }
+    .active {
+      transform: scale(0.96);
+    }
+  }
+}
 
 .cta {
   position: relative;
@@ -462,7 +527,11 @@ body {
 }
 
 .action .menu ul li a {
-  display: inline-block;
+  display: inline-flex;
+  text-align: center;
+  padding-left: 5%;
+  font-weight: 300;
+  font-size: 19px;
   text-decoration: none;
   color: #555;
   font-weight: 500;
@@ -471,6 +540,69 @@ body {
 
 .action .menu ul li:hover a {
   color: #ff5d94;
+  font-size: 21px;
+
+}
+.hamburger{
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 24px;
+    left: 1.5%;
+}
+.line{
+    width: 36px;
+    height: 5px;
+    margin: 4px 4px;
+    background-color: rgb(240, 15, 15);
+}
+@media only screen and (max-width:1063px){
+    .nav{
+        flex-direction: column;
+    }
+    .header{
+        flex-direction: column;
+        height: 53.8rem;
+        transition: 0.55s all ease-out;
+        padding-top: 5px;
+    }
+    .navbar-item{
+        margin-right: 40px;
+    }
+    .navbar-list{
+      position: relative;
+      top: 200px;
+    }
+    .hamburger{
+        display: block;
+    }
+    .nav-h{
+        height: 78px;
+        width: 100vw;
+    }
+    .vis-h{
+        opacity: 0;
+    }
+    .logo img{
+      position: relative;
+      top: 17px;
+      left: 350px;
+    }
+}
+@media only screen and (max-width:990px){
+  .header{
+    height: 0;
+  }
+  .navbar-list{
+    top: 0;
+  }
+  .logo img{
+    top: -9px;
+    left: 50px;
+  }
+}
+.navbar-item {
+  margin-top: 10px; /* Increase the top margin of each item */
 }
 
   </style>
@@ -563,14 +695,14 @@ body {
   });
 });
 </script>
-  <header class="header header-anim" data-header>
+  <header class="header header-anim nav-h" data-header>
 
     <div class="container mobile-container-styles" style="padding-left: 0;">
 
       <nav class="navbar nav_activated" data-navbar>
 
 
-        <ul class="navbar-list">
+        <ul class="navbar-list nav">
           <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
             <img src="./assets/images/final.png" class="logopic" style=" width: 150px;">
           </a>
@@ -603,7 +735,7 @@ body {
           </li>
 
           <li class="navbar-item">
-            <a href="#rate-us-modal" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+            <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
 
           <li class="navbar-item" id="login-signup-link">
             <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
@@ -644,23 +776,28 @@ body {
                   <a href="./assets/html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
                 </li>
                 <li class="dropdown-menu-item">
+                  <a href="./assets/html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
+                </li>
+                <li class="dropdown-menu-item">
                   <a href="./assets/html/about.html" class="navbar-link">About</a>
                 </li>
               </ul>
             </div>
           </li>
+
+
           <div class="action">
             <div class="profile" onclick="menuToggle();">
-              <img src="./assets/images/avatar.jpg" />
+              <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
             </div>
             <div class="menu">
               <h3>XYZ<br /><span>Book Lover</span></h3>
               <ul>
                 <li>
-                  <img src="./assets/images/user.jpg" /><a href="#">My profile</a>
+                  <img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a>
                 </li>
                 <li>
-                  <img src="./assets/images/edit profile.jpg" /><a href="#">Edit profile</a>
+                  <img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit profile</a>
                 </li>
                 <li>
                   <img src="./assets/images/inbox.png" /><a href="#">Inbox</a>
@@ -676,18 +813,47 @@ body {
               </div>
               </div>
               <script>
+               document.addEventListener("DOMContentLoaded", () => {
+    const savedAvatar = localStorage.getItem("selectedAvatar");
+    if (savedAvatar) {
+        document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+    }
+});
+
+        
                 function menuToggle() {
-                  const toggleMenu = document.querySelector(".menu");
-                  toggleMenu.classList.toggle("active");
+                    const toggleMenu = document.querySelector(".menu");
+                    toggleMenu.classList.toggle("active");
                 }
-              </script>
+            </script>
           <!-- Google Translate Element -->
           <!-- <li class="navbar-item">
             <div id="google_element"></div>
           </li> -->
         </ul>
+        <!-- <div class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div> -->
       </nav>
-
+      <div id="mobile_View_Menu">
+        <span id="menu_lines"></span>
+       </div>
+    <script>
+        let menu=document.getElementById('mobile_View_Menu')
+        let navbar_con=document.querySelector('.navbar')
+        menu.addEventListener('click',()=>{
+          if(menu.classList.contains('open_menu')){
+            menu.classList.remove('open_menu')
+            navbar_con.classList.add('nav_activated')
+          }
+          else{
+            menu.classList.add('open_menu')
+            navbar_con.classList.remove('nav_activated')
+          }
+        })
+      </script>
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script>
       function loadGoogleTranslate() {
@@ -697,19 +863,25 @@ body {
       }
     </script>
     <script>
-      let lastScrollTop = 0;
+      // const hamburger=document.querySelector('.hamburger');
+      // const head=document.querySelector('.header');
+      // const nav=document.querySelector('.nav');
+      // hamburger.addEventListener('click',()=>{
+      //   head.classList.toggle('nav-h');
+      //   nav.classList.toggle('vis-h');
+      // })
+      // let lastScrollTop = 0;
+      // function onScroll() {
+      //     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      //     const header = document.querySelector('.header');
 
-      function onScroll() {
-          let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-          const header = document.querySelector('.header');
-
-          if (currentScroll > lastScrollTop) {
-              header.classList.add('hidden');
-          } else {
-              header.classList.remove('hidden');
-          }
-          lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-      }
+      //     if (currentScroll > lastScrollTop) {
+      //         header.classList.add('hidden');
+      //     } else {
+      //         header.classList.remove('hidden');
+      //     }
+      //     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+      // }
 
 
   window.addEventListener("scroll", onScroll);
@@ -780,10 +952,7 @@ body {
         <p class="thank_you_message">Thank you for rating us!</p>
       </div>
     </div> -->
-
     <article>
-
-
       <!-- Book Exchange Hub -->
       <section class="section hero" id="home" aria-label="home">
         <div class="container">
@@ -791,9 +960,9 @@ body {
           <div class="hero-content">
             <p class="section-subtitle"> Let's Exchange Old Books and Discover New Stories Together!</p>
 
-            <h1 class="h1 hero-title" style="color: blueviolet;">SwapReads.com - Where Books Find New Adventures!</h1>
+            <h1 class="h1 hero-title" style="color: rgb(255, 255, 255);">SwapReads.com - Where Books Find New Adventures!</h1>
 
-            <p class="section-text " style="color: black;">
+            <p class="section-text " >
               Join SwapReads.com, the ultimate online community for book enthusiasts! Create your profile, list your
               favorite reads, and embark on literary journeys by swapping books with fellow passionate readers. Discover
               a world where books find new adventures and readers connect through the joy of sharing stories.
@@ -830,8 +999,8 @@ body {
         <div class="container">
           <div class="flex">
             <div class="benefits-content">
-              <h2 class="h2 section-title" style="text-align: center;">Unleash the Magic of Book Swapping!</h2>
-              <p class="section-text" style="text-align: center; color: black;">"SwapReads.com - Where Every Book is a Portal to a New
+              <h2 class="h2 section-title" style="text-align: center; margin-top: 79px;">Unleash the Magic of Book Swapping!</h2>
+              <p class="section-text" style="text-align: center;">"SwapReads.com - Where Every Book is a Portal to a New
                 Adventure!"</p>
             </div>
 
@@ -842,7 +1011,7 @@ body {
                   <img src="./assets/images/benefits-1.svg" width="40" height="40" loading="lazy" alt="Experience">
                 </div>
                 <h3 class="h3 card-title" style="color: brown;">Diverse Literary Adventures</h3>
-                <p class="card-text" style="color: black;">
+                <p class="card-text" >
                   Explore a vast array of genres and titles by exchanging books with our diverse community, opening
                   doors
                   to new and exciting literary adventures.
@@ -852,13 +1021,15 @@ body {
                   <span class="span readmore-anim">Read more</span>
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
                 </a> -->
-                <a href="#" class="cta style-9">
-                  <span>Read More</span>
+              
+                <a href="#" class="cta1 style-9">
+                  <span style="position: relative; top: 27px;">Read More</span>
                   <svg width="13px" height="10px" viewBox="0 0 13 10">
                     <path d="M1,5 L11,5"></path>
                     <polyline points="8 1 12 5 8 9"></polyline>
                   </svg>
                 </a>
+            
               </div>
             </li>
 
@@ -871,7 +1042,7 @@ body {
 
                 <h3 class="h3 card-title" style="color: brown;">Cost-Efficient Reading</h3>
 
-                <p class="card-text"style="color: black;">
+                <p class="card-text">
                   Save money on your reading habit by swapping books instead of purchasing new ones, making your reading
                   journey more economical and sustainable.
                 </p>
@@ -902,7 +1073,7 @@ body {
 
                 <h3 class="h3 card-title"style="color: brown;">Connect with Like-Minded Readers</h3>
 
-                <p class="card-text"style="color: black;">
+                <p class="card-text">
                   Build meaningful connections with fellow book enthusiasts, sharing recommendations, insights, and
                   forming a community bonded by a love for literature.
                 </p>
@@ -931,7 +1102,7 @@ body {
 
                 <h3 class="h3 card-title"style="color: brown;">Revitalize Your Bookshelf</h3>
 
-                <p class="card-text"style="color: black;">
+                <p class="card-text">
                   Keep your home library fresh and dynamic by constantly swapping books, ensuring a rotating collection
                   that reflects your evolving tastes and interests.
                 </p>
@@ -961,7 +1132,7 @@ body {
 
                 <h3 class="h3 card-title"style="color: brown;">Environmental Impact</h3>
 
-                <p class="card-text"style="color: black;">
+                <p class="card-text">
                   Contribute to eco-friendly practices by participating in book swaps, reducing the demand for new
                   prints and promoting a greener approach to reading.
                 </p>
@@ -991,7 +1162,7 @@ body {
 
                 <h3 class="h3 card-title"style="color: brown;">Personalized Reading Experience</h3>
 
-                <p class="card-text"style="color: black;">
+                <p class="card-text">
                   Tailor your reading list to your preferences by selecting books from other users' collections,
                   creating a personalized and curated reading experience that suits you.
                 </p>
@@ -1016,8 +1187,175 @@ body {
 
         </div>
       </section>
-      <!--Chapters -->
+
+
+      <!--Chapters-->
+
       <section class="section chapters" id="chapters">
+        <div class="containerr">
+          <p class="section-subtitle" style="color: brown;">Literary Realms</p>
+          <h1 class="h1 section-title has-underline" id="section-title2">
+            Literary Realms we've covered
+            <span class="span has-before"></span>
+          </h1>
+
+          <div class="carousell-wrapper">
+            <i id="left-arrow" class="fa-solid fa-angle-left"></i>
+            
+            <div class="carousell">
+              <div class="cardd">
+                <a class="cardo" href="romantic-esc.html">
+                  <h3 class="lithead"> &nbsp;Romantic Escapes</h3>
+                  <p class="small">Immerse yourself in the enchanting world of love and passion with our curated selection of romance fiction.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+              <div class="cardd">
+                <a class="cardo" href="thrilling-adventures.html">
+                  <h3 class="lithead"> &nbsp;Thrilling Adventures</h3>
+                  <p class="small">Dive into heart-pounding tales and gripping narratives that will keep you on the edge of your seat.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+              <div class="cardd">
+                <a class="cardo" href="mindful-living.html">
+                  <h3 class="lithead"> &nbsp;Mindful Living</h3>
+                  <p class="small">Discover the secrets to a fulfilling life with our collection of insightful and empowering self-help books.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+              <div class="cardd">
+                <a class="cardo" href="Mystical-fantaies.html">
+                  <h3 class="lithead"> &nbsp;Mystical Fantasies</h3>
+                  <p class="small">Embark on fantastical journeys to magical realms with our captivating fantasy fiction picks.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+              <div class="cardd">
+                <a class="cardo" href="historical-chronicals.html">
+                  <h3 class="lithead"> &nbsp;Historical Chronicles</h3>
+                  <p class="small">Travel back in time and explore the rich tapestry of history through our curated historical fiction selection.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+              <div class="cardd">
+                <a class="cardo" href="scifi.html">
+                  <h3 class="lithead"> &nbsp;Science Fiction Wonders</h3>
+                  <p class="small">Ignite your imagination with mind-bending concepts and futuristic worlds in our science fiction.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+              <div class="cardd">
+                <a class="cardo" href="lol.html">
+                  <h3 class="lithead"> &nbsp;Laugh Out Loud Comedy</h3>
+                  <p class="small">Find joy and laughter in our comedy section, featuring witty and humorous tales that will brighten your day.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+              <div class="cardd">
+                <a class="cardo" href="intriguing-mysteries.html">
+                  <h3 class="lithead"> &nbsp;Intriguing Mysteries</h3>
+                  <p class="small">Unravel gripping mysteries and suspenseful plots that will keep you guessing until the last page.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+              <div class="cardd">
+                <a class="cardo" href="biographies.html">
+                  <h3 class="lithead"> &nbsp;Inspiring Biographies</h3>
+                  <p class="small">Gain insights into the lives of remarkable individuals through our collection of inspiring biographies and memoirs.</p>
+                  <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            
+            <i id="right-arrow" class="fa-solid fa-angle-right"></i>
+          </div>
+        </div>
+      </section>
+
+      <script>
+       document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.querySelector(".carousell");
+    const firstCardWidth = carousel.querySelector(".cardd").offsetWidth;
+    const arrowBtns = document.querySelectorAll(".carousell-wrapper i");
+    const carouselChildrens = [...carousel.children];
+
+    let isDragging = false, startX, startScrollLeft;
+
+    let cardPerView = 3; 
+
+    // Insert copies of the last few cards to beginning of carousel for infinite scrolling
+    carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
+        carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+    });
+
+    // Insert copies of the first few cards to end of carousel for infinite scrolling
+    carouselChildrens.slice(0, cardPerView).forEach(card => {
+        carousel.insertAdjacentHTML("beforeend", card.outerHTML);
+    });
+
+    // Scroll the carousel to hide the duplicates and position it correctly
+    carousel.scrollLeft = carousel.offsetWidth * cardPerView;
+
+    // Add event listeners for the arrow buttons to scroll the carousel left and right
+    arrowBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            carousel.scrollLeft += btn.id === "left-arrow" ? -firstCardWidth : firstCardWidth;
+        });
+    });
+
+    const dragStart = (e) => {
+        isDragging = true;
+        startX = e.pageX;
+        startScrollLeft = carousel.scrollLeft;
+    }
+
+    const dragging = (e) => {
+        if (!isDragging) return;
+        carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+    }
+
+    const dragStop = () => {
+        isDragging = false;
+    }
+
+    const infiniteScroll = () => {
+        // If at the beginning, scroll to the end
+        if (carousel.scrollLeft === 0) {
+            carousel.scrollLeft = carousel.scrollWidth - (2 * carousel.offsetWidth);
+        }
+        // If at the end, scroll to the beginning
+        else if (Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offsetWidth) {
+            carousel.scrollLeft = carousel.offsetWidth;
+        }
+    }
+
+    carousel.addEventListener("mousedown", dragStart);
+    carousel.addEventListener("mousemove", dragging);
+    document.addEventListener("mouseup", dragStop);
+    carousel.addEventListener("scroll", infiniteScroll);
+});
+      </script>
+
+      <!-- <section class="section chapters" id="chapters">
         <div class="container">
 
           <p class="section-subtitle" style="color: brown;">Literary Realms</p>
@@ -1030,8 +1368,8 @@ body {
           <ul class="grid-list">
 
             <li>
-              <!---jfdb-->
-              <a class="cardo" href="books.html">
+              
+              <a class="cardo" href="romantic-esc.html">
                 <h3 class="lithead">01. &nbsp;Romantic Escapes</h3>
                 <p class="small"> Immerse yourself in the enchanting world of love and passion with our curated
                   selection of romance
@@ -1163,7 +1501,7 @@ body {
           </ul>
         </div>
       </section>
-
+ -->
 
 
 <!--
@@ -1191,7 +1529,7 @@ body {
                 <ul class="pricing-card-list">
 
                   <li class="card-item">
-                    <p class="card-text" style="color: black;">Exchange any recently released or gently used books, less than a year old, at
+                    <p class="card-text">Exchange any recently released or gently used books, less than a year old, at
                       75% of the original cost (Limited Offer)</p>
                   </li>
                 </ul>
@@ -1206,7 +1544,7 @@ body {
                 <ul class="pricing-card-list">
 
                   <li class="card-item">
-                    <p class="card-text" style="color: black;" >beloved classics or books aged 1 to 5 years at 50% of the original cost,
+                    <p class="card-text">beloved classics or books aged 1 to 5 years at 50% of the original cost,
                       preserving the magic of timeless stories.</p>
                   </li>
                 </ul>
@@ -1224,7 +1562,7 @@ body {
 
 
                   <li class="card-item">
-                    <p class="card-text" style="color: black;"> into the past with vintage editions or books over 5 years old, available
+                    <p class="card-text"> into the past with vintage editions or books over 5 years old, available
                       for exchange at 25% of their original cost.</p>
                   </li>
                 </ul>
@@ -1260,7 +1598,7 @@ body {
 
                 <h3 class="h3 card-title">Classic Literature</h3>
 
-                <p class="card-text" style="color: black;">
+                <p class="card-text" >
                   The category of classic literature contains literature that is worthy of being read through the ages.
                   Classic literature is timeless and well-written. Sophocles,Charles Dickens, Jane Austen and Virgil are
                   all writers whose works are considered classical literature.
@@ -1275,7 +1613,7 @@ body {
                 <p class="card-subtitle">02</p>
 
                 <h3 class="h3 card-title">Romance</h3>
-                <p class="card-text"style="color: black;">
+                <p class="card-text">
                   A romance is understood to be 'love stories,' which are primarily focused on the relationship between
                   the main characters of the story. The biggest defining characteristic of the romance genre is that a
                   happy ending is always guaranteed, perhaps living 'happily ever after.
@@ -1291,7 +1629,7 @@ body {
 
                 <h3 class="h3 card-title">Suspense Thriller</h3>
 
-                <p class="card-text"style="color: black;">
+                <p class="card-text">
                   Readers are taken on a rollercoaster ride of tension and intrigue. These gripping tales are filled
                   with twists and turns, keeping readers guessing until the very last page as protagonists navigate
                   dangerous situations.
@@ -1307,7 +1645,7 @@ body {
 
                 <h3 class="h3 card-title">Science Fiction</h3>
 
-                <p class="card-text"style="color: black;">
+                <p class="card-text">
                   Embarking on voyages across the cosmos and exploring the possibilities of future technology, science
                   fiction books ignite the imagination with visions of advanced civilizations, space exploration, and
                   speculative science.
@@ -1323,7 +1661,7 @@ body {
 
                 <h3 class="h3 card-title">Fantasy</h3>
 
-                <p class="card-text"style="color: black;">
+                <p class="card-text">
                   Immersed in magical realms and mythical creatures, fantasy books transport readers to worlds where
                   anything is possible, weaving tales of epic quests, ancient prophecies, and battles between good and
                   evil.
@@ -1339,7 +1677,7 @@ body {
 
                 <h3 class="h3 card-title">Horror</h3>
 
-                <p class="card-text"style="color: black;">
+                <p class="card-text">
                   Sending shivers down readers' spines, horror books delve into the macabre and the supernatural,
                   exploring fear, dread, and the unknown through chilling tales of monsters, ghosts, and psychological
                   terror.
@@ -1355,7 +1693,7 @@ body {
 
                 <h3 class="h3 card-title">Biography</h3>
 
-                <p class="card-text"style="color: black;">
+                <p class="card-text">
                   Providing insight into real lives and experiences, biography books recount the journeys, triumphs, and
                   struggles of notable individuals, offering inspiration and understanding through their personal
                   stories and achievements.
@@ -1371,7 +1709,7 @@ body {
 
                 <h3 class="h3 card-title">Self Help</h3>
 
-                <p class="card-text"style="color: black;">
+                <p class="card-text">
                   Empowering readers to improve their lives and well-being, self-help books offer practical advice,
                   strategies, and insights for personal growth, happiness, and success, covering topics such as
                   relationships, productivity, and mental health.
@@ -1385,7 +1723,7 @@ body {
 
               <h3 class="h3 card-title">Historical Fiction</h3>
 
-              <p class="card-text"style="color: black;">
+              <p class="card-text">
                 Offering a glimpse into the past, historical fiction books blend real events with fictional
                 narratives, transporting readers to different eras and cultures, bringing history to life through
                 vivid characters and immersive storytelling.
@@ -1401,7 +1739,7 @@ body {
 
                 <h3 class="h3 card-title">Poetry</h3>
 
-                <p class="card-text"style="color: black;">
+                <p class="card-text">
                   Distilling emotions into rhythmic language, they inspire reflection, evoke vivid imagery, and offer
                   solace.
                   From ancient epics to modern verses, they celebrate the power of words and the timeless beauty of
@@ -1418,7 +1756,7 @@ body {
 
                 <h3 class="h3 card-title">Philosophy</h3>
 
-                <p class="card-text"style="color: black;">
+                <p class="card-text">
                   Delve into life's fundamental questions, exploring existence, ethics,
                   and knowledge, they provoke deep thought, challenge assumptions, and offer
                   diverse perspectives, fostering critical thinking and a deeper understanding of the human condition.
@@ -1434,7 +1772,7 @@ body {
 
                 <h3 class="h3 card-title">Adventure Fiction</h3>
 
-                <p class="card-text"style="color: black;">
+                <p class="card-text">
                   Captivates with thrilling journeys, daring heroes, and unexpected twists,
                   transports readers to exotic locales, ignites the imagination, and offers escapism,
                   excitement, and a sense of discovery and wonder.
@@ -1456,162 +1794,135 @@ body {
 
       <!--Book Exchange Hub-->
       <section class="section preview" aria-label="preview">
-  <div class="container1">
-    <h2 class="h2 section-title has-underline">
-      Book Exchange Hub
-      <span class="span has-before"></span>
-    </h2>
-    <p class="section-text booktext">
-      Connect with fellow readers in our Book Exchange Hub. Sell your old books at half price and give your
-      favorite reads a new home. Fill out the form below to get started!
-    </p>
-
-    <div class="exchange-form">
-      <div class="form-fields">
-        <label class="form-label" for="bookTitle">Book Title:</label>
-        <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the title of your book" required class="input-field">
-        <span id="bookTitle-error" class="error"></span>
-
-        <label class="form-label" for="bookAuthor">Author:</label>
-        <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter the author's name" required class="input-field">
-        <span id="bookAuthor-error" class="error"></span>
-
-        <label class="form-label" for="yourPrice">Your Price (50% Off):</label>
-        <div class="currency-container">
-          <label class="currency-label" for="currency">Currency: </label>
-          <select id="currency" name="currency" class="input-field currency-select">
-            <option value="INR">INR</option>
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="GBP">GBP</option>
-          </select>
+        <div class="container1">
+          <h2 class="h2 section-title has-underline">
+            Book Exchange Hub
+            <span class="span has-before"></span>
+          </h2>
+          <p class="section-text booktext">
+            Connect with fellow readers in our Book Exchange Hub. Sell your old books at half price and give your
+            favorite reads a new home. Fill out the form below to get started!
+          </p>
+      
+          <div class="exchange-form">
+            <div class="form-fields">
+              <label class="form-label" for="bookTitle">Book Title:</label>
+              <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the title of your book" required class="input-field">
+              <span id="bookTitle-error" class="error"></span>
+      
+              <label class="form-label" for="bookAuthor">Author:</label>
+              <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter the author's name" required class="input-field">
+              <span id="bookAuthor-error" class="error"></span>
+      
+              <label class="form-label" for="yourPrice">Your Price (50% Off):</label>
+              <div class="currency-container">
+                <label class="currency-label" for="currency">Currency: </label>
+                <select id="currency" name="currency" class="input-field currency-select">
+                  <option value="INR">INR</option>
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="GBP">GBP</option>
+                </select>
+              </div>
+              <input type="number" min="1" id="yourPrice" name="yourPrice" placeholder="Enter your desired selling price" required class="input-field">
+              <span id="yourPrice-error" class="error"></span>
+            </div>
+      
+            <button type="button" class="btn btn-primary" id="connectReaderBtn">Connect with a Reader</button>
+          </div>
+      
+          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+          <script>
+            function submitForm() {
+              // Get form elements
+              const bookTitle = document.getElementById("bookTitle").value.trim();
+              const bookAuthor = document.getElementById("bookAuthor").value.trim();
+              const yourPrice = document.getElementById("yourPrice").value.trim();
+              const currency = document.getElementById("currency").value.trim();
+      
+              // Perform form validation
+              if (bookTitle === "") {
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: "Please enter the title of your book.",
+                  customClass: {
+                    popup: "swal-popup",
+                    title: "swal-title",
+                    content: "swal-content",
+                    confirmButton: "swal-confirm-button",
+                  },
+                });
+                return;
+              }
+      
+              if (bookAuthor === "") {
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: "Please enter the author's name.",
+                  customClass: {
+                    popup: "swal-popup",
+                    title: "swal-title",
+                    content: "swal-content",
+                    confirmButton: "swal-confirm-button",
+                  },
+                });
+                return;
+              }
+      
+              if (yourPrice === "" || isNaN(parseFloat(yourPrice)) || parseFloat(yourPrice) < 1) {
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: "Please enter a valid selling price greater than or equal to 1.",
+                  customClass: {
+                    popup: "swal-popup",
+                    title: "swal-title",
+                    content: "swal-content",
+                    confirmButton: "swal-confirm-button",
+                  },
+                });
+                return;
+              }
+      
+              // Show success message
+              Swal.fire({
+                icon: "success",
+                title: "Success!",
+                text: "Your book details have been submitted.",
+                customClass: {
+                  popup: "swal-popup",
+                  title: "swal-title",
+                  content: "swal-content",
+                  confirmButton: "swal-confirm-button",
+                },
+              }).then((result) => {
+                if (result.isConfirmed || result.isDismissed) {
+                  resetForm(); // Reset form after successful submission
+                }
+              });
+            }
+      
+            // Function to reset form fields
+            function resetForm() {
+              document.getElementById("bookTitle").value = "";
+              document.getElementById("bookAuthor").value = "";
+              document.getElementById("yourPrice").value = "";
+              document.getElementById("currency").value = "INR"; // Reset currency select to default
+              document.getElementById("bookTitle-error").textContent = "";
+              document.getElementById("bookAuthor-error").textContent = "";
+              document.getElementById("yourPrice-error").textContent = "";
+              document.getElementById("connectReaderBtn").disabled = true; // Disable submit button after reset
+            }
+      
+            // Event listener for the submit button
+            document.getElementById("connectReaderBtn").addEventListener("click", submitForm);
+          </script>
         </div>
-        <input type="number" min="1" id="yourPrice" name="yourPrice" placeholder="Enter your desired selling price" required class="input-field">
-        <span id="yourPrice-error" class="error"></span>
-      </div>
-
-      <button type="button" class="btn btn-primary" id="connectReaderBtn" disabled onclick="validateAndConnect()">Connect with a Reader</button>
-    </div>
-
-        
-    <script>
-      function validateBookTitle() {leInput = document.getElementById('bookTitle');
-        const bookTitleValue = bookTitleInput.value.trim();
-        let isValid = true;
-
-        for (let i = 0; i < bookTitleValue.length; i++) {
-          const char = bookTitleValue.charCodeAt(i);
-          if (!((char >= 65 && char <= 90) || (char >= 97 && char <= 122) || char === 32)) {
-            isValid = false;
-            break;
-          }
-        }
-
-
-        if (bookTitleValue.length === 0) {
-          isValid = false;
-        }
-
-        const bookTitleError = document.getElementById('bookTitle-error');
-        if (!isValid) {
-          bookTitleError.textContent = "Please enter a valid title (alphabets and spaces only).";
-          bookTitleInput.style.borderColor = 'red';
-        } else {
-          bookTitleError.textContent = "";
-          bookTitleInput.style.borderColor = '';
-        }
-
-        return isValid;
-      }
-
-      function validateBookAuthor() {
-        const bookAuthorInput = document.getElementById('bookAuthor');
-        const bookAuthorValue = bookAuthorInput.value.trim();
-        let isValid = true;
-
-        for (let i = 0; i < bookAuthorValue.length; i++) {
-          const char = bookAuthorValue.charCodeAt(i);
-          if (!((char >= 65 && char <= 90) || (char >= 97 && char <= 122) || char === 32)) {
-            isValid = false;
-            break;
-          }
-        }
-
-        if (bookAuthorValue.length === 0) {
-          isValid = false;
-        }
-
-        const bookAuthorError = document.getElementById('bookAuthor-error');
-        if (!isValid) {
-          bookAuthorError.textContent = "Please enter a valid author name (alphabets and spaces only).";
-          bookAuthorInput.style.borderColor = 'red';
-        } else {
-          bookAuthorError.textContent = "";
-          bookAuthorInput.style.borderColor = '';
-        }
-
-        return isValid;
-      }
-
-      function validatePriceInput() {
-        const yourPriceInput = document.getElementById('yourPrice');
-        const yourPriceValue = parseFloat(yourPriceInput.value.trim());
-        let isValid = true;
-
-        if (isNaN(yourPriceValue) || yourPriceValue < 1) {
-          isValid = false;
-          document.getElementById('yourPrice-error').textContent = "Please enter a valid number greater than or equal to 1.";
-          yourPriceInput.style.borderColor = 'red';
-        } else {
-          document.getElementById('yourPrice-error').textContent = "";
-          yourPriceInput.style.borderColor = '';
-        }
-
-        return isValid;
-      }
-
-      function validateAndConnect() {
-        const isTitleValid = validateBookTitle();
-        const isAuthorValid = validateBookAuthor();
-        const isPriceValid = validatePriceInput();
-
-        if (isTitleValid && isAuthorValid && isPriceValid) {
-          alert("Form submitted successfully!");
-        } else {
-          alert("Please correct the errors in the form before submitting.");
-        }
-      }
-
-      function checkAllValidations() {
-        const isTitleValid = validateBookTitle();
-        const isAuthorValid = validateBookAuthor();
-        const isPriceValid = validatePriceInput();
-
-        const connectReaderBtn = document.getElementById('connectReaderBtn');
-        if (isTitleValid && isAuthorValid && isPriceValid) {
-          connectReaderBtn.disabled = false;
-        } else {
-          connectReaderBtn.disabled = true;
-        }
-      }
-
-      document.getElementById('bookTitle').addEventListener('blur', function() {
-        validateBookTitle();
-        checkAllValidations();
-      });
-
-      document.getElementById('bookAuthor').addEventListener('blur', function() {
-        validateBookAuthor();
-        checkAllValidations();
-      });
-
-      document.getElementById('yourPrice').addEventListener('blur', function() {
-        validatePriceInput();
-        checkAllValidations();
-      });
-    </script>
-  </div>
-</section>
+      </section>
+      <!-- rate us -->
+     
 
       <!-- - #CONTACT -->
 
@@ -1624,35 +1935,52 @@ body {
           </h2>
           <div class="wrapper">
             <div class="contact-card">
-              <form action="" id="contact-form">
+              <form action="http://localhost:3000/contact" method="POST" id="contact-form">
                 <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field" size="60px">
-
                 <input type="email" name="email_address" id="email" placeholder="Your Email" required class="input-field">
-
                 <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field" maxlength=100>
                 <div id="subject-count" class="character-count">0/100</div>
-                <!-- <div id="subject-full" class="character-full">You have reached the character limit!</div> -->
-
                 <textarea name="message" id="message" placeholder="Your Message" class="input-field" maxlength=250></textarea>
                 <div id="message-count" class="character-count">0/250</div>
-                <!-- <div id="message-full" class="character-full">You have reached the character limit!</div> -->
-
                 <button type="submit" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
                 <div id="success-message" style="display:none">Message sent successfully!</div>
               </form>
             </div>
             <script>
               document.addEventListener('DOMContentLoaded', function() {
-              var form = document.getElementById('contact-form');
-              var message = document.getElementById('message');
-
-              form.addEventListener('submit', function(event) {
-              if (message.value.length < 50) {
-              alert("Message length can't be less than 50 characters.");
-              event.preventDefault(); // Prevent the form from being submitted
-            }});});
+                var form = document.getElementById('contact-form');
+                var message = document.getElementById('message');
+      
+                form.addEventListener('submit', function(event) {
+                  if (message.value.length < 50) {
+                    alert("Message length can't be less than 50 characters.");
+                    event.preventDefault();
+                  } else {
+                    event.preventDefault();
+                    var formData = new FormData(form);
+      
+                    fetch(form.action, {
+                      method: form.method,
+                      body: JSON.stringify(Object.fromEntries(formData)),
+                      headers: {
+                        'Content-Type': 'application/json'
+                      }
+                    }).then(response => response.json())
+                      .then(data => {
+                        if (data.error) {
+                          alert(data.error);
+                        } else {
+                          document.getElementById('success-message').style.display = 'block';
+                          form.reset();
+                        }
+                      }).catch(error => {
+                        alert('Failed to send message');
+                      });
+                  }
+                });
+              });
             </script>
-
+      
             <ul class="contact-card">
               <li>
                 <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json" trigger="hover" colors="primary:#000000" style="width:25px;height:25px"></lord-icon> Address :</p>
@@ -1661,12 +1989,10 @@ body {
                   Kolkata, India 700054
                 </address>
               </li>
-
               <li>
                 <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/srsgifqc.json" trigger="hover" style="width:20px;height:20px;"></lord-icon> Phone :</p>
                 <a href="tel:1234567890" class="card-link">+91 9124421980</a>
               </li>
-
               <li>
                 <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/xtzvywzp.json" trigger="hover" style="width:20px;height:20px;"></lord-icon> Email :</p>
                 <a href="mailto:support@support.com" class="card-link">support@swapreads.com</a>
@@ -1674,13 +2000,59 @@ body {
             </ul>
           </div>
           <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin"
-          style="border:0; margin-bottom:30px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin"
+            style="border:0; margin-bottom:30px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
-
       </section>
+      
+
+       <!-- Rate Us Componenet -->
+<div id="rate-us">
+  <div class="heading">
+    <h3>Rate Us!</h3>
+    <p>Tell us your experience</p>
+    <br><br><br>
+</div>
+  <div class="wrapper">
+    <input type="radio" name="rate" id="star-1">
+    <input type="radio" name="rate" id="star-2">
+    <input type="radio" name="rate" id="star-3">
+    <input type="radio" name="rate" id="star-4">
+    <input type="radio" name="rate" id="star-5">
+    <div class="content">
+      <div class="outer">
+        <div class="emojis">
+          <li class="slideImg"><img src="/assets/images/emoji/emoji-1.png" alt=""></li>
+          <li><img src="/assets/images/emoji/emoji-2.png" alt=""></li>
+          <li><img src="/assets/images/emoji/emoji-3.png" alt=""></li>
+          <li><img src="/assets/images/emoji/emoji-4.png" alt=""></li>
+          <li><img src="/assets/images/emoji/emoji-5.png" alt=""></li>
+        </div>
+      </div>
+      <div class="stars">
+        <label for="star-1" class="star-1 fas fa-star"></label>
+        <label for="star-2" class="star-2 fas fa-star"></label>
+        <label for="star-3" class="star-3 fas fa-star"></label>
+        <label for="star-4" class="star-4 fas fa-star"></label>
+        <label for="star-5" class="star-5 fas fa-star"></label>
+      </div>
+    </div>
+    <div class="footer">
+      <span class="text"></span>
+      <span class="numb"></span>
+    </div>
+    <div class="footer-2">
+      <label for="">Enter your Feedback</label> <br>
+      <textarea name="" id="" cols="50" rows="10"></textarea>
+    </div>
+    <div class="button">
+      <a href="">Submit</a>
+  </div> 
+
+  </div>
+</div>
+</div>
 
     </article>
   </main>
@@ -1910,7 +2282,7 @@ body {
     </div>
 
     <div class="faq-container">
-      <div class="question">
+      <div class="question .dark">
         <h4>How does SwapReads contribute to sustainability?</h4>
         <i class="icon fa-solid fa-caret-down"></i>
       </div>
@@ -1947,6 +2319,12 @@ body {
   </div>
   <br /><br />
 
+
+ 
+    <script src="./assets/js/rate.js"></script>
+
+
+
   <!-- FAQ section end -->
 
   <!--
@@ -1975,7 +2353,7 @@ body {
       "https://translate.google.com/translate_a/element.js?
       cb=googleTranslateElementInit">
           </script>
-          <div><a href="#" class="logo">SwapReads</a></div>
+          <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
           <div>
             <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
               lovers
@@ -2021,24 +2399,63 @@ body {
       <div class="social-icons">
 
         <style>
-          .social-icons input[type="email"] {
+          .social-icons input[type="email"] 
+          {
               border: 2px solid #ccc; /* Gray border */
               border-radius: 4px; /* Rounded corners */
               padding: 10px; /* Inner padding */
               font-size: 16px; /* Font size */
           }
+          #confirmationMessage
+          {
+            margin-left: 50px;
+            font-size: 23px;
+            color: green;
+
+          }
+         /* for small screen */
+          @media (max-width: 768px) 
+          {
+            #confirmationMessage 
+            {
+                margin-left: 0;
+                text-align: center;
+                font-size: 18px;
+            }
+        }
         </style>
 
-        <form type="newsletter">
+        <form id="newsletterForm" type="newsletter" onsubmit="return showConfirmationMessage()">
           <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
           <div class="row-flex">
               <!-- Email input -->
-              <input type="email" id="newsletter-email" name="email" placeholder="Email address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
-              title="Please enter a valid email address that ends with '.com'" required>
+              <input type="email" id="newsletter-email" name="email" placeholder="Email address"
+                      pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+                      title="Please enter a valid email address that ends with '.com'" required>
               <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
-              <div id="confirmationMessage"></div>
           </div>
       </form>
+     <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+
+<script>
+  function showConfirmationMessage() 
+  {
+    // Show confirmation message
+    const confirmationMessage = document.getElementById('confirmationMessage');
+    confirmationMessage.innerHTML = "Thank you for subscribing!";
+    confirmationMessage.style.display = 'block';
+
+    // Reset the form after 3 seconds
+    setTimeout(function() 
+    {
+        document.getElementById('newsletterForm').reset();
+        confirmationMessage.style.display = 'none';
+        
+    }, 3000);
+
+    return false; 
+}
+</script>
 
 
 
@@ -2105,13 +2522,13 @@ body {
       <div class="row-copy">
 
 
-      <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
-      <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+      <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+      <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
     </div>
     </div>
 
     <!-- Copyright Policy Modal -->
-    <div id="copyrightPolicyModal" class="modal">
+    <!-- <div id="copyrightPolicyModal" class="modal">
       <div class="modal-content">
         <span class="close" id="closeCopyright">&times;</span>
         <h1>Copyright Policy</h1>
@@ -2124,10 +2541,10 @@ body {
           <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
         </ul>
       </div>
-    </div>
+    </div> -->
 
     <!-- Privacy Notice Modal -->
-    <div id="privacyNoticeModal" class="modal">
+    <!-- <div id="privacyNoticeModal" class="modal">
       <div class="modal-content">
         <span class="close" id="closePrivacy">&times;</span>
         <h1>Privacy Notice</h1>
@@ -2141,9 +2558,9 @@ body {
           <li>By using our site, you consent to our privacy practices.</li>
         </ul>
       </div>
-    </div>
+    </div> -->
 
-    <script>
+    <!-- <script>
       // Get the modal elements
       var copyrightModal = document.getElementById("copyrightPolicyModal");
       var privacyModal = document.getElementById("privacyNoticeModal");
@@ -2181,7 +2598,7 @@ body {
           privacyModal.style.display = "none";
         }
       }
-    </script>
+    </script> -->
 
 
 
