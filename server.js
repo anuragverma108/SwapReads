@@ -1,12 +1,9 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-import nodemailer from 'nodemailer';
 import { RegisterSchema } from './assets/validation/zodschema.js';
 import validate from './assets/validation/validate.schema.js';
-
 import cors from 'cors';
-
 
 const app = express();
 
@@ -28,16 +25,40 @@ const dbConnect = async () => {
 };
 
 dbConnect().then(() => {
-  const User = mongoose.model("User", { username: String, password: String });
+  const userSchema = new mongoose.Schema({
+    username: String,
+    password: String,
+    email: String,
+    favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Book' }],
+    browsingHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Book' }],
+  });
+
+  const User = mongoose.model("User", userSchema);
+
+  const bookSchema = new mongoose.Schema({
+    title: String,
+    author: String,
+    price: Number,
+    sellerEmail: String,
+    reviews: [
+      {
+        username: String,
+        rating: Number,
+        comment: String,
+      },
+    ],
+  });
+
+  const Book = mongoose.model("Book", bookSchema);
 
   app.post("/signup", validate(RegisterSchema), async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password, email } = req.body;
     const userExists = await User.findOne({ username });
 
     if (userExists) {
       res.json({ success: false, message: "Username already exists." });
     } else {
-      const newUser = new User({ username, password });
+      const newUser = new User({ username, password, email });
       await newUser.save();
       res.json({ success: true });
     }
@@ -54,92 +75,88 @@ dbConnect().then(() => {
     }
   });
 
-  // Book Exchange/Selling
-  const bookSchema = new mongoose.Schema({
-    title: String,
-    author: String,
-    price: Number,
-    sellerEmail: String,
-  });
-
-  const Book = mongoose.model("Book", bookSchema);
-
-  app.post("/sellBook", async (req, res) => {
-    const { title, author, price, sellerEmail } = req.body;
-    const newBook = new Book({ title, author, price, sellerEmail });
-
-    newBook.save()
-      .then((book) => {
-        sendListingEmailToSeller(sellerEmail, book.title);
-        res.json({ success: true, message: "Book listing added successfully!" });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.json({ success: false, message: "Internal Server Error" });
-      });
-  });
-
-  app.post("/buyBook", async (req, res) => {
-    const { bookID, buyerEmail } = req.body;
-    Book.findById(bookID)
-      .then((book) => {
-        if (!book) {
-          return res.json({ success: false, message: "Book Not Found." });
-        }
-        sendBuyingEmailToSeller(book.sellerEmail, book.title, book.price, book.author, buyerEmail);
-        res.json({ success: true, message: "Email Sent to Seller" });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.json({ success: false, message: "Internal Server Error" });
-      });
-  });
-
-  // Contact form endpoint
-  app.post("/contact", async (req, res) => {
-    const { name, email, subject, message } = req.body;
-
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "enter_you_mail",
-        pass: "Enter_YOUR_APP_PASSWORD",
-      },
-    });
-
-    const mailOptions = {
-      from: email,
-      to: "enter_you_mail",
-      subject: `You Have New Query from ${name} Regarding ${subject}`,
-      html: `Hey there is query from is  ${name} Email: ${email}  &nbsp; Message:<p style="color: red;"> ${message}</p>`,
-    };
-
-    const acknowledgmentOptions = {
-      from: "enter_you_mail",
-      to: email,
-      subject: "Acknowledgment of your message",
-      html: `<div style="font-family: Arial, sans-serif; line-height: 1.6;">
-      <p>Dear <strong>${name}</strong>,</p>
-      <p>Thank you for reaching out to us. We have received your message and will get back to you shortly.</p>
-      <p style="margin-top: 20px;">Best regards,<br><strong>SwapReads.com</strong></p>
-    </div>`,
-    };
-
-    try {
-      await transporter.sendMail(mailOptions);
-      await transporter.sendMail(acknowledgmentOptions);
-      res.json({ success: true, message: "Message sent successfully" });
-    } catch (err) {
-      console.error("Error sending email:", err);
-      res.json({ success: false, message: "Error sending message" });
+  // User profile management
+  app.post("/profile", async (req, res) => {
+    const { username, email } = req.body;
+    const updatedUser = await User.findOneAndUpdate({ username }, { email }, { new: true });
+    if (updatedUser) {
+      res.json({ success: true, message: "Profile updated successfully", user: updatedUser });
+    } else {
+      res.json({ success: false, message: "User not found" });
     }
   });
 
-  // Subscribe endpoint
-  app.post('/subscribe', (req, res) => {
-    let email = req.body.email;
-    console.log(email);
-    res.json({ success: true, message: "Subscribed successfully" });
+  // Book review and rating
+  app.post("/review", async (req, res) => {
+    const { bookID, username, rating, comment } = req.body;
+    const book = await Book.findById(bookID);
+
+    if (!book) {
+      return res.json({ success: false, message: "Book not found" });
+    }
+
+    book.reviews.push({ username, rating, comment });
+    await book.save();
+
+    res.json({ success: true, message: "Review added successfully", book });
+  });
+
+  // Browsing history
+  app.post("/browse", async (req, res) => {
+    const { userID, bookID } = req.body;
+    const user = await User.findById(userID);
+
+    if (!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
+
+    user.browsingHistory.push(bookID);
+    await user.save();
+
+    res.json({ success: true, message: "Browsing history updated", user });
+  });
+
+  // Book recommendations
+  app.get("/recommendations/:userID", async (req, res) => {
+    const { userID } = req.params;
+    const user = await User.findById(userID).populate('browsingHistory');
+
+    if (!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
+
+    // Recommend books based on the user's browsing history (simple example)
+    const recommendations = await Book.find({
+      _id: { $nin: user.browsingHistory },
+    }).limit(5);
+
+    res.json({ success: true, recommendations });
+  });
+
+  // Favorite books
+  app.post("/favorites/add", async (req, res) => {
+    const { userID, bookID } = req.body;
+    const user = await User.findById(userID);
+
+    if (!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
+
+    user.favorites.push(bookID);
+    await user.save();
+
+    res.json({ success: true, message: "Book added to favorites", user });
+  });
+
+  app.get("/favorites/:userID", async (req, res) => {
+    const { userID } = req.params;
+    const user = await User.findById(userID).populate('favorites');
+
+    if (!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
+
+    res.json({ success: true, favorites: user.favorites });
   });
 
   const PORT = process.env.PORT || 4000;
