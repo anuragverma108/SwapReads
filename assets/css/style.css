@@ -3561,7 +3561,27 @@ body.dark-mode .h3 {
   display: flex;
   align-items: center;
   gap: 2px;
+  position: relative;
+  cursor: pointer;
 }
+
+.card-title::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 55px;
+  left: 5px;
+  background: #FF9B9B;
+  transition: width 0.4s ease, left 0.4s ease;
+}
+
+.card-title:hover::after {
+  width: 100%;
+  left: 0;
+}
+
 
 /* Media Queries for Recommended Books section */
 
@@ -3765,6 +3785,46 @@ body.dark-mode .h3 {
 #sendMessageBtn {
   margin-top: 2.5rem;
 }
+
+#sendMessageBtn:hover{
+  border-radius: 50%;
+}
+
+.contact_head_wrapper {
+  margin-bottom: -15px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 0vh; /* Adjust the height as needed */
+}
+
+.contact_head {
+  text-align: center;
+  font-size: 3vh;
+  color: #2E4756;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.contact_head::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: #FF9B9B;
+  transition: width 0.4s ease, right 0.4s ease;
+}
+
+.contact_head:hover::after {
+  width: 100%;
+  right: 0;
+}
+
 
 /* Adding media queries for benifits */
 
