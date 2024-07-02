@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="settings.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgba(255, 171, 157, 0.5);
+            color: #333;
+        }
+
+        .settings-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #ff6b6b;
+            text-align: center;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #ff6b6b;
+        }
+
+        button {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #e05555;
+        }
+
+        .section-container {
+            padding: 20px;
+            margin: 10px 0;
+            border: 1px solid #ff6b6b;
+            border-radius: 5px;
+            background-color: rgba(255, 171, 157, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="settings-container">
+        <h1>Account Settings</h1>
+
+        <!-- Account Settings Section -->
+        <section id="account-settings" class="section-container">
+            <h2>Change Password</h2>
+            <form id="change-password-form">
+                <label for="current-password">Current Password:</label>
+                <input type="password" id="current-password" name="current-password" required>
+
+                <label for="new-password">New Password:</label>
+                <input type="password" id="new-password" name="new-password" required>
+
+                <label for="confirm-password">Confirm New Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+
+                <button type="submit">Change Password</button>
+            </form>
+        </section>
+
+        <!-- Privacy Settings Section -->
+        <section id="privacy-settings" class="section-container">
+            <h2>Privacy Settings</h2>
+            <label for="profile-visibility">Profile Visibility:</label>
+            <select id="profile-visibility" name="profile-visibility">
+                <option value="public">Public</option>
+                <option value="friends">Friends</option>
+                <option value="private">Private</option>
+            </select>
+        </section>
+
+        <!-- Notification Settings Section -->
+        <section id="notification-settings" class="section-container">
+            <h2>Notification Settings</h2>
+            <label>Email Notifications:</label>
+            <input type="checkbox" id="email-updates" name="notifications" value="updates"> Order Updates<br>
+            <input type="checkbox" id="email-promotions" name="notifications" value="promotions"> Promotional Emails
+        </section>
+
+        <!-- Data Download Section -->
+        <section id="data-download" class="section-container">
+            <h2>Download Your Data</h2>
+            <button id="download-data-button">Download Data</button>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Change Password Form Submission
+            document.getElementById("change-password-form").addEventListener("submit", (event) => {
+                event.preventDefault();
+                const currentPassword = document.getElementById("current-password").value;
+                const newPassword = document.getElementById("new-password").value;
+                const confirmPassword = document.getElementById("confirm-password").value;
+
+                if (newPassword !== confirmPassword) {
+                    alert("New password and confirm password do not match.");
+                    return;
+                }
+
+                // Add code to handle password change, e.g., send a request to the server
+
+                alert("Password changed successfully.");
+            });
+
+            // Privacy Settings Change
+            document.getElementById("profile-visibility").addEventListener("change", (event) => {
+                const visibility = event.target.value;
+
+                // Add code to handle profile visibility change, e.g., send a request to the server
+
+                alert(`Profile visibility set to ${visibility}.`);
+            });
+
+            // Notification Settings Change
+            document.querySelectorAll("input[name='notifications']").forEach(checkbox => {
+                checkbox.addEventListener("change", () => {
+                    const notifications = Array.from(document.querySelectorAll("input[name='notifications']:checked"))
+                        .map(cb => cb.value);
+
+                    // Add code to handle notification settings change, e.g., send a request to the server
+
+                    alert(`Notification settings updated: ${notifications.join(", ")}.`);
+                });
+            });
+
+            // Download Data
+            document.getElementById("download-data-button").addEventListener("click", () => {
+                // Add code to handle data download, e.g., fetch data from the server and download as a file
+                const profileData = {
+                    name: localStorage.getItem("profileName"),
+                    email: localStorage.getItem("profileEmail"),
+                    phone: localStorage.getItem("profilePhone"),
+                    lastLoginTime: localStorage.getItem("lastLoginTime")
+                };
+
+                const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(profileData));
+                const downloadAnchorNode = document.createElement("a");
+                downloadAnchorNode.setAttribute("href", dataStr);
+                downloadAnchorNode.setAttribute("download", "profile_data.json");
+                document.body.appendChild(downloadAnchorNode); // Required for Firefox
+                downloadAnchorNode.click();
+                downloadAnchorNode.remove();
+            });
+        });
+    </script>
+</body>
+</html>
