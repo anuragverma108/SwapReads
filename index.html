@@ -614,6 +614,7 @@ body {
     <div class="progress-bar"></div>
   </div>
 
+
   <div id="cookie-consent">
     <button class="close-btn" id="closeBtn">&times;</button>
     <p>
@@ -632,7 +633,10 @@ body {
   </div>
 
   <script src="script.js"></script>
+
 <script>
+
+
 
   document.addEventListener('DOMContentLoaded', function() {
   const cookieConsent = document.getElementById('cookie-consent');
@@ -736,7 +740,7 @@ body {
 
           <li class="navbar-item">
             <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
-
+           
           <li class="navbar-item" id="login-signup-link">
             <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
           </li>
@@ -2332,8 +2336,41 @@ body {
     </div>
   </div>
   <br /><br />
+  <div style="
+    background-color: #ffb2a8 ;
+    height:150px;
+    width: 100%;
+    color: white;
+    font-weight: 700;
+    font-size: 45px;
+  text-align: center;
+  ">
+  <div>Visitor</div>
+  <div class="website-counter" >
 
+    <script>
+var counterContainer = document.querySelector(".website-counter");
+var resetButton = document.querySelector("#reset");
+var visitCount = localStorage.getItem("page_view");
 
+// Check if page_view entry is present
+if (visitCount) {
+  visitCount = Number(visitCount) + 1;
+  localStorage.setItem("page_view", visitCount);
+} else {
+  visitCount = 1;
+  localStorage.setItem("page_view", 1);
+}
+counterContainer.innerHTML = visitCount;
+
+// Adding onClick event listener
+resetButton.addEventListener("click", () => {
+  visitCount = 1;
+  localStorage.setItem("page_view", 1);
+  counterContainer.innerHTML = visitCount;
+});
+    </script></div>
+</div>
  
     <script src="./assets/js/rate.js"></script>
 
@@ -2509,7 +2546,7 @@ body {
          
 
         </div>
-
+       </div>
 
         <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
           <div class="circle1">
