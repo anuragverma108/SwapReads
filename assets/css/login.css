@@ -57,7 +57,7 @@ p {
 
 .navbar {
   width: 100%;
-  background-color: #f5ebe6;
+  background-color: #000000;
 }
 
 .navbar-link {
@@ -646,6 +646,26 @@ input[type="password"]::-ms-reveal {
   }
 }
 
+/* Basic navbar styling */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 10;
+  z-index: 1000;
+  transition: top 0.3s;
+  }
+  
+  /* Hide the navbar */
+  .header.hidden {
+  top: -93px; /* Adjust according to your header height */
+  }
+  
+  /* Navbar styling when scrolled */
+  .header.scrolled {
+  background-color: #222; /* Change to a darker color when scrolled */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+  }
+  
 /**
 * Dark Mode
 */
@@ -675,6 +695,14 @@ body.dark-mode {
 }
 .dark-mode#login{
   background-color: #373737;
+}
+.dark-mode .logo{
+  background-color: #1e1c1c;
+  color:#e6e6e6;
+}
+.dark-mode footer{
+  background-color: #1e1c1c;
+  color:#e6e6e6;
 }
 #login.dark-mode:hover{
   color: var(--old-rose);
