@@ -1,53 +1,31 @@
-let rate1 = document.querySelectorAll('.rate1');
-let rate2 = document.querySelectorAll('.rate2');
-let rate3 = document.querySelectorAll('.rate3');
-let rate4 = document.querySelectorAll('.rate4');
-let rate5 = document.querySelectorAll('.rate5');
+// Function to handle submission and display confirmation modal
+document.getElementById("submit-btn").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent default form submission
 
-let arr = [rate1, rate2, rate3, rate4, rate5];
-
-Array.from(arr).forEach((rate) => {
-
-    Array.from(rate).forEach((e) => {
-        e.addEventListener('click', () => {
-            Array.from(rate).forEach((ele) => {
-                ele.style.color = "red";
-            })
-
-            Array.from(arr).forEach((r) => {
-                if (r != rate) {
-                    Array.from(r).forEach((ele) => {
-                        ele.style.color = "black";
-                    })
-                }
-            })
-        })
-    })
-})
-
-
-
-let submit = document.querySelector('.button');
-
-let result;
-submit.addEventListener('click', (e) => {
-    Array.from(arr).forEach((rate) => {
-        Array.from(rate).forEach((e) => {
-            if (e.style.color == "red") {
-                if (e.innerText) result = e.innerText;
-            }
-        })
-    })
-
-    if (result != undefined) {
-        console.log(result);
-        alert("FeedBack Submitted Successfully !");
-        Array.from(arr).forEach((rate) => {
-            Array.from(rate).forEach((e) => {
-                e.style.color = "black";
-            })
-        })
+    // Placeholder logic for submitting feedback
+    let feedback = document.getElementById("feedback").value.trim();
+    if (feedback !== "") {
+        document.getElementById("confirmationMessage").textContent = "Feedback submitted successfully!";
+        openConfirmationModal();
+        // Additional logic here for processing the feedback as needed
+    } else {
+        document.getElementById("confirmationMessage").textContent = "Please enter your feedback!";
+        openConfirmationModal();
     }
-    else
-        alert("Feedback submitted successfully !");
-})
+});
+
+// Function to open confirmation modal
+function openConfirmationModal() {
+    document.getElementById("confirmationModal").style.display = "block";
+}
+// Function to close confirmation modal and reset form
+function closeConfirmationModal() {
+    document.getElementById("confirmationModal").style.display = "none";
+    document.getElementById("feedback").value = ""; // Clear the feedback input field
+    
+    // Clear the star rating input (radio buttons)
+    let starInputs = document.querySelectorAll('input[name="rate"]');
+    starInputs.forEach(input => {
+        input.checked = false;
+    });
+}
