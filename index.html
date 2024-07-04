@@ -810,7 +810,7 @@ body {
                   <img src="./assets/images/inbox.png" /><a href="#">Inbox</a>
                 </li>
                 <li>
-                  <img src="./assets/images/settings.png" /><a href="#">Setting</a>
+                  <img src="./assets/images/settings.png" /><a href="#">Settings</a>
                 </li>
                 <li><img src="./assets/images/help.png" /><a href="#">Help</a></li>
                 <li>
@@ -1006,7 +1006,7 @@ body {
         <div class="container">
           <div class="flex">
             <div class="benefits-content">
-              <h2 class="h2 section-title" style="text-align: center;">Unleash the Magic of Book Swapping!</h2>
+              <h2 class="h2 section-title" style="text-align: center; margin-top: 79px; padding-top: 20px">Unleash the Magic of Book Swapping!</h2>
               <p class="section-text" style="text-align: center;">"SwapReads.com - Where Every Book is a Portal to a New
                 Adventure!"</p>
             </div>
@@ -1201,7 +1201,7 @@ body {
       <section class="section chapters" id="chapters">
         <div class="containerr">
           <p class="section-subtitle" style="color: brown;">Literary Realms</p>
-          <h1 class="h1 section-title has-underline" id="section-title2">
+          <h1 class="h1 section-title has-underline" id="section-title2" style="padding-bottom: 20px;">
             Literary Realms we've covered
             <span class="span has-before"></span>
           </h1>
@@ -1519,7 +1519,7 @@ body {
 
           <p class="section-subtitle">Pricing</p>
 
-          <h2 class="h2 section-title has-underline">
+          <h2 class="h2 section-title has-underline" style="padding-top: 100px;">
             Pricing based on their version
             <span class="span has-before"></span>
           </h2>
@@ -1942,63 +1942,92 @@ body {
           </h2>
           <div class="wrapper">
             <div class="contact-card">
-              <form action="" id="contact-form">
+
+              <form action="http://localhost:3000/contact" method="POST" id="contact-form">
+                <div class="contact_head_wrapper">
+                  <div class="contact_head">Get in touch</div>
+                </div><br><br>      
+
                 <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field" size="60px">
-
                 <input type="email" name="email_address" id="email" placeholder="Your Email" required class="input-field">
-
                 <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field" maxlength=100>
                 <div id="subject-count" class="character-count">0/100</div>
-                <!-- <div id="subject-full" class="character-full">You have reached the character limit!</div> -->
-
                 <textarea name="message" id="message" placeholder="Your Message" class="input-field" maxlength=250></textarea>
                 <div id="message-count" class="character-count">0/250</div>
-                <!-- <div id="message-full" class="character-full">You have reached the character limit!</div> -->
-
                 <button type="submit" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
                 <div id="success-message" style="display:none">Message sent successfully!</div>
               </form>
             </div>
             <script>
               document.addEventListener('DOMContentLoaded', function() {
-              var form = document.getElementById('contact-form');
-              var message = document.getElementById('message');
-
-              form.addEventListener('submit', function(event) {
-              if (message.value.length < 50) {
-              alert("Message length can't be less than 50 characters.");
-              event.preventDefault(); // Prevent the form from being submitted
-            }});});
+                var form = document.getElementById('contact-form');
+                var message = document.getElementById('message');
+      
+                form.addEventListener('submit', function(event) {
+                  if (message.value.length < 50) {
+                    alert("Message length can't be less than 50 characters.");
+                    event.preventDefault();
+                  } else {
+                    event.preventDefault();
+                    var formData = new FormData(form);
+      
+                    fetch(form.action, {
+                      method: form.method,
+                      body: JSON.stringify(Object.fromEntries(formData)),
+                      headers: {
+                        'Content-Type': 'application/json'
+                      }
+                    }).then(response => response.json())
+                      .then(data => {
+                        if (data.error) {
+                          alert(data.error);
+                        } else {
+                          document.getElementById('success-message').style.display = 'block';
+                          form.reset();
+                        }
+                      }).catch(error => {
+                        alert('Failed to send message');
+                      });
+                  }
+                });
+              });
             </script>
-
+      
             <ul class="contact-card">
               <li>
-                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json" trigger="hover" colors="primary:#000000" style="width:25px;height:25px"></lord-icon> Address :</p>
+                <p class="card-title address-title">
+                  <lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json" trigger="hover" colors="primary:#000000" style="width:25px;height:25px"></lord-icon>
+                  Address :
+                </p><br>
                 <address class="address">
                   12, Nayabad <br>
                   Kolkata, India 700054
                 </address>
               </li>
-
               <li>
-                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/srsgifqc.json" trigger="hover" style="width:20px;height:20px;"></lord-icon> Phone :</p>
+                <p class="card-title phone-title">
+                  <lord-icon class="invert-col" src="https://cdn.lordicon.com/srsgifqc.json" trigger="hover" style="width:20px;height:20px;"></lord-icon>
+                  Phone :
+                </p><br>
                 <a href="tel:1234567890" class="card-link">+91 9124421980</a>
               </li>
-
               <li>
-                <p class="card-title"><lord-icon class="invert-col" src="https://cdn.lordicon.com/xtzvywzp.json" trigger="hover" style="width:20px;height:20px;"></lord-icon> Email :</p>
+                <p class="card-title email-title">
+                  <lord-icon class="invert-col" src="https://cdn.lordicon.com/xtzvywzp.json" trigger="hover" style="width:20px;height:20px;"></lord-icon>
+                  Email :
+                </p><br>
                 <a href="mailto:support@support.com" class="card-link">support@swapreads.com</a>
               </li>
             </ul>
           </div>
           <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin"
-          style="border:0; margin-bottom:30px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin"
+            style="border:0; margin-bottom:30px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
-
       </section>
+      
+
        <!-- Rate Us Componenet -->
 <div id="rate-us">
   <div class="heading">
@@ -2036,7 +2065,7 @@ body {
     </div>
     <div class="footer-2">
       <label for="">Enter your Feedback</label> <br>
-      <textarea name="" id="" cols="50" rows="10"></textarea>
+      <textarea name="" id="" cols="40" rows="4"></textarea>
     </div>
     <div class="button">
       <a href="">Submit</a>
@@ -2391,37 +2420,61 @@ body {
       <div class="social-icons">
 
         <style>
-          .social-icons input[type="email"] {
+          .social-icons input[type="email"] 
+          {
               border: 2px solid #ccc; /* Gray border */
               border-radius: 4px; /* Rounded corners */
               padding: 10px; /* Inner padding */
               font-size: 16px; /* Font size */
           }
-          #confirmationMessage{
+          #confirmationMessage
+          {
             margin-left: 50px;
             font-size: 23px;
-            color: rgb(15, 15, 16);
+            color: green;
+
           }
+         /* for small screen */
+          @media (max-width: 768px) 
+          {
+            #confirmationMessage 
+            {
+                margin-left: 0;
+                text-align: center;
+                font-size: 18px;
+            }
+        }
         </style>
 
-<form type="newsletter" onsubmit="return showConfirmationMessage()">
-  <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
-  <div class="row-flex">
-      <!-- Email input -->
-      <input type="email" id="newsletter-email" name="email" placeholder="Email address"
-             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
-             title="Please enter a valid email address that ends with '.com'" required>
-      <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
-  </div>
-</form>
-<div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+        <form id="newsletterForm" type="newsletter" onsubmit="return showConfirmationMessage()">
+          <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
+          <div class="row-flex">
+              <!-- Email input -->
+              <input type="email" id="newsletter-email" name="email" placeholder="Email address"
+                      pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+                      title="Please enter a valid email address that ends with '.com'" required>
+              <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
+          </div>
+      </form>
+     <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
 
 <script>
-function showConfirmationMessage() {
-  var confirmationMessage = document.getElementById("confirmationMessage");
-  confirmationMessage.style.display = "block";
+  function showConfirmationMessage() 
+  {
+    // Show confirmation message
+    const confirmationMessage = document.getElementById('confirmationMessage');
+    confirmationMessage.innerHTML = "Thank you for subscribing!";
+    confirmationMessage.style.display = 'block';
 
-  return false;
+    // Reset the form after 3 seconds
+    setTimeout(function() 
+    {
+        document.getElementById('newsletterForm').reset();
+        confirmationMessage.style.display = 'none';
+        
+    }, 3000);
+
+    return false; 
 }
 </script>
 
@@ -2490,13 +2543,13 @@ function showConfirmationMessage() {
       <div class="row-copy">
 
 
-      <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
-      <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+      <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+      <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
     </div>
     </div>
 
     <!-- Copyright Policy Modal -->
-    <div id="copyrightPolicyModal" class="modal">
+    <!-- <div id="copyrightPolicyModal" class="modal">
       <div class="modal-content">
         <span class="close" id="closeCopyright">&times;</span>
         <h1>Copyright Policy</h1>
@@ -2509,10 +2562,10 @@ function showConfirmationMessage() {
           <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
         </ul>
       </div>
-    </div>
+    </div> -->
 
     <!-- Privacy Notice Modal -->
-    <div id="privacyNoticeModal" class="modal">
+    <!-- <div id="privacyNoticeModal" class="modal">
       <div class="modal-content">
         <span class="close" id="closePrivacy">&times;</span>
         <h1>Privacy Notice</h1>
@@ -2526,9 +2579,9 @@ function showConfirmationMessage() {
           <li>By using our site, you consent to our privacy practices.</li>
         </ul>
       </div>
-    </div>
+    </div> -->
 
-    <script>
+    <!-- <script>
       // Get the modal elements
       var copyrightModal = document.getElementById("copyrightPolicyModal");
       var privacyModal = document.getElementById("privacyNoticeModal");
@@ -2566,7 +2619,7 @@ function showConfirmationMessage() {
           privacyModal.style.display = "none";
         }
       }
-    </script>
+    </script> -->
 
 
 
