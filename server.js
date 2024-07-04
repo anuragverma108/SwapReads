@@ -6,8 +6,6 @@ import { RegisterSchema } from './assets/validation/zodschema.js';
 import validate from './assets/validation/validate.schema.js';
 
 import cors from 'cors';
-
-
 const app = express();
 
 app.use(bodyParser.json());
