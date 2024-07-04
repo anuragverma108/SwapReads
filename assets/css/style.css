@@ -1903,8 +1903,32 @@ footer {
   text-align: center;
 }
 
-.foot-quick :hover {
-  color: red;
+.foot-quick a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.foot-quick a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -1px;
+  left: 0;
+  background-color: rgb(204, 12, 12);
+  transition: width 0.3s ease;
+}
+
+.foot-quick a:hover {
+  color: rgb(204, 12, 12);
+  transform: scale(1.1);
+}
+
+.foot-quick a:hover::after {
+  width: 100%;
 }
 
 .foot-middle ul {
