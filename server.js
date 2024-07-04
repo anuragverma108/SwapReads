@@ -1,3 +1,6 @@
+import express from "express";
+// Other imports and code
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");

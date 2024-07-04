@@ -286,16 +286,18 @@ ion-icon {
 .SwapReads .logo {
   font-size: 2em; /* Large font size */
   font-weight: bold; /* Bold text */
-  color: #000; /* Black color for the text */
+  color: black; /* Black color for the text */
   text-decoration: none; /* Remove underline */
   transition: color 0.3s; /* Smooth color transition on hover */
 }
-
+.dark-mode .SwapReads .logo{
+  color: #f0f0f0;
+}
 .SwapReads .logo:hover {
   color: #555; /* Darker color on hover */
 }
 a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -395,7 +397,7 @@ body {
 }
 
 .section-subtitle {
-  color: var(--old-rose);
+  color: var(--old-rose); /* Default color */
   text-transform: uppercase;
   font-weight: var(--fw-700);
   letter-spacing: 4px;
@@ -404,6 +406,17 @@ body {
   text-align: center;
   padding-top: 30px;
 }
+.dark-mode .section-subtitle{
+  color: #f0f0f0;
+}
+/* Default style */
+.h1.hero-title {
+  color: #d16449; /* Light mode color */
+}
+.dark-mode .h1.hero-title {
+  color: hsl(357, 93%, 84%) !important; /* Light mode color */
+}
+
 
 .h1,
 .h2,
@@ -412,6 +425,9 @@ body {
   color: var(--charcoal);
   font-family: var(--ff-philosopher);
   line-height: 1.2;
+}
+.dark-mode .h1, .tab-text {
+  color: hsl(357, 93%, 84%) !important;
 }
 
 .h1 {
@@ -428,12 +444,12 @@ body {
   font-size: var(--fs-5);
 }
 
-.section-text {
+.benefits-content .section-text {
+  color: #d16449;
   font-size: var(--fs-7);
   text-align: start;
   margin: 10 50px; /*added margin to align the text*/
 }
-
 .booktext {
   margin: 0 30px;
 }
@@ -525,7 +541,9 @@ body {
   background-color: var(--old-rose);
   border-radius: var(--radius-5);
 }
-
+.dark-mode .btn-secondary{
+  background-color: #d16449;
+}
 .btn-secondary:is(:hover, :focus) {
   background-color: white;
   color: #000;
@@ -1097,7 +1115,7 @@ body {
 }
 
 .benefits-card .card-icon {
-  background-color: var(--old-rose);
+  background-color: #d16449;
   max-width: max-content;
   padding: 10px;
   box-shadow: var(--shadow-3);
@@ -1507,7 +1525,7 @@ body.dark-mode .chapter-card:hover {
 }
 
 .subscribe-btn {
-  background-color: var(--old-rose) !important;
+  background-color: #d16449 !important;
   color: var(--white);
   height: 4rem;
   padding: 2px 20px;
@@ -1853,13 +1871,19 @@ body.light-mode .flip-card-back {
 /*-----------------------------------*\
   #FOOTER
 \*-----------------------------------*/
-
+:root {
+  --footer-light-bg: hsl(0deg 100% 80.49%);
+  --footer-dark-bg: var(--seashell); /* Adjust this color to your desired shade of pink */
+  --text-dark: #ffffff; /* White color for text in dark mode */
+}
 footer {
   background-color: hsl(0deg 100% 80.49%);
   padding: 20px 30px;
   width: 100vw;
 }
-
+.dark-mode footer{
+  background-color: var(--seashell);
+}
 .foot-top {
   display: flex;
   justify-content: space-evenly;
@@ -1893,6 +1917,10 @@ footer {
   color: red;
 }
 
+.quicklinks ul{
+  color: white;
+}
+
 .foot-middle ul {
   padding: 0;
   margin: 0;
@@ -1904,7 +1932,11 @@ footer {
   text-align: center;
   color: #000;
 }
-
+/* Dark mode style */
+.dark-mode .foot-middle ul li,
+.dark-mode .foot-middle h2 {
+  color: #d16449;
+}
 .nav-links {
   margin: 0;
 }
@@ -2792,7 +2824,9 @@ footer {
   text-align: center;
   font-family: var(--ff-philosopher);
 }
-
+.dark-mode .faq{
+  color: #f0f0f0;;
+}
 .icon {
   margin-right: 16px;
   transition: transform 0.15s ease-in-out;
@@ -2836,8 +2870,8 @@ body.dark-mode {
   color: #fff;
 }
 
-.dark-mode .container .section-text {
-  color: #fff;
+.dark-mode .benefits-content .section-text {
+  color: hsl(357, 93%, 84%) !important;
   padding-left: 2rem;
   padding-right: 1rem;
   padding-top: 3rem;
@@ -2869,7 +2903,7 @@ body.dark-mode {
 }
 
 .faq-container {
-  background-color: hsl(0deg 100% 80.49%);
+  background-color: var(--seashell);
   margin-bottom: 2rem;
   border-radius: 4px;
   box-shadow: 1px 1px 5px #efecea;
@@ -2953,7 +2987,9 @@ footer {
   position: relative;
   top: 140px;
 }
-
+.dark-mode .footer {
+  background-color: #000;
+}
 #back-to-top-container {
   position: fixed;
   top: 70% !important;
@@ -3213,11 +3249,11 @@ footer {
 }
 #genre .chapter-card p,
 body.dark-mode .pricing-card .price {
-  color: black;
+  color: #d16449;
 }
 body.dark-mode #genre .chapter-card h3,
 body.dark-mode .pricing-card h3 {
-  color: hsl(0, 90%, 50%);
+  color: #d16449;
 }
 .dark-mode #genre .chapter-card p {
   color: white;
