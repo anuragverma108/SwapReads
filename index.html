@@ -3,6 +3,77 @@
 <title>SwapReads</title>
 
 <head>
+  <div id="loading-screen">
+    <img src="assets/images/final.png" alt="Logo">
+  </div>
+  <style>
+    #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0, 0, 0);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        z-index: 9999;
+        transition: opacity 0.1s ease; 
+    }
+  
+    #loading-screen.fade-out {
+        opacity: 0;
+        transition: opacity 0.1s ease; 
+    }
+    #loading-screen img {
+        width: 250px; 
+        height: auto; 
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    nav li {
+        display: inline;
+        margin-right: 15px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #000;
+    }
+  </style>
+  
+  <script>
+   const loadingScreen = document.getElementById('loading-screen');
+
+window.addEventListener('load', function() {
+    loadingScreen.classList.add('fade-out');
+    setTimeout(function() {
+        loadingScreen.style.display = 'none';
+    }, 100); 
+});
+
+// Function to show the loading screen
+function showLoadingScreen() {
+    loadingScreen.style.display = 'flex';
+    loadingScreen.classList.remove('fade-out');
+}
+
+// Add event listeners to navigation links
+document.querySelectorAll('nav a').forEach(function(link) {
+    link.addEventListener('click', function(event) {
+        showLoadingScreen();
+    });
+});
+
+// Ensure loading screen is shown when navigating away from the page
+window.addEventListener('beforeunload', function() {
+    showLoadingScreen();
+});
+  </script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
@@ -563,53 +634,34 @@ body {
   });
 });
 </script>
-  <header class="header header-anim" data-header>
-
-    <div class="container mobile-container-styles" style="padding-left: 0;">
-
+<header class="header header-anim" data-header>
+  <div class="container mobile-container-styles" style="padding-left: 0;">
       <nav class="navbar nav_activated" data-navbar>
-
-
-        <ul class="navbar-list">
-          <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="./assets/images/final.png" class="logopic" style=" width: 150px;">
-          </a>
-          <li class="navbar-item">
-            <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
-                class="ri-home-fill"></i> Home</a>
-          </li>
-           <li class="navbar-item">
-                <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><i
-                    class="ri-home-fill"></i> About Us </a>
+          <ul class="navbar-list">
+              <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+                  <img src="./assets/images/final.png" class="logopic" style="width: 250px;">
+              </a>
+              <li class="navbar-item">
+                  <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i class="ri-home-fill"></i> Home</a>
+              </li>
+              <li class="navbar-item">
+                  <a href="./assets/html/about.html" class="navbar-link" data-nav-link><i class="ri-home-fill"></i> About Us</a>
+              </li>
+              <li class="navbar-item">
+                  <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i class="ri-bar-chart-fill"></i> Benefits</a>
+              </li>
+              <li class="navbar-item">
+                  <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i class="ri-bar-chart-fill"></i> Genre</a>
+              </li>
+              <li class="navbar-item">
+                  <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
+              </li>
+              <li class="navbar-item">
+                  <a href="#faq" onclick="lenis.scrollTo('#faq')" class="navbar-link" data-nav-link><i class="ri-questionnaire-fill"></i> FAQ</a>
               </li>
           <li class="navbar-item">
-            <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
-                class="ri-bar-chart-fill"></i> Benefits</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
-                class="ri-bar-chart-fill"></i> Genre</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-                class="ri-customer-service-2-fill"></i> Contact</a>
-            </li>
-            <li class="navbar-item">
-              <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
-                  <i class="ri-questionnaire-fill"></i> FAQ
-              </a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#rate-us-modal" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
-
-          <li class="navbar-item" id="login-signup-link">
-            <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
-          </li>
-
-
+            <a href="./assets/html/mylogin.html" class="navbar-link" data-nav-link><i class="ri-user-fill"></i> Login/Signup</a>
+           </li>
 
           <li class="navbar-item dropdown" id="more-dropdown">
             <a href="#" class="navbar-link" id="more-link">More
@@ -2574,6 +2626,7 @@ count=0
 }
 })
 </script>
+
 </body>
 
 </html>
