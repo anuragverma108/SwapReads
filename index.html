@@ -331,7 +331,7 @@
   align-items: center;
   width: 300px;
   height: fit-content;
-  z-index: 100;
+  z-index: 10000;
   border-radius: 10px;
   margin-bottom: 5px;
   margin: 20px;
@@ -360,6 +360,14 @@
   border-radius: 5px;  /* Add rounded corners */
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;  /* Smooth transition for effects */
+}
+
+.dark-mode #cookie-consent{
+  background-color: #252423;
+}
+
+.dark-mode #cookie-consent p{
+  color: white;
 }
 
 .reject-cookies {
@@ -614,6 +622,7 @@ body {
     <div class="progress-bar"></div>
   </div>
 
+
   <div id="cookie-consent">
     <button class="close-btn" id="closeBtn">&times;</button>
     <p>
@@ -632,7 +641,10 @@ body {
   </div>
 
   <script src="script.js"></script>
+
 <script>
+
+
 
   document.addEventListener('DOMContentLoaded', function() {
   const cookieConsent = document.getElementById('cookie-consent');
@@ -737,7 +749,7 @@ body {
 
           <li class="navbar-item">
             <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
-
+           
           <li class="navbar-item" id="login-signup-link">
             <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
           </li>
@@ -1198,8 +1210,8 @@ body {
       <!--Chapters-->
 
       <section class="section chapters" id="chapters">
-        <div class="containerr">
-          <p class="section-subtitle" style="color: brown;">Literary Realms</p>
+        <div class="litrealms_conatiner">
+          <p class="section-subtitle">Literary Realms</p>
           <h1 class="h1 section-title has-underline" id="section-title2" style="padding-bottom: 20px;">
             Literary Realms we've covered
             <span class="span has-before"></span>
@@ -1209,8 +1221,8 @@ body {
             <i id="left-arrow" class="fa-solid fa-angle-left"></i>
             
             <div class="carousell">
-              <div class="cardd">
-                <a class="cardo" href="romantic-esc.html">
+              <div class="litrealms_card">
+                <a class="cardo" href="romantic-esc.html"> 
                   <h3 class="lithead"> &nbsp;Romantic Escapes</h3>
                   <p class="small">Immerse yourself in the enchanting world of love and passion with our curated selection of romance fiction.</p>
                   <div class="go-corner">
@@ -1218,7 +1230,7 @@ body {
                   </div>
                 </a>
               </div>
-              <div class="cardd">
+              <div class="litrealms_card">
                 <a class="cardo" href="thrilling-adventures.html">
                   <h3 class="lithead"> &nbsp;Thrilling Adventures</h3>
                   <p class="small">Dive into heart-pounding tales and gripping narratives that will keep you on the edge of your seat.</p>
@@ -1227,7 +1239,7 @@ body {
                   </div>
                 </a>
               </div>
-              <div class="cardd">
+              <div class="litrealms_card">
                 <a class="cardo" href="mindful-living.html">
                   <h3 class="lithead"> &nbsp;Mindful Living</h3>
                   <p class="small">Discover the secrets to a fulfilling life with our collection of insightful and empowering self-help books.</p>
@@ -1236,7 +1248,7 @@ body {
                   </div>
                 </a>
               </div>
-              <div class="cardd">
+              <div class="litrealms_card">
                 <a class="cardo" href="Mystical-fantaies.html">
                   <h3 class="lithead"> &nbsp;Mystical Fantasies</h3>
                   <p class="small">Embark on fantastical journeys to magical realms with our captivating fantasy fiction picks.</p>
@@ -1245,7 +1257,7 @@ body {
                   </div>
                 </a>
               </div>
-              <div class="cardd">
+              <div class="litrealms_card">
                 <a class="cardo" href="historical-chronicals.html">
                   <h3 class="lithead"> &nbsp;Historical Chronicles</h3>
                   <p class="small">Travel back in time and explore the rich tapestry of history through our curated historical fiction selection.</p>
@@ -1254,7 +1266,7 @@ body {
                   </div>
                 </a>
               </div>
-              <div class="cardd">
+              <div class="litrealms_card">
                 <a class="cardo" href="scifi.html">
                   <h3 class="lithead"> &nbsp;Science Fiction Wonders</h3>
                   <p class="small">Ignite your imagination with mind-bending concepts and futuristic worlds in our science fiction.</p>
@@ -1263,7 +1275,7 @@ body {
                   </div>
                 </a>
               </div>
-              <div class="cardd">
+              <div class="litrealms_card">
                 <a class="cardo" href="lol.html">
                   <h3 class="lithead"> &nbsp;Laugh Out Loud Comedy</h3>
                   <p class="small">Find joy and laughter in our comedy section, featuring witty and humorous tales that will brighten your day.</p>
@@ -1272,7 +1284,7 @@ body {
                   </div>
                 </a>
               </div>
-              <div class="cardd">
+              <div class="litrealms_card">
                 <a class="cardo" href="intriguing-mysteries.html">
                   <h3 class="lithead"> &nbsp;Intriguing Mysteries</h3>
                   <p class="small">Unravel gripping mysteries and suspenseful plots that will keep you guessing until the last page.</p>
@@ -1281,7 +1293,7 @@ body {
                   </div>
                 </a>
               </div>
-              <div class="cardd">
+              <div class="litrealms_card">
                 <a class="cardo" href="biographies.html">
                   <h3 class="lithead"> &nbsp;Inspiring Biographies</h3>
                   <p class="small">Gain insights into the lives of remarkable individuals through our collection of inspiring biographies and memoirs.</p>
@@ -1300,7 +1312,7 @@ body {
       <script>
        document.addEventListener("DOMContentLoaded", function () {
     const carousel = document.querySelector(".carousell");
-    const firstCardWidth = carousel.querySelector(".cardd").offsetWidth;
+    const firstCardWidth = carousel.querySelector(".litrealms_card").offsetWidth;
     const arrowBtns = document.querySelectorAll(".carousell-wrapper i");
     const carouselChildrens = [...carousel.children];
 
@@ -2338,8 +2350,41 @@ body {
     </div>
   </div>
   <br /><br />
+  <div style="
+    background-color: #ffb2a8 ;
+    height:150px;
+    width: 100%;
+    color: white;
+    font-weight: 700;
+    font-size: 45px;
+  text-align: center;
+  ">
+  <div>Visitor</div>
+  <div class="website-counter" >
 
+    <script>
+var counterContainer = document.querySelector(".website-counter");
+var resetButton = document.querySelector("#reset");
+var visitCount = localStorage.getItem("page_view");
 
+// Check if page_view entry is present
+if (visitCount) {
+  visitCount = Number(visitCount) + 1;
+  localStorage.setItem("page_view", visitCount);
+} else {
+  visitCount = 1;
+  localStorage.setItem("page_view", 1);
+}
+counterContainer.innerHTML = visitCount;
+
+// Adding onClick event listener
+resetButton.addEventListener("click", () => {
+  visitCount = 1;
+  localStorage.setItem("page_view", 1);
+  counterContainer.innerHTML = visitCount;
+});
+    </script></div>
+</div>
  
     <script src="./assets/js/rate.js"></script>
 
@@ -2515,7 +2560,7 @@ body {
          
 
         </div>
-
+       </div>
 
         <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
           <div class="circle1">

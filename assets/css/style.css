@@ -502,7 +502,13 @@ body {
   background-color: var(--old-rose_30);
   box-shadow: 7px -7px var(--old-rose_30);
 }
-
+.dark-mode .has-underline .has-before::before{
+  background-color: hsl(358, 30%, 35%);
+  box-shadow: 7px -7px hsla(358, 30%, 35%, 0.511);
+}
+.dark-mode .has-underline .span{
+  background-color: hsl(358, 30%, 35%);
+}
 .btn {
   padding: 12px 30px;
   transition: var(--transition-1);
@@ -1388,13 +1394,6 @@ body.dark-mode .chapter-card:hover {
   padding: 15px;
 }
 
-.small {
-  color: black;
-}
-
-.lithead {
-  color: black;
-}
 
 .achievement-card .abs-img {
   position: absolute;
@@ -1904,8 +1903,32 @@ footer {
   text-align: center;
 }
 
-.foot-quick :hover {
-  color: red;
+.foot-quick a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.foot-quick a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -1px;
+  left: 0;
+  background-color: rgb(204, 12, 12);
+  transition: width 0.3s ease;
+}
+
+.foot-quick a:hover {
+  color: rgb(204, 12, 12);
+  transform: scale(1.1);
+}
+
+.foot-quick a:hover::after {
+  width: 100%;
 }
 
 .foot-middle ul {
@@ -4066,4 +4089,7 @@ body.dark-mode .h3 {
 }
 .icons .icon:hover .fab.fa-linkedin {
   color: #0077b5;
+}
+.form-label:hover,.currency-label:hover{
+  color: #fd4;
 }
