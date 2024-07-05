@@ -207,11 +207,11 @@
     </ul>
     </nav>
     &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<div class="switch-container">
-      <input type="checkbox" id="switch" class="switch-checkbox">
+      <input type="checkbox" id="switch" class="switch-checkbox" >
       <label for="switch" class="switch-label">
-        <div class="switch-button">
-          <span class="material-icons sun-icon">wb_sunny</span>
-          <span class="material-icons moon-icon">brightness_2</span>
+        <div class="switch-button" >
+          <span class="material-icons sun-icon" >wb_sunny</span>
+          <span class="material-icons moon-icon" >brightness_2</span>
         </div>
       </label>
     </div>
@@ -789,101 +789,54 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     }
 
-      function toggleDarkMode() {
-      const isDarkMode = isDarkModePreferred();
-      setDarkModePreference(!isDarkMode);
-      applyDarkModePreference();
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const switchCheckbox = document.getElementById('switch');
+      const starRating = document.querySelector('.navbar-list');
+      const thankYouMessage = document.querySelector(".navbar");
+      const nav_item=document.querySelector('.navbar-item');
+      const logo=document.querySelector(".logo");
 
-    // Function to apply dark mode preference
-    function applyDarkModePreference() {
-      const isDarkMode = isDarkModePreferred();
-      if (isDarkMode) {
+      function applyDarkModeStyles() {
+        document.body.classList.remove('light-mode');
         document.body.classList.add('dark-mode');
-        document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
-      } else {
+        if (starRating) starRating.style.backgroundColor = '#1e1e1e';
+        if (thankYouMessage) thankYouMessage.style.backgroundColor = '#1e1c1c';
+        if (nav_item) nav_item.style.color = '#1e1c1c';
+        if(logo) logo.style.backgroundColor="#1e1c1c";
+      }
+
+      function applyLightModeStyles() {
         document.body.classList.remove('dark-mode');
-        document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
+        document.body.classList.add('light-mode');
+        if (starRating) starRating.style.backgroundColor = 'White';
+        if (thankYouMessage) thankYouMessage.style.backgroundColor = 'White';
+        if (nav_item) nav_item.style.color = '#1e1c1c';
+        if(logo) logo.style.backgroundColor="White";
       }
-    }
 
-    // Function to set dark mode preference
-    document.addEventListener('DOMContentLoaded', () => {
-      const currentTheme = localStorage.getItem('theme');
-      const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
-      const starRating = document.querySelector('.star_rating');
-      const thankYouMessage = document.querySelector(".thank_you_message");
-      if (switchCheckbox) { // Check if switchCheckbox is not null
-        function applyDarkModeStyles() {
-          document.body.classList.remove('light-mode');
-          document.body.classList.add('dark-mode');
-          starRating.style.backgroundColor = '#2d2828';
-          thankYouMessage.style.backgroundColor = '#2d2828';
-
-        }
-
-        function toggleDarkMode() {
-          const isDarkMode = isDarkModePreferred();
-          setDarkModePreference(!isDarkMode);
-          applyDarkModePreference();
-        }
-
-        // Function to apply dark mode preference
-        function applyDarkModePreference() {
-          const isDarkMode = isDarkModePreferred();
-          if (isDarkMode) {
-            document.body.classList.add('dark-mode');
-            document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
-          } else {
-            document.body.classList.remove('dark-mode');
-            document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
-          }
+      function toggleDarkMode() {
+        if (switchCheckbox.checked) {
+          applyDarkModeStyles();
+          localStorage.setItem('theme', 'dark-mode');
+        } else {
+          applyLightModeStyles();
+          localStorage.setItem('theme', 'light-mode');
         }
       }
-    });
-    // Function to set dark mode preference
-    document.addEventListener('DOMContentLoaded', () => {
-      const currentTheme = localStorage.getItem('theme');
-      const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
-      const starRating = document.querySelector('.star_rating');
-      const thankYouMessage = document.querySelector(".thank_you_message");
-      if (switchCheckbox) { // Check if switchCheckbox is not null
-        function applyDarkModeStyles() {
-          document.body.classList.remove('light-mode');
-          document.body.classList.add('dark-mode');
-          starRating.style.backgroundColor = '#2d2828';
-          thankYouMessage.style.backgroundColor = '#2d2828';
-        }
 
-        function applyLightModeStyles() {
-          document.body.classList.remove('dark-mode');
-          document.body.classList.add('light-mode');
-          starRating.style.backgroundColor = 'white';
-          thankYouMessage.style.backgroundColor = 'white';
+      function applyDarkModePreference() {
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark-mode') {
+          applyDarkModeStyles();
+          switchCheckbox.checked = true;
+        } else {
+          applyLightModeStyles();
+          switchCheckbox.checked = false;
         }
-
-        if (currentTheme) {
-          if (currentTheme === 'dark-mode') {
-            applyDarkModeStyles();
-            switchCheckbox.checked = true;
-          } else {
-            applyLightModeStyles();
-          }
-        }
-
-        switchCheckbox.addEventListener('change', () => {
-          if (switchCheckbox.checked) {
-            applyDarkModeStyles();
-            localStorage.setItem('theme', 'dark-mode');
-          } else {
-            applyLightModeStyles();
-            localStorage.setItem('theme', 'light-mode');
-          }
-          applyDarkModePreference(); // Call the applyDarkModePreference function after updating the dark mode preference
-        });
-      } else {
-        console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
       }
+
+      applyDarkModePreference();
+      switchCheckbox.addEventListener('change', toggleDarkMode);
     });
   </script>
 
