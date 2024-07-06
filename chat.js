@@ -25,6 +25,7 @@ const messageInput = document.getElementById('message');
 const userInputDiv = document.getElementById('user-input');
 const chatBoxDiv = document.getElementById('chat-box');
 const messagesDiv = document.getElementById('messages');
+const backButton = document.getElementById('backbutton');
 
 // Start Chat Button Event
 startChatBtn.addEventListener('click', () => {
@@ -45,6 +46,14 @@ messageInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         sendMessage();
     }
+});
+
+// Back Button Event
+backButton.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent default link behavior
+    chatBoxDiv.style.display = 'none';
+    userInputDiv.style.display = 'block';
+    localStorage.removeItem('username'); // Optionally, clear the stored username
 });
 
 // Function to send a message to Firestore
@@ -88,3 +97,35 @@ function displayMessage({ username, messageText, timestamp }) {
     messagesDiv.appendChild(messageDiv);
     messagesDiv.scrollTop = messagesDiv.scrollHeight; // Auto-scroll to the latest message
 }
+
+// Function to toggle the navbar menu visibility
+function toggleNav() {
+    const navbarMenu = document.getElementById('navbarMenu');
+    navbarMenu.classList.toggle('active');
+}
+
+// Adding event listener to the toggle button
+const navbarToggleBtn = document.querySelector('.navbar-toggle');
+navbarToggleBtn.addEventListener('click', toggleNav);
+
+// Adding event listeners to navbar links to close the menu on click
+const navbarLinks = document.querySelectorAll('.navbar-link');
+navbarLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        const navbarMenu = document.getElementById('navbarMenu');
+        if (navbarMenu.classList.contains('active')) {
+            navbarMenu.classList.remove('active');
+        }
+    });
+});
+
+// Adding event listener to the document to close the menu when clicking outside
+document.addEventListener('click', (event) => {
+    const navbarMenu = document.getElementById('navbarMenu');
+    const toggleBtn = document.querySelector('.navbar-toggle');
+    if (!navbarMenu.contains(event.target) && !toggleBtn.contains(event.target)) {
+        navbarMenu.classList.remove('active');
+    }
+});
+
+
