@@ -15,6 +15,7 @@ async function signup() {
     const signupMessage = document.getElementById('signupMessage');
     if (data.success) {
         signupMessage.innerHTML = 'Signup successful.';
+        alert("Registered Successfully! Please Login to continue.");
     } else {
         signupMessage.innerHTML = data.message;
     }
