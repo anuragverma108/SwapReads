@@ -242,7 +242,7 @@ const navigateTab = function () {
 
 addEventOnelem(tabCard, "click", navigateTab);
 
-// Book Exchange Hub 
+// Book Exchange Hubs
 function validateAndConnect() {
   var bookTitle = document.getElementById('bookTitle').value;
   var bookAuthor = document.getElementById('bookAuthor').value;

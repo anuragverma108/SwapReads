@@ -15,16 +15,22 @@ body {
 .section-text1 {
     font-size: var(--fs-7);
     text-align: center;
-  }
+}
 
-  .book-display .benefits-content {
+.book-display .benefits-content {
     margin-bottom: 40px;
-    margin-top: 40px;
-    padding-top: 8%;
     left: 50px;
 }
 
 .book-display .book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 50px;
+}
+
+.book-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
@@ -62,7 +68,7 @@ h2.section-title {
     font-family: 'Philosopher', sans-serif;
     color: hsl(203, 30%, 26%);
     font-size: 3em;
-    
+margin-top: 100px;
 }
 
 .section-text1 {
@@ -115,14 +121,15 @@ h2.section-title {
     background-color: var(--border-color-right);
     top: 0;
     right: -6px;
-    
+
 }
 
 .btn-secondary:hover {
     background-color: var(--btn-bg-hover-color);
 
 }
-.read_later_button{
+
+.read_later_button {
     background-color: var(--btn-bg-color);
     color: var(--btn-text-color);
     padding: 10px 10px;
@@ -133,9 +140,10 @@ h2.section-title {
     margin-top: 10px;
     position: relative;
     transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
-    width:180px;
+    width: 180px;
     margin-left: 1px;
 }
+
 .read_later_button::after,
 .read_later_button::before {
     content: "";
@@ -151,8 +159,10 @@ span {
 /* Class for the underline effect */
 .has-underline {
     position: relative;
-    text-align: center; /* Center align the heading */
+    text-align: center;
+    /* Center align the heading */
 }
+
 .read_later_button::after {
     width: 100%;
     height: 6px;
@@ -167,7 +177,7 @@ span {
     background-color: var(--border-color-right);
     top: 0;
     right: -6px;
-    
+
 }
 
 .read_later_button:hover {
@@ -178,7 +188,8 @@ span {
 /* Span within the underline class */
 .span {
     height: 2px;
-    background-color: #cc9999; /* Adjust to the desired color */
+    background-color: #cc9999;
+    /* Adjust to the desired color */
     width: 200px;
     margin: 30px auto 0 auto;
 }
@@ -198,6 +209,83 @@ span {
     top: 30%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%) rotate(45deg);
-    background-color: #cc9999; /* Adjust to the desired color */
-    box-shadow: 7px -7px #cc9999; /* Adjust to the desired shadow color */
+    background-color: #cc9999;
+    /* Adjust to the desired color */
+    box-shadow: 7px -7px #cc9999;
+    /* Adjust to the desired shadow color */
 }
+
+/* classes for the preview books button */
+.premodal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.modal-overlay {
+    /* position: absolute; */
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+iframe {
+    overflow: auto;
+}
+
+.freeEbooks {
+    background: rgba(255, 233, 233, 0.676);
+    border-radius: 8px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 15px;
+    padding-bottom: 30px;
+    box-shadow: 5px 5px 3px rgb(186, 136, 136);
+}
+
+.freeEbooks img {
+    margin-bottom: 5px;
+}
+
+.freeEbooks button,
+.freeEbooks a {
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+    margin: 0px auto;
+}
+
+
+.freeEbooks button {
+    margin-left: 10px;
+    height: 50px;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .modal-content {
+    background-color: var(--white);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  

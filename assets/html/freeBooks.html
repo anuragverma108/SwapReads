@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>SwapReads</title>
+<title>FreeBooks</title>
 
 <head>
   <meta charset="UTF-8">
@@ -58,7 +58,63 @@
 
   <!-- Free E-Book Css -->
   <link rel="stylesheet" href="../css/Available.css">
+  <link rel="stylesheet" href="./../css/styles.css">
 
+<style>
+  
+.premodal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index:101;
+}
+
+.modal-content {
+  /* position: relative; */
+  top: 10%;
+  left: 50%;
+  /* right: 10%; */
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 2px solid #960d0d;
+  width: 80%;
+  height: 450px;
+  overflow: auto;
+  
+}
+
+.modal-overlay {
+  /* position: absolute; */
+  display: none;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 80%;
+  background-color: rgba(232, 13, 13, 0.5);
+}
+iframe {
+  overflow: auto;
+}
+/* .v-window-modalitycurtain {
+  animation: valo-animate-in-fade 400ms 0; 
+} */
+.v-window-modalitycurtain {
+  animation: none;
+}
+/* .prebut
+{ */
+  /* position: fixed; */
+  /* bottom: 200px;
+  right: 1000px;
+  width: 300px;
+}  */
+
+</style>
 
 
 
@@ -153,11 +209,11 @@
 
       <nav class="navbar nav_activated" data-navbar>
         <a href="../../index.html" class="logo" style="display:flex;">
-          <img src="../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
+          <img src="../images/final.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
         </a>
 
         <ul class="navbar-list">
-          <img src="./../images/new_logo_banner_dark.png" class="logopic" style=" width: 200px;">
+          <img src="./../images/final.png" class="logopic" style="width: 150px;">
  
            <!-- li class="navbar-item">-->
             <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
@@ -184,7 +240,7 @@
           </li> 
 
           <li class="navbar-item">
-            <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+            <a href="./rate.html" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
           </li>
           <li class="navbar-item" id="login-signup-link">
             <a href="./login.html" class="navbar-link">Login/Signup</a>
@@ -226,11 +282,11 @@
         </li>
       </nav>
     </div>
-  <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
   <script>
     function loadGoogleTranslate() {
       new google.translate.TranslateElement({
-        pageLanguage: 'en'
+        // pageLanguage: 'en'
       }, 'google_element');
     }
   </script>
@@ -258,7 +314,10 @@
     color:white;
   text-shadow: 3px 3px 20px #d1c4c4;
   }
-</style>
+</style><br><br><br><br><br><br><br>
+<div style="background-color: hsl(357, 37%, 62%);color: white; width:100% ;height:50px;right: 0 ;padding: 1px;">
+  <marquee><h2> <p style="font-size: 10;">!!You can have the preview of the books just by clicking on them!! </p></h2></marquee>
+</div>
 
 
 
@@ -271,156 +330,379 @@
 
         </div>
         <div class="book-list">
-            <div class="book-item">
-                <img src="https://www.gutenberg.org/cache/epub/11/pg11.cover.medium.jpg" alt="Alice's Adventures in Wonderland" class="book-cover">
+            <div class="book-item freeEbooks">
+                <img id="open-modal" src="https://www.gutenberg.org/cache/epub/11/pg11.cover.medium.jpg" alt="Alice's Adventures in Wonderland" class="book-cover">
                 <h3 class="book_title">Alice's Adventures in Wonderland</h3>
+                <li>
                 <a href="https://www.gutenberg.org/ebooks/11" class="btn btn-secondary">Download</a>
-                <button onclick="addToReadLater(1)" class="read_later_button">Add to Read Later</button>
+               
+                
+              <button onclick="addToReadLater(1)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
-                <img src="https://th.bing.com/th/id/OIP.wcZjPkH4FZD5QYi_2kfxxAAAAA?rs=1&pid=ImgDetMain" alt="Pride and Prejudice" class="book-cover">
-                <h3 class="book_title">Pride and Prejudice</h3>
+             <!-- adding preview button -->
+           <!-- <div class="prebut"><img id="open-modal" width="34" height="74" src="https://img.icons8.com/pastel-glyph/64/813b3f/file-preview--v2.png" alt="file-preview--v2"/></div> -->
+             <div id="previewmodal" class="premodal">
+                 <div class="modal-content">
+                  
+                   <iframe src="https://www.gutenberg.org/cache/epub/11/pg11-images.html" frameborder="0" width="100%" height="500" scrolling="yes" seamless></iframe>
+                 </div>
+                 <div class="modal-overlay"></div>
+               </div></li>
+               <!-- script to open modal when preview button clicked -->
+               <script>
+                 document.getElementById("open-modal").addEventListener("click", function() {
+               document.getElementById("previewmodal").style.display = "block";
+             });
+             
+
+             document.addEventListener("click", function(event) {
+ if (event.target === document.getElementById("previewmodal")) {
+   document.getElementById("previewmodal").style.display = "none";
+ }
+ document.getElementById("previewmodal").addEventListener("click", function(event) {
+if (event.target === this || event.target.tagName === "IFRAME") {
+ return;}
+
+this.style.display = "none";
+});
+});
+</script>
+             
+
+
+
+            <div class="book-item freeEbooks">
+                <img id="open-modal2" src="https://th.bing.com/th/id/OIP.wcZjPkH4FZD5QYi_2kfxxAAAAA?rs=1&pid=ImgDetMain" alt="Pride and Prejudice" class="book-cover">
+                <h3 class="book_title">Pride and Prejudices</h3>
                 <a href="https://www.gutenberg.org/ebooks/1342" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(2)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
-                <img src="https://th.bing.com/th/id/OIP.0pGf5-srfkBJaBeljJn3KgHaLX?rs=1&pid=ImgDetMain" alt="Jane Eyre" class="book-cover">
+            <div id="previewmodal2" class="premodal">
+              <div class="modal-content">
+               
+                <iframe src="https://www.gutenberg.org/cache/epub/1342/pg1342-images.html#Chapter_I" frameborder="0" width="100%" height="500" scrolling="yes" seamless></iframe>
+              </div>
+              <div class="modal-overlay"></div>
+            </div>
+            <!-- script to open modal when preview button clicked -->
+            <script>
+              document.getElementById("open-modal2").addEventListener("click", function() {
+            document.getElementById("previewmodal2").style.display = "block";
+          });
+          
+
+          document.addEventListener("click", function(event) {
+if (event.target === document.getElementById("previewmodal2")) {
+document.getElementById("previewmodal2").style.display = "none";
+}
+document.getElementById("previewmodal2").addEventListener("click", function(event) {
+if (event.target === this || event.target.tagName === "IFRAME") {
+return;}
+
+this.style.display = "none";
+});
+});
+</script>
+            <div class="book-item freeEbooks">
+                <img id="open-modal3" src="https://th.bing.com/th/id/OIP.0pGf5-srfkBJaBeljJn3KgHaLX?rs=1&pid=ImgDetMain" alt="Jane Eyre" class="book-cover">
                 <h3 class="book_title">Jane Eyre</h3>
                 <a href="https://www.gutenberg.org/ebooks/1260" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(3)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
-                <img src="https://th.bing.com/th/id/OIP.Dq67ImUtHy4wvtf4fQWrhgHaL9?rs=1&pid=ImgDetMain" alt="Metamorphosis" class="book-cover">
+            <!-- code to add preview to the book image -->
+            <div id="previewmodal3" class="premodal">
+              <div class="modal-content">
+               
+                <iframe src="https://www.gutenberg.org/cache/epub/1260/pg1260-images.html" frameborder="0" width="100%" height="500" scrolling="yes" seamless></iframe>
+              </div>
+              <div class="modal-overlay"></div>
+            </div>
+            <!-- script to open modal when preview button clicked -->
+            <script>
+              document.getElementById("open-modal3").addEventListener("click", function() {
+            document.getElementById("previewmodal2").style.display = "block";
+          });
+          
+
+          document.addEventListener("click", function(event) {
+if (event.target === document.getElementById("previewmodal2")) {
+document.getElementById("previewmodal3").style.display = "none";
+}
+document.getElementById("previewmodal3").addEventListener("click", function(event) {
+if (event.target === this || event.target.tagName === "IFRAME") {
+return;}
+
+this.style.display = "none";
+});
+});
+</script>
+            <div class="book-item freeEbooks">
+                <img id="open-modal4"src="https://th.bing.com/th/id/OIP.Dq67ImUtHy4wvtf4fQWrhgHaL9?rs=1&pid=ImgDetMain" alt="Metamorphosis" class="book-cover">
                 <h3 class="book_title"> The Metamorphosis</h3>
                 <a href="https://www.gutenberg.org/ebooks/5200" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(4)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
-                <img src="https://www.gutenberg.org/cache/epub/1661/pg1661.cover.medium.jpg" alt="The Adventures of Sherlock Holmes" class="book-cover">
+             <!-- code to add preview to the book image -->
+             <div id="previewmodal4" class="premodal">
+              <div class="modal-content">
+               
+                <iframe src="https://www.gutenberg.org/cache/epub/5200/pg5200-images.html" frameborder="0" width="100%" height="500" scrolling="yes" seamless></iframe>
+              </div>
+              <div class="modal-overlay"></div>
+            </div>
+            <!-- script to open modal when preview button clicked -->
+            <script>
+              document.getElementById("open-modal4").addEventListener("click", function() {
+            document.getElementById("previewmodal4").style.display = "block";
+          });
+          
+
+          document.addEventListener("click", function(event) {
+if (event.target === document.getElementById("previewmodal2")) {
+document.getElementById("previewmodal2").style.display = "none";
+}
+document.getElementById("previewmodal2").addEventListener("click", function(event) {
+if (event.target === this || event.target.tagName === "IFRAME") {
+return;}
+
+this.style.display = "none";
+});
+});
+</script>
+            <div class="book-item freeEbooks">
+                <img id="open-modal5"src="https://www.gutenberg.org/cache/epub/1661/pg1661.cover.medium.jpg" alt="The Adventures of Sherlock Holmes" class="book-cover">
                 <h3 class="book_title">The Adventures of Sherlock Holmes</h3>
                 <a href="https://www.gutenberg.org/ebooks/1661" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(5)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
-                <img src="https://th.bing.com/th/id/OIP.i4wGILb5pOCB68s5SDIMcwHaLH?rs=1&pid=ImgDetMain" alt="Oliver Twist" class="book-cover">
+             <!-- code to add preview to the book image -->
+             <div id="previewmodal5" class="premodal">
+              <div class="modal-content">
+               
+                <iframe src="https://www.gutenberg.org/cache/epub/1661/pg1661-images.html" frameborder="0" width="100%" height="500" scrolling="yes" seamless></iframe>
+              </div>
+              <div class="modal-overlay"></div>
+            </div>
+            <!-- script to open modal when preview button clicked -->
+            <script>
+              document.getElementById("open-modal5").addEventListener("click", function() {
+            document.getElementById("previewmodal5").style.display = "block";
+          });
+          
+
+          document.addEventListener("click", function(event) {
+if (event.target === document.getElementById("previewmodal2")) {
+document.getElementById("previewmodal2").style.display = "none";
+}
+document.getElementById("previewmodal2").addEventListener("click", function(event) {
+if (event.target === this || event.target.tagName === "IFRAME") {
+return;}
+
+this.style.display = "none";
+});
+});
+</script>
+            <div class="book-item freeEbooks">
+                <img id="open-modal6" src="https://th.bing.com/th/id/OIP.i4wGILb5pOCB68s5SDIMcwHaLH?rs=1&pid=ImgDetMain" alt="Oliver Twist" class="book-cover">
                 <h3 class="book_title">Oliver Twist</h3>
                 <a href="https://www.gutenberg.org/ebooks/730" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(6)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
-                <img src="https://th.bing.com/th/id/OIP.S0qQ8zdSHnFSzr-14H0KnAAAAA?rs=1&pid=ImgDetMain" alt="The Hunger Games" class="book-cover">
+             <!-- code to add preview to the book image -->
+             <div id="previewmodal2" class="premodal">
+              <div class="modal-content">
+               
+                <iframe src="https://www.gutenberg.org/cache/epub/1260/pg1260-images.html" frameborder="0" width="100%" height="500" scrolling="yes" seamless></iframe>
+              </div>
+              <div class="modal-overlay"></div>
+            </div>
+            <!-- script to open modal when preview button clicked -->
+            <script>
+              document.getElementById("open-modal6").addEventListener("click", function() {
+            document.getElementById("previewmodal2").style.display = "block";
+          });
+          
+
+          document.addEventListener("click", function(event) {
+if (event.target === document.getElementById("previewmodal2")) {
+document.getElementById("previewmodal2").style.display = "none";
+}
+document.getElementById("previewmodal2").addEventListener("click", function(event) {
+if (event.target === this || event.target.tagName === "IFRAME") {
+return;}
+
+this.style.display = "none";
+});
+});
+</script>
+            <div class="book-item freeEbooks">
+                <img id="open-modal7"src="https://th.bing.com/th/id/OIP.S0qQ8zdSHnFSzr-14H0KnAAAAA?rs=1&pid=ImgDetMain" alt="The Hunger Games" class="book-cover">
                 <h3 class="book_title">The Hunger Games</h3>
                 <a href="https://archive.org/details/the-hunger-games-pdf-download" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(7)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
-                <img src="https://th.bing.com/th/id/OIP.yh6cLnWQBJegPIzFO8Y-1QAAAA?rs=1&pid=ImgDetMain" alt="The island of Doctor Moreau" class="book-cover">
+             <!-- code to add preview to the book image -->
+             <div id="previewmodal2" class="premodal">
+              <div class="modal-content">
+               
+                <iframe src="https://www.gutenberg.org/cache/epub/1260/pg1260-images.html" frameborder="0" width="100%" height="500" scrolling="yes" seamless></iframe>
+              </div>
+              <div class="modal-overlay"></div>
+            </div>
+            <!-- script to open modal when preview button clicked -->
+            <script>
+              document.getElementById("open-modal7").addEventListener("click", function() {
+            document.getElementById("previewmodal2").style.display = "block";
+          });
+          
+
+          document.addEventListener("click", function(event) {
+if (event.target === document.getElementById("previewmodal2")) {
+document.getElementById("previewmodal2").style.display = "none";
+}
+document.getElementById("previewmodal2").addEventListener("click", function(event) {
+if (event.target === this || event.target.tagName === "IFRAME") {
+return;}
+
+this.style.display = "none";
+});
+});
+</script>
+            <div class="book-item freeEbooks">
+                <img  id="open-modal8" src="https://th.bing.com/th/id/OIP.yh6cLnWQBJegPIzFO8Y-1QAAAA?rs=1&pid=ImgDetMain" alt="The island of Doctor Moreau" class="book-cover">
                 <h3 class="book_title">The island of Doctor Moreau</h3>
                 <a href="https://www.gutenberg.org/ebooks/159" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(8)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
+            <div class="book-item freeEbooks">
                 <img src="https://mpd-biblio-covers.imgix.net/9781509827886.jpg" alt="A Journey to the Centre of the Earth" class="book-cover">
                 <h3 class="book_title">A Journey to the Centre of the Earth</h3>
                 <a href="https://www.gutenberg.org/ebooks/18857" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(9)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
+            <div class="book-item freeEbooks">
                 <img src="https://i.pinimg.com/originals/83/9c/fa/839cfa60faa10999f6d1b73251da5dc4.jpg" alt="The Great Gatsby" class="book-cover">
                 <h3 class="book_title">The Great Gatsby</h3>
                 <a href="https://archive.org/details/the-great-gatsby_1922" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(10)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
+            <div class="book-item freeEbooks">
                 <img src="https://th.bing.com/th/id/R.328e9a56c99f289657e029622120c86e?rik=rAS3f8u2Qjvbag&riu=http%3a%2f%2f2.bp.blogspot.com%2f-vKHg_NkPLAc%2fUNyrlir0C8I%2fAAAAAAAAAJM%2fgdeMbqQqxWQ%2fs1600%2fphoto.JPG&ehk=kKM4B%2bLhVVPKQ9Hn7Eccip6aXOwlnf4DYCekQVQTpTU%3d&risl=&pid=ImgRaw&r=0" alt="Divergent" class="book-cover">
                 <h3 class="book_title">Divergent</h3>
                 <a href="https://archive.org/details/divergent_202004/page/n9/mode/2up" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(11)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
+            <div class="book-item freeEbooks">
                 <img src="https://th.bing.com/th/id/OIP.4AM7E0gqdRssefWlWNu5GQHaLH?rs=1&pid=ImgDetMain" alt="The Lost World" class="book-cover">
                 <h3 class="book_title">The Lost World</h3>
                 <a href="https://www.gutenberg.org/ebooks/139" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(12)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
+            <div class="book-item freeEbooks">
                 <img src="https://th.bing.com/th/id/R.19a01d9b7d9d8bb95f01c0e10350ab6b?rik=hlYaZrjicM6LwA&riu=http%3a%2f%2flibrary.jodan-design.com%2fwp-content%2fuploads%2f2015%2f06%2fTwenty-Thousand-Leagues-Under-the-Sea-by-Jules-Verne.png&ehk=SMCdVa8QfavQPxPn8nA1lwQpW0aZSiJnnD%2bhlDiS%2bOg%3d&risl=&pid=ImgRaw&r=0" alt="Twenty Thousand Leagues Under the Seas: An Underwater Tour of the World" class="book-cover">
                 <h3 class="book_title">Twenty Thousand Leagues Under the Seas</h3>
                 <a href="https://www.gutenberg.org/ebooks/2488" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(13)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
+            <div class="book-item freeEbooks">
                 <img src="https://castlesandturretsblog.files.wordpress.com/2020/02/01_padmore_kiera_cass_the_selection.jpg" alt="The Selection" class="book-cover">
                 <h3 class="book_title">The Selection</h3>
                 <a href="https://thebooksacross.com/the-selection-pdf-free-download/" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(14)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
+            <div class="book-item freeEbooks">
                 <img src="https://th.bing.com/th/id/OIP.wBsmWuJnlDBaMdbtE-wrEQHaLX?rs=1&pid=ImgDetMain" alt="13 Reasons Why" class="book-cover">
                 <h3 class="book_title">13 Reasons Why</h3>
                 <a href="https://archive.org/details/13-reasons-why" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(15)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
+            <div class="book-item freeEbooks">
                 <img src="https://th.bing.com/th/id/OIP.UhAravW0-4a4AG_fbSkzcQAAAA?rs=1&pid=ImgDetMain" alt="A murder is announced" class="book-cover">
                 <h3 class="book_title">A murder is announced</h3>
                 <a href="https://archive.org/details/a-murder-is-announced_202108" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(16)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
+            <div class="book-item freeEbooks">
                 <img src="https://th.bing.com/th/id/OIP.S3d84Hj2FQHiE6eGFqq4KwAAAA?rs=1&pid=ImgDetMain" alt="The Origin" class="book-cover">
                 <h3 class="book_title">The Origin</h3>
                 <a href="https://archive.org/details/OriginDanBrown_201809" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(17)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
+            <div class="book-item freeEbooks">
                 <img src="https://cdn2.penguin.com.au/covers/original/9780552159715.jpg" alt="The Da Vinci Code" class="book-cover">
                 <h3 class="book_title">The Da Vinci Code</h3>
                 <a href="https://archive.org/details/TheDaVinciCode_201308" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(18)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
+            <div class="book-item freeEbooks">
                 <img src="https://www.bookindex.in/wp-content/uploads/2020/10/The-Room-on-the-Roof-by-Ruskin-Bond-1.jpg" alt="The Room On the The-Room-on-the-Roof-by-Ruskin-Bond-1" class="book-cover">
                 <h3 class="book_title">The Room on the Roof</h3>
                 <a href="https://archive.org/details/roomonroof0000bond" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(19)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
+            <div class="book-item freeEbooks">
                 <img src="https://en.frenchpdf.com/wp-content/uploads/2020/04/Harry-Potter-and-the-Deathly-Hallows-PDF-Download_PDF-By_EnglishPDF.jpg?v=1587955879" alt="Harry Potter and The Deathly Hallows" class="book-cover">
                 <h3 class="book_title">Harry Potter and The Deathly Hallows</h3>
                 <a href="https://archive.org/details/harrypotterdeath0000rowl_n2u6" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(20)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
+            <div class="book-item freeEbooks">
                 <img src="https://m.media-amazon.com/images/I/41E7WBLt9dS.jpg" alt="The Enemy" class="book-cover">
                 <h3 class="book_title">The Enemy</h3>
                 <a href="https://archive.org/details/isbn_9780440245995" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(21)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
+            <div class="book-item freeEbooks">
                 <img src="https://th.bing.com/th/id/R.a3a4fd9d37edad154da7de3a7292466a?rik=1omX2%2bunBbG2wQ&riu=http%3a%2f%2fprodimage.images-bn.com%2fpimages%2f9780316182935_p0_v5_s1200x630.jpg&ehk=Pvk71%2bdd7sIXxLkkGxiz69vq31K2QMdAbR32jD4RJj4%3d&risl=&pid=ImgRaw&r=0" alt="The Twilight Saga" class="book-cover">
                 <h3 class="book_title">The Twilight Saga</h3>
                 <a href="https://archive.org/details/twilight-saga/Book%201%20-%20Twilight/" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(22)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
+            <div class="book-item freeEbooks">
                 <img src="https://th.bing.com/th/id/R.9f0b20f29c5a6202715d3e6428fd6695?rik=W4fq64KeYAjqdg&riu=http%3a%2f%2fimg7.flixcart.com%2fimage%2fbook%2f4%2f6%2f6%2fwings-of-fire-an-autobiography-700x700-imadaryu565scaj5.jpeg&ehk=Wha%2b%2fQfYyBNdHefJvWqen5AA%2bi1rm4KMva8hwgdURks%3d&risl=&pid=ImgRaw&r=0" alt="Wings of Fire" class="book-cover">
                 <h3 class="book_title">Wings of Fire</h3>
                 <a href="https://archive.org/details/wingsoffireautobiographyofapjkal" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(23)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
+            <div class="book-item freeEbooks">
                 <img src="https://blackwells.co.uk/jacket/l/9780141346045.jpg" alt="Turtles all the way down" class="book-cover">
                 <h3 class="book_title">Turtles all the way down</h3>
                 <a href="https://archive.org/details/turtles-all-the-way-down-by-john-green" class="btn btn-secondary">Download</a>
                 <button onclick="addToReadLater(24)" class="read_later_button">Add to Read Later</button>
             </div>
-            <div class="book-item">
-              <img src="https://th.bing.com/th/id/OIP.mrC9XwFXYEhTKormpnilQwAAAA?rs=1&pid=ImgDetMain" alt="Fire and Blood" class="book-cover">
+            <div class="book-item freeEbooks">
+              <img id="open-modal24" src="https://th.bing.com/th/id/OIP.mrC9XwFXYEhTKormpnilQwAAAA?rs=1&pid=ImgDetMain" alt="Fire and Blood" class="book-cover">
               <h3 class="book_title">Fire and Blood</h3>
               <a href="https://archive.org/details/fire-blood-by-george-r-r-martin" class="btn btn-secondary">Download</a>
               <button onclick="addToReadLater(24)" class="read_later_button">Add to Read Later</button>
           </div>
+           <!-- code to add preview to the book image -->
+           <div id="previewmodal2" class="premodal">
+            <div class="modal-content">
+             
+              <iframe src="https://www.gutenberg.org/cache/epub/1260/pg1260-images.html" frameborder="0" width="100%" height="500" scrolling="yes" seamless></iframe>
+            </div>
+            <div class="modal-overlay"></div>
+          </div>
+          <!-- script to open modal when preview button clicked -->
+          <script>
+            document.getElementById("open-modal24").addEventListener("click", function() {
+          document.getElementById("previewmodal2").style.display = "block";
+        });
+        
+
+        document.addEventListener("click", function(event) {
+if (event.target === document.getElementById("previewmodal2")) {
+document.getElementById("previewmodal2").style.display = "none";
+}
+document.getElementById("previewmodal2").addEventListener("click", function(event) {
+if (event.target === this || event.target.tagName === "IFRAME") {
+return;}
+
+this.style.display = "none";
+});
+});
+</script>
         </div>
     </div>
 </section>
@@ -469,11 +751,11 @@
       </div>
     </div>
     <div class="foot-middle">
-      <h2 class="links">Quick Links</h2>
+      <h2>Quick Links</h2>
       <div id="quicklinks">
         <div>
         <ul>
-          <li class="foot-quick"><a href="../../index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
+          <li class="foot-quick"><a href="index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
           <li class="foot-quick"><a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
           <li class="foot-quick"><a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
           <li class="foot-quick"><a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
@@ -483,96 +765,56 @@
       </div>
       <div>
         <ul>
-          <li class="foot-quick"><a href="addremovebook.html" onclick="lenis.scrollTo('#contact')">Swap
+          <li class="foot-quick"><a href="addremovebook.html" >Swap
               BookList</a></li>
           <li class="foot-quick"><a href="freeBooks.html"
               onclick="lenis.scrollTo('#contact')">E-Book</a></li>
+          <li class="foot-quick"><a href="about.html" >About</a>
+          </li>
           <li class="foot-quick"><a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+          <li class="foot-quick"><a href="../../index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
         </ul>
       </div>
       </div>
     </div>
     <div class="social-icons">
-      <!-- <h5>Newsletter</h5> -->
-      <!-- <div class="input-newletter">
-        <label for="newsletter"><h5>Newsletter</h5></label>
-        <input placeholder="Enter your email" type="email" ></input>
-        <button class="btn-subs">Subscribe</button>
-      </div> -->
-
-      <!-- <form type="newsletter">
-        <label for="email">Subscribe to our Newsletter</label>
-        <div class="row-flex">
-
-
-
-
-          <input type="news" value="" name="email" placeholder="email address">
-          <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
-          <input type="news" value="" name="email" placeholder="email address" id="newsletter-email">
-          <button type="submit" class="subscribe-btn">subscribe</button>
-
-        </div>
-      </form> -->
+     
       <style>
-        input[type="email"] {
+        .social-icons input[type="email"] {
             border: 2px solid #ccc; /* Gray border */
             border-radius: 4px; /* Rounded corners */
             padding: 10px; /* Inner padding */
             font-size: 16px; /* Font size */
         }
+        #confirmationMessage{
+            margin-left: 50px;
+            font-size: 23px;
+            color: rgb(15, 15, 16);
+          }
       </style>
 
-      <form type="newsletter">
-        <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
-        <div class="row-flex">
-            <!-- Email input -->
-            <input type="email" id="newsletter-email" name="email" placeholder="email address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$" 
-            title="Please enter a valid email address that ends with '.com'" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
-        </div>
-    </form>
-      <style>
-        .icons .icon i {
-          font-size: 24px;
-          /* Set the default font size for icons */
-          transition: all 0.3s ease;
-          /* Add transition for smooth animation */
-        }
+<form type="newsletter" onsubmit="return showConfirmationMessage()">
+  <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
+  <div class="row-flex">
+      <!-- Email input -->
+      <input type="email" id="newsletter-email" name="email" placeholder="Email address"
+             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+             title="Please enter a valid email address that ends with '.com'" required>
+      <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
+  </div>
+</form>
+<div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
 
-        .icons .icon:hover i {
-          transform: scale(1.2);
-          /* Scale the icon on hover */
-        }
+<script>
+function showConfirmationMessage() {
+  var confirmationMessage = document.getElementById("confirmationMessage");
+  confirmationMessage.style.display = "block";
 
-        .icons .icon:hover .fab.fa-linkedin {
-          color: #0A66C2;
-          /* Change to linkedin color on hover */
-        }
-
-        .icons .icon:hover .fab.fa-twitter{
-          color: #090e11;
-          /* Change to Twitter color on hover */
-        }
-
-        .icons .icon:hover .fab.fa-instagram {
-          background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-          background-clip: text;
-          border-radius: 20%;
-          transform: scale(1.5);
-          color:transparent;
-          /* Change to Instagram color on hover */
-        }
-
-        .icons .icon:hover .fab.fa-youtube {
-          color: #C31A1E;
-          /* Change to YouTube color on hover */
-        }
-        .icons .icon:hover .fab.fa-github {
-                  color: #333;
-              }
-      </style>
-
+  return false;
+}
+</script>
+    
+      
       <div class="icons">
         <a href="https://www.linkedin.com/in/anurag-verma-b91417253/">
           <div class="icon">
@@ -591,28 +833,24 @@
             <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
           </div>
         </a>
+        
 
         <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
           <div class="icon">
             <i class="fab fa-youtube" style="cursor: pointer;"></i>
           </div>
         </a>
-        <a href="https://github.com/anuragverma108" title="GitHub">
+
+        <a href="">
           <div class="icon">
-              <i class="fab fa-github" style="cursor: pointer;"></i>
+            <i class="fab fa-github" title="Github"></i>
           </div>
         </a>
+       
       </div>
-      <!-- <div style="text-align: center; align-items: center;">
-        <p style="text-align: center">
-          &copy;
-          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-          Hackers.
-        </p>
+     
 
-      </div> -->
-
-      <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">
+      <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
         <div class="circle1">
           <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
             class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
@@ -621,155 +859,100 @@
           </svg>
         </div>
       </div>
+      
     </div>
   </div>
-  <div style="text-align: center;">
-    <p style="color: grey;">
-        &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+
+      
+
+
+  <!-- adding privacy policy and copyright popup-->
+  <div style="text-align: center; align-items: center;">
+    <p style="text-align: center">
+      &copy;
+      <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
     </p>
     <div class="row-copy">
-        <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
-        <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+
+
+    <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+    <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
+  </div>
+  </div>
+  
+  <!-- Copyright Policy Modal -->
+  <!-- <div id="copyrightPolicyModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeCopyright">&times;</span>
+      <h1>Copyright Policy</h1>
+      <p>Welcome to SwapReads. Here is our copyright policy:</p>
+      <ul>
+        <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
+        <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
+        <li>Users may download and print content for personal use only.</li>
+        <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
+        <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
+      </ul>
     </div>
-  </a>
-</div> -->
-
-            <!-- <ul>
-              <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')">Swap
-                  BookList</a></li>
-              <li class="foot-quick"><a href="./assets/html/freeBooks.html"
-                  onclick="lenis.scrollTo('#contact')">E-Book</a></li>
-              <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
-              </li>
-              <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
-              <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
-            </ul>
-          </div> -->
-        <!-- <div class="social-icons">
-</div>
-
-
-
-              <!-- .icons .icon:hover .fab.fa-facebook {
-                color: #3B5998;
-                /* Change to Facebook color on hover */
-              }
-
-              .icons .icon:hover .fab.fa-twitter {
-                color: #090e11;
-                /* Change to Twitter color on hover */
-              }
-
-              .icons .icon:hover .fab.fa-instagram {
-                background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-                background-clip: text;
-                border-radius: 20%;
-                transform: scale(1.5);
-                color: transparent;
-                /* Change to Instagram color on hover */
-              }
-
-              .icons .icon:hover .fab.fa-youtube {
-                color: #C31A1E;
-                /* Change to YouTube color on hover */
-              }
-
-              .icons .icon:hover .fab.fa-github {
-                color: #333;
-              }
-            </style>
-
-            <div class="icons">
-              <a href="#">
-                <div class="icon">
-                  <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
-                </div>
-              </a>
-
-              <a href="#">
-                <div class="icon">
-                  <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
-                </div>
-              </a>
-
-              <a href="#">
-                <div class="icon">
-                  <i class="fab fa-instagram" title="Instagram" style="cursor: pointer;"></i>
-                </div>
-              </a>
-
-              <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
-                <div class="icon">
-                  <i class="fab fa-youtube" style="cursor: pointer;"></i>
-                </div>
-              </a>
-              <a href="https://github.com/anuragverma108">
-                <div class="icon">
-                  <i class="fab fa-github" style="cursor: pointer;"></i>
-                </div>
-              </a>
-            </div>
-
-          </a>
-
-        </div>
-       
+  </div> -->
   
-
-
-        </div>
-
-
-       <!-- <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">-->
-          <div class="circle1">
-            <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-              class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-              <path
-                d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-            </svg>
-          </div>
-        </div>
-      </div>
+  <!-- Privacy Notice Modal -->
+  <!-- <div id="privacyNoticeModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closePrivacy">&times;</span>
+      <h1>Privacy Notice</h1>
+      <p>Welcome to SwapReads. Here is our privacy notice:</p>
+      <ul>
+        <li>We collect personal information when you register, buy, or sell books.</li>
+        <li>We use this information to provide and improve our services.</li>
+        <li>We do not share your personal information with third parties without your consent.</li>
+        <li>We take reasonable measures to protect your data from unauthorized access.</li>
+        <li>You can contact us to update or delete your personal information.</li>
+        <li>By using our site, you consent to our privacy practices.</li>
+      </ul>
     </div>
-        <div style="text-align: center; align-items: center;">
-          <p style="text-align: center">
-            &copy;
-            <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-            Hackers.
-          </p>
-
+  </div>
   
-        </div>
+  <script>
+    // Get the modal elements
+    var copyrightModal = document.getElementById("copyrightPolicyModal");
+    var privacyModal = document.getElementById("privacyNoticeModal");
   
+    // Get the link elements
+    var copyrightLink = document.getElementById("copyrightPolicyLink");
+    var privacyLink = document.getElementById("privacyNoticeLink");
   
+    // Get the <span> elements that close the modals
+    var closeCopyright = document.getElementById("closeCopyright");
+    var closePrivacy = document.getElementById("closePrivacy");
   
-
-        </div>
-
-
-
-          </div>
-        </div>
-      </div>
-      <!-- adding privacy policy and copyright popup-->
-      <!-- <div style="text-align: center; align-items: center;">
-        <p style="text-align: center">
-          &copy;
-          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
-        </p>
-      </div> -->
-
-
-            <div class="footer-bottom">
-              <p class="copyright" style="text-align: center">
-                &copy;
-                <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-                Hackers.
-              </p>
-            </div> -->
-
-
-
+    // When the user clicks the link, open the modal 
+    copyrightLink.onclick = function() {
+      copyrightModal.style.display = "block";
+    }
+    privacyLink.onclick = function() {
+      privacyModal.style.display = "block";
+    }
+  
+    // When the user clicks on <span> (x), close the modal
+    closeCopyright.onclick = function() {
+      copyrightModal.style.display = "none";
+    }
+    closePrivacy.onclick = function() {
+      privacyModal.style.display = "none";
+    }
+</script> -->
+  
+    <!-- // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == copyrightModal) {
+        copyrightModal.style.display = "none";
+      }
+      if (event.target == privacyModal) {
+        privacyModal.style.display = "none";
+      }
+    }
+  </script> -->
 </footer>
   <!-- Footer ended-->
 

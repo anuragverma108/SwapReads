@@ -26,11 +26,11 @@
     
           <nav class="navbar nav_activated" data-navbar>
             <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
-            <img src="./../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
+            <img src="./../images/final.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
             </a>
     
             <ul class="navbar-list">
-              <img src="./../images/new_logo_banner_dark.png" class="logopic" style=" width: 200px;">
+              <img src="./../images/final.png" class="logopic" style=" width: 150px;">
     
               <li class="navbar-item">
                 <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
@@ -217,18 +217,34 @@
                 padding: 10px; /* Inner padding */
                 font-size: 16px; /* Font size */
             }
-          </style>
+
     
-          <form type="newsletter">
-            <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
-            <div class="row-flex">
-                <!-- Email input -->
-                <input type="email" id="newsletter-email" name="email" placeholder="E mail address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$" 
-                title="Please enter a valid email address that ends with '.com'" required>
-                <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
-            </div>
-        </form>
-        <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+    #confirmationMessage{
+      margin-left: 50px;
+      font-size: 23px;
+      color: rgb(15, 15, 16);
+    }
+</style>
+<form type="newsletter" onsubmit="return showConfirmationMessage()">
+  <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
+  <div class="row-flex">
+      <!-- Email input -->
+      <input type="email" id="newsletter-email" name="email" placeholder="Email address"
+             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+             title="Please enter a valid email address that ends with '.com'" required>
+      <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
+  </div>
+</form>
+<div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+
+<script>
+function showConfirmationMessage() {
+  var confirmationMessage = document.getElementById("confirmationMessage");
+  confirmationMessage.style.display = "block";
+
+  return false;
+}
+</script>
 
         <style>
           .icons .icon i {
@@ -304,24 +320,8 @@
               </div>
             </a>
           </div>
-         
-  
-          <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
-            <div class="circle1">
-              <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-                <path
-                  d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-              </svg>
-            </div>
-          </div>
-          
         </div>
       </div>
-  
-          
-  
-  
       <!-- adding privacy policy and copyright popup-->
       <div style="text-align: center; align-items: center;">
         <p style="text-align: center">
@@ -330,14 +330,14 @@
         </p>
         <div class="row-copy">
   
-      
-        <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
-        <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+  
+        <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+        <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
       </div>
       </div>
       
       <!-- Copyright Policy Modal -->
-      <div id="copyrightPolicyModal" class="modal">
+      <!-- <div id="copyrightPolicyModal" class="modal">
         <div class="modal-content">
           <span class="close" id="closeCopyright">&times;</span>
           <h1>Copyright Policy</h1>
@@ -350,10 +350,10 @@
             <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
           </ul>
         </div>
-      </div>
+      </div> -->
       
       <!-- Privacy Notice Modal -->
-      <div id="privacyNoticeModal" class="modal">
+      <!-- <div id="privacyNoticeModal" class="modal">
         <div class="modal-content">
           <span class="close" id="closePrivacy">&times;</span>
           <h1>Privacy Notice</h1>
@@ -407,13 +407,24 @@
             privacyModal.style.display = "none";
           }
         }
-      </script>
+      </script> -->
   
   
   
     </footer>
   <!-- Footer ended-->
  
+  <!--Go to top button-->
+  <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
+    <div class="circle1">
+    <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+      class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+      <path
+        d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+    </svg>
+   </div>
+  </div>
+
   <script src="../js/read_later.js"></script>
   <script>
     // Function to toggle dark mode

@@ -49,12 +49,44 @@ submitButton.onclick = function() {
 };
 
 
-const openRateUsModal = ()=>{
-    rateUsModalWrapper.style.display = "flex";
-    document.body.classList.add("rate-us-modal-open")
+// const openRateUsModal = ()=>{
+//     rateUsModalWrapper.style.display = "flex";
+//     document.body.classList.add("rate-us-modal-open")
+// }
+
+// const closeRateUsModal = ()=>{
+//     rateUsModalWrapper.style.display = "none";
+//     document.body.classList.remove("rate-us-modal-open")
+// }
+
+
+let currentRating = 0;
+
+function openRateUsModal() {
+  document.getElementById('rateUsModal').style.display = 'flex';
 }
 
-const closeRateUsModal = ()=>{
-    rateUsModalWrapper.style.display = "none";
-    document.body.classList.remove("rate-us-modal-open")
+function closeRateUsModal() {
+  document.getElementById('rateUsModal').style.display = 'none';
 }
+
+function rateExperience(rating) {
+  currentRating = rating;
+  const stars = document.querySelectorAll('.star');
+  stars.forEach((star, index) => {
+    if (index < rating) {
+      star.classList.add('selected');
+    } else {
+      star.classList.remove('selected');
+    }
+  });
+  document.getElementById('currentRating').textContent = `${rating} of 5`;
+}
+
+function submitRating() {
+  document.getElementById('thankYouMessage').style.display = 'block';
+  setTimeout(() => {
+    closeRateUsModal();
+  }, 2000);
+}
+

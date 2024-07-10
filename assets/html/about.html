@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- <link rel="stylesheet" href="../css/login.css" /> -->
   <link rel="stylesheet" href="../css/style.css">
+
   <link rel="stylesheet" href="../css/aboutus.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -27,6 +28,7 @@
   <script src="../js/scroll-reveal.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="../css/styles.css">
   <title>About Us</title>
   
   <style>
@@ -41,7 +43,9 @@
       margin: 0;
       padding: 0;
     }
-
+    .header{
+      position: fixed;
+    }
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -171,10 +175,11 @@
       line-height: 1.6;
     }
     .switch-label {
-    right: 2.3rem;
-    top: 1.4rem;
+    /* right: 0.5rem; */
+    left: 8.0rem;
+    top: 0.5rem;
     position: relative;
-    width: 45px;
+    width: 40px;
     height: 30px;
     background-color: #ccc;
     border-radius: 20px;
@@ -188,7 +193,7 @@
     }
     .switch-label .sun-icon,
     .switch-label .moon-icon {
-      font-size: 19px;
+      font-size: 19spx;
       position: absolute;
       cursor: pointer;
       top: 50%;
@@ -237,24 +242,122 @@
       transform: translateX(13px);
       /* background-color: #34495e; */
     }
+
+    .team-member{
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
+    #progressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 5px;
+      background-color: #ff2525;
+      z-index: 99;
+    }
+   
+    .action .profile img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+.action .profile {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.hamburger{
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 24px;
+    left: 1.5%;
+}
+.line{
+    width: 36px;
+    height: 5px;
+    margin: 4px 4px;
+    background-color: rgb(240, 15, 15);
+}
+@media only screen and (max-width:1063px){
+    .nav{
+        flex-direction: column;
+    }
+    .header{
+        flex-direction: column;
+        height: 62rem;
+        transition: 0.55s all ease-out;
+        padding-top: 5px;
+    }
+    .navbar-item{
+        margin-right: 40px;
+    }
+    .navbar-list{
+      position: relative;
+      top: 265px;
+      left: 163px;
+    }
+    .hamburger{
+        display: block;
+    }
+    .nav-h{
+        height: 78px;
+        width: 100vw;
+    }
+    .vis-h{
+        opacity: 0;
+    }
+    /* .logo img{
+      position: relative;
+      top: 72px;
+      left: 145px;
+    } */
+}
+@media only screen and (max-width:990px){
+  .header{
+    height: 84px;
+  }
+  .logo img{
+    position: relative;
+    left: 50px;
+  }
+}
+
+
   </style>
 </head>
 
 <body>
 
-  <header class="header header-anim" data-header>
+
+  <header class="header header-anim nav-h" data-header>
 
     <div class="container">
 
       <nav class="navbar nav_activated" data-navbar>
-        <a href="../../index.html" class="logo" style="display:flex;">
-          <img src="../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
-        </a>
 
-        <ul class="navbar-list">
-          <a href="../../index.html">
-            <img src="../images/new_logo_banner_dark.png" class="logopic" style=" width: 150px;">
-
+        <ul class="navbar-list nav vis-h">
+          <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+            <img src="../images/final.png" class="logopic" style="width:150px;">
+          </a>
             <li class="navbar-item">
               <a href="../../index.html" class="navbar-link" data-nav-link><i class="ri-home-fill"></i> Home</a>
             </li>
@@ -277,6 +380,10 @@
             <li class="navbar-item">
               <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link"
                 data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
+            </li>
+            <li class="navbar-item">
+              <a href="../../index.html#faq" onclick="lenis.scrollTo('#contact')" class="navbar-link"
+                data-nav-link><i class="ri-customer-service-2-fill"></i> FAQ</a>
             </li>
 
             <li class="navbar-item">
@@ -325,12 +432,90 @@
                 </ul>
               </div>
             </li>
+            <!-- <div class="action">
+              <div class="profile" onclick="menuToggle();">
+                <img src="../images/avatar.jpg">
+              </div>
+              <div class="menu">
+                <h3>XYZ<br /><span>Book Lover</span></h3>
+                <ul>
+                  <li>
+                    <img src="./assets/images/user.jpg" /><a href="#">My profile</a>
+                  </li>
+                  <li>
+                    <img src="./assets/images/edit profile.jpg" /><a href="#">Edit profile</a>
+                  </li>
+                  <li>
+                    <img src="./assets/images/inbox.png" /><a href="#">Inbox</a>
+                  </li>
+                  <li>
+                    <img src="./assets/images/settings.png" /><a href="#">Setting</a>
+                  </li>
+                  <li><img src="./assets/images/help.png" /><a href="#">Help</a></li>
+                  <li>
+                    <img src="./assets/images/logout.png" /><a href="#">Logout</a>
+                  </li>
+                </ul>
+                </div>
+                </div>
+                <script>
+                  function menuToggle() {
+                    const toggleMenu = document.querySelector(".menu");
+                    toggleMenu.classList.toggle("active");
+                  }
+                </script> -->
+            <!-- Google Translate Element -->
+            <!-- <li class="navbar-item">
+              <div id="google_element"></div>
+            </li> -->
+          </ul>
+          <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </nav>
+  
+      <!-- <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+      <script>
+        function loadGoogleTranslate() {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en'
+          }, 'google_element');
+        }
+      </script> -->
+      <script>
+        const hamburger=document.querySelector('.hamburger');
+        const head=document.querySelector('.header');
+        const nav=document.querySelector('.nav');
+        hamburger.addEventListener('click',()=>{
+          head.classList.toggle('nav-h');
+          nav.classList.toggle('vis-h');
+        })
+        let lastScrollTop = 0;
+  
+        function onScroll() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            const header = document.querySelector('.header');
+  
+            if (currentScroll > lastScrollTop) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+        }
+  
+  
+    window.addEventListener("scroll", onScroll);
+  </script>
+
             <!-- Google Translate Element -->
             <!-- <li class="navbar-item">
               <div id="google_element"></div>
             </li> -->
       </nav>
-      <div class="switch-container">
+      <div class="switch-container"><br>
         <input type="checkbox" id="switch" class="switch-checkbox">
           <label for="switch" class="switch-label">
             <div class="switch-button">
@@ -339,23 +524,42 @@
             </div>
           </label>
       </div>
-      <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+      <div class="action">
+        <div class="profile" style="position: absolute;right: 3rem;top: 2.0rem;"   onclick="menuToggle();">
+          <img src="../images/avatar.jpg">
+        </div>
+      <!-- <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
       <script>
         function loadGoogleTranslate() {
           new google.translate.TranslateElement({
             pageLanguage: 'en'
           }, 'google_element');
         }
-      </script>
+      </script> -->
 
-      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+      <!-- <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
         <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
 
         <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
-      </button>
+      </button> -->
 
-    </div>
+    <!-- </div> -->
+   
   </header>
+ 
+<!-- Progress bar -->
+  <div id="progressBar"></div>
+
+  <script>
+    window.onscroll = function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      document.getElementById("progressBar").style.width = scrolled + "%";
+    };
+  </script>
+  <!-- Progress bar close -->
+   
   <div id="about-us">
     <h1 class="about-us-heading">About Us</h1>
     <div class="container" style="text-align: center;">
@@ -363,27 +567,33 @@
   </div>
   
       <section class="about">
+
       
         <h2 style="color: #0a0000;">About SwapReads</h2>
         <p style="color: #444;">
+
+
+        <h2>About SwapReads</h2>
+        <p >
+
           SwapReads is an online platform dedicated to connecting book lovers and facilitating the exchange of books. Our mission is to promote a vibrant reading culture by making it easier for readers to discover new titles, share their favorite books, and connect with fellow enthusiasts. Users can list books they want to swap, browse available titles, and engage in discussions and reviews. SwapReads also offers personalized recommendations to help users find their next great read. By encouraging sustainable reading habits and reducing the need for new book purchases, SwapReads supports eco-friendly practices. Join SwapReads to share your passion for books, discover new reads, and become part of a community that celebrates the joy of reading.
         </p>
       </section>
       <section class="stats-box">
         <div class="stats-container">
-          <h2 style="color: #090e11;">Our Stats</h2>
+          <h2 >Our Stats</h2>
           <div class="stats">
             <div class="stat">
-              <h3 id="stat1"style="color: #090e11;">0</h3>
-              <p style="color: #090e11;" >Books Available</p>
+              <h3 id="stat1">0</h3>
+              <p  >Books Available</p>
             </div>
             <div class="stat">
-              <h3 id="stat2"style="color: #090e11;">0</h3>
-              <p style="color: #090e11;">Genres Covered</p>
+              <h3 id="stat2">0</h3>
+              <p >Genres Covered</p>
             </div>
             <div class="stat">
-              <h3 id="stat3"style="color: #090e11;">0</h3>
-              <p style="color: #090e11;">Happy Readers</p>
+              <h3 id="stat3">0</h3>
+              <p >Happy Readers</p>
             </div>
           </div>
         </div>
@@ -391,24 +601,24 @@
       </section>
       
       <section class="mission-values">
-        <h2 style="color: #090e11;">Our Mission and Values</h2>
+        <h2 >Our Mission and Values</h2>
         <div class="about-us-block">
           <div class="about-us-community">
             <div style="display: flex; align-items: center; gap: 1rem;">
               <img id="community-img" src="../images/book.png" alt=""
                 style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-              <div class="about-us-blk-text"style="color: #011521;">Book Swapping</div>
+              <div class="about-us-blk-text">Book Swapping</div>
             </div>
-            <p class="about-us-blk-para" style="color: #011521;">Easily list the books you’re willing to exchange and browse through a vast
+            <p class="about-us-blk-para" >Easily list the books you’re willing to exchange and browse through a vast
               collection of available titles, facilitating smooth and hassle-free book swaps with other members.</p>
           </div>
           <div class="about-us-product">
             <div style="display: flex; align-items: center; gap: 1rem;">
               <img id="product-img" src="../images/community.png" alt=""
                 style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-              <div class="about-us-blk-text"style="color: #011521;">Community Engagement</div>
+              <div class="about-us-blk-text">Community Engagement</div>
             </div>
-            <p class="about-us-blk-para"style="color: #011521;">Join a vibrant community of book lovers through discussion forums, reading
+            <p class="about-us-blk-para">Join a vibrant community of book lovers through discussion forums, reading
               groups,
               and event participation, fostering a collaborative and engaging literary environment.</p>
           </div>
@@ -418,9 +628,9 @@
             <div style="display: flex; align-items: center; gap: 1rem;">
               <img id="location-img" src="../images/read.png" alt=""
                 style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-              <div class="about-us-blk-text"style="color: #011521;">Reading Recommendations</div>
+              <div class="about-us-blk-text"">Reading Recommendations</div>
             </div>
-            <p class="about-us-blk-para"style="color: #011521;">Receive personalized book suggestions based on your reading history and
+            <p class="about-us-blk-para">Receive personalized book suggestions based on your reading history and
               preferences, ensuring you always have a new and exciting read lined up for your next literary adventure.
             </p>
           </div>
@@ -428,9 +638,9 @@
             <div style="display: flex; align-items: center; gap: 1rem;">
               <img id="event-img" src="../images/bookshelf.png" alt=""
                 style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-              <div class="about-us-blk-text"style="color: #011521;">Virtual Bookshelf</div>
+              <div class="about-us-blk-text"">Virtual Bookshelf</div>
             </div>
-            <p class="about-us-blk-para"style="color: #011521;">Organize and manage your virtual bookshelf, keeping track of books you've read,
+            <p class="about-us-blk-para"">Organize and manage your virtual bookshelf, keeping track of books you've read,
               want to read, and are currently reading. Easily access your collection and track your reading progress.
             </p>
           </div>
@@ -441,34 +651,38 @@
       <h2>Meet Our Team</h2>
       <div class="team-cards">
         <!-- Team member cards will go here -->
-        <div class="team-member">
+         <a id="gitlin"  href="https://github.com/anuragverma108" style="text-decoration: none;">
+        <div class="team-member" data-tilt>
           <img src="../images/pic1.jpeg" alt="Team Member 1">
           <div class="member-info">
             <h3>Anurag Verma</h3>
             <p>Project Admin</p>
           </div>
-        </div>
+        </div></a>
+       <a id="gitlin" href="https://github.com/huamanraj"style="text-decoration: none;">
         <div class="team-member">
           <img src="../images/pic2.jpeg" alt="Team Member 2">
           <div class="member-info">
             <h3>Aman Raj</h3>
             <p>Mentor</p>
           </div>
-        </div>
+        </div></a>
+        <a class="gitlin" href="https://github.com/RitiChandak"style="text-decoration: none;">
         <div class="team-member">
           <img src="../images/pic3.jpeg" alt="Team Member 3">
           <div class="member-info">
             <h3>Riti Chandak</h3>
             <p>Mentor</p>
           </div>
-        </div>
+        </div></a>
+        <a class="gitlin" href="https://github.com/RishabhDhawad"style="text-decoration: none;">
         <div class="team-member">
           <img src="../images/pic4.jpeg" alt="Team Member 4">
           <div class="member-info">
             <h3>Rishabh Dhawad</h3>
             <p>Mentor</p>
           </div>
-        </div>
+        </div></a>
         <!-- Add more team member cards as needed -->
       </div>
     </section>
@@ -481,13 +695,14 @@
         <div class="contributor-cards" id="contributor-cards">
           <!-- Contributor cards will be inserted here -->
         </div>
-        <div class="pagination" id="pagination">
+        <div class="pagination" id="pagination" >
           <!-- Pagination buttons will be inserted here -->
         </div>
       </section>
 
     <style>
       .contributors {
+        width: 90%;
         margin: 0 auto;
         background: var(--seashell);
         border-radius: 10px;
@@ -516,6 +731,9 @@
         margin: 10px;
         flex: 1 1 calc(33.333% - 40px);
         box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       .contributor-member:hover {
@@ -542,6 +760,24 @@
       .contributor-member p {
         font-size: 0.9rem;
         margin: 0;
+      }
+
+      .contributor-member button{
+        background-color: transparent;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 5px 20px;
+        font-size: 0.8rem;
+        color: var(--sonic-silver);
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 1.1rem;
+        
+      }
+
+    
+      .contributor-member button:hover {
+        color: var(--old-rose);
       }
 
       .pagination {
@@ -632,11 +868,11 @@
       </div>
     </div>
     <div class="foot-middle">
-      <h2 class="links">Quick Links</h2>
+      <h2>Quick Links</h2>
       <div id="quicklinks">
         <div>
         <ul>
-          <li class="foot-quick"><a href="../../index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
+          <li class="foot-quick"><a href="index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
           <li class="foot-quick"><a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
           <li class="foot-quick"><a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
           <li class="foot-quick"><a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
@@ -646,96 +882,56 @@
       </div>
       <div>
         <ul>
-          <li class="foot-quick"><a href="addremovebook.html" onclick="lenis.scrollTo('#contact')">Swap
+          <li class="foot-quick"><a href="addremovebook.html" >Swap
               BookList</a></li>
           <li class="foot-quick"><a href="freeBooks.html"
               onclick="lenis.scrollTo('#contact')">E-Book</a></li>
+          <li class="foot-quick"><a href="about.html" >About</a>
+          </li>
           <li class="foot-quick"><a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+          <li class="foot-quick"><a href="../../index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
         </ul>
       </div>
       </div>
     </div>
     <div class="social-icons">
-      <!-- <h5>Newsletter</h5> -->
-      <!-- <div class="input-newletter">
-        <label for="newsletter"><h5>Newsletter</h5></label>
-        <input placeholder="Enter your email" type="email" ></input>
-        <button class="btn-subs">Subscribe</button>
-      </div> -->
-
-      <!-- <form type="newsletter">
-        <label for="email">Subscribe to our Newsletter</label>
-        <div class="row-flex">
-
-
-
-
-          <input type="news" value="" name="email" placeholder="email address">
-          <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
-          <input type="news" value="" name="email" placeholder="email address" id="newsletter-email">
-          <button type="submit" class="subscribe-btn">subscribe</button>
-
-        </div>
-      </form> -->
+     
       <style>
-        input[type="email"] {
+        .social-icons input[type="email"] {
             border: 2px solid #ccc; /* Gray border */
             border-radius: 4px; /* Rounded corners */
             padding: 10px; /* Inner padding */
             font-size: 16px; /* Font size */
         }
+        #confirmationMessage{
+            margin-left: 50px;
+            font-size: 23px;
+            color: rgb(15, 15, 16);
+          }
       </style>
 
-      <form type="newsletter">
-        <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
-        <div class="row-flex">
-            <!-- Email input -->
-            <input type="email" id="newsletter-email" name="email" placeholder="email address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$" 
-            title="Please enter a valid email address that ends with '.com'" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
-        </div>
-    </form>
-      <style>
-        .icons .icon i {
-          font-size: 24px;
-          /* Set the default font size for icons */
-          transition: all 0.3s ease;
-          /* Add transition for smooth animation */
-        }
+<form type="newsletter" onsubmit="return showConfirmationMessage()">
+  <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
+  <div class="row-flex">
+      <!-- Email input -->
+      <input type="email" id="newsletter-email" name="email" placeholder="Email address"
+             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+             title="Please enter a valid email address that ends with '.com'" required>
+      <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
+  </div>
+</form>
+<div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
 
-        .icons .icon:hover i {
-          transform: scale(1.2);
-          /* Scale the icon on hover */
-        }
+<script>
+function showConfirmationMessage() {
+  var confirmationMessage = document.getElementById("confirmationMessage");
+  confirmationMessage.style.display = "block";
 
-        .icons .icon:hover .fab.fa-linkedin {
-          color: #0A66C2;
-          /* Change to linkedin color on hover */
-        }
-
-        .icons .icon:hover .fab.fa-twitter{
-          color: #090e11;
-          /* Change to Twitter color on hover */
-        }
-
-        .icons .icon:hover .fab.fa-instagram {
-          background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-          background-clip: text;
-          border-radius: 20%;
-          transform: scale(1.5);
-          color:transparent;
-          /* Change to Instagram color on hover */
-        }
-
-        .icons .icon:hover .fab.fa-youtube {
-          color: #C31A1E;
-          /* Change to YouTube color on hover */
-        }
-        .icons .icon:hover .fab.fa-github {
-                  color: #333;
-              }
-      </style>
-
+  return false;
+}
+</script>
+    
+      
       <div class="icons">
         <a href="https://www.linkedin.com/in/anurag-verma-b91417253/">
           <div class="icon">
@@ -754,28 +950,24 @@
             <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
           </div>
         </a>
+        
 
         <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
           <div class="icon">
             <i class="fab fa-youtube" style="cursor: pointer;"></i>
           </div>
         </a>
-        <a href="https://github.com/anuragverma108" title="GitHub">
+
+        <a href="">
           <div class="icon">
-              <i class="fab fa-github" style="cursor: pointer;"></i>
+            <i class="fab fa-github" title="Github"></i>
           </div>
         </a>
+       
       </div>
-      <!-- <div style="text-align: center; align-items: center;">
-        <p style="text-align: center">
-          &copy;
-          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-          Hackers.
-        </p>
+     
 
-      </div> -->
-
-      <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">
+      <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
         <div class="circle1">
           <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
             class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
@@ -784,133 +976,100 @@
           </svg>
         </div>
       </div>
+      
     </div>
   </div>
-  <div style="text-align: center;">
-    <p style="color: grey;">
-        &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+
+      
+
+
+  <!-- adding privacy policy and copyright popup-->
+  <div style="text-align: center; align-items: center;">
+    <p style="text-align: center">
+      &copy;
+      <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
     </p>
     <div class="row-copy">
-        <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
-        <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+
+  
+    <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
+    <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+  </div>
+  </div>
+  
+  <!-- Copyright Policy Modal -->
+  <div id="copyrightPolicyModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeCopyright">&times;</span>
+      <h1>Copyright Policy</h1>
+      <p>Welcome to SwapReads. Here is our copyright policy:</p>
+      <ul>
+        <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
+        <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
+        <li>Users may download and print content for personal use only.</li>
+        <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
+        <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
+      </ul>
     </div>
-</div>
-<div id="copyrightPolicyModal" class="modal">
-  <div class="modal-content">
-    <span class="close" id="closeCopyright">&times;</span>
-    <h1>Copyright Policy</h1>
-    <p>Welcome to SwapReads. Here is our copyright policy:</p>
-    <ul>
-      <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
-      <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
-      <li>Users may download and print content for personal use only.</li>
-      <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
-      <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
-    </ul>
   </div>
-</div>
-
-<!-- Privacy Notice Modal -->
-<div id="privacyNoticeModal" class="modal">
-  <div class="modal-content">
-    <span class="close" id="closePrivacy">&times;</span>
-    <h1>Privacy Notice</h1>
-    <p>Welcome to SwapReads. Here is our privacy notice:</p>
-    <ul>
-      <li>We collect personal information when you register, buy, or sell books.</li>
-      <li>We use this information to provide and improve our services.</li>
-      <li>We do not share your personal information with third parties without your consent.</li>
-      <li>We take reasonable measures to protect your data from unauthorized access.</li>
-      <li>You can contact us to update or delete your personal information.</li>
-      <li>By using our site, you consent to our privacy practices.</li>
-    </ul>
+  
+  <!-- Privacy Notice Modal -->
+  <div id="privacyNoticeModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closePrivacy">&times;</span>
+      <h1>Privacy Notice</h1>
+      <p>Welcome to SwapReads. Here is our privacy notice:</p>
+      <ul>
+        <li>We collect personal information when you register, buy, or sell books.</li>
+        <li>We use this information to provide and improve our services.</li>
+        <li>We do not share your personal information with third parties without your consent.</li>
+        <li>We take reasonable measures to protect your data from unauthorized access.</li>
+        <li>You can contact us to update or delete your personal information.</li>
+        <li>By using our site, you consent to our privacy practices.</li>
+      </ul>
+    </div>
   </div>
-</div>
-
-<script>
-  // Get the modal elements
-  var copyrightModal = document.getElementById("copyrightPolicyModal");
-  var privacyModal = document.getElementById("privacyNoticeModal");
-
-  // Get the link elements
-  var copyrightLink = document.getElementById("copyrightPolicyLink");
-  var privacyLink = document.getElementById("privacyNoticeLink");
-
-  // Get the <span> elements that close the modals
-  var closeCopyright = document.getElementById("closeCopyright");
-  var closePrivacy = document.getElementById("closePrivacy");
-
-  // When the user clicks the link, open the modal 
-  copyrightLink.onclick = function() {
-    copyrightModal.style.display = "block";
-  }
-  privacyLink.onclick = function() {
-    privacyModal.style.display = "block";
-  }
-
-  // When the user clicks on <span> (x), close the modal
-  closeCopyright.onclick = function() {
-    copyrightModal.style.display = "none";
-  }
-  closePrivacy.onclick = function() {
-    privacyModal.style.display = "none";
-  }
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == copyrightModal) {
+  
+  <script>
+    // Get the modal elements
+    var copyrightModal = document.getElementById("copyrightPolicyModal");
+    var privacyModal = document.getElementById("privacyNoticeModal");
+  
+    // Get the link elements
+    var copyrightLink = document.getElementById("copyrightPolicyLink");
+    var privacyLink = document.getElementById("privacyNoticeLink");
+  
+    // Get the <span> elements that close the modals
+    var closeCopyright = document.getElementById("closeCopyright");
+    var closePrivacy = document.getElementById("closePrivacy");
+  
+    // When the user clicks the link, open the modal 
+    copyrightLink.onclick = function() {
+      copyrightModal.style.display = "block";
+    }
+    privacyLink.onclick = function() {
+      privacyModal.style.display = "block";
+    }
+  
+    // When the user clicks on <span> (x), close the modal
+    closeCopyright.onclick = function() {
       copyrightModal.style.display = "none";
     }
-    if (event.target == privacyModal) {
+    closePrivacy.onclick = function() {
       privacyModal.style.display = "none";
     }
-  }
 </script>
-
   
-  
-              .icons .icon:hover .fab.fa-github {
-                color: #333;
-              }
-            </style>
-
-            <div class="icons">
-              <a href="#">
-                <div class="icon">
-                  <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
-                </div>
-              </a>
-
-              <a href="#">
-                <div class="icon">
-                  <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
-                </div>
-              </a>
-
-              <a href="#">
-                <div class="icon">
-                  <i class="fab fa-instagram" title="Instagram" style="cursor: pointer;"></i>
-                </div>
-              </a>
-
-              <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
-                <div class="icon">
-                  <i class="fab fa-youtube" style="cursor: pointer;"></i>
-                </div>
-              </a>
-              <a href="https://github.com/anuragverma108">
-                <div class="icon">
-                  <i class="fab fa-github" style="cursor: pointer;"></i>
-                </div>
-              </a>
-            </div>
-            <div class="footer-bottom">
-              <p class="copyright" style="text-align: center">
-                &copy;
-                <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-                Hackers.
-              </p>
-            </div> -->
+    <!-- // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == copyrightModal) {
+        copyrightModal.style.display = "none";
+      }
+      if (event.target == privacyModal) {
+        privacyModal.style.display = "none";
+      }
+    }
+  </script> -->
 </footer>
 <script>
   // Function to animate counting from 0 to a target number
@@ -1090,6 +1249,8 @@
         }
        });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+
 <script>
         document.addEventListener("DOMContentLoaded", function () {
           const backToTopButton = document.getElementById('back-to-top-container');
@@ -1114,7 +1275,12 @@
           checkButtonVisibility();
         });
       </script>
-
+<script>
+  VanillaTilt.init(document.querySelectorAll(".team-member"), {
+    max: 25,
+    speed: 400
+  });
+</script>
       <script>
 
         // Function for the contributors section
@@ -1146,6 +1312,7 @@
           currentContributors.forEach(contributor => {
             const card = document.createElement('div');
             card.className = 'contributor-member';
+            card.setAttribute('data-tilt','');
 
             const img = document.createElement('img');
             img.src = contributor.avatar_url;
@@ -1157,10 +1324,17 @@
             const contributions = document.createElement('p');
             contributions.textContent = `${contributor.contributions} contributions`;
 
+            const viewProfileButton = document.createElement("button");
+            viewProfileButton.textContent = "View Profile";
+            viewProfileButton.addEventListener("click", () => {
+            window.open(contributor.html_url, "_blank");
+          });
+
             card.appendChild(img);
             card.appendChild(name);
             card.appendChild(contributions);
             container.appendChild(card);
+            card.appendChild(viewProfileButton);
           });
         }
 

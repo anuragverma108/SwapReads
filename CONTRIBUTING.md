@@ -8,23 +8,6 @@ Please note we have a [code of conduct](CODE_OF_CONDUCT.md)  please follow it in
 
 <hr>
 
-## How to Contribute ?
-
-## **Getting Started**
-1. Clone the repo
-
-```sh
- git clone https://github.com/anuragverma108/SwapReads
-```
-
-2. Install npm packages
-```sh
-npm install
-```
-3. Run index.html with any browser (example: chrome etc).
-
-<hr>
-
 ## Contribution
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -35,11 +18,17 @@ Contributions are what make the open-source community such an amazing place to l
 
 Your involvement helps to improve the project and make it better for everyone. Thank you for your contributions!
 
-## Creating Pull Request
-1. **Fork the Project:**
+<hr>
+
+## How to Contribute ?
+
+
+1. **Star the Repo**
+
+2. **Fork the Project:**
     - Click on the "Fork" button at the top right corner of the repository's page on GitHub to create your own copy of the project.
 
-2. **Clone Your Forked Repository:**
+3. **Clone Your Forked Repository:**
     - Clone the forked repository to your local machine using the following command:
     ```sh
      git clone https://github.com/<your_user_name>/SwapReads
@@ -48,29 +37,34 @@ Your involvement helps to improve the project and make it better for everyone. T
     ```sh
      cd SwapReads
     ```
+4. **Install npm packages:**
+    ```sh
+    npm install
+    ```
+5. **Run index.html with any browser (example: chrome etc).**
 
-3. **Add a reference(remote) to the original repository:**
+6. **Add a reference(remote) to the original repository:**
 
     ```
     git remote add upstream https://github.com/anuragverma108/SwapReads
     ```
-4. **Check the remotes for this repository.**
+7. **Check the remotes for this repository.**
     ```
     git remote -v
     ```
 
-5. **Always take a pull from the upstream repository to your master branch to keep it at par with the main project (updated repository).**
+8. **Always take a pull from the upstream repository to your master branch to keep it at par with the main project (updated repository).**
     ```
     git pull upstream main
     ```
 
-6. **Create a New Branch and Move to the Branch:**
+9. **Create a New Branch and Move to the Branch:**
     - Create a new branch for your changes and move to that branch using the following commands:
     ```sh
     git checkout -b <branch-name>
     ```
 
-7. **Add Your Changes:**
+10. **Add Your Changes:**
     - After you have made your changes, check the status of the changed files using the following command:
     ```sh
     git status -s
@@ -83,22 +77,28 @@ Your involvement helps to improve the project and make it better for everyone. T
     ```sh
     git add <file_name1> <file_name2>
     ```
-8. **Commit Your Changes:**
+11. **Commit Your Changes:**
     - Commit your changes with a descriptive message using the following command:
     ```sh
     git commit -m "<EXPLAIN-YOUR_CHANGES>"
     ```
 
-9. **Push Your Changes:**
+12. **Push Your Changes:**
     - Push your changes to your forked repository on GitHub using the following command:
     ```sh
     git push origin <branch-name>
     ```
 
-10. **Open a Pull Request:**
+### Creating Pull Request
+
+13. **Open a Pull Request:**
     - Go to the GitHub page of your forked repository, and you should see an option to create a pull request. Click on it, provide a descriptive title and description for your pull request, and then submit it.
 
+
+<hr>
+
 ### Alternatively contribute using GitHub Desktop
+<hr>
 
 1. **Open GitHub Desktop:**
    Launch GitHub Desktop and log in to your GitHub account if you haven't already.

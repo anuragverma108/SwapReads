@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fcb1a2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fbd2d2;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 50px 50px 50px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .edit-profile {
+            text-align: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .edit-profile h3 {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        .avatar-selection {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .avatars {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .avatars img {
+            width: 120px;
+            height: 120px;
+            cursor: pointer;
+            border: 4px solid transparent;
+            border-radius: 50%;
+            transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        }
+
+        .avatars img:hover {
+            transform: scale(1.1);
+        }
+
+        .avatars img.selected {
+            border-color: #3498db;
+        }
+
+        .profile-details {
+            text-align: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .profile-details h4 {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 20px;
+        }
+
+        .profile-details input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .save-button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+            margin-top: 20px;
+        }
+
+        .save-button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .save-button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="edit-profile">
+            <h3>Edit Profile</h3>
+            <div class="avatar-selection">
+                <h4>Select Avatar</h4>
+                <div class="avatars">
+                    <img src="../images/avatar1.jpg" onclick="selectAvatar('avatar1.jpg')" />
+                    <img src="../images/avatar2.jpg" onclick="selectAvatar('avatar2.jpg')" />
+                    <img src="../images/avatar3.jpg" onclick="selectAvatar('avatar3.jpg')" />
+                    <img src="../images/avatar4.jpg" onclick="selectAvatar('avatar4.jpg')" />
+                    <img src="../images/avatar5.jpg" onclick="selectAvatar('avatar5.jpg')" />
+                </div>
+            </div>
+            <div class="profile-details">
+                <h4>Edit Details</h4>
+                <input type="text" id="nameInput" placeholder="Enter Name">
+                <input type="email" id="emailInput" placeholder="Enter Email">
+                <input type="tel" id="phoneInput" placeholder="Enter Phone">
+            </div>
+            <button class="save-button" onclick="saveProfile()">Save Profile</button>
+        </div>
+    </div>
+
+    <script>
+        let selectedAvatar = "";
+
+        function selectAvatar(avatar) {
+            const avatars = document.querySelectorAll('.avatars img');
+            avatars.forEach(img => {
+                img.classList.remove('selected');
+            });
+            const selectedImg = document.querySelector(`.avatars img[src*='${avatar}']`);
+            selectedImg.classList.add('selected');
+            selectedAvatar = avatar;
+        }
+
+        function saveProfile() {
+            const newName = document.getElementById("nameInput").value.trim();
+            const newEmail = document.getElementById("emailInput").value.trim();
+            const newPhone = document.getElementById("phoneInput").value.trim();
+
+            if (selectedAvatar) {
+                localStorage.setItem("selectedAvatar", selectedAvatar);
+            }
+            if (newName) {
+                localStorage.setItem("profileName", newName);
+            }
+            if (newEmail) {
+                localStorage.setItem("profileEmail", newEmail);
+            }
+            if (newPhone) {
+                localStorage.setItem("profilePhone", newPhone);
+            }
+
+            window.location.href = "../../index.html";
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedAvatar = localStorage.getItem("selectedAvatar");
+            if (savedAvatar) {
+                const selectedImg = document.querySelector(`.avatars img[src*='${savedAvatar}']`);
+                if (selectedImg) {
+                    selectedImg.classList.add('selected');
+                    selectedAvatar = savedAvatar;
+                }
+            }
+
+            const savedName = localStorage.getItem("profileName");
+            const savedEmail = localStorage.getItem("profileEmail");
+            const savedPhone = localStorage.getItem("profilePhone");
+
+            if (savedName) {
+                document.getElementById("nameInput").value = savedName;
+            }
+            if (savedEmail) {
+                document.getElementById("emailInput").value = savedEmail;
+            }
+            if (savedPhone) {
+                document.getElementById("phoneInput").value = savedPhone;
+            }
+        });
+    </script>
+</body>
+</html>
