@@ -2347,6 +2347,36 @@
       </div>
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const faqContainers = document.querySelectorAll('.faq-container');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        entry.target.style.animation = `slideIn 1s ease-in-out ${index * 0.3}s forwards`; // Adjusted for slower animation
+        if (index % 2 === 1) {
+          entry.target.querySelector('.question').style.animation = `slideInFromRight 1s ease-in-out ${index * 0.3}s forwards`; // Adjusted for slower animation
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  faqContainers.forEach(faq => {
+    observer.observe(faq);
+  });
+});
+
+  </script>
   <br /><br />
   <div style="
     background-color: #ffb2a8 ;
