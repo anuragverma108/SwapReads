@@ -8,20 +8,16 @@
   font-size: 2.5rem;
   text-align: center;
 
-}
-
 #recommend {
   /* margin-top: 160px; */
   justify-content: center;
   align-items: center;
 }
-
 #heading {
   /* margin-top: 50px; */
   justify-content: center;
   align-items: center;
 }
-
 .container00 {
   max-width: 900px;
   max-height: 800px;
@@ -55,13 +51,30 @@
 }
 
 .author {
-  border: 2px solid black;
-  padding: 8px;
   font-size: 15px;
   border-radius: 5px;
 }
 
-.preference-bar>* {
+.author input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all 200ms ease;
+}
+
+.author input[type="text"]:focus {
+  border: 2px solid #c27a7e;
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px rgba(194, 122, 126, 0.5); /* Add a subtle shadow effect on focus */
+}
+
+.author input[type="text"]:hover {
+  border: 2px solid #c27a7e;
+  background-color: #f8e0e0; /* Add a subtle background color change on hover */
+  box-shadow: 0 0 5px rgba(194, 122, 126, 0.5); /* Add a subtle shadow effect on hover */
+  transition: all 200ms ease;
+}
+.preference-bar > * {
   margin: 0 10px;
   /* Add spacing between items */
 }
@@ -81,18 +94,40 @@ select {
 }
 
 .preference-bar button {
-  padding: 10px 16px;
   font-size: 16px;
   border-radius: 5px;
-  /* background-color: #007bff; */
-  /* color: #fff; */
+  width: 280px;
   border: none;
   cursor: pointer;
+  margin-top: 0px;
 }
 
-/* .preference-bar button:hover { */
-/* background-color: #0056b3; */
-/* } */
+#upb {
+  display: inline-block; /* Ensures the underline fits the text width */
+  position: relative;
+  cursor: pointer;
+  font-size: 24px; /* Adjust font size as needed */
+}
+
+#upb::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  bottom: -2px; /* Position the underline just below the text */
+  left: 0;
+  background: #ff9b9b;
+  transition: width 0.4s ease, left 0.4s ease;
+}
+
+#upb:hover::after {
+  width: 100%;
+}
+
+.preference-bar button:hover {
+  border-radius: 50%;
+}
 
 .preference-bar select {
   padding: 8px;
@@ -111,11 +146,16 @@ select {
   padding: 8px;
 }
 
+/* .preference-bar button:hover { */
+/* background-color: #0056b3; */
+/* } */
+
 .container00 h2 {
   color: rgb(62, 60, 60);
   margin-bottom: 50px;
   margin-left: 230px;
   font-size: 30px;
+  width: 80%;
 }
 
 .preference-bar select:hover {
@@ -136,8 +176,6 @@ select {
   color: white;
   /* Color for dark mode */
 }
-
-
 
 .book {
   display: flex;
@@ -175,6 +213,7 @@ select {
   margin-bottom: 10px;
   margin-left: 10px;
 }
+
 
 #recommendationTitle {
   color: rgb(62, 60, 60);
@@ -239,10 +278,6 @@ body.dark-mode .h3 {
   gap: 2px;
 }
 
-
-/* Media Queries for Recommended Books section */
-
-
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .container00 {
@@ -273,7 +308,6 @@ body.dark-mode .h3 {
     margin-left: 0;
   }
 }
-
 
 /* Devices between 600px and 768px */
 @media only screen and (min-width: 600px) and (max-width: 767px) {
@@ -346,7 +380,6 @@ body.dark-mode .h3 {
   }
 }
 
-
 /* Medium devices (tablets, 992px and up) */
 @media only screen and (min-width: 992px) {
   .container00 {
@@ -388,6 +421,7 @@ body.dark-mode .h3 {
 
 /* media queries for chat widget  */
 
+
 @media screen and (max-width:1010px) {
   .bp-widget-web.bp-widget-web {
     right: calc(3.4% - 23px);
@@ -401,7 +435,6 @@ body.dark-mode .h3 {
 }
 
 @media only screen and (max-width: 598px) {
-
   .bp-widget-web.bp-widget-web {
     right: calc(4.95% - 23px);
   }
@@ -440,7 +473,6 @@ body.dark-mode .h3 {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-
 }
 
 .preview-button:hover {
