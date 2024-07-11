@@ -356,7 +356,7 @@
 
         <ul class="navbar-list nav vis-h">
           <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="../images/final.png" class="logopic" style="width:100px;">
+            <img src="../images/final.png" class="logopic" style="width:150px;">
           </a>
             <li class="navbar-item">
               <a href="../../index.html" class="navbar-link" data-nav-link><i class="ri-home-fill"></i> Home</a>
@@ -721,6 +721,9 @@
         margin: 10px;
         flex: 1 1 calc(33.333% - 40px);
         box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       .contributor-member:hover {
@@ -747,6 +750,24 @@
       .contributor-member p {
         font-size: 0.9rem;
         margin: 0;
+      }
+
+      .contributor-member button{
+        background-color: transparent;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 5px 20px;
+        font-size: 0.8rem;
+        color: var(--sonic-silver);
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 1.1rem;
+        
+      }
+
+    
+      .contributor-member button:hover {
+        color: var(--old-rose);
       }
 
       .pagination {
@@ -1293,10 +1314,17 @@ function showConfirmationMessage() {
             const contributions = document.createElement('p');
             contributions.textContent = `${contributor.contributions} contributions`;
 
+            const viewProfileButton = document.createElement("button");
+            viewProfileButton.textContent = "View Profile";
+            viewProfileButton.addEventListener("click", () => {
+            window.open(contributor.html_url, "_blank");
+          });
+
             card.appendChild(img);
             card.appendChild(name);
             card.appendChild(contributions);
             container.appendChild(card);
+            card.appendChild(viewProfileButton);
           });
         }
 

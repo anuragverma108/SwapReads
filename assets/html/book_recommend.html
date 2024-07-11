@@ -81,7 +81,32 @@
       }
     </style>
 </head>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const backToTopButton = document.getElementById('back-to-top-container');
 
+      function checkButtonVisibility() {
+        if (window.innerWidth > 100 && window.scrollY > 100) {
+          backToTopButton.style.display = 'block';
+        } else {
+          backToTopButton.style.display = 'none';
+        }
+      }
+
+      window.addEventListener('scroll', checkButtonVisibility);
+      window.addEventListener('resize', checkButtonVisibility);
+
+      backToTopButton.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      checkButtonVisibility();
+    });
+
+</script>
 
 <body>
 
@@ -94,11 +119,11 @@
               viewBox="0 0 126 75"
               class="book"
             >
-              <rect
+              <rect                                
                 stroke-width="5"
                 stroke="#e05452"
                 rx="7.5"
-                height="70"
+                height="70"                     
                 width="121"
                 y="2.5"
                 x="2.5"
@@ -170,11 +195,11 @@
     
           <nav class="navbar nav_activated" data-navbar>
             <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
-              <img src="./../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
+              <img src="./../images/final.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
             </a>
     
             <ul class="navbar-list">
-              <img src="./../images/new_logo_banner_dark.png" class="logopic" style=" width: 200px;">
+              <img src="./../images/final.png" class="logopic" style="width: 150px;">
     
               <li class="navbar-item">
                 <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i

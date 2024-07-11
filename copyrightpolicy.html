@@ -89,26 +89,26 @@
         margin: 0;
         padding: 0;
         background-color: #ffdcd4;
-        color: #333;
+        color: black;
     }
 
     .main {
         padding: 2rem;
-        background: #fff;
         max-width: 800px;
         margin: 2rem auto;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         border-radius: 8px;
         padding-bottom: 100px;
+        margin-top: 200px;
     }
 
     .main h1 {
         text-align: center;
         font-size: 30px;
         font-weight: 600;
-        color: #e6482e;
-        margin-bottom: 1rem;
-        margin-top: 100px;
+        color: #ff5f4b;
+        margin-bottom: 50px;
+        margin-top: 10px;
     }
 
     .main p {
@@ -133,6 +133,32 @@
     .un-list li a:hover {
         color: #e6482e;
     }
+    
+    /* Dark Mode Styles */
+    .dark-mode .readmore-anim {
+      font-size: 18px;
+      letter-spacing: 0;
+      color: hsl(357, 37%, 62%);
+    }
+    .dark-mode .readmore-anim:hover {
+      color: red;
+      letter-spacing: 1px;
+      transition: ease-in-out;
+    }
+    
+    .dark-mode .header.scrolled {
+      background-color: #232222; /* Change to a darker color when scrolled */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+    }
+    body.dark-mode {
+    background-color: #121212;
+    color:#ffffff;
+}
+body.dark-mode .main{
+    box-shadow: 0 0 20px hsl(0deg 100% 80.49%); ;
+    
+} 
+
 </style>
 </head>
 
@@ -142,7 +168,7 @@
     <header class="header header-anim" data-header>
 
         <div class="container" style="padding-left: 0;">
-
+            <div>
             <nav class="navbar nav_activated" data-navbar>
                 <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
                     <img src="./assets/images/new_logo_banner_dark.png" alt="" class="logopic"
@@ -230,6 +256,7 @@
                     </li>
                 </ul>
             </nav>
+            
         </div>
 
         <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
@@ -240,12 +267,16 @@
                 }, 'google_element');
             }
         </script>
-    
-        </li>
-        </ul>
-        </nav>
 
-
+        <div class="switch-container">
+            <input type="checkbox" id="switch" class="switch-checkbox">
+            <label for="switch" class="switch-label">
+              <div class="switch-button">
+                <span class="material-icons sun-icon">wb_sunny</span>
+                <span class="material-icons moon-icon">brightness_2</span>
+              </div>
+            </label>
+          </div>
         </div>
     </header>
 
@@ -364,7 +395,19 @@
                         font-size: 16px;
                         /* Font size */
                     }
-                </style>
+                    .dark-mode .switch-container {
+            right: 12px;
+            top: 10px;
+            }
+            .switch-container {
+            right: 12px;
+            top: 10px;
+            }
+            .light-mode .switch-container {
+                right: 12px;
+                top: 10px;
+            }
+    </style>
 
                 <form type="newsletter">
                     <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
@@ -556,6 +599,84 @@
 
 
   </script>
+    <script>
+
+        //   function sendMail(){
+        //         let params={
+        //             name:document.getElementById('name').value,
+        //             email:document.getElementById('email').value,
+        //             subject:document.getElementById('subject').value,
+        //             message:document.getElementById('message').value,
+        //             subscribe:document.getElementById('newsletter-email').value
+        //         }
+        //         EmailJSResponseStatus.send("service_lktb68z","template_w79vd94",params,"o6kveYmOSDrs0l1Mg")
+        //         .then(alert('Email sent successfully'))
+        //       }
+    
+    
+        // document.querySelector('subscribe-btn').addEventListener('submit', sendMail());
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+          const isDarkMode = isDarkModePreferred();
+          setDarkModePreference(!isDarkMode);
+          applyDarkModePreference();
+        }
+    
+        // Function to apply dark mode preference
+        function applyDarkModePreference() {
+          const isDarkMode = isDarkModePreferred();
+          if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
+          } else {
+            document.body.classList.remove('dark-mode');
+            document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
+          }
+        }
+    
+        document.addEventListener('DOMContentLoaded', () => {
+          const currentTheme = localStorage.getItem('theme');
+          const switchCheckbox = document.getElementById('switch');
+        
+          if (!switchCheckbox) {
+            console.error("Switch checkbox not found!");
+            return;
+          }
+        
+          const applyDarkModeStyles = () => {
+            document.body.classList.remove('light-mode');
+            document.body.classList.add('dark-mode');
+          };
+        
+          const applyLightModeStyles = () => {
+            document.body.classList.remove('dark-mode');
+            document.body.classList.add('light-mode');
+          };
+        
+          const initializeTheme = () => {
+            if (currentTheme === 'dark-mode') {
+              applyDarkModeStyles();
+              switchCheckbox.checked = true;
+            } else {
+              applyLightModeStyles();
+            }
+          };
+        
+          const handleThemeChange = () => {
+            if (switchCheckbox.checked) {
+              applyDarkModeStyles();
+              localStorage.setItem('theme', 'dark-mode');
+            } else {
+              applyLightModeStyles();
+              localStorage.setItem('theme', 'light-mode');
+            }
+          };
+        
+          initializeTheme();
+          switchCheckbox.addEventListener('change', handleThemeChange);
+        });
+        
+      </script>
 </body>
 
 </html>
