@@ -1,13 +1,11 @@
-import express from "express";
-// Other imports and code
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import nodemailer from 'nodemailer';
+import { RegisterSchema } from './assets/validation/zodschema.js';
+import validate from './assets/validation/validate.schema.js';
 
-const express = require("express");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const nodemailer = require("nodemailer");
-const RegisterSchema = require("./assets/validation/zodschema");
-const validate = require("./assets/validation/validate.schema");
-const cors=require("cors")
+import cors from 'cors';
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
