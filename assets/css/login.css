@@ -57,7 +57,7 @@ p {
 
 .navbar {
   width: 100%;
-  background-color: #f5ebe6;
+  background-color: #000000;
 }
 
 .navbar-link {
@@ -322,6 +322,8 @@ input[type="password"]::-ms-reveal {
   font-size: 1.5rem;
   font-weight: bold;
   margin-top: 2px;
+  margin-left: 120px;
+  left: 40px;
   /* margin-left: 132px; */
 }
 #google-sign-in img {
@@ -330,7 +332,7 @@ input[type="password"]::-ms-reveal {
   align-items: center;
   justify-content: center;
   position: absolute;
-  left: 100px;
+  left: 120px;
 }
 
 #google-signup {
@@ -644,6 +646,27 @@ input[type="password"]::-ms-reveal {
   }
 }
 
+/* Basic navbar styling */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 10;
+  z-index: 1000;
+  transition: top 0.3s;
+  }
+  
+  /* Hide the navbar */
+  .header.hidden {
+  top: -93px; /* Adjust according to your header height */
+  }
+  
+  /* Navbar styling when scrolled */
+  .header.scrolled {
+  background-color: #222; /* Change to a darker color when scrolled */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+  }
+  
+
 /**
 * Dark Mode
 */
@@ -668,11 +691,30 @@ body.dark-mode {
 .dark-mode.navbar{
   background-color: #1e1c1c;
 }
+.light-mode .navbar{
+  background-color: #e6e6e6;
+  color:#000;
+}
 .dark-mode#login label {
   color:#e6e6e6;
 }
 .dark-mode#login{
   background-color: #373737;
+}
+.light-mode .login{
+  background-color: white;
+}
+.dark-mode .logo{
+  background-color: #1e1c1c;
+  color:#e6e6e6;
+}
+.light-mode .logo{
+  background-color: white;
+  color:#1e1c1c;
+}
+.dark-mode footer{
+  background-color: #1e1c1c;
+  color:#e6e6e6;
 }
 #login.dark-mode:hover{
   color: var(--old-rose);
@@ -690,6 +732,9 @@ body.dark-mode {
 }
 .dark-mode .input{
   background: #292626;
+}
+.light-mode .input{
+  background: #e6e6e6;
 }
 
 .register label.dark-mode{
