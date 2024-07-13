@@ -1,23 +1,25 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
-import nodemailer from 'nodemailer';
-import { RegisterSchema } from './assets/validation/zodschema.js';
-import validate from './assets/validation/validate.schema.js';
+import express from "express";
+// Other imports and code
 
-import cors from 'cors';
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const nodemailer = require("nodemailer");
+const RegisterSchema = require("./assets/validation/zodschema");
+const validate = require("./assets/validation/validate.schema");
+const cors=require("cors")
 const app = express();
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
-app.use(cors());
+app.use(cors()); 
 
 const MONGO_URI = "mongodb+srv://nishantkaushal0708:jhn14300@cluster0.vye07az.mongodb.net/";
+
 
 const dbConnect = async () => {
   try {
     await mongoose.connect(MONGO_URI, {
-      serverSelectionTimeoutMS: 30000, // 30 seconds timeout
+      serverSelectionTimeoutMS: 30000,
     });
     console.log("DB connected");
   } catch (err) {
@@ -25,13 +27,27 @@ const dbConnect = async () => {
   }
 };
 
-dbConnect().then(() => {
-  const User = mongoose.model("User", { username: String, password: String });
+const User = mongoose.model("User", { username: String, password: String });
+const bookSchema = new mongoose.Schema({
+  title: String,
+  author: String,
+  price: Number,
+  sellerEmail: String,
+});
+const Book = mongoose.model("Book", bookSchema);
 
+const sendListingEmailToSeller = (email, bookTitle) => {
+  // Implement the email sending logic here
+};
+
+const sendBuyingEmailToSeller = (sellerEmail, bookTitle, bookPrice, bookAuthor, buyerEmail) => {
+  // Implement the email sending logic here
+};
+
+dbConnect().then(() => {
   app.post("/signup", validate(RegisterSchema), async (req, res) => {
     const { username, password } = req.body;
     const userExists = await User.findOne({ username });
-
     if (userExists) {
       res.json({ success: false, message: "Username already exists." });
     } else {
@@ -44,7 +60,6 @@ dbConnect().then(() => {
   app.post("/login", validate(RegisterSchema), async (req, res) => {
     const { username, password } = req.body;
     const user = await User.findOne({ username, password });
-
     if (user) {
       res.json({ success: true });
     } else {
@@ -53,19 +68,9 @@ dbConnect().then(() => {
   });
 
   // Book Exchange/Selling
-  const bookSchema = new mongoose.Schema({
-    title: String,
-    author: String,
-    price: Number,
-    sellerEmail: String,
-  });
-
-  const Book = mongoose.model("Book", bookSchema);
-
   app.post("/sellBook", async (req, res) => {
     const { title, author, price, sellerEmail } = req.body;
     const newBook = new Book({ title, author, price, sellerEmail });
-
     newBook.save()
       .then((book) => {
         sendListingEmailToSeller(sellerEmail, book.title);
@@ -96,7 +101,6 @@ dbConnect().then(() => {
   // Contact form endpoint
   app.post("/contact", async (req, res) => {
     const { name, email, subject, message } = req.body;
-
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -104,14 +108,12 @@ dbConnect().then(() => {
         pass: "Enter_YOUR_APP_PASSWORD",
       },
     });
-
     const mailOptions = {
       from: email,
       to: "enter_you_mail",
       subject: `You Have New Query from ${name} Regarding ${subject}`,
       html: `Hey there is query from is  ${name} Email: ${email}  &nbsp; Message:<p style="color: red;"> ${message}</p>`,
     };
-
     const acknowledgmentOptions = {
       from: "enter_you_mail",
       to: email,
@@ -122,7 +124,6 @@ dbConnect().then(() => {
       <p style="margin-top: 20px;">Best regards,<br><strong>SwapReads.com</strong></p>
     </div>`,
     };
-
     try {
       await transporter.sendMail(mailOptions);
       await transporter.sendMail(acknowledgmentOptions);
@@ -131,6 +132,12 @@ dbConnect().then(() => {
       console.error("Error sending email:", err);
       res.json({ success: false, message: "Error sending message" });
     }
+  });
+
+  app.post('/subscribe', (req, res) => {
+    let email = req.body.email;
+    console.log(email);
+    res.json({ success: true, message: "Subscribed successfully" });
   });
 
   // Subscribe endpoint
@@ -146,4 +153,10 @@ dbConnect().then(() => {
   });
 });
 
-app.listen(4000, () => console.log("Server is running on port 3000"));
+
+app.post('/subscribe',(req,res)=>{
+  let email = req.body;
+  console.log(email);
+})
+
+app.listen(3000, () => console.log("Server is running on port 3000"));
