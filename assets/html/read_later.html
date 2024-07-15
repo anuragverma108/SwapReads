@@ -144,54 +144,6 @@
     margin: 4px 4px;
     background-color: rgb(240, 15, 15);
 }
-@media only screen and (max-width:1063px){
-    .nav{
-        flex-direction: column;
-    }
-    .header{
-        flex-direction: column;
-        height: 53.8rem;
-        transition: 0.55s all ease-out;
-        padding-top: 5px;
-    }
-    .navbar-item{
-        margin-right: 40px;
-    }
-    .navbar-list{
-      position: relative;
-      top: 200px;
-    }
-    .hamburger{
-        display: block;
-    }
-    .nav-h{
-        height: 78px;
-        width: 100vw;
-    }
-    .vis-h{
-        opacity: 0;
-    }
-    .logo img{
-      position: relative;
-      top: 17px;
-      left: 350px;
-    }
-}
-@media only screen and (max-width:990px){
-  .header{
-    height: 0;
-  }
-  .navbar-list{
-    top: 0;
-  }
-  .logo img{
-    top: -9px;
-    left: 50px;
-  }
-}
-.navbar-item {
-  margin-top: 10px; /* Increase the top margin of each item */
-}
   </style>
   <header class="header header-anim nav-h" data-header>
 
@@ -390,12 +342,6 @@
 
 
 
-    
-    <!-- <div class="switch-toggle-container">
-
-
-      window.addEventListener("scroll", onScroll);
-    </script>
     <div class="switch-toggle-container">
 
       <div class="switch-container switch-container-mobile">
@@ -406,14 +352,14 @@
             <span class="material-icons moon-icon">brightness_2</span>
           </div>
         </label>
-      </div> -->
+      </div>
 
-      <!-- <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler id="nav-toggle-button">
+      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler id="nav-toggle-button">
         <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
 
         <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
-      </button> -->
-      <div class="switch-container" style="top: 15px;">
+      </button>
+      <!-- <div class="switch-container" style="top: 15px;">
         <input type="checkbox" id="switch" class="switch-checkbox">
         <label for="switch" class="switch-label">
           <div class="switch-button">
@@ -421,7 +367,7 @@
             <span class="material-icons moon-icon">brightness_2</span>
           </div>
         </label>
-      </div>
+      </div> -->
     </div>
 
 
@@ -948,68 +894,66 @@
 
     <script src="../js/read_later.js"></script>
     <script>
-      // Function to toggle dark mode
-      function toggleDarkMode() {
-        const isDarkMode = isDarkModePreferred();
-        setDarkModePreference(!isDarkMode);
-        applyDarkModePreference();
+          // Function to toggle dark mode
+    function toggleDarkMode() {
+      const isDarkMode = isDarkModePreferred();
+      setDarkModePreference(!isDarkMode);
+      applyDarkModePreference();
+    }
+
+    // Function to apply dark mode preference
+    function applyDarkModePreference() {
+      const isDarkMode = isDarkModePreferred();
+      if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
+      } else {
+        document.body.classList.remove('dark-mode');
+        document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
       }
+    }
 
-      // Function to apply dark mode preference
-      function applyDarkModePreference() {
-        const isDarkMode = isDarkModePreferred();
-        if (isDarkMode) {
-          document.body.classList.add('dark-mode');
-          document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
-        } else {
-          document.body.classList.remove('dark-mode');
-          document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
-        }
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentTheme = localStorage.getItem('theme');
+      const switchCheckbox = document.getElementById('switch');
+    
+      if (!switchCheckbox) {
+        console.error("Switch checkbox not found!");
+        return;
       }
-
-      // Function to set dark mode preference
-      document.addEventListener('DOMContentLoaded', () => {
-        const currentTheme = localStorage.getItem('theme');
-        const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
-        const starRating = document.querySelector('.star_rating');
-        const thankYouMessage = document.querySelector(".thank_you_message");
-        if (switchCheckbox) { // Check if switchCheckbox is not null
-          function applyDarkModeStyles() {
-            document.body.classList.remove('light-mode');
-            document.body.classList.add('dark-mode');
-            starRating.style.backgroundColor = '#2d2828';
-            thankYouMessage.style.backgroundColor = '#2d2828';
-          }
-
-          function applyLightModeStyles() {
-            document.body.classList.remove('dark-mode');
-            document.body.classList.add('light-mode');
-            starRating.style.backgroundColor = 'white';
-            thankYouMessage.style.backgroundColor = 'white';
-          }
-
-          if (currentTheme) {
-            if (currentTheme === 'dark-mode') {
-              applyDarkModeStyles();
-              switchCheckbox.checked = true;
-            } else {
-              applyLightModeStyles();
-            }
-          }
-
-          switchCheckbox.addEventListener('change', () => {
-            if (switchCheckbox.checked) {
-              applyDarkModeStyles();
-              localStorage.setItem('theme', 'dark-mode');
-            } else {
-              applyLightModeStyles();
-              localStorage.setItem('theme', 'light-mode');
-            }
-          });
+    
+      const applyDarkModeStyles = () => {
+        document.body.classList.remove('light-mode');
+        document.body.classList.add('dark-mode');
+      };
+    
+      const applyLightModeStyles = () => {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+      };
+    
+      const initializeTheme = () => {
+        if (currentTheme === 'dark-mode') {
+          applyDarkModeStyles();
+          switchCheckbox.checked = true;
         } else {
-          console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
+          applyLightModeStyles();
         }
-      });
+      };
+    
+      const handleThemeChange = () => {
+        if (switchCheckbox.checked) {
+          applyDarkModeStyles();
+          localStorage.setItem('theme', 'dark-mode');
+        } else {
+          applyLightModeStyles();
+          localStorage.setItem('theme', 'light-mode');
+        }
+      };
+    
+      initializeTheme();
+      switchCheckbox.addEventListener('change', handleThemeChange);
+    });
     </script>
     <script>
       const navbar = document.querySelector('.navbar'),
