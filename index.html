@@ -240,16 +240,6 @@
   }
 }
 
-.switch-label{
-  margin-bottom: 20px;
-  margin-right: 40px;
-}
-.navbar-item{
-  margin-right: 0px;
-}
-
-
-
 .cta {
   position: relative;
   display: flex;
@@ -720,6 +710,7 @@
   <header class="header header-anim nav-h" data-header>
 
     <div class="container mobile-container-styles" style="padding-left: 0;">
+
       <nav class="navbar nav_activated" data-navbar>
 
 
@@ -733,7 +724,7 @@
           </li>
            <li class="navbar-item">
                 <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><i
-                    class="ri-home-fill"></i>About Us</a>
+                    class="ri-home-fill"></i> About Us </a>
               </li>
               
           <li class="navbar-item">
@@ -752,7 +743,8 @@
             </li>
             <li class="navbar-item">
               <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
-                  <i class="ri-questionnaire-fill"></i>FAQ</a>
+                  <i class="ri-questionnaire-fill"></i> FAQ
+              </a>
           </li>
 
           <li class="navbar-item">
@@ -777,7 +769,10 @@
                     Community chat
                 </a>
                 </li>
-                
+                <li class="dropdown-menu-item">
+                  <a href="./assets/html/literaryrealms.html" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
+                      class="ri-medal-fill"></i> Literary Realms</a>
+                </li>
                 <li class="dropdown-menu-item">
                   <a href="./assets/html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
                       class="ri-price-tag-3-fill"></i> Pricing</a>
@@ -806,18 +801,6 @@
               </ul>
             </div>
           </li>
-          <li>
-            <div class="navbar-link" style="top: 15px;">
-              <input type="checkbox" id="switch" class="switch-checkbox">
-              <label for="switch" class="switch-label">
-                <div class="switch-button">
-                  <span class="material-icons sun-icon">wb_sunny</span>
-                  <span class="material-icons moon-icon">brightness_2</span>
-                </div>
-              </label>
-            </div>
-          </li>
-          
           <li>
           <div class="action">
             <div class="profile" onclick="menuToggle();">
@@ -947,8 +930,16 @@
 
         <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
       </button> -->
-     
-    
+      <div class="switch-container" style="top: 15px;">
+        <input type="checkbox" id="switch" class="switch-checkbox">
+        <label for="switch" class="switch-label">
+          <div class="switch-button">
+            <span class="material-icons sun-icon">wb_sunny</span>
+            <span class="material-icons moon-icon">brightness_2</span>
+          </div>
+        </label>
+      </div>
+    </div>
 
 
 
@@ -1225,7 +1216,7 @@
             Literary Realms we've covered
             <span class="span has-before"></span>
           </h1>
-
+ 
           <div class="carousell-wrapper">
             <i id="left-arrow" class="fa-solid fa-angle-left"></i>
             
@@ -1374,7 +1365,7 @@
             carousel.scrollLeft = carousel.offsetWidth;
         }
     }
-
+ 
     carousel.addEventListener("mousedown", dragStart);
     carousel.addEventListener("mousemove", dragging);
     document.addEventListener("mouseup", dragStop);
@@ -2321,7 +2312,7 @@
     </div>
 
     <div class="faq-container">
-      <div class="question">
+      <div class="question .dark">
         <h4>How does SwapReads contribute to sustainability?</h4>
         <i class="icon fa-solid fa-caret-down"></i>
       </div>
@@ -2388,13 +2379,22 @@
   </script>
   <br /><br />
   <div style="
-    background-color: #ffb2a8 ;
-    height:150px;
-    width: 100%;
-    color: white;
-    font-weight: 700;
-    font-size: 45px;
+    background-color: rgba(255, 178, 168, 0.041); /* Semi-transparent background */
+  height: 30rem;
+  width: 30rem; /* Make width and height equal for a circular shape */
+  color: rgb(99, 23, 23);
+  font-weight: 700;
+  font-size: 45px;
   text-align: center;
+  line-height: 150px; /* Center text vertically */
+  border-radius: 30rem; /* Make the div circular */
+  backdrop-filter: blur(5rem); /* Glassmorphism effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), /* Slight shadow for depth */
+              0 1px 3px rgba(0, 0, 0, 0.08); /* Additional subtle shadow */
+              align-items: center;
+              margin-left: 45%;
+              border-width: 4px;
+
   ">
   <div>Visitor</div>
   <div class="website-counter" >
