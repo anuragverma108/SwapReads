@@ -95,7 +95,7 @@
         color: black;
     }
 
-    .main {
+    .notice {
         padding: 2rem;
         max-width: 800px;
         color:black;
@@ -104,13 +104,62 @@
         border-radius: 8px;
         padding-bottom: 100px;
         margin-top: 200px;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.086);
+        
     }
+    @property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.notice::before,
+.notice::after {
+  content: "";
+  position: absolute;
+  inset: -0.1rem;
+  z-index: 2;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    hsl(340, 94%, 40%),
+    hsl(344, 69%, 53%),
+    hsl(0, 88%, 86%),
+    hsl(344, 64%, 52%),
+    hsl(340, 94%, 43%)
+  );
+  border-radius: inherit;
+  animation: moving 3s linear infinite;
 
+  mask: linear-gradient(
+      to right,
+      black 0.4%,
+      transparent 0%,
+      transparent 99.6%,
+      black 90%
+    ),
+    linear-gradient(
+      to bottom,
+      black 0.5%,
+      transparent 0%,
+      transparent 99.5%,
+      black 90%
+    );
+}
+
+
+@keyframes moving {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
     .main h1 {
         text-align: center;
         font-size: 30px;
         font-weight: 600;
-        color: #ff5f4b;
+        color: hsl(340, 93%, 42%);
         margin-bottom: 50px;
         margin-top: 10px;
     }
@@ -130,7 +179,7 @@
     }
 
     .un-list li a {
-        color: #ff5f4b;
+        color: hsl(340, 93%, 42%);
         display: inline;
     }
 
@@ -144,7 +193,7 @@
       color: hsl(357, 37%, 62%);
     }
     .dark-mode .readmore-anim:hover {
-      color: red;
+        color: #e6482e;
       letter-spacing: 1px;
       transition: ease-in-out;
     }
@@ -157,12 +206,17 @@
     background-color: #121212;
     color:#ffffff;
 }
-body.dark-mode .main{
-    box-shadow: 0 0 20px hsl(0deg 100% 80.49%); ;
+body.dark-mode .notice{
+    
     color: white;
 } 
 .main a {
-    color: #ff5f4b;
+    color: hsl(340, 93%, 42%);
+    display: inline;
+}
+
+.dark-mode  .main a {
+    color: hsl(340, 87%, 73%);
     display: inline;
 }
 .dark-mode .switch-container {
@@ -173,6 +227,7 @@ body.dark-mode .main{
     right: 12px;
     top: 10px;
 }
+
 </style>
 </head>
 
@@ -295,6 +350,7 @@ body.dark-mode .main{
     </header>
 
     <main class="main">
+        <div class="notice"">
         <h1>Privacy Notice</h1>
         <p>Welcome to SwapReads. SwapReads is the solution to common challenges faced by book enthusiasts in today's digital age.
             We've identified key problems and developed a platform that addresses them efficiently and effectively. </p>
@@ -311,6 +367,7 @@ body.dark-mode .main{
             <p>We use cookies and similar technologies to enhance your experience on our website. You can control cookie settings through your browser.</p>
             <p>Our website may contain links to other sites. We are not responsible for the privacy practices or content of those sites. We encourage you to read the privacy policies of any linked sites.</p>
             <p>If you have any questions or concerns about our privacy practices, please contact us at <a href="mailto:privacy@swapreads.com">privacy@swapreads.com.</a></p>
+        </div>
     </main>
 
     <footer>
