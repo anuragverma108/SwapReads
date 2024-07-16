@@ -1,103 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="apple-touch-icon" sizes="180x180" href="../favicon_package_v0.16/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon_package_v0.16/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon_package_v0.16/favicon-16x16.png">
   <link rel="manifest" href="../favicon_package_v0.16/site.webmanifest">
   <link rel="mask-icon" href="../favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
-    <title>Read Later</title>
-    <link rel="stylesheet" href="../css/read_later.css"></style>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Read Later</title>
+  <link rel="stylesheet" href="../css/read_later.css">
+  </style>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/read_later.css">
-    <link rel="stylesheet" href="../modals(privacy policy).css">
+  <link rel="stylesheet" href="../css/read_later.css">
+  <link rel="stylesheet" href="../modals(privacy policy).css">
 
   <link rel="stylesheet" href="./assets/css/MenuClick.css">
-  
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-    <header class="header header-anim" data-header>
 
-        <div class="container">
-    
-          <nav class="navbar nav_activated" data-navbar>
-            <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
-            <img src="./../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
-            </a>
-    
-            <ul class="navbar-list">
-              <img src="./../images/new_logo_banner_dark.png" class="logopic" style=" width: 200px;">
-    
-              <li class="navbar-item">
-                <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
-                    class="ri-home-fill"></i> Home</a>
-              </li>
-    
-              <li class="navbar-item">
-                <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
-                    class="ri-bar-chart-fill"></i> Benefits</a>
-              </li>
-    
-              <li class="navbar-item">
-                <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
-                    class="ri-bar-chart-fill"></i> Genre</a>
-              </li>
-    
-              <li class="navbar-item">
-    
-                <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-                    class="ri-customer-service-2-fill"></i> Contact</a>
-              </li>
-    
-              <li class="navbar-item">
-                <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
-              </li>
-              <li class="navbar-item" id="login-signup-link">
-                <a href="./login.html" class="navbar-link">Login/Signup</a>
-              </li>
-              <li class="navbar-item dropdown" id="more-dropdown">
-                <a href="#" class="navbar-link" id="more-link">More 
-                <svg  class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z"/></svg></a>
-                <div class="dropdown-menu" id="dropdown-menu">
-    
-                  <ul class="dropdown-menu-list">
-                    <li class="dropdown-menu-item">
-                      <a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i class="ri-medal-fill"></i> Literary Realms</a>
-                    </li>
-                    <li class="dropdown-menu-item">
-                      <a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
-                    </li>
-                    <li class="dropdown-menu-item">
-                      <a href="./addremovebook.html" class="navbar-link">Booklist for Swapping</a>
-                    </li>
-                    <li class="dropdown-menu-item">
-                      <a href="../../book_recommend.html" class="navbar-link" data-nav-link>
-                        <i class="ri-customer-service-2-fill"></i> Book Recommendation
-                      </a>
-                    </li>
-                    <li class="dropdown-menu-item">
-                      <a href="./freeBooks.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
-                    </li>
-                    <li class="dropdown-menu-item">
-                        <a href="#" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
-                      </li>
-                    <li class="dropdown-menu-item">
-                      <a href="./about.html" class="navbar-link">About</a>
-                    </li>
-                  </ul>
-                </div>
+<body>
+  <style>
+    .action {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+}
+
+.action .profile {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.action .profile img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.action .menu {
+  position: absolute;
+  top: 120px;
+  right: -10px;
+  padding: 10px 20px;
+  background: #fff;
+  width: 200px;
+  box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  transition: 0.5s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.action .menu.active {
+  top: 80px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.action .menu::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 28px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.action .menu h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px 0;
+  font-weight: 500;
+  color: #555;
+  line-height: 1.5em;
+}
+
+.action .menu h3 span {
+  font-size: 14px;
+  color: #cecece;
+  font-weight: 300;
+}
+
+.action .menu ul li {
+  list-style: none;
+  padding: 16px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+}
+
+.action .menu ul li img {
+  max-width: 20px;
+  margin-right: 10px;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.action .menu ul li:hover img {
+  opacity: 1;
+}
+
+.action .menu ul li a {
+  display: inline-flex;
+  text-align: center;
+  padding-left: 5%;
+  font-weight: 300;
+  font-size: 19px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.action .menu ul li:hover a {
+  color: #ff5d94;
+  font-size: 21px;
+
+}
+.hamburger{
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 24px;
+    left: 1.5%;
+}
+.line{
+    width: 36px;
+    height: 5px;
+    margin: 4px 4px;
+    background-color: rgb(240, 15, 15);
+}
+@media only screen and (max-width:1063px){
+    .nav{
+        flex-direction: column;
+    }
+    .header{
+        flex-direction: column;
+        height: 53.8rem;
+        transition: 0.55s all ease-out;
+        padding-top: 5px;
+    }
+    .navbar-item{
+        margin-right: 40px;
+    }
+    .navbar-list{
+      position: relative;
+      top: 200px;
+    }
+    .hamburger{
+        display: block;
+    }
+    .nav-h{
+        height: 78px;
+        width: 100vw;
+    }
+    .vis-h{
+        opacity: 0;
+    }
+    .logo img{
+      position: relative;
+      top: 17px;
+      left: 350px;
+    }
+}
+@media only screen and (max-width:990px){
+  .header{
+    height: 0;
+  }
+  .navbar-list{
+    top: 0;
+  }
+  .logo img{
+    top: -9px;
+    left: 50px;
+  }
+}
+.navbar-item {
+  margin-top: 10px; /* Increase the top margin of each item */
+}
+  </style>
+  <header class="header header-anim nav-h" data-header>
+
+    <div class="container mobile-container-styles" style="padding-left: 0;">
+
+      <nav class="navbar nav_activated" data-navbar>
+
+
+        <ul class="navbar-list nav">
+          <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+            <img src="../images/final.png" class="logopic" style=" width: 150px;">
+          </a>
+          <li class="navbar-item">
+            <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
+                class="ri-home-fill"></i> Home</a>
+          </li>
+           <li class="navbar-item">
+                <a href="../html/about.html"  class="navbar-link" data-nav-link><i
+                    class="ri-home-fill"></i> About Us </a>
               </li>
               
-              
+          <li class="navbar-item">
+            <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
+                class="ri-bar-chart-fill"></i> Benefits</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+                class="ri-bar-chart-fill"></i> Genre</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
+                class="ri-customer-service-2-fill"></i> Contact</a>
+            </li>
+            <li class="navbar-item">
+              <a href="../../index.html#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
+                  <i class="ri-questionnaire-fill"></i> FAQ
+              </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+           
+          <li class="navbar-item" id="login-signup-link">
+            <a href="../html/login.html" class="navbar-link">Login/Signup</a>
+          </li>
+          
+          
+          <li class="navbar-item dropdown" id="more-dropdown">
+            <a href="#" class="navbar-link" id="more-link">More
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
+                viewBox="0 0 24 24">
+                <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
+              </svg></a>
+            <div class="dropdown-menu" id="dropdown-menu">
+
+              <ul class="dropdown-menu-list">
+                <li>
+                  <a href="chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                    Community chat
+                </a>
+                </li>
+                
+                <li class="dropdown-menu-item">
+                  <a href="../html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
+                      class="ri-price-tag-3-fill"></i> Pricing</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="../html/booklistswap.html" class="navbar-link">Booklist for Swapping</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="../html/book_recommend.html" class="navbar-link" data-nav-link>
+                    <i class="ri-customer-service-2-fill"></i> Book Recommendation
+                  </a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="../html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
+                    data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="../html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href=".../html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="../html/about.html" class="navbar-link">About</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+          <div class="action">
+            <div class="profile" onclick="menuToggle();">
+              <img id="profile-avatar" src="../images/avatar1.jpg" />
+            </div>
+            <div class="menu">
+              <h3>XYZ<br /><span>Book Lover</span></h3>
+              <ul>
+                <li>
+                  <img src="../images/user.jpg" /><a href="../../profile.html">My profile</a>
+                </li>
+                <li>
+                  <img src="../images/edit profile.jpg" /><a href="../html/profileedit.html">Edit profile</a>
+                </li>
+                <li>
+                  <img src="../images/inbox.png" /><a href="#">Inbox</a>
+                </li>
+                <li>
+                  <img src="../images/settings.png" /><a href="#">Settings</a>
+                </li>
+                <li><img src="../images/help.png" /><a href="#">Help</a></li>
+                <li>
+                  <img src="../images/logout.png" /><a href="#">Logout</a>
+                </li>
+              </ul>
+            </li>
+              </div>
+            </ul>
+              </div>
+              <script>
+               document.addEventListener("DOMContentLoaded", () => {
+    const savedAvatar = localStorage.getItem("selectedAvatar");
+    if (savedAvatar) {
+        document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+    }
+});
+
+        
+                function menuToggle() {
+                    const toggleMenu = document.querySelector(".menu");
+                    toggleMenu.classList.toggle("active");
+                }
+            </script>
           <!-- Google Translate Element -->
           <!-- <li class="navbar-item">
             <div id="google_element"></div>
           </li> -->
-          
+        </ul>
+        <!-- <div class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div> -->
+      </nav>
+      <div id="mobile_View_Menu">
+        <span id="menu_lines"></span>
+       </div>
+    <script>
+        let menu=document.getElementById('mobile_View_Menu')
+        let navbar_con=document.querySelector('.navbar')
+        menu.addEventListener('click',()=>{
+          if(menu.classList.contains('open_menu')){
+            menu.classList.remove('open_menu')
+            navbar_con.classList.add('nav_activated')
+          }
+          else{
+            menu.classList.add('open_menu')
+            navbar_con.classList.remove('nav_activated')
+          }
+        })
+      </script>
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script>
       function loadGoogleTranslate() {
@@ -106,71 +363,326 @@
         }, 'google_element');
       }
     </script>
+    <script>
+      // const hamburger=document.querySelector('.hamburger');
+      // const head=document.querySelector('.header');
+      // const nav=document.querySelector('.nav');
+      // hamburger.addEventListener('click',()=>{
+      //   head.classList.toggle('nav-h');
+      //   nav.classList.toggle('vis-h');
+      // })
+      // let lastScrollTop = 0;
+      // function onScroll() {
+      //     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      //     const header = document.querySelector('.header');
+
+      //     if (currentScroll > lastScrollTop) {
+      //         header.classList.add('hidden');
+      //     } else {
+      //         header.classList.remove('hidden');
+      //     }
+      //     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+      // }
+
+
+  window.addEventListener("scroll", onScroll);
+</script>
 
 
 
-    </li>
-    </ul>
-    </nav>
+    
+    <!-- <div class="switch-toggle-container">
 
+
+      window.addEventListener("scroll", onScroll);
+    </script>
     <div class="switch-toggle-container">
+
       <div class="switch-container switch-container-mobile">
         <input type="checkbox" id="switch" class="switch-checkbox">
         <label for="switch" class="switch-label">
           <div class="switch-button">
             <span class="material-icons sun-icon">wb_sunny</span>
             <span class="material-icons moon-icon">brightness_2</span>
+          </div>
+        </label>
+      </div> -->
+
+      <!-- <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler id="nav-toggle-button">
+        <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
+
+        <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
+      </button> -->
+      <div class="switch-container" style="top: 15px;">
+        <input type="checkbox" id="switch" class="switch-checkbox">
+        <label for="switch" class="switch-label">
+          <div class="switch-button">
+            <span class="material-icons sun-icon">wb_sunny</span>
+            <span class="material-icons moon-icon">brightness_2</span>
+          </div>
         </label>
       </div>
-    
-          <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
-            <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
-    
-            <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
-          </button>
-    
-        </div>
-      </header>
-    
-    
-    <!--books added here in this MAIN-->
-    <br><br><br><br><br>
-    <h1>Read Later</h1>
-    <div class="read-later-list">
-        <!-- This is where the books will be added dynamically -->
     </div>
 
+
+
+    </div>
+  </header>
+  <!--books added here in this MAIN-->
+  <br><br><br><br><br>
+  <h1>Read Later</h1>
+  <div class="read-later-list">
+    <!-- This is where the books will be added dynamically -->
+  </div>
+  <style>
+    h1,
+    h2 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 25px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #007BFF;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .notes {
+      margin-top: 5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .note {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: calc(33.33% - 30px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 280px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    position: relative;
+}
+
+.note::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    transform: rotate(30deg);
+    pointer-events: none;
+}
+
+.note:hover {
+    transform: translateY(-8px) rotate(1deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.note-content {
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.note-content p {
+    margin: 12px 0;
+    word-wrap: break-word;
+    color: #2c3e50;
+    font-size: 16px;
+    line-height: 1.5;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.note-content p strong {
+    color: #1a5f7a;
+    font-weight: 600;
+}
+
+    .delete-button {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 12px;
+      cursor: pointer;
+      width: 100%;
+      align-self: flex-end;
+      transition: background-color 0.3s ease;
+    }
+
+    .delete-button:hover {
+      background-color: #c82333;
+    }
+  </style>
+  </head>
+
+  <body>
+    <section id="addBookSection">
+      <h2>Add a Book to Read Later</h2>
+      <form id="noteForm">
+        <input type="text" id="bookName" placeholder="Book Name" required>
+        <input type="text" id="authorName" placeholder="Author Name" required>
+        <select id="bookGenre" required>
+          <option value="" disabled selected>Select Genre</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Biography">Biography</option>
+          <option value="Class Literature">Class Literature</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Historical">Historical</option>
+          <option value="Horror">Horror</option>
+          <option value="Philosophy">Philosophy</option>
+          <option value="Poetry">Poetry</option>
+          <option value="Romance">Romance</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Self Help">Self Help</option>
+          <option value="Suspense Thriller">Suspense Thriller</option>
+        </select>
+        <button type="submit">Add Note</button>
+      </form>
+    </section>
+    <section id="readLaterSection">
+      <h2>My lists</h2>
+      <div class="notes" id="notesContainer"></div>
+    </section>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', loadNotes);
+
+      document.getElementById('noteForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const bookName = document.getElementById('bookName').value;
+        const authorName = document.getElementById('authorName').value;
+        const bookGenre = document.getElementById('bookGenre').value;
+
+        const note = {
+          bookName,
+          authorName,
+          bookGenre
+        };
+
+        addNoteToDOM(note);
+        saveNoteToLocalStorage(note);
+
+        document.getElementById('noteForm').reset();
+      });
+
+      function addNoteToDOM(note) {
+        const noteDiv = document.createElement('div');
+        noteDiv.className = 'note';
+        noteDiv.innerHTML = `
+              <div class="note-content">
+                  <p><strong>Book Name:</strong> ${note.bookName}</p>
+                  <p><strong>Author Name:</strong> ${note.authorName}</p>
+                  <p><strong>Genre:</strong> ${note.bookGenre}</p>
+              </div>
+              <button class="delete-button" onclick="deleteNote(this)">Delete</button>`;
+        document.getElementById('notesContainer').appendChild(noteDiv);
+      }
+
+      function saveNoteToLocalStorage(note) {
+        let notes = localStorage.getItem('bookNotes') ? JSON.parse(localStorage.getItem('bookNotes')) : [];
+        notes.push(note);
+        localStorage.setItem('bookNotes', JSON.stringify(notes));
+      }
+
+      function loadNotes() {
+        let notes = localStorage.getItem('bookNotes') ? JSON.parse(localStorage.getItem('bookNotes')) : [];
+        notes.forEach(note => addNoteToDOM(note));
+      }
+
+      function deleteNote(button) {
+        const noteDiv = button.closest('.note');
+        const bookName = noteDiv.querySelector('p:nth-child(1)').innerText.split(': ')[1];
+        const authorName = noteDiv.querySelector('p:nth-child(2)').innerText.split(': ')[1];
+        const bookGenre = noteDiv.querySelector('p:nth-child(3)').innerText.split(': ')[1];
+
+        removeNoteFromLocalStorage(bookName, authorName, bookGenre);
+        noteDiv.remove();
+      }
+
+      function removeNoteFromLocalStorage(bookName, authorName, bookGenre) {
+        let notes = localStorage.getItem('bookNotes') ? JSON.parse(localStorage.getItem('bookNotes')) : [];
+        notes = notes.filter(note => note.bookName !== bookName || note.authorName !== authorName || note.bookGenre !== bookGenre);
+        localStorage.setItem('bookNotes', JSON.stringify(notes));
+      }
+    </script>
 
     <!--- #FOOTER-->
 
     <footer>
       <div class="foot-top">
         <div class="foot-left">
-  
+
           <div class="desc">
-  <!--google translate-->
+            <!--google translate-->
             <div id="google_translate_element"></div>
-  
+
             <script type="text/javascript">
-                function googleTranslateElementInit() {
-                    new google.translate.TranslateElement(
-                        {pageLanguage: 'en'},
-                        'google_translate_element'
-                    );
-                }
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                  { pageLanguage: 'en' },
+                  'google_translate_element'
+                );
+              }
             </script>
-  
-            <script type="text/javascript"
-                    src=
-        "https://translate.google.com/translate_a/element.js?
+
+            <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?
         cb=googleTranslateElementInit">
-            </script>
+        </script>
             <div><a href="#" class="logo">SwapReads</a></div>
             <div>
               <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
                 lovers
                 seeking to swap and
-  
+
                 discover new literary gems.
                 Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
                 the
@@ -178,145 +690,153 @@
                 possibilities!
               </p>
             </div>
-  
+
           </div>
         </div>
         <div class="foot-middle">
           <h2>Quick Links</h2>
           <div id="quicklinks">
             <div>
-            <ul>
-              <li class="foot-quick"><a href="../../index.html#home" onclick="lenis.scrollTo('#home')">Home</a></li>
-              <li class="foot-quick"><a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
-              <li class="foot-quick"><a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
-              <li class="foot-quick"><a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
-              <li class="foot-quick"><a href="book_recommend.html"
-                onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
-            </ul>
-          </div>
-          <div>
-            <ul>
-              <li class="foot-quick"><a href="addremovebook.html" onclick="lenis.scrollTo('#contact')">Swap
-                BookList</a></li>
-            <li class="foot-quick"><a href="freeBooks.html"
-                onclick="lenis.scrollTo('#contact')">E-Book</a></li>
-              <li class="foot-quick"><a href="about.html" onclick="lenis.scrollTo('#contact')">About</a>
-              </li>
-              <li class="foot-quick"><a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
-              <li class="foot-quick"><a href="../../index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
-            </ul>
-          </div>
+              <ul>
+                <li class="foot-quick"><a href="../../index.html#home" onclick="lenis.scrollTo('#home')">Home</a></li>
+                <li class="foot-quick"><a href="../../index.html#benefits"
+                    onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
+                <li class="foot-quick"><a href="../../index.html#chapters"
+                    onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+                <li class="foot-quick"><a href="../../index.html#pricing"
+                    onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
+                <li class="foot-quick"><a href="book_recommend.html" onclick="lenis.scrollTo('#contact')">Recommended
+                    Book</a></li>
+              </ul>
+            </div>
+            <div>
+              <ul>
+                <li class="foot-quick"><a href="addremovebook.html" onclick="lenis.scrollTo('#contact')">Swap
+                    BookList</a></li>
+                <li class="foot-quick"><a href="freeBooks.html" onclick="lenis.scrollTo('#contact')">E-Book</a></li>
+                <li class="foot-quick"><a href="about.html" onclick="lenis.scrollTo('#contact')">About</a>
+                </li>
+                <li class="foot-quick"><a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')">Contact
+                    Us</a></li>
+                <li class="foot-quick"><a href="../../index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="social-icons">
-         
+
           <style>
             input[type="email"] {
-                border: 2px solid #ccc; /* Gray border */
-                border-radius: 4px; /* Rounded corners */
-                padding: 10px; /* Inner padding */
-                font-size: 16px; /* Font size */
+              border: 2px solid #ccc;
+              /* Gray border */
+              border-radius: 4px;
+              /* Rounded corners */
+              padding: 10px;
+              /* Inner padding */
+              font-size: 16px;
+              /* Font size */
             }
 
-    
-    #confirmationMessage{
-      margin-left: 50px;
-      font-size: 23px;
-      color: rgb(15, 15, 16);
-    }
-</style>
-<form type="newsletter" onsubmit="return showConfirmationMessage()">
-  <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
-  <div class="row-flex">
-      <!-- Email input -->
-      <input type="email" id="newsletter-email" name="email" placeholder="Email address"
-             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
-             title="Please enter a valid email address that ends with '.com'" required>
-      <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
-  </div>
-</form>
-<div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
 
-<script>
-function showConfirmationMessage() {
-  var confirmationMessage = document.getElementById("confirmationMessage");
-  confirmationMessage.style.display = "block";
+            #confirmationMessage {
+              margin-left: 50px;
+              font-size: 23px;
+              color: rgb(15, 15, 16);
+            }
+          </style>
+          <form type="newsletter" onsubmit="return showConfirmationMessage()">
+            <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
+            <div class="row-flex">
+              <!-- Email input -->
+              <input type="email" id="newsletter-email" name="email" placeholder="Email address"
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+                title="Please enter a valid email address that ends with '.com'" required>
+              <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
+            </div>
+          </form>
+          <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
 
-  return false;
-}
-</script>
+          <script>
+            function showConfirmationMessage() {
+              var confirmationMessage = document.getElementById("confirmationMessage");
+              confirmationMessage.style.display = "block";
 
-        <style>
-          .icons .icon i {
-            font-size: 24px;
-            /* Set the default font size for icons */
-            transition: all 0.3s ease;
-            /* Add transition for smooth animation */
-          }
-  
-          .icons .icon:hover i {
-            transform: scale(1.2);
-            /* Scale the icon on hover */
-          }
-  
-          .icons .icon:hover .fab.fa-linkedin {
-            color: #0A66C2;
-            /* Change to linkedin color on hover */
-          }
-  
-          .icons .icon:hover .fab.fa-twitter{
-            color: #090e11;
-            /* Change to Twitter color on hover */
-          }
-  
-          .icons .icon:hover .fab.fa-instagram {
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-            background-clip: text;
-            border-radius: 20%;
-            transform: scale(1.5);
-            color:transparent;
-            /* Change to Instagram color on hover */
-          }
-  
-          .icons .icon:hover .fab.fa-youtube {
-            color: #C31A1E;
-            /* Change to YouTube color on hover */
-          }
-          .icons .icon:hover .fab.fa-github {
-                    color: #333;
-                }
-        </style>
-        
-          
+              return false;
+            }
+          </script>
+
+          <style>
+            .icons .icon i {
+              font-size: 24px;
+              /* Set the default font size for icons */
+              transition: all 0.3s ease;
+              /* Add transition for smooth animation */
+            }
+
+            .icons .icon:hover i {
+              transform: scale(1.2);
+              /* Scale the icon on hover */
+            }
+
+            .icons .icon:hover .fab.fa-linkedin {
+              color: #0A66C2;
+              /* Change to linkedin color on hover */
+            }
+
+            .icons .icon:hover .fab.fa-twitter {
+              color: #090e11;
+              /* Change to Twitter color on hover */
+            }
+
+            .icons .icon:hover .fab.fa-instagram {
+              background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+              background-clip: text;
+              border-radius: 20%;
+              transform: scale(1.5);
+              color: transparent;
+              /* Change to Instagram color on hover */
+            }
+
+            .icons .icon:hover .fab.fa-youtube {
+              color: #C31A1E;
+              /* Change to YouTube color on hover */
+            }
+
+            .icons .icon:hover .fab.fa-github {
+              color: #333;
+            }
+          </style>
+
+
           <div class="icons">
             <a href="https://www.linkedin.com/in/anurag-verma-b91417253/">
               <div class="icon">
                 <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
               </div>
             </a>
-  
+
             <a href="https://x.com/anuragverma_108">
               <div class="icon">
-                <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
+                <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
               </div>
             </a>
-  
+
             <a href="#">
               <div class="icon">
-                <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
+                <i class="fab fa-instagram" title="Instagram" style="cursor: pointer;"></i>
               </div>
             </a>
-            
-  
+
+
             <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
               <div class="icon">
                 <i class="fab fa-youtube" style="cursor: pointer;"></i>
               </div>
             </a>
-  
+
             <a href="https://github.com/anuragverma108" title="GitHub">
               <div class="icon">
-                  <i class="fab fa-github" style="cursor: pointer;"></i>
+                <i class="fab fa-github" style="cursor: pointer;"></i>
               </div>
             </a>
           </div>
@@ -326,16 +846,17 @@ function showConfirmationMessage() {
       <div style="text-align: center; align-items: center;">
         <p style="text-align: center">
           &copy;
-          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
+          Hackers.
         </p>
         <div class="row-copy">
-  
-  
-        <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
-        <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
+
+
+          <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+          <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
+        </div>
       </div>
-      </div>
-      
+
       <!-- Copyright Policy Modal -->
       <!-- <div id="copyrightPolicyModal" class="modal">
         <div class="modal-content">
@@ -351,7 +872,7 @@ function showConfirmationMessage() {
           </ul>
         </div>
       </div> -->
-      
+
       <!-- Privacy Notice Modal -->
       <!-- <div id="privacyNoticeModal" class="modal">
         <div class="modal-content">
@@ -408,115 +929,116 @@ function showConfirmationMessage() {
           }
         }
       </script> -->
-  
-  
-  
+
+
+
     </footer>
-  <!-- Footer ended-->
- 
-  <!--Go to top button-->
-  <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
-    <div class="circle1">
-    <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-      class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-      <path
-        d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-    </svg>
-   </div>
-  </div>
+    <!-- Footer ended-->
 
-  <script src="../js/read_later.js"></script>
-  <script>
-    // Function to toggle dark mode
-    function toggleDarkMode() {
-      const isDarkMode = isDarkModePreferred();
-      setDarkModePreference(!isDarkMode);
-      applyDarkModePreference();
-    }
+    <!--Go to top button-->
+    <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
+      <div class="circle1">
+        <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+          class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+          <path
+            d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+        </svg>
+      </div>
+    </div>
 
-    // Function to apply dark mode preference
-    function applyDarkModePreference() {
-      const isDarkMode = isDarkModePreferred();
-      if (isDarkMode) {
-        document.body.classList.add('dark-mode');
-        document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
-      } else {
-        document.body.classList.remove('dark-mode');
-        document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
+    <script src="../js/read_later.js"></script>
+    <script>
+      // Function to toggle dark mode
+      function toggleDarkMode() {
+        const isDarkMode = isDarkModePreferred();
+        setDarkModePreference(!isDarkMode);
+        applyDarkModePreference();
       }
-    }
 
-    // Function to set dark mode preference
-    document.addEventListener('DOMContentLoaded', () => {
-      const currentTheme = localStorage.getItem('theme');
-      const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
-      const starRating = document.querySelector('.star_rating');
-      const thankYouMessage = document.querySelector(".thank_you_message");
-      if (switchCheckbox) { // Check if switchCheckbox is not null
-        function applyDarkModeStyles() {
-          document.body.classList.remove('light-mode');
+      // Function to apply dark mode preference
+      function applyDarkModePreference() {
+        const isDarkMode = isDarkModePreferred();
+        if (isDarkMode) {
           document.body.classList.add('dark-mode');
-          starRating.style.backgroundColor = '#2d2828';
-          thankYouMessage.style.backgroundColor = '#2d2828';
-        }
-
-        function applyLightModeStyles() {
+          document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
+        } else {
           document.body.classList.remove('dark-mode');
-          document.body.classList.add('light-mode');
-          starRating.style.backgroundColor = 'white';
-          thankYouMessage.style.backgroundColor = 'white';
+          document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
         }
-
-        if (currentTheme) {
-          if (currentTheme === 'dark-mode') {
-            applyDarkModeStyles();
-            switchCheckbox.checked = true;
-          } else {
-            applyLightModeStyles();
-          }
-        }
-
-        switchCheckbox.addEventListener('change', () => {
-          if (switchCheckbox.checked) {
-            applyDarkModeStyles();
-            localStorage.setItem('theme', 'dark-mode');
-          } else {
-            applyLightModeStyles();
-            localStorage.setItem('theme', 'light-mode');
-          }
-        });
-      } else {
-        console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
       }
-    });
-  </script>
-<script>
-const navbar=document.querySelector('.navbar'),
-NavButton=document.querySelector('.nav-toggle-btn'),
-open=document.querySelector('.open'),
-close=document.querySelector('.close');
-let count=0
-NavButton.addEventListener('click',()=>{
-      
-if(count===0){
-navbar.classList.remove('nav_activated')
-open.classList.add('close')
-close.classList.add('open')
-open.classList.remove('open')
-close.classList.remove('close')
-count++
-}
-else{
-navbar.classList.add('nav_activated')
-open.classList.add('open')
-close.classList.add('close')
-open.classList.remove('close')
-close.classList.remove('open')
-count=0
-}
-})
-</script>
-<script src="../js/read_later.js"></script>
 
-</body>
+      // Function to set dark mode preference
+      document.addEventListener('DOMContentLoaded', () => {
+        const currentTheme = localStorage.getItem('theme');
+        const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
+        const starRating = document.querySelector('.star_rating');
+        const thankYouMessage = document.querySelector(".thank_you_message");
+        if (switchCheckbox) { // Check if switchCheckbox is not null
+          function applyDarkModeStyles() {
+            document.body.classList.remove('light-mode');
+            document.body.classList.add('dark-mode');
+            starRating.style.backgroundColor = '#2d2828';
+            thankYouMessage.style.backgroundColor = '#2d2828';
+          }
+
+          function applyLightModeStyles() {
+            document.body.classList.remove('dark-mode');
+            document.body.classList.add('light-mode');
+            starRating.style.backgroundColor = 'white';
+            thankYouMessage.style.backgroundColor = 'white';
+          }
+
+          if (currentTheme) {
+            if (currentTheme === 'dark-mode') {
+              applyDarkModeStyles();
+              switchCheckbox.checked = true;
+            } else {
+              applyLightModeStyles();
+            }
+          }
+
+          switchCheckbox.addEventListener('change', () => {
+            if (switchCheckbox.checked) {
+              applyDarkModeStyles();
+              localStorage.setItem('theme', 'dark-mode');
+            } else {
+              applyLightModeStyles();
+              localStorage.setItem('theme', 'light-mode');
+            }
+          });
+        } else {
+          console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
+        }
+      });
+    </script>
+    <script>
+      const navbar = document.querySelector('.navbar'),
+        NavButton = document.querySelector('.nav-toggle-btn'),
+        open = document.querySelector('.open'),
+        close = document.querySelector('.close');
+      let count = 0
+      NavButton.addEventListener('click', () => {
+
+        if (count === 0) {
+          navbar.classList.remove('nav_activated')
+          open.classList.add('close')
+          close.classList.add('open')
+          open.classList.remove('open')
+          close.classList.remove('close')
+          count++
+        }
+        else {
+          navbar.classList.add('nav_activated')
+          open.classList.add('open')
+          close.classList.add('close')
+          open.classList.remove('close')
+          close.classList.remove('open')
+          count = 0
+        }
+      })
+    </script>
+    <script src="../js/read_later.js"></script>
+
+  </body>
+
 </html>
