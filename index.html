@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="./assets/font-6/css/all.css">
   <link rel="stylesheet" href="header.css">
   <link rel="stylesheet" href="./assets/css/MenuClick.css">
+  <link rel="stylesheet" href="https://fontawesome.com/icons/cloudflare?f=brands&s=solid">
 
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -88,6 +89,55 @@
         margin-left: 2.2rem;
       }
     }
+
+
+.socialmediaicons {
+  background-color:#fdebe8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin-top: 120px;;
+    width: 40px;
+    height: 150px;
+  
+}
+.socialmediaicons a {
+    display: inline;
+    text-align: center;
+    padding: 5px;
+    transition: all 0.3s ease;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    border-radius: 10%;
+  }
+   
+  .socialmediaicons a:hover {
+    background-color: rgb(255, 255, 255);
+  }
+
+
+  
+  .instagram {
+    
+    margin: 5px;
+    
+  }
+
+
+  .facebook {
+    
+    margin: 5px;
+  }
+  
+  .youtube {
+   
+    margin: 5px;
+  }
+
+
+
 
 /* testimonal card fix by harshcodesit */
     swiper-slide {
@@ -239,16 +289,6 @@
     }
   }
 }
-
-.switch-label{
-  margin-bottom: 20px;
-  margin-right: 40px;
-}
-.navbar-item{
-  margin-right: 0px;
-}
-
-
 
 .cta {
   position: relative;
@@ -623,6 +663,22 @@
   margin-top: 10px; /* Increase the top margin of each item */
 }
 
+
+.chapter-card {
+  height: 450px; /* Adjust margin as needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chapter-card:hover {
+  transform: scale(1.02px);
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.4) ;/* Scale up slightly on hover */
+}
+
+#connectReaderBtn{
+  border-radius: 10px;
+}
+
   </style>
 </head>
 
@@ -632,6 +688,18 @@
     <div class="progress-bar"></div>
   </div>
 
+  <div class="socialmediaicons" style="background-color:#fae2de">
+
+    
+      <a class="active" href="https://www.google.com/" class="instagram"><i class="fa-brands fa-instagram"></i>
+     </a>
+     <a class="active" href="https://www.google.com/" class="facebook"><i class="fa-brands fa-facebook"></i>
+     </a>
+     <a class="active" href="https://www.google.com/" class="youtube"><i class="fa-brands fa-youtube"></i>
+     </a>
+     
+    
+</div>
 
   <div id="cookie-consent">
     <button class="close-btn" id="closeBtn">&times;</button>
@@ -720,6 +788,7 @@
   <header class="header header-anim nav-h" data-header>
 
     <div class="container mobile-container-styles" style="padding-left: 0;">
+
       <nav class="navbar nav_activated" data-navbar>
 
 
@@ -733,7 +802,7 @@
           </li>
            <li class="navbar-item">
                 <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><i
-                    class="ri-home-fill"></i>About Us</a>
+                    class="ri-home-fill"></i> About Us </a>
               </li>
               
           <li class="navbar-item">
@@ -752,7 +821,8 @@
             </li>
             <li class="navbar-item">
               <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
-                  <i class="ri-questionnaire-fill"></i>FAQ</a>
+                  <i class="ri-questionnaire-fill"></i> FAQ
+              </a>
           </li>
 
           <li class="navbar-item">
@@ -777,7 +847,10 @@
                     Community chat
                 </a>
                 </li>
-                
+                <li class="dropdown-menu-item">
+                  <a href="./assets/html/literaryrealms.html" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
+                      class="ri-medal-fill"></i> Literary Realms</a>
+                </li>
                 <li class="dropdown-menu-item">
                   <a href="./assets/html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
                       class="ri-price-tag-3-fill"></i> Pricing</a>
@@ -807,18 +880,6 @@
             </div>
           </li>
           <li>
-            <div class="navbar-link" style="top: 15px;">
-              <input type="checkbox" id="switch" class="switch-checkbox">
-              <label for="switch" class="switch-label">
-                <div class="switch-button">
-                  <span class="material-icons sun-icon">wb_sunny</span>
-                  <span class="material-icons moon-icon">brightness_2</span>
-                </div>
-              </label>
-            </div>
-          </li>
-          
-          <li>
           <div class="action">
             <div class="profile" onclick="menuToggle();">
               <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
@@ -838,7 +899,7 @@
                 <li>
                   <img src="./assets/images/settings.png" /><a href="#">Settings</a>
                 </li>
-                <li><img src="./assets/images/help.png" /><a href="#">Help</a></li>
+                <li><img src="./assets/images/help.png" /><a href="/help.html">Help</a></li>
                 <li>
                   <img src="./assets/images/logout.png" /><a href="#">Logout</a>
                 </li>
@@ -947,8 +1008,16 @@
 
         <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
       </button> -->
-     
-    
+      <div class="switch-container" style="top: 15px;">
+        <input type="checkbox" id="switch" class="switch-checkbox">
+        <label for="switch" class="switch-label">
+          <div class="switch-button">
+            <span class="material-icons sun-icon">wb_sunny</span>
+            <span class="material-icons moon-icon">brightness_2</span>
+          </div>
+        </label>
+      </div>
+    </div>
 
 
 
@@ -1225,7 +1294,7 @@
             Literary Realms we've covered
             <span class="span has-before"></span>
           </h1>
-
+ 
           <div class="carousell-wrapper">
             <i id="left-arrow" class="fa-solid fa-angle-left"></i>
             
@@ -1374,7 +1443,7 @@
             carousel.scrollLeft = carousel.offsetWidth;
         }
     }
-
+ 
     carousel.addEventListener("mousedown", dragStart);
     carousel.addEventListener("mousemove", dragging);
     document.addEventListener("mouseup", dragStop);
@@ -1532,7 +1601,7 @@
 
 
 <!--
-        - #PRICING
+        - #PRICING BASED ON THEIR VERSION
       -->
       <section class="section pricing" id="pricing" aria-label="pricing">
         <div class="container">
@@ -1803,6 +1872,49 @@
                   Captivates with thrilling journeys, daring heroes, and unexpected twists,
                   transports readers to exotic locales, ignites the imagination, and offers escapism,
                   excitement, and a sense of discovery and wonder.
+                </p>
+
+              </div>
+            </li>
+
+            <!-- Added three more genres here-->
+            <li>
+              <div class="chapter-card">
+
+                <p class="card-subtitle">13</p>
+
+                <h3 class="h3 card-title">Non-Fiction</h3>
+
+                <p class="card-text">
+                 Dive into the mysteries and secrets of the world surrounding us, and gain a deeper knowledge and history behind the wisdom of our correspondants and predecessors, through non-fiction.
+                </p>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="chapter-card">
+
+                <p class="card-subtitle">14</p>
+
+                <h3 class="h3 card-title">Comedy</h3>
+
+                <p class="card-text">
+                  Are you feeling blue and want a good laugh? Well then, Comedy is the right genre for you! Grab a cup of coffee, lean back and dive into a world of humour, smiles and all sun!
+                </p>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="chapter-card">
+
+                <p class="card-subtitle">15</p>
+
+                <h3 class="h3 card-title">Detective Fiction</h3>
+
+                <p class="card-text">
+                  Engage in exhillerating and challenging obstacles, unusual plot twists, and purposed setbacks to reach your end-goal with secret agents. Put your investigative and observative skills to the test, in the land of Detective Fiction.
                 </p>
 
               </div>
@@ -2322,7 +2434,7 @@
     </div>
 
     <div class="faq-container">
-      <div class="question">
+      <div class="question .dark">
         <h4>How does SwapReads contribute to sustainability?</h4>
         <i class="icon fa-solid fa-caret-down"></i>
       </div>
@@ -2389,13 +2501,22 @@
   </script>
   <br /><br />
   <div style="
-    background-color: #ffb2a8 ;
-    height:150px;
-    width: 100%;
-    color: white;
-    font-weight: 700;
-    font-size: 45px;
+    background-color: rgba(255, 178, 168, 0.041); /* Semi-transparent background */
+  height: 30rem;
+  width: 30rem; /* Make width and height equal for a circular shape */
+  color: rgb(99, 23, 23);
+  font-weight: 700;
+  font-size: 45px;
   text-align: center;
+  line-height: 150px; /* Center text vertically */
+  border-radius: 30rem; /* Make the div circular */
+  backdrop-filter: blur(5rem); /* Glassmorphism effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), /* Slight shadow for depth */
+              0 1px 3px rgba(0, 0, 0, 0.08); /* Additional subtle shadow */
+              align-items: center;
+              margin-left: 45%;
+              border-width: 4px;
+
   ">
   <div>Visitor</div>
   <div class="website-counter" >
@@ -2566,6 +2687,12 @@ resetButton.addEventListener("click", () => {
           <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
             <div class="icon">
               <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
+            </div>
+          </a>
+
+          <a href="#" target="_blank">
+            <div class="icon">
+              <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
             </div>
           </a>
 

@@ -453,25 +453,98 @@ body.dark-mode .h3 {
 }
 
 /* hsl(20, 43%, 93%) */
+.gallery-container {
+  background-color: hsla(0, 0%, 100%, 0.537);
+  /* old rose color */
+  padding: 20px;
+  border-radius: 10px;
+  width: 70%;
+  gap: 10px;
+  margin: 40px auto;
+  display: flex;
+}
+
+/* hsl(20, 43%, 93%) */
 .gallery {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: space-around;
+  perspective: 600px;
 }
 
-.gallery img {
-  width: 75%;
+.booki{
+  position: relative;
   margin: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  height: 70%;
+  transform: rotateY(-30deg);
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+  animation: 1s ease 0s 1 initAnimation;
+}
+.booki img{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  height: 90%;
+  width: 100%;
+  box-shadow: 0px 1px 10px #666;
+}
+.booki:hover {
+  transform: rotate(0deg);
 }
 
+@keyframes initAnimation {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(-30deg);
+  }
+}
+
+.booki::before{
+  content: '';
+  background: #fff;
+  position: absolute;
+  width: 14%;
+  height: 89%;
+  top: 3px;
+  right: 0px;
+  transform: translateX(25%) rotateY(90deg) translateX(calc(50px / 2));
+}
+.booki::after{
+  content: ' ';
+  position: absolute;
+  top:0px;
+  left: 0;width: 98%;
+  height: 93%;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background: #006518ea;
+  transform: translateZ(-50px);
+  box-shadow: -10px 0 40px 10px #6666664c;
+}
+#b2 .booki::after{
+  background: #c48827b9;
+}
+#b3 .booki::after{
+  background: #6e4201b9;
+}
+#b4 .booki::after{
+  background: #010379b9;
+}
+#b5 .booki::after{
+  background: #3b1600b9;
+}
 .preview-button {
-  background-color: hwb(357 6% 36%);
+  position: absolute;
+  background-color: hwb(357 6% 36% / 0.738);
+  bottom: 25px;
+  border-radius: 0px;
   color: #fff;
-  border: none;
-  padding: 10px 20px;
+  height: 30px;
+  right: 0px;
+  padding: 0px 20px;
   font-size: 16px;
   cursor: pointer;
 }

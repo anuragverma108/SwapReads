@@ -14,6 +14,7 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 90px;
+  position: relative;
 }
 .logo {
   display: flex;
@@ -313,6 +314,48 @@ label.newsletter-form{
   .navbar-list {
     flex-direction: column;
   }
+  .navbar-list{
+    top: 0;
+    width: 100%;
+    height: auto;
+  }
+  .navbar{
+    transition: 0.3s ease-in;
+  }
+  #mobile_View_Menu{
+    position: absolute;
+    height: 2px;
+    width: 2.5rem; 
+    top: 50%;
+    left: 2rem;
+  }
+  #mobile_View_Menu #menu_lines{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: black;
+    transition: 0.3s ease-in;
+  }
+  #mobile_View_Menu #menu_lines::before, #mobile_View_Menu #menu_lines::after{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    content: "";
+    background: black;
+    transition: 0.3s ease-in;
+  }#mobile_View_Menu #menu_lines::before{top: -10px;left: 0;}
+  #mobile_View_Menu #menu_lines::after{top: 10px;left: 0;}
+  .dark-mode #mobile_View_Menu #menu_lines::before,.dark-mode #mobile_View_Menu #menu_lines::after,.dark-mode #mobile_View_Menu #menu_lines{
+   background: white;
+  }
+  .nav_activated{
+    transform: translateX(-300%);
+  }
+  #mobile_View_Menu.open_menu #menu_lines{
+    background: transparent;
+  }
+  #mobile_View_Menu.open_menu #menu_lines::before{top: 0;rotate: 45deg;}
+  #mobile_View_Menu.open_menu #menu_lines::after{top: 0;rotate: -45deg;}
 }
 @media (max-width: 641px) {
   .navbar-list {

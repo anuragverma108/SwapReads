@@ -1345,7 +1345,7 @@ body.dark-mode .chapter-card:hover {
 }
 .pricing-card:is(:hover, :focus-within),
 .pricing-card.bundle {
-  box-shadow: 5px 5px var(--chinese-violet);
+  box-shadow: 5px 5px 8px #b97d8f;
 }
 .dark-mode .pricing-card:is(:hover, :focus-within),
 .dark-mode .pricing-card.bundle {
@@ -2526,8 +2526,7 @@ footer {
 
 @media (max-width: 990px) {
   .switch-container {
-    /* right: -20px; */
-    right: 3.2rem !important;
+    /* right: -20px; */ 
     margin: unset;
     /* right: 20px; */
   }
@@ -3659,7 +3658,6 @@ body.dark-mode .h1,
 body.dark-mode .h2,
 body.dark-mode .h3 {
   color: #ffffff;
-  margin: 0 10px;
   /* margin-top: 100px;*/
 }
 
@@ -3698,7 +3696,7 @@ body.dark-mode .h3 {
 }
 
 .pricing-card {
-  height: 70rem;
+  min-height: 20rem;
 }
 
 .card-title {
@@ -3845,6 +3843,8 @@ body.dark-mode .h3 {
     font-size: 18px;
     /* Increase font size for better readability */
   }
+  .grid-list{width: 100vw;place-items: center;}
+  li{max-width:40vw;}.pricing-card{width: 100%;}.pricing-card .card-item{max-width: unset !important;}
 }
 
 /* Medium devices (tablets, 992px and up) */
@@ -3852,7 +3852,7 @@ body.dark-mode .h3 {
   .container00 {
     max-width: 800px;
   }
-
+  .pricing-card{min-height: 70rem !important;}
   .container01 {
     max-width: 800px;
     margin-left: auto;
@@ -4204,4 +4204,54 @@ body.dark-mode .h3 {
 .form-label:hover,
 .currency-label:hover {
   color: #fd4;
+}
+
+@media only screen and (max-width:1063px){
+  .nav{
+      flex-direction: column;
+  }
+  .header{
+      flex-direction: column;
+      height: 53.8rem;
+      transition: 0.55s all ease-out;
+      padding-top: 5px;
+  }
+  .navbar-item{
+      margin-right: 40px;
+  }
+  .navbar-list{
+    position: relative;
+    top: 200px;
+  }
+  .hamburger{
+      display: block;
+  }
+  .nav-h{
+      height: 78px;
+      width: 100vw;
+  }
+  .vis-h{
+      opacity: 0;
+  }
+  .logo img{
+    position: relative;
+    top: 17px;
+    left: 350px;
+  }
+}
+
+@media only screen and (max-width:990px){
+  .header{
+    height: 0;
+  }
+  .navbar-list{
+    top: 0;
+  }
+  .logo img{
+    top: -9px;
+    left: 50px;
+  }
+}
+.navbar-item {
+  margin-top: 10px; /* Increase the top margin of each item */
 }
