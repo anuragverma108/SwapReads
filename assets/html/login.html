@@ -44,54 +44,61 @@
 </head>
 <style>
 
-swiper-container {
-      width: 100%;
-      height: 75%;
-    }
+/* Swiper Container */
+.swiper-container {
+  width: 100%;
+  height: 75%;
+}
 
-  /* Theme Change Button Style */
-  @media (max-width: 990px) {
-      .switch-container {
-        margin-top: 3.2rem;
-        margin-right: -0.5rem;
-      }
-    }
-    @media (max-width: 575px) {
-      .switch-container {
-        margin-top: 2.4rem;
-        margin-right: -0.5rem;
-      }
-      /* Navbar Toggle Button placed in center */
-      .nav-toggle-btn{
-        margin-top: -2rem;
-        margin-left: 2.2rem;
-      }
-    }
-
-  span {
-    position: relative;
-    font-size: 8px;
-    line-height: 18px;
-    font-weight: 900;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    vertical-align: middle;
-    color: var(--charcoal);
+/* Theme Change Button Style */
+@media (max-width: 990px) {
+  .switch-container {
+    margin-top: 3.2rem;
+    margin-right: -0.5rem;
   }
+}
+@media (max-width: 575px) {
+  .switch-container {
+    margin-top: 2.4rem;
+    margin-right: -0.5rem;
+  }
+  /* Navbar Toggle Button placed in center */
+  .nav-toggle-btn {
+    margin-top: -2rem;
+    margin-left: 2.2rem;
+  }
+}
 
-  .switch-label {
+/* General Span Style */
+span {
+  position: relative;
+  font-size: 8px;
+  line-height: 18px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  color: var(--charcoal);
+}
+
+/* Switch Label */
+.switch-label {
+  margin-left: 2px;
+  margin-right: 50px;
   margin-bottom: 20px;
-  margin-right: 40px;
-  }
-  button img{
-  height: 40px;
-  position: relative; 
-  right: 100px; 
-  width: 40px; 
-  display: flex;
-  }
+}
 
-  .header {
+/* Button Image */
+button img {
+  height: 40px;
+  position: relative;
+  right: 100px;
+  width: 40px;
+  display: flex;
+}
+
+/* Header */
+.header {
   position: fixed;
   width: 100%;
   top: 10;
@@ -99,14 +106,15 @@ swiper-container {
   transition: top 0.3s;
 }
 
-
-  .action {
+/* Action */
+.action {
   position: fixed;
   top: 20px;
   right: 30px;
 }
 
 .action .profile {
+  margin-top: 24px;
   position: relative;
   width: 60px;
   height: 60px;
@@ -205,70 +213,87 @@ swiper-container {
 .action .menu ul li:hover a {
   color: #ff5d94;
   font-size: 21px;
+}
 
+.hamburger {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: 24px;
+  left: 1.5%;
 }
-.hamburger{
-    display: none;
-    cursor: pointer;
-    position: absolute;
-    top: 24px;
-    left: 1.5%;
+
+.line {
+  width: 36px;
+  height: 5px;
+  margin: 4px 4px;
+  background-color: rgb(240, 15, 15);
 }
-.line{
-    width: 36px;
-    height: 5px;
-    margin: 4px 4px;
-    background-color: rgb(240, 15, 15);
+
+@media only screen and (max-width: 1063px) {
+  .nav {
+    flex-direction: column;
+  }
+  .header {
+    flex-direction: column;
+    height: 53.8rem;
+    transition: 0.55s all ease-out;
+    padding-top: 5px;
+  }
+  .navbar-item {
+    margin-right: 40px;
+  }
+  .navbar-list {
+    position: relative;
+    top: 200px;
+  }
+  .hamburger {
+    display: block;
+  }
+  .nav-h {
+    height: 78px;
+    width: 100vw;
+  }
+  .vis-h {
+    opacity: 0;
+  }
+  .logo img {
+    position: relative;
+    top: 17px;
+    left: 350px;
+  }
 }
-@media only screen and (max-width:1063px){
-    .nav{
-        flex-direction: column;
-    }
-    .header{
-        flex-direction: column;
-        height: 53.8rem;
-        transition: 0.55s all ease-out;
-        padding-top: 5px;
-    }
-    .navbar-item{
-        margin-right: 40px;
-    }
-    .navbar-list{
-      position: relative;
-      top: 200px;
-    }
-    .hamburger{
-        display: block;
-    }
-    .nav-h{
-        height: 78px;
-        width: 100vw;
-    }
-    .vis-h{
-        opacity: 0;
-    }
-    .logo img{
-      position: relative;
-      top: 17px;
-      left: 350px;
-    }
-}
-@media only screen and (max-width:990px){
-  .header{
+
+@media only screen and (max-width: 990px) {
+  .header {
     height: 0;
   }
-  .navbar-list{
+  .navbar-list {
     top: 0;
   }
-  .logo img{
+  .logo img {
     top: -9px;
     left: 50px;
   }
 }
+
 .navbar-item {
-  margin-top: 5px; /* Increase the top margin of each item */
+  margin-top: 10px; /* Increase the top margin of each item */
 }
-  
+
+.navbar-link {
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+  display: inline-block; /* Ensure it stays inline */
+  background-color: none; /* Remove background color */
+  border: none; /* Remove border */
+  text-decoration: none; /* Remove text underline */
+  color: inherit; /* Use the inherited text color */
+  padding: 0; /* Adjust padding as needed */
+}
+.navbar-list{
+  display: flex;
+  gap: 10px;
+}
 </style>
 <body>
 
@@ -282,11 +307,11 @@ swiper-container {
     <div class="container mobile-container-styles" style="padding-left: 0;">
       <nav class="navbar nav_activated" data-navbar>
         <ul class="navbar-list nav" style="border-radius: 5px;">
-          <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+          <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex; background-color: none;">
             <img src="../images/final.png" class="logopic" style=" width: 105px;">
           </a>
           <li class="navbar-item">
-            <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
+            <a href="../../index.html" onclick="lenis.scrollTo('#home')" style="background-color: none;" class="navbar-link" data-nav-link><i
                 class="ri-home-fill"></i> Home</a>
           </li>
            <li class="navbar-item">
@@ -365,7 +390,7 @@ swiper-container {
             </div>
           </li>
           <li>
-            <div class="navbar-link" style="top: 15px;">
+            <div class="navbar-link" style="top: 15px; right:20px;">
               <input type="checkbox" id="switch" class="switch-checkbox">
               <label for="switch" class="switch-label">
                 <div class="switch-button">
