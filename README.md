@@ -2,7 +2,7 @@
 
 # SwapReads.com
 
-![swap3](https://github.com/anuragverma108/SwapReads/assets/133582566/aa2d00bb-92fc-4363-8c68-11612666b218)
+![swap3](./assets/images/website-ss.png)
 
 
 <i>Connect, Exchange, Explore – Where Book Enthusiasts Swap Books and Discover New Literary Adventures!</i>
