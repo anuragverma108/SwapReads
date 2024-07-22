@@ -61,71 +61,174 @@
   object-fit: cover;
 }
 
-.action .menu {
-  position: absolute;
-  top: 120px;
-  right: -10px;
-  padding: 10px 20px;
-  background: #fff;
-  width: 200px;
-  box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
-  transition: 0.5s;
-  visibility: hidden;
-  opacity: 0;
-}
+    .about p {
+      color: var(--sonic-silver);
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
 
-.action .menu.active {
-  top: 80px;
-  visibility: visible;
-  opacity: 1;
-}
+    .stats-box {
+      background-color: var(--seashell);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
 
-.action .menu::before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  right: 28px;
-  width: 20px;
-  height: 20px;
-  background: #fff;
-  transform: rotate(45deg);
-}
+    .stats-box h2 {
+      color: var(--sonic-silver);
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
 
-.action .menu h3 {
-  width: 100%;
-  text-align: center;
-  font-size: 18px;
-  padding: 20px 0;
-  font-weight: 500;
-  color: #555;
-  line-height: 1.5em;
-}
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
 
-.action .menu h3 span {
-  font-size: 14px;
-  color: #cecece;
-  font-weight: 300;
-}
+    .stat {
 
-.action .menu ul li {
-  list-style: none;
-  padding: 16px 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  display: flex;
-  align-items: center;
-}
+      text-align: center;
+    }
 
-.action .menu ul li img {
-  max-width: 20px;
-  margin-right: 10px;
-  opacity: 0.5;
-  transition: 0.5s;
-}
+    .stat h3 {
+      color: var(--sonic-silver);
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
 
-.action .menu ul li:hover img {
-  opacity: 1;
-}
+    .stat p {
+      color: var(--sonic-silver);
+      font-size: 16px;
+    }
+
+    .mission-values {
+      background-color: var(--seashell);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+
+    .mission-values h2 {
+      color: var(--sonic-silver);
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .about-us-heading {
+      text-align: center;
+      margin-bottom: 5rem;
+      margin-top: 160px;
+      /* Adjust this value to position it below the header */
+      color: red;
+
+    }
+
+
+    .about-us-block {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .about-us-community,
+    .about-us-product,
+    .about-us-event,
+    .about-us-location {
+      background-color: var(--seashell);
+      border: 1px solid rgba(206, 212, 218, 1);
+      border-radius: 8px;
+      padding: 20px;
+      width: 45%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 21px;
+    }
+
+    .about-us-blk-text {
+      color: var(--sonic-silver);
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .about-us-blk-para {
+      color: var(--sonic-silver);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .switch-label {
+    /* right: 0.5rem; */
+    left: 8.0rem;
+    top: 0.5rem;
+    position: relative;
+    width: 40px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease;
+    }
+    .switch-label .sun-icon,
+    .switch-label .moon-icon {
+      font-size: 19spx;
+      position: absolute;
+      cursor: pointer;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: opacity 0.5s ease, color 0.5s ease;
+    }
+
+    .switch-label .sun-icon {
+      color: #f39c12;
+      left: 2px;
+    }
+
+    .switch-label .moon-icon {
+      color: #bdc3c7;
+      opacity: 0;
+      left: 5px;
+    }
+
+    /* Switch Button */
+    .switch-button {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 25px;
+      height: 25px;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      transition: transform 0.5s ease, background-color 0.5s ease;
+    }
+
+    /* Checkbox Checked State */
+    .switch-checkbox:checked+.switch-label {
+      background-color: #34495e;
+    }
+
+    .switch-checkbox:checked+.switch-label .sun-icon {
+      opacity: 0;
+    }
+
+    .switch-checkbox:checked+.switch-label .moon-icon {
+      opacity: 1;
+    }
 
 .action .menu ul li a {
   display: inline-flex;
@@ -466,25 +569,30 @@
 
         <h2>About SwapReads</h2>
         <p >
-
           SwapReads is an online platform dedicated to connecting book lovers and facilitating the exchange of books. Our mission is to promote a vibrant reading culture by making it easier for readers to discover new titles, share their favorite books, and connect with fellow enthusiasts. Users can list books they want to swap, browse available titles, and engage in discussions and reviews. SwapReads also offers personalized recommendations to help users find their next great read. By encouraging sustainable reading habits and reducing the need for new book purchases, SwapReads supports eco-friendly practices. Join SwapReads to share your passion for books, discover new reads, and become part of a community that celebrates the joy of reading.
         </p>
       </section>
       <section class="stats-box">
         <div class="stats-container">
-          <h2 >Our Stats</h2>
+          <h2 style="color: grey">Our Stats</h2>
           <div class="stats">
             <div class="stat">
-              <h3 id="stat1">0</h3>
-              <p  >Books Available</p>
+              <h3 id="stat1"style="  color: black;
+              -webkit-text-fill-color: white; 
+              -webkit-text-stroke: 2px black;">0</h3>
+              <b><p style="color: #7c7b7b;" >Books Available</p></b>
             </div>
             <div class="stat">
-              <h3 id="stat2">0</h3>
-              <p >Genres Covered</p>
+              <h3 id="stat2"style="color: black;
+              -webkit-text-fill-color: white; 
+              -webkit-text-stroke: 2px black;">0</h3>
+              <b><p style="color: #7c7b7b;">Genres Covered</p></b>
             </div>
             <div class="stat">
-              <h3 id="stat3">0</h3>
-              <p >Happy Readers</p>
+              <h3 id="stat3"style="color: black;
+              -webkit-text-fill-color: white; 
+              -webkit-text-stroke: 2px black;">0</h3>
+              <b><p style="color: #7c7b7b;">Happy Readers</p></b>
             </div>
           </div>
         </div>
@@ -492,24 +600,24 @@
       </section>
       
       <section class="mission-values">
-        <h2 >Our Mission and Values</h2>
+        <h2 style="color: grey;">Our Mission and Values</h2>
         <div class="about-us-block">
           <div class="about-us-community">
             <div style="display: flex; align-items: center; gap: 1rem;">
               <img id="community-img" src="../images/book.png" alt=""
                 style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-              <div class="about-us-blk-text">Book Swapping</div>
+              <div class="about-us-blk-text"style="color:grey;">Book Swapping</div>
             </div>
-            <p class="about-us-blk-para" >Easily list the books you’re willing to exchange and browse through a vast
+            <p class="about-us-blk-para" style="color: #7c7b7b;">Easily list the books you’re willing to exchange and browse through a vast
               collection of available titles, facilitating smooth and hassle-free book swaps with other members.</p>
           </div>
           <div class="about-us-product">
             <div style="display: flex; align-items: center; gap: 1rem;">
               <img id="product-img" src="../images/community.png" alt=""
                 style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-              <div class="about-us-blk-text">Community Engagement</div>
+              <div class="about-us-blk-text"style="color:grey;">Community Engagement</div>
             </div>
-            <p class="about-us-blk-para">Join a vibrant community of book lovers through discussion forums, reading
+            <p class="about-us-blk-para"style="color:#7c7b7b;">Join a vibrant community of book lovers through discussion forums, reading
               groups,
               and event participation, fostering a collaborative and engaging literary environment.</p>
           </div>
@@ -519,9 +627,13 @@
             <div style="display: flex; align-items: center; gap: 1rem;">
               <img id="location-img" src="../images/read.png" alt=""
                 style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-              <div class="about-us-blk-text">Reading Recommendations</div>
+
+              <div class="about-us-blk-text"style="color: grey;">Reading Recommendations</div>
+
+<!--               <div class="about-us-blk-text">Reading Recommendations</div> -->
+
             </div>
-            <p class="about-us-blk-para">Receive personalized book suggestions based on your reading history and
+            <p class="about-us-blk-para"style="color: #7c7b7b;">Receive personalized book suggestions based on your reading history and
               preferences, ensuring you always have a new and exciting read lined up for your next literary adventure.
             </p>
           </div>
@@ -529,9 +641,9 @@
             <div style="display: flex; align-items: center; gap: 1rem;">
               <img id="event-img" src="../images/bookshelf.png" alt=""
                 style="margin-left: 1rem; margin-top: 1rem; width: 4rem;">
-              <div class="about-us-blk-text"">Virtual Bookshelf</div>
+              <div class="about-us-blk-text"style="color: grey;">Virtual Bookshelf</div>
             </div>
-            <p class="about-us-blk-para"">Organize and manage your virtual bookshelf, keeping track of books you've read,
+            <p class="about-us-blk-para"style="color: #7c7b7b;">Organize and manage your virtual bookshelf, keeping track of books you've read,
               want to read, and are currently reading. Easily access your collection and track your reading progress.
             </p>
           </div>
@@ -686,7 +798,7 @@
         cursor: pointer;
       }
       body.dark-mode .pagination button {
-        background-color: #333; 
+        background-color: #e333; 
         color: #fff; 
         border: 1px solid #444; 
     }
