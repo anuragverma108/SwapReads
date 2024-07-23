@@ -976,9 +976,7 @@
     if (savedAvatar) {
         document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
     }
-});
-
-        
+});      
                 function menuToggle() {
                     const toggleMenu = document.querySelector(".menu");
                     toggleMenu.classList.toggle("active");
@@ -1080,13 +1078,7 @@
 
   window.addEventListener("scroll", onScroll);
 </script>
-
-
-
-    
     <!-- <div class="switch-toggle-container">
-
-
       window.addEventListener("scroll", onScroll);
     </script>
     <div class="switch-toggle-container">
@@ -1116,16 +1108,8 @@
         </label>
       </div>
     </div>
-
-
-
     </div>
   </header>
-
-
-
-
-
   <main>
 
     <!-- Rate Us Modal Pop up
@@ -2022,14 +2006,9 @@
 
         </div>
       </section>
-
-
-
-
       <!--
         - #CHAPTERS
       -->
-
       <!--Book Exchange Hub-->
       <section class="section preview" aria-label="preview">
         <div class="container1">
@@ -2163,39 +2142,48 @@
        <!-- Rate Us Component -->
        <div id="rate-us">
         <div class="heading">
-            <h3>Rate Us!</h3>
-            <p>Tell us your experience</p>
-            <br><br><br>
+            <h3>Rate Us</h3>
+            <p>Tell us about your experience!</p>
         </div>
-        <div class="wrapper">
-          <div class="footer-2">
-            <label for="feedback">Enter your Feedback</label> <br>
-            <textarea style="resize:none" id="feedback" cols="40" rows="4"></textarea>
+
+        <div class="stars">
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5">😭</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4">😢</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3">😐</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2">😊</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1">😍</label>
         </div>
-            <input type="radio" name="rate" id="star-1">
-            <input type="radio" name="rate" id="star-2">
-            <input type="radio" name="rate" id="star-3">
-            <input type="radio" name="rate" id="star-4">
-            <input type="radio" name="rate" id="star-5">
-            <div class="content">
-                <div class="stars">
-                    <label for="star-1" class="star-1 fas fa-star"></label>
-                    <label for="star-2" class="star-2 fas fa-star"></label>
-                    <label for="star-3" class="star-3 fas fa-star"></label>
-                    <label for="star-4" class="star-4 fas fa-star"></label>
-                    <label for="star-5" class="star-5 fas fa-star"></label>
-                </div>
-            </div>
-            <div class="footer"><center>
-                <span class="text"></span>
-                <!-- <span class="numb"></span>-->
-                </center>
-            </div>
-            <div class="button">
-                <a href="#" id="submit-btn">Submit</a>
-            </div> 
+
+        <div class="feedback-container">
+            <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
+        </div>
+
+        <div class="button">
+            <button id="submit-btn">Submit</button>
         </div>
     </div>
+
+    <div id="confirmationModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeConfirmationModal()">&times;</span>
+            <p id="confirmationMessage"></p>
+        </div>
+    </div>
+    <div id="toastMessage" class="toast-message"></div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeConfirmationModal()">&times;</span>
+            <p id="confirmationMessage"></p>
+        </div>
+    </div>
+</div>
 
     <!-- Confirmation Message Popup -->
     <div id="confirmationModal" class="modal">
