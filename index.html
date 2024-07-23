@@ -515,6 +515,7 @@
   top: 10;
   z-index: 1000;
   transition: top 0.3s;
+  transition: transform 0.3s ease;
 }
 
 /* Hide the navbar */
@@ -960,6 +961,24 @@
                     const toggleMenu = document.querySelector(".menu");
                     toggleMenu.classList.toggle("active");
                 }
+
+      // script.js
+      let lastScrollTop = 0;
+      const header = document.querySelector('.header');
+
+      window.addEventListener('scroll', function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+          // Downscroll
+          header.style.transform = 'translateY(-120%)';
+        } else {
+          // Upscroll
+          header.style.transform = 'translateY(0)';
+        }
+
+        lastScrollTop = scrollTop;
+      });
             </script>
           <!-- Google Translate Element -->
           <!-- <li class="navbar-item">
@@ -996,6 +1015,9 @@
           pageLanguage: 'en'
         }, 'google_element');
       }
+
+
+
     </script>
     <script>
       // const hamburger=document.querySelector('.hamburger');
@@ -1643,11 +1665,11 @@
         - #PRICING BASED ON THEIR VERSION
       -->
       <section class="section pricing" id="pricing" aria-label="pricing">
-        <div class="">
+        <div class="container">
 
           <p class="section-subtitle">Pricing</p>
 
-          <h2 class="h2 section-title has-underline" style="padding-top: 40px;">
+          <h2 class="h2 section-title has-underline" style="padding-top: 100px;">
             Pricing based on their version
             <span class="span has-before"></span>
           </h2>
