@@ -971,34 +971,43 @@
               </ul>
               </div>
               <script>
-               document.addEventListener("DOMContentLoaded", () => {
-    const savedAvatar = localStorage.getItem("selectedAvatar");
-    if (savedAvatar) {
-        document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
-    }
-});      
+                document.addEventListener("DOMContentLoaded", () => {
+                    const savedAvatar = localStorage.getItem("selectedAvatar");
+                    if (savedAvatar) {
+                        document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+                    }
+                });
+        
                 function menuToggle() {
                     const toggleMenu = document.querySelector(".menu");
                     toggleMenu.classList.toggle("active");
                 }
-
-      // script.js
-      let lastScrollTop = 0;
-      const header = document.querySelector('.header');
-
-      window.addEventListener('scroll', function() {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollTop > lastScrollTop) {
-          // Downscroll
-          header.style.transform = 'translateY(-120%)';
-        } else {
-          // Upscroll
-          header.style.transform = 'translateY(0)';
-        }
-
-        lastScrollTop = scrollTop;
-      });
+        
+                document.addEventListener("click", function(event) {
+                    const profile = document.querySelector(".profile");
+                    const menu = document.querySelector(".menu");
+        
+                    if (!profile.contains(event.target) && !menu.contains(event.target)) {
+                        menu.classList.remove("active");
+                    }
+                });
+        
+                let lastScrollTop = 0;
+                const header = document.querySelector('.header');
+        
+                window.addEventListener('scroll', function() {
+                    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+                    if (scrollTop > lastScrollTop) {
+                        // Downscroll
+                        header.style.transform = 'translateY(-120%)';
+                    } else {
+                        // Upscroll
+                        header.style.transform = 'translateY(0)';
+                    }
+        
+                    lastScrollTop = scrollTop;
+                });
             </script>
 
 <div id="modal">
