@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="./assets/css/litrary_realms.css">
   <link rel="stylesheet" href="./assets/font-6/css/all.css">
   <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="logout.css">
   <link rel="stylesheet" href="./assets/css/MenuClick.css">
   <link rel="stylesheet" href="https://fontawesome.com/icons/cloudflare?f=brands&s=solid">
 
@@ -95,7 +96,6 @@
 
 
 .socialmediaicons {
-  background-color:#fdebe8;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -139,15 +139,40 @@
     transition: all 0.3s ease;
     color: rgb(0, 0, 0);
     font-size: 20px;
-    border-radius: 10%;
   }
+
+
    
-  .socialmediaicons a:hover {
-    background-color: rgb(255, 255, 255);
-  }
+.socialmediaicons .fa-instagram:hover{
+  background: radial-gradient(circle at 30% 110%,
+  #ffdb8b 0%,
+  #ee653d 25%,
+  #d42e81 50%,
+  #a237b6 75%,
+  #3e57bc 100%);
+  border-radius: 10px;
+  color: white;
+}   
+.socialmediaicons .fa-facebook:hover{
+  color: blue;
+}   
+.socialmediaicons .fa-youtube:hover{
+  color: red;
+}
 
 
-  
+.dark-mode .socialmediaicons a {
+  color: white;
+}
+
+
+.dark-mode .socialmediaicons .fa-facebook:hover {
+  color: #425d9b
+}
+.dark-mode .socialmediaicons .fa-youtube:hover {
+  color: #f70000;
+}
+
   .instagram {
     
     margin: 5px;
@@ -402,6 +427,15 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
     }
 
+    .dark-mode #dropdown-menu {
+      background-color: #151111;;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      color: white;
+    }
+    .dark-mode .dropdown-menu-item a{
+      color: white;
+    }
+
     #cookie-consent {
   position: fixed;
   bottom: 10px;
@@ -448,6 +482,7 @@
 .dark-mode #cookie-consent{
   background-color: #252423;
 }
+
 
 .dark-mode #cookie-consent p{
   color: white;
@@ -505,6 +540,7 @@
   top: 10;
   z-index: 1000;
   transition: top 0.3s;
+  transition: transform 0.3s ease;
 }
 
 /* Hide the navbar */
@@ -717,10 +753,10 @@
     <div class="progress-bar"></div>
   </div>
 
-  <div class="socialmediaicons" style="background-color:#fae2de">
+  <div class="socialmediaicons" style="z-index: 99;" >
 
     
-      <a class="active" href="https://www.google.com/" class="instagram"><i class="fa-brands fa-instagram"></i>
+      <a class="active instagram" href="https://www.google.com/" class=""><i class="fa-brands fa-instagram"></i>
      </a>
      <a class="active" href="https://www.google.com/" class="facebook"><i class="fa-brands fa-facebook"></i>
      </a>
@@ -872,7 +908,7 @@
 
               <ul class="dropdown-menu-list">
                 <li>
-                  <a href="chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                  <a href="chat.html" class="navbar-link" style="font-family: sans-serif; margin-bottom: 5px;">
                     Community chat
                 </a>
                 </li>
@@ -930,12 +966,9 @@
                 </li>
                 <li><img src="./assets/images/help.png" /><a href="/help.html">Help</a></li>
                 <li>
-                  <img src="./assets/images/logout.png" /><a href="#">Logout</a>
+                  <img src="./assets/images/logout.png" /><a id="logout-btn">Logout</a>
                 </li>
               </ul>
-            </li>
-              </div>
-            </ul>
               </div>
               <script>
                document.addEventListener("DOMContentLoaded", () => {
@@ -943,14 +976,45 @@
     if (savedAvatar) {
         document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
     }
-});
-
-        
+});      
                 function menuToggle() {
                     const toggleMenu = document.querySelector(".menu");
                     toggleMenu.classList.toggle("active");
                 }
+
+      // script.js
+      let lastScrollTop = 0;
+      const header = document.querySelector('.header');
+
+      window.addEventListener('scroll', function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+          // Downscroll
+          header.style.transform = 'translateY(-120%)';
+        } else {
+          // Upscroll
+          header.style.transform = 'translateY(0)';
+        }
+
+        lastScrollTop = scrollTop;
+      });
             </script>
+
+<div id="modal">
+  <form class="modal-box">
+    <img src="https://st2.depositphotos.com/4103319/6625/i/450/depositphotos_66251761-stock-photo-logout-circular-icon-on-white.jpg" class="logout-img"/>
+    <h1>Logout Account</h1>
+    <p class="logout-que">Are you sure you want to log out ?</p>
+    <div class="close-logout-btn">
+      <button class="cancel-logout-btn">Cancel</button>
+      <button class="out-logout-btn">Log Out</button>
+    </div>
+  </form>
+</div>
+
+<script src="logout.js"></script>
+
           <!-- Google Translate Element -->
           <!-- <li class="navbar-item">
             <div id="google_element"></div>
@@ -986,6 +1050,9 @@
           pageLanguage: 'en'
         }, 'google_element');
       }
+
+
+
     </script>
     <script>
       // const hamburger=document.querySelector('.hamburger');
@@ -1011,13 +1078,7 @@
 
   window.addEventListener("scroll", onScroll);
 </script>
-
-
-
-    
     <!-- <div class="switch-toggle-container">
-
-
       window.addEventListener("scroll", onScroll);
     </script>
     <div class="switch-toggle-container">
@@ -1047,9 +1108,6 @@
         </label>
       </div>
     </div>
-
-
-
     </div>
   </header>
   <link rel="stylesheet" href="assets/css/refresher.css">
@@ -1057,7 +1115,6 @@
     <img id="caduceus" src="assets/svg/refresher.svg" alt="Caduceus" title="refresher">
   </div>
   <script src="assets/js/refresher.js"></script>
-
 
   <main>
 
@@ -1844,6 +1901,7 @@
 
               </div>
             </li>
+            <li>
             <div class="chapter-card">
 
               <p class="card-subtitle">09</p>
@@ -1857,7 +1915,7 @@
               </p>
 
             </div>
-            </li>
+          </li> 
 
             <li>
               <div class="chapter-card">
@@ -1950,22 +2008,26 @@
 
               </div>
             </li>
+            <li>
+              <div class="chapter-card">
+                <p class="card-subtitle">16</p>
+                <h3 class="h3 card-title">Fairy Tales</h3>
+                <p class="card-text">
+                  A fairy tale is a whimsical story set in a magical world where heroes overcome obstacles and evil is vanquished. The essence of fairy tales is their promise of a happy ending, with characters finding their "happily ever after."
+                </p>
+              </div>
+            </li>
           </ul>
 
         </div>
       </section>
-
-
-
-
       <!--
         - #CHAPTERS
       -->
-
       <!--Book Exchange Hub-->
       <section class="section preview" aria-label="preview">
         <div class="container1">
-          <h2 class="h2 section-title has-underline">
+          <h2 class="h2 section-title has-underline" style="margin-bottom: 0px;">
             Book Exchange Hub
             <span class="span has-before"></span>
           </h2>
@@ -2095,39 +2157,48 @@
        <!-- Rate Us Component -->
        <div id="rate-us">
         <div class="heading">
-            <h3>Rate Us!</h3>
-            <p>Tell us your experience</p>
-            <br><br><br>
+            <h3>Rate Us</h3>
+            <p>Tell us about your experience!</p>
         </div>
-        <div class="wrapper">
-          <div class="footer-2">
-            <label for="feedback">Enter your Feedback</label> <br>
-            <textarea style="resize:none" id="feedback" cols="40" rows="4"></textarea>
+
+        <div class="stars">
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5">😭</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4">😢</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3">😐</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2">😊</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1">😍</label>
         </div>
-            <input type="radio" name="rate" id="star-1">
-            <input type="radio" name="rate" id="star-2">
-            <input type="radio" name="rate" id="star-3">
-            <input type="radio" name="rate" id="star-4">
-            <input type="radio" name="rate" id="star-5">
-            <div class="content">
-                <div class="stars">
-                    <label for="star-1" class="star-1 fas fa-star"></label>
-                    <label for="star-2" class="star-2 fas fa-star"></label>
-                    <label for="star-3" class="star-3 fas fa-star"></label>
-                    <label for="star-4" class="star-4 fas fa-star"></label>
-                    <label for="star-5" class="star-5 fas fa-star"></label>
-                </div>
-            </div>
-            <div class="footer"><center>
-                <span class="text"></span>
-                <!-- <span class="numb"></span>-->
-                </center>
-            </div>
-            <div class="button">
-                <a href="#" id="submit-btn">Submit</a>
-            </div> 
+
+        <div class="feedback-container">
+            <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
+        </div>
+
+        <div class="button">
+            <button id="submit-btn">Submit</button>
         </div>
     </div>
+
+    <div id="confirmationModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeConfirmationModal()">&times;</span>
+            <p id="confirmationMessage"></p>
+        </div>
+    </div>
+    <div id="toastMessage" class="toast-message"></div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeConfirmationModal()">&times;</span>
+            <p id="confirmationMessage"></p>
+        </div>
+    </div>
+</div>
 
     <!-- Confirmation Message Popup -->
     <div id="confirmationModal" class="modal">
@@ -2550,7 +2621,7 @@
     - #FOOTER
   -->
 
-  <footer>
+  <footer class="ff">
     <div class="foot-top">
       <div class="foot-left">
 
@@ -2716,14 +2787,10 @@
        </div>
 
         <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
-          <div class="circle1">
-            <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-              class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-              <path
-                d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-            </svg>
-            
-          </div>
+          <button class="Btn">
+            <svg height="1.2em" class="arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path></svg>
+          <p class="text">Back to Top</p>
+          </button>
         </div>
 
       </div>
@@ -2733,7 +2800,7 @@
 
 
     <!-- adding privacy policy and copyright popup-->
-    <div style="text-align: center; align-items: center;">
+    <div class="footer-f" style="text-align: center; align-items: center;">
       <p style="text-align: center">
         &copy;
         <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
