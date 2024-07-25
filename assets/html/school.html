@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Books to Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-image: url('https://www.utility.rentals/wp-content/uploads/2016/09/Is-lighting-affecting-schools.jpg'); /* Replace 'background-image.jpg' with your image path */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #0b0000c2;
+            text-shadow: 1px 1px 2px #f5eded68;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            background-color: rgba(246, 246, 183, 0.927); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #81061f;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #810639;
+        }
+        .thank-you-message {
+            display: none;
+            margin-top: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Donate Books to School</h1>
+        <form id="donationForm">
+            <div class="form-group">
+                <label for="name">Name of Donor:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="bookName">Book Name:</label>
+                <input type="text" id="bookName" name="bookName" required>
+            </div>
+            <div class="form-group">
+                <label for="library">Select School:</label>
+                <select id="library" name="library" required>
+                    <option value="">Select a School</option>
+                    <option value="central_library">M.K.Gandhi School</option>
+                    <option value="westside_library">Swaraj Rajya School</option>
+                    <option value="eastside_library">Symbiosis High School</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="submitForm()">Submit</button>
+            </div>
+        </form>
+        <div id="thankYouMessage" class="thank-you-message">
+            Thank you for your contribution! We will contact you for further details.
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            // Hide the form
+            document.getElementById('donationForm').style.display = 'none';
+
+            // Show thank you message
+            document.getElementById('thankYouMessage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
