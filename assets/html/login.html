@@ -509,11 +509,11 @@ button img {
       <input type="checkbox" id="chk" aria-hidden="true" />
 
       <div class="login">
-        <form class="form" id="login-form">
-          <label for="chk" aria-hidden="true">LOGIN</label>
-          <input class="input" type="email" name="email" id="login_email" placeholder="Email" required />
+        <form class="form" id="loginForm" id="login-form">
+          <a href="..//html/login.html"><label for="chk" aria-hidden="true" class="login">LOGIN</label></a>
+          <input class="input" type="email" name="email" id="loginEmail" placeholder="Email" required />
           <div class="input-box">
-            <input class="input" type="password" name="pswd" id="login_password" placeholder="Password" required />
+            <input class="input" type="password" name="pswd" id="loginPassword" placeholder="Password" required />
             <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-login">
           </div>
           <button type="submit" name="Login" id="login">Submit</button>
@@ -530,11 +530,11 @@ button img {
       </div>
 
       <div class="register">
-        <form class="form" id="register-form">
+        <form class="form" id="registerForm" id="register-form">
           <label for="chk" aria-hidden="true">Create Account</label>
-          <input class="input" type="email" name="email" id="email" placeholder="Email" required />
+          <input class="input" type="email" name="email" id="registerEmail" placeholder="Email" required />
           <div class="input-box">
-            <input class="input" type="password" name="pswd" id="password" placeholder="Password" required />
+            <input class="input" type="password" name="pswd" id="registerPassword" placeholder="Password" required />
             <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon">
           </div>
 
@@ -845,7 +845,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let one_number = document.getElementsByClassName("one-number")[0];
             let one_special_char = document.getElementsByClassName("one-special-char")[0];
             let eight_character = document.getElementsByClassName("eight-character")[0];
-            let password = document.getElementById("password");
+            let password = document.getElementById("registerPassword");
             let uppercaseCheck = document.getElementById('uppercaseCheck');
             let eightCharacter = document.getElementById('eightCharacter');
             let numberCheck = document.getElementById('numberCheck');
@@ -1179,6 +1179,95 @@ count=0
 }
 })
 </script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification, reload, deleteUser } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-auth.js";
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAIDh842xGC_NZj6pMcB9THjNQ1DyUVnZU",
+    authDomain: "swapreads-c7d1d.firebaseapp.com",
+    projectId: "swapreads-c7d1d",
+    storageBucket: "swapreads-c7d1d.appspot.com",
+    messagingSenderId: "912206670085",
+    appId: "1:912206670085:web:9a6182b16ac2529510ef6c"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // Register event
+  const registerForm = document.getElementById('registerForm');
+  registerForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Send email verification
+      await sendEmailVerification(user);
+      alert('Registration successful! Please check your email to verify your account.');
+
+      // Set a timeout for checking email verification
+      setTimeout(async () => {
+        await reload(user);
+        if (!user.emailVerified) {
+          await deleteUser(user)
+            .then(() => {
+              alert('Account deleted due to unverified email.');
+              location.reload(); // Reload the page after deletion
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              alert(errorMessage);
+              location.reload(); // Reload the page on error
+            });
+        }
+      }, 30000); // 30 seconds
+
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage);
+      location.reload(); // Reload the page on error
+    }
+  });
+
+  // Login event
+  const loginForm = document.getElementById('loginForm');
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Check if email is verified
+      await reload(user); // Ensure latest user data is fetched
+      if (user.emailVerified) {
+        window.location.href = '/index.html'; // Redirect to index.html upon successful login
+      } else {
+        alert('Please verify your email address.');
+      }
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage);
+      location.reload(); // Reload the page on error
+    }
+  });
+</script>
+
 </body>
 </html>
 
