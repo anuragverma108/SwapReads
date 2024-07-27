@@ -164,6 +164,10 @@
             const newEmail = document.getElementById("emailInput").value.trim();
             const newPhone = document.getElementById("phoneInput").value.trim();
 
+            if (newEmail && !validateEmail(newEmail)) {
+                 alert("Invalid email address");
+                 return;
+            }
             if (selectedAvatar) {
                 localStorage.setItem("selectedAvatar", selectedAvatar);
             }
@@ -178,6 +182,10 @@
             }
 
             window.location.href = "../../index.html";
+        }
+        function validateEmail(email) {
+              const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+              return re.test(email);
         }
 
         document.addEventListener("DOMContentLoaded", () => {
