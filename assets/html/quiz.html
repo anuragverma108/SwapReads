@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: rgba(244, 197, 202, 0.9);
+            background-size: cover;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(251, 224, 243, 0.9);
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .answers {
+            list-style-type: none;
+            padding: 0;
+        }
+        .answers li {
+            margin-bottom: 10px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #7a0101;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #ee0b1b;
+        }
+        .result {
+            font-size: 18px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+    <div class="quiz-container">
+        <h1 style="color: maroon;">Test Your Knowledge</h1>
+        <div id="quiz">
+            <div class="question" id="question"></div>
+            <ul class="answers" id="answers"></ul>
+            <button id="submit">Submit Answer</button>
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "Which genre is known for imaginative and futuristic themes?",
+                answers: ["Mystery", "Romance", "Science Fiction", "Historical Fiction"],
+                correct: "Science Fiction"
+            },
+            {
+                question: "Who wrote the famous novel '1984'?",
+                answers: ["Aldous Huxley", "George Orwell", "Ray Bradbury", "J.R.R. Tolkien"],
+                correct: "George Orwell"
+            },
+            {
+                question: "Which platform is best known for self-publishing e-books?",
+                answers: ["Goodreads", "Kindle Direct Publishing", "Wattpad", "Scribd"],
+                correct: "Kindle Direct Publishing"
+            },
+            {
+                question: "What is the main benefit of an online book exchange platform?",
+                answers: ["Access to rare books", "Free book swaps", "Connecting with authors", "Personalized book recommendations"],
+                correct: "Free book swaps"
+            },
+            {
+                question: "Which author is famous for the 'Harry Potter' series?",
+                answers: ["J.K. Rowling", "C.S. Lewis", "Suzanne Collins", "Rick Riordan"],
+                correct: "J.K. Rowling"
+            },
+            {
+                question: "What feature allows readers to leave comments and reviews on books they’ve read?",
+                answers: ["Bookmarking", "Highlighting", "Rating system", "Discussion forums"],
+                correct: "Discussion forums"
+            }
+        ];
+
+        let currentQuiz = 0;
+        let score = 0;
+
+        const questionElement = document.getElementById('question');
+        const answersElement = document.getElementById('answers');
+        const submitButton = document.getElementById('submit');
+        const resultElement = document.getElementById('result');
+
+        function loadQuiz() {
+            deselectAnswers();
+            const currentQuizData = quizData[currentQuiz];
+            questionElement.innerText = currentQuizData.question;
+            answersElement.innerHTML = '';
+            currentQuizData.answers.forEach(answer => {
+                const answerElement = document.createElement('li');
+                answerElement.innerHTML = `<input type="radio" name="answer" value="${answer}"> ${answer}`;
+                answersElement.appendChild(answerElement);
+            });
+        }
+
+        function deselectAnswers() {
+            document.querySelectorAll('input[name="answer"]').forEach(input => input.checked = false);
+        }
+
+        function getSelected() {
+            let answer;
+            document.querySelectorAll('input[name="answer"]').forEach(input => {
+                if (input.checked) {
+                    answer = input.value;
+                }
+            });
+            return answer;
+        }
+
+        submitButton.addEventListener('click', () => {
+            const answer = getSelected();
+            if (answer) {
+                if (answer === quizData[currentQuiz].correct) {
+                    score++;
+                }
+                currentQuiz++;
+                if (currentQuiz < quizData.length) {
+                    loadQuiz();
+                } else {
+                    resultElement.innerHTML = `You answered correctly ${score}/${quizData.length} questions.`;
+                }
+            }
+        });
+
+        loadQuiz();
+    </script>
+</body>
+</html>
