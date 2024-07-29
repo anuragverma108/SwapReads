@@ -123,7 +123,7 @@
 
 #quicklinks .foot-quick a {
   text-decoration: none;
-  color: #333; /* Adjust link color as needed */
+  color: rgb(83, 74, 74); /* Adjust link color as needed */
   display: flex;
   align-items: center;
 }
@@ -752,6 +752,14 @@
 .donate-books-section {
     text-align: center;
 }
+.donate-books-section p{
+  padding: 10px;
+  text-align: justify;
+}
+.donate-books-section img {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
 
 .container {
     display: flex;
@@ -793,6 +801,184 @@
 
 
 <body>
+  <button id="translateButton">Translate</button>
+  <style>
+    /* Fixed translate button */
+#translateButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 53px;  
+    height: 53px;
+    border-radius: 50%; 
+    border: none; 
+    background:linear-gradient(hwb(357 6% 36%),#d26d6d); 
+    color: white; 
+    text-align: center; 
+    display: inline-block; 
+    font-size: 16px; 
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    transition: transform 0.3s ease;
+    margin-top: 678px;
+    margin-right: 80px;
+}
+#translateButton:hover {
+    transform: scale(1.2); 
+}
+
+/* The popup modal */
+.popup {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+/* Popup content */
+.popup-content {
+  background:linear-gradient(hwb(357 6% 36%),#d26d6d);
+    margin-top: 600px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 10px;
+    position: relative;
+    margin-left: 1160px;
+    /* margin-right: 0px; */
+}
+
+/* Close button */
+.close {
+    color: #073725;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Hide the default Google Translate widget */
+.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+    display: none !important;
+}
+
+body {
+    top: 0px !important;
+}
+
+/* Hide the "Powered by Google" branding */
+.goog-logo-link {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    height: 28px !important;
+    overflow: hidden;
+}
+
+/* Hide Google Translate notifications */
+.goog-te-spinner-pos,
+.goog-te-spinner,
+.goog-te-balloon-frame,
+.goog-te-banner-frame,
+.goog-te-banner,
+.goog-te-balloon {
+    display: none !important;
+}
+
+/* Custom styles for the Google Translate dropdown */
+#google_translate_element select {
+    background: #ffffff; 
+    border: 1px solid #ccc; 
+    color: #d26d6d; 
+    padding: 5px; 
+    font-size: 14px; 
+    border-radius: 5px; 
+    
+}
+
+/* Hide the Google Translate bar */
+body > .skiptranslate {
+    display: none !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+.goog-te-banner-frame {
+    display: none !important;
+}
+.goog-te-banner {
+    display: none !important;
+}
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get the popup
+    var popup = document.getElementById('translatePopup');
+
+    // Get the button that opens the popup
+    var btn = document.getElementById('translateButton');
+
+    // Get the <span> element that closes the popup
+    var span = document.getElementsByClassName('close')[0];
+
+    // When the user clicks the button, open the popup 
+    btn.onclick = function() {
+        popup.style.display = 'block';
+    }
+
+    // When the user clicks on <span> (x), close the popup
+    span.onclick = function() {
+        popup.style.display = 'none';
+    }
+
+    // When the user clicks anywhere outside of the popup, close it
+    window.onclick = function(event) {
+        if (event.target == popup) {
+            popup.style.display = 'none';
+        }
+    }
+});
+  </script>
+
+  <!-- Popup for Google Translate -->
+  <div id="translatePopup" class="popup">
+      <div class="popup-content">
+          <span class="close">&times;</span>
+          <div id="google_translate_element"></div>
+      </div>
+  </div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Your custom JavaScript -->
+<script src="script.js"></script>
   <div class="nav-wrapper">
     <div class="progress-bar"></div>
   </div>
@@ -1155,8 +1341,8 @@
         <input type="checkbox" id="switch" class="switch-checkbox">
         <label for="switch" class="switch-label">
           <div class="switch-button">
-            <span class="material-icons sun-icon">wb_sunny</span>
-            <span class="material-icons moon-icon">brightness_2</span>
+            <span class="material-icons sun-icon"></span>
+            <span class="material-icons moon-icon"></span>
           </div>
         </label>
       </div>
@@ -1747,12 +1933,15 @@
       <section class="section pricing" id="pricing" aria-label="pricing">
         <div class="container">
 
-          <p class="section-subtitle">Pricing</p>
-
-          <h2 class="h2 section-title has-underline" style="padding-top: 100px;">
-            Pricing based on their version
-            <span class="span has-before"></span>
-          </h2>
+          
+          <!-- <div class="pricingContainer"> -->
+            <p class="section-subtitle">Pricing</p>
+            
+            <h2 class="h2 section-title has-underline" ">
+              Pricing based on their version
+              <span class="span has-before"></span>
+            </h2>
+          <!-- </div> -->
 
           <ul class="grid-list">
 
@@ -2070,6 +2259,33 @@
                 </p>
               </div>
             </li>
+            <li>
+              <div class="chapter-card">
+                <p class="card-subtitle">17</p>
+                <h3 class="h3 card-title">Mythology</h3>
+                <p class="card-text">
+                  Mythology encompasses the rich tapestry of stories and legends that have been passed down through generations. These tales often feature gods, heroes, and mythical creatures, exploring themes of creation, morality, and the human condition.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="chapter-card">
+                <p class="card-subtitle">18</p>
+                <h3 class="h3 card-title">Noir</h3>
+                <p class="card-text">
+                  Noir fiction delves into the darker aspects of human nature, often featuring cynical characters, moral ambiguity, and a sense of impending doom. These stories are typically set in gritty urban environments and explore themes of crime, corruption, and existential despair.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="chapter-card">
+                <p class="card-subtitle">19</p>
+                <h3 class="h3 card-title">True Crime</h3>
+                <p class="card-text">
+                  True Crime captivates audiences with real-life stories of crime, exploring motives, methods, and the justice system through detailed and factual narratives. These stories often provide deep insights into criminal minds and the complex pursuit of justice.
+                </p>
+              </div>
+            </li>            
           </ul>
 
         </div>
@@ -2209,44 +2425,40 @@
 <!-- Donation of Books -->
 <br>
 <div class="donate-books-section">
-    <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Donate Books</h1>
-    <br>
-    <div class="container">
-        <div class="card">
-            <img src="./lib.jpg" alt="Book Image">
-            <div class="card-body">
-                <h3 class="card-sty" style="text-align: center;" >Library</h3>
-                <p class="card-text" style="font-style: italic;">Donate books to nearby libraries to new readers</p>
-                
-                <div class="button-container">
-                  <a href="./assets/html/donate.html" class="donate-button">Donate</a>
-              </div>
-            </div>
-        </div>
-        <div class="card">
-          <img src="./sc.jpg" alt="Book Image">
+  <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Donate Books</h1>
+  <br>
+  <div class="container">
+      <div class="card">
+          <img src="./lib.jpg" alt="Library Image">
           <div class="card-body">
-              <h3 class="card-sty" style="text-align: center;" >Schools</h3>
-              <p class="card-text" style="font-style: italic;">Donate books to nearby schools for school students</p>
-              
+              <h3 class="card-sty" style="text-align: center;">Library</h3>
+              <p class="card-text" style="font-style: italic;">Donate your books to local libraries and help foster a love for reading in your community.</p>
               <div class="button-container">
-                <a href="./assets/html/school.html" class="donate-button">Donate</a>
-            </div>
+                  <a href="./assets/html/donate.html" class="donate-button">Donate to Libraries</a>
+              </div>
           </div>
       </div>
       <div class="card">
-        <img src="./n.jpg" alt="Book Image">
-        <div class="card-body">
-            <h3 class="card-sty" style="text-align: center;" >Organization</h3>
-            <p class="card-text" style="font-style: italic;">Donate books to NGO's and organization to help needful readers</p>
-            
-            <div class="button-container">
-              <a href="./assets/html/ngo.html" class="donate-button">Donate</a>
+          <img src="./sc.jpg" alt="School Image">
+          <div class="card-body">
+              <h3 class="card-sty" style="text-align: center;">Schools</h3>
+              <p class="card-text" style="font-style: italic;">Support children's education by donating books to nearby schools for students of all ages.</p>
+              <div class="button-container">
+                  <a href="./assets/html/school.html" class="donate-button">Donate to Schools</a>
+              </div>
           </div>
-        </div>
-    </div>
-        </div>
-        </div>
+      </div>
+      <div class="card">
+          <img src="./n.jpg" alt="Organization Image">
+          <div class="card-body">
+              <h3 class="card-sty" style="text-align: center;">Organizations</h3>
+              <p class="card-text" style="font-style: italic;">Help NGOs and other organizations by donating books to support their educational programs.</p>
+              <div class="button-container">
+                  <a href="./assets/html/ngo.html" class="donate-button">Donate to Organizations</a>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
 
 
@@ -2320,7 +2532,11 @@
             <span class="span has-before"></span>
           </h2>
           <div class="wrapper">
+<<<<<<< Center_Donation_Card
             <div class="contact-card ">
+=======
+            <div class="contact-card white-border-card">
+>>>>>>> main
 
               <form action="http://localhost:3000/contact" method="POST" id="contact-form">
                 <div class="contact_head_wrapper">
@@ -2372,7 +2588,7 @@
               });
             </script>
       
-            <ul class="contact-card">
+            <ul class="contact-card white-border-card">
               <li>
                 <p class="card-title address-title">
                   <lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json" trigger="hover" colors="primary:#000000" style="width:25px;height:25px"></lord-icon>
@@ -2763,7 +2979,7 @@
         <div id="quicklinks" class="row">
           <div class="col-md-6">
             <ul>
-              <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')"><i class="fas fa-home"></i> Home</a></li>
+              <li class="foot-quick" style="color: white;"><a href="#home" onclick="lenis.scrollTo('#home')"><i class="fas fa-home"></i> Home</a></li>
               <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')"><i class="fas fa-book"></i> Benefits</a></li>
               <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i> Literary</a></li>
               <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i> Pricing</a></li>
