@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwapReads - Authors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #f5c7c8;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1em;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 1em;
+        }
+
+        section {
+            margin-bottom: 2em;
+        }
+
+        h2 {
+            color: #450105;
+        }
+
+        .author {
+            background-color: #f4f6cc;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1em;
+            margin-bottom: 1em;
+            display: flex;
+            align-items: center;
+        }
+
+        .author-photo {
+            border-radius: 50%;
+            margin-right: 1em;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .author button {
+            background-color: #850720;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 0.5em;
+        }
+
+        .author button:hover {
+            background-color: #830535;
+        }
+
+        footer {
+            background-color: #f5cbd7;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Modal Styles */
+        #content-modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .ul{
+            text-decoration: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: black;">SwapReads</h1>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">About Us</a></li>
+                <li><a href="./index.html">Contact</a></li>
+                <li><a href="#authors">Authors</a></li>
+                <li><a href="#community">Community</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="authors">
+            <h2>Featured Authors</h2>
+            <!-- Author 1: J.K. Rowling -->
+            <div class="author">
+                <h3 style="color: rgb(128, 6, 6);">J.K. Rowling</h3>
+                <img src="../images/jk.jpeg" alt="J.K. Rowling" class="author-photo">
+                <p>J.K. Rowling is best known for writing the Harry Potter series, which has become one of the best-selling book series in history.</p>
+                <button data-author="jk-rowling" data-action="interview">Read Interview</button>
+                <button data-author="jk-rowling" data-action="articles">Read Articles</button>
+                <button data-author="jk-rowling" data-action="recommendations">Reading Recommendations</button>
+            </div>
+            <!-- Author 2: George R.R. Martin -->
+            <div class="author">
+                <h3 style="color: rgb(128, 6, 6);">George R.R. Martin</h3>
+                <img src="../images/gr.jpeg" alt="George R.R. Martin" class="author-photo">
+                <p>George R.R. Martin is known for his epic fantasy series "A Song of Ice and Fire," which inspired the popular TV series "Game of Thrones."</p>
+                <button data-author="george-rr-martin" data-action="interview">Read Interview</button>
+                <button data-author="george-rr-martin" data-action="articles">Read Articles</button>
+                <button data-author="george-rr-martin" data-action="recommendations">Reading Recommendations</button>
+            </div>
+            <!-- Author 3: Margaret Atwood -->
+            <div class="author">
+                <h3 style="color: rgb(128, 6, 6);">Margaret Atwood</h3>
+                <img src="../images/mg.jpeg" alt="Margaret Atwood" class="author-photo">
+                <p>Margaret Atwood is a celebrated author known for her works such as "The Handmaid's Tale" and "Oryx and Crake," which explore themes of dystopia and feminism.</p>
+                <button data-author="margaret-atwood" data-action="interview">Read Interview</button>
+                <button data-author="margaret-atwood" data-action="articles">Read Articles</button>
+                <button data-author="margaret-atwood" data-action="recommendations">Reading Recommendations</button>
+            </div>
+            <!-- Author 4: Neil Gaiman -->
+            <div class="author">
+                <h3 style="color: rgb(128, 6, 6);">Neil Gaiman</h3>
+                <img src="../images/ne.jpeg" alt="Neil Gaiman" class="author-photo">
+                <p>Neil Gaiman is renowned for his work in fantasy and horror genres, with popular books such as "American Gods" and "Coraline."</p>
+                <button data-author="neil-gaiman" data-action="interview">Read Interview</button>
+                <button data-author="neil-gaiman" data-action="articles">Read Articles</button>
+                <button data-author="neil-gaiman" data-action="recommendations">Reading Recommendations</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p style="color: rgb(0, 0, 0);">&copy; 2024 SwapReads. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal for displaying content -->
+    <div id="content-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const buttons = document.querySelectorAll(".author button");
+            const modal = document.getElementById("content-modal");
+            const modalBody = document.getElementById("modal-body");
+            const closeButton = document.querySelector(".close-button");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function() {
+                    const author = this.getAttribute("data-author");
+                    const action = this.getAttribute("data-action");
+                    let content = '';
+
+                    switch(action) {
+                        case 'interview':
+                            content = `<h2>Interview with ${author.replace(/-/g, ' ')}</h2>
+                                       <p>${author.replace(/-/g, ' ')} shares insights into their writing process, latest work, and experiences as an author.</p>`;
+                            break;
+                        case 'articles':
+                            content = `<h2>Articles by ${author.replace(/-/g, ' ')}</h2>
+                                       <ul>
+                                           <li><a href="#">The Craft of Writing</a></li>
+                                           <li><a href="#">Understanding Narrative Structures</a></li>
+                                       </ul>`;
+                            break;
+                        case 'recommendations':
+                            content = `<h2>Reading Recommendations by ${author.replace(/-/g, ' ')}</h2>
+                                       <ul>
+                                           <li><a href="#">Book Title 1</a> by Author 1</li>
+                                           <li><a href="#">Book Title 2</a> by Author 2</li>
+                                       </ul>`;
+                            break;
+                        default:
+                            content = '<p>No content available.</p>';
+                    }
+
+                    modalBody.innerHTML = content;
+                    modal.style.display = "block";
+                });
+            });
+
+            closeButton.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+
+            window.addEventListener("click", function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
