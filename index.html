@@ -1713,68 +1713,85 @@ body > .skiptranslate {
       </section>
 
       <script>
-       document.addEventListener("DOMContentLoaded", function () {
-    const carousel = document.querySelector(".carousell");
-    const firstCardWidth = carousel.querySelector(".litrealms_card").offsetWidth;
-    const arrowBtns = document.querySelectorAll(".carousell-wrapper i");
-    const carouselChildrens = [...carousel.children];
-
-    let isDragging = false, startX, startScrollLeft;
-
-    let cardPerView = 3; 
-
-    // Insert copies of the last few cards to beginning of carousel for infinite scrolling
-    carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
-        carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
-    });
-
-    // Insert copies of the first few cards to end of carousel for infinite scrolling
-    carouselChildrens.slice(0, cardPerView).forEach(card => {
-        carousel.insertAdjacentHTML("beforeend", card.outerHTML);
-    });
-
-    // Scroll the carousel to hide the duplicates and position it correctly
-    carousel.scrollLeft = carousel.offsetWidth * cardPerView;
-
-    // Add event listeners for the arrow buttons to scroll the carousel left and right
-    arrowBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            carousel.scrollLeft += btn.id === "left-arrow" ? -firstCardWidth : firstCardWidth;
+        document.addEventListener("DOMContentLoaded", function () {
+            const carousel = document.querySelector(".carousell");
+            let firstCardWidth = carousel.querySelector(".litrealms_card").offsetWidth;
+            const arrowBtns = document.querySelectorAll(".carousell-wrapper i");
+            const carouselChildrens = [...carousel.children];
+            
+            const cardMargin = parseInt(window.getComputedStyle(carousel.querySelector(".litrealms_card")).marginRight);
+        
+            let isDragging = false, startX, startScrollLeft;
+        
+            const updateCardPerView = () => {
+                firstCardWidth = carousel.querySelector(".litrealms_card").offsetWidth + cardMargin;
+                return Math.floor(carousel.offsetWidth / firstCardWidth);
+            }
+        
+            let cardPerView = updateCardPerView();
+        
+            // Insert copies of the last few cards to the beginning of the carousel for infinite scrolling
+            carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
+                carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+            });
+        
+            // Insert copies of the first few cards to the end of the carousel for infinite scrolling
+            carouselChildrens.slice(0, cardPerView).forEach(card => {
+                carousel.insertAdjacentHTML("beforeend", card.outerHTML);
+            });
+        
+            // Scroll the carousel to hide the duplicates and position it correctly
+            carousel.scrollLeft = carousel.offsetWidth * cardPerView;
+        
+            // Add event listeners for the arrow buttons to scroll the carousel left and right
+            arrowBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const scrollAmount = firstCardWidth + (cardMargin)/2;
+                    carousel.scrollLeft += btn.id === "left-arrow" ? -scrollAmount : scrollAmount;
+                });
+            });
+        
+            const dragStart = (e) => {
+                isDragging = true;
+                startX = e.pageX;
+                startScrollLeft = carousel.scrollLeft;
+            }
+        
+            const dragging = (e) => {
+                if (!isDragging) return;
+                carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+            }
+        
+            const dragStop = () => {
+                isDragging = false;
+            }
+        
+            const infiniteScroll = () => {
+                // If at the beginning, scroll to the end
+                if (carousel.scrollLeft === 0) {
+                    carousel.scrollLeft = carousel.scrollWidth - (2 * carousel.offsetWidth);
+                }
+                // If at the end, scroll to the beginning
+                else if (Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offsetWidth) {
+                    carousel.scrollLeft = carousel.offsetWidth;
+                }
+            }
+        
+            carousel.addEventListener("mousedown", dragStart);
+            carousel.addEventListener("mousemove", dragging);
+            document.addEventListener("mouseup", dragStop);
+            carousel.addEventListener("scroll", infiniteScroll);
+        
+            // Adjust the carousel layout on window resize
+            window.addEventListener("resize", () => {
+                cardPerView = updateCardPerView();
+                carousel.scrollLeft = carousel.offsetWidth * cardPerView;
+            });
         });
-    });
-
-    const dragStart = (e) => {
-        isDragging = true;
-        startX = e.pageX;
-        startScrollLeft = carousel.scrollLeft;
-    }
-
-    const dragging = (e) => {
-        if (!isDragging) return;
-        carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
-    }
-
-    const dragStop = () => {
-        isDragging = false;
-    }
-
-    const infiniteScroll = () => {
-        // If at the beginning, scroll to the end
-        if (carousel.scrollLeft === 0) {
-            carousel.scrollLeft = carousel.scrollWidth - (2 * carousel.offsetWidth);
-        }
-        // If at the end, scroll to the beginning
-        else if (Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offsetWidth) {
-            carousel.scrollLeft = carousel.offsetWidth;
-        }
-    }
- 
-    carousel.addEventListener("mousedown", dragStart);
-    carousel.addEventListener("mousemove", dragging);
-    document.addEventListener("mouseup", dragStop);
-    carousel.addEventListener("scroll", infiniteScroll);
-});
-      </script>
+        </script>
+        
+        
+        
 
       <!-- <section class="section chapters" id="chapters">
         <div class="container">
