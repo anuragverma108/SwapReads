@@ -325,6 +325,7 @@ button img {
 
     <div class="container mobile-container-styles" style="padding-left: 0;">
       <nav class="navbar nav_activated" data-navbar>
+        
         <ul class="navbar-list nav" style="border-radius: 5px;">
           <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex; background-color: none;">
             <img src="../images/final.png" class="logopic" style=" width: 105px;">
@@ -410,28 +411,28 @@ button img {
           </li>
           <style>
             .darkmode{
-                    white-space: nowrap;
-          display: inline-block;
-          background-color: none;
-          border: none;
-          text-decoration: none;
-          color: inherit;
-          padding: 0;
+                white-space: nowrap;
+                display: inline-block;
+                background-color: none;
+                border: none;
+                text-decoration: none;
+                color: inherit;
+                padding: 0;
 
-          transition: all 0.3s ease;
-    padding-left: 4px;
-    padding-right: 4px;
-    padding-top: 0px;
-    text-decoration: none;
+                transition: all 0.3s ease;
+                padding-left: 4px;
+                padding-right: 4px;
+                padding-top: 0px;
+                text-decoration: none;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    color: var(--charcoal);
-    padding: 8px 12px;
-    line-height: 2;
-    transition: var(--transition-1);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                color: var(--charcoal);
+                padding: 8px 12px;
+                line-height: 2;
+                transition: var(--transition-1);
             }
           </style>
           <li>
@@ -1083,51 +1084,72 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      applyThemePreferenceOnLoginPage();
-    });
+  </script>
 
-    function applyThemePreferenceOnLoginPage() {
-      let currentTheme = localStorage.getItem('currentTheme');
-      let themeClass = localStorage.getItem('theme');
+  <script>
 
-      if (currentTheme === 'dark' && themeClass) {
-        document.body.classList.add(themeClass);
-        
-        document.querySelectorAll('.note h1, .note h2, .navbar, .main, .login, .register input, #register, .register label').forEach(element => {
-          element.classList.add('dark-mode');
-        });
-    } else {
-        document.body.classList.remove(themeClass);
-    };
+    //   function sendMail(){
+    //         let params={
+    //             name:document.getElementById('name').value,
+    //             email:document.getElementById('email').value,
+    //             subject:document.getElementById('subject').value,
+    //             message:document.getElementById('message').value,
+    //             subscribe:document.getElementById('newsletter-email').value
+    //         }
+    //         EmailJSResponseStatus.send("service_lktb68z","template_w79vd94",params,"o6kveYmOSDrs0l1Mg")
+    //         .then(alert('Email sent successfully'))
+    //       }
+
+
+    // document.querySelector('subscribe-btn').addEventListener('submit', sendMail());
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+      const isDarkMode = isDarkModePreferred();
+      setDarkModePreference(!isDarkMode);
+      applyDarkModePreference();
+    }
+
+    // Function to apply dark mode preference
+    function applyDarkModePreference() {
+      const isDarkMode = isDarkModePreferred();
+      if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
+      } else {
+        document.body.classList.remove('dark-mode');
+        document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
+      }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      const currentTheme = localStorage.getItem('theme');
       const switchCheckbox = document.getElementById('switch');
-      const starRating = document.querySelector('.navbar-list');
-      const thankYouMessage = document.querySelector(".navbar");
-      const nav_item=document.querySelector('.navbar-item');
-      const logo=document.querySelector(".logo");
-
-      function applyDarkModeStyles() {
+    
+      if (!switchCheckbox) {
+        console.error("Switch checkbox not found!");
+        return;
+      }
+    
+      const applyDarkModeStyles = () => {
         document.body.classList.remove('light-mode');
         document.body.classList.add('dark-mode');
-        if (starRating) starRating.style.backgroundColor = '#1e1e1e';
-        if (thankYouMessage) thankYouMessage.style.backgroundColor = '#1e1c1c';
-        if (nav_item) nav_item.style.color = '#1e1c1c';
-        if(logo) logo.style.backgroundColor="#1e1c1c";
-      }
-
-      function applyLightModeStyles() {
+      };
+    
+      const applyLightModeStyles = () => {
         document.body.classList.remove('dark-mode');
         document.body.classList.add('light-mode');
-        if (starRating) starRating.style.backgroundColor = 'White';
-        if (thankYouMessage) thankYouMessage.style.backgroundColor = 'White';
-        if (nav_item) nav_item.style.color = '#1e1c1c';
-        if(logo) logo.style.backgroundColor="White";
-      }
-
-      function toggleDarkMode() {
+      };
+    
+      const initializeTheme = () => {
+        if (currentTheme === 'dark-mode') {
+          applyDarkModeStyles();
+          switchCheckbox.checked = true;
+        } else {
+          applyLightModeStyles();
+        }
+      };
+    
+      const handleThemeChange = () => {
         if (switchCheckbox.checked) {
           applyDarkModeStyles();
           localStorage.setItem('theme', 'dark-mode');
@@ -1135,22 +1157,12 @@ document.addEventListener("DOMContentLoaded", () => {
           applyLightModeStyles();
           localStorage.setItem('theme', 'light-mode');
         }
-      }
-
-      function applyDarkModePreference() {
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'dark-mode') {
-          applyDarkModeStyles();
-          switchCheckbox.checked = true;
-        } else {
-          applyLightModeStyles();
-          switchCheckbox.checked = false;
-        }
-      }
-
-      applyDarkModePreference();
-      switchCheckbox.addEventListener('change', toggleDarkMode);
+      };
+    
+      initializeTheme();
+      switchCheckbox.addEventListener('change', handleThemeChange);
     });
+    
   </script>
 
   <script>
