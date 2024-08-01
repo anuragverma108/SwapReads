@@ -3141,6 +3141,21 @@ body > .skiptranslate {
             }
         }
         </style>
+        <style>
+          #confirmationmessage {
+    position: fixed;
+    top: 42rem;
+    right: 10px;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+}
+
+        </style>
 
         <!--<form id="newsletterForm" type="newsletter" onsubmit="return showConfirmationMessage()">
           <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
@@ -3154,15 +3169,15 @@ body > .skiptranslate {
       </form>
      <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>-->
      <form id="newsform" onsubmit="return showConfirmationMessage();">
-      <label for="newsemail" class="news-form">Subscribe to our Newsletter</label>
+      <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
       <div class="row-flex display-flex">
-        <input type="email" id="new-email" name="email" placeholder="Email address"
-               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
-               title="Please enter a valid email address that ends with '.com'" required>
-        <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
+          <input type="email" id="new-email" name="email" placeholder="Email address"
+                 pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+                 title="Please enter a valid email address that ends with '.com'" required>
+          <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
       </div>
-    </form>
-    <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
+  </form>
+  <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
     
   <script>
  function showConfirmationMessage() {
@@ -3771,6 +3786,27 @@ close.classList.remove('open')
 count=0
 }
 })
+</script>
+<script>
+  function showConfirmationMessage() {
+    // Prevent the default form submission
+    event.preventDefault();
+
+    // Show the confirmation message
+    var confirmationMessage = document.getElementById('confirmationmessage');
+    confirmationMessage.style.display = 'block';
+
+    // Hide the message after 3 seconds
+    setTimeout(function() {
+        confirmationMessage.style.display = 'none';
+    }, 3000);
+
+    // Optionally, reset the form
+    document.getElementById('newsform').reset();
+
+    return false; // Prevent actual form submission
+}
+
 </script>
 </body>
 
