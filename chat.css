@@ -1,78 +1,152 @@
 /* Basic Styles */
 body {
-    background: #ffb2a8;
-    margin: 0;
     font-family: Arial, sans-serif;
+
+}
+
+.mainbox {
+    /* margin-top: 45rem; */
+    margin: 250px auto;
+    width: 800px;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    padding-top: 70px;
-}
-
-/* Main Container */
-#chat-container {
-    max-width: 90%;
-    margin: 80px auto 20px auto; /* Margin for top (avoiding fixed header) and bottom */
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background: white;
-    flex: 1;
-    overflow: hidden;
-    margin-top: 40vh;
-    background-color: var(--white);
 }
 
-/* User Input and Message Input */
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 #user-input, #message-input {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
-    width: 100%; /* Ensure full width usage */
-    box-sizing: border-box;
-}
-#user-input input, #message-input input {
-    width: 80%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-#user-input button, #message-input button {
-    width: 15%;
-    padding: 10px;
-    background-color: rgb(117, 48, 48);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-sizing: border-box;
+    padding: 15px;
+    background-color: #f5f5f5;
 }
 
-/* Messages Display */
+#username, #message {
+    flex-grow: 1;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 14px;
+    outline: none;
+}
+
+#start-chat, #send-message, #gift-button {
+    background-color: #ff9b9b;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#chat-box {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
 #messages {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    max-height: 300px;
+    flex-grow: 1;
     overflow-y: auto;
-    margin-bottom: 10px;
-    background:var(--white)
+    padding: 15px;
+    border: none;
 }
+
 .message {
-    margin-bottom: 5px;
-    padding: 5px;
-    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 18px;
 }
+
+.message:nth-child(odd) {
+    background-color: #fae5e5;
+    border-radius: 18px 18px 0 18px;
+    align-self: flex-end;
+}
+
+.message:nth-child(even) {
+    background-color: #f5f5f5;
+    border-radius: 18px 18px 18px 0;
+    align-self: flex-start;
+}
+
 .username {
     font-weight: bold;
+    margin-bottom: 5px;
 }
+
 .timestamp {
     font-size: 0.8em;
     color: #888;
+    margin-top: 5px;
 }
+
+#gift-button img {
+    width: 20px;
+    height: 20px;
+}
+
+#backbutton {
+    background-color: #ff9b9b;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+#backbutton a {
+    color: white;
+    text-decoration: none;
+}
+
+/* 
+.dropdown-menu {
+    display: none; 
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.dropdown-menu.active {
+    display: block;
+}
+
+.navbar-item {
+    position: relative;
+}
+
+.dropdown-menu-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu-item {
+    margin-top: 5px;
+}
+
+.dropdown-menu-item a {
+    color: black;
+    text-decoration: none;
+} */
 
 /* Header */
 .navbar {
@@ -128,7 +202,7 @@ a {
 }
 
 /* Back Button */
-#backbutton {
+/* #backbutton {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,7 +213,7 @@ a {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+} */
 
 /* Footer */
 footer {
@@ -148,8 +222,8 @@ footer {
     align-items: flex-start;
     background-color: #ff9b9b;
     font-family: sans-serif;
-    padding: 20px 0;
-    margin-top: 300px;
+    padding: 20px 0; 
+   margin-top: -200px;
     flex-wrap: wrap; 
 }
 
