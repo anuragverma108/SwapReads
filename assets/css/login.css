@@ -67,6 +67,7 @@ p {
 
 .navbar-link {
   text-decoration: none;
+  background-color: none;
 }
 
 .navbar-header {
@@ -82,6 +83,7 @@ p {
   font-size: 1.55rem;
   margin-left: 2rem;
   text-decoration: none;
+  background-color: none;
 }
 
 .pass-container{
@@ -193,7 +195,7 @@ p {
   bottom: 10%;
   transform: translateX(-50%);
   /* background-color: #240046; */
-  background-color: hsl(357, 37%, 62%);
+  background-color: var(--light-pink);
   max-height: 60rem;
   width: 100%;
   max-width: 50rem;
@@ -231,10 +233,13 @@ p {
 .login input{
   width: 100%;
 }
+.light-mode label{
+  color: black;
+}
 
 label {
-  color: #fff;
-  font-size: 3rem;
+  color: white;
+  font-size: 1.5rem;
   justify-content: center;
   display: flex;
   font-weight: bold;
@@ -286,7 +291,7 @@ input[type="password"]::-ms-reveal {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ccc;
+  color: #ffffff;
   font-size: 1.5rem;
   height: 1px;
   margin: 10px 0;
@@ -298,7 +303,7 @@ input[type="password"]::-ms-reveal {
   display: block;
   width: 50%;
   height: 1px;
-  background-color: #ccc;
+  background-color: #f8f8f8;
 }
 
 #or::before {
@@ -396,7 +401,7 @@ input[type="password"]::-ms-reveal {
 }
 
 .register {
-  background: #eee;
+  background-color: #eee;
   width:100%;
   font-family: var(--ff-poppins);
   border-radius: 90% / 10%;
@@ -495,8 +500,8 @@ input[type="password"]::-ms-reveal {
 .footer-bottom {
   padding-block: 20px;
   border-block-start: 1px solid rgb(169, 166, 166);
-  color: hsl(208, 7%, 46%);
-  font-size: 1.8rem;
+  color: white !important;
+  font-size: 1.2rem;
   line-height: 1.8;
   text-align: center;
 }
@@ -714,7 +719,7 @@ body.dark-mode {
   background-color: #1e1c1c;
 }
 .light-mode .navbar{
-  background-color: #e6e6e6;
+  /* background-color: #e6e6e6; */
   color:#000;
 }
 .dark-mode#login label {
@@ -727,10 +732,13 @@ body.dark-mode {
   background-color: #373737;
 }
 .light-mode .login{
-  background-color: white;
+  /* background-color: white; */
 }
 .dark-mode .logo{
   color:#e6e6e6;
+}
+.SwapReads .logo{
+  color: #e6e6e6;
 }
 .light-mode .logo{
   color:#1e1c1c;
@@ -746,8 +754,8 @@ body.dark-mode {
 .register input.dark-mode{
   background-color: #c3c3c3;
 }
-.dark-mode#register{
-  background-color: #373737;
+.dark-mode .register{
+  background-color: #a4a4a4 !important;
   color: #ededed;
 }
 #register.dark-mode:hover{
@@ -913,6 +921,7 @@ body.dark-mode {
   align-items: center;
   justify-content: center;
   padding: 0 5px;
+  margin-right:40px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.5s ease;
 }
@@ -995,17 +1004,27 @@ footer {
   text-align: justify;
   max-width: 600px;
   margin: 0 auto;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .foot-middle {
-  font-size: 1.6rem;
+  font-size: 1rem;
   text-align: center;
 }
 .foot-middle a{
-  font-size: 2rem;
+  font-size: 1.6rem;
+}
+.dark-mode .foot-middle a{
+  font-size: 1.6rem;
+  color: white;
 }
 
+.dark-mode .main{
+  background:linear-gradient(#1e1c1c, rgb(151, 115, 115)) ;
+}
+.dark-mode .form{
+background:transparent !important;
+}
 .foot-quick :hover {
   color: rgb(201, 168, 168);
 }
@@ -1020,7 +1039,10 @@ footer {
 .foot-middle h2 {
   text-align: center;
 }
-
+.foot-middle h2{
+  font-weight: bolder !important;
+  font-size: 2.5rem;
+}
 .nav-links {
   margin: 0;
 }
@@ -1033,6 +1055,7 @@ footer {
 
 .nav-links ul li {
   margin-bottom: 10px;
+  
   /* Add some spacing between list items */
 }
 
@@ -1048,7 +1071,7 @@ footer {
 
 .foot-middle h5 {
   color: rgb(57, 57, 57);
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 500;
   text-align: center;
 }
@@ -1338,4 +1361,54 @@ input[type="submit"]:hover {
     left:0;
     top:25%;
 }
+}
+
+@media only screen and (max-width:1063px){
+  .nav{
+      flex-direction: column;
+  }
+  .header{
+      flex-direction: column;
+      height: 53.8rem;
+      transition: 0.55s all ease-out;
+      padding-top: 5px;
+  }
+  .navbar-item{
+      margin-right: 40px;
+  }
+  .navbar-list{
+    position: relative;
+    top: 200px;
+  }
+  .hamburger{
+      display: block;
+  }
+  .nav-h{
+      height: 78px;
+      width: 100vw;
+  }
+  .vis-h{
+      opacity: 0;
+  }
+  .logo img{
+    position: relative;
+    top: 17px;
+    left: 350px;
+  }
+}
+
+@media only screen and (max-width:990px){
+  .header{
+    height: 0;
+  }
+  .navbar-list{
+    top: 0;
+  }
+  .logo img{
+    top: -9px;
+    left: 50px;
+  }
+}
+.navbar-item {
+  margin-top: 10px; /* Increase the top margin of each item */
 }

@@ -68,11 +68,11 @@
 
       <nav class="navbar nav_activated" data-navbar>
         <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
-          <img src="./assets/images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
+          <img src="./assets/images/final.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
         </a>
 
         <ul class="navbar-list">
-          <img src="./assets/images/new_logo_banner_dark.png" class="logopic" style=" width: 200px;">
+          <img src="./assets/images/final.png" class="logopic" style=" width: 150px;">
 
           <li class="navbar-item">
             <a href="index.html#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
@@ -490,15 +490,15 @@
 <!-- Testimonials -->
 
 
-  <div class="faq-section">
-    <h1 class="faq" id="faqq">Some Frequently Asked Questions</h1>
+  <div class="faqsection">
+    <h1 class="faqheading" id="faqh1">Some Frequently Asked Questions</h1>
   </br>
-    <div class="faq-container">
-      <div class="question">
+    <div class="faqcontainer">
+      <div class="questions">
         <h4>How does SwapReads work ?</h4>
         <i class="icon fa-solid fa-caret-down"></i>
       </div>
-      <div class="answers">
+      <div class="answer">
         <p>SwapReads is a global book exchange platform where users can create profiles,
           list the books they're willing to swap, and can find other users collections.
           When you find a book you're interested in, you can find suitable offers and can read that book. It's that
@@ -506,12 +506,12 @@
       </div>
     </div>
 
-    <div class="faq-container">
-      <div class="question">
+    <div class="faqcontainer">
+      <div class="questions">
         <h4>How does SwapReads contribute to sustainability?</h4>
         <i class="icon fa-solid fa-caret-down"></i>
       </div>
-      <div class="answers">
+      <div class="answer">
         <p>
           By facilitating book swaps, SwapReads promotes a more sustainable reading culture by
           reducing the demand for new book production. This helps minimize the environmental impact
@@ -520,28 +520,117 @@
       </div>
     </div>
 
-    <div class="faq-container">
-      <div class="question">
+    <div class="faqcontainer">
+      <div class="questions">
         <h4>How do I join the SwapReads community?</h4>
         <i class="icon fa-solid fa-caret-down"></i>
       </div>
-      <div class="answers">
+      <div class="answer">
         <p>Signing up for SwapReads is quick and easy. Simply visit our website, create a profile, and start listing the
           books you're eager to swap. You'll be joining a vibrant community of passionate readers in no time!</p>
       </div>
     </div>
 
-    <div class="faq-container">
-      <div class="question">
+    <div class="faqcontainer">
+      <div class="questions">
         <h4>How do I ensure the safety and security of my personal information on SwapReads</h4>
         <i class="icon fa-solid fa-caret-down"></i>
       </div>
-      <div class="answers">
+      <div class="answer">
         <p>We take user privacy and security seriously. Your personal information is encrypted and stored securely on
           our servers. </p>
       </div>
     </div>
+    <div class="faqcontainer">
+      <div class="questions">
+        <h4>Can I read the books online without downloading them?</h4>
+        <i class="icon fa-solid fa-caret-down"></i>
+      </div>
+      <div class="answer">
+        <p> Yes, many of the free books available on our website can be read online</p>
+      </div>
+    </div>
+    <div class="faqcontainer">
+      <div class="questions">
+        <h4>How can I download a free  book?</h4>
+        <i class="icon fa-solid fa-caret-down"></i>
+      </div>
+      <div class="answer">
+        <p>  To download a free book, simply click on the "Download" button next to the book you are interested in. You may need to sign up or log in to access the download link.</p>
+      </div>
+    </div>
   </div>
+  <style>
+    .faqcontainer {
+      width: 80%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-left:450px;
+      margin-bottom: 20px;
+    }
+
+   .faqheading{
+    color:darkred;;
+    margin-left:525px;
+    font-family: var(--ff-philosopher);
+    font-size:30px;
+   }
+
+    .questions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      padding: 10px;
+      background-color: hsl(0deg 100% 80.49%);
+      color: #fff;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      color: var(--sonic-silver);
+      font-weight: bold;
+      justify-content: space-between;
+    }
+
+    .questions:hover {
+      background-color:#FFB2A8;
+    }
+
+    .questions h4 {
+      margin: 0;
+    }
+
+    .answer {
+      display: none;
+      padding: 10px;
+      background-color:#FFB2A8;
+      border-left: 3px solid darkred;
+      border-radius: 5px;
+      margin-top: 5px;
+      color:var(--sonic-silver);
+    }
+    .answer:hover{
+      background-color:#FFB2A8;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqContainers = document.querySelectorAll('.faqcontainer');
+
+      faqContainers.forEach(container => {
+        const question = container.querySelector('.questions');
+        const answer = container.querySelector('.answer');
+        const icon = container.querySelector('.icon');
+
+        question.addEventListener('click', () => {
+          answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+          icon.classList.toggle('fa-caret-down');
+          icon.classList.toggle('fa-caret-up');
+        });
+      });
+    });
+  </script>
   <br /><br />
 
   <!--
@@ -726,7 +815,6 @@
 
 
 
-
     <!-- adding privacy policy and copyright popup-->
     <div style="text-align: center; align-items: center;">
       <p style="text-align: center">
@@ -740,6 +828,48 @@
       <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
     </div>
     </div>
+
+    
+    <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
+      <button class="Btn">
+        <svg height="1.2em" class="arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path></svg>
+      <p class="text">Back to Top</p>
+      </button>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const backToTopButton = document.getElementById('back-to-top-container');
+  
+        function checkButtonVisibility() {
+          if (window.innerWidth > 100 && window.scrollY > 100) {
+            backToTopButton.style.display = 'block';
+          } else {
+            backToTopButton.style.display = 'none';
+          }
+        }
+  
+        window.addEventListener('scroll', checkButtonVisibility);
+        window.addEventListener('resize', checkButtonVisibility);
+  
+        backToTopButton.addEventListener('click', function () {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+  
+        checkButtonVisibility();
+      });
+  
+    </script>
+
+    <style>
+      #back-to-top-container {
+        position: fixed;
+      }
+    </style>
+
 
     <!-- Copyright Policy Modal -->
     <!-- <div id="copyrightPolicyModal" class="modal">

@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendMessageButton = document.getElementById('send-btn');
     const chatWindow = document.getElementById('chat-window');
     const chatList = document.getElementById('chat-list');
-    const connectButton = document.getElementById('connect-btn');
 
     const commonQuestions = [
         { question: 'What are your favorite books?', answer: 'My favorite books are The Great Gatsby and Sherlock Holmes.' },
@@ -40,16 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayUsers(filter = '') {
         userList.innerHTML = '';
         users.filter(user => user.interests.toLowerCase().includes(filter.toLowerCase()) && user.username !== currentUser.username)
-             .forEach(user => {
-                 const userItem = document.createElement('div');
-                 userItem.classList.add('user-item');
-                 userItem.innerHTML = `<h4>${user.username}</h4>
+            .forEach(user => {
+                const userItem = document.createElement('div');
+                userItem.classList.add('user-item');
+                userItem.innerHTML = `<h4>${user.username}</h4>
                                        <p>Location: ${user.location}</p>
                                        <p>Genres: ${user.genres}</p>
                                        <p>Books: ${user.books}</p>
                                        <button class="connect-btn" data-username="${user.username}">Connect</button>`;
-                 userList.appendChild(userItem);
-             });
+                userList.appendChild(userItem);
+            });
     }
 
     function updateConnections() {
@@ -76,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             messageItem.textContent = `${message.sender}: ${message.text}`;
             chatWindow.appendChild(messageItem);
         });
+        chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to latest message
     }
 
     displayUsers();
@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 messages[username] = [];
                 updateConnections();
                 alert(`Connected with ${username}`);
+                e.target.disabled = true; // Disable connect button after connecting
             } else {
                 alert(`Already connected with ${username}`);
             }
@@ -125,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     displayMessages(chatUsername);
                 }, 1000);
             } else {
-                alert('Select a chat first');
+                alert('Select a chat first'); // Alert if no chat is selected
             }
         }
     });
