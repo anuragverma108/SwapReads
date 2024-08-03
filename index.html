@@ -2594,7 +2594,7 @@ body > .skiptranslate {
             <h3>Rate Us</h3>
             <p>Tell us about your experience!</p>
         </div>
-
+    
         <div class="stars">
             <input type="radio" id="star5" name="rate" value="5" />
             <label for="star5">😭</label>
@@ -2607,23 +2607,81 @@ body > .skiptranslate {
             <input type="radio" id="star1" name="rate" value="1" />
             <label for="star1">😍</label>
         </div>
-
+    
         <div class="feedback-container">
             <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
         </div>
-
+    
         <div class="button">
-            <button id="submit-btn">Submit</button>
+          
+            <center><button id="submit-btn">Submit</button></center>
         </div>
     </div>
-
+    
+    <div id="toastMessage" class="toast-message"></div>
+    
     <div id="confirmationModal">
         <div class="modal-content">
             <span class="close" onclick="closeConfirmationModal()">&times;</span>
             <p id="confirmationMessage"></p>
         </div>
     </div>
-    <div id="toastMessage" class="toast-message"></div>
+    <script>
+     document.addEventListener("DOMContentLoaded", function() {
+    const toastMessage = document.getElementById("toastMessage");
+
+    document.getElementById("submit-btn").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        let selectedEmoji = document.querySelector('input[name="rate"]:checked');
+        let feedback = document.getElementById("feedback").value.trim();
+        
+        if (selectedEmoji && feedback !== "") {
+            // Show success toast message
+            toastMessage.textContent = "Feedback submitted successfully :)";
+            toastMessage.style.backgroundColor = "green"; // Green color for success
+            toastMessage.style.color = "white";
+            toastMessage.style.borderRadius = "5px";
+            toastMessage.style.position = "fixed";
+                      toastMessage.style.display = "block";
+
+            // Hide toast message after 3 seconds (adjust as needed)
+            setTimeout(function() {
+                toastMessage.style.display = "none";
+            }, 3000);
+
+            // Reset form fields
+            document.getElementById("feedback").value = "";
+            let starInputs = document.querySelectorAll('input[name="rate"]');
+            starInputs.forEach(input => {
+                input.checked = false;
+            });
+        } else {
+            // Show failure toast message
+            toastMessage.textContent = "Select Emoji and give Feedback :(";
+            toastMessage.style.backgroundColor = "red"; // Red color for failure
+            toastMessage.style.color = "white";
+            toastMessage.style.borderRadius = "5px";
+            toastMessage.style.position = "fixed";
+            
+            toastMessage.style.display = "block";
+
+            // Hide toast message after 3 seconds (adjust as needed)
+            setTimeout(function() {
+                toastMessage.style.display = "none";
+            }, 3000);
+            
+            document.getElementById("feedback").value = "";
+            let starInputs = document.querySelectorAll('input[name="rate"]');
+            starInputs.forEach(input => {
+                input.checked = false;
+            });
+        }
+    });
+});
+
+  </script>
+  <div id="toastMessage"></div>
 
     <!-- Confirmation Modal -->
     <div id="confirmationModal" class="modal">
