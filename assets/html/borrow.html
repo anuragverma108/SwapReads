@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book-Related Blogs and Articles</title>
+    <style>
+       
+
+        header {
+            background-color:  #f06d87;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1em;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 1em;
+        }
+
+        section {
+            margin-bottom: 2em;
+        }
+
+        h2 {
+            color: #450105;
+        }
+
+        
+        footer {
+            background-color: #f06d87;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .ul{
+            text-decoration: black;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff5c4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2em;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 1.5em;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group button {
+            display: block;
+            width: 100%;
+            padding: 0.75em;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #3498db;
+        }
+
+        .books-list {
+            margin: 2em 0;
+        }
+
+        .book-card {
+            
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1em;
+            margin-bottom: 1em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-card h4 {
+            margin: 0 0 0.5em;
+            color: #2980b9;
+        }
+
+        .book-card p {
+            margin: 0.5em 0;
+        }
+
+        .book-card button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0.5em 1em;
+            cursor: pointer;
+        }
+
+        .book-card button:hover {
+            background-color: #c0392b;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: black;">SwapReads</h1>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">About Us</a></li>
+                <li><a href="./index.html">Contact</a></li>
+                <li><a href="#authors">Authors</a></li>
+                <li><a href="#community">Community</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Book Borrowing System</h2>
+            <div class="form-group">
+                <label for="bookTitle">Book Title</label>
+                <input type="text" id="bookTitle" placeholder="Enter book title">
+            </div>
+            <div class="form-group">
+                <label for="lenderName">Lender's Name</label>
+                <input type="text" id="lenderName" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="returnDate">Return By Date</label>
+                <input type="date" id="returnDate">
+            </div>
+            <div class="form-group">
+                <button onclick="lendBook()">Lend Book</button>
+            </div>
+    
+            <div class="books-list">
+                <h3>Available Books</h3>
+                <div id="availableBooks"></div>
+            </div>
+    
+            <div class="books-list">
+                <h3>Borrowed Books</h3>
+                <div id="borrowedBooks"></div>
+            </div>
+        </div>
+    
+        <script>
+            const availableBooks = [];
+            const borrowedBooks = [];
+    
+            function lendBook() {
+                const bookTitle = document.getElementById('bookTitle').value;
+                const lenderName = document.getElementById('lenderName').value;
+                const returnDate = document.getElementById('returnDate').value;
+    
+                if (bookTitle && lenderName && returnDate) {
+                    const book = {
+                        title: bookTitle,
+                        lender: lenderName,
+                        returnDate: returnDate,
+                        id: Date.now()
+                    };
+    
+                    availableBooks.push(book);
+                    displayBooks();
+                    clearForm();
+                } else {
+                    alert('Please fill in all fields');
+                }
+            }
+    
+            function clearForm() {
+                document.getElementById('bookTitle').value = '';
+                document.getElementById('lenderName').value = '';
+                document.getElementById('returnDate').value = '';
+            }
+    
+            function displayBooks() {
+                const availableBooksContainer = document.getElementById('availableBooks');
+                const borrowedBooksContainer = document.getElementById('borrowedBooks');
+    
+                availableBooksContainer.innerHTML = '';
+                borrowedBooksContainer.innerHTML = '';
+    
+                availableBooks.forEach(book => {
+                    const bookCard = document.createElement('div');
+                    bookCard.classList.add('book-card');
+                    bookCard.innerHTML = `
+                        <h4>${book.title}</h4>
+                        <p>Lender: ${book.lender}</p>
+                        <p>Return By: ${book.returnDate}</p>
+                        <button onclick="borrowBook(${book.id})">Borrow</button>
+                    `;
+                    availableBooksContainer.appendChild(bookCard);
+                });
+    
+                borrowedBooks.forEach(book => {
+                    const bookCard = document.createElement('div');
+                    bookCard.classList.add('book-card');
+                    bookCard.innerHTML = `
+                        <h4>${book.title}</h4>
+                        <p>Lender: ${book.lender}</p>
+                        <p>Return By: ${book.returnDate}</p>
+                        <button onclick="returnBook(${book.id})">Return</button>
+                    `;
+                    borrowedBooksContainer.appendChild(bookCard);
+                });
+            }
+    
+            function borrowBook(bookId) {
+                const bookIndex = availableBooks.findIndex(book => book.id === bookId);
+                const borrowedBook = availableBooks.splice(bookIndex, 1)[0];
+                borrowedBooks.push(borrowedBook);
+                displayBooks();
+            }
+    
+            function returnBook(bookId) {
+                const bookIndex = borrowedBooks.findIndex(book => book.id === bookId);
+                const returnedBook = borrowedBooks.splice(bookIndex, 1)[0];
+                availableBooks.push(returnedBook);
+                displayBooks();
+            }
+        </script>    
+
+    </main>
+    <footer>
+        <p style="color: rgb(0, 0, 0);">&copy; 2024 SwapReads. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal for displaying content -->
+    <div id="content-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const buttons = document.querySelectorAll(".author button");
+            const modal = document.getElementById("content-modal");
+            const modalBody = document.getElementById("modal-body");
+            const closeButton = document.querySelector(".close-button");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function() {
+                    const author = this.getAttribute("data-author");
+                    const action = this.getAttribute("data-action");
+                    let content = '';
+
+                    switch(action) {
+                        case 'interview':
+                            content = `<h2>Interview with ${author.replace(/-/g, ' ')}</h2>
+                                       <p>${author.replace(/-/g, ' ')} shares insights into their writing process, latest work, and experiences as an author.</p>`;
+                            break;
+                        case 'articles':
+                            content = `<h2>Articles by ${author.replace(/-/g, ' ')}</h2>
+                                       <ul>
+                                           <li><a href="#">The Craft of Writing</a></li>
+                                           <li><a href="#">Understanding Narrative Structures</a></li>
+                                       </ul>`;
+                            break;
+                        case 'recommendations':
+                            content = `<h2>Reading Recommendations by ${author.replace(/-/g, ' ')}</h2>
+                                       <ul>
+                                           <li><a href="#">Book Title 1</a> by Author 1</li>
+                                           <li><a href="#">Book Title 2</a> by Author 2</li>
+                                       </ul>`;
+                            break;
+                        default:
+                            content = '<p>No content available.</p>';
+                    }
+
+                    modalBody.innerHTML = content;
+                    modal.style.display = "block";
+                });
+            });
+
+            closeButton.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+
+            window.addEventListener("click", function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
