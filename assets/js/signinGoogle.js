@@ -1,14 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
-
-// const firebaseConfig = {
-//     apiKey: 'AIzaSyCu2WXknNce_49J5BLuR1DyHm319hu6dWc',
-//     authDomain: 'login-13127.firebaseapp.com',
-//     projectId: 'login-13127',
-//     storageBucket: 'login-13127.appspot.com',
-//     messagingSenderId: '151656578300',
-//     appId: '1:151656578300:web:c67208ab6ec437c844ab79'
-// };
+import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAIDh842xGC_NZj6pMcB9THjNQ1DyUVnZU",
@@ -21,59 +12,63 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-auth.languageCode = 'en'
-const provider = new GoogleAuthProvider();
+auth.languageCode = 'en';
 
-const google_login = document.getElementById("google-sign-in")
-google_login.addEventListener("click", function () {
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
 
-    signInWithPopup(auth, provider)
-
+const googleLogin = document.getElementById("google-sign-in");
+googleLogin.addEventListener("click", function () {
+    signInWithPopup(auth, googleProvider)
         .then((result) => {
-            const credential = GoogleAuthProvider.credentialFromResult(result);
             const user = result.user;
-            //console.log(user);
-            sessionStorage.setItem('user-info',JSON.stringify({ //set user details in session storage 
-                username:user.displayName
-            }))
-
-          //  window.location.href="./index.html";
-            alert(user.email + " Login successfully!!!");
-            
-            // document.querySelector('#logout').style.display = 'block';
-            // alert("success");
-        }).catch((error) => {
-
-            const errorCode = error.code;
+            sessionStorage.setItem('user-info', JSON.stringify({ username: user.displayName }));
+            alert(user.email + " logged in successfully!");
+        })
+        .catch((error) => {
             const errorMessage = error.message;
             alert(errorMessage);
         });
+});
 
-})
-
-
-const google_signup = document.getElementById("google-signup")
-google_signup.addEventListener("click", function () {
-
-    signInWithPopup(auth, provider)
-
+const googleSignup = document.getElementById("google-signup");
+googleSignup.addEventListener("click", function () {
+    signInWithPopup(auth, googleProvider)
         .then((result) => {
-            const credential = GoogleAuthProvider.credentialFromResult(result);
             const user = result.user;
             console.log(user);
-            
-            //window.location.href="./index.html";
-            alert(user.email + " Login successfully!!!");
-          
-        }).catch((error) => {
-
-            const errorCode = error.code;
+            alert(user.email + " signed up successfully!");
+        })
+        .catch((error) => {
             const errorMessage = error.message;
+            alert(errorMessage);
         });
+});
 
-})
+const facebookLogin = document.getElementById("facebook-sign-in");
+facebookLogin.addEventListener("click", function () {
+    signInWithPopup(auth, facebookProvider)
+        .then((result) => {
+            const user = result.user;
+            sessionStorage.setItem('user-info', JSON.stringify({ username: user.displayName }));
+            alert(user.email + " logged in successfully!");
+        })
+        .catch((error) => {
+            const errorMessage = error.message;
+            alert(errorMessage);
+        });
+});
 
-
-
-
-
+const facebookSignup = document.getElementById("facebook-signup");
+facebookSignup.addEventListener("click", function () {
+    signInWithPopup(auth, facebookProvider)
+        .then((result) => {
+            const user = result.user;
+            console.log(user);
+            alert(user.email + " signed up successfully!");
+        })
+        .catch((error) => {
+            const errorMessage = error.message;
+            alert(errorMessage);
+        });
+});
