@@ -83,23 +83,137 @@
     }
 
     
-   
-    /* Theme Change Button Style */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .action {
+      position: absolute;
+      right: 600px; 
+      top: 15px; 
+    }
+
+    .action .profile {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .action .profile img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .action .menu {
+      position: absolute;
+      top: 120px;
+      right: -10px;
+      padding: 10px 20px;
+      background: #fff;
+      width: 200px;
+      box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      transition: 0.5s;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .action .menu.active {
+      top: 80px;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .action .menu::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      right: 28px;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      transform: rotate(45deg);
+    }
+
+    .action .menu h3 {
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+      padding: 20px 0;
+      font-weight: 500;
+      color: #555;
+      line-height: 1.5em;
+    }
+
+    .action .menu h3 span {
+      font-size: 14px;
+      color: #cecece;
+      font-weight: 300;
+    }
+
+    .action .menu ul li {
+      list-style: none;
+      padding: 16px 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+    }
+
+    .action .menu ul li img {
+      max-width: 20px;
+      margin-right: 10px;
+      opacity: 0.5;
+      transition: 0.5s;
+    }
+
+    .action .menu ul li:hover img {
+      opacity: 1;
+    }
+
+    .action .menu ul li a {
+      display: inline-flex;
+      text-align: center;
+      padding-left: 5%;
+      font-weight: 300;
+      font-size: 19px;
+      text-decoration: none;
+      color: #555;
+      font-weight: 500;
+      transition: 0.5s;
+    }
+
+    .action .menu ul li:hover a {
+      color: #ff5d94;
+      font-size: 21px;
+    }
+
+    /* Position the toggle button to the right */
+    .switch-container {
+      position: absolute;
+      right: 100px; /* Adjust this value to move the button more to the right */
+      top: 15px; /* Adjust this value to move the button vertically */
+    }
+
+    /* For responsiveness */
     @media (max-width: 990px) {
       .switch-container {
-        margin-top: 3.2rem;
-        margin-right: -0.5rem;
+        right: 90px; /* Adjust this value for smaller screens */
       }
     }
+
     @media (max-width: 575px) {
       .switch-container {
-        margin-top: 2.4rem;
-        margin-right: -0.5rem;
-      }
-      /* Navbar Toggle Button placed in center */
-      .nav-toggle-btn{
-        margin-top: -2rem;
-        margin-left: 2.2rem;
+        right: 20px; /* Adjust this value for smaller screens */
       }
     }
 
@@ -140,7 +254,22 @@
 #quicklinks .foot-quick a i {
   margin-right: 5px; /* Adjust spacing between icon and text */
 }
-
+.dark-mode .fas{
+  color:white;
+}
+.dark-mode .flinks{
+  color:white;
+}
+.dark-mode .finput{
+      color: white;
+      background-color: transparent; 
+      padding: 10px; 
+      border: 1px solid white;
+      
+}
+.dark-mode .finput::placeholder {
+      color: rgba(255, 255, 255, 0.6); 
+    }
 .socialmediaicons a {
     display: inline;
     text-align: center;
@@ -150,18 +279,31 @@
     font-size: 20px;
   }
 
-
-   
-.socialmediaicons .fa-instagram:hover{
-  background: radial-gradient(circle at 30% 110%,
-  #ffdb8b 0%,
-  #ee653d 25%,
-  #d42e81 50%,
-  #a237b6 75%,
-  #3e57bc 100%);
+  .socialmediaicons .fa-instagram {
+  display: inline-block;
+  width: 30px; 
+  height: 30px; 
+  text-align: center;
+  line-height: 30px; 
   border-radius: 10px;
-  color: white;
-}   
+  background: transparent;
+  color: #000000;
+  transition: background 0.3s, transform 0.3s; 
+}
+
+.socialmediaicons .fa-instagram:hover {
+  background: radial-gradient(circle at 30% 110%, 
+                               #ffdb8b 0%, 
+                               #ee653d 25%, 
+                               #d42e81 50%, 
+                               #a237b6 75%, 
+                               #3e57bc 100%);
+  background-clip: padding-box;
+  border-radius: 10px; 
+  color: white; 
+  transform: scale(1.1); 
+  
+}  
 .socialmediaicons .fa-facebook:hover{
   color: blue;
 }   
@@ -1353,16 +1495,27 @@ body > .skiptranslate {
         })
       </script>
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-    <script>
-      function loadGoogleTranslate() {
-        new google.translate.TranslateElement({
-          pageLanguage: 'en'
-        }, 'google_element');
-      }
-
-
-
-    </script>
+  
+       <div className="wrapper col-md-3 col-12" style={{ justifyContent: 'center', display: 'flex' }}>
+            <div id="google_element"></div>
+            <Script
+              src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"
+              strategy="afterInteractive"
+            />
+            <Script
+              id="google-translate"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  function loadGoogleTranslate() {
+                    new google.translate.TranslateElement({
+                      pageLanguage: 'en'
+                    }, 'google_element');
+                  }
+                `,
+              }}
+            />
+          </div>
     <script>
       // const hamburger=document.querySelector('.hamburger');
       // const head=document.querySelector('.header');
@@ -3219,20 +3372,20 @@ body > .skiptranslate {
         <div id="quicklinks" class="row">
           <div class="col-md-6">
             <ul>
-              <li class="foot-quick" style="color: white;"><a href="#home" onclick="lenis.scrollTo('#home')"><i class="fas fa-home"></i> Home</a></li>
-              <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')"><i class="fas fa-book"></i> Benefits</a></li>
-              <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i> Literary</a></li>
-              <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i> Pricing</a></li>
-              <li class="foot-quick"><a href="./assets/html/bookrecommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i>Recommend</a></li>
+              <li class="foot-quick" style="color: white;"><a href="#home" onclick="lenis.scrollTo('#home')"><i class="fas fa-home"></i><p class="flinks">Home</p></a></li>
+              <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')"><i class="fas fa-book"></i> <p class="flinks">Benefits</p></a></li>
+              <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i> <p class="flinks">Literary</p></a></li>
+              <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i><p class="flinks">Pricing</p> </a></li>
+              <li class="foot-quick"><a href="./assets/html/bookrecommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><p class="flinks">Recommend</p></a></li>
             </ul>
           </div>
           <div class="col-md-6">
             <ul>
-              <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-exchange-alt"></i> Swap</a></li>
-              <li class="foot-quick"><a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-file-pdf"></i> E-Book</a></li>
-              <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-info-circle"></i> About</a></li>
-              <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')"><i class="fas fa-envelope"></i> Contact</a></li>
-              <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')"><i class="fas fa-question-circle"></i> FAQ</a></li>
+              <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-exchange-alt"></i><p class="flinks">Swap</p> </a></li>
+              <li class="foot-quick"><a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-file-pdf"></i> <p class="flinks">E-Book</p></a></li>
+              <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-info-circle"></i> <p class="flinks">About</p></a></li>
+              <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')"><i class="fas fa-envelope"></i><p class="flinks">Contact</p> </a></li>
+              <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')"><i class="fas fa-question-circle"></i> <p class="flinks">FAQ</p></a></li>
             </ul>
           </div>
         </div>
