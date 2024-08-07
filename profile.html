@@ -19,14 +19,14 @@
             padding: 0;
             box-sizing: border-box;
             font-family: Arial, sans-serif;
-            height: 100vh; /* Ensure body takes full height of the viewport */
-            overflow: hidden; /* Prevent scrolling on the body */
+            height: 100vh;
+            overflow: hidden;
         }
 
         .profile-container {
             display: flex;
-            height: 100vh; /* Ensure it takes the full height of the viewport */
-            overflow-y:scroll;
+            height: 100vh;
+            overflow-y: scroll;
         }
 
         .profile-sidebar {
@@ -35,14 +35,14 @@
             background: #f57d7d;
             border-right: 1px solid #ddd;
             box-sizing: border-box;
-            overflow-y: auto; /* Allow scrolling if content overflows */
+            overflow-y: auto;
         }
 
         .profile-main {
             flex: 1;
             padding: 20px;
             box-sizing: border-box;
-            overflow-y: auto; /* Allow scrolling if content overflows */
+            overflow-y: auto;
         }
 
         .profile-last-login {
@@ -141,6 +141,21 @@
             margin-bottom: 20px;
             text-align: center;
         }
+
+        .clear-item-btn, .clear-wishlist-btn {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+            transition: background 0.3s;
+        }
+
+        .clear-item-btn:hover, .clear-wishlist-btn:hover {
+            background: #d32f2f;
+        }
     </style>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
@@ -176,11 +191,12 @@
             </div>
             <div class="profile-section">
                 <h2>Wishlist</h2>
-                <ul class="wishlist">
-                    <li>Product 1</li>
-                    <li>Product 2</li>
-                    <li>Product 3</li>
+                <ul class="wishlist" id="wishlist">
+                    <li>Product 1 <button class="clear-item-btn" onclick="clearWishlistItem(this)">Remove</button></li>
+                    <li>Product 2 <button class="clear-item-btn" onclick="clearWishlistItem(this)">Remove</button></li>
+                    <li>Product 3 <button class="clear-item-btn" onclick="clearWishlistItem(this)">Remove</button></li>
                 </ul>
+                <button class="clear-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
             </div>
             <div class="profile-section">
                 <h2>Saved Addresses</h2>
@@ -236,109 +252,129 @@
             }
             if (lastLoginTime) {
                 const loginTimeElement = document.getElementById("last-login-time");
-                loginTimeElement.textContent = `Last login: ${new Date(lastLoginTime).toLocaleString()}`;
-                loginTimeElement.style.opacity = 1; // Ensure it's visible after animation
-            } else {
-                // Set last login time if not already set
-                setLastLoginTime();
+                loginTimeElement.textContent = `Last login: ${lastLoginTime}`;
+                loginTimeElement.style.opacity = 1;
             }
 
-            // Calculate profile completion percentage
-            calculateProfileCompletion();
+            // Update Profile Completion
+            updateProfileCompletion();
 
-            // Add personalized greeting
-            addPersonalizedGreeting();
+            // Set personalized greeting
+            setPersonalizedGreeting();
 
-            // Dynamically add recent activities
+            // Load activities
+            loadActivities();
+
+            // Load notifications
+            loadNotifications();
+        });
+
+        function setPersonalizedGreeting() {
+            const now = new Date();
+            const hours = now.getHours();
+            let greeting = "Hello";
+
+            if (hours < 12) {
+                greeting = "Good morning";
+            } else if (hours < 18) {
+                greeting = "Good afternoon";
+            } else {
+                greeting = "Good evening";
+            }
+
+            const profileName = document.querySelector(".profile-name").textContent;
+            document.getElementById("greeting").textContent = `${greeting}, ${profileName}!`;
+        }
+
+        function updateProfileCompletion() {
+            const requiredFields = ["profileName", "profileEmail", "profilePhone"];
+            let filledFields = 0;
+
+            requiredFields.forEach(field => {
+                if (localStorage.getItem(field)) {
+                    filledFields++;
+                }
+            });
+
+            const completionPercentage = Math.round((filledFields / requiredFields.length) * 100);
+            document.getElementById("completion-percentage").textContent = `${completionPercentage}%`;
+            document.getElementById("progress-bar").style.width = `${completionPercentage}%`;
+        }
+
+        function editProfile() {
+            // Redirect to the profile editing page
+            window.location.href = "edit_profile.html";
+        }
+
+        function loadActivities() {
             const activities = [
-                "Logged in",
-                "Viewed product 'Product 1'",
-                "Added 'Product 2' to wishlist",
-                "Checked out order #1234"
+                "You viewed Product 1",
+                "You added Product 2 to your cart",
+                "You made a purchase of Product 3"
             ];
+
             const activityList = document.getElementById("activity-list");
             activities.forEach((activity, index) => {
                 const li = document.createElement("li");
                 li.textContent = activity;
-                if (index < 2) {
+                if (index < 3) {
                     li.classList.add("visible");
                 }
                 activityList.appendChild(li);
             });
+        }
 
-            // Dynamically add notifications
+        function toggleActivities() {
+            const activityListItems = document.querySelectorAll(".activity-list li");
+            const readMoreBtn = document.getElementById("read-more");
+
+            activityListItems.forEach(item => {
+                item.classList.toggle("visible");
+            });
+
+            if (readMoreBtn.textContent === "Read More") {
+                readMoreBtn.textContent = "Show Less";
+            } else {
+                readMoreBtn.textContent = "Read More";
+            }
+        }
+
+        function loadNotifications() {
             const notifications = [
-                "Your order #5678 has been shipped",
-                "New product 'Product 4' added to wishlist",
-                "Price drop alert on 'Product 3'"
+                "Your order #1234 has been shipped",
+                "Your order #5678 is out for delivery",
+                "Your order #91011 has been delivered"
             ];
+
             const notificationList = document.getElementById("notification-list");
             notifications.forEach(notification => {
                 const li = document.createElement("li");
                 li.textContent = notification;
                 notificationList.appendChild(li);
             });
-        });
-
-        function editProfile() {
-            window.location.href = "./assets/html/profileedit.html";
         }
 
-        // Set last login time when the user logs in (first visit)
-        function setLastLoginTime() {
-            const now = new Date().toISOString();
-            localStorage.setItem("lastLoginTime", now);
-            const loginTimeElement = document.getElementById("last-login-time");
-            loginTimeElement.textContent = `Last login: ${new Date(now).toLocaleString()}`;
-            loginTimeElement.style.opacity = 1; // Ensure it's visible after animation
+        function clearWishlist() {
+            const wishlist = document.getElementById("wishlist");
+            wishlist.innerHTML = ""; // Clear all items from the wishlist
+            // Optionally, you can also clear the wishlist from localStorage if needed
+            // localStorage.removeItem("wishlistItems");
         }
 
-        function calculateProfileCompletion() {
-            let completedFields = 0;
-            const totalFields = 3; // Assuming name, email, and phone are the fields
-
-            if (localStorage.getItem("profileName")) completedFields++;
-            if (localStorage.getItem("profileEmail")) completedFields++;
-            if (localStorage.getItem("profilePhone")) completedFields++;
-
-            const completionPercentage = Math.round((completedFields / totalFields) * 100);
-            document.getElementById("completion-percentage").textContent = `${completionPercentage}%`;
-            document.getElementById("progress-bar").style.width = `${completionPercentage}%`;
+        function clearWishlistItem(button) {
+            const item = button.parentElement; // Get the parent list item
+            item.remove(); // Remove the item from the list
+            // Optionally, you can also update the wishlist in localStorage if needed
+            // updateWishlistInLocalStorage();
         }
 
-        function addPersonalizedGreeting() {
-            const now = new Date();
-            const hour = now.getHours();
-            let greeting = "Hello";
-
-            if (hour < 12) {
-                greeting = "Good morning";
-            } else if (hour < 18) {
-                greeting = "Good afternoon";
-            } else {
-                greeting = "Good evening";
-            }
-
-            const name = localStorage.getItem("profileName") || "User";
-            document.getElementById("greeting").textContent = `${greeting}, ${name}!`;
-        }
-
-        function toggleActivities() {
-            const activityList = document.getElementById("activity-list");
-            const readMore = document.getElementById("read-more");
-            const activities = activityList.querySelectorAll("li");
-
-            activities.forEach((activity, index) => {
-                if (index >= 2) {
-                    activity.classList.toggle("visible");
-                }
+        // Example function to update the wishlist in localStorage (if you're using localStorage)
+        function updateWishlistInLocalStorage() {
+            const wishlistItems = [];
+            document.querySelectorAll(".wishlist li").forEach(item => {
+                wishlistItems.push(item.textContent.trim());
             });
-
-            if (readMore.textContent === "Read More") {
-                readMore.textContent = "Show Less";
-            } else {
-                readMore.textContent = "Read More";
-            }
+            localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
         }
     </script>
 </body>
