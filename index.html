@@ -1308,16 +1308,27 @@ body > .skiptranslate {
         })
       </script>
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-    <script>
-      function loadGoogleTranslate() {
-        new google.translate.TranslateElement({
-          pageLanguage: 'en'
-        }, 'google_element');
-      }
-
-
-
-    </script>
+  
+       <div className="wrapper col-md-3 col-12" style={{ justifyContent: 'center', display: 'flex' }}>
+            <div id="google_element"></div>
+            <Script
+              src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"
+              strategy="afterInteractive"
+            />
+            <Script
+              id="google-translate"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  function loadGoogleTranslate() {
+                    new google.translate.TranslateElement({
+                      pageLanguage: 'en'
+                    }, 'google_element');
+                  }
+                `,
+              }}
+            />
+          </div>
     <script>
       // const hamburger=document.querySelector('.hamburger');
       // const head=document.querySelector('.header');
