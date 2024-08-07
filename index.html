@@ -3,6 +3,13 @@
 <title>SwapReads</title>
 
 <head>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: "Your_Public_key",
+      });
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
@@ -48,7 +55,9 @@
   <script src="./assets/js/tilt.js"></script>
   <script src="./assets/js/scroll.js"></script>
   <link rel="stylesheet" href="./scrollbar.css">
-
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="modals(privacy policy).css">
 
@@ -792,6 +801,57 @@
 }
 
   </style>
+ <script type="text/javascript">
+  emailjs.init("Your_User_ID"); // Replace with your actual EmailJS User ID
+
+  // Function to validate email address
+  function isValidEmail(email) {
+      // Simple email validation regex
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!regex.test(email)) {
+          return false;
+      }
+
+      // Extract domain
+      const domain = email.split('@')[1].toLowerCase();
+      const validDomains = ['gmail.com', 'outlook.com', 'yahoo.com'];
+
+      return validDomains.includes(domain);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('subscribeForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+
+          var email = document.getElementById('emailInput').value;
+
+          if (!isValidEmail(email)) {
+              alert('Please enter a valid email address from Gmail, Outlook, or Yahoo.');
+              return;
+          }
+
+          // Prepare the parameters to send
+          var templateParams = {
+              to_email: email, // Set the recipient's email
+              from_name: 'SwapReads', // Replace with your company or your name
+              to_name: 'Subscriber',
+              message: 'Thank you for subscribing to our newsletter!'
+          };
+
+          // Send email
+          emailjs.send('Your_Service_ID', 'Your_Template_ID', templateParams)
+              .then(function(response) {
+                  console.log('Email sent successfully:', response);
+                  alert('Successfully subscribed to our newsletter!');
+                  location.reload(); 
+              }, function(error) {
+                  console.error('Error sending email:', error);
+                  alert('Failed to send email. Please try again later.');
+                  location.reload(); 
+              });
+      });
+  });
+</script>
 </head>
 
 
@@ -3220,31 +3280,18 @@ body > .skiptranslate {
 }
 
         </style>
-
-        <!--<form id="newsletterForm" type="newsletter" onsubmit="return showConfirmationMessage()">
-          <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
-          <div class="row-flex display-flex>
-              Email input 
-              <input type="email" id="newsletter-email" name="email" placeholder="Email address"
-                      pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
-                      title="Please enter a valid email address that ends with '.com'" required>
-              <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
-          </div>
-      </form>
-     <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>-->
-     <form id="newsform" onsubmit="return showConfirmationMessage();">
+     <div>
       <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
       <div class="row-flex display-flex">
-          <input type="email" id="new-email" name="email" placeholder="Email address"
-                 pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
-                 title="Please enter a valid email address that ends with '.com'" required>
-          <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
+        <form action="#" class="subscribe-form" id="subscribeForm">
+          <input type="email" id="emailInput" placeholder="Email Address" class="finput" style="margin-bottom: 10px; margin-top: 10px;" required>
+          <button type="submit" id="subscribeButton" class="subscribe" class="b">SUBSCRIBE</button>
+        </form>
       </div>
-  </form>
-  <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
+    </div>
     
   <script>
- function showConfirmationMessage() {
+  function showConfirmationMessage() {
 
   const form = document.getElementById('newsform');
   const confirmationMessage = document.getElementById('confirmationmessage');
@@ -3512,16 +3559,16 @@ body > .skiptranslate {
   document.getElementById("subs_btn").addEventListener("submit", function(event) {
   event.preventDefault(); 
 
-  const email_input = document.getElementById("newsletter-email").value;
+  // const email_input = document.getElementById("newsletter-email").value;
 
-  if (!validateEmail(email_input)) {
-   /* alert("Please enter a valid email address.");*/
-    document.getElementById("confirmationMessage").textContent = "Please enter a valid email address." ;
-  }
-  else{
-  document.getElementById("confirmationMessage").textContent = "Thank you for subscribing!" ;
-  }
-  document.getElementById("newsletter-email").value = '';
+  // if (!validateEmail(email_input)) {
+  //  /* alert("Please enter a valid email address.");*/
+  //   document.getElementById("confirmationMessage").textContent = "Please enter a valid email address." ;
+  // }
+  // else{
+  // document.getElementById("confirmationMessage").textContent = "Thank you for subscribing!" ;
+  // }
+  // document.getElementById("newsletter-email").value = '';
 });
 
 function validateEmail(email_input) {
