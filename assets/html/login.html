@@ -314,6 +314,133 @@ button img {
   gap: 10px;
   justify-content: center;
 }
+
+/* footer  */
+
+.socialmediaicons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin-top: 120px;;
+    width: 40px;
+    height: 150px;
+  
+}#quicklinks {
+  display: flex;
+  justify-content: space-between; /* Ensures columns are evenly spaced */
+}
+
+#quicklinks .col-md-6 ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#quicklinks .foot-quick {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Adjust spacing between list items */
+}
+
+#quicklinks .foot-quick a {
+  text-decoration: none;
+  color: rgb(83, 74, 74); /* Adjust link color as needed */
+  display: flex;
+  align-items: center;
+}
+
+#quicklinks .foot-quick a i {
+  margin-right: 5px; /* Adjust spacing between icon and text */
+}
+.dark-mode .fas{
+  color:white;
+}
+.dark-mode .flinks{
+  color:white;
+}
+.dark-mode .finput{
+      color: white;
+      background-color: transparent; 
+      padding: 10px; 
+      border: 1px solid white;
+      
+}
+.dark-mode .finput::placeholder {
+      color: rgba(255, 255, 255, 0.6); 
+    }
+.socialmediaicons a {
+    display: inline;
+    text-align: center;
+    padding: 5px;
+    transition: all 0.3s ease;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+  }
+
+  .socialmediaicons .fa-instagram {
+  display: inline-block;
+  width: 30px; 
+  height: 30px; 
+  text-align: center;
+  line-height: 30px; 
+  border-radius: 10px;
+  background: transparent;
+  color: #000000;
+  transition: background 0.3s, transform 0.3s; 
+}
+
+.socialmediaicons .fa-instagram:hover {
+  background: radial-gradient(circle at 30% 110%, 
+                               #ffdb8b 0%, 
+                               #ee653d 25%, 
+                               #d42e81 50%, 
+                               #a237b6 75%, 
+                               #3e57bc 100%);
+  background-clip: padding-box;
+  border-radius: 10px; 
+  color: white; 
+  transform: scale(1.1); 
+  
+}  
+.socialmediaicons .fa-facebook:hover{
+  color: blue;
+}   
+.socialmediaicons .fa-youtube:hover{
+  color: red;
+}
+
+
+.dark-mode .socialmediaicons a {
+  color: white;
+}
+
+
+.dark-mode .socialmediaicons .fa-facebook:hover {
+  color: #425d9b
+}
+.dark-mode .socialmediaicons .fa-youtube:hover {
+  color: #f70000;
+}
+
+  .instagram {
+    
+    margin: 5px;
+    
+  }
+
+
+  .facebook {
+    
+    margin: 5px;
+  }
+  
+  .youtube {
+   
+    margin: 5px;
+  }
+
+
 </style>
 <body>
 
@@ -685,7 +812,7 @@ button img {
   </div>
   <hr />
   
-  <footer style="font-size: 1.6rem;">
+  <footer class="ff">
     <div class="foot-top">
       <div class="foot-left">
 
@@ -725,32 +852,28 @@ button img {
       </div>
       <div class="foot-middle">
         <h2>Quick Links</h2>
-        <div id="quicklinks">
-          <div>
-          <ul>
-            <li class="foot-quick"><a href="/index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
-            <li class="foot-quick"><a href="/index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
-            <li class="foot-quick"><a href="/index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
-            <li class="foot-quick"><a href="/index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
-            <li class="foot-quick"><a href="/assets/html/book_recommend.html"
-              onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
-          </ul>
-        </div>
-        <div>
-          <ul>
-            <li class="foot-quick"><a href="/assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')">Swap
-                BookList</a></li>
-            <li class="foot-quick"><a href="/assets/html/freeBooks.html"
-                onclick="lenis.scrollTo('#contact')">E-Book</a></li>
-            <li class="foot-quick"><a href="/assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
-            </li>
-            <li class="foot-quick"><a href="/index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
-            <li class="foot-quick"><a href="/index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
-          </ul>
-        </div>
+        <div id="quicklinks" class="row">
+          <div class="col-md-6">
+            <ul>
+              <li class="foot-quick" style="color: white;"><a href="/index.html#home" onclick="lenis.scrollTo('#home')"><i class="fas fa-home"></i><p class="flinks">Home</p></a></li>
+              <li class="foot-quick"><a href="/index.html#benefits" onclick="lenis.scrollTo('#benefits')"><i class="fas fa-book"></i> <p class="flinks">Benefits</p></a></li>
+              <li class="foot-quick"><a href="/index.html#chapters" onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i> <p class="flinks">Literary</p></a></li>
+              <li class="foot-quick"><a href="/index.html#pricing" onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i><p class="flinks">Pricing</p> </a></li>
+              <li class="foot-quick"><a href="./assets/html/bookrecommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><p class="flinks">Recommend</p></a></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul>
+              <li class="foot-quick"><a href="/assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-exchange-alt"></i><p class="flinks">Swap</p> </a></li>
+              <li class="foot-quick"><a href="/assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-file-pdf"></i> <p class="flinks">E-Book</p></a></li>
+              <li class="foot-quick"><a href="/assets/html/about.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-info-circle"></i> <p class="flinks">About</p></a></li>
+              <li class="foot-quick"><a href="/index.html#contact" onclick="lenis.scrollTo('#contact')"><i class="fas fa-envelope"></i><p class="flinks">Contact</p> </a></li>
+              <li class="foot-quick"><a href="/index.html#faqq" onclick="lenis.scrollTo('#faqq')"><i class="fas fa-question-circle"></i> <p class="flinks">FAQ</p></a></li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="social-icons">
+      
 
         <style>
           .social-icons input[type="email"] 
@@ -778,20 +901,82 @@ button img {
             }
         }
         </style>
+        <style>
+          #confirmationmessage {
+    position: fixed;
+    top: 42rem;
+    right: 10px;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+}
 
-        <form id="newsletterForm" type="newsletter" onsubmit="return showConfirmationMessage()">
-          <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
-          <div class="row-flex">
-              <!-- Email input -->
-              <input type="email" id="newsletter-email" name="email" placeholder="Email address"
-                      pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
-                      title="Please enter a valid email address that ends with '.com'" required>
-              <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
-          </div>
-      </form>
-     <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+        </style>
 
-<script>
+     <form id="newsform" onsubmit="return showConfirmationMessage();">
+      <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
+      <div class="row-flex display-flex">
+          <input class="finput" type="email" id="new-email" name="email" placeholder="Email address"
+                 pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+                 title="Please enter a valid email address that ends with '.com'" required>
+          <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
+      </div>
+  </form>
+  <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
+    
+  <script>
+ function showConfirmationMessage() {
+
+  const form = document.getElementById('newsform');
+  const confirmationMessage = document.getElementById('confirmationmessage');
+
+  
+  confirmationMessage.style.display = 'block';
+  setTimeout(function() {
+    location.reload(); 
+  }, 3000);
+
+
+ 
+}
+
+
+
+</script>
+<style>
+  
+.subscribe {
+  background-color: #A30F17;
+  color: white; 
+  border: none; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  font-family: Arial, sans-serif;
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.subscribe:hover {
+  background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+  transform: scale(1.1);
+}
+
+.subscribe:active {
+  transform: scale(0.98); 
+}
+
+.subscribe:focus {
+  outline: none; 
+}
+
+</style>
+
+<!-- <script>
   function showConfirmationMessage() 
   {
     // Show confirmation message
@@ -809,10 +994,7 @@ button img {
 
     return false; 
 }
-</script>
-
-
-
+</script>-->
         <div class="icons">
           <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
             <div class="icon">
@@ -820,7 +1002,7 @@ button img {
             </div>
           </a>
 
-          <a href="#" target="_blank">
+          <a href="https://www.facebook.com/" target="_blank">
             <div class="icon">
               <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
             </div>
@@ -832,8 +1014,8 @@ button img {
             </div>
           </a>
 
-          <a href="#">
-            <div class="icon">
+          <a href="https://www.instagram.com/">
+            <div class="icon" id="insta-icon">
               <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
             </div>
           </a>
@@ -847,7 +1029,7 @@ button img {
 
 
 
-          <a href="">
+          <a href="https://github.com/anuragverma108">
             <div class="icon">
               <i class="fab fa-github" title="Github"></i>
             </div>
@@ -856,22 +1038,26 @@ button img {
 
         </div>
        </div>
-
+       <div>
         <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
-          <div class="circle1">
-            <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-              class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-              <path
-                d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-            </svg>
-          </div>
+          <button class="Btn">
+            <svg height="1.2em" class="arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path></svg>
+          <p class="text">Back to Top</p>
+          </button>
         </div>
+        <div>
+          <button id="translateButton">Translate</button>
+        </div>
+      </div>
 
       </div>
     </div>
 
+
+
+
     <!-- adding privacy policy and copyright popup-->
-    <div style="text-align: center; align-items: center;">
+    <div class="footer-f" style="text-align: center; align-items: center;">
       <p style="text-align: center">
         &copy;
         <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
@@ -880,7 +1066,9 @@ button img {
 
 
       <a href="/copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
-      <a href="/privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
+      <a href="/privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>  |
+      
+      <a href="/our-vision.html">Our Vision</a></li>
     </div>
     </div>
 
@@ -960,6 +1148,7 @@ button img {
 
 
   </footer>
+
 
   <script>
 
