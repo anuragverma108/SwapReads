@@ -1018,6 +1018,7 @@
     display: none !important;
 }
 
+
 body {
     top: 0px !important;
 }
@@ -1041,7 +1042,13 @@ body {
 .goog-te-balloon {
     display: none !important;
 }
-
+.flexi{
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 100%;
+  gap: 10px;
+}
 /* Custom styles for the Google Translate dropdown */
 #google_translate_element select {
     background: #ffffff; 
@@ -2859,101 +2866,101 @@ body > .skiptranslate {
     <script src="/assets/js/rate.js"></script>
      
 
-      <!-- - #CONTACT -->
-
-      <section class="section contact" id="contact" aria-label="contact">
-        <div class="container">
-          <p class="section-subtitle">Contact Us</p>
-          <h2 class="h2 section-title has-underline">
-            Have a Question ?
-            <span class="span has-before"></span>
-          </h2>
-          <div class="wrapper">
-            <div class="contact-card white-border-card">
-
-              <form action="http://localhost:3000/contact" method="POST" id="contact-form">
-                <div class="contact_head_wrapper">
-                  <div class="contact_head">Get in touch</div>
-                </div><br><br>      
-
-                <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field" size="60px">
-                <input type="email" name="email_address" id="email" placeholder="Your Email" required class="input-field">
-                <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field" maxlength=100>
-                <div id="subject-count" class="character-count">0/100</div>
-                <textarea name="message" id="message" placeholder="Your Message" class="input-field" maxlength=250></textarea>
-                <div id="message-count" class="character-count">0/250</div>
-                <button type="submit" id="sendMessageBtn" class="btn btn-primary">Send Now</button>
-                <div id="success-message" style="display:none">Message sent successfully!</div>
-              </form>
-            </div>
-            <script>
-              document.addEventListener('DOMContentLoaded', function() {
-                var form = document.getElementById('contact-form');
-                var message = document.getElementById('message');
+    
       
-                form.addEventListener('submit', function(event) {
-                  if (message.value.length < 50) {
-                    alert("Message length can't be less than 50 characters.");
-                    event.preventDefault();
-                  } else {
-                    event.preventDefault();
-                    var formData = new FormData(form);
+
+    <section class="section-contact" id="contact" aria-label="contact">
       
-                    fetch(form.action, {
-                      method: form.method,
-                      body: JSON.stringify(Object.fromEntries(formData)),
-                      headers: {
-                        'Content-Type': 'application/json'
-                      }
-                    }).then(response => response.json())
-                      .then(data => {
-                        if (data.error) {
-                          alert(data.error);
-                        } else {
-                          document.getElementById('success-message').style.display = 'block';
-                          form.reset();
-                        }
-                      }).catch(error => {
-                        alert('Failed to send message');
-                      });
-                  }
-                });
-              });
-            </script>
-      
-            <ul class="contact-card white-border-card">
-              <li>
-                <p class="card-title address-title">
-                  <lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json" trigger="hover" colors="primary:#000000" style="width:25px;height:25px"></lord-icon>
-                  Address :
-                </p><br>
-                <address class="address">
-                  12, Nayabad <br>
-                  Kolkata, India 700054
-                </address>
-              </li>
-              <li>
-                <p class="card-title phone-title">
-                  <lord-icon class="invert-col" src="https://cdn.lordicon.com/srsgifqc.json" trigger="hover" style="width:20px;height:20px;"></lord-icon>
-                  Phone :
-                </p><br>
-                <a href="tel:1234567890" class="card-link">+91 9124421980</a>
-              </li>
-              <li>
-                <p class="card-title email-title">
-                  <lord-icon class="invert-col" src="https://cdn.lordicon.com/xtzvywzp.json" trigger="hover" style="width:20px;height:20px;"></lord-icon>
-                  Email :
-                </p><br>
-                <a href="mailto:support@support.com" class="card-link">support@swapreads.com</a>
-              </li>
-            </ul>
-          </div>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin"
-            style="border:0; margin-bottom:30px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+        <h1 class="ctc">CONTACT US!</h1>
+        <p class="p">Have a Question?</p>
+       
+   
+  <div class="flexi">
+   
+    <div class="contact">
+     
+      <div class="contact-container">
+        <form class="contact-form" id="contactForm">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your-email@example.com" required>
+
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+        <div class="image-fader">
+          <img src="/assets/images/ctc1.png" alt="ctc1">
+          <img src="/assets/images/ctc5.png" alt="ctc5">
+          <img src="/assets/images/ctc3.png" alt="ctc3">
+          <img src="/assets/images/ctc4.png" alt="ctc4">
         </div>
-      </section>
+      </div>
+    </div>
+<div class="cardi">
+    <div class="contact-card white-border-card">
+      <li>
+        <p class="card-title address-title">
+          <lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json" trigger="hover" colors="primary:#000000" style="width:25px;height:25px"></lord-icon>
+          Address :
+        </p><br>
+        <address class="address">
+          12, Nayabad <br>
+          Kolkata, India 700054
+        </address>
+      </li>
+      <li>
+        <p class="card-title phone-title">
+          <lord-icon class="invert-col" src="https://cdn.lordicon.com/srsgifqc.json" trigger="hover" style="width:20px;height:20px;"></lord-icon>
+          Phone :
+        </p><br>
+        <a href="tel:9124421980" class="card-link">+91 9124421980</a>
+      </li>
+      <li>
+        <p class="card-title email-title">
+          <lord-icon class="invert-col" src="https://cdn.lordicon.com/xtzvywzp.json" trigger="hover" style="width:20px;height:20px;"></lord-icon>
+          Email :
+        </p><br>
+        <a href="mailto:support@swapreads.com" class="card-link">support@swapreads.com</a>
+      </li>
+    </div>
+    </div>
+  </div>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin"
+    style="border:0; margin-bottom:30px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</section>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("f6MOtkzVAVwSL9aru");
+  })();
+
+  const form = document.getElementById('contactForm');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('service_v5560op', 'template_cqh2l63', form)
+      .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        alert('Message successfully sent!');
+        window.location.reload(false);
+      }, function(error) {
+        console.error('FAILED...', error);
+        alert('Failed to send the message, please try again');
+      });
+  });
+</script>
+
       
 
     </article>
