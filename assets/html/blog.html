@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book-Related Blogs and Articles</title>
+    <style>
+       
+
+        header {
+            background-color:  #f06d87;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1em;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 1em;
+        }
+
+        section {
+            margin-bottom: 2em;
+        }
+
+        h2 {
+            color: #450105;
+        }
+
+        
+        footer {
+            background-color: #f06d87;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .ul{
+            text-decoration: black;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .blog-articles {
+            padding: 4em 0;
+            background-color: #fff;
+            text-align: center;
+            margin-bottom: 2em;
+        }
+
+        .section__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1em;
+        }
+
+        .section__title {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            color: #2c3e50;
+        }
+
+        .section__subtitle {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            margin-bottom: 3em;
+        }
+
+        .blog__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2em;
+        }
+
+        .blog__card {
+            background-color: #fffad7;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .blog__card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog__card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .blog__details {
+            padding: 1.5em;
+        }
+
+        .blog__details h4 {
+            font-size: 1.5em;
+            margin: 0 0 0.5em;
+            color: #b9083a;
+        }
+
+        .blog__details p {
+            font-size: 1em;
+            margin: 0;
+            color: #34495e;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: black;">SwapReads</h1>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">About Us</a></li>
+                <li><a href="./index.html">Contact</a></li>
+                <li><a href="#authors">Authors</a></li>
+                <li><a href="#community">Community</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="blog-articles">
+            <div class="section__container">
+                <h2 class="section__title" style="color: maroon;">Book-Related Blogs and Articles</h2>
+                <p class="section__subtitle">Inspire and motivate yourself with our curated blogs and articles</p>
+                <div class="blog__grid">
+                    <div class="blog__card">
+                        <img src="../images/re.jpg" alt="Blog 1">
+                        <div class="blog__details">
+                            <h4>10 Tips to Develop a Reading Habit</h4>
+                            <p>Discover how you can incorporate reading into your daily routine and make it a habit.</p>
+                        </div>
+                    </div>
+                    <div class="blog__card">
+                        <img src="../images/be.jpeg" alt="Blog 2">
+                        <div class="blog__details">
+                            <h4>The Benefits of Reading Every Day</h4>
+                            <p>Learn about the numerous benefits of reading regularly, from mental stimulation to stress reduction.</p>
+                        </div>
+                    </div>
+                    <div class="blog__card">
+                        <img src="../images/cl.jpg" alt="Blog 3">
+                        <div class="blog__details">
+                            <h4>Top 10 Must-Read Classics</h4>
+                            <p>A list of timeless classics that everyone should read at least once in their lifetime.</p>
+                        </div>
+                    </div>
+                    <div class="blog__card">
+                        <img src="../images/nes.jpeg" alt="Blog 4">
+                        <div class="blog__details">
+                            <h4>How to Choose Your Next Book</h4>
+                            <p>Tips and strategies for selecting your next great read from the vast world of literature.</p>
+                        
+                        </div>
+
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <p style="color: rgb(0, 0, 0);">&copy; 2024 SwapReads. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal for displaying content -->
+    <div id="content-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const buttons = document.querySelectorAll(".author button");
+            const modal = document.getElementById("content-modal");
+            const modalBody = document.getElementById("modal-body");
+            const closeButton = document.querySelector(".close-button");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function() {
+                    const author = this.getAttribute("data-author");
+                    const action = this.getAttribute("data-action");
+                    let content = '';
+
+                    switch(action) {
+                        case 'interview':
+                            content = `<h2>Interview with ${author.replace(/-/g, ' ')}</h2>
+                                       <p>${author.replace(/-/g, ' ')} shares insights into their writing process, latest work, and experiences as an author.</p>`;
+                            break;
+                        case 'articles':
+                            content = `<h2>Articles by ${author.replace(/-/g, ' ')}</h2>
+                                       <ul>
+                                           <li><a href="#">The Craft of Writing</a></li>
+                                           <li><a href="#">Understanding Narrative Structures</a></li>
+                                       </ul>`;
+                            break;
+                        case 'recommendations':
+                            content = `<h2>Reading Recommendations by ${author.replace(/-/g, ' ')}</h2>
+                                       <ul>
+                                           <li><a href="#">Book Title 1</a> by Author 1</li>
+                                           <li><a href="#">Book Title 2</a> by Author 2</li>
+                                       </ul>`;
+                            break;
+                        default:
+                            content = '<p>No content available.</p>';
+                    }
+
+                    modalBody.innerHTML = content;
+                    modal.style.display = "block";
+                });
+            });
+
+            closeButton.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+
+            window.addEventListener("click", function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

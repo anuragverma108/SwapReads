@@ -352,7 +352,7 @@
 
       <ul class="navbar-list nav">
         <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-          <img src="../images/final.png" class="logopic" style=" width: 150px;">
+          <img src="./assets/images/final.png" class="logopic" style=" width: 150px;">
         </a>
         <li class="navbar-item">
           <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
@@ -384,10 +384,10 @@
         </li>
 
         <li class="navbar-item">
-          <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+          <a href="./assets/html/index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
          
         <li class="navbar-item" id="login-signup-link">
-          <a href="../html/login.html" class="navbar-link">Login/Signup</a>
+          <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
         </li>
         
         
@@ -407,29 +407,29 @@
               </li>
               
               <li class="dropdown-menu-item">
-                <a href="../html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
+                <a href="./assets/html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
                     class="ri-price-tag-3-fill"></i> Pricing</a>
               </li>
               <li class="dropdown-menu-item">
-                <a href="../html/booklistswap.html" class="navbar-link">Booklist for Swapping</a>
+                <a href="./assets/html/booklistswap.html" class="navbar-link">Booklist for Swapping</a>
               </li>
               <li class="dropdown-menu-item">
-                <a href="../html/book_recommend.html" class="navbar-link" data-nav-link>
+                <a href="./assets/html/book_recommend.html" class="navbar-link" data-nav-link>
                   <i class="ri-customer-service-2-fill"></i> Book Recommendation
                 </a>
               </li>
               <li class="dropdown-menu-item">
-                <a href="../html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
+                <a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
                   data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
               </li>
               <li class="dropdown-menu-item">
-                <a href="../html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
+                <a href="./assets/html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
               </li>
               <li class="dropdown-menu-item">
-                <a href=".../html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
+                <a href="./assets/html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
               </li>
               <li class="dropdown-menu-item">
-                <a href="../html/about.html" class="navbar-link">About</a>
+                <a href="./assets/html/about.html" class="navbar-link">About</a>
               </li>
             </ul>
           </div>
@@ -437,26 +437,26 @@
         <li>
         <div class="action">
           <div class="profile" onclick="menuToggle();">
-            <img id="profile-avatar" src="../images/avatar1.jpg" />
+            <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
           </div>
           <div class="menu">
             <h3>XYZ<br /><span>Book Lover</span></h3>
             <ul>
               <li>
-                <img src="../images/user.jpg" /><a href="../../profile.html">My profile</a>
+                <img src="./assets/images/user.jpg" /><a href="../../profile.html">My profile</a>
               </li>
               <li>
-                <img src="../images/edit profile.jpg" /><a href="../html/profileedit.html">Edit profile</a>
+                <img src="./assets/images/edit profile.jpg" /><a href="../html/profileedit.html">Edit profile</a>
               </li>
               <li>
-                <img src="../images/inbox.png" /><a href="#">Inbox</a>
+                <img src="./assets/images/inbox.png" /><a href="#">Inbox</a>
               </li>
               <li>
-                <img src="../images/settings.png" /><a href="#">Settings</a>
+                <img src="./assets/images/settings.png" /><a href="#">Settings</a>
               </li>
-              <li><img src="../images/help.png" /><a href="#">Help</a></li>
+              <li><img src="./assets/images/help.png" /><a href="#">Help</a></li>
               <li>
-                <img src="../images/logout.png" /><a href="#">Logout</a>
+                <img src="./assets/images/logout.png" /><a href="#">Logout</a>
               </li>
             </ul>
           </li>
@@ -470,6 +470,23 @@
       document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
   }
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const moreLink = document.getElementById('more-link');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+
+    moreLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        dropdownMenu.classList.toggle('active');
+    });
+
+    // Optional: Close dropdown when clicking outside
+    document.addEventListener('click', function (event) {
+        if (!moreLink.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.remove('active');
+        }
+    });
+});
+
 
       
               function menuToggle() {
@@ -580,6 +597,7 @@ window.addEventListener("scroll", onScroll);
 </header>
 
 <body>
+  <div class="box">
     <div class="mainbox">
     <div id="chat-container">
         <div id="user-input">
@@ -598,6 +616,7 @@ window.addEventListener("scroll", onScroll);
                 <button id="send-message">Send</button>
             </div>
         </div>
+      </div>
     </div>
 </div>
     <script src="chat.js" type="module"></script>
