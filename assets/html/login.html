@@ -440,6 +440,25 @@ button img {
     margin: 5px;
   }
 
+  .input-box {
+    position: relative;
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+    padding-right: 40px; /* Space for the eye icon */
+}
+
+#eyeicon-register {
+    position: absolute;
+    top: 70%;
+    right: 10px; /* Adjust as needed */
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 35px; /* Adjust the size of the icon */
+    height: 30px;
+}
 
 </style>
 <body>
@@ -714,8 +733,8 @@ button img {
                 </a>
                 <input class="input" type="email" name="email" id="loginEmail" placeholder="Email" required />
                 <div class="input-box">
-                    <input class="input" type="password" name="pswd" id="loginPassword" placeholder="Password" required />
-                    <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-login">
+                  <input class="input" type="password" name="pswd" id="loginPassword" placeholder="Password" required />
+                  <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-login">
                 </div>
                 <button type="submit" name="Login" id="login">Submit</button>
                 <p class="forget-password">
@@ -781,7 +800,7 @@ button img {
           <input class="input" type="email" name="email" id="registerEmail" placeholder="Email" required />
           <div class="input-box">
             <input class="input" type="password" name="pswd" id="registerPassword" placeholder="Password" required />
-            <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon">
+<img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-register">
           </div>
 
           <div>
@@ -1623,7 +1642,46 @@ count=0
     }
   });
 </script>
-
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Password visibility toggle for registration
+    const eyeIconRegister = document.getElementById("eyeicon-register");
+    const passwordRegister = document.getElementById("registerPassword");
+  
+    if (eyeIconRegister && passwordRegister) {
+      eyeIconRegister.addEventListener("click", () => {
+        if (passwordRegister.type === "password") {
+          passwordRegister.type = "text";
+          eyeIconRegister.src = "../images/eye-open.png"; // Path to the open eye icon
+        } else {
+          passwordRegister.type = "password";
+          eyeIconRegister.src = "../images/eye-close.png"; // Path to the closed eye icon
+        }
+      });
+    } else {
+      console.error('Register icon or password field not found.');
+    }
+  
+    // Password visibility toggle for login
+    const eyeIconLogin = document.getElementById("eyeicon-login");
+    const passwordLogin = document.getElementById("loginPassword");
+  
+    if (eyeIconLogin && passwordLogin) {
+      eyeIconLogin.addEventListener("click", () => {
+        if (passwordLogin.type === "password") {
+          passwordLogin.type = "text";
+          eyeIconLogin.src = "../images/eye-open.png"; // Path to the open eye icon
+        } else {
+          passwordLogin.type = "password";
+          eyeIconLogin.src = "../images/eye-close.png"; // Path to the closed eye icon
+        }
+      });
+    } else {
+      console.error('Login icon or password field not found.');
+    }
+  });
+  </script>
+  
 
 </body>
 </html>

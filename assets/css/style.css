@@ -1056,7 +1056,8 @@ body.dark-mode .dropdown-menu-item:hover {
   #CHAPTERS
 \*-----------------------------------*/
 .chapter-card {
-  height: 150px;
+  height: 200px;
+  width: 300px;
   background-color: var(--white);
   padding: 25px;
   border-radius: var(--radius-5);
@@ -1273,7 +1274,11 @@ body.dark-mode .chapter-card:hover {
   padding-block: 10px;
 }
 
-/* .pricing-card .btn {
+.pricing-card .btn:hover {
+  color: darkred;
+  background-color: white;
+}
+.pricing-card .btn {
   margin-inline: auto;
   align-self: center;
   margin-top: auto;
@@ -1353,87 +1358,198 @@ body.dark-mode .chapter-card:hover {
   #CONTACT
 \*-----------------------------------*/
 
-.contact .wrapper {
+/* .contact .wrapper {
   display: grid;
   gap: 25px;
   padding: 30px;
-}
+} */
 
-.contact .container {
+/* .contact .container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
-
-.contact iframe {
-  width: 800px;
-  height: 450px;
+} */
+ iframe {
+  width: 800px !important;
+  height: 450px !important;
   border-radius: 5px;
 }
 
-.contact-card {
-  background-color: var(--seashell);
-  padding: 20px;
-  border-radius: var(--radius-5);
+.section-contact{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
-.contact-card .input-field {
-  background-color: hsl(0, 0%, 100%);
-  padding: 7px;
-  margin-block-end: 15px;
-  outline: none;
-  border-radius: var(--radius-5);
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.5s, box-shadow 0.5s;
+.flexi{
+  display: flex;
+  flex-direction: row;
+  gap:0;
+}
+.contact {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
   width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.contact-card .input-field:hover {
-  box-shadow: 0 0 30px rgba(210, 109, 109, 0.5);
-  background-color: #f2f2f2;
-  border-bottom: 3px solid var(--charcoal);
+@keyframes typing {
+  from { width: 0%; }
+  to { width: 100%; }
 }
 
-.contact-card .input-field:focus {
-  border-color: var(--old-rose);
+.ctc {
+  font-family: 'Poppins', sans-serif;
+  color: #c51550;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  animation: typing 1.5s forwards;
+  font-size: 3.0rem;
+  width: 0;
+}
+.p{
+  font-size: 2rem;;
+}
+.contact-container {
+  padding-right: 20px;
+  width: 60% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid #c36969;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  font-family: Montserrat;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
-.contact-card textarea.input-field {
-  resize: vertical;
-  min-height: 120px;
-  height: 120px;
-  max-height: 200px;
+.contact-form {
+  flex: 1;
+  max-width: 500px;
 }
 
-.character-count {
-  font-size: 0.7em;
-  color: var(--charcoal);
+.contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-family: Montserrat;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #c36969;
+  border-radius: 4px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: black;
+  outline: none;
+  box-shadow: 0 0 5px #d43a3a;
+}
+
+.contact-form textarea {
+  height: 100px;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #d15b83;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: Montserrat;
+}
+
+.contact-form button:hover {
+  border: 1px solid #c36969;
+  background-color: #f24a8a;
+}
+
+.image-fader {
+  width: 300px;
+  height: 300px;
   position: relative;
-  float: right;
-  margin-top: -10px;
 }
 
-.contact-card .btn:is(:hover, :focus) {
-  /* margin-inline: auto; */
-  background-color: var(--light-pink);
-  color: #000;
-  border: var(--old-rose) 2px solid;
+.image-fader img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation-name: imagefade;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 8s;
 }
 
-#contact-form .btn {
-  margin-inline: auto;
-}
-.send-now:is(:hover, :focus) {
-  background-color: white;
-  color: #000;
-  border: #d26d6d 2px solid;
+.image-fader img:nth-of-type(1) {
+  opacity: 1;
 }
 
+@keyframes imagefade {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.image-fader img:nth-of-type(1) {
+  animation-delay: 0s;
+}
+
+.image-fader img:nth-of-type(2) {
+  animation-delay: 2s;
+}
+
+.image-fader img:nth-of-type(3) {
+  animation-delay: 4s;
+}
+
+.image-fader img:nth-of-type(4) {
+  animation-delay: 6s;
+}
+.cardi{
+  margin-right: 150px !important;
+  background-color: transparent;
+}
 .contact-card {
-  background-color: var(--seashell);
-  border-radius: var(--radius-5);
+  margin-top: 50px;
   padding: 30px;
+  background-color: transparent;
+  border: 1px solid #c36969 !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* border-radius: var(--radius-5); */
+  
+  height: 600px;
+  
 }
 
 .contact-card .card-title {
@@ -1456,44 +1572,6 @@ body.dark-mode .chapter-card:hover {
   color: var(--old-rose);
 }
 
-.social-list-title {
-  font-size: var(--fs-6);
-  font-weight: var(--fw-700);
-  margin-block-end: 15px;
-}
-
-.social-list {
-  display: flex;
-  gap: 10px;
-}
-
-.subscribe-btn {
-  background-color: brown !important;
-  color: var(--white);
-  height: 4rem;
-  padding: 2px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.subscribe-btn:hover{
-  background-color: white;
-  color: #000;
-  border: #d26d6d 2px solid;
-}
-.social-link {
-  background-color: var(--old-rose);
-  color: var(--white);
-  font-size: 20px;
-  padding: 5px;
-  box-shadow: var(--shadow-3);
-  border-radius: var(--radius-5);
-  transition: var(--transition-1);
-}
-
-.social-link:is(:hover, :focus) {
-  background-color: var(--chinese-violet);
-  box-shadow: none;
-}
 
 /*-----------------------------------*\
   #Rate-Us-Modal
@@ -1791,7 +1869,7 @@ body.light-mode .flip-card-back {
     width: 50%;
   }
 
-  .contact iframe {
+   iframe {
     width: 350px;
     height: 300px;
   }
