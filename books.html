@@ -498,7 +498,26 @@
 
 
 </style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('book-search');
+    const allBooks = document.querySelectorAll('.flex.flex-col');
 
+    searchInput.addEventListener('input', function() {
+        const searchTerm = searchInput.value.toLowerCase();
+
+        allBooks.forEach(book => {
+            const title = book.querySelector('p').textContent.toLowerCase();
+
+            if (title.includes(searchTerm)) {
+                book.style.display = 'block'; // Show matching book
+            } else {
+                book.style.display = 'none'; // Hide non-matching book
+            }
+        });
+    });
+});
+</script>
 <style>
   #chaps {
       margin-top: 150px; /* Adjust the margin-top value as needed */
@@ -583,6 +602,7 @@
                 </div>
           </div>
         </nav>
+        <input type="text" id="book-search" style="border-bottom:solid gray 1px ;" placeholder="Search books..." class="p-2 border border-gray-300 rounded-md mb-4 outline-none mt-[20px] border-b-gray-400 border-b-[1px] ">
 
         <!--books start here-->
 
@@ -899,7 +919,7 @@
     </div>
   </div>
   <br /><br />
-
+    
   <!--
     - #FOOTER
   -->
@@ -1009,6 +1029,8 @@
             <li class="foot-quick"><a href="./assets/html/freeBooks.html"
                 onclick="lenis.scrollTo('#contact')">E-Book</a></li>
             <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
+            </li>
+            <li class="foot-quick"><a href="./terms&cond.html" onclick="lenis.scrollTo('#terms&cond')">terms and conditions</a>
             </li>
             <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
             <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>

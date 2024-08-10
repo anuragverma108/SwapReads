@@ -4,13 +4,13 @@ import { getFirestore, collection, addDoc, query, onSnapshot, orderBy } from "ht
 
 // Your Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDSuptEc82X5GVX3ykWA-j9L-zYQvNwEaI",
-    authDomain: "swap-reads-92a6e.firebaseapp.com",
-    projectId: "swap-reads-92a6e",
-    storageBucket: "swap-reads-92a6e.appspot.com",
-    messagingSenderId: "962202354873",
-    appId: "1:962202354873:web:af96b3c7692e885ca6c768",
-    measurementId: "G-3R8PM76438"
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID",
+    measurementId: "YOUR_MEASUREMENT_ID"
 };
 
 // Initialize Firebase and Firestore
@@ -70,7 +70,7 @@ async function sendMessage() {
                 messageText: messageText,
                 timestamp: timestamp
             });
-            messageInput.value = '';
+            messageInput.value = ''; // Clear the input field after sending
         } catch (error) {
             console.error("Error adding message: ", error);
         }
@@ -93,7 +93,11 @@ function loadMessages() {
 function displayMessage({ username, messageText, timestamp }) {
     const messageDiv = document.createElement('div');
     messageDiv.className = 'message';
-    messageDiv.innerHTML = `<span class="username">${username}</span>: ${messageText} <span class="timestamp">(${new Date(timestamp).toLocaleString()})</span>`;
+    messageDiv.innerHTML = `
+        <span class="username">${username}</span>: 
+        ${messageText} 
+        <span class="timestamp">(${new Date(timestamp).toLocaleString()})</span>
+    `;
     messagesDiv.appendChild(messageDiv);
     messagesDiv.scrollTop = messagesDiv.scrollHeight; // Auto-scroll to the latest message
 }
@@ -127,5 +131,4 @@ document.addEventListener('click', (event) => {
         navbarMenu.classList.remove('active');
     }
 });
-
 

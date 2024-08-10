@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donate Books to Library</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWgokZbPhw-4fe9FN9nSWasJFL2uZp5WdHWA&s");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #0b0000c2;
+        text-shadow: 1px 1px 2px #f5eded68;
+      }
+      .form-container {
+        max-width: 600px;
+        margin: auto;
+        background-color: rgba(
+          252,
+          216,
+          216,
+          0.6
+        ); /* Semi-transparent background */
+        padding: 30px;
+        border-radius: 25px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+        border: 4px solid black;
+      }
+
+      .form-container h1 {
+        text-align: center;
+        color: black;
+        font-size: 35px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+
+      .form-group button {
+        display: block;
+        width: 60%;
+        padding: 10px 20px;
+        background-color: #8c031f;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 7px;
+        text-align: center;
+      }
+      .form-group button:hover {
+        background-color: #f6bed6;
+        color: black;
+        border: 3px solid black;
+      }
+      .thank-you-message {
+        display: none;
+        font-weight: bold;
+        margin-top: 20px;
+        color: green;
+        text-align: center;
+        font-size: 30px;
+      }
+      @media (max-width: 600px) {
+        body {
+          margin: 10px;
+        }
+        .form-container {
+          padding: 15px;
+        }
+        .form-group input,
+        .form-group select {
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Donate Books to Library</h1>
+      <form id="donationForm">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email ID:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="bookName">Book Name:</label>
+          <input type="text" id="bookName" name="bookName" required />
+        </div>
+        <div class="form-group">
+          <label for="library">Select Library:</label>
+          <select id="library" name="library" required>
+            <option value="">Select a Library</option>
+            <option value="central_library">Central Library</option>
+            <option value="westside_library">Westside Library</option>
+            <option value="eastside_library">Eastside Library</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="button" onclick="submitForm()">Submit</button>
+        </div>
+      </form>
+      <div id="thankYouMessage" class="thank-you-message">
+        Thank you for your contribution! We will contact you for further
+        details.
+      </div>
+    </div>
+
+    <script>
+      function submitForm() {
+        // Hide the form
+        document.getElementById("donationForm").style.display = "none";
+
+        // Show thank you message
+        document.getElementById("thankYouMessage").style.display = "block";
+      }
+    </script>
+  </body>
+</html>

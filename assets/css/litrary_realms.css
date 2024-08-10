@@ -1,107 +1,96 @@
-/* litrary realms- carousel on home page*/
-/* not needed *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
-
-/* body {
-    font-family: 'Poppins', sans-serif;
-} */
-
+/* Literary realms - carousel on home page */
 .litrealms_conatiner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   text-align: center; 
 }
+
 .section {
   padding: 0;
 }
+
 .section-subtitle {
-    font-size: 24px;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 10px;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
+
 .section-title {
-    font-size: 32px;
-    margin-bottom: 40px;
-    position: relative;
-    text-align: center; 
+  font-size: 32px;
+  margin-bottom: 40px;
+  position: relative;
+  text-align: center; 
 }
 
 /* Carousel styles */
 .carousell-wrapper {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    /* margin:0 30px 0 30px; */
-    padding: 20px;
-    margin: 10px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  padding: 20px;
+  margin: 10px;
 }
 
 .carousell {
-    display: flex;
-    transition: transform 0.5s ease;
-    width: calc(100% - 40px); /* Adjusted to accommodate padding and arrows */
-    margin: 0;
-    overflow: hidden;
-    scroll-behavior: smooth;
-    padding: 0;
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%; /* Adjusted to accommodate padding and arrows */
+  margin: 0;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  padding: 0;
 }
 
 .carousell-wrapper i {
-    height: 50px;
-    width: 50px;
-    cursor: pointer;
-    font-size: 1.25rem;
-    position: absolute;
-    text-align: center;
-    line-height: 50px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
-    transform: translateY(-50%);
-    transition: transform 0.1s linear;
-  } 
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  position: absolute;
+  text-align: center;
+  line-height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+} 
 
 .carousell-wrapper i:active {
-    transform: translateY(-50%) scale(0.85);
+  transform: translateY(-50%) scale(0.85);
 }
-#left-arrow {
-    left: -80px; 
-    z-index: 10; 
-  }
-#right-arrow {
-    right: -70px;
-  }
 
+#left-arrow {
+  left: 10px; 
+  z-index: 10; 
+}
+
+#right-arrow {
+  right: 10px;
+}
 
 .litrealms_card {
-    min-width: 320px;
-    margin: 0 20px 0 20px;
-    /* margin:10px; */
-    background: white;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    text-align: center;
+  min-width: 320px;
+  margin: 0 25px;
+  background: transparent;
+  padding: 0px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  text-align: center;
 }
 
 .cardo {
-  /* Height of the cards in Literary realms is fixed */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
   position: relative;
   max-width: 500px;
-  /* max-height: 360px; */
   background-color: hsl(22, 73%, 80%);
-  /* background-image:url(/assets/images/book.jpg); */
   border: 2px solid hsl(357, 79%, 72%);
   border-radius: 4px;
   padding: 32px 24px;
@@ -109,113 +98,75 @@
   text-decoration: none;
   z-index: 0;
   overflow: hidden;
+}
 
-  &:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: -16px;
-    right: -16px;
-    background: hsl(357, 79%, 72%);
-    height: 49px;
-    width: 49px;
-    border-radius: 32px;
-    transform: scale(1);
-    transform-origin: 50% 50%;
-    transition: transform 0.50s ease-out;
-  }
+.cardo:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -16px;
+  right: -16px;
+  background: hsl(357, 79%, 72%);
+  height: 49px;
+  width: 49px;
+  border-radius: 32px;
+  transform: scale(1);
+  transform-origin: 50% 50%;
+  transition: transform 0.50s ease-out;
+}
 
-  &:hover:before {
-    transform: scale(21);
-  }
+.cardo:hover:before {
+  transform: scale(21);
 }
 
 .go-arrow:hover {
   color: #ffffff;
-
 }
 
-.cardo:hover {
-  p {
-    transition: all 0.3s ease-out;
-    color: rgba(255, 255, 255, 0.8);
-  }
+.cardo:hover p {
+  transition: all 0.3s ease-out;
+  color: rgba(255, 255, 255, 0.8);
+}
 
-  h3 {
-    transition: all 0.3s ease-out;
-    color: #ffffff;
-  }
+.cardo:hover h3 {
+  transition: all 0.3s ease-out;
+  color: #ffffff;
 }
 
 .litrealms_card h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .litrealms_card p {
-    font-size: 16px;
-    color: #666;
+  font-size: 16px;
+  color: #666;
 }
 
 .lithead {
   color: black;
 }
+
 .go-corner {
-    position: relative; 
-    text-align: right;
-    font-size: 18px;
+  position: relative; 
+  text-align: right;
+  font-size: 18px;
 }
 
 .go-arrow {
-    font-size: 24px;
-    color: #ff5e00;
+  font-size: 24px;
+  color: #ff5e00;
 }
-  .carousell-wrapper i:active{
-    transform: translateY(-50%) scale(0.85);
-  }
-  .carousell-wrapper i:first-child{
-    left: -22px;
-  }
-  .carousell-wrapper i:last-child{
-    right: -22px;
-  }
- 
-  .litrealms_card h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .litrealms_card p {
-    font-size: 16px;
-    color: #666;
-  }
-  
-  .carousell-control {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 32px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-  }
- 
-  #left-arrow {
-    left: 10px;
-  }
-  
-  #right-arrow {
-    right: 10px;
-  }
 
-/*dark mode styles for lit realms*/
-
-.dark-mode #right-arrow,.dark-mode #left-arrow{
+/* Dark mode styles for lit realms */
+.dark-mode #right-arrow,
+.dark-mode #left-arrow {
   background-color: rgb(45, 45, 46);
 }
-.dark-mode #right-arrow::before,.dark-mode #left-arrow::before{
-  color:hsl(358, 38%, 60%)
+
+.dark-mode #right-arrow::before,
+.dark-mode #left-arrow::before {
+  color: hsl(358, 38%, 60%);
 }
 
 .dark-mode .cardo {
@@ -224,15 +175,17 @@
   border-color: #8e4949;
 }
 
-.dark-mode .go-arrow{
+.dark-mode .go-arrow {
   color: rgb(214, 141, 141);
 }
+
 .dark-mode .go-arrow:hover {
   color: #ffffff;
-
 }
+
 .dark-mode .litrealms_card {
-  background: #151111;}
+  background: #151111;
+}
 
 .dark-mode .small {
   color: rgb(242, 234, 234);
@@ -243,23 +196,33 @@
 }
 
 .dark-mode .cardo::before {
-  background-color:#8e4949;
+  background-color: #8e4949;
 }
-.dark-mode .section-subtitle{color: #FAADA1;}
 
+.dark-mode .section-subtitle {
+  color: #FAADA1;
+}
 
+/* Responsive styles */
 @media screen and (max-width: 768px) {
-  .slide-content {
-    margin: 0 10px;
+  .carousell-wrapper {
+    padding: 10px;
   }
 
-  .swiper-navBtn {
-    display: none;
+  .litrealms_card {
+    min-width: 90%; /* Adjust card width for smaller screens */
+    margin: 0 17px;
+    height: 25%;
   }
 
-  .benefits-card {
-    width: 100%;
-    height: fit-content;
+  #left-arrow,
+  #right-arrow {
+    font-size: 1rem;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+  }
+  .cardo{
+    padding: 20px 14px;
   }
 }
-
