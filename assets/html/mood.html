@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Mood Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .tracker-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .mood-selection {
+            margin-bottom: 20px;
+        }
+
+        select {
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .suggestion-box {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tracker-container">
+        <h1>Reading Mood Tracker</h1>
+        <div class="mood-selection">
+            <label for="mood">Select Your Current Mood:</label>
+            <select id="mood">
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="motivated">Motivated</option>
+                <option value="relaxed">Relaxed</option>
+                <option value="adventurous">Adventurous</option>
+            </select>
+        </div>
+        <button onclick="suggestBook()">Get Book Suggestion</button>
+        <div id="suggestion" class="suggestion-box"></div>
+    </div>
+
+    <script>
+        function suggestBook() {
+            const mood = document.getElementById("mood").value;
+            let suggestion;
+
+            switch(mood) {
+                case "happy":
+                    suggestion = "Try reading 'The Alchemist' by Paulo Coelho!";
+                    break;
+                case "sad":
+                    suggestion = "How about 'The Book Thief' by Markus Zusak?";
+                    break;
+                case "motivated":
+                    suggestion = "You might enjoy 'Atomic Habits' by James Clear.";
+                    break;
+                case "relaxed":
+                    suggestion = "'The Little Prince' by Antoine de Saint-Exupéry could be a good choice.";
+                    break;
+                case "adventurous":
+                    suggestion = "Check out 'The Hobbit' by J.R.R. Tolkien!";
+                    break;
+                default:
+                    suggestion = "Select a mood to get a book suggestion!";
+                    break;
+            }
+
+            document.getElementById("suggestion").innerHTML = suggestion;
+        }
+    </script>
+
+</body>
+</html>
