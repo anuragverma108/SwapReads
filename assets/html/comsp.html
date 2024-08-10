@@ -1,9 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>SwapReads - Comunity Spotlight</title>
+    <style>
+      header {
+        background-color: #fcc2c3;
+        color: white;
+        padding: 1em;
+        text-align: center;
+      }
+
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      nav ul li {
+        display: inline;
+        margin: 0 1em;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+      }
+
+      main {
+        padding: 1em;
+        margin-top: 100px;
+      }
+
+      section {
+        margin-bottom: 2em;
+      }
+
+      h2 {
+        color: #450105;
+      }
+
+      footer {
+        background-color: #f5cbd7;
+        color: white;
+        text-align: center;
+        padding: 1em;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }
+
+      .close-button {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close-button:hover,
+      .close-button:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .ul {
+        text-decoration: black;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+      }
+
+      .community-spotlight {
+        padding: 2em 0;
+        background-color: #fafceb;
+        text-align: center;
+      }
+
+      .section__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1em;
+      }
+
+      .section__title {
+        font-size: 2em;
+        margin-bottom: 0.5em;
+      }
+
+      .section__subtitle {
+        font-size: 1.1em;
+        color: #666;
+        margin-bottom: 2em;
+      }
+
+      .spotlight__grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        justify-content: center;
+      }
+
+      .spotlight__card {
+        background-color: #fff2ba;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 250px;
+        max-width: 100%;
+        transition: transform 0.3s ease;
+        text-align: left;
+      }
+
+      .spotlight__card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .spotlight__details {
+        padding: 1em;
+      }
+
+      .spotlight__details h4 {
+        font-size: 1.2em;
+        margin: 0;
+      }
+
+      .spotlight__details p {
+        font-size: 1em;
+        margin: 0.5em 0 0;
+      }
+
+      .spotlight__card:hover {
+        transform: scale(1.05);
+      }
+
+      footer {
+  position: relative;
+  top: 140px;
+}
+
+
+    </style>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div class="nav-wrapper">
+        <div class="progress-bar"></div>
+      </div>
+      
+    
+      <header class="header header-anim nav-h" data-header>
+    
+        <div class="container mobile-container-styles" style="padding-left: 0;">
+          <nav class="navbar nav_activated" data-navbar>
+            
+            <ul class="navbar-list nav" style="border-radius: 5px;">
+              <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex; background-color: none;">
+                <img src="../images/final.png" class="logopic" style=" width: 150px;">
+              </a>
+              <li class="navbar-item">
+                <a href="../../index.html" onclick="lenis.scrollTo('#home')" style="background-color: none;" class="navbar-link" data-nav-link><i
+                    class="ri-home-fill"></i> Home</a>
+              </li>
+               <li class="navbar-item">
+                    <a href="../html/about.html" onclick="lenis.scrollTo('#home')"  class="navbar-link" data-nav-link><i
+                        class="ri-home-fill"></i>About Us</a>
+                  </li>
+                  
+              <li class="navbar-item">
+                <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
+                    class="ri-bar-chart-fill"></i> Benefits</a>
+
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon_package_v0.16/favicon-32x32.png">
@@ -460,6 +633,22 @@
               <li class="navbar-item">
                 <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
                     class="ri-customer-service-2-fill"></i> Contact</a>
+
+                </li>
+                <li class="navbar-item">
+                  <a href="../../index.html#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
+                      <i class="ri-questionnaire-fill"></i>FAQ</a>
+              </li>
+    
+              <li class="navbar-item">
+                <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+               
+              <li class="navbar-item" id="login-signup-link">
+                <a href="..//html/login.html" class="navbar-link">Login/Signup</a>
+              </li>
+              
+              
+
               </li>
               <li class="navbar-item">
                 <a href="../../index.html#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
@@ -476,6 +665,7 @@
               </li>
     
     
+
               <li class="navbar-item dropdown" id="more-dropdown">
                 <a href="#" class="navbar-link" id="more-link">More
                   <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
@@ -486,6 +676,14 @@
     
                   <ul class="dropdown-menu-list">
                     <li>
+                      <a href="chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                        Community chat
+                    </a>
+                    </li>
+                    
+                    <li class="dropdown-menu-item">
+                      <a href="../html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
+
                       <a href="chat.html" class="navbar-link"
                         style="font-family: sans-serif; color: black; margin-bottom: 5px;">
                         Community chat
@@ -495,6 +693,7 @@
                     <li class="dropdown-menu-item">
                       <a href="../html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link"
                         data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
+
                     </li>
                     <li class="dropdown-menu-item">
                       <a href="../html/booklistswap.html" class="navbar-link">Booklist for Swapping</a>
@@ -509,18 +708,63 @@
                         data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
                     </li>
                     <li class="dropdown-menu-item">
+                      <a href="../html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a href="../html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
+
                       <a href="../html/read_later.html" class="navbar-link" data-nav-link><i
                           class="ri-price-tag-3-fill"></i>Read Later</a>
                     </li>
                     <li class="dropdown-menu-item">
                       <a href=".../html/ConnReader.html" class="navbar-link" data-nav-link><i
                           class="ri-price-tag-3-fill"></i>Reader Connection</a>
+
                     </li>
                     <li class="dropdown-menu-item">
                       <a href="../html/about.html" class="navbar-link">About</a>
                     </li>
                   </ul>
                 </div>
+            </li>
+            </ul>
+          </nav>
+        <script>
+            let menu=document.getElementById('mobile_View_Menu')
+            let navbar_con=document.querySelector('.navbar')
+            menu.addEventListener('click',()=>{
+              if(menu.classList.contains('open_menu')){
+                menu.classList.remove('open_menu')
+                navbar_con.classList.add('nav_activated')
+              }
+              else{
+                menu.classList.add('open_menu')
+                navbar_con.classList.remove('nav_activated')
+              }
+            })
+      window.addEventListener("scroll", onScroll);
+    </script>
+        </div>
+      </header>
+      
+    <main>
+      <section class="community-spotlight">
+        <div class="section__container">
+          <h2 class="section__title" style="color: maroon">
+            Community Spotlight
+          </h2>
+          <p class="section__subtitle" style="color: black">
+            Meet our active community members and explore their book
+            recommendations
+          </p>
+          <div class="spotlight__grid">
+            <div class="spotlight__card">
+              <img src="../images/ja.jpeg" alt="Jane Doe" />
+              <div class="spotlight__details">
+                <h4 style="color: maroon">Jane Doe</h4>
+                <p>Recommended Book: "To Kill a Mockingbird" by Harper Lee</p>
+              </div>
+
               </li>
               <li>
                 <div class="action">
@@ -713,11 +957,302 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>  
 
+            </div>
+            <div class="spotlight__card">
+              <img src="../images/jo.jpeg" alt="John Smith" />
+              <div class="spotlight__details">
+                <h4 style="color: maroon">John Smith</h4>
+                <p>Recommended Book: "1984" by George Orwell</p>
+              </div>
+            </div>
+            <div class="spotlight__card">
+              <img src="../images/em.jpeg" alt="Emily Johnson" />
+              <div class="spotlight__details">
+                <h4 style="color: maroon">Emily Johnson</h4>
+                <p>Recommended Book: "Pride and Prejudice" by Jane Austen</p>
+              </div>
+            </div>
+            <div class="spotlight__card">
+              <img src="../images/ma.jpg" alt="Mark Brown" />
+              <div class="spotlight__details">
+                <h4 style="color: maroon">Mark Brown</h4>
+                <p>
+                  Recommended Book: "The Great Gatsby" by F. Scott Fitzgerald
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <footer>
+      <div class="foot-top">
+        <div class="foot-left">
+          <div class="desc">
+            <!--google translate-->
+            <div id="google_translate_element"></div>
+
+            <script type="text/javascript">
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                  { pageLanguage: "en" },
+                  "google_translate_element"
+                );
+              }
+            </script>
+
+            <script
+              type="text/javascript"
+              src="https://translate.google.com/translate_a/element.js?
+      cb=googleTranslateElementInit"
+            ></script>
+            <div><a href="#" class="logo">SwapReads</a></div>
+            <div>
+              <p style="text-align: justify" class="description">
+                SwapReads.com is the ultimate destination for book lovers
+                seeking to swap and discover new literary gems. Connect with
+                fellow enthusiasts, exchange your favorite reads, and embark on
+                exciting new adventures in the world of literature—all on one
+                convenient platform. Join us and dive into a universe of endless
+                possibilities!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="foot-middle">
+          <h2>Quick Links</h2>
+          <div id="quicklinks">
+            <div>
+              <ul>
+                <li class="foot-quick">
+                  <a href="index.html" onclick="lenis.scrollTo('#home')"
+                    >Home</a
+                  >
+                </li>
+                <li class="foot-quick">
+                  <a
+                    href="../../index.html#benefits"
+                    onclick="lenis.scrollTo('#benefits')"
+                    >Benefits</a
+                  >
+                </li>
+                <li class="foot-quick">
+                  <a
+                    href="../../index.html#chapters"
+                    onclick="lenis.scrollTo('#chapters')"
+                    >Literary Realms</a
+                  >
+                </li>
+                <li class="foot-quick">
+                  <a
+                    href="../../index.html#pricing"
+                    onclick="lenis.scrollTo('#pricing')"
+                    >Pricing</a
+                  >
+                </li>
+                <li class="foot-quick">
+                  <a
+                    href="book_recommend.html"
+                    onclick="lenis.scrollTo('#contact')"
+                    >Recommended Book</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <ul>
+                <li class="foot-quick">
+                  <a href="addremovebook.html">Swap BookList</a>
+                </li>
+                <li class="foot-quick">
+                  <a href="freeBooks.html" onclick="lenis.scrollTo('#contact')"
+                    >E-Book</a
+                  >
+                </li>
+                <li class="foot-quick"><a href="about.html">About</a></li>
+                <li class="foot-quick">
+                  <a
+                    href="../../index.html#contact"
+                    onclick="lenis.scrollTo('#contact')"
+                    >Contact Us</a
+                  >
+                </li>
+                <li class="foot-quick">
+                  <a
+                    href="../../index.html#faqq"
+                    onclick="lenis.scrollTo('#faqq')"
+                    >FAQ</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="social-icons">
+          <style>
+            .social-icons input[type="email"] {
+              border: 2px solid #ccc;
+              /* Gray border */
+              border-radius: 4px;
+              /* Rounded corners */
+              padding: 10px;
+              /* Inner padding */
+              font-size: 16px;
+              /* Font size */
+            }
+
+            #confirmationMessage {
+              margin-left: 50px;
+              font-size: 23px;
+              color: rgb(15, 15, 16);
+            }
+          </style>
+
+          <form type="newsletter" onsubmit="return showConfirmationMessage()">
+            <label for="newsletter-email" class="newsletter-form"
+              >Subscribe to our Newsletter</label
+            >
+            <div class="row-flex">
+              <!-- Email input -->
+              <input
+                type="email"
+                id="newsletter-email"
+                name="email"
+                placeholder="Email address"
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+                title="Please enter a valid email address that ends with '.com'"
+                required
+              />
+              <input
+                type="submit"
+                value="Subscribe"
+                name="subscribe"
+                class="subscribe-btn"
+                id="subs_btn"
+              />
+            </div>
+          </form>
+          <div id="confirmationMessage" style="display: none">
+            Thank you for subscribing!
+          </div>
+
+          <script>
+            function showConfirmationMessage() {
+              var confirmationMessage = document.getElementById(
+                "confirmationMessage"
+              );
+              confirmationMessage.style.display = "block";
+
+              return false;
+            }
+          </script>
+
+          <div class="icons">
+            <a
+              href="https://www.linkedin.com/in/anurag-verma-b91417253/"
+              target="_blank"
+            >
+              <div class="icon">
+                <i
+                  class="fab fa-linkedin"
+                  title="linkedin"
+                  style="cursor: pointer"
+                ></i>
+              </div>
+            </a>
+
+            <a href="#" target="_blank">
+              <div class="icon">
+                <i
+                  class="fab fa-facebook"
+                  title="Facebook"
+                  style="cursor: pointer"
+                ></i>
+              </div>
+            </a>
+
+            <a href="https://x.com/anuragverma_108" target="_blank">
+              <div class="icon">
+                <i class="fab fa-twitter" title="X" style="cursor: pointer"></i>
+              </div>
+            </a>
+
+            <a href="#">
+              <div class="icon">
+                <i
+                  class="fab fa-instagram"
+                  title="Instagram"
+                  style="cursor: pointer"
+                ></i>
+              </div>
+            </a>
+
+            <a
+              href="https://www.youtube.com/@anuragbytes"
+              target="_blank"
+              title="YouTube"
+            >
+              <div class="icon">
+                <i class="fab fa-youtube" style="cursor: pointer"></i>
+              </div>
+            </a>
+            <a href="">
+              <div class="icon">
+                <i class="fab fa-github" title="Github"></i>
+              </div>
+            </a>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- adding privacy policy and copyright popup-->
+      <div style="text-align: center; align-items: center">
+        <p style="text-align: center">
+          &copy;
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          All Rights Reserved. Made with ❤ by Guardian Hackers.
+        </p>
+        <div class="row-copy">
+          <a href="/copyrightpolicy.html">Copyright Policy</a> |
+          <a href="/privacynotice.html">Privacy Notice</a>
+        </div>
+      </div>
+
+      <script>
+        // Get the modal elements
+        var copyrightModal = document.getElementById("copyrightPolicyModal");
+        var privacyModal = document.getElementById("privacyNoticeModal");
+
+        // Get the link elements
+        var copyrightLink = document.getElementById("copyrightPolicyLink");
+        var privacyLink = document.getElementById("privacyNoticeLink");
+
+        // Get the <span> elements that close the modals
+        var closeCopyright = document.getElementById("closeCopyright");
+        var closePrivacy = document.getElementById("closePrivacy");
+
+        // When the user clicks the link, open the modal
+        copyrightLink.onclick = function () {
+          copyrightModal.style.display = "block";
+        };
+        privacyLink.onclick = function () {
+          privacyModal.style.display = "block";
+        };
+
+        // When the user clicks on <span> (x), close the modal
+        closeCopyright.onclick = function () {
+          copyrightModal.style.display = "none";
+        };
+        closePrivacy.onclick = function () {
+          privacyModal.style.display = "none";
+        };
+      </script>
+    </footer>
+
         <div class="foot-top">
           <div class="foot-left">
   
@@ -1300,57 +1835,67 @@
       </script>
   
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const buttons = document.querySelectorAll(".author button");
-            const modal = document.getElementById("content-modal");
-            const modalBody = document.getElementById("modal-body");
-            const closeButton = document.querySelector(".close-button");
+      document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".author button");
+        const modal = document.getElementById("content-modal");
+        const modalBody = document.getElementById("modal-body");
+        const closeButton = document.querySelector(".close-button");
 
-            buttons.forEach(button => {
-                button.addEventListener("click", function() {
-                    const author = this.getAttribute("data-author");
-                    const action = this.getAttribute("data-action");
-                    let content = '';
+        buttons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const author = this.getAttribute("data-author");
+            const action = this.getAttribute("data-action");
+            let content = "";
 
-                    switch(action) {
-                        case 'interview':
-                            content = `<h2>Interview with ${author.replace(/-/g, ' ')}</h2>
-                                       <p>${author.replace(/-/g, ' ')} shares insights into their writing process, latest work, and experiences as an author.</p>`;
-                            break;
-                        case 'articles':
-                            content = `<h2>Articles by ${author.replace(/-/g, ' ')}</h2>
+            switch (action) {
+              case "interview":
+                content = `<h2>Interview with ${author.replace(/-/g, " ")}</h2>
+                                       <p>${author.replace(
+                                         /-/g,
+                                         " "
+                                       )} shares insights into their writing process, latest work, and experiences as an author.</p>`;
+                break;
+              case "articles":
+                content = `<h2>Articles by ${author.replace(/-/g, " ")}</h2>
                                        <ul>
                                            <li><a href="#">The Craft of Writing</a></li>
                                            <li><a href="#">Understanding Narrative Structures</a></li>
                                        </ul>`;
-                            break;
-                        case 'recommendations':
-                            content = `<h2>Reading Recommendations by ${author.replace(/-/g, ' ')}</h2>
+                break;
+              case "recommendations":
+                content = `<h2>Reading Recommendations by ${author.replace(
+                  /-/g,
+                  " "
+                )}</h2>
                                        <ul>
                                            <li><a href="#">Book Title 1</a> by Author 1</li>
                                            <li><a href="#">Book Title 2</a> by Author 2</li>
                                        </ul>`;
-                            break;
-                        default:
-                            content = '<p>No content available.</p>';
-                    }
+                break;
+              default:
+                content = "<p>No content available.</p>";
+            }
 
-                    modalBody.innerHTML = content;
-                    modal.style.display = "block";
-                });
-            });
-
-            closeButton.addEventListener("click", function() {
-                modal.style.display = "none";
-            });
-
-            window.addEventListener("click", function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            });
+            modalBody.innerHTML = content;
+            modal.style.display = "block";
+          });
         });
+
+        closeButton.addEventListener("click", function () {
+          modal.style.display = "none";
+        });
+
+        window.addEventListener("click", function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        });
+      });
     </script>
+  </body>
+</html>
+
     <script src="/assets/js/comsp.js"></script>
 </body>
 </html>
+
