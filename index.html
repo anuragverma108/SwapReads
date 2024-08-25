@@ -1059,7 +1059,7 @@
     border-radius: 10px;
     position: relative;
     margin-left: 75vw;
-    /* margin-right: 0px; */
+    margin-right: 0px;
 }
 
 /* Close button */
@@ -1069,6 +1069,9 @@
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .close:hover,
@@ -1106,13 +1109,34 @@ body {
 .goog-te-balloon {
     display: none !important;
 }
-.flexi{
+.flexi {
   display: flex;
-  flex-direction: row;
-  height: auto;
-  width: 100%;
-  gap: 10px;
+  justify-content: space-between; 
+  align-items: stretch;          
 }
+
+.contact, .cardi {
+  flex: 0 0 auto;  
+  margin-left: 0px;
+}
+
+.contact, .contact-card {
+  height: 100%; 
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cardi {
+  display: flex;
+  justify-content: center;
+  align-items: center;    
+}
+
+.white-border-card {
+  max-width: 100%; 
+  height: 81%; 
+}
+
 /* Custom styles for the Google Translate dropdown */
 #google_translate_element select {
     background: #ffffff; 
@@ -1346,72 +1370,24 @@ body > .skiptranslate {
           
           <li class="navbar-item dropdown" id="more-dropdown">
             <a href="#" class="navbar-link" id="more-link">More
-              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
-                viewBox="0 0 24 24">
-                <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
-              </svg></a>
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+                <path fill="currentColor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
+              </svg>
+            </a>
             <div class="dropdown-menu" id="dropdown-menu">
-
               <ul class="dropdown-menu-list">
-                <li>
-                  <a href="chat.html" class="navbar-link" style="font-family: sans-serif; margin-bottom: 5px;">
-                    Community chat
-                </a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/literaryrealms.html" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
-                      class="ri-medal-fill"></i> Literary Realms</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
-                      class="ri-price-tag-3-fill"></i> Pricing</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/booklistswap.html" class="navbar-link">Booklist for Swapping</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="/assets/html/book_recommend.html" class="navbar-link" data-nav-link>
-                    <i class="ri-customer-service-2-fill"></i> Book Recommendation
-                  </a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
-                    data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/audio.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
-                    data-nav-link><i class="ri-price-tag-3-fill"></i>Audio Books</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/mood.html" class="navbar-link">Reading Mood Tracker</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/custom.html" class="navbar-link">Virtual Bookshelves</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/quiz.html" class="navbar-link">Quizes</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/read.html" class="navbar-link">Reading Challenge</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/blog.html" class="navbar-link">Community Blogs</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/borrow.html" class="navbar-link">BookLend</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/about.html" class="navbar-link">About</a>
-                </li>
+                <li><a href="chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">Community chat</a></li>
+                <li class="dropdown-menu-item"><a href="../html/pricing.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a></li>
+                <li class="dropdown-menu-item"><a href="../html/booklistswap.html" class="navbar-link">Booklist for Swapping</a></li>
+                <li class="dropdown-menu-item"><a href="../html/book_recommend.html" class="navbar-link" data-nav-link><i class="ri-customer-service-2-fill"></i> Book Recommendation</a></li>
+                <li class="dropdown-menu-item"><a href="../html/freeBooks.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i> Free E-books</a></li>
+                <li class="dropdown-menu-item"><a href="../html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i> Read Later</a></li>
+                <li class="dropdown-menu-item"><a href="../html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i> Reader Connection</a></li>
+                <li class="dropdown-menu-item"><a href="../html/about.html" class="navbar-link">About</a></li>
               </ul>
             </div>
           </li>
+          
           <li>
           <div class="action">
             <div class="profile" onclick="menuToggle();">
@@ -1438,6 +1414,7 @@ body > .skiptranslate {
                 </li>
               </ul>
               </div>
+
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
                     const savedAvatar = localStorage.getItem("selectedAvatar");
@@ -1445,7 +1422,38 @@ body > .skiptranslate {
                         document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
                     }
                 });
-        
+                
+                document.addEventListener('DOMContentLoaded', function() {
+                var moreDropdown = document.getElementById('more-dropdown');
+                var moreLink = document.getElementById('more-link');
+                var dropdownMenu = document.getElementById('dropdown-menu');
+
+                moreLink.addEventListener('click', function(event) {
+                  event.preventDefault(); // Prevent the default anchor behavior
+
+                  // Toggle the active class on the dropdown
+                  if (moreDropdown.classList.contains('active')) {
+                    moreDropdown.classList.remove('active');
+                  } else {
+                    // Hide any other open dropdowns (if you have more dropdowns)
+                    var openDropdowns = document.querySelectorAll('.navbar-item.dropdown.active');
+                    openDropdowns.forEach(function(dropdown) {
+                      dropdown.classList.remove('active');
+                    });
+
+                    moreDropdown.classList.add('active');
+                  }
+                });
+
+                // Close dropdown if clicking outside
+                document.addEventListener('click', function(event) {
+                  if (!moreDropdown.contains(event.target) && moreDropdown.classList.contains('active')) {
+                    moreDropdown.classList.remove('active');
+                  }
+                });
+              });
+
+
                 function menuToggle() {
                     const toggleMenu = document.querySelector(".menu");
                     toggleMenu.classList.toggle("active");
@@ -2942,12 +2950,6 @@ body > .skiptranslate {
     
     <div id="toastMessage" class="toast-message"></div>
     
-    <div id="confirmationModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeConfirmationModal()">&times;</span>
-            <p id="confirmationMessage"></p>
-        </div>
-    </div>
     <script>
      document.addEventListener("DOMContentLoaded", function() {
     const toastMessage = document.getElementById("toastMessage");
@@ -3063,35 +3065,35 @@ body > .skiptranslate {
         </div>
       </div>
     </div>
-<div class="cardi">
-    <div class="contact-card white-border-card">
-      <li>
-        <p class="card-title address-title">
-          <lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json" trigger="hover" colors="primary:#000000" style="width:25px;height:25px"></lord-icon>
-          Address :
-        </p><br>
-        <address class="address">
-          12, Nayabad <br>
-          Kolkata, India 700054
-        </address>
-      </li>
-      <li>
-        <p class="card-title phone-title">
-          <lord-icon class="invert-col" src="https://cdn.lordicon.com/srsgifqc.json" trigger="hover" style="width:20px;height:20px;"></lord-icon>
-          Phone :
-        </p><br>
-        <a href="tel:9124421980" class="card-link">+91 9124421980</a>
-      </li>
-      <li>
-        <p class="card-title email-title">
-          <lord-icon class="invert-col" src="https://cdn.lordicon.com/xtzvywzp.json" trigger="hover" style="width:20px;height:20px;"></lord-icon>
-          Email :
-        </p><br>
-        <a href="mailto:support@swapreads.com" class="card-link">support@swapreads.com</a>
-      </li>
+    <div class="cardi">
+      <div class="contact-card white-border-card">
+        <li>
+          <p class="card-title address-title">
+            <lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json" trigger="hover" colors="primary:#000000" style="width:25px;height:25px"></lord-icon>
+            Address :
+          </p><br>
+          <address class="address">
+            12, Nayabad <br>
+            Kolkata, India 700054
+          </address>
+        </li>
+        <li>
+          <p class="card-title phone-title">
+            <lord-icon class="invert-col" src="https://cdn.lordicon.com/srsgifqc.json" trigger="hover" style="width:20px;height:20px;"></lord-icon>
+            Phone :
+          </p><br>
+          <a href="tel:9124421980" class="card-link">+91 9124421980</a>
+        </li>
+        <li>
+          <p class="card-title email-title">
+            <lord-icon class="invert-col" src="https://cdn.lordicon.com/xtzvywzp.json" trigger="hover" style="width:20px;height:20px;"></lord-icon>
+            Email :
+          </p><br>
+          <a href="mailto:support@swapreads.com" class="card-link">support@swapreads.com</a>
+        </li>
+      </div>
+      </div>
     </div>
-    </div>
-  </div>
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin"
     style="border:0; margin-bottom:30px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
