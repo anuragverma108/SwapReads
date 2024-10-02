@@ -1,0 +1,16 @@
+name: Auto Assign Issue Creator
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  auto-assign:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Auto-assign issue creator
+      uses: actions-ecosystem/action-assign@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        assignees: ${{ github.event.issue.user.login }}
