@@ -5,11 +5,23 @@ on:
     types: [opened]
 
 jobs:
-  auto-assign:
+  assign_issues:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Assign issue to creator
-      uses: kentaro-m/auto-assign-action@v2.2.0
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Assign issue to creator
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issueNumber = context.issue.number;
+            const creator = context.issue.user.login;
+
+            const config = {
+              owner: anuragverma108,
+              repo: SwapReads,
+              issue_number: issueNumber,
+              assignees: [creator]
+            };
+
+            await github.issues.addAssignees(config);
+            console.log(`Assigned ${creator} to issue #${issueNumber}`);
