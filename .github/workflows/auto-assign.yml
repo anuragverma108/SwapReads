@@ -1,27 +1,46 @@
-name: Auto Assign Issue Creator
+name: Auto Assign
 
 on:
-  issues:
-    types: [opened]
+  issue_comment:
+    types: [created]
+  workflow_dispatch:
 
 jobs:
   assign_issues:
+    if: >
+      (github.event_name == 'issue_comment' && (
+      startsWith(github.event.comment.body, '/assign') || 
+      startsWith(github.event.comment.body, '/unassign') || 
+      contains(github.event.comment.body, 'assign to me') || 
+      contains(github.event.comment.body, 'please assign me this')  || 
+      contains(github.event.comment.body, 'assign this to me')  || 
+      contains(github.event.comment.body, 'assign this issue to me')  || 
+      contains(github.event.comment.body, 'I can try fixing this')  || 
+      contains(github.event.comment.body, 'i am interested in doing this')  || 
+      contains(github.event.comment.body, 'I am interested in contributing'))) || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
-      - name: Assign issue to creator
-        uses: actions/github-script@v4
+      - name: Check for issue assignees
+        uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const issueNumber = context.issue.number;
-            const creator = context.issue.user.login;
-
-            const config = {
-              owner: anuragverma108,
-              repo: SwapReads,
-              issue_number: issueNumber,
-              assignees: [creator]
-            };
-
-            await github.issues.addAssignees(config);
-            console.log(`Assigned ${creator} to issue #${issueNumber}`);
+            const issueNumber = context.payload.issue.number;
+            if (issueNumber) {
+              const commenter = context.payload.comment.user.login;
+              const config = {
+                owner: 'anuragverma108', 
+                repo: 'SwapReads',        
+                issue_number: issueNumber,
+                assignees: [commenter]
+              };
+              try {
+                await github.issues.addAssignees(config);
+                console.log(`Assigned ${commenter} to issue #${issueNumber}`);
+              } catch (error) {
+                console.error(`Failed to assign: ${error}`);
+                throw error; // Fail the job if needed
+              }
+            } else {
+              console.log('No issue number found in the comment.');
+            }
