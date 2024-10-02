@@ -1,4 +1,4 @@
-name: Issue assignment
+name: Issue Assignment
 
 on:
   issues:
@@ -13,14 +13,5 @@ jobs:
       - name: 'Auto-assign issue creator'
         uses: pozil/auto-assign-issue@v2
         with:
-          script: |
-            const issue = context.payload.issue;
-            const assignee = issue.user.login;
-            const { github, context } = require('@actions/github');
-
-            // Assign the issue to the creator
-            await github.issues.addAssignees({
-              ...context.repo,
-              issue_number: issue.number,
-              assignees: [assignee],
-            });
+          repo-token: ${{ secrets.GITHUB_TOKEN }} # Required token for authentication
+          assignees: ${{ github.event.issue.user.login }} # Auto-assign the issue creator
