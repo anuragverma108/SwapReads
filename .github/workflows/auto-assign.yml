@@ -9,8 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Auto-assign issue creator
-      uses: actions-ecosystem/action-assign@v1
+    - name: Assign issue to creator
+      uses: kentaro-m/auto-assign-action@v2.2.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        assignees: ${{ github.event.issue.user.login }}
