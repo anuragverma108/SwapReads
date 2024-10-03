@@ -85,6 +85,7 @@
     
     .nav {
   display: flex;
+  position: sticky !important;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
@@ -697,6 +698,13 @@
   margin-left: 10px; /* Add a negative margin to shift left */
 }
 
+.navbar-link{
+  font-size: 1.5rem;
+}
+.navbar-link.active {
+    color: #af574c; /* Highlight color */
+    font-weight: bold;
+}
 
 /* Hide the navbar */
 .header.hidden {
@@ -705,6 +713,7 @@
 
 /* Navbar styling when scrolled */
 .header.scrolled {
+  position: sticky !important;
   background-color: #efefef; /* Change to a darker color when scrolled */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
 }
@@ -841,7 +850,7 @@
     .header{
         flex-direction: column;
         height: 53.8rem;
-        transition: 0.55s all ease-out;
+        transition: 0.2s all ease-out;
         padding-top: 5px;
     }
     .navbar-item{
@@ -876,6 +885,7 @@
 }
 .navbar-item {
   margin-top: 10px; /* Increase the top margin of each item */
+  
 }
 .card-sty {
     text-align: center;
@@ -1300,7 +1310,7 @@ body > .skiptranslate {
 
         <ul class="navbar-list nav">
           <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="./assets/images/final.png" class="logopic" style=" width: 150px;">
+            <img src="./assets/images/final.png" class="logopic" style=" width: 150px; margin:0px 0px 0px 10px;">
           </a>
           <li class="navbar-item">
             <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
@@ -1308,7 +1318,7 @@ body > .skiptranslate {
           </li>
            <li class="navbar-item">
                 <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><i
-                    class="ri-home-fill"></i> About Us </a>
+                    class="ri-home-fill"></i>About Us</a>
               </li>
               
           <li class="navbar-item">
@@ -1415,7 +1425,7 @@ body > .skiptranslate {
           <li>
           <div class="action">
             <div class="profile" onclick="menuToggle();">
-              <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
+              <img id="profile-avatar"  src="./assets/images/avatar1.jpg" />
             </div>
             <div class="menu">
               <h3>XYZ<br /><span>Book Lover</span></h3>
@@ -1459,23 +1469,23 @@ body > .skiptranslate {
                         menu.classList.remove("active");
                     }
                 });
+                
+                // let lastScrollTop = 0;
+                // const header = document.querySelector('.header');
         
-                let lastScrollTop = 0;
-                const header = document.querySelector('.header');
+                // window.addEventListener('scroll', function() {
+                //     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-                window.addEventListener('scroll', function() {
-                    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                //     if (scrollTop > lastScrollTop) {
+                //         // Downscroll
+                //         header.style.transform = 'translateY(-120%)';
+                //     } else {
+                //         // Upscroll
+                //         header.style.transform = 'translateY(0)';
+                //     }
         
-                    if (scrollTop > lastScrollTop) {
-                        // Downscroll
-                        header.style.transform = 'translateY(-120%)';
-                    } else {
-                        // Upscroll
-                        header.style.transform = 'translateY(0)';
-                    }
-        
-                    lastScrollTop = scrollTop;
-                });
+                //     lastScrollTop = scrollTop;
+                // });
             </script>
 
 <div id="modal">
@@ -1561,6 +1571,33 @@ body > .skiptranslate {
       //     }
       //     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
       // }
+      const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".navbar-link");
+
+    // Function to update the active nav link
+    function updateActiveLink() {
+        let scrollPosition = window.scrollY + window.innerHeight/3;
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute("id");
+
+            // Check if the current scroll position is within the section
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                navLinks.forEach((link) => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href") === `#${sectionId}`) {
+                        link.classList.add("active");
+                    }
+                });
+            }
+        });
+    }
+
+    //Add scroll event listener to window
+    window.addEventListener("scroll", updateActiveLink);
+    updateActiveLink();
 
 
   window.addEventListener("scroll", onScroll);
@@ -4041,7 +4078,7 @@ function validateEmail(email_input) {
     }
 
     const lenis = new Lenis({
-      duration: 1.8,
+      duration: 0.5,
       easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
       direction: "vertical",
       gestureDirection: "vertical",
