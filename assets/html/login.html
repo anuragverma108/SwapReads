@@ -1583,6 +1583,7 @@ count=0
   });
 
   // Login event
+  const spcharRegex = /[<>"/]/;
   const loginForm = document.getElementById('loginForm');
   loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -1590,6 +1591,11 @@ count=0
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
 
+    if(spcharRegex.test(email) || spcharRegex.test(password))
+  {
+    alert("Email or password cannot contain <, >, \", or /");
+    return
+  }
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
