@@ -46,6 +46,28 @@
   <link rel="stylesheet" href="./assets/css/Available.css">
 
   <script src="./assets/js/rateUsModal.js" defer></script>
+  <style>
+    .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000; /* Ensures the navbar is above other elements */
+        transition: background-color 0.3s ease; /* Smooth transition for background color */
+    }
+
+    .navbar.scrolled {
+        background-color: rgba(255, 255, 255, 0.9); /* Adjust the color as needed */
+    }
+
+    .navbar-link {
+        transition: color 0.3s ease; /* Smooth color transition */
+    }
+
+    .navbar-link:hover {
+        color: #007BFF; /* Change to desired hover color */
+        cursor: pointer; /* Change cursor on hover */
+    }
+</style>
+
 
 </head>
 <script src="https://unpkg.com/scrollreveal"></script>
@@ -165,6 +187,16 @@
                         document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
                     }
                 });
+    // Handle scroll event to add/remove scrolled class
+    window.onscroll = function() {
+        const navbar = document.querySelector('.navbar');
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    };
+
         
                 function menuToggle() {
                     const toggleMenu = document.querySelector(".menu");
