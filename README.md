@@ -185,7 +185,7 @@ If you find this project helpful, please consider giving it a star on GitHub! Yo
   <div align = "center">
  <h3>Thank you for contributing to our repository</h3>
 
-![Contributors](https://contrib.rocks/image?repo=anuragverma108/SwapReads)
+![aniii09](https://contrib.rocks/image?repo=anuragverma108/SwapReads)
 
 ### Show some ❤️ by starring this awesome repository!
 
