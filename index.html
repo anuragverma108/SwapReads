@@ -83,11 +83,11 @@
     }
 
     
-    .nav {
+  .nav {
   display: flex;
+  position: sticky !important;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
   margin-left: -47px; /* Increased negative margin to move content more to the left */
 }
 
@@ -697,6 +697,13 @@
   margin-left: 10px; /* Add a negative margin to shift left */
 }
 
+.navbar-link{
+  font-size: 1.5rem;
+}
+.navbar-link.active {
+    color: #af574c; /* Highlight color */
+    font-weight: bold;
+}
 
 /* Hide the navbar */
 .header.hidden {
@@ -705,6 +712,7 @@
 
 /* Navbar styling when scrolled */
 .header.scrolled {
+  position: sticky !important;
   background-color: #efefef; /* Change to a darker color when scrolled */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
 }
@@ -727,6 +735,7 @@
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
+  margin-top: -9px;
 }
 
 .action .profile img {
@@ -841,7 +850,7 @@
     .header{
         flex-direction: column;
         height: 53.8rem;
-        transition: 0.55s all ease-out;
+        transition: 0.2s all ease-out;
         padding-top: 5px;
     }
     .navbar-item{
@@ -876,6 +885,7 @@
 }
 .navbar-item {
   margin-top: 10px; /* Increase the top margin of each item */
+  
 }
 .card-sty {
     text-align: center;
@@ -1005,10 +1015,13 @@
   
   <style>
     /* Fixed translate button */
+    *{
+      transition: all 1s ease-in-out;
+    }
 #translateButton {
     position: fixed;
-    bottom: 15px;
-    right: 40px;
+    top: -150px;
+    right: 44px;
     z-index: 1000;
     width: 53px;  
     height: 53px;
@@ -1028,7 +1041,7 @@
     text-align: center;
     white-space: nowrap;
     transition: transform 0.3s ease;
-    margin-top: 76.5vh;
+    margin-top: 75.8vh;
     margin-right: 0px;
 }
 #translateButton:hover {
@@ -1137,6 +1150,16 @@ body > .skiptranslate {
 }
 .goog-te-banner {
     display: none !important;
+}
+
+.dropdown{
+  margin-right: 3rem;
+}
+.mobile-container-styles{
+  margin-left: 50px;
+}
+.nav{
+  justify-content: space-around;
 }
   </style>
   <script>
@@ -1293,14 +1316,14 @@ body > .skiptranslate {
 </script>
   <header class="header header-anim nav-h" data-header>
 
-    <div class="container mobile-container-styles" style="padding-left: 0;">
+    <div class="container mobile-container-styles">
 
       <nav class="navbar nav_activated" data-navbar>
 
 
         <ul class="navbar-list nav">
           <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="./assets/images/final.png" class="logopic" style=" width: 150px;">
+            <img src="./assets/images/final.png" class="logopic" style=" width: 150px; margin:0px 0px 0px 18px;">
           </a>
           <li class="navbar-item">
             <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
@@ -1308,7 +1331,7 @@ body > .skiptranslate {
           </li>
            <li class="navbar-item">
                 <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><i
-                    class="ri-home-fill"></i> About Us </a>
+                    class="ri-home-fill"></i>About Us</a>
               </li>
               
           <li class="navbar-item">
@@ -1415,7 +1438,7 @@ body > .skiptranslate {
           <li>
           <div class="action">
             <div class="profile" onclick="menuToggle();">
-              <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
+              <img id="profile-avatar"  src="./assets/images/avatar1.jpg" />
             </div>
             <div class="menu">
               <h3>XYZ<br /><span>Book Lover</span></h3>
@@ -1459,28 +1482,28 @@ body > .skiptranslate {
                         menu.classList.remove("active");
                     }
                 });
+                
+                // let lastScrollTop = 0;
+                // const header = document.querySelector('.header');
         
-                let lastScrollTop = 0;
-                const header = document.querySelector('.header');
+                // window.addEventListener('scroll', function() {
+                //     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-                window.addEventListener('scroll', function() {
-                    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                //     if (scrollTop > lastScrollTop) {
+                //         // Downscroll
+                //         header.style.transform = 'translateY(-120%)';
+                //     } else {
+                //         // Upscroll
+                //         header.style.transform = 'translateY(0)';
+                //     }
         
-                    if (scrollTop > lastScrollTop) {
-                        // Downscroll
-                        header.style.transform = 'translateY(-120%)';
-                    } else {
-                        // Upscroll
-                        header.style.transform = 'translateY(0)';
-                    }
-        
-                    lastScrollTop = scrollTop;
-                });
+                //     lastScrollTop = scrollTop;
+                // });
             </script>
 
 <div id="modal">
   <form class="modal-box">
-    <img src="https://st2.depositphotos.com/4103319/6625/i/450/depositphotos_66251761-stock-photo-logout-circular-icon-on-white.jpg" class="logout-img"/>
+    <!-- <img src="https://st2.depositphotos.com/4103319/6625/i/450/depositphotos_66251761-stock-photo-logout-circular-icon-on-white.jpg" class="logout-img"/> -->
     <h1>Logout Account</h1>
     <p class="logout-que">Are you sure you want to log out ?</p>
     <div class="close-logout-btn">
@@ -1561,6 +1584,33 @@ body > .skiptranslate {
       //     }
       //     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
       // }
+      const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".navbar-link");
+
+    // Function to update the active nav link
+    function updateActiveLink() {
+        let scrollPosition = window.scrollY + window.innerHeight/3;
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute("id");
+
+            // Check if the current scroll position is within the section
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                navLinks.forEach((link) => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href") === `#${sectionId}`) {
+                        link.classList.add("active");
+                    }
+                });
+            }
+        });
+    }
+
+    //Add scroll event listener to window
+    window.addEventListener("scroll", updateActiveLink);
+    updateActiveLink();
 
 
   window.addEventListener("scroll", onScroll);
@@ -1673,7 +1723,7 @@ body > .skiptranslate {
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
                 </a> -->
               
-                <a href="#" class="cta1 style-9">
+                <a href="diverseLiteracy.html" class="cta1 style-9">
                   <span style="position: relative; top: 27px;">Read More</span>
                   <svg width="13px" height="10px" viewBox="0 0 13 10">
                     <path d="M1,5 L11,5"></path>
@@ -3512,29 +3562,38 @@ body > .skiptranslate {
     document.addEventListener('DOMContentLoaded', () => {
   const faqContainers = document.querySelectorAll('.faq-container');
 
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        entry.target.style.animation = `slideIn 1s ease-in-out ${index * 0.3}s forwards`; // Adjusted for slower animation
-        if (index % 2 === 1) {
-          entry.target.querySelector('.question').style.animation = `slideInFromRight 1s ease-in-out ${index * 0.3}s forwards`; // Adjusted for slower animation
-        }
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
   faqContainers.forEach(faq => {
+    const question = faq.querySelector('.question');
+    
+    question.addEventListener('click', () => {
+      const answers = faq.querySelector('.answers');
+   
+      answers.classList.toggle('visible');
+    
+      const icon = faq.querySelector('.icon');
+      icon.classList.toggle('fa-rotate-180');
+    });
+    
+   
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
     observer.observe(faq);
   });
 });
+
 
   </script>
   <br /><br />
@@ -4126,7 +4185,7 @@ function validateEmail(email_input) {
     }
 
     const lenis = new Lenis({
-      duration: 1.8,
+      duration: 0.5,
       easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
       direction: "vertical",
       gestureDirection: "vertical",
