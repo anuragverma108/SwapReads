@@ -334,7 +334,7 @@
       .menu ul li img {
         width: 20px;
         height: 20px;
-        margin-right: 10px;
+        
       }
       .profile img {
         margin-bottom:100px;
@@ -384,10 +384,14 @@
      }
      
      .action {
-       position: fixed;
+       /* position: fixed */
        top: 43px;
        right: 83px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
      }
+     
      
      .action .profile {
        position: relative;
@@ -399,7 +403,7 @@
      }
      
      .action .profile img {
-      margin-right:100px;
+      
        position: absolute;
        top: 0;
        left: 0;
@@ -504,6 +508,7 @@
          margin: 4px 4px;
          background-color: rgb(240, 15, 15);
      }
+
      @media only screen and (max-width:1063px){
          .nav{
              flex-direction: column;
@@ -650,15 +655,15 @@ color: #d26d6d;
   
   <header class="header header-anim" data-header>
 
-    <div class="container" style="padding-left: 0;">
-        <div>
-        <nav class="navbar nav_activated" data-navbar>
-            <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
+    <div class="container" style="padding-left: 0; width: 100%;">
+        <div style="width: 100%;">
+        <nav class="navbar nav_activated" data-navbar style="width: 100%;">
+            <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex">
                 <img src="./assets/images/final.png" alt="" class="logopic"
                     style=" width:0.1px;opacity: 0;" />
             </a>
 
-            <ul class="navbar-list">
+            <ul class="navbar-list" style="width: 100%;">
                 <img src="./assets/images/final.png" class="logopic" style=" width: 200px;">
 
                 <li class="navbar-item">
@@ -731,8 +736,9 @@ color: #d26d6d;
                         </ul>
                     </div>
                 </li>
+                
                 <div class="action">
-                  <div class="profile"style="margin-right:100px" onclick="menuToggle();">
+                  <div class="profile" onclick="menuToggle();">
                       <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
                   </div>
                   <div class="menu">
@@ -747,7 +753,6 @@ color: #d26d6d;
                       </ul>
                   </div>
               </div>
-              
               
                     <script>
                       document.addEventListener("DOMContentLoaded", () => {
