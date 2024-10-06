@@ -556,6 +556,114 @@ body {
   object-fit: cover;
 }
 
+/* --------- Profile Icon -------- */
+.action {
+  position: absolute;
+  left: 1440px; 
+  top: 15px; 
+}
+
+.action .profile {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.action .profile img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.action .menu {
+  position: absolute;
+  top: 120px;
+  right: -10px;
+  padding: 10px 20px;
+  background: #fff;
+  width: 200px;
+  box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  transition: 0.5s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.action .menu.active {
+  top: 80px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.action .menu::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 28px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.action .menu h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px 0;
+  font-weight: 500;
+  color: #555;
+  line-height: 1.5em;
+}
+
+.action .menu h3 span {
+  font-size: 14px;
+  color: #cecece;
+  font-weight: 300;
+}
+
+.action .menu ul li {
+  list-style: none;
+  padding: 16px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+}
+
+.action .menu ul li img {
+  max-width: 20px;
+  margin-right: 10px;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.action .menu ul li:hover img {
+  opacity: 1;
+}
+
+.action .menu ul li a {
+  display: inline-flex;
+  text-align: center;
+  padding-left: 5%;
+  font-weight: 300;
+  font-size: 19px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.action .menu ul li:hover a {
+  color: #ff5d94;
+  font-size: 21px;
+}
+
 /*-----------------------------------*\
   #HEADER
 \*-----------------------------------*/
@@ -1090,10 +1198,6 @@ body.dark-mode .dropdown-menu-item:hover {
   /* Add shadow effect on hover */
 }
 
-body.dark-mode .chapter-card {
-  /* background-color: var(--chinese-violet); */
-}
-
 body.dark-mode .chapter-card::before {
   background: var(--old-rose);
 }
@@ -1394,8 +1498,10 @@ body.dark-mode .pricing-card button {
   flex-direction: column;
 } */
 iframe {
-  width: 800px !important;
-  height: 450px !important;
+  max-width: 800px !important;
+  /* height: 450px !important; */
+  width: 90%;
+  aspect-ratio: 16/9;
   border-radius: 5px;
 }
 
@@ -1408,8 +1514,15 @@ iframe {
 .flexi {
   display: flex;
   flex-direction: row;
+  width: 75%;
   gap: 0;
+
   margin-bottom: 5rem;
+
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+
 }
 .contact {
   margin-top: 50px;
@@ -1446,7 +1559,11 @@ iframe {
 }
 .contact-container {
   padding-right: 20px;
+
   width: 81% !important;
+
+  width: 80% !important;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1569,6 +1686,7 @@ iframe {
   margin-right: 150px !important;
   background-color: transparent;
 }
+
 .contact-card {
   margin-top: -14rem;
   padding: 30px;
@@ -1577,8 +1695,12 @@ iframe {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   /* border-radius: var(--radius-5); */
+
   width: 31rem;
   height: 36rem;
+
+  height: 600px;
+
 }
 
 .contact-card .card-title {
@@ -1600,6 +1722,78 @@ iframe {
 .contact-card .card-link:is(:hover, :focus) {
   color: var(--old-rose);
 }
+
+.map-container {
+  position: relative;
+  overflow: hidden; 
+}
+.map-container {
+  position: relative;
+  overflow: hidden; 
+}
+
+.map-container iframe {
+  pointer-events: none; 
+  transition: pointer-events 0.3s ease; 
+}
+
+.map-container:hover iframe {
+  pointer-events: auto; 
+}
+
+/* Responsive adjustments for mobile devices */
+@media only screen and (max-width: 768px) {
+  .flexi {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-container {
+    width: 90%; /* Increase width to 90% on smaller screens */
+    padding: 20px; /* Reduce padding for mobile */
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  .contact-form {
+    width: 100%; /* Ensure form takes full width */
+    max-width: none; /* Remove max-width for mobile */
+  }
+
+  .cardi {
+    width: 80%;
+    margin: 0 !important;
+  }
+
+  .contact-card {
+    width: 100%;
+    height: auto;
+    margin-bottom: 5rem;
+  }
+
+  .image-fader {
+    width: 100%; /* Adjust image fader width for mobile */
+    height: auto; /* Maintain aspect ratio for images */
+    margin-top: 20px; /* Add some spacing */
+  }
+}
+
+/* For extra small screens (like very narrow phones) */
+@media only screen and (max-width: 480px) {
+  .contact-container {
+    width: 100%; /* Full width for extra small screens */
+  }
+
+  .contact-form input, 
+  .contact-form textarea {
+    padding: 8px; /* Adjust padding for form inputs */
+  }
+
+  .contact-form button {
+    width: 100%; /* Make the submit button full width */
+    font-size: 14px; /* Reduce button font size for better fit */
+  }
+}
+
 
 /*-----------------------------------*\
   #Rate-Us-Modal
@@ -1897,10 +2091,10 @@ body.light-mode .flip-card-back {
     width: 50%;
   }
 
-  iframe {
-    width: 350px;
-    height: 300px;
-  }
+  /* iframe { */
+    /* width: 350px; */
+    /* height: 300px; */
+  /* } */
 }
 @media only screen and (max-width: 600px) {
   /* Adjustments for smaller screens */
@@ -2799,7 +2993,7 @@ footer {
   .navbar-list {
     gap: 22px;
     /* Increase gap between navbar items */
-    justify-content: center;
+    justify-content: space-evenly;
     /* Center align navbar items */
     padding-left: 2rem;
   }
