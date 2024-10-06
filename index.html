@@ -893,146 +893,8 @@
 .subscribe:hover {
   background-color: #2980b9; }
 
-    .section-contact {
-  padding: 60px 0;
-  background-color: #ffdcd4;
-  margin-bottom: 10px;
-}
-
-.ctc {
-  text-align: center;
-  color: #333;
-  font-size: 36px;
-  margin-bottom: 5px;
-}
-
-.p {
-  text-align: center;
-  color: #666;
-  margin-bottom: 10px; 
-}
-
-.flexi {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-/* Contact and Address Box */
-.contact, .cardi {
-  flex-basis: 48%; 
-  margin-bottom: 0; 
-}
-
-/* Contact Form */
-.contact {
-  background-color: #fff;
-  padding: 30px; /* Increased padding for better appearance */
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 600px; /* Set max width for larger screens */
-  width: 100%; /* Full width within the flex container */
-  height: fit-content;
-  transition: transform 0.3s; /* Smooth transition for hover effect */
-}
-
-.contact:hover {
-  transform: scale(1.02); /* Slightly enlarge on hover */
-}
-
-/* Contact Form Contents */
-.contact-container {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Form Fields */
-.contact-form label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px; /* Increased padding for form fields */
-  margin-bottom: 15px; /* Reduced margin */
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.contact-form button {
-  background-color: #A30F17;
-  justify-content: center;
-  color: white;
-  padding: 12px 15px; /* Increased padding */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s; /* Smooth transition for hover */
-}
-
-.contact-form button:hover {
-  background-color: #811214;
-}
-
-/* Contact Card */
-.contact-card {
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  padding: 10px; /* Adjusted to reduce height */
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center; /* Center text inside the address box */
-  margin-left: 30%;
-  margin-top: 20px; /* Space above the card */
-  height: 310px;
-}
-
-/* Image Fader Section */
-.image-fader img {
-  max-width: 150px; /* Increased width */
-  margin: 0 10px; /* Increased spacing */
-  justify-content: center;
-  transition: opacity 0.5s ease-in-out;
-}
-
-/* Google Map Section */
-.map-container {
-  display: flex; /* Added to center */
-  justify-content: center; /* Center the map */
-  margin-top: 30px;
-  width: 100%;
-}
-
-.map-container iframe {
-  width: 100%;
-  height: 300px;
-  border-radius: 10px;
-  border: none;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-  .flexi {
-    flex-direction: column;
-    align-items: center; /* Center items */
-    margin-bottom: 20px;
-  }
   
-  .contact, .cardi {
-    flex-basis: 130%;
-    max-width: 90%; /* Set max-width for smaller screens */
-    margin-bottom: 30px; 
-  }
 
-  .map-container iframe {
-    height: 100px;
-  }
 
 
   </style>
@@ -1234,6 +1096,89 @@ body > .skiptranslate {
 .nav{
   justify-content: space-around;
 }
+
+
+.section-contact {
+  color: black;
+  padding: 40px 20px;
+}
+
+.flexi {
+  display: flex;
+  justify-content: space-between; /* Ensure both containers are side by side */
+  flex-wrap: wrap; 
+}
+
+.contact {
+  width: 52%; /* Adjust width for the contact form */
+}
+
+.cardi {
+  width: 35%; /* Adjust width for the contact card */
+  max-width: 350px; /* Limit max width */
+  margin-left: 20px; /* Add some space between the two sections */
+}
+
+.contact-container {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Ensure there's space above the card */
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center map inside container */
+  width: 100%;
+  height: 300px; /* Fixed height for map */
+  margin-top: 20px; /* Space above map */
+}
+.contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #8f8d8d;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  .contact:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+  }
+
+  .cardi:hover {
+    transform: scale(1.02);
+  }
+
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove border for a cleaner look */
+  border-radius: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .flexi {
+    flex-direction: column; /* Stack elements on smaller screens */
+    align-items: center;
+  }
+  .contact, .cardi {
+    width: 90%; /* Ensure full width on smaller screens */
+    max-width: none; /* Remove max-width restriction */
+  }
+}
+
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -3140,12 +3085,16 @@ body > .skiptranslate {
 
     <script src="/assets/js/rate.js"></script>
 
-  <section class="section-contact" id="contact" aria-label="contact">
-  <h1 class="ctc">CONTACT US!</h1>
-  <p class="p">Have a Question?</p>
+
+<section class="section-contact" id="contact" aria-label="contact">
+  <h1 class="h1 section-title has-underline" style="margin-top: 15px;">
+    Contact Us!
+    <span class="span has-before"></span>
+  </h1>
+  <p class="p">Have a Question?</p> 
+  <h3 style="text-align: center; color: #A30F17;">GET IN TOUCH</h3>
   <div class="flexi">
     <div class="contact">
-      <h3 style="text-align: center; color: #A30F17;">Get in touch</h3>
       <div class="contact-container">
         <form class="contact-form" id="contactForm">
           <label for="name">Name</label>
@@ -3165,11 +3114,11 @@ body > .skiptranslate {
         <!-- Image Fader Section -->
         <center>
           <div class="image-fader">
-          <img src="./assets/images/ctc1.png" alt="ctc1">
-          <img src="./assets/images/ctc5.png" alt="ctc5">
-          <img src="./assets/images/ctc3.png" alt="ctc3">
-          <img src="./assets/images/ctc4.png" alt="ctc4">
-        </div>
+            <img src="./assets/images/ctc1.png" alt="ctc1">
+            <img src="./assets/images/ctc5.png" alt="ctc5">
+            <img src="./assets/images/ctc3.png" alt="ctc3">
+            <img src="./assets/images/ctc4.png" alt="ctc4">
+          </div>
         </center>
       </div>
     </div>
@@ -3203,19 +3152,17 @@ body > .skiptranslate {
             <a href="mailto:support@swapreads.com" class="card-link">support@swapreads.com</a>
           </li>
         </ul>
+        <!-- Map Container -->
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin"
+            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
       </div>
-    </div>
-
-    <!-- Google Map Section -->
-    <div class="map-container">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin"
-        style="border:0; margin-bottom:30px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
     </div>
   </div>
 </section>
-
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
