@@ -206,6 +206,21 @@
           font-size: 0.85em;
         }
       }
+      .faq-section {
+        display: none; /* Hidden by default */
+        margin-top: 20px;
+      }
+
+      .faq-question {
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .faq-answer {
+        display: none; /* Hidden by default */
+        margin-top: 5px;
+        padding-left: 20px;
+      }
     </style>
   </head>
 
@@ -225,9 +240,72 @@
         <h2 class="mb-4">Frequently Asked Questions</h2>
         <p>For answers to common questions, please visit our FAQ section:</p>
         <div class="text-center">
-          <a href="/index.html#faqq" class="btn btn-custom">View FAQ</a>
+           <button id="faqButton" class="btn btn-custom">View FAQ</button>
         </div>
       </div>
+      <div class="faq-section" id="faqSection">
+  <h2 class="mb-4">FAQs</h2>
+  <div class="faq-question" onclick="toggleAnswer('faq1')">
+    What is SwapReads.com?
+  </div>
+  <div class="faq-answer" id="faq1">
+    SwapReads.com is a platform that connects users globally to exchange books, making reading more accessible and sustainable.
+  </div>
+  <div class="faq-question" onclick="toggleAnswer('faq2')">
+    How does the book swapping process work?
+  </div>
+  <div class="faq-answer" id="faq2">
+    Users can list their books and browse other users' books. They can then initiate swaps directly through the platform.
+  </div>
+  <div class="faq-question" onclick="toggleAnswer('faq3')">
+    Is there a fee to use SwapReads.com?
+  </div>
+  <div class="faq-answer" id="faq3">
+    No, using SwapReads.com for swapping books is free. Users only need to cover shipping costs if applicable.
+  </div>
+  <div class="faq-question" onclick="toggleAnswer('faq4')">
+    How do I create an account?
+  </div>
+  <div class="faq-answer" id="faq4">
+    You can create an account by clicking on the "Sign Up" button on the homepage and filling out the registration form.
+  </div>
+  <div class="faq-question" onclick="toggleAnswer('faq5')">
+    What types of books can I swap?
+  </div>
+  <div class="faq-answer" id="faq5">
+    You can swap any book, including novels, textbooks, and children's books, as long as they are in good condition.
+  </div>
+  <div class="faq-question" onclick="toggleAnswer('faq6')">
+    How do I find books to swap?
+  </div>
+  <div class="faq-answer" id="faq6">
+    Use the search feature on the platform to find specific titles or browse categories to discover new books.
+  </div>
+  <div class="faq-question" onclick="toggleAnswer('faq7')">
+    What if the book I receive is damaged?
+  </div>
+  <div class="faq-answer" id="faq7">
+    If you receive a damaged book, you can report the issue through our support team, and we will assist you in resolving it.
+  </div>
+  <div class="faq-question" onclick="toggleAnswer('faq8')">
+    Can I swap e-books?
+  </div>
+  <div class="faq-answer" id="faq8">
+    Currently, SwapReads.com focuses on physical books. E-book swapping is not supported at this time.
+  </div>
+  <div class="faq-question" onclick="toggleAnswer('faq9')">
+    How do I communicate with other users?
+  </div>
+  <div class="faq-answer" id="faq9">
+    You can send private messages to other users through the platform to discuss swaps or ask questions.
+  </div>
+  <div class="faq-question" onclick="toggleAnswer('faq10')">
+    What should I do if I forget my password?
+  </div>
+        <div class="faq-answer" id="faq10">
+    Click on the "Forgot Password?" link on the login page, and follow the instructions to reset your password.
+  </div>
+</div>
 
       <div class="mt-5 section-2">
         <h2 class="mb-4">Need More Help?</h2>
@@ -296,6 +374,15 @@
           );
         });
       });
+      $(document).ready(function () {
+    $("#faqButton").click(function () {
+      $("#faqSection").toggle(); // Show or hide the FAQ section
+    });
+  });
+
+      function toggleAnswer(faqId) {
+  $("#" + faqId).toggle(); // Toggle visibility of the specific answer
+}
     </script>
   </body>
 </html>
