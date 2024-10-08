@@ -12,6 +12,7 @@
   </script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
@@ -74,6 +75,10 @@
   <script src="./script.js"></script>
   
   <style>
+.no-scroll {
+  overflow-y: hidden;
+}
+
     swiper-container {
       width: 100%;
       height: 75%;
@@ -85,137 +90,65 @@
     
   .nav {
   display: flex;
-  position: sticky !important;
   align-items: center;
   justify-content: space-between;
-  margin-left: -47px; /* Increased negative margin to move content more to the left */
+  position: relative;
+  bottom: 20px;
+  margin-left: -4.7rem; /* Increased negative margin to move content more to the left */
+}
+
+#btn{
+  background-color: #fff;
+  color: black;
+  font-size: 16px;
+  border: none;
+  position: relative;
+  top: 4px;
+}
+
+#nav{
+  position: relative;
+  bottom: 20px;
+}
+
+.dropdown-menu {
+  max-height: 200px; /* adjust the height as needed */
+  overflow-y: auto;
+  background-color: #d26d6d;
+}
+
+.dropdown-menu:hover {
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 5px; /* Set the scrollbar width to 5px */
+}
+
+::-moz-scrollbar {
+  width: 5px; /* Set the scrollbar width to 5px */
 }
 
 
-    .action {
-      position: absolute;
-      left: 1440px; 
-      top: 15px; 
-    }
-
-    .action .profile {
-      position: relative;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .action .profile img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .action .menu {
-      position: absolute;
-      top: 120px;
-      right: -10px;
-      padding: 10px 20px;
-      background: #fff;
-      width: 200px;
-      box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
-      border-radius: 15px;
-      transition: 0.5s;
-      visibility: hidden;
-      opacity: 0;
-    }
-
-    .action .menu.active {
-      top: 80px;
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .action .menu::before {
-      content: "";
-      position: absolute;
-      top: -5px;
-      right: 28px;
-      width: 20px;
-      height: 20px;
-      background: #fff;
-      transform: rotate(45deg);
-    }
-
-    .action .menu h3 {
-      width: 100%;
-      text-align: center;
-      font-size: 18px;
-      padding: 20px 0;
-      font-weight: 500;
-      color: #555;
-      line-height: 1.5em;
-    }
-
-    .action .menu h3 span {
-      font-size: 14px;
-      color: #cecece;
-      font-weight: 300;
-    }
-
-    .action .menu ul li {
-      list-style: none;
-      padding: 16px 0;
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
-      display: flex;
-      align-items: center;
-    }
-
-    .action .menu ul li img {
-      max-width: 20px;
-      margin-right: 10px;
-      opacity: 0.5;
-      transition: 0.5s;
-    }
-
-    .action .menu ul li:hover img {
-      opacity: 1;
-    }
-
-    .action .menu ul li a {
-      display: inline-flex;
-      text-align: center;
-      padding-left: 5%;
-      font-weight: 300;
-      font-size: 19px;
-      text-decoration: none;
-      color: #555;
-      font-weight: 500;
-      transition: 0.5s;
-    }
-
-    .action .menu ul li:hover a {
-      color: #ff5d94;
-      font-size: 21px;
-    }
+    
 
     /* Position the toggle button to the right */
     .switch-container {
       position: absolute;
-      right: 100px; /* Adjust this value to move the button more to the right */
-      top: 15px; /* Adjust this value to move the button vertically */
+      right: 10rem; /* Adjust this value to move the button more to the right */
+      top: 1.5rem; /* Adjust this value to move the button vertically */
     }
 
     /* For responsiveness */
-    @media (max-width: 990px) {
+    @media (max-width: 99rem) {
       .switch-container {
-        right: 90px; /* Adjust this value for smaller screens */
+        right: 9rem; /* Adjust this value for smaller screens */
       }
     }
 
-    @media (max-width: 575px) {
+    @media (max-width: 57.5rem) {
       .switch-container {
-        right: 20px; /* Adjust this value for smaller screens */
+        right: 2rem; /* Adjust this value for smaller screens */
       }
     }
 
@@ -226,9 +159,9 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    margin-top: 120px;;
-    width: 40px;
-    height: 150px;
+    margin-top: 21rem;;
+    width: 4rem;
+    height: 15rem;
   
 }#quicklinks {
   display: flex;
@@ -243,7 +176,7 @@
 #quicklinks .foot-quick {
   display: flex;
   align-items: center;
-  margin-bottom: 10px; /* Adjust spacing between list items */
+  margin-bottom: 1rem; /* Adjust spacing between list items */
 }
 
 #quicklinks .foot-quick a {
@@ -254,7 +187,7 @@
 }
 
 #quicklinks .foot-quick a i {
-  margin-right: 5px; /* Adjust spacing between icon and text */
+  margin-right: 0.5rem; /* Adjust spacing between icon and text */
 }
 .dark-mode .fas{
   color:white;
@@ -264,9 +197,9 @@
 }
 .dark-mode .finput{
       color: white;
-      background-color: transparent; 
-      padding: 10px; 
-      border: 1px solid white;
+      background-color: transparent;
+      padding: 1rem;
+      border: 0.1rem solid white;
       
 }
 .dark-mode .finput::placeholder {
@@ -275,22 +208,22 @@
 .socialmediaicons a {
     display: inline;
     text-align: center;
-    padding: 5px;
+    padding: 0.5rem;
     transition: all 0.3s ease;
     color: rgb(0, 0, 0);
-    font-size: 20px;
+    font-size: 2rem;
   }
 
   .socialmediaicons .fa-instagram {
   display: inline-block;
-  width: 30px; 
-  height: 30px; 
+  width: 3rem; 
+  height: 3rem; 
   text-align: center;
-  line-height: 30px; 
-  border-radius: 10px;
+  line-height: 3rem; 
+  border-radius: 1rem;
   background: transparent;
   color: #000000;
-  transition: background 0.3s, transform 0.3s; 
+  /* transition: background 1s, transform 1s;  */
 }
 
 .socialmediaicons .fa-instagram:hover {
@@ -300,16 +233,21 @@
                                #d42e81 50%, 
                                #a237b6 75%, 
                                #3e57bc 100%);
+                               transition: all 0.3s ;
   background-clip: padding-box;
-  border-radius: 10px; 
+  border-radius: 1rem; 
   color: white; 
   transform: scale(1.1); 
   
 }  
 .socialmediaicons .fa-facebook:hover{
+  transition: all 0.3s ;
   color: blue;
+  
+  
 }   
 .socialmediaicons .fa-youtube:hover{
+  transition: all 0.3s ;
   color: red;
 }
 
@@ -328,19 +266,19 @@
 
   .instagram {
     
-    margin: 5px;
+    margin: 0.5rem;
     
   }
 
 
   .facebook {
     
-    margin: 5px;
+    margin: 0.5rem;
   }
   
   .youtube {
    
-    margin: 5px;
+    margin: 0.5rem;
   }
 
 
@@ -354,7 +292,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 50px;
+      margin-bottom: 5rem;
     }
     /* ########### */
 
@@ -374,11 +312,11 @@
 
     .flip-card {
       background-color: transparent;
-      width: 400px;
-      height: 370px;
-      /* margin: 2px; */
-      /* border: 1px solid #f1f1f1; */
-      perspective: 1000px;
+      width: 40rem;
+      height: 37rem;
+      /* margin: 0.2rem; */
+      /* border: 0.1rem solid #f1f1f1; */
+      perspective: 100rem;
       /* Remove this if you don't want the 3D effect */
     }
 
@@ -390,7 +328,7 @@
       text-align: center;
       transition: transform 0.7s;
       transform-style: preserve-3d;
-      padding: 10px;
+      padding: 1rem;
     }
 
     /* Do an horizontal flip when you move the mouse over the flip box container */
@@ -428,14 +366,14 @@
 
     /* Light mode styles */
     .light-mode .readmore-anim {
-      font-size: 18px;
+      font-size: 1.8rem;
       letter-spacing: 0;
       color: hsl(357, 37%, 62%);
     }
 
     .light-mode .readmore-anim:hover {
       color: red;
-      letter-spacing: 1px;
+      letter-spacing: 0.1em;
       transition: ease-in-out;
     }
     .cta1{
@@ -444,7 +382,7 @@
   align-items: center;
   justify-content: flex-start;
   margin: auto;
-  padding: 20px 24px;
+  padding: 2rem 2.4rem;
   color:  hsl(357, 37%, 62%);
   font-family: Avenir, sans-serif;
   text-decoration: none;
@@ -452,19 +390,19 @@
   &:before {
     content: "";
     position: absolute;
-    top: 27px;
+    top: 2.7rem;
     left: 0;
     display: block;
-    border-radius: 28px;
+    border-radius: 2.8rem;
     background: rgba(255, 171, 157, 0.5);
-    width: 56px;
-    height: 56px;
+    width: 5.6rem;
+    height: 5.6rem;
     transition: all 0.3s ease;
   }
   span {
     position: relative;
-    font-size: 8px;
-    line-height: 18px;
+    font-size: 0.8rem;
+    line-height: 1.8rem;
     font-weight: 900;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -473,14 +411,14 @@
   }
   svg {
     position: relative;
-    top: 27px;
-    margin-left: 5px;
+    top: 2.7rem;
+    margin-left: 0.5rem;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke: hsl(357, 37%, 62%);
     stroke-width: 2;
-    transform: translateX(-5px);
+    transform: translateX(-0.5rem);
     transition: all 0.3s ease;
   }
   &:hover {
@@ -503,7 +441,7 @@
   align-items: center;
   justify-content: flex-start;
   margin: auto;
-  padding: 20px 24px;
+  padding: 2rem 2.4rem;
   color:  hsl(357, 37%, 62%);
   font-family: Avenir, sans-serif;
   text-decoration: none;
@@ -514,16 +452,16 @@
     top: 0;
     left: 0;
     display: block;
-    border-radius: 28px;
+    border-radius: 2.8rem;
     background: rgba(255, 171, 157, 0.5);
-    width: 56px;
-    height: 56px;
+    width: 5.6rem;
+    height: 5.6rem;
     transition: all 0.3s ease;
   }
   span {
     position: relative;
-    font-size: 8px;
-    line-height: 18px;
+    font-size: 0.8rem;
+    line-height: 1.8rem;
     font-weight: 900;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -533,13 +471,13 @@
   svg {
     position: relative;
     top: 0;
-    margin-left: 5px;
+    margin-left: 0.5rem;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke: hsl(357, 37%, 62%);
     stroke-width: 2;
-    transform: translateX(-5px);
+    transform: translateX(-0.5rem);
     transition: all 0.3s ease;
   }
   &:hover {
@@ -561,7 +499,7 @@
 
     /* Dark Mode Styles */
     .dark-mode .readmore-anim {
-      font-size: 18px;
+      font-size: 1.8rem;
       letter-spacing: 0;
       color: hsl(357, 37%, 62%);
     }
@@ -572,18 +510,18 @@
 
     .dark-mode .readmore-anim:hover {
       color: red;
-      letter-spacing: 1px;
+      letter-spacing: 0.1rem;
       transition: ease-in-out;
     }
 
     .dark-mode .header.scrolled {
       background-color: #232222; /* Change to a darker color when scrolled */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+      box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
     }
 
     .dark-mode #dropdown-menu {
       background-color: #151111;;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
       color: white;
     }
     .dark-mode .dropdown-menu-item a{
@@ -592,22 +530,22 @@
 
     #cookie-consent {
   position: fixed;
-  bottom: 10px;
-  left: 10px;
+  bottom: 1rem;
+  left: 1rem;
   background-color: #f1f1f1;
-  padding: 20px;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 300px;
+  width: 30rem;
   height: fit-content;
   z-index: 10000;
-  border-radius: 10px;
-  margin-bottom: 5px;
-  margin: 20px;
-  border-right: 4px solid transparent;
-  border-bottom: 4px solid transparent;
+  border-radius: 1rem;
+  margin-bottom: 5rem;
+  margin: 2rem;
+  border-right: 0.4rem solid transparent;
+  border-bottom: 0.4rem solid transparent;
   transition: border-color 0.3s;
 }
 
@@ -623,12 +561,12 @@
 
 .accept-cookies,
 .reject-cookies {
-  width: 260px;  /* Decrease the button width */
-  height: 35px;  /* Decrease the button height */
+  width: 26rem;  /* Decrease the button width */
+  height: 3.5rem;  /* Decrease the button height */
   color: white;
   background-color: #A30F17;
   border: none;
-  border-radius: 5px;  /* Add rounded corners */
+  border-radius: 0.5rem;  /* Add rounded corners */
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;  /* Smooth transition for effects */
 }
@@ -643,13 +581,13 @@
 }
 
 .reject-cookies {
-  margin-top: 10px;
+  margin-top: 1rem;
 }
 
 .accept-cookies:hover,
 .reject-cookies:hover {
   transform: scale(0.95);
-  box-shadow: 0 0 15px rgb(249, 212, 212);  /* Reduce the shadow size */
+  box-shadow: 0 0 1.5rem rgb(249, 212, 212);  /* Reduce the shadow size */
 }
 
 .accept-cookies:hover {
@@ -664,10 +602,10 @@
 
 #learn-more-link,
 #show-less-link {
-  color: #A30F17;  
+  color: #A30F17; 
   text-decoration: none;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 #learn-more-link:hover,
@@ -677,7 +615,7 @@
 
 #cookie-content {
   display: none;
-  margin-top: 10px;
+  margin-top: 1rem;
 }
 
 
@@ -691,10 +629,10 @@
     .header {
   position: fixed;
   width: 100%;
-  top: 10px; /* Assuming you meant 10px for the top */
+  top: 1rem; /* Assuming you meant 1rem for the top */
   z-index: 1000;
   transition: top 0.3s, transform 0.3s ease;
-  margin-left: 10px; /* Add a negative margin to shift left */
+  margin-left: 1rem; /* Add a negative margin to shift left */
 }
 
 .navbar-link{
@@ -707,14 +645,14 @@
 
 /* Hide the navbar */
 .header.hidden {
-  top: -93px; /* Adjust according to your header height */
+  top: -9.3rem; /* Adjust according to your header height */
 }
 
 /* Navbar styling when scrolled */
 .header.scrolled {
   position: sticky !important;
   background-color: #efefef; /* Change to a darker color when scrolled */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
 }
 * {
   margin: 0;
@@ -722,128 +660,8 @@
   font-family: "Poppins", sans-serif;
 }
 
-.action {
-  position: fixed;
-  top: 20px;
-  right: 30px;
-}
 
-.action .profile {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  overflow: hidden;
-  cursor: pointer;
-  margin-top: -9px;
-}
-
-.action .profile img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.action .menu {
-  position: absolute;
-  top: 120px;
-  right: -10px;
-  padding: 10px 20px;
-  background: #fff;
-  width: 200px;
-  box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
-  transition: 0.5s;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.action .menu.active {
-  top: 80px;
-  visibility: visible;
-  opacity: 1;
-}
-
-.action .menu::before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  right: 28px;
-  width: 20px;
-  height: 20px;
-  background: #fff;
-  transform: rotate(45deg);
-}
-
-.action .menu h3 {
-  width: 100%;
-  text-align: center;
-  font-size: 18px;
-  padding: 20px 0;
-  font-weight: 500;
-  color: #555;
-  line-height: 1.5em;
-}
-
-.action .menu h3 span {
-  font-size: 14px;
-  color: #cecece;
-  font-weight: 300;
-}
-
-.action .menu ul li {
-  list-style: none;
-  padding: 16px 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  display: flex;
-  align-items: center;
-}
-
-.action .menu ul li img {
-  max-width: 20px;
-  margin-right: 10px;
-  opacity: 0.5;
-  transition: 0.5s;
-}
-
-.action .menu ul li:hover img {
-  opacity: 1;
-}
-
-.action .menu ul li a {
-  display: inline-flex;
-  text-align: center;
-  padding-left: 5%;
-  font-weight: 300;
-  font-size: 19px;
-  text-decoration: none;
-  color: #555;
-  font-weight: 500;
-  transition: 0.5s;
-}
-
-.action .menu ul li:hover a {
-  color: #ff5d94;
-  font-size: 21px;
-
-}
-.hamburger{
-    display: none;
-    cursor: pointer;
-    position: absolute;
-    top: 24px;
-    left: 1.5%;
-}
-.line{
-    width: 36px;
-    height: 5px;
-    margin: 4px 4px;
-    background-color: rgb(240, 15, 15);
-}
-@media only screen and (max-width:1063px){
+@media only screen and (max-width:106.3rem){
     .nav{
         flex-direction: row;
     }
@@ -851,7 +669,7 @@
         flex-direction: column;
         height: 53.8rem;
         transition: 0.2s all ease-out;
-        padding-top: 5px;
+        padding-top: 0.5rem;
     }
     .navbar-item{
         margin : 0
@@ -861,14 +679,14 @@
         display: block;
     }
     .nav-h{
-        height: 78px;
+        height: 7.8rem;
         width: 100vw;
     }
     .vis-h{
         opacity: 0;
     }
     .switch-container {
-      right: 70px !important;
+      right: 7rem !important;
     }
 }
 @media only screen and (max-width:990px){
@@ -879,12 +697,12 @@
     top: 0;
   }
   .logo img{
-    top: -9px;
-    left: 50px;
+    top: -0.9rem;
+    left: 5rem;
   }
 }
 .navbar-item {
-  margin-top: 10px; /* Increase the top margin of each item */
+  margin-top: 1rem; /* Increase the top margin of each item */
   
 }
 .card-sty {
@@ -896,13 +714,13 @@
 
 .donate-button {
     display: inline-block;
-    padding: 9px 18px;
-    font-size: 16px;
+    padding: 0.9rem 1.8rem;
+    font-size: 1.6rem;
     color: #fff;
     background-color: #b00404; /* Red color */
     text-decoration: none;
-    border-radius: 5px;
-    border: 2px solid #a60606; /* Same red color for border */
+    border-radius: 0.5rem;
+    border: 0.2rem solid #a60606; /* Same red color for border */
 }
 
 .donate-button:hover {
@@ -913,26 +731,26 @@
     text-align: center;
 }
 .donate-books-section p{
-  padding: 10px;
+  padding: 1rem;
   text-align: justify;
 }
 .donate-books-section img {
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
 }
 
 .container {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Adjust the gap between cards as needed */
+    gap: 2rem; /* Adjust the gap between cards as needed */
     flex-wrap: wrap; /* Allows cards to wrap onto the next line if the screen is too narrow */
-    padding: 0 15px; /* Optional padding for responsiveness */
+    padding: 0 1.5rem; /* Optional padding for responsiveness */
 }
 
 .card {
-    flex: 1 1 200px; /* Allows cards to grow and shrink, with a minimum width of 200px */
-    max-width: 300px; /* Optional max width for cards */
-    margin: 10px; /* Optional margin around each card */
+    flex: 1 1 20rem; /* Allows cards to grow and shrink, with a minimum width of 200px */
+    max-width: 30rem; /* Optional max width for cards */
+    margin: 1rem; /* Optional margin around each card */
 }
 
 .card img {
@@ -942,33 +760,34 @@
 
 
 .chapter-card {
-  height: 450px; /* Adjust margin as needed */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth effect */
+  height: 45rem; /* Adjust margin as needed */
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1); /* Add shadow for depth effect */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .chapter-card:hover {
   transform: scale(1.02px);
-  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.4) ;/* Scale up slightly on hover */
+  box-shadow: 0.4rem 0.4rem 0.3rem rgba(0, 0, 0, 0.4) ;/* Scale up slightly on hover */
 }
 
 #connectReaderBtn{
-  border-radius: 10px;
+  border-radius: 1rem;
 }
 
 .footer-icons{
-  margin-top: 20px;
+  margin-top: 2rem;
   display: flex;
-  font-size: 24px;
+  font-size: 2rem;
 }
 
 
 .footer-icons .icon i {
-  font-size: 24px;
+  font-size: 2rem;
   /* Set the default font size for icons */
   transition: all 0.15s ease;
   /* Add transition for smooth animation */
 }
+
 
 .footer-icons .icon:hover {
   transform: scale(1.5);
@@ -988,7 +807,7 @@
 }
 
 .footer-icons .icon:hover .fa-twitter {
-  color: black;
+  color: rgb(255, 255, 255);
   /* Change to Twitter color on hover */
 }
 
@@ -1026,13 +845,13 @@
 
 .icons {
   display: flex;
-  gap: 10px; 
+  gap: 1rem;
   align-items: center;
   justify-content: center; 
 }
 
 .icon i {
-  font-size: 24px; 
+  font-size: 2.4rem; 
     color: #000; 
 
   cursor: pointer;
@@ -1043,10 +862,163 @@
 .icon i:hover {
   color: #555; 
 }
+/* Styling for the email input */
+.finput {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 0.2rem solid #ccc; 
+    border-radius: 0.5rem; 
+    outline: none; 
+    transition: border-color 0.3s ease; 
+}
+
+/* Hover effect to change the border color */
+.finput:hover {
+    border-color: #3498db; 
+}
+
+
+.finput:focus {
+    border-color: #2980b9; 
+}
+
+
+.subscribe {
+    padding: 1rem 2rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.subscribe:hover {
+    background-color: #2980b9;
+}
+/* Styling for the email input */
+.finput {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2rem solid #000000;
+  border-radius: 0.5rem; 
+  outline: none; 
+  transition: border-color 0.3s ease; 
+}
+
+/* Hover effect to change the border color */
+.finput:hover {
+  border-color: #000080;
+}
+
+/* Focus effect when the input is active */
+.finput:focus {
+  border-color: #000080;
+}
+
+/* Styling the subscribe button */
+.subscribe {
+  padding: 1rem 2rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.subscribe:hover {
+  background-color: #2980b9; }
+
+  /* Contact Us */
+  .section-contact {
+  color: black;
+  padding: 40px 20px;
+}
+
+.flexi {
+  display: flex;
+  justify-content: space-between; /* Ensure both containers are side by side */
+  flex-wrap: wrap; 
+}
+
+
+.cardi {
+  width: 35%; /* Adjust width for the contact card */
+  max-width: 350px; /* Limit max width */
+  margin-left: 20px; /* Add some space between the two sections */
+}
+
+.contact-container {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Ensure there's space above the card */
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center map inside container */
+  width: 100%;
+  height: 300px; /* Fixed height for map */
+  margin-top: 20px; /* Space above map */
+}
+.contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #8f8d8d;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  .contact:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+  }
+
+  .cardi:hover {
+    transform: scale(1.02);
+  }
+
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove border for a cleaner look */
+  border-radius: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .flexi {
+    flex-direction: column; /* Stack elements on smaller screens */
+    align-items: center;
+  }
+  .contact, .cardi {
+    width: 90%; /* Ensure full width on smaller screens */
+    max-width: none; /* Remove max-width restriction */
+  }
+}
+
 
 
   </style>
- <script type="text/javascript">
+<script type="text/javascript">
   emailjs.init("Your_User_ID"); // Replace with your actual EmailJS User ID
 
   // Function to validate email address
@@ -1105,27 +1077,27 @@
   <style>
     /* Fixed translate button */
     *{
-      transition: all 1s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
 #translateButton {
     position: fixed;
-    top: -150px;
-    right: 44px;
+    top: -15rem;
+    right: 4.4rem;
     z-index: 1000;
-    width: 53px;  
-    height: 53px;
+    width: 5.3rem;  
+    height: 5.3rem;
     border-radius: 50%; 
     border: none; 
     background:linear-gradient(hwb(357 6% 36%),#d26d6d); 
     color: white; 
     text-align: center; 
     display: inline-block; 
-    font-size: 16px; 
+    font-size: 1.6rem; 
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 9px;
+    font-size: 0.9rem;
     line-height: 1;
     text-align: center;
     white-space: nowrap;
@@ -1154,11 +1126,11 @@
 /* Popup content */
 .popup-content {
   background:linear-gradient(hwb(357 6% 36%),#d26d6d);
-    margin-top: 600px;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 300px;
-    border-radius: 10px;
+    margin-top: 60rem;
+    padding: 2rem;
+    border: 1rem solid #888;
+    width: 30rem;
+    border-radius: 10rem;
     position: relative;
     margin-left: 75vw;
     /* margin-right: 0px; */
@@ -1168,7 +1140,7 @@
 .close {
     color: #073725;
     float: right;
-    font-size: 28px;
+    font-size: 2.8rem;
     font-weight: bold;
     cursor: pointer;
 }
@@ -1186,7 +1158,7 @@
 
 
 body {
-    top: 0px !important;
+    top: 0rem !important;
 }
 
 /* Hide the "Powered by Google" branding */
@@ -1195,7 +1167,7 @@ body {
 }
 
 .goog-te-gadget {
-    height: 28px !important;
+    height: 2.8rem !important;
     overflow: hidden;
 }
 
@@ -1208,21 +1180,15 @@ body {
 .goog-te-balloon {
     display: none !important;
 }
-.flexi{
-  display: flex;
-  flex-direction: row;
-  height: auto;
-  width: 100%;
-  gap: 10px;
-}
+
 /* Custom styles for the Google Translate dropdown */
 #google_translate_element select {
     background: #ffffff; 
-    border: 1px solid #ccc; 
+    border: 0.1rem solid #ccc; 
     color: #d26d6d; 
-    padding: 5px; 
-    font-size: 14px; 
-    border-radius: 5px; 
+    padding: 0.5rem; 
+    font-size: 1.4rem; 
+    border-radius: 0.5rem; 
     
 }
 
@@ -1245,11 +1211,94 @@ body > .skiptranslate {
   margin-right: 3rem;
 }
 .mobile-container-styles{
-  margin-left: 50px;
+  margin-left: 5rem;
 }
 .nav{
   justify-content: space-around;
 }
+
+
+.section-contact {
+  color: black;
+  padding: 40px 20px;
+}
+
+.flexi {
+  display: flex;
+  justify-content: space-between; /* Ensure both containers are side by side */
+  flex-wrap: wrap; 
+}
+
+
+.cardi {
+  width: 35%; /* Adjust width for the contact card */
+  max-width: 350px; /* Limit max width */
+  margin-left: 20px; /* Add some space between the two sections */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-container {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Ensure there's space above the card */
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center map inside container */
+  width: 100%;
+  height: 300px; /* Fixed height for map */
+  margin-top: 20px; /* Space above map */
+}
+.contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #8f8d8d;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  .contact:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+  }
+
+  .cardi:hover {
+    transform: scale(1.02);
+  }
+
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove border for a cleaner look */
+  border-radius: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .flexi {
+    flex-direction: column; /* Stack elements on smaller screens */
+    align-items: center;
+  }
+  .contact, .cardi {
+    width: 90%; /* Ensure full width on smaller screens */
+    max-width: none; /* Remove max-width restriction */
+  }
+}
+
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -1307,20 +1356,25 @@ body > .skiptranslate {
   </div>
 
   <div class="socialmediaicons" style="z-index: 99;" >
-
-    
-      <a class="active instagram" href="https://www.instagram.com/" class="" style="font-size: 25px;" ><i class="fa-brands fa-instagram"></i>
+      <a class="active instagram" href="https://www.instagram.com/" class="" style="font-size: 2.5rem;" ><i class="fa-brands fa-instagram"></i>
      </a>
-     <a class="active" href="https://www.facebook.com/" class="facebook" style="font-size: 25px;" ><i class="fa-brands fa-facebook"></i>
+     <a class="active" href="https://www.facebook.com/" class="facebook" style="font-size: 2.5rem;" ><i class="fa-brands fa-facebook"></i>
      </a>
-     <a class="active" href="https://www.youtube.com/@anuragbytes" class="youtube" style="font-size: 25px;" ><i class="fa-brands fa-youtube"></i>
+     <a class="active" href="https://www.youtube.com/" class="youtube" style="font-size: 2.5rem;" ><i class="fa-brands fa-youtube"></i>
      </a>
-     
-    
+     <!-- Adding Youtube Icon -->
+     <a class="active" href="https://x.com/anuragverma_108" class="twitter" style="font-size: 2.5rem;" ><i class="fab fa-twitter"></i>
+     </a>
+     <!-- Adding Discord Icon -->
+    <a class="active discord" href="https://discord.com/" style="font-size: 2.5rem;"><i class="fa-brands fa-discord"></i></a>
+    <!-- Adding LinkedIn Icon -->
+    <a class="active linkedin" href="https://www.linkedin.com/" style="font-size: 2.5rem;"><i class="fa-brands fa-linkedin"></i></a>
+    <!-- Adding GitHub Icon -->
+    <a class="active github" href="https://github.com/" style="font-size: 2.5rem;"><i class="fa-brands fa-github"></i></a>
 </div>
 
   <div id="cookie-consent">
-    <button class="close-btn" id="closeBtn" style="padding: 5px; height: 40px; width: 40px; border-radius: 100%; font-size: 30px;" >&times;</button>
+    <button class="close-btn" id="closeBtn" style="padding: 0.5rem; height: 4rem; width: 4rem; border-radius: 100%; font-size: 3rem;" >&times;</button>
     <p>
         We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy.
         <a href="#" id="learn-more-link">Learn More</a>
@@ -1403,25 +1457,21 @@ body > .skiptranslate {
   });
 });
 </script>
-  <header style="transform: translateX(-20px);" class="header header-anim nav-h" data-header >
+  <header class="header header-anim nav-h" data-header>
 
     <div class="container mobile-container-styles">
 
-      <nav  class="navbar nav_activated" data-navbar >
+      <nav class="navbar nav_activated" data-navbar>
 
 
-        <ul class="navbar-list nav">
+        <ul id="nav" class="navbar-list nav">
           <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="./assets/images/final.png" class="logopic" style=" width: 150px; margin:0px 0px 0px 0px;">
+            <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px 1.8rem;">
           </a>
           <li class="navbar-item">
             <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
                 class="ri-home-fill"></i> Home</a>
           </li>
-           <li class="navbar-item">
-                <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><i
-                    class="ri-home-fill"></i>About Us</a>
-              </li>
               
           <li class="navbar-item">
             <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
@@ -1434,6 +1484,10 @@ body > .skiptranslate {
           </li>
 
           <li class="navbar-item">
+            <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+          </li>
+
+          <li class="navbar-item">
             <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
                 class="ri-customer-service-2-fill"></i> Contact</a>
             </li>
@@ -1443,9 +1497,14 @@ body > .skiptranslate {
                   <i class="ri-questionnaire-fill"></i> FAQ
               </a>
           </li>
-
+          
           <li class="navbar-item">
-            <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+            <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><i
+                class="ri-home-fill"></i>About Us</a>
+          </li>
+
+          
+
             <li class="navbar-item" id="login-signup-link">
               <a href="./assets/html/event.html" class="navbar-link">Events</a>
             </li>
@@ -1455,8 +1514,76 @@ body > .skiptranslate {
           <li class="navbar-item" id="login-signup-link">
             <a href="comsp.html" class="navbar-link">Community Spotlight</a>
           </li>
+          <li>
+            <div class="dropdown">
+              <button id="btn" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                more
+              </button>
+              <div class="dropdown-menu" id="dropdown-menu">
+
+                <ul class="dropdown-menu-list">
+                  <li>
+                    <a href="chat.html" class="navbar-link" style="font-family: sans-serif; margin-bottom: 0.5rem;">
+                      Community chat
+                  </a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="./assets/html/literaryrealms.html" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
+                        class="ri-medal-fill"></i> Literary Realms</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="./assets/html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
+                        class="ri-price-tag-3-fill"></i> Pricing</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="./assets/html/booklistswap.html" class="navbar-link">Booklist for Swapping</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="/assets/html/book_recommend.html" class="navbar-link" data-nav-link>
+                      <i class="ri-customer-service-2-fill"></i> Book Recommendation
+                    </a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
+                      data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="./assets/html/audio.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
+                      data-nav-link><i class="ri-price-tag-3-fill"></i>Audio Books</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="./assets/html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="./assets/html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="./assets/html/mood.html" class="navbar-link">Reading Mood Tracker</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="./assets/html/custom.html" class="navbar-link">Virtual Bookshelves</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="./assets/html/quiz.html" class="navbar-link">Quizes</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="./assets/html/read.html" class="navbar-link">Reading Challenge</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="./assets/html/blog.html" class="navbar-link">Community Blogs</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="./assets/html/borrow.html" class="navbar-link">BookLend</a>
+                  </li>
+                  <li class="dropdown-menu-item">
+                    <a href="./assets/html/about.html" class="navbar-link">About</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
           
-          <li class="navbar-item dropdown" id="more-dropdown">
+          <!-- <li class="navbar-item dropdown" id="more-dropdown">
             <a href="#" class="navbar-link" id="more-link">More
               <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
                 viewBox="0 0 24 24">
@@ -1466,7 +1593,7 @@ body > .skiptranslate {
 
               <ul class="dropdown-menu-list">
                 <li>
-                  <a href="chat.html" class="navbar-link" style="font-family: sans-serif; margin-bottom: 5px;">
+                  <a href="chat.html" class="navbar-link" style="font-family: sans-serif; margin-bottom: 0.5rem;">
                     Community chat
                 </a>
                 </li>
@@ -1523,7 +1650,7 @@ body > .skiptranslate {
                 </li>
               </ul>
             </div>
-          </li>
+          </li> -->
           <li>
           <div class="action">
             <div class="profile" onclick="menuToggle();">
@@ -1550,7 +1677,19 @@ body > .skiptranslate {
                 </li>
               </ul>
               </div>
+              </div>
+              </li>
               <script>
+
+$('.dropdown-toggle').on('click', function() {
+  $('body').toggleClass('no-scroll');
+});
+
+$('.dropdown-menu').on('scroll', function(event) {
+  event.stopPropagation();
+});
+
+
                 document.addEventListener("DOMContentLoaded", () => {
                     const savedAvatar = localStorage.getItem("selectedAvatar");
                     if (savedAvatar) {
@@ -1704,7 +1843,7 @@ body > .skiptranslate {
 
   window.addEventListener("scroll", onScroll);
 </script>
-      <div class="switch-container" style="top: 15px;">
+      <div class="switch-container" style="top: 1.5rem;">
         <input type="checkbox" id="switch" class="switch-checkbox">
         <label for="switch" class="switch-label">
           <div class="switch-button">
@@ -1789,7 +1928,7 @@ body > .skiptranslate {
         <div class="container">
           <div class="flex">
             <div class="benefits-content">
-              <h2 class="h2 section-title" style="text-align: center; margin-top: 79px; padding-top: 20px">Unleash the Magic of Book Swapping!</h2>
+              <h2 class="h2 section-title" style="text-align: center; margin-top: 7.9rem; padding-top: 2rem">Unleash the Magic of Book Swapping!</h2>
               <p class="section-text" style="text-align: center;">"SwapReads.com - Where Every Book is a Portal to a New
                 Adventure!"</p>
             </div>
@@ -1813,8 +1952,8 @@ body > .skiptranslate {
                 </a> -->
               
                 <a href="diverseLiteracy.html" class="cta1 style-9">
-                  <span style="position: relative; top: 27px;">Read More</span>
-                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                  <span style="position: relative; top: 2.7rem;">Read More</span>
+                  <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                     <path d="M1,5 L11,5"></path>
                     <polyline points="8 1 12 5 8 9"></polyline>
                   </svg>
@@ -1845,7 +1984,7 @@ body > .skiptranslate {
                 </a> -->
                 <a href="costefficient.html" class="cta style-9">
                   <span>Read More</span>
-                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                  <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                     <path d="M1,5 L11,5"></path>
                     <polyline points="8 1 12 5 8 9"></polyline>
                   </svg>
@@ -1875,7 +2014,7 @@ body > .skiptranslate {
                 </a> -->
                 <a href="#" class="cta style-9">
                   <span>Read More</span>
-                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                  <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                     <path d="M1,5 L11,5"></path>
                     <polyline points="8 1 12 5 8 9"></polyline>
                   </svg>
@@ -1905,7 +2044,7 @@ body > .skiptranslate {
                 </a> -->
                 <a href="#" class="cta style-9">
                   <span>Read More</span>
-                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                  <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                     <path d="M1,5 L11,5"></path>
                     <polyline points="8 1 12 5 8 9"></polyline>
                   </svg>
@@ -1935,7 +2074,7 @@ body > .skiptranslate {
                 </a> -->
                 <a href="environmental-impact.html" class="cta style-9">
                   <span>Read More</span>
-                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                  <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                     <path d="M1,5 L11,5"></path>
                     <polyline points="8 1 12 5 8 9"></polyline>
                   </svg>
@@ -1964,7 +2103,7 @@ body > .skiptranslate {
 
                 <a href="#" class="cta style-9">
                   <span>Read More</span>
-                  <svg width="13px" height="10px" viewBox="0 0 13 10">
+                  <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                     <path d="M1,5 L11,5"></path>
                     <polyline points="8 1 12 5 8 9"></polyline>
                   </svg>
@@ -1984,7 +2123,7 @@ body > .skiptranslate {
       <section class="section chapters" id="chapters">
         <div class="litrealms_conatiner">
           <p class="section-subtitle">Literary Realms</p>
-          <h1 class="h1 section-title has-underline" id="section-title2" style="padding-bottom: 20px;">
+          <h1 class="h1 section-title has-underline" id="section-title2" style="padding-bottom: 2rem;">
             Literary Realms we've covered
             <span class="span has-before"></span>
           </h1>
@@ -2318,7 +2457,7 @@ body > .skiptranslate {
         <div class="container">
 
           
-          <!-- <div class="pricingContainer" style="margin-top : -30px" > -->
+          <!-- <div class="pricingContainer" style="margin-top : -3rem" > -->
             <p class="section-subtitle">Pricing</p>
             
             <h2 class="h2 section-title has-underline" ">
@@ -2410,7 +2549,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">01</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Classic Literature</h3>
-                  <span style='font-size:50px;filter: grayscale(100%);'>&#128395;</span>
+                  <span style='font: size 5rem;filter: grayscale(100%);'>&#128395;</span>
                 </div>
                 
 
@@ -2429,7 +2568,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">02</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Romance</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#10084;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#10084;</span>
                   </div>
 
                 <p class="card-text">
@@ -2447,7 +2586,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">03</p>
                 <div class="iconrow">
                 <h3 class="h3 card-title">Suspense Thriller</h3>
-                  <span style='font-size:50px;filter: grayscale(100%);'>&#128269;</span>
+                  <span style='font-size:5rem;filter: grayscale(100%);'>&#128269;</span>
                 </div>
 
 
@@ -2466,7 +2605,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">04</p>
                 <div class="iconrow">
                 <h3 class="h3 card-title">Science Fiction</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#128640;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#128640;</span>
                   </div>
 
 
@@ -2485,7 +2624,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">05</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Fantasy</h3>
-                  <span style='font-size:50px;filter: grayscale(100%);'>&#x1F52E;</span>
+                  <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F52E;</span>
                 </div>
 
                 <p class="card-text">
@@ -2503,7 +2642,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">06</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Horror</h3>
-                  <span style='font-size:50px;filter: grayscale(100%);'>&#x1F578;</span>
+                  <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F578;</span>
                 </div>
 
                 <p class="card-text">
@@ -2521,7 +2660,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">07</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Biography</h3>
-                  <span style='font-size:50px;filter: grayscale(100%);'>&#x1F464;</span>
+                  <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F464;</span>
                 </div>
 
                 <p class="card-text">
@@ -2539,7 +2678,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">08</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Self Help</h3>
-                  <span style='font-size:50px;filter: grayscale(100%);'>&#x1F9E0;</span>
+                  <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F9E0;</span>
                 </div>
 
                 <p class="card-text">
@@ -2556,7 +2695,7 @@ body > .skiptranslate {
               <p class="card-subtitle">09</p>
               <div class="iconrow">
                 <h3 class="h3 card-title">Historical Fiction</h3>
-                <span style='font-size:50px;filter: grayscale(100%);'>&#x1F3DB;</span>
+                <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F3DB;</span>
               </div>
 
               <p class="card-text">
@@ -2574,7 +2713,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">10</p>
                 <div class="iconrow">
                 <h3 class="h3 card-title">Poetry</h3>
-                  <span style='font-size:50px;filter: grayscale(100%);'>&#x270D;</span>
+                  <span style='font-size:5rem;filter: grayscale(100%);'>&#x270D;</span>
                 </div>
 
 
@@ -2594,7 +2733,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">11</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Philosophy</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#x1F4DC;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F4DC;</span>
                   </div>
 
 
@@ -2613,7 +2752,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">12</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Adventure</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#x1F526;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F526;</span>
                   </div>
 
 
@@ -2633,7 +2772,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">13</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Non-Fiction</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#x1F4D6;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F4D6;</span>
                   </div>
 
                 <p class="card-text">
@@ -2649,7 +2788,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">14</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Comedy</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#x1F939;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F939;</span>
                   </div>
 
                 <p class="card-text">
@@ -2665,7 +2804,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">15</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Detective Fiction</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#x1F5DD;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F5DD;</span>
                   </div>
 
 
@@ -2680,7 +2819,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">16</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Fairy Tales</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#x1F9DA;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F9DA;</span>
                   </div>
                
                 <p class="card-text">
@@ -2693,7 +2832,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">17</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Mythology</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'> &#x1F31F;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'> &#x1F31F;</span>
                   </div>
                 
                 <p class="card-text">
@@ -2706,7 +2845,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">18</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Noir</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#x1F312;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F312;</span>
                   </div>
                 
                 <p class="card-text">
@@ -2719,7 +2858,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">19</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">True Crime</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#x1F575; </span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F575; </span>
                   </div>
                 
                 <p class="card-text">
@@ -2736,7 +2875,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">20</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Dystopian</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#128740;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#128740;</span>
                   </div>
                 
             
@@ -2753,7 +2892,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">21</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Magical Realism</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#129668;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#129668;</span>
                   </div>
 
                 <p class="card-text">
@@ -2770,7 +2909,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">22</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Cyberpunk</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#x1F310;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F310;</span>
                   </div>
             
                
@@ -2788,7 +2927,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">23</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Utopian</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#x1F3DD;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F3DD;</span>
                   </div>
             
                 <p class="card-text">
@@ -2804,7 +2943,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">24</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Experimental Fiction</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#x1F4DA;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F4DA;</span>
                   </div>
                 
             
@@ -2820,7 +2959,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">25</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Satire</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#x1F3AD;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F3AD;</span>
                   </div>
                
                 <p class="card-text">
@@ -2836,7 +2975,7 @@ body > .skiptranslate {
                 <p class="card-subtitle">26</p>
                 <div class="iconrow">                   
                 <h3 class="h3 card-title">Psychological Thriller</h3>
-                    <span style='font-size:50px;filter: grayscale(100%);'>&#x23F3;</span>
+                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x23F3;</span>
                   </div>
 
             
@@ -3002,32 +3141,32 @@ body > .skiptranslate {
   <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Donate Books</h1>
   <br>
   <div class="container">
-    <div class="card" style=" margin: 15px; border-bottom: 5px solid #A30F17; border-radius: 10px; transition: transform 0.3s ease; padding-bottom: 10px; height: auto; ">
-          <img src="./lib.jpg" alt="Library Image" style="display: block; width: 100%; height: auto; border-radius: 10px 10px 0 0;">
+    <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; padding-bottom: 1rem; height: auto; ">
+          <img src="./lib.jpg" alt="Library Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Library</h3>
               <p class="card-text" style="font-style: italic;">Donate your books to local libraries and help foster a love for reading in your community.</p>
-              <div class="button-container" style="text-align: center; margin-top: 10px; margin-bottom: 10px; ">
+              <div class="button-container" style="text-align: center; margin-top: 1rem; margin-bottom: 1rem; ">
                   <a href="./assets/html/donate.html" class="donate-button">Donate to Libraries</a>
               </div>
           </div>
       </div>
-      <div class="card" style=" margin: 15px; border-bottom: 5px solid #A30F17; border-radius: 10px; transition: transform 0.3s ease; height: auto;">
-          <img src="./sc.jpg" alt="School Image" style="display: block; width: 100%; height: auto; border-radius: 10px 10px 0 0;">
+      <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; height: auto;">
+          <img src="./sc.jpg" alt="School Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Schools</h3>
               <p class="card-text" style="font-style: italic;">Support children's education by donating books to nearby schools for students of all ages.</p>
-              <div class="button-container" style="text-align: center; margin-top: 10px;">
+              <div class="button-container" style="text-align: center; margin-top: 1rem;">
                   <a href="./assets/html/school.html" class="donate-button">Donate to Schools</a>
               </div>
           </div>
       </div>
-      <div class="card" style=" margin: 15px; border-bottom: 5px solid #A30F17; border-radius: 10px; transition: transform 0.3s ease; height: auto;">
-          <img src="./n.jpg" alt="Organization Image" style="display: block; width: 100%; height: auto; border-radius: 10px 10px 0 0;">
+      <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; height: auto;">
+          <img src="./n.jpg" alt="Organization Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Organizations</h3>
               <p class="card-text" style="font-style: italic;">Help NGOs and other organizations by donating books to support their educational programs.</p>
-              <div class="button-container" style="text-align: center; margin-top: 10px;">
+              <div class="button-container" style="text-align: center; margin-top: 1rem;">
                   <a href="./assets/html/ngo.html" class="donate-button">Donate to Organizations</a>
               </div>
           </div>
@@ -3042,11 +3181,7 @@ body > .skiptranslate {
 </style>
 
 
-
-
-
-
-      <!-- rate us -->
+<!-- rate us -->
       <style>
 #rate-us {
   transition: background-color 0.3s ease;  
@@ -3071,6 +3206,11 @@ body > .skiptranslate {
   display: none;  
 }
 </style>
+
+
+
+
+      <!-- rate us -->
 
 
        <!-- Rate Us Component -->
@@ -3102,6 +3242,66 @@ body > .skiptranslate {
             <center><button id="submit-btn">Submit</button></center>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const toastMessage = document.getElementById("toastMessage");
+
+          document.getElementById("submit-btn").addEventListener("click", function(event) {
+              event.preventDefault(); // Prevent default form submission
+
+              let selectedEmoji = document.querySelector('input[name="rate"]:checked');
+              let feedback = document.getElementById("feedback").value.trim();
+              
+              if (selectedEmoji && feedback !== "") {
+                  // Show success toast message
+                  toastMessage.textContent = "Feedback submitted successfully :)";
+                  toastMessage.style.backgroundColor = "green"; // Green color for success
+                  toastMessage.style.color = "white";
+                  toastMessage.style.borderRadius = "0.5rem";
+                  toastMessage.style.position = "fixed";
+                  toastMessage.style.display = "block";
+
+                  // Hide toast message after 3 seconds (adjust as needed)
+                  setTimeout(function() {
+                      toastMessage.style.display = "none";
+                  }, 3000);
+
+                  // Reset form fields
+                  document.getElementById("feedback").value = "";
+                  let starInputs = document.querySelectorAll('input[name="rate"]');
+                  starInputs.forEach(input => {
+                      input.checked = false;
+                  });
+
+                  // Store feedback in local storage
+                  let feedbackData = {
+                      emoji: selectedEmoji.value,
+                      feedback: feedback
+                  };
+                  localStorage.setItem("feedback", JSON.stringify(feedbackData));
+              } else {
+                  // Show failure toast message
+                  toastMessage.textContent = "Select Emoji and give Feedback :(";
+                  toastMessage.style.backgroundColor = "red"; // Red color for failure
+                  toastMessage.style.color = "white";
+                  toastMessage.style.borderRadius = "0.5rem";
+                  toastMessage.style.position = "fixed";
+                  toastMessage.style.display = "block";
+
+                  // Hide toast message after 3 seconds (adjust as needed)
+                  setTimeout(function() {
+                      toastMessage.style.display = "none";
+                  }, 3000);
+                  
+                  document.getElementById("feedback").value = "";
+                  let starInputs = document.querySelectorAll('input[name="rate"]');
+                  starInputs.forEach(input => {
+                      input.checked = false;
+                  });
+              }
+          });
+      });
+    </script>
     
     <div id="toastMessage" class="toast-message"></div>
     <script>
@@ -3119,7 +3319,7 @@ body > .skiptranslate {
             toastMessage.textContent = "Feedback submitted successfully :)";
             toastMessage.style.backgroundColor = "green"; // Green color for success
             toastMessage.style.color = "white";
-            toastMessage.style.borderRadius = "5px";
+            toastMessage.style.borderRadius = "0.5rem";
             toastMessage.style.position = "fixed";
                       toastMessage.style.display = "block";
 
@@ -3139,7 +3339,7 @@ body > .skiptranslate {
             toastMessage.textContent = "Select Emoji and give Feedback :(";
             toastMessage.style.backgroundColor = "red"; // Red color for failure
             toastMessage.style.color = "white";
-            toastMessage.style.borderRadius = "5px";
+            toastMessage.style.borderRadius = "0.5rem";
             toastMessage.style.position = "fixed";
             
             toastMessage.style.display = "block";
@@ -3179,189 +3379,129 @@ body > .skiptranslate {
     </div>
 
     <script src="/assets/js/rate.js"></script>
-     
 
-    
-      
 
+  <!-- --Contact Us -->
+                                    
 <section class="section-contact" id="contact" aria-label="contact">
-      
-<h1 class="ctc">CONTACT US!</h1>
-<p class="p">Have a Question?</p>
+  <h1 class="h1 section-title has-underline" style="margin-top: 15px;">
+    Contact Us!
+    <span class="span has-before"></span>
+  </h1>
+  <p class="p">Have a Question?</p> 
+  <h3 style="text-align: center; color: #A30F17;">GET IN TOUCH</h3>
+  <div class="flexi">
+    <div class="contact">
+      <div class="contact-container">
+        <form class="contact-form" id="contactForm">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-<div class="flexi">
-  <div class="contact">
-    <h3 style="text-align: left; color: #A30F17;" class="g_i_t">Get in touch</h3>
-    <div class="contact-container">
-      <form class="contact-form" id="contactForm">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your-email@example.com" required>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="your-email@example.com" required>
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Subject" required>
 
-        <label for="subject">Subject</label>
-        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
- 
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
           <button type="submit">Send Message</button>
         </form>
-        <div class="image-fader">
-          <img src="./assets/images/ctc1.png" alt="ctc1" style="width: 30rem">
-          <img src="./assets/images/ctc2.png" alt="ctc2" style="width: 30rem">
-          <img src="./assets/images/ctc3.png" alt="ctc3" style="width: 30rem">
-          <img src="./assets/images/ctc4.png" alt="ctc4" style="width: 30rem">
- 
-        </div> 
+        <!-- Image Fader Section -->
+        <center>
+          <div class="image-fader">
+            <img src="./assets/images/ctc1.png" alt="ctc1">
+            <img src="./assets/images/ctc5.png" alt="ctc5">
+            <img src="./assets/images/ctc3.png" alt="ctc3">
+            <img src="./assets/images/ctc4.png" alt="ctc4">
+          </div>
+        </center>
+      </div>
     </div>
-  </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  // Retrieve data from localStorage and populate the form fields
+  const storedName = localStorage.getItem('name');
+  const storedEmail = localStorage.getItem('email');
+  const storedSubject = localStorage.getItem('subject');
+  const storedMessage = localStorage.getItem('message');
+  
+  if (storedName) document.getElementById('name').value = storedName;
+  if (storedEmail) document.getElementById('email').value = storedEmail;
+  if (storedSubject) document.getElementById('subject').value = storedSubject;
+  if (storedMessage) document.getElementById('message').value = storedMessage;
 
-  <div class="cardi">
-    <div class="contact-card white-border-card">
-      <li>
-        <p class="card-title address-title">
-          <lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json" trigger="hover" colors="primary:#000000" style="width:25px;height:25px"></lord-icon>
-          Address :
-        </p>
-        <address class="address">
-          12, Nayabad, 
-          Kolkata, India 700054
-        </address>
-      </li>
-      <li>
-        <p class="card-title phone-title">
-          <lord-icon class="invert-col" src="https://cdn.lordicon.com/srsgifqc.json" trigger="hover" style="width:20px;height:20px;"></lord-icon>
-          Phone :
-        </p>
-        <a href="tel:9124421980" class="card-link">+91 9124421980</a>
-      </li>
-      <li>
-        <p class="card-title email-title">
-          <lord-icon class="invert-col" src="https://cdn.lordicon.com/xtzvywzp.json" trigger="hover" style="width:20px;height:20px;"></lord-icon>
-          Email :
-        </p>
-        <a href="mailto:support@swapreads.com" class="card-link">support@swapreads.com</a>
-      </li>
-    </div>
-  </div>
-</div>
-<style>
-  .flexi {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /*margin-left: -100px; /* Shift both sections further left */
-  }
+  // Add event listener to the form
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
 
-  .contact {
-    flex: 0.75;
-    margin-right:-60px;
-    margin-top: 0;
-    margin-bottom: 17px;
-  }
-  .address-side {
-    flex: 0.25; /* Reduced flex value to make the address section narrower */
-    margin-left: -150px; /* Keep the left shift to bring it closer to the center */
-    margin-top: 0;
-    margin-right: 100px;
-    margin-bottom: 17px;
-    
-}
+    // Store form data in localStorage
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
 
+    document.getElementById('name').value = "";
+    document.getElementById('email').value = "";
+    document.getElementById('subject').value = "";
+    document.getElementById('message').value = "";
 
-  h1.ctc, p.p {
-    margin-bottom: 0;
-  }
+    localStorage.setItem('name', name);
+    localStorage.setItem('email', email);
+    localStorage.setItem('subject', subject);
+    localStorage.setItem('message', message);
 
-  .contact-container, .address-side {
-    margin-top: 0;
-  }
+    // You can add your form submission logic here (e.g., AJAX request)
 
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .contact-form input, .contact-form textarea {
-    margin-bottom: 20px;
-    padding: 10px;
-    font-size: 14px;
-  }
-
-  .contact-form button {
-    padding: 10px;
-    background-color: palevioletred;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-
-  .image-fader img {
-    width: 100px;
-    margin: 5px;
-  }
-
-  .white-border-card {
-    border: 1px solid #fff;
-    padding: 20px;
-  }
-
-  .card-title {
-    font-weight: bold;
-  }
-
-  .card-link {
-    color:palevioletred;
-    text-decoration: none;
-  }
-</style>
-<style>
-  .map-container {
-    position: relative;
-    overflow: hidden; 
-  }
-
-  .map-container iframe {
-    pointer-events: none; 
-    transition: pointer-events 0.3s ease; 
-  }
-
-  .map-container:hover iframe {
-    pointer-events:auto; 
-  }
-</style>  
-<iframe
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin"
-  style="border: 10px;padding: 1%; margin-bottom:20px; margin-top:10px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-</iframe>
-</section>
-
-
-
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function() {
-    emailjs.init("f6MOtkzVAVwSL9aru");
-  })();
-
-  const form = document.getElementById('contactForm');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm('service_id', 'template_id', form)
-      .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-        alert('Message successfully sent!');
-        window.location.reload(false);
-      }, function(error) {
-        console.error('FAILED...', error);
-        alert('Failed to send the message, please try again');
-      });
+    alert('Your details has been saved successfully!'); // Success message
   });
+});
+
 </script>
 
+    <!-- Contact Information Section -->
+    <div class="cardi">
+      <div class="contact-card white-border-card">
+        <ul>
+          <li>
+            <p class="card-title address-title">
+              <lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json" trigger="hover" colors="primary:#000000" style="width:25px;height:25px"></lord-icon>
+              Address:
+            </p>
+            <address class="address">
+              12, Nayabad<br>
+              Kolkata, India 700054
+            </address>
+          </li>
+          <li>
+            <p class="card-title phone-title">
+              <lord-icon class="invert-col" src="https://cdn.lordicon.com/srsgifqc.json" trigger="hover" style="width:20px;height:20px;"></lord-icon>
+              Phone:
+            </p>
+            <a href="tel:9124421980" class="card-link">+91 9124421980</a>
+          </li>
+          <li>
+            <p class="card-title email-title">
+              <lord-icon class="invert-col" src="https://cdn.lordicon.com/xtzvywzp.json" trigger="hover" style="width:20px;height:20px;"></lord-icon>
+              Email:
+            </p>
+            <a href="mailto:support@swapreads.com" class="card-link">support@swapreads.com</a>
+          </li>
+        </ul>
+        <!-- Map Container -->
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.5834653201455!2d88.40974607348684!3d22.482281936278092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273c5411d60d7%3A0x5d6e57763593194b!2sSouthern%20Cleve%20Housing%2C%2012%2C%20Bhagat%20Singh%20Nagar%2C%20Nayabad%2C%20Kolkata%2C%20West%20Bengal%20700150!5e0!3m2!1sen!2sin!4v1716043813992!5m2!1sen!2sin"
+            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
       
 
     </article>
@@ -3369,7 +3509,7 @@ body > .skiptranslate {
 
   <!-- --Testimonials -->
 
-  <h2 class="h2 section-title has-underline" style="margin-top: 15px;">
+  <h2 class="h2 section-title has-underline" style="margin-top: 10.5rem;">
     Testimonials
     <span class="span has-before"></span>
   </h2>
@@ -3388,7 +3528,7 @@ body > .skiptranslate {
                 <div class="card-image">
                   <img src="./assets/images/testimonials-4.jpg" alt="" class="card-img">
                 </div>
-                <h2 style="font-size: 20px;">Sonal K</h2>
+                <h2 style="font-size: 2rem;">Sonal K</h2>
                 <div class="bio">"I'm an avid reader who loves getting lost in the pages of a good book, always seeking new stories and perspectives."</div>
                 <div class="rows-icons">
                   <i class="fa-brands fa-linkedin-in"></i>
@@ -3426,7 +3566,7 @@ body > .skiptranslate {
                 <div class="card-image">
                   <img src="./assets/images/testimonials-2.jpg" alt="" class="card-img">
                 </div>
-                <h2 style="font-size: 20px;">Prem Sampath</h2>
+                <h2 style="font-size: 2rem;">Prem Sampath</h2>
                 <div class="bio">"I'm passionate about reading, exploring new worlds & ideas through books, whether it's fiction or non-fiction."</div>
                 <div class="rows-icons">
                   <i class="fa-brands fa-linkedin-in"></i>
@@ -3463,7 +3603,7 @@ body > .skiptranslate {
                 <div class="card-image">
                   <img src="./assets/images/testimonials-3.jpg" alt="" class="card-img">
                 </div>
-                <h2 style="font-size: 20px;">Aron Loes</h2>
+                <h2 style="font-size: 2rem;">Aron Loes</h2>
                 <div class="bio">"Books are my escape; I relish the adventure of exploring new worlds and perspectives with every page I turn."</div>
                 <div class="rows-icons">
                   <i class="fa-brands fa-linkedin-in"></i>
@@ -3502,7 +3642,7 @@ body > .skiptranslate {
                 <div class="card-image">
                   <img src="./assets/images/testimonials-1.jpg" alt="" class="card-img">
                 </div>
-                <h2 style="font-size: 20px;">B.Sharmila</h2>
+                <h2 style="font-size: 2rem;">B.Sharmila</h2>
                 <div class="bio">"I’m a book lover who enjoys immersing myself in different genres, always on the lookout for the next great story or thought-provoking read."</div>
                 <div class="rows-icons">
                   <i class="fa-brands fa-linkedin-in"></i>
@@ -3540,7 +3680,7 @@ body > .skiptranslate {
                 <div class="card-image">
                   <img src="./assets/images/testimonials-5.jpg" alt="" class="card-img">
                 </div>
-                <h2 style="font-size: 20px;">Jane Doe</h2>
+                <h2 style="font-size: 2rem;">Jane Doe</h2>
                 <div class="bio">"Reading is my passion—I’m always seeking out the next compelling book to fuel my love for storytelling and knowledge."</div>
                 <div class="rows-icons">
                   <i class="fa-brands fa-linkedin-in"></i>
@@ -3579,7 +3719,7 @@ body > .skiptranslate {
                 <div class="card-image">
                   <img src="./assets/images/testimonials-6.jpg" alt="" class="card-img">
                 </div>
-                <h2 style="font-size: 20px;">Maya Verma</h2>
+                <h2 style="font-size: 2rem;">Maya Verma</h2>
                 <div class="bio">"I thrive on the thrill of reading, embracing every opportunity to delve into captivating narratives and diverse viewpoints."</div>
                 <div class="rows-icons">
                   <i class="fa-brands fa-linkedin-in"></i>
@@ -3747,9 +3887,7 @@ body > .skiptranslate {
       "https://translate.google.com/translate_a/element.js?
       cb=googleTranslateElementInit">
           </script>
-          <div class="SwapReads"><a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="./assets/images/final.png" class="logo" style=" width: 250px; margin:0px 0px 0px 18px;align-items: center;">
-          </a></div>
+          <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
           <div>
             <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
               lovers
@@ -3766,42 +3904,92 @@ body > .skiptranslate {
         </div>
       </div>
       <div class="foot-middle">
-        <h2 style="margin-left: 2rem; margin-top: 2.75rem;">Quick Links</h2>
-        <div id="quicklinks" class="row">
-          <div class="col-md-6">
-            <ul>
-              <li class="foot-quick" style="color: white;"><a href="#home" onclick="lenis.scrollTo('#home')"><i class="fas fa-home"></i><p class="flinks">Home</p></a></li>
-              <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')"><i class="fas fa-book"></i> <p class="flinks">Benefits</p></a></li>
-              <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i> <p class="flinks">Literary</p></a></li>
-              <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i><p class="flinks">Pricing</p> </a></li>
-              <li class="foot-quick"><a href="./assets/html/bookrecommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><p class="flinks">Recommend</p></a></li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <ul>
-              <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-exchange-alt"></i><p class="flinks">Swap</p> </a></li>
-              <li class="foot-quick"><a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-file-pdf"></i> <p class="flinks">E-Book</p></a></li>
-              <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-info-circle"></i> <p class="flinks">About</p></a></li>
-              <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')"><i class="fas fa-envelope"></i><p class="flinks">Contact</p> </a></li>
-              <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')"><i class="fas fa-question-circle"></i> <p class="flinks">FAQ</p></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      
+  <h2 style="margin: 2.75rem 0 1rem 2rem; color: white;">Quick Links</h2>
+  <div id="quicklinks" class="row">
+    <div class="col-md-6">
+      <ul style="list-style: none; padding: 0;">
+        <li class="foot-quick">
+          <a href="#home" onclick="lenis.scrollTo('#home')" style="color: white;">
+            <i class="fas fa-home"></i>
+            <span class="flinks">Home</span>
+          </a>
+        </li>
+        <li class="foot-quick">
+          <a href="#benefits" onclick="lenis.scrollTo('#benefits')" style="color: white;">
+            <i class="fas fa-book"></i>
+            <span class="flinks">Benefits</span>
+          </a>
+        </li>
+        <li class="foot-quick">
+          <a href="#chapters" onclick="lenis.scrollTo('#chapters')" style="color: white;">
+            <i class="fas fa-globe"></i>
+            <span class="flinks">Literary</span>
+          </a>
+        </li>
+        <li class="foot-quick">
+          <a href="#pricing" onclick="lenis.scrollTo('#pricing')" style="color: white;">
+            <i class="fas fa-dollar-sign"></i>
+            <span class="flinks">Pricing</span>
+          </a>
+        </li>
+        <li class="foot-quick">
+          <a href="./assets/html/bookrecommend.html" style="color: white;">
+            <i class="fas fa-bookmark"></i>
+            <span class="flinks">Recommend</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <ul style="list-style: none; padding: 0;">
+        <li class="foot-quick">
+          <a href="./assets/html/booklistswap.html" style="color: white;">
+            <i class="fas fa-exchange-alt"></i>
+            <span class="flinks">Swap</span>
+          </a>
+        </li>
+        <li class="foot-quick">
+          <a href="./assets/html/freeBooks.html" style="color: white;">
+            <i class="fas fa-file-pdf"></i>
+            <span class="flinks">E-Book</span>
+          </a>
+        </li>
+        <li class="foot-quick">
+          <a href="./assets/html/about.html" style="color: white;">
+            <i class="fas fa-info-circle"></i>
+            <span class="flinks">About</span>
+          </a>
+        </li>
+        <li class="foot-quick">
+          <a href="#contact" onclick="lenis.scrollTo('#contact')" style="color: white;">
+            <i class="fas fa-envelope"></i>
+            <span class="flinks">Contact</span>
+          </a>
+        </li>
+        <li class="foot-quick">
+          <a href="#faqq" onclick="lenis.scrollTo('#faqq')" style="color: white;">
+            <i class="fas fa-question-circle"></i>
+            <span class="flinks">FAQ</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 
         <style>
           .social-icons input[type="email"] 
           {
-              border: 2px solid #ccc; /* Gray border */
-              border-radius: 4px; /* Rounded corners */
-              padding: 10px; /* Inner padding */
-              font-size: 16px; /* Font size */
+              border: 0.2rem solid #ccc; /* Gray border */
+              border-radius: 0.4rem; /* Rounded corners */
+              padding: 1rem; /* Inner padding */
+              font-size: 1.6rem; /* Font size */
           }
           #confirmationMessage
           {
-            margin-left: 50px;
-            font-size: 23px;
+            margin-left: 5rem;
+            font-size: 2.3rem;
             color: green;
 
           }
@@ -3812,7 +4000,7 @@ body > .skiptranslate {
             {
                 margin-left: 0;
                 text-align: center;
-                font-size: 18px;
+                font-size: 1.8rem;
             }
         }
         </style>
@@ -3820,12 +4008,12 @@ body > .skiptranslate {
           #confirmationmessage {
     position: fixed;
     top: 42rem;
-    right: 10px;
+    right: 1rem;
     background-color: green;
     color: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
     z-index: 1000;
     display: none;
 }
@@ -3861,10 +4049,10 @@ body > .skiptranslate {
   background-color: #A30F17;
   color: white; 
   border: none; 
-  padding: 10px 20px; 
-  font-size: 16px; 
+  padding: 1rem 2rem; 
+  font-size: 1.6rem; 
   font-family: Arial, sans-serif;
-  border-radius: 5px; 
+  border-radius: 0.5rem; 
   cursor: pointer; 
   transition: background-color 0.3s, transform 0.2s;
 }
@@ -3915,8 +4103,6 @@ body > .skiptranslate {
             </div>
         </form>
         <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
-
-       
         <div class="icons">
           <!-- Discord icon -->
           <a href="https://www.discord.com/" target="_blank">
@@ -4488,6 +4674,8 @@ count=0
 }
 
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 
 </html>
