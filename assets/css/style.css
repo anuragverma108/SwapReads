@@ -313,7 +313,9 @@ input,
 button,
 textarea {
   background: none;
-  border: none;
+  border: 2px solid grey; /* Removed the none - border and added the following properties*/
+  border-radius: 10px; /* This */
+  padding: 10px; /*This */
   font: inherit;
 }
 
@@ -1497,33 +1499,37 @@ body.dark-mode .pricing-card button {
   justify-content: center;
   flex-direction: column;
 } */
+/* Iframe styling */
+/* Iframe styling */
 iframe {
   max-width: 800px !important;
-  /* height: 450px !important; */
-  width: 90%;
-  aspect-ratio: 16/9;
+  width: 100%; /* Ensure full width of the container */
+  height: 400px !important; /* Adjust the height of the map */
   border-radius: 5px;
 }
 
+/* Centering section-contact */
 .section-contact {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+/* Flex layout adjustments */
 .flexi {
   display: flex;
   flex-direction: column;
   width: 75%;
   gap: 0;
-
   margin-bottom: 5rem;
-
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
 
 }
+
+/* Contact section styling */
 .contact {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -1535,6 +1541,7 @@ iframe {
   gap: 20px;
 }
 
+/* Typing animation for the contact header */
 @keyframes typing {
   from {
     width: 0%;
@@ -1554,9 +1561,12 @@ iframe {
   font-size: 3rem;
   width: 0;
 }
+
 .p {
   font-size: 2rem;
 }
+
+/* Contact container with improved responsiveness */
 .contact-container {
   padding-right: 20px;
 
@@ -1570,13 +1580,12 @@ iframe {
   background-color: transparent;
   border: 1px solid #c36969;
   border-radius: 8px;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); */
-  font-family: Montserrat;
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
   position: relative;
   left: 9rem;
 }
 
+/* Contact form styling */
 .contact-form {
   flex: 1;
   max-width: 500px;
@@ -1592,10 +1601,11 @@ iframe {
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 10px;
+  height:50px;
+  padding: 15px;
   margin-bottom: 20px;
   border: 1px solid #c36969;
-  border-radius: 4px;
+  border-radius: 8px; /* Increased border-radius for a better look */
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -1607,13 +1617,14 @@ iframe {
 }
 
 .contact-form textarea {
-  height: 100px;
+  height: 150px; /* Increased height for the message box */
 }
 
+/* Submit button styling */
 .contact-form button {
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   background-color: #d15b83;
   color: white;
   font-size: 16px;
@@ -1626,6 +1637,7 @@ iframe {
   background-color: #f24a8a;
 }
 
+/* Image fader styling */
 .image-fader {
   width: 300px;
   height: 300px;
@@ -1667,6 +1679,7 @@ iframe {
   }
 }
 
+/* Image fader delay adjustments */
 .image-fader img:nth-of-type(1) {
   animation-delay: 0s;
 }
@@ -1682,29 +1695,44 @@ iframe {
 .image-fader img:nth-of-type(4) {
   animation-delay: 6s;
 }
+
+/* Cardi (address box) styling */
 .cardi {
-  background-color: transparent;
-  align-content: stretch;
-  height: fit-content;
-  width: 50%;  
+  margin-right: 150px !important;
+  background-color: inherit;
+  height: auto; /* Let the content dictate the height */
+  padding: 20px; /* Add padding */
+  text-align: left;
+  border-radius: 8px;
+  background-color: #fff; /* Optional: White background */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  /* Removed conflicting properties */
+
 }
 
+/* Contact card styling */
 .contact-card {
   margin-top: -14rem;
   padding: 30px;
-  background-color: transparent;
+  background-color: inherit; /* Background color restored */
   border: 1px solid #c36969 !important;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  /* border-radius: var(--radius-5); */
-
-  width: 31rem;
-  height: 36rem;
-
-  height: 600px;
-
+  height: auto; /* Retained from HEAD */
+}
+/* Testing with a light pink background */
+.cardi, .contact-card {
+  background-color: inherit !important; /* Test background color */
+  
+  /* Keep or remove the border-radius property as needed */
+  /* border-radius: var(--radius-5); */ /* Uncomment if needed */
+  
+  width: 31rem; /* Set width */
+  height: 600px; /* Choose the desired height */
 }
 
+
+/* Card title styling */
 .contact-card .card-title {
   font-family: var(--ff-philosopher);
   text-transform: uppercase;
@@ -1712,35 +1740,31 @@ iframe {
   font-size: 1.5em;
 }
 
-.contact-card > li:not(:last-child) {
-  margin-block-end: 30px;
-}
-
-.contact-card .card-link {
-  color: var(--chinese-violet);
-  transition: var(--transition-1);
-}
-
-.contact-card .card-link:is(:hover, :focus) {
-  color: var(--old-rose);
-}
-
+/* Map container styling */
 .map-container {
-  position: relative;
-  overflow: hidden; 
-}
-.map-container {
-  position: relative;
-  overflow: hidden; 
+  width: 100%; /* Full width of its container */
+  max-width: 400px; /* Max width for larger screens */
+  aspect-ratio: 1; /* Maintain a square shape */
+  margin: 20px 0; /* Add some spacing above and below */
+  overflow: hidden; /* Ensure overflow is hidden */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
 .map-container iframe {
-  pointer-events: none; 
-  transition: pointer-events 0.3s ease; 
+  width: 100%; /* Full width of the map container */
+  height: 100%; /* Full height */
+  border: none; /* Remove border */
+  border-radius: 10px; /* Match the container's rounded corners */
 }
-
+@media only screen and (max-width: 768px) {
+  .map-container {
+    max-width: 100%; /* Full width on smaller screens */
+    height: auto; /* Maintain aspect ratio */
+  }
+}  
 .map-container:hover iframe {
-  pointer-events: auto; 
+  pointer-events: auto;
 }
 
 /* Responsive adjustments for mobile devices */
@@ -1751,14 +1775,14 @@ iframe {
   }
 
   .contact-container {
-    width: 90%; /* Increase width to 90% on smaller screens */
-    padding: 20px; /* Reduce padding for mobile */
-    flex-direction: column; /* Stack elements vertically */
+    width: 90%;
+    padding: 20px;
+    flex-direction: column;
   }
 
   .contact-form {
-    width: 100%; /* Ensure form takes full width */
-    max-width: none; /* Remove max-width for mobile */
+    width: 100%;
+    max-width: none;
   }
 
   .cardi {
@@ -1773,29 +1797,28 @@ iframe {
   }
 
   .image-fader {
-    width: 100%; /* Adjust image fader width for mobile */
-    height: auto; /* Maintain aspect ratio for images */
-    margin-top: 20px; /* Add some spacing */
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
   }
 }
 
-/* For extra small screens (like very narrow phones) */
+/* Extra small screens */
 @media only screen and (max-width: 480px) {
   .contact-container {
-    width: 100%; /* Full width for extra small screens */
+    width: 100%;
   }
 
   .contact-form input, 
   .contact-form textarea {
-    padding: 8px; /* Adjust padding for form inputs */
+    padding: 8px;
   }
 
   .contact-form button {
-    width: 100%; /* Make the submit button full width */
-    font-size: 14px; /* Reduce button font size for better fit */
+    width: 100%;
+    font-size: 14px;
   }
 }
-
 
 /*-----------------------------------*\
   #Rate-Us-Modal
