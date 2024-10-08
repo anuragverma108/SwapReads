@@ -750,7 +750,7 @@
   /* Add transition for smooth animation */
 }
 
-{
+
 .footer-icons .icon:hover {
   transform: scale(1.5);
   /* Scale the icon on hover */
@@ -910,15 +910,11 @@
   flex-wrap: wrap; 
 }
 
-.contact {
-  width: 52%; /* Adjust width for the contact form */
-}
 
 .cardi {
-  /* width: 38%; Adjust width for the contact card */
+  width: 35%; /* Adjust width for the contact card */
   max-width: 350px; /* Limit max width */
-  margin-left: 250px !important; /* Add some space between the two sections */
-  margin-bottom: 50px;
+  margin-left: 20px; /* Add some space between the two sections */
 }
 
 .contact-container {
@@ -930,11 +926,10 @@
 
 .contact-card {
   background-color: var(--secondary-color);
-  /* padding: 20px; */
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-top: 20px; /* Ensure there's space above the card */
-  margin-left:20px;
 }
 
 .map-container {
@@ -1196,15 +1191,14 @@ body > .skiptranslate {
   flex-wrap: wrap; 
 }
 
-.contact {
-  width: 52%; /* Adjust width for the contact form */
-}
 
 .cardi {
-  /* width: 35%;                   */
+  width: 35%; /* Adjust width for the contact card */
   max-width: 350px; /* Limit max width */
   margin-left: 20px; /* Add some space between the two sections */
-  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contact-container {
@@ -3302,58 +3296,9 @@ iframe {
         window.location.reload(false);
       }, function(error) {
         console.error('FAILED...', error);
-        
+        alert('Failed to send the message, please try again');
       });
   });
-
-
-  document.getElementById("contactForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  // Get the form elements
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const subject = document.getElementById("subject").value.trim();
-  const message = document.getElementById("message").value.trim();
-
-  // Perform form validation
-  if (name === "" || email === "" || subject === "" || message === "") {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "Please fill out all fields.",
-      customClass: {
-        popup: "swal-popup",
-        title: "swal-title",
-        content: "swal-content",
-        confirmButton: "swal-confirm-button",
-      },
-    });
-    return;
-  }
-
-  // Show success message
-  Swal.fire({
-    icon: "success",
-    title: "Success!",
-    text: "Message sent successfully!",
-    customClass: {
-      popup: "swal-popup",
-      title: "swal-title",
-      content: "swal-content",
-      confirmButton: "swal-confirm-button",
-    },
-  }).then((result) => {
-    if (result.isConfirmed || result.isDismissed) {
-      // Reset form fields
-      document.getElementById("name").value = "";
-      document.getElementById("email").value = "";
-      document.getElementById("subject").value = "";
-      document.getElementById("message").value = "";
-    }
-  });
-});
-
 </script>
 
       
