@@ -3119,6 +3119,66 @@ iframe {
             <center><button id="submit-btn">Submit</button></center>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const toastMessage = document.getElementById("toastMessage");
+
+          document.getElementById("submit-btn").addEventListener("click", function(event) {
+              event.preventDefault(); // Prevent default form submission
+
+              let selectedEmoji = document.querySelector('input[name="rate"]:checked');
+              let feedback = document.getElementById("feedback").value.trim();
+              
+              if (selectedEmoji && feedback !== "") {
+                  // Show success toast message
+                  toastMessage.textContent = "Feedback submitted successfully :)";
+                  toastMessage.style.backgroundColor = "green"; // Green color for success
+                  toastMessage.style.color = "white";
+                  toastMessage.style.borderRadius = "0.5rem";
+                  toastMessage.style.position = "fixed";
+                  toastMessage.style.display = "block";
+
+                  // Hide toast message after 3 seconds (adjust as needed)
+                  setTimeout(function() {
+                      toastMessage.style.display = "none";
+                  }, 3000);
+
+                  // Reset form fields
+                  document.getElementById("feedback").value = "";
+                  let starInputs = document.querySelectorAll('input[name="rate"]');
+                  starInputs.forEach(input => {
+                      input.checked = false;
+                  });
+
+                  // Store feedback in local storage
+                  let feedbackData = {
+                      emoji: selectedEmoji.value,
+                      feedback: feedback
+                  };
+                  localStorage.setItem("feedback", JSON.stringify(feedbackData));
+              } else {
+                  // Show failure toast message
+                  toastMessage.textContent = "Select Emoji and give Feedback :(";
+                  toastMessage.style.backgroundColor = "red"; // Red color for failure
+                  toastMessage.style.color = "white";
+                  toastMessage.style.borderRadius = "0.5rem";
+                  toastMessage.style.position = "fixed";
+                  toastMessage.style.display = "block";
+
+                  // Hide toast message after 3 seconds (adjust as needed)
+                  setTimeout(function() {
+                      toastMessage.style.display = "none";
+                  }, 3000);
+                  
+                  document.getElementById("feedback").value = "";
+                  let starInputs = document.querySelectorAll('input[name="rate"]');
+                  starInputs.forEach(input => {
+                      input.checked = false;
+                  });
+              }
+          });
+      });
+    </script>
     
     <div id="toastMessage" class="toast-message"></div>
     <script>
@@ -3236,6 +3296,46 @@ iframe {
         </center>
       </div>
     </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  // Retrieve data from localStorage and populate the form fields
+  const storedName = localStorage.getItem('name');
+  const storedEmail = localStorage.getItem('email');
+  const storedSubject = localStorage.getItem('subject');
+  const storedMessage = localStorage.getItem('message');
+  
+  if (storedName) document.getElementById('name').value = storedName;
+  if (storedEmail) document.getElementById('email').value = storedEmail;
+  if (storedSubject) document.getElementById('subject').value = storedSubject;
+  if (storedMessage) document.getElementById('message').value = storedMessage;
+
+  // Add event listener to the form
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Store form data in localStorage
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    document.getElementById('name').value = "";
+    document.getElementById('email').value = "";
+    document.getElementById('subject').value = "";
+    document.getElementById('message').value = "";
+
+    localStorage.setItem('name', name);
+    localStorage.setItem('email', email);
+    localStorage.setItem('subject', subject);
+    localStorage.setItem('message', message);
+
+    // You can add your form submission logic here (e.g., AJAX request)
+
+    alert('Message sent and data saved locally!'); // Success message
+  });
+});
+
+</script>
 
     <!-- Contact Information Section -->
     <div class="cardi">
