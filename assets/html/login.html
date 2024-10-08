@@ -531,7 +531,7 @@ button img {
 
               <ul class="dropdown-menu-list">
                 <li>
-                  <a href="chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                  <a href="chat.html" class="navbar-link" style="font-family: sans-serif; color: white; margin-bottom: 5px;">
                     Community chat
                 </a>
                 </li>
@@ -634,6 +634,12 @@ button img {
             justify-content: center;
         }
             }
+            .dropdown-menu {
+      display: none;
+  }
+  .dropdown-menu.show {
+      display: block;
+  }
           </style>
           <li>
             <div class="navbar darkmode" style="top: 15px; right:20px;">
@@ -677,6 +683,18 @@ button img {
             </ul>
               </div>
               <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const moreLink = document.getElementById("more-link");
+                    const dropdownMenu = document.getElementById("dropdown-menu");
+            
+                    moreLink.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        dropdownMenu.classList.toggle("show");
+                    });
+                });
+            </script>
+              <script>
+                
                document.addEventListener("DOMContentLoaded", () => {
     const savedAvatar = localStorage.getItem("selectedAvatar");
     if (savedAvatar) {
