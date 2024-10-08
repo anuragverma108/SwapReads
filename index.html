@@ -3449,7 +3449,7 @@ $('.dropdown-menu').on('scroll', function(event) {
 
     // You can add your form submission logic here (e.g., AJAX request)
 
-    alert('Your details has been saved successfully!'); // Success message
+    alert('Message sent and data saved locally!'); // Success message
   });
 });
 
@@ -3497,6 +3497,28 @@ $('.dropdown-menu').on('scroll', function(event) {
 </section>
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("f6MOtkzVAVwSL9aru");
+  })();
+
+  const form = document.getElementById('contactForm');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('service_id', 'template_id', form)
+      .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        alert('Message successfully sent!');
+        window.location.reload(false);
+      }, function(error) {
+        console.error('FAILED...', error);
+        alert('Failed to send the message, please try again');
+      });
+  });
+</script>
+
       
 
     </article>
