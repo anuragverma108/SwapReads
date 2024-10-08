@@ -3294,9 +3294,58 @@ iframe {
         window.location.reload(false);
       }, function(error) {
         console.error('FAILED...', error);
-        alert('Failed to send the message, please try again');
+        
       });
   });
+
+
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  // Get the form elements
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  // Perform form validation
+  if (name === "" || email === "" || subject === "" || message === "") {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Please fill out all fields.",
+      customClass: {
+        popup: "swal-popup",
+        title: "swal-title",
+        content: "swal-content",
+        confirmButton: "swal-confirm-button",
+      },
+    });
+    return;
+  }
+
+  // Show success message
+  Swal.fire({
+    icon: "success",
+    title: "Success!",
+    text: "Message sent successfully!",
+    customClass: {
+      popup: "swal-popup",
+      title: "swal-title",
+      content: "swal-content",
+      confirmButton: "swal-confirm-button",
+    },
+  }).then((result) => {
+    if (result.isConfirmed || result.isDismissed) {
+      // Reset form fields
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("subject").value = "";
+      document.getElementById("message").value = "";
+    }
+  });
+});
+
 </script>
 
       
