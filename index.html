@@ -3,6 +3,26 @@
 <title>SwapReads</title>
 
 <head>
+  <style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background-color: #fff; /* White background */
+        overflow: hidden;
+        cursor: default; /* Show default cursor */
+    }
+
+    .cursor {
+        position: absolute;
+        width: 15px; /* Circle size */
+        height: 15px; /* Circle size */
+        background-color: rgba(255, 165, 0, 0.8); /* Orange color */
+        border-radius: 50%; /* Circular shape */
+        pointer-events: none; /* Prevent interaction */
+        transform: translate(-50%, -50%); /* Center the circle */
+        transition: transform 0.15s ease-out; /* Smooth movement */
+    }
+</style>
   <script type="text/javascript">
     (function () {
       emailjs.init({
@@ -1040,6 +1060,28 @@ iframe {
 
 <body>
   
+  <div class="cursor"></div>
+
+    <script>
+        const cursor = document.querySelector('.cursor');
+        let mouseX = 0, mouseY = 0;
+
+        // Update mouse position
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+        });
+
+        // Optional: Add a 'hover' animation effect when the cursor moves
+        cursor.addEventListener('mouseenter', () => {
+            cursor.style.transition = 'transform 0.1s ease-in-out';
+        });
+
+        cursor.addEventListener('mouseleave', () => {
+            cursor.style.transition = 'transform 0.15s ease-out';
+        });
+    </script>
   <style>
     /* Fixed translate button */
     *{
