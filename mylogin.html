@@ -88,6 +88,7 @@ button {
                         <input type="checkbox" id="rememberMe"> Remember Me
                     </label>
                     <button type="button" name="Login" id="login">Log in</button>
+                     <button type="button" id="forgotPassword">Forgot Password?</button>
                 </form>
             </div>
 
@@ -200,6 +201,24 @@ button {
                     console.log("An error happened.");
                 });
         });
+     document.addEventListener("DOMContentLoaded", function() {
+     document.getElementById("forgotPassword").addEventListener("click", function () {
+    let email = document.getElementById("login_email").value;
+    if (email) {
+        auth.sendPasswordResetEmail(email)
+            .then(() => {
+                alert("Password reset email sent!");
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                console.log(errorMessage);
+                alert(errorMessage);
+            });
+    } else {
+        alert("Please enter your email address to reset your password.");
+    }
+});
+     });         
     </script>
 <script>
 const navbar=document.querySelector('.navbar'),
