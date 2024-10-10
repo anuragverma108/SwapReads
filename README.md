@@ -35,11 +35,51 @@
 </table>
 </div>
 
-<div align="center">
+## 📚 Table of Contents
+
+- 📺 Featured In
+- ❓ The Problem
+- 💡 How SwapReads.com Solves These Problems
+- 💻 Tech Stacks
+- 🤝 Ready to Contribute?
+- 🌍 Open Innovation Challenge
+- 📞 Contact Us
+- 📜 Code of Conduct
+- 🙌 Our Contributors
+
+
+
 SwapReads.com is the solution to common challenges faced by book enthusiasts in today's digital age. We've identified key problems and developed a platform that addresses them efficiently and effectively.
-</div>
 
 <hr>
+
+## Table of Contents
+1. [Introduction](#about-us)
+2. [Featured In](#featured-in)
+3. [The Problem](#the-problem)
+4. [How SwapReads.com Solves These Problems](#how-swapreadscom-solves-these-problems)
+5. [Tech Stacks](#-tech-stacks)
+6. [Contribution](#contribution)
+7. [Open Innovation Challenge](#open-innovation-challenge)
+8. [Contact Us](#-contact-us)
+9. [Code of Conduct](#code-of-conduct)
+10. [Support Our Project](#support-our-project)
+11. [Contributors](#our-contributors)
+12. [Website Preview](#-website-preview)
+12. [Stargazers](#stargazers)
+13. [Forkers](#forkers)
+
+<hr>
+
+## About Us
+
+[SwapReads](https://swapreadsconnect.netlify.app/#) is a vibrant online platform dedicated to connecting book lovers from around the world. Our mission is to make reading more accessible, affordable, and sustainable by enabling readers to exchange books and discover new literary adventures.
+
+In today’s fast-paced world, we understand the challenges faced by book enthusiasts—ranging from limited access to diverse books, high costs, to the environmental impact of book production. At SwapReads.com, we address these concerns by creating a community where members can swap their books, exchange personalized recommendations, and engage in meaningful discussions with fellow readers.
+
+We believe in fostering a global community of readers who are passionate about sharing knowledge, expanding their literary horizons, and reducing waste through book exchanges. SwapReads.com promotes sustainable reading habits while creating a trusted, social environment for book lovers to connect and thrive.
+
+Join us today and explore a world where books are exchanged, friendships are formed, and new adventures are just a swap away!
 
 ## Featured In
 
@@ -55,6 +95,11 @@ SwapReads.com is the solution to common challenges faced by book enthusiasts in 
       <td>GirlScript Summer of Code 2024</td>
       <td>GirlScript Summer of Code is a three-month-long Open Source Program conducted every summer by GirlScript Foundation. It is an initiative to bring more beginners to Open-Source Software Development.</td>
    </tr>
+   <tr>
+      <td><img src="./assets/hacktoberfest.png" width="200" height="auto" loading="lazy" alt="Hacktoberfest 2024"/></td>
+      <td>Hacktoberfest 2024</td>
+      <td>Hacktoberfest is a month-long celebration of open source software run by DigitalOcean, GitHub, and Twilio. It encourages contributions to open source projects and promotes a global community of developers.</td>
+      </tr>
 
 </table>
 
@@ -107,12 +152,17 @@ SwapReads.com is the solution to common challenges faced by book enthusiasts in 
 
 </div>
 
-  
 <hr>
 
-<div>
-  <h2><img src="https://github.com/Meetjain1/wanderlust/assets/133582566/90f3930e-5a12-4a4e-8ac9-0dc7d5396adb" width="35" height="35"> Ready to Contribute?</h2>
-</div>
+ ## <img src="https://github.com/Meetjain1/wanderlust/assets/133582566/90f3930e-5a12-4a4e-8ac9-0dc7d5396adb" width="35" height="35"> Contribution
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+- If you have any suggestions for the project, such as reporting a bug, improving the UI, or enhancing the README.md file, feel free to **open an issue** to discuss it or directly create a pull request with the necessary changes.
+- Please make sure to check your spelling and grammar.
+- Create individual pull requests for each suggestion to keep changes focused and manageable.
+
+Your involvement helps to improve the project and make it better for everyone. Thank you for your contributions!
 
 Kindly go through [CONTRIBUTING.md](CONTRIBUTING.md) to understand everything from setup to contributing guidelines.
 
@@ -120,16 +170,14 @@ If you would like to contribute to the project, please follow our contribution g
 
 <hr>
 
-### **Open Innovation Challenge:**
+## Open Innovation Challenge
 
 SwapReads.com actively participates in the Open Innovation Challenge by cultivating a global community of readers. Our platform champions open access to a wide range of books, promotes sustainable reading habits through book swapping, and harnesses user-generated content to offer personalized recommendations. With community-driven discussions and data-driven optimizations, SwapReads.com is committed to advancing the goals of inclusivity, sustainability, and collaborative innovation in the world of literature.
 
 Join SwapReads.com today and embark on a literary journey like never before!
 
-<hr>
-<div>
-  <h2>🔗 Contact Us</h2>
-</div>
+
+##  <h2>🔗 Contact Us</h2>
 
 <table>
     <tr>
@@ -173,11 +221,17 @@ Join SwapReads.com today and embark on a literary journey like never before!
 <hr>
 
 <!-- Code of conduct -->
-<div>
-<h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35" height="35"> Code of Conduct</h2>
-</div>
 
-Please note that this project is released with a [Contributor Code of Conduct](./CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+## <h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35" height="35"> Code of Conduct</h2>
+
+We are committed to fostering a welcoming and inclusive environment for everyone. All contributors and participants are expected to uphold the following values:
+
+- Be respectful of different viewpoints and experiences.
+- Show empathy toward others.
+- Use inclusive language.
+
+Please read and follow our [Code of Conduct](Code_of_Conduct.md) to foster an inclusive community.
+If anyone violates these standards, they may be banned from the community.
 
 <hr>
 
@@ -186,13 +240,37 @@ If you find this project helpful, please consider giving it a star on GitHub! Yo
 
 <hr>
 
-<div>
-  <h2 align = "center"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" width="35" height="35">Our Contributors</h2>
-  <div align = "center">
+##  <h2 align = "center"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" width="35" height="35">Our Contributors</h2>
  <h3>Thank you for contributing to our repository</h3>
 
 ![Contributors](https://contrib.rocks/image?repo=anuragverma108/SwapReads)
 
-### Show some ❤️ by starring this awesome repository!
+# 📸 Website Preview
+<img src="./home.png" />
+<img src="./benefits.png" />
+<img src="./genre.png" />
+
+🌐 **Visit our website:** [SwapReads](https://swapreadsconnect.netlify.app/#)
+
+## Stargazers
+
+<div align='center'>
+
+[![Stargazers repo roster for @anuragverma108/SwapReads](https://reporoster.com/stars/anuragverma108/SwapReads)](https://github.com/anuragverma108/SwapReads/stargazers)
 
 </div>
+
+## Forkers
+<div align='center'>
+
+[![Forkers repo roster for @anuragverma108/SwapReads](https://reporoster.com/forks/anuragverma108/SwapReads)](https://github.com/anuragverma108/SwapReads/network/members)
+
+</div>
+
+<div align="center">
+    <a href="#top">
+        <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
+    </a>
+</div>
+
+### Show some ❤️ by starring this awesome repository!
