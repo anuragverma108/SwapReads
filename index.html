@@ -3,6 +3,26 @@
 <title>SwapReads</title>
 
 <head>
+  <style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background-color: #fff; /* White background */
+        overflow: hidden;
+        cursor: default; /* Show default cursor */
+    }
+
+    .cursor {
+        position: absolute;
+        width: 15px; /* Circle size */
+        height: 15px; /* Circle size */
+        background-color: rgba(255, 165, 0, 0.8); /* Orange color */
+        border-radius: 50%; /* Circular shape */
+        pointer-events: none; /* Prevent interaction */
+        transform: translate(-50%, -50%); /* Center the circle */
+        transition: transform 0.1s ease-out; /* Smooth movement */
+    }
+</style>
   <script type="text/javascript">
     (function () {
       emailjs.init({
@@ -664,7 +684,7 @@
   }
 }
 .navbar-item {
-  /* Increase the top margin of each item */
+  margin-top: 1rem; /* Increase the top margin of each item */
   
 }
 .card-sty {
@@ -750,7 +770,7 @@
   /* Add transition for smooth animation */
 }
 
-{
+
 .footer-icons .icon:hover {
   transform: scale(1.5);
   /* Scale the icon on hover */
@@ -925,7 +945,8 @@
   background-color: var(--secondary-color);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(83, 18, 18, 0.1);
+  width: 75%;
 }
 
 .contact-card {
@@ -967,16 +988,6 @@ iframe {
   height: 100%;
   border: none; /* Remove border for a cleaner look */
   border-radius: 10px;
-}
-
-.contact-info {
-  width: 400px; /* Adjust the width as needed */
-  display: inline-block;
-}
-
-.contact-info {
-  width: 500px; /* Adjust the width as needed */
-  display: inline-block;
 }
 
 /* Responsive adjustments */
@@ -1049,7 +1060,18 @@ iframe {
 
 
 <body>
-  
+  <div class="cursor"></div>
+
+  <script>
+      const cursor = document.querySelector('.cursor');
+
+      // Update mouse position and move the cursor element
+      document.addEventListener('mousemove', (e) => {
+          const mouseX = e.clientX;
+          const mouseY = e.clientY;
+          cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+      });
+  </script>
   <style>
     /* Fixed translate button */
     *{
@@ -1187,7 +1209,7 @@ body > .skiptranslate {
   margin-right: 3rem;
 }
 .mobile-container-styles{
-  
+  margin-left: 5rem;
 }
 .nav{
   justify-content: space-around;
@@ -1206,7 +1228,8 @@ body > .skiptranslate {
 }
 
 .contact {
-  width: 52%; /* Adjust width for the contact form */
+  
+  width: 1000px;  /* Adjust width for the contact form */
 }
 
 .cardi {
@@ -1221,6 +1244,10 @@ body > .skiptranslate {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+.contact-container:hover{
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.386);
 }
 
 .contact-card {
@@ -1439,7 +1466,7 @@ iframe {
 
         <ul class="navbar-list nav">
           <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px 0px;">
+            <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px 1.8rem;">
           </a>
           <li class="navbar-item">
             <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
@@ -1485,7 +1512,8 @@ iframe {
 
           <li class="navbar-item">
               <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" data-nav-link>
-                  <i class="ri-bar-chart-fill"></i> Audio Books </a>
+                  <i class="ri-bar-chart-fill"></i> Audio<br> Books
+              </a>
           </li>
             
           <li>
@@ -3003,47 +3031,145 @@ iframe {
   }
 </style>
 
+
 <!-- rate us -->
-<!-- Rate Us Component -->
-<div id="rate-us">
-  <div class="heading">
-    <h3>Rate Us</h3>
-    <p>Tell us about your experience!</p>
-  </div>
+      <style>
+#rate-us {
+  transition: background-color 0.3s ease;  
+}
 
-  <div class="stars">
-    <input type="radio" id="star5" name="rate" value="5" />
-    <label for="star5">😭</label>
-    <input type="radio" id="star4" name="rate" value="4" />
-    <label for="star4">😢</label>
-    <input type="radio" id="star3" name="rate" value="3" />
-    <label for="star3">😐</label>
-    <input type="radio" id="star2" name="rate" value="2" />
-    <label for="star2">😊</label>
-    <input type="radio" id="star1" name="rate" value="1" />
-    <label for="star1">😍</label>
-  </div>
+#rate-us:hover {
+  background-color: #fde2e2;  
+  color: white;  
+} /* Closing brace for #rate-us:hover */
 
-  <div class="feedback-container">
-    <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
-  </div>
+/* Additional styles */
+.toast-message {
+  display: none;  
+  padding: 10px;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
 
-  <div class="button">
-    <center><button id="submit-btn">Submit</button></center>
-  </div>
+.modal {
+  display: none;  
+}
+</style>
+
+
+
+
+      <!-- rate us -->
+
+
+       <!-- Rate Us Component -->
+       <div id="rate-us">
+        <div class="heading">
+            <h3>Rate Us</h3>
+            <p>Tell us about your experience!</p>
+        </div>
+    
+        <div class="stars">
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5">😭</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4">😢</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3">😐</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2">😊</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1">😍</label>
+        </div>
+    
+        <div class="feedback-container">
+            <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
+        </div>
+    
+        <div class="button">
+          
+            <center><button id="submit-btn">Submit</button></center>
+        </div>
+    </div>
+    
+    <div id="toastMessage" class="toast-message"></div>
+    <script>
+     document.addEventListener("DOMContentLoaded", function() {
+    const toastMessage = document.getElementById("toastMessage");
+
+    document.getElementById("submit-btn").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        let selectedEmoji = document.querySelector('input[name="rate"]:checked');
+        let feedback = document.getElementById("feedback").value.trim();
+        
+        if (selectedEmoji && feedback !== "") {
+            // Show success toast message
+            toastMessage.textContent = "Feedback submitted successfully :)";
+            toastMessage.style.backgroundColor = "green"; // Green color for success
+            toastMessage.style.color = "white";
+            toastMessage.style.borderRadius = "0.5rem";
+            toastMessage.style.position = "fixed";
+                      toastMessage.style.display = "block";
+
+            // Hide toast message after 3 seconds (adjust as needed)
+            setTimeout(function() {
+                toastMessage.style.display = "none";
+            }, 3000);
+
+            // Reset form fields
+            document.getElementById("feedback").value = "";
+            let starInputs = document.querySelectorAll('input[name="rate"]');
+            starInputs.forEach(input => {
+                input.checked = false;
+            });
+        } else {
+            // Show failure toast message
+            toastMessage.textContent = "Select Emoji and give Feedback :(";
+            toastMessage.style.backgroundColor = "red"; // Red color for failure
+            toastMessage.style.color = "white";
+            toastMessage.style.borderRadius = "0.5rem";
+            toastMessage.style.position = "fixed";
+            
+            toastMessage.style.display = "block";
+
+            // Hide toast message after 3 seconds (adjust as needed)
+            setTimeout(function() {
+                toastMessage.style.display = "none";
+            }, 3000);
+            
+            document.getElementById("feedback").value = "";
+            let starInputs = document.querySelectorAll('input[name="rate"]');
+            starInputs.forEach(input => {
+                input.checked = false;
+            });
+        }
+    });
+});
+
+  </script>
+  <div id="toastMessage"></div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeConfirmationModal()">&times;</span>
+            <p id="confirmationMessage"></p>
+        </div>
+    </div>
 </div>
 
-<div id="toastMessage" class="toast-message"></div>
+    <!-- Confirmation Message Popup -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeConfirmationModal()">&times;</span>
+            <p id="confirmationMessage"></p>
+        </div>
+    </div>
 
-<!-- Confirmation Modal -->
-<div id="confirmationModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeConfirmationModal()">&times;</span>
-    <p id="confirmationMessage"></p>
-  </div>
-</div>
-
-<script src="/assets/js/rate.js"></script>
+    <script src="/assets/js/rate.js"></script>
 
 
   <!-- --Contact Us -->
@@ -3055,10 +3181,10 @@ iframe {
   </h1>
   <p class="p">Have a Question?</p> 
   <h3 style="text-align: center; color: #A30F17;">GET IN TOUCH</h3>
-  <div class="flexi common-width">
-    <div class="contact">
+  <div class="flexi">
+    <div class="contact" >
       <div class="contact-container">
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" style=" width: 500px;">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" placeholder="Your Name" required>
 
@@ -3086,18 +3212,17 @@ iframe {
     </div>
 
     <!-- Contact Information Section -->
-    <div class="cardi common-width">
-      <div class="contact-card white-border-card">
+ <div class="contact">
+      <div class="contact-container">
         <ul class="flex-container">
           <li>
             <p class="card-title address-title">
               <lord-icon class="invert-col" src="https://cdn.lordicon.com/iikoxwld.json" trigger="hover" colors="primary:#000000" style="width:25px;height:25px"></lord-icon>
               Address:
             </p>
-            <address class="address contact-info">
-              <span>12, Nayabad<br>
-                Kolkata, India 700054
-              </span>
+            <address class="address">
+              12, Nayabad<br>
+              Kolkata, India 700054
             </address>
           </li>
           <li>
@@ -3129,26 +3254,15 @@ iframe {
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-  (function() {
-    emailjs.init("f6MOtkzVAVwSL9aru");
-  })();
-
-  const form = document.getElementById('contactForm');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm('service_id', 'template_id', form)
-      .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-        alert('Message successfully sent!');
-        window.location.reload(false);
-      }, function(error) {
-        console.error('FAILED...', error);
-        alert('Failed to send the message, please try again');
-      });
-  });
-</script>
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  alert("Message sent successfully!");
+  document.getElementById("name").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("subject").value = "";
+  document.getElementById("message").value = "";
+});
+  </script>
 
       
 
