@@ -23,6 +23,26 @@
         transition: transform 0.1s ease-out; /* Smooth movement */
     }
 </style>
+  <style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background-color: #fff; /* White background */
+        overflow: hidden;
+        cursor: default; /* Show default cursor */
+    }
+
+    .cursor {
+        position: absolute;
+        width: 15px; /* Circle size */
+        height: 15px; /* Circle size */
+        background-color: rgba(255, 165, 0, 0.8); /* Orange color */
+        border-radius: 50%; /* Circular shape */
+        pointer-events: none; /* Prevent interaction */
+        transform: translate(-50%, -50%); /* Center the circle */
+        transition: transform 0.1s ease-out; /* Smooth movement */
+    }
+</style>
   <script type="text/javascript">
     (function () {
       emailjs.init({
@@ -685,6 +705,7 @@
 }
 .navbar-item {
   margin-top: 1rem; /* Increase the top margin of each item */
+  margin-top: 1rem; /* Increase the top margin of each item */
   
 }
 .card-sty {
@@ -769,6 +790,7 @@
   transition: all 0.15s ease;
   /* Add transition for smooth animation */
 }
+
 
 
 .footer-icons .icon:hover {
@@ -947,6 +969,8 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(83, 18, 18, 0.1);
   width: 75%;
+  box-shadow: 0 0 10px rgba(83, 18, 18, 0.1);
+  width: 75%;
 }
 
 .contact-card {
@@ -1060,6 +1084,18 @@ iframe {
 
 
 <body>
+  <div class="cursor"></div>
+
+  <script>
+      const cursor = document.querySelector('.cursor');
+
+      // Update mouse position and move the cursor element
+      document.addEventListener('mousemove', (e) => {
+          const mouseX = e.clientX;
+          const mouseY = e.clientY;
+          cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+      });
+  </script>
   <div class="cursor"></div>
 
   <script>
@@ -1210,6 +1246,7 @@ body > .skiptranslate {
 }
 .mobile-container-styles{
   margin-left: 5rem;
+  margin-left: 5rem;
 }
 .nav{
   justify-content: space-around;
@@ -1230,6 +1267,8 @@ body > .skiptranslate {
 .contact {
   
   width: 1000px;  /* Adjust width for the contact form */
+  
+  width: 1000px;  /* Adjust width for the contact form */
 }
 
 .cardi {
@@ -1244,6 +1283,10 @@ body > .skiptranslate {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+.contact-container:hover{
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.386);
 
 }
 .contact-container:hover{
@@ -1467,6 +1510,7 @@ iframe {
         <ul class="navbar-list nav">
           <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
             <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px 1.8rem;">
+            <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px 1.8rem;">
           </a>
           <li class="navbar-item">
             <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
@@ -1512,6 +1556,8 @@ iframe {
 
           <li class="navbar-item">
               <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" data-nav-link>
+                  <i class="ri-bar-chart-fill"></i> Audio<br> Books
+              </a>
                   <i class="ri-bar-chart-fill"></i> Audio<br> Books
               </a>
           </li>
@@ -3034,6 +3080,7 @@ iframe {
 </style>
 
 
+
 <!-- rate us -->
       <style>
 #rate-us {
@@ -3170,7 +3217,24 @@ iframe {
             <p id="confirmationMessage"></p>
         </div>
     </div>
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeConfirmationModal()">&times;</span>
+            <p id="confirmationMessage"></p>
+        </div>
+    </div>
+</div>
 
+    <!-- Confirmation Message Popup -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeConfirmationModal()">&times;</span>
+            <p id="confirmationMessage"></p>
+        </div>
+    </div>
+
+    <script src="/assets/js/rate.js"></script>
     <script src="/assets/js/rate.js"></script>
 
 
@@ -3185,7 +3249,10 @@ iframe {
   <h3 style="text-align: center; color: #A30F17;">GET IN TOUCH</h3>
   <div class="flexi">
     <div class="contact" >
+  <div class="flexi">
+    <div class="contact" >
       <div class="contact-container">
+        <form class="contact-form" id="contactForm" style=" width: 500px;">
         <form class="contact-form" id="contactForm" style=" width: 500px;">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -3225,6 +3292,9 @@ iframe {
             <address class="address">
               12, Nayabad<br>
               Kolkata, India 700054
+            <address class="address">
+              12, Nayabad<br>
+              Kolkata, India 700054
             </address>
           </li>
           <li>
@@ -3256,26 +3326,15 @@ iframe {
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-  (function() {
-    emailjs.init("f6MOtkzVAVwSL9aru");
-  })();
-
-  const form = document.getElementById('contactForm');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm('service_id', 'template_id', form)
-      .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-        alert('Message successfully sent!');
-        window.location.reload(false);
-      }, function(error) {
-        console.error('FAILED...', error);
-        alert('Failed to send the message, please try again');
-      });
-  });
-</script>
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  alert("Message sent successfully!");
+  document.getElementById("name").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("subject").value = "";
+  document.getElementById("message").value = "";
+});
+  </script>
 
       
 
