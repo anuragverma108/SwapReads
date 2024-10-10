@@ -35,9 +35,21 @@
 </table>
 </div>
 
-<div align="center">
+## 📚 Table of Contents
+
+- 📺 Featured In
+- ❓ The Problem
+- 💡 How SwapReads.com Solves These Problems
+- 💻 Tech Stacks
+- 🤝 Ready to Contribute?
+- 🌍 Open Innovation Challenge
+- 📞 Contact Us
+- 📜 Code of Conduct
+- 🙌 Our Contributors
+
+
+
 SwapReads.com is the solution to common challenges faced by book enthusiasts in today's digital age. We've identified key problems and developed a platform that addresses them efficiently and effectively.
-</div>
 
 <hr>
 
@@ -107,7 +119,6 @@ SwapReads.com is the solution to common challenges faced by book enthusiasts in 
 
 </div>
 
-  
 <hr>
 
 <div>
