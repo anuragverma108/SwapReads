@@ -2996,145 +2996,47 @@ iframe {
   }
 </style>
 
-
 <!-- rate us -->
-      <style>
-#rate-us {
-  transition: background-color 0.3s ease;  
-}
+<!-- Rate Us Component -->
+<div id="rate-us">
+  <div class="heading">
+    <h3>Rate Us</h3>
+    <p>Tell us about your experience!</p>
+  </div>
 
-#rate-us:hover {
-  background-color: #fde2e2;  
-  color: white;  
-} /* Closing brace for #rate-us:hover */
+  <div class="stars">
+    <input type="radio" id="star5" name="rate" value="5" />
+    <label for="star5">😭</label>
+    <input type="radio" id="star4" name="rate" value="4" />
+    <label for="star4">😢</label>
+    <input type="radio" id="star3" name="rate" value="3" />
+    <label for="star3">😐</label>
+    <input type="radio" id="star2" name="rate" value="2" />
+    <label for="star2">😊</label>
+    <input type="radio" id="star1" name="rate" value="1" />
+    <label for="star1">😍</label>
+  </div>
 
-/* Additional styles */
-.toast-message {
-  display: none;  
-  padding: 10px;
-  border-radius: 5px;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
+  <div class="feedback-container">
+    <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
+  </div>
 
-.modal {
-  display: none;  
-}
-</style>
-
-
-
-
-      <!-- rate us -->
-
-
-       <!-- Rate Us Component -->
-       <div id="rate-us">
-        <div class="heading">
-            <h3>Rate Us</h3>
-            <p>Tell us about your experience!</p>
-        </div>
-    
-        <div class="stars">
-            <input type="radio" id="star5" name="rate" value="5" />
-            <label for="star5">😭</label>
-            <input type="radio" id="star4" name="rate" value="4" />
-            <label for="star4">😢</label>
-            <input type="radio" id="star3" name="rate" value="3" />
-            <label for="star3">😐</label>
-            <input type="radio" id="star2" name="rate" value="2" />
-            <label for="star2">😊</label>
-            <input type="radio" id="star1" name="rate" value="1" />
-            <label for="star1">😍</label>
-        </div>
-    
-        <div class="feedback-container">
-            <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
-        </div>
-    
-        <div class="button">
-          
-            <center><button id="submit-btn">Submit</button></center>
-        </div>
-    </div>
-    
-    <div id="toastMessage" class="toast-message"></div>
-    <script>
-     document.addEventListener("DOMContentLoaded", function() {
-    const toastMessage = document.getElementById("toastMessage");
-
-    document.getElementById("submit-btn").addEventListener("click", function(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        let selectedEmoji = document.querySelector('input[name="rate"]:checked');
-        let feedback = document.getElementById("feedback").value.trim();
-        
-        if (selectedEmoji && feedback !== "") {
-            // Show success toast message
-            toastMessage.textContent = "Feedback submitted successfully :)";
-            toastMessage.style.backgroundColor = "green"; // Green color for success
-            toastMessage.style.color = "white";
-            toastMessage.style.borderRadius = "0.5rem";
-            toastMessage.style.position = "fixed";
-                      toastMessage.style.display = "block";
-
-            // Hide toast message after 3 seconds (adjust as needed)
-            setTimeout(function() {
-                toastMessage.style.display = "none";
-            }, 3000);
-
-            // Reset form fields
-            document.getElementById("feedback").value = "";
-            let starInputs = document.querySelectorAll('input[name="rate"]');
-            starInputs.forEach(input => {
-                input.checked = false;
-            });
-        } else {
-            // Show failure toast message
-            toastMessage.textContent = "Select Emoji and give Feedback :(";
-            toastMessage.style.backgroundColor = "red"; // Red color for failure
-            toastMessage.style.color = "white";
-            toastMessage.style.borderRadius = "0.5rem";
-            toastMessage.style.position = "fixed";
-            
-            toastMessage.style.display = "block";
-
-            // Hide toast message after 3 seconds (adjust as needed)
-            setTimeout(function() {
-                toastMessage.style.display = "none";
-            }, 3000);
-            
-            document.getElementById("feedback").value = "";
-            let starInputs = document.querySelectorAll('input[name="rate"]');
-            starInputs.forEach(input => {
-                input.checked = false;
-            });
-        }
-    });
-});
-
-  </script>
-  <div id="toastMessage"></div>
-
-    <!-- Confirmation Modal -->
-    <div id="confirmationModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeConfirmationModal()">&times;</span>
-            <p id="confirmationMessage"></p>
-        </div>
-    </div>
+  <div class="button">
+    <center><button id="submit-btn">Submit</button></center>
+  </div>
 </div>
 
-    <!-- Confirmation Message Popup -->
-    <div id="confirmationModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeConfirmationModal()">&times;</span>
-            <p id="confirmationMessage"></p>
-        </div>
-    </div>
+<div id="toastMessage" class="toast-message"></div>
 
-    <script src="/assets/js/rate.js"></script>
+<!-- Confirmation Modal -->
+<div id="confirmationModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeConfirmationModal()">&times;</span>
+    <p id="confirmationMessage"></p>
+  </div>
+</div>
+
+<script src="/assets/js/rate.js"></script>
 
 
   <!-- --Contact Us -->
