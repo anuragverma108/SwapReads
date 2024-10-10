@@ -231,10 +231,26 @@ button img {
   background-color: rgb(240, 15, 15);
 }
 .forget-password {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-.forget-password a{
+.forget-password a {
+  margin-left: 5px;
   color: black;
+  text-decoration: none;
+  transition: text-decoration 0.2s ease;
+}
+
+.forget-password a:hover {
+  text-decoration: underline;
+}
+.dark-mode .forget-password a:hover{
+  /* color: blue; */
+  text-decoration: underline;
 }
 .dark-mode .forget-password a{
   color: white;
@@ -454,11 +470,11 @@ button img {
 #eyeicon-register {
     position: absolute;
     top: 70%;
-    right: 10px; /* Adjust as needed */
+    right: 15px; /* Adjust as needed */
     transform: translateY(-50%);
     cursor: pointer;
-    width: 35px; /* Adjust the size of the icon */
-    height: 30px;
+    width: 22px; /* Adjust the size of the icon */
+    height: 18px;
 }
 .but{
   font-size: x-large;
@@ -603,6 +619,7 @@ button img {
             display: flex;
             flex-direction: column;
             align-items: center;
+            /* font-size: 40px; */
         }
         .form {
             display: flex;
@@ -744,30 +761,29 @@ button img {
                   <input class="input" type="password" name="pswd" id="loginPassword" placeholder="Password" required />
                   <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-login">
                 </div>
-                <button type="submit" name="Login" id="login">Submit</button>
                 <p class="forget-password">
-                    Forgot Password?
-                    <a href="forgot-pass.html" id="forgot_password_link">Reset Here</a>
+                  <a href="forgot-pass.html" id="forgot_password_link">Forgot Password?</a>
                 </p>
+                <button type="submit" name="Login" id="login">Submit</button>
                 <div id="or">Or</div>
                 <div class="social-buttons" style="display: flex; gap: 5px; justify-content: center;">
-                    <button class="p1" id="google-sign-in" style="
-                        display: flex; 
-                        align-items: center; 
-                        justify-content: center; 
-                        width: 200px; 
-                        height: 40px; 
-                        margin-left: 20px;
-                        background-color: #4285F4; 
-                        color: white; 
-                        border: none; 
-                        border-radius: 24px; 
-                        font-size: 14px; 
-                        font-weight: bold; 
-                        cursor: pointer; 
-                        outline: none; 
-                        text-align: center;
-                    ">
+                  <button class="p1" id="google-sign-in" style="
+                  display: flex; 
+                  align-items: center; 
+                  justify-content: center; 
+                  width: 200px; 
+                  height: 40px; 
+                  margin-left: 20px;
+                  background-color: white; 
+                  color: black; 
+                  border: 1px solid lightgray; 
+                  border-radius: 24px; 
+                  font-size: 12px; 
+                  font-weight: bold; 
+                  cursor: pointer; 
+                  outline: none; 
+                  text-align: center;
+              ">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 48 48" style="fill: currentColor; margin-right: 8px;">
                             <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
                             <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path>
@@ -776,26 +792,27 @@ button img {
                         </svg>
                         Sign In With Google
                     </button>
-                    <button class="p1" id="facebook-sign-in" style="
-                        display: flex; 
-                        align-items: center; 
-                        justify-content: center; 
-                        width: 200px; 
-                        height: 40px; 
-                        background-color: #3b5998; 
-                        color: white; 
-                        border: none; 
-                        border-radius: 24px; 
-                        font-size: 14px; 
-                        font-weight: bold; 
-                        cursor: pointer; 
-                        outline: none; 
-                        text-align: center;
+                    <button class="p1" id="facebook-sign-in1" style="
+                    display: flex; 
+                    align-items: center; 
+                    justify-content: center; 
+                    width: 230px; 
+                    height: 40px; 
+                    background-color: #ffffff; 
+                    color: rgb(0, 0, 0); 
+                    border: 1px solid lightgray; 
+                    border-radius: 24px; 
+                    font-size: 12px; 
+                    font-weight: bold; 
+                    cursor: pointer; 
+                    outline: none; 
+                    text-align: center;
+                    margin-left: 20px;
                     ">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="fill: currentColor; margin-right: 8px;">
-                            <path fill="#ffffff" d="M12 2.048c-5.52 0-9.952 4.432-9.952 9.952 0 5.2 4.2 9.6 9.6 9.952v-7h-2.9v-2.9h2.9v-2.1c0-2.8 1.8-4.6 4.4-4.6 1.3 0 2.4.1 2.7.2v3h-1.9c-1.5 0-1.9.7-1.9 1.8v2.2h3.6l-.5 2.9h-3.1v7c5.4-.3 9.6-4.8 9.6-9.952 0-5.52-4.432-9.952-9.952-9.952z"/>
-                        </svg>
-                        Sign In With Facebook
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="fill: currentColor; margin-right: 8px;">
+                    <path fill="#3b5998" d="M12 2.048c-5.52 0-9.952 4.432-9.952 9.952 0 5.2 4.2 9.6 9.6 9.952v-7h-2.9v-2.9h2.9v-2.1c0-2.8 1.8-4.6 4.4-4.6 1.3 0 2.4.1 2.7.2v3h-1.9c-1.5 0-1.9.7-1.9 1.8v2.2h3.6l-.5 2.9h-3.1v7c5.4-.3 9.6-4.8 9.6-9.952 0-5.52-4.432-9.952-9.952-9.952z"/>
+                    </svg>
+                    Sign In With Facebook
                     </button>
                 </div>
             </form>
@@ -827,12 +844,9 @@ button img {
           </div>
           <br>
           <button type="submit" name="register" id="register">Register</button>
-          <div id="or">Or</div>
-          <br>
-        
+          <div id="orS">Or</div>
           <button id="google-signup"> Sign Up with Google </button>
-          
-          
+        <br>
         </form>
       </div>
     </div>
