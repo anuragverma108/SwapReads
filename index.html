@@ -3256,26 +3256,15 @@ iframe {
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-  (function() {
-    emailjs.init("f6MOtkzVAVwSL9aru");
-  })();
-
-  const form = document.getElementById('contactForm');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm('service_id', 'template_id', form)
-      .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-        alert('Message successfully sent!');
-        window.location.reload(false);
-      }, function(error) {
-        console.error('FAILED...', error);
-        alert('Failed to send the message, please try again');
-      });
-  });
-</script>
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  alert("Message sent successfully!");
+  document.getElementById("name").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("subject").value = "";
+  document.getElementById("message").value = "";
+});
+  </script>
 
       
 
