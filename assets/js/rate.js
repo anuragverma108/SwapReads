@@ -1,59 +1,38 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const toastMessage = document.getElementById("toastMessage");
 
-    document.getElementById("submit-btn").addEventListener("click", function(event) {
+    document.getElementById("submit-btn").addEventListener("click", function (event) {
         event.preventDefault(); // Prevent default form submission
 
-        let selectedEmoji = document.querySelector('input[name="rate"]:checked');
-        let feedback = document.getElementById("feedback").value.trim();
-        
-        if (selectedEmoji && feedback !== "") {
+        let selectedEmoji = document.querySelector('input[name="rate"]:checked'); // Get selected emoji
+        let feedback = document.getElementById("feedback").value.trim(); // Get feedback value
+
+        if (selectedEmoji !== null && feedback !== "") { // Check if emoji is selected and feedback is provided
             // Show success toast message
             toastMessage.textContent = "Feedback submitted successfully :)";
             toastMessage.style.backgroundColor = "green"; // Green color for success
             toastMessage.style.color = "white";
-            toastMessage.style.padding = "10px";
-            toastMessage.style.borderRadius = "5px";
-            toastMessage.style.position = "fixed";
-            toastMessage.style.bottom = "20px";
-            toastMessage.style.right = "20px";
-            toastMessage.style.zIndex = "1000";
-            toastMessage.style.display = "block";
+            toastMessage.style.display = "block"; // Show the toast message
 
-            // Hide toast message after 3 seconds (adjust as needed)
-            setTimeout(function() {
-                toastMessage.style.display = "none";
+            // Hide toast message after 3 seconds
+            setTimeout(function () {
+                toastMessage.style.display = "none"; // Hide after 3 seconds
             }, 3000);
 
             // Reset form fields
-            document.getElementById("feedback").value = "";
-            let starInputs = document.querySelectorAll('input[name="rate"]');
-            starInputs.forEach(input => {
-                input.checked = false;
-            });
+            document.getElementById("feedback").value = ""; // Clear feedback
+            selectedEmoji.checked = false; // Uncheck the selected emoji
         } else {
             // Show failure toast message
             toastMessage.textContent = "Select Emoji and give Feedback :(";
             toastMessage.style.backgroundColor = "red"; // Red color for failure
             toastMessage.style.color = "white";
-            toastMessage.style.padding = "10px";
-            toastMessage.style.borderRadius = "5px";
-            toastMessage.style.position = "fixed";
-            toastMessage.style.bottom = "20px";
-            toastMessage.style.right = "20px";
-            toastMessage.style.zIndex = "1000";
-            toastMessage.style.display = "block";
+            toastMessage.style.display = "block"; // Show the toast message
 
-            // Hide toast message after 3 seconds (adjust as needed)
-            setTimeout(function() {
-                toastMessage.style.display = "none";
+            // Hide toast message after 3 seconds
+            setTimeout(function () {
+                toastMessage.style.display = "none"; // Hide after 3 seconds
             }, 3000);
-            
-            document.getElementById("feedback").value = "";
-            let starInputs = document.querySelectorAll('input[name="rate"]');
-            starInputs.forEach(input => {
-                input.checked = false;
-            });
         }
     });
 });
