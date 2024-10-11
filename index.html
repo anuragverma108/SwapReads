@@ -108,7 +108,8 @@
   position: sticky !important;
   align-items: center;
   justify-content: space-between;
-  margin-left: -4.7rem; /* Increased negative margin to move content more to the left */
+  margin-left: -4.7rem; 
+  /* margin-left: 5rem; */
 }
 
 
@@ -547,16 +548,15 @@
 
     #cookie-consent {
   position: fixed;
-  bottom: 1rem;
-  left: 1rem;
   background-color: #f1f1f1;
-  padding: 2rem;
+  padding: 10px 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  width: 30rem;
-  height: fit-content;
+  bottom: 15px;
+  left: 20px;
+  width: 300px;
+  height: 250px;
   z-index: 10000;
   border-radius: 1rem;
   margin-bottom: 5rem;
@@ -564,7 +564,10 @@
   border-right: 0.4rem solid transparent;
   border-bottom: 0.4rem solid transparent;
   transition: border-color 0.3s;
+  font-size: 12px;
 }
+    
+
 
 #cookie-consent:hover {
   border-right-color: #A30F17;
@@ -572,8 +575,20 @@
 }
 
 #cookie-consent p {
-  color: black;  /* Make the text black for better visibility */
-  text-align: center;  /* Center align the text */
+  color: rgb(78, 7, 7);  /* Make the text black for better visibility */
+  margin: 10px opx;  /* Center align the text */
+}
+
+#cookie-container a {
+    color: rgb(78, 7, 7);
+    text-decoration: none;
+}
+
+#cookie-consent button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
 }
 
 .accept-cookies,
@@ -582,6 +597,7 @@
   height: 3.5rem;  /* Decrease the button height */
   color: white;
   background-color: #A30F17;
+  font-size: 12px;
   border: none;
   border-radius: 0.5rem;  /* Add rounded corners */
   cursor: pointer;
@@ -617,19 +633,6 @@
   color: #A30F17;
 }
 
-#learn-more-link,
-#show-less-link {
-  color: #A30F17; 
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 2rem;
-}
-
-#learn-more-link:hover,
-#show-less-link:hover {
-  text-decoration: underline; 
-}
-
 #cookie-content {
   display: none;
   margin-top: 1rem;
@@ -649,7 +652,7 @@
   top: 1rem; /* Assuming you meant 1rem for the top */
   z-index: 1000;
   transition: top 0.3s, transform 0.3s ease;
-  margin-left: 1rem; /* Add a negative margin to shift left */
+  margin-left: 9rem; /* Add a negative margin to shift left */
 }
 
 .navbar-link{
@@ -992,7 +995,7 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(83, 18, 18, 0.1);
-  width: 75%;
+  width: 85%;
 }
 
 .contact-card {
@@ -1010,7 +1013,14 @@
   width: 100%;
   height: 300px; /* Fixed height for map */
   margin-top: 20px; /* Space above map */
+  margin-left: 50px;
+  transition: transform 0.3s ease; /* Add transition for smooth effect */
 }
+
+.map-container:hover {
+  transform: scale(0.95); /* Shrinks the container to 95% of its size */
+}
+
 .contact-form input,
   .contact-form textarea {
     width: 100%;
@@ -1438,38 +1448,38 @@ iframe {
   <div class="socialmediaicons" style="z-index: 99;" >
 
     
-      <a class="active instagram" href="https://www.instagram.com/" class="" style="font-size: 2.5rem;" ><i class="fa-brands fa-instagram"></i>
-     </a>
-     <a class="active" href="https://www.facebook.com/" class="facebook" style="font-size: 2.5rem;" ><i class="fa-brands fa-facebook"></i>
-     </a>
-     <a class="active" href="https://www.youtube.com/" class="youtube" style="font-size: 2.5rem;" ><i class="fa-brands fa-youtube"></i>
-     </a>
-     <a class="active linkedin" href="https://www.linkedin.com/" style="font-size: 2.5rem;">
+    <a class="active instagram" href="https://www.instagram.com/" class="" style="font-size: 2.5rem;" >
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a class="active" href="https://www.facebook.com/" class="facebook" style="font-size: 2.5rem;" >
+      <i class="fa-brands fa-facebook"></i>
+    </a>
+    <a class="active" href="https://www.youtube.com/" class="youtube" style="font-size: 2.5rem;" >
+      <i class="fa-brands fa-youtube"></i>
+    </a>
+    <a class="active linkedin" href="https://www.linkedin.com/" style="font-size: 2.5rem;">
       <i class="fa-brands fa-linkedin"></i>
-     </a>
-     <a class="active github" href="https://github.com/" style="font-size: 2.5rem;">
+    </a>
+    <a class="active github" href="https://github.com/" style="font-size: 2.5rem;">
       <i class="fa-brands fa-github"></i>
-     </a>
-     <a class="active discord" href="https://discord.com/" style="font-size: 2.5rem; margin: 0 10px;">
+    </a>
+    <a class="active discord" href="https://discord.com/" style="font-size: 2.5rem; margin: 0 10px;">
       <i class="fa-brands fa-discord"></i>
-  </a>
-     
-    
+    </a>
+    <a class="active twitter" href="https://twitter.com/" style="font-size: 2.5rem; margin: 0 10px;">
+      <i class="fa-brands fa-x-twitter"></i>
+    </a> 
 </div>
 
   <div id="cookie-consent">
-    <button class="close-btn" id="closeBtn" style="padding: 0.5rem; height: 4rem; width: 4rem; border-radius: 100%; font-size: 3rem;" >&times;</button>
+    <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
+    <p >We value your privacy</p>
     <p>
-        We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy.
-        <a href="#" id="learn-more-link">Learn More</a>
-
+      <br>
+      We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
+      By clicking "Accept", you consent to our use of cookies.
+        <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
     </p>
-    <div id="learn-more-content" style="display: none;">
-        <p>Cookies are small text files that can be used by websites to make a user's experience more efficient. The law states that we can store cookies on your device if they are strictly necessary for the operation of this site. For all other types of cookies we need your permission.</p>
-        <p>This site uses different types of cookies. Some cookies are placed by third party services that appear on our pages.</p>
-    </div>
-
-    <a href="#" id="show-less-link" style="display: none;">Show Less</a>
     <button class="accept-cookies">Accept</button>
     <button class="reject-cookies">Reject</button>
   </div>
@@ -1484,8 +1494,6 @@ iframe {
   const cookieConsent = document.getElementById('cookie-consent');
   const acceptButton = document.querySelector('.accept-cookies');
   const rejectButton = document.querySelector('.reject-cookies');
-  const learnMoreLink = document.getElementById('learn-more-link');
-  const learnMoreContent = document.getElementById('learn-more-content');
 
   // Hide preloader after page load
   window.addEventListener('load', function() {
@@ -1532,13 +1540,6 @@ iframe {
     // Hide consent if localStorage is not available
     cookieConsent.style.display = 'none';
   }
-
-  // Add event listener to "Learn More" link
-  learnMoreLink.addEventListener('click', function(event) {
-    event.preventDefault();
-    learnMoreContent.style.display = 'block';
-    learnMoreLink.style.display = 'none';
-  });
 });
 </script>
   <header class="header header-anim nav-h" data-header>
@@ -1550,7 +1551,7 @@ iframe {
 
         <ul class="navbar-list nav">
           <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px 1.8rem;">
+            <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px 0px;">
           </a>
           <li class="navbar-item">
             <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
@@ -3360,10 +3361,7 @@ iframe {
     <span class="span has-before"></span>
   </h2>
   <p class="section-subtitle" style="text-align: center;">Know what our customers say</p>
-  <div class="swiper-navigation">
-  <button class="swiper-button-prev custom-prev">❮</button>
-  <button class="swiper-button-next custom-next">❯</button>
-</div>
+  
   <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="40"
     loop="true" >
     <swiper-slide>
