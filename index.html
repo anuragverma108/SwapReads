@@ -547,16 +547,15 @@
 
     #cookie-consent {
   position: fixed;
-  bottom: 1rem;
-  left: 1rem;
   background-color: #f1f1f1;
-  padding: 2rem;
+  padding: 10px 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  width: 30rem;
-  height: fit-content;
+  bottom: 15px;
+  left: 20px;
+  width: 300px;
+  height: 250px;
   z-index: 10000;
   border-radius: 1rem;
   margin-bottom: 5rem;
@@ -564,7 +563,10 @@
   border-right: 0.4rem solid transparent;
   border-bottom: 0.4rem solid transparent;
   transition: border-color 0.3s;
+  font-size: 12px;
 }
+    
+
 
 #cookie-consent:hover {
   border-right-color: #A30F17;
@@ -572,8 +574,20 @@
 }
 
 #cookie-consent p {
-  color: black;  /* Make the text black for better visibility */
-  text-align: center;  /* Center align the text */
+  color: rgb(78, 7, 7);  /* Make the text black for better visibility */
+  margin: 10px opx;  /* Center align the text */
+}
+
+#cookie-container a {
+    color: rgb(78, 7, 7);
+    text-decoration: none;
+}
+
+#cookie-consent button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
 }
 
 .accept-cookies,
@@ -582,6 +596,7 @@
   height: 3.5rem;  /* Decrease the button height */
   color: white;
   background-color: #A30F17;
+  font-size: 12px;
   border: none;
   border-radius: 0.5rem;  /* Add rounded corners */
   cursor: pointer;
@@ -615,19 +630,6 @@
 .reject-cookies:hover {
   background-color: rgb(250, 192, 192);
   color: #A30F17;
-}
-
-#learn-more-link,
-#show-less-link {
-  color: #A30F17; 
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 2rem;
-}
-
-#learn-more-link:hover,
-#show-less-link:hover {
-  text-decoration: underline; 
 }
 
 #cookie-content {
@@ -1452,18 +1454,14 @@ iframe {
 </div>
 
   <div id="cookie-consent">
-    <button class="close-btn" id="closeBtn" style="padding: 0.5rem; height: 4rem; width: 4rem; border-radius: 100%; font-size: 3rem;" >&times;</button>
+    <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
+    <p >We value your privacy</p>
     <p>
-        We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy.
-        <a href="#" id="learn-more-link">Learn More</a>
-
+      <br>
+      We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
+      By clicking "Accept", you consent to our use of cookies.
+        <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
     </p>
-    <div id="learn-more-content" style="display: none;">
-        <p>Cookies are small text files that can be used by websites to make a user's experience more efficient. The law states that we can store cookies on your device if they are strictly necessary for the operation of this site. For all other types of cookies we need your permission.</p>
-        <p>This site uses different types of cookies. Some cookies are placed by third party services that appear on our pages.</p>
-    </div>
-
-    <a href="#" id="show-less-link" style="display: none;">Show Less</a>
     <button class="accept-cookies">Accept</button>
     <button class="reject-cookies">Reject</button>
   </div>
@@ -1478,8 +1476,6 @@ iframe {
   const cookieConsent = document.getElementById('cookie-consent');
   const acceptButton = document.querySelector('.accept-cookies');
   const rejectButton = document.querySelector('.reject-cookies');
-  const learnMoreLink = document.getElementById('learn-more-link');
-  const learnMoreContent = document.getElementById('learn-more-content');
 
   // Hide preloader after page load
   window.addEventListener('load', function() {
@@ -1526,13 +1522,6 @@ iframe {
     // Hide consent if localStorage is not available
     cookieConsent.style.display = 'none';
   }
-
-  // Add event listener to "Learn More" link
-  learnMoreLink.addEventListener('click', function(event) {
-    event.preventDefault();
-    learnMoreContent.style.display = 'block';
-    learnMoreLink.style.display = 'none';
-  });
 });
 </script>
   <header class="header header-anim nav-h" data-header>
