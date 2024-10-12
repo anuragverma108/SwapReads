@@ -51,9 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Close button action
-  // closeButton.addEventListener("click", function () {
-  //   hideCookieConsent();
-  // });
+  closeButton.addEventListener("click", function () {
+    hideCookieConsent();
+  });
 
   // Function to hide the cookie consent banner
   function hideCookieConsent() {
