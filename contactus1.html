@@ -11,17 +11,17 @@
     <div style="display: flex; align-items: center; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 60%; max-width: 800px;">
 
         <!-- Form Section -->
-        <form style="flex: 1; margin-right: 20px;">
+        <form id="contactForm" style="flex: 1; margin-right: 20px;">
             <h2 style="color: #333; margin-bottom: 20px;">Contact Us</h2>
             
             <label for="name" style="font-weight: bold; color: #333;">Name</label><br>
-            <input type="text" id="name" name="name" placeholder="Your Name" style="width: 100%; padding: 10px; margin: 10px 0 20px; border: 1px solid #ccc; border-radius: 5px;">
+            <input type="text" id="name" name="name" placeholder="Your Name" required style="width: 100%; padding: 10px; margin: 10px 0 20px; border: 1px solid #ccc; border-radius: 5px;">
 
             <label for="email" style="font-weight: bold; color: #333;">Email</label><br>
-            <input type="email" id="email" name="email" placeholder="Your Email" style="width: 100%; padding: 10px; margin: 10px 0 20px; border: 1px solid #ccc; border-radius: 5px;">
+            <input type="email" id="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 10px; margin: 10px 0 20px; border: 1px solid #ccc; border-radius: 5px;">
             
             <label for="subject" style="font-weight: bold; color: #333;">Subject</label><br>
-            <select id="subject" name="subject" style="width: 100%; padding: 10px; margin: 10px 0 20px; border: 1px solid #ccc; border-radius: 5px;">
+            <select id="subject" name="subject" required style="width: 100%; padding: 10px; margin: 10px 0 20px; border: 1px solid #ccc; border-radius: 5px;">
                 <option value="" disabled selected>Select a subject</option>
                 <option value="general">General Inquiry</option>
                 <option value="support">Support Request</option>
@@ -31,12 +31,40 @@
             </select>
             
             <label for="message" style="font-weight: bold; color: #333;">Message</label><br>
-            <textarea id="message" name="message" placeholder="Your Message" style="width: 100%; padding: 10px; margin: 10px 0 20px; border: 1px solid #ccc; border-radius: 5px;" rows="5"></textarea>
+            <textarea id="message" name="message" placeholder="Your Message" required style="width: 100%; padding: 10px; margin: 10px 0 20px; border: 1px solid #ccc; border-radius: 5px;" rows="5"></textarea>
 
             <button type="submit" style="background-color: #d985b9; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">Send Message</button>
         </form>
         
     </div>
+
+    <!-- Confirmation Message -->
+    <div id="confirmationMessage" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #d985b9; color: white; padding: 20px; border-radius: 5px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        Thank you for your message! We'll get back to you soon.
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Perform form validation
+            if (this.checkValidity()) {
+                // Show confirmation message
+                document.getElementById('confirmationMessage').style.display = 'block';
+                
+                // Hide confirmation message after 3 seconds
+                setTimeout(function() {
+                    document.getElementById('confirmationMessage').style.display = 'none';
+                }, 3000);
+                
+                // Reset form
+                this.reset();
+            } else {
+                // If the form is invalid, trigger the browser's default validation UI
+                this.reportValidity();
+            }
+        });
+    </script>
 
 </body>
 </html>
