@@ -1483,17 +1483,18 @@ iframe {
     <button class="accept-cookies">Accept</button>
     <button class="reject-cookies">Reject</button>
   </div>
+  
 
   <script src="script.js"></script>
 
 <script>
 
-
-
   document.addEventListener('DOMContentLoaded', function() {
   const cookieConsent = document.getElementById('cookie-consent');
   const acceptButton = document.querySelector('.accept-cookies');
   const rejectButton = document.querySelector('.reject-cookies');
+  const closeButton = document.getElementById('closeBtn');
+
 
   // Hide preloader after page load
   window.addEventListener('load', function() {
@@ -1535,6 +1536,11 @@ iframe {
 
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
+    });
+
+    // Add event listener for close button
+    closeButton.addEventListener('click', function() {
+      cookieConsent.style.display = 'none';
     });
   } else {
     // Hide consent if localStorage is not available
