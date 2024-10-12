@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 40px; background: linear-gradient(135deg, #f8ecec, #f5bcbc);">
+
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h1 style="font-size: 3rem; color: #2c2c43; text-shadow: 2px 2px 5px rgba(0,0,0,0.2);">Pricing Based on Their Version</h1>
+        <p style="color: #5d5c61; font-size: 1.3rem; letter-spacing: 0.5px;">Choose the best option according to the book's version</p>
+    </div>
+
+    <!-- Pricing Container -->
+    <div id="pricing-container" style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+
+        <!-- Card 1 -->
+        <div style="background: linear-gradient(135deg, #ffdfd4, #ff6b6b); border-radius: 20px; padding: 30px; text-align: center; width: 320px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease-in-out;">
+            <h3 style="color: #2c2c43; font-size: 2rem; font-weight: bold;">Fresh Pages - New Releases</h3>
+            <div style="background-color: #ff6b6b; color: white; font-size: 3rem; padding: 25px; border-radius: 15px; margin: 25px 0;">
+                75%<br>Off
+            </div>
+            <p style="color: #dc1515; font-size: 1.1rem; line-height: 1.5;">Exchange any recently released or gently used books, less than a year old, at 75% of the original cost (Limited Offer).</p>
+            <button style="background-color: #d7385e; color: white; padding: 15px 35px; border: none; border-radius: 30px; cursor: pointer; font-size: 1.1rem; transition: background-color 0.3s ease-in-out; box-shadow: 0 5px 15px rgba(215, 56, 94, 0.4);">
+                BUY NOW
+            </button>
+        </div>
+
+        <!-- Card 2 -->
+        <div style="background: linear-gradient(135deg, #ffefba, #ffc107); border-radius: 20px; padding: 30px; text-align: center; width: 320px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease-in-out;">
+            <h3 style="color: #2c2c43; font-size: 2rem; font-weight: bold;">Timeless Classics - Aged Wonders</h3>
+            <div style="background-color: #7e6b33; color: white; font-size: 3rem; padding: 25px; border-radius: 15px; margin: 25px 0;">
+                50%<br>Off
+            </div>
+            <p style="color: #dc1515; font-size: 1.1rem; line-height: 1.5;">Swap beloved classics or books aged 1 to 5 years at 50% of the original cost, preserving the magic of timeless stories.</p>
+            <button style="background-color: #ffa000; color: white; padding: 15px 35px; border: none; border-radius: 30px; cursor: pointer; font-size: 1.1rem; transition: background-color 0.3s ease-in-out; box-shadow: 0 5px 15px rgba(255, 160, 0, 0.4);">
+                BUY NOW
+            </button>
+        </div>
+
+        <!-- Card 3 -->
+        <div style="background: linear-gradient(135deg, #d3cce3, #e9d8f4); border-radius: 20px; padding: 30px; text-align: center; width: 320px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease-in-out;">
+            <h3 style="color: #2c2c43; font-size: 2rem; font-weight: bold;">Hidden Treasures - Vintage Editions</h3>
+            <div style="background-color: #6c5ce7; color: white; font-size: 3rem; padding: 25px; border-radius: 15px; margin: 25px 0;">
+                25%<br>Off
+            </div>
+            <p style="color: #dc1515; font-size: 1.1rem; line-height: 1.5;">Dive into the past with vintage editions or books over 5 years old, available for exchange at 25% of their original cost.</p>
+            <button style="background-color: #341f97; color: white; padding: 15px 35px; border: none; border-radius: 30px; cursor: pointer; font-size: 1.1rem; transition: background-color 0.3s ease-in-out; box-shadow: 0 5px 15px rgba(52, 31, 151, 0.4);">
+                BUY NOW
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        // Add hover effect for cards
+        const cards = document.querySelectorAll("#pricing-container div");
+
+        cards.forEach(card => {
+            card.addEventListener("mouseover", () => {
+                card.style.transform = "scale(1.08)";
+            });
+            card.addEventListener("mouseout", () => {
+                card.style.transform = "scale(1)";
+            });
+        });
+
+        // Add responsiveness with JavaScript
+        function handleResize() {
+            const pricingContainer = document.getElementById('pricing-container');
+            if (window.innerWidth < 900) {
+                pricingContainer.style.flexDirection = 'column';
+                pricingContainer.style.alignItems = 'center';
+            } else {
+                pricingContainer.style.flexDirection = 'row';
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+        window.addEventListener('DOMContentLoaded', handleResize);
+    </script>
+
+</body>
+</html>

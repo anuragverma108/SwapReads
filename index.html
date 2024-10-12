@@ -3,6 +3,54 @@
 <title>SwapReads</title>
 
 <head>
+<<<<<<< HEAD
+=======
+  <style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background-color: #fff; /* White background */
+        overflow-y: scroll;
+        scrollbar-width: thin;
+        scrollbar-color: #888 #f1f1f1;
+        cursor: default; /* Show default cursor */
+    }
+
+    body::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    body::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 6px;
+      border: 3px solid #f1f1f1;
+    }
+
+    body::-webkit-scrollbar-thumb:hover {
+      background-color: #555;
+    }
+
+    .cursor {
+        position: absolute;
+        width: 15px; /* Circle size */
+        height: 15px; /* Circle size */
+        background-color: rgba(255, 165, 0, 0.8); /* Orange color */
+        border-radius: 50%; /* Circular shape */
+        pointer-events: none; /* Prevent interaction */
+        transform: translate(-50%, -50%); /* Center the circle */
+        transition: transform 0.1s ease-out; /* Smooth movement */
+    }
+    :root {
+    --text-color-light: #333; /* Dark text for light mode */
+    --text-color-dark: #fff; /* White text for dark mode */
+   
+}
+</style>
+>>>>>>> 1cb658656bdccc60ac025da61a769b43e80c8a41
   <script type="text/javascript">
     (function () {
       emailjs.init({
@@ -66,7 +114,7 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/test-style.css">
-
+<link rel="stylesheet" href="stay_connect.css">
   <!-- Preloader CSS-->
   <link rel="stylesheet" href="assets/css/preloader.css">
   <script src="https://cdn.lordicon.com/lordicon.js"></script>
@@ -88,7 +136,8 @@
   position: sticky !important;
   align-items: center;
   justify-content: space-between;
-  margin-left: -4.7rem; /* Increased negative margin to move content more to the left */
+  margin-left: -18rem; 
+  /* margin-left: 5rem; */
 }
 
 
@@ -177,6 +226,7 @@
   }
 
   .socialmediaicons .fa-instagram {
+    margin-top:150px;
   display: inline-block;
   width: 3rem; 
   height: 3rem; 
@@ -218,6 +268,9 @@
   color: white;
 }
 
+.dark-mode .social-icons .fa-facebook{
+  color: #e8f6ff;
+}
 
 .dark-mode .socialmediaicons .fa-facebook:hover {
   color: #425d9b
@@ -242,6 +295,37 @@
    
     margin: 0.5rem;
   }
+  .socialmediaicons .fa-github:hover {
+  transition: all 0.3s;
+  color: black; /* Original GitHub hover color */
+}
+
+.socialmediaicons .fa-linkedin:hover {
+  transition: all 0.3s;
+  color: #0077b5; /* Original LinkedIn hover color */
+}
+
+.socialmediaicons .fa-discord:hover {
+  transition: all 0.3s;
+  color: #7289da; /* Original Discord hover color */
+}
+
+.dark-mode .socialmediaicons .fa-github:hover {
+  color: #e1e1e1; /* Dark mode hover color for GitHub */
+}
+
+.dark-mode .socialmediaicons .fa-linkedin:hover {
+  color: #0e76a8; /* Dark mode hover color for LinkedIn */
+}
+
+.dark-mode .socialmediaicons .fa-discord:hover {
+  color: #a9a9a9; /* Dark mode hover color for Discord */
+}
+
+.instagram, .facebook, .youtube, .github, .linkedin, .discord {
+  margin: 0.5rem;
+}
+
 
 
 
@@ -492,16 +576,15 @@
 
     #cookie-consent {
   position: fixed;
-  bottom: 1rem;
-  left: 1rem;
   background-color: #f1f1f1;
-  padding: 2rem;
+  padding: 10px 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  width: 30rem;
-  height: fit-content;
+  bottom: 15px;
+  left: 20px;
+  width: 300px;
+  height: 250px;
   z-index: 10000;
   border-radius: 1rem;
   margin-bottom: 5rem;
@@ -509,7 +592,10 @@
   border-right: 0.4rem solid transparent;
   border-bottom: 0.4rem solid transparent;
   transition: border-color 0.3s;
+  font-size: 12px;
 }
+    
+
 
 #cookie-consent:hover {
   border-right-color: #A30F17;
@@ -517,8 +603,20 @@
 }
 
 #cookie-consent p {
-  color: black;  /* Make the text black for better visibility */
-  text-align: center;  /* Center align the text */
+  color: rgb(78, 7, 7);  /* Make the text black for better visibility */
+  margin: 10px opx;  /* Center align the text */
+}
+
+#cookie-container a {
+    color: rgb(78, 7, 7);
+    text-decoration: none;
+}
+
+#cookie-consent button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
 }
 
 .accept-cookies,
@@ -527,6 +625,7 @@
   height: 3.5rem;  /* Decrease the button height */
   color: white;
   background-color: #A30F17;
+  font-size: 12px;
   border: none;
   border-radius: 0.5rem;  /* Add rounded corners */
   cursor: pointer;
@@ -562,19 +661,6 @@
   color: #A30F17;
 }
 
-#learn-more-link,
-#show-less-link {
-  color: #A30F17; 
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 2rem;
-}
-
-#learn-more-link:hover,
-#show-less-link:hover {
-  text-decoration: underline; 
-}
-
 #cookie-content {
   display: none;
   margin-top: 1rem;
@@ -594,7 +680,7 @@
   top: 1rem; /* Assuming you meant 1rem for the top */
   z-index: 1000;
   transition: top 0.3s, transform 0.3s ease;
-  margin-left: 1rem; /* Add a negative margin to shift left */
+  margin-left: 9rem; /* Add a negative margin to shift left */
 }
 
 .navbar-link{
@@ -627,14 +713,20 @@
     .nav{
         flex-direction: row;
     }
+
     .header{
-        flex-direction: column;
-        height: 53.8rem;
-        transition: 0.2s all ease-out;
-        padding-top: 0.5rem;
+
+        flex-direction:  column;
+        height:  53.8rem;
+        transition:  0.2s all ease-out;
+        padding-top:  0rem;
+
     }
+
     .navbar-item{
-        margin : 0
+
+        margin :  0
+        
     }
 
     .hamburger{
@@ -663,10 +755,14 @@
     left: 5rem;
   }
 }
+
+/* Removed empty ruleset for .navbar-item */
+
 .navbar-item {
   /* Increase the top margin of each item */
   
 }
+
 .card-sty {
     text-align: center;
 }
@@ -750,7 +846,10 @@
   /* Add transition for smooth animation */
 }
 
+<<<<<<< HEAD
 {
+=======
+>>>>>>> 1cb658656bdccc60ac025da61a769b43e80c8a41
 .footer-icons .icon:hover {
   transform: scale(1.5);
   /* Scale the icon on hover */
@@ -805,6 +904,9 @@
   color: rgb(20, 15, 15);}
   /* Change to Github color on hover */
 
+.footer-icons .icon:hover .fa-twitter{
+  color:#ffffff;
+}
 .icons {
   display: flex;
   gap: 1rem;
@@ -814,8 +916,7 @@
 
 .icon i {
   font-size: 2.4rem; 
-    color: #000; 
-
+  color: #ffffff; 
   cursor: pointer;
   margin: 0; 
   padding: 0; 
@@ -925,7 +1026,12 @@
   background-color: var(--secondary-color);
   padding: 20px;
   border-radius: 10px;
+<<<<<<< HEAD
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+=======
+  box-shadow: 0 0 10px rgba(83, 18, 18, 0.1);
+  width: 85%;
+>>>>>>> 1cb658656bdccc60ac025da61a769b43e80c8a41
 }
 
 .contact-card {
@@ -943,16 +1049,26 @@
   width: 100%;
   height: 300px; /* Fixed height for map */
   margin-top: 20px; /* Space above map */
+  margin-left: 50px;
+  transition: transform 0.3s ease; /* Add transition for smooth effect */
 }
+
+.map-container:hover {
+  transform: scale(0.95); /* Shrinks the container to 95% of its size */
+}
+ 
 .contact-form input,
   .contact-form textarea {
+
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
-    border: 1px solid #8f8d8d;
+    border:  1px solid #ffcfcf;
     border-radius: 5px;
     font-size: 14px;
+
   }
+
   .contact:hover {
     transform: scale(1.02); /* Slightly enlarge on hover */
   }
@@ -1045,10 +1161,52 @@ iframe {
       });
   });
 </script>
+<style>
+  /* Circle styles */
+  .circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999;
+    transition: transform 0.1s ease-out;
+  }
+</style>
 </head>
 
 
 <body>
+<<<<<<< HEAD
+=======
+
+    <!-- Circles -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+>>>>>>> 1cb658656bdccc60ac025da61a769b43e80c8a41
   
   <style>
     /* Fixed translate button */
@@ -1186,9 +1344,11 @@ body > .skiptranslate {
 .dropdown{
   margin-right: 3rem;
 }
+
 .mobile-container-styles{
   
 }
+
 .nav{
   justify-content: space-around;
 }
@@ -1240,15 +1400,1578 @@ body > .skiptranslate {
   height: 300px; /* Fixed height for map */
   margin-top: 20px; /* Space above map */
 }
+
 .contact-form input,
   .contact-form textarea {
+
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
-    border: 1px solid #8f8d8d;
+    border:  1px solid #ffcfcf;
+    border: 1px solid #ffcfcf;
+    background-color: #eeb9b9;
     border-radius: 5px;
     font-size: 14px;
+
   }
+
+  .contact:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+  }
+
+  .cardi:hover {
+    transform: scale(1.02);
+  }
+
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove border for a cleaner look */
+  border-radius: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .flexi {
+    flex-direction: column; /* Stack elements on smaller screens */
+    align-items: center;
+  }
+  .contact, .cardi {
+    width: 90%; /* Ensure full width on smaller screens */
+    max-width: none; /* Remove max-width restriction */
+  }
+}
+
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get the popup
+    var popup = document.getElementById('translatePopup');
+
+    // Get the button that opens the popup 
+    var btn = document.getElementById('translateButton');
+
+    // Get the <span> element that closes the popup
+    var span = document.getElementsByClassName('close')[0];
+
+    // When the user clicks the button, open the popup 
+    btn.onclick = function() {
+        popup.style.display = 'block';
+    }
+
+    // When the user clicks on <span> (x), close the popup
+    span.onclick = function() {
+        popup.style.display = 'none';
+    }
+
+    // When the user clicks anywhere outside of the popup, close it
+    window.onclick = function(event) {
+        if (event.target == popup) {
+            popup.style.display = 'none';
+        }
+    }
+});
+  </script>
+
+  <!-- Popup for Google Translate -->
+  <div id="translatePopup" class="popup">
+      <div class="popup-content">
+          <span class="close">&times;</span>
+          <div id="google_translate_element"></div>
+      </div>
+  </div>
+
+  <script type="text/javascript">
+    // script for google translate
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+        }, 'google_translate_element');
+    }
+
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"> </script>
+
+<!-- Your custom JavaScript -->
+<script src="script.js"></script>
+  <div class="nav-wrapper">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <div class="socialmediaicons" style="z-index: 99;" >
+
+    
+    <a class="active instagram" href="https://www.instagram.com/" class="" style="font-size: 2.5rem;" >
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a class="active" href="https://www.facebook.com/" class="facebook" style="font-size: 2.5rem;" >
+      <i class="fa-brands fa-facebook"></i>
+    </a>
+    <a class="active" href="https://www.youtube.com/" class="youtube" style="font-size: 2.5rem;" >
+      <i class="fa-brands fa-youtube"></i>
+    </a>
+    <a class="active linkedin" href="https://www.linkedin.com/" style="font-size: 2.5rem;">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a class="active github" href="https://github.com/" style="font-size: 2.5rem;">
+      <i class="fa-brands fa-github"></i>
+    </a>
+    <a class="active discord" href="https://discord.com/" style="font-size: 2.5rem; margin: 0 10px;">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+    <a class="active twitter" href="https://twitter.com/" style="font-size: 2.5rem; margin: 0 10px;">
+      <i class="fa-brands fa-x-twitter"></i>
+    </a> 
+</div>
+
+  <div id="cookie-consent">
+    <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
+    <p >We value your privacy</p>
+    <p>
+      <br>
+      We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
+      By clicking "Accept", you consent to our use of cookies.
+        <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
+    </p>
+    <button class="accept-cookies">Accept</button>
+    <button class="reject-cookies">Reject</button>
+  </div>
+
+  <script src="script.js"></script>
+
+<script>
+
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+  const cookieConsent = document.getElementById('cookie-consent');
+  const acceptButton = document.querySelector('.accept-cookies');
+  const rejectButton = document.querySelector('.reject-cookies');
+
+  // Hide preloader after page load
+  window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.style.display = 'none';
+    }
+    cookieConsent.style.display = 'block';
+  });
+
+  // Check if localStorage is available
+  function localStorageAvailable() {
+    try {
+      const test = '__localStorage_test__';
+      localStorage.setItem(test, test);
+      localStorage.removeItem(test);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  if (localStorageAvailable()) {
+    // Check if the user has already made a choice
+    if (localStorage.getItem('cookieConsent')) {
+      cookieConsent.style.display = 'none';
+    }
+
+    // Function to handle cookie consent choice
+    function handleConsent(choice) {
+      localStorage.setItem('cookieConsent', choice);
+      cookieConsent.style.display = 'none';
+    }
+
+    // Add event listeners to buttons
+    acceptButton.addEventListener('click', function() {
+      handleConsent('accepted');
+    });
+
+    rejectButton.addEventListener('click', function() {
+      handleConsent('rejected');
+    });
+  } else {
+    // Hide consent if localStorage is not available
+    cookieConsent.style.display = 'none';
+  }
+});
+<!DOCTYPE html>
+<html lang="en">
+<title>SwapReads</title>
+
+<head>
+  <style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background-color: #fff; /* White background */
+        overflow: hidden;
+        cursor: default; /* Show default cursor */
+    }
+
+    .cursor {
+        position: absolute;
+        width: 15px; /* Circle size */
+        height: 15px; /* Circle size */
+        background-color: rgba(255, 165, 0, 0.8); /* Orange color */
+        border-radius: 50%; /* Circular shape */
+        pointer-events: none; /* Prevent interaction */
+        transform: translate(-50%, -50%); /* Center the circle */
+        transition: transform 0.1s ease-out; /* Smooth movement */
+    }
+    :root {
+    --text-color-light: #333; /* Dark text for light mode */
+    --text-color-dark: #fff; /* White text for dark mode */
+   
+}
+</style>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: "Your_Public_key",
+      });
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
+  <link rel="manifest" href="./assets/favicon_package_v0.16/site.webmanifest">
+  <link rel="mask-icon" href="./assets/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./assets/css/rate.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/litrary_realms.css">
+  <link rel="stylesheet" href="./assets/font-6/css/all.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="logout.css">
+  <link rel="stylesheet" href="./assets/css/MenuClick.css">
+  <link rel="stylesheet" href="https://fontawesome.com/icons/cloudflare?f=brands&s=solid">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <script src="./assets/js/rateUsModal.js" defer></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="./assets/js/faq.js"></script>
+  <script src="./assets/js/tilt.js"></script>
+  <script src="./assets/js/scroll.js"></script>
+  <link rel="stylesheet" href="./scrollbar.css">
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="modals(privacy policy).css">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/test-style.css">
+<link rel="stylesheet" href="stay_connect.css">
+  <!-- Preloader CSS-->
+  <link rel="stylesheet" href="assets/css/preloader.css">
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+  <script src="./assets/js/preloader.js" defer></script>
+  <script src="./script.js"></script>
+  
+  <style>
+    swiper-container {
+      width: 100%;
+      height: 75%;
+    }
+    .flip-card-back .backs{
+     background-color: #ffb2a8 !important;
+    }
+
+    
+  .nav {
+  display: flex;
+  position: sticky !important;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: -18rem; 
+  /* margin-left: 5rem; */
+}
+
+
+    
+
+    /* Position the toggle button to the right */
+    .switch-container {
+      position: absolute;
+      right: 10rem; /* Adjust this value to move the button more to the right */
+      top: 1.5rem; /* Adjust this value to move the button vertically */
+    }
+
+    /* For responsiveness */
+    @media (max-width: 99rem) {
+      .switch-container {
+        right: 9rem; /* Adjust this value for smaller screens */
+      }
+    }
+
+    @media (max-width: 57.5rem) {
+      .switch-container {
+        right: 2rem; /* Adjust this value for smaller screens */
+      }
+    }
+
+
+.socialmediaicons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin-top: 12rem;;
+    width: 4rem;
+    height: 15rem;
+  
+}#quicklinks {
+  display: flex;
+  justify-content: space-between; /* Ensures columns are evenly spaced */
+}
+
+#quicklinks .col-md-6 ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#quicklinks .foot-quick {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem; /* Adjust spacing between list items */
+}
+
+#quicklinks .foot-quick a {
+  text-decoration: none;
+  color: rgb(83, 74, 74); /* Adjust link color as needed */
+  display: flex;
+  align-items: center;
+}
+
+#quicklinks .foot-quick a i {
+  margin-right: 0.5rem; /* Adjust spacing between icon and text */
+}
+.dark-mode .fas{
+  color:white;
+}
+.dark-mode .flinks{
+  color:white;
+}
+.dark-mode .finput{
+      color: white;
+      background-color: transparent;
+      padding: 1rem;
+      border: 0.1rem solid white;
+      
+}
+.dark-mode .finput::placeholder {
+      color: rgba(255, 255, 255, 0.6); 
+    }
+.socialmediaicons a {
+    display: inline;
+    text-align: center;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+  }
+
+  .socialmediaicons .fa-instagram {
+    margin-top:150px;
+  display: inline-block;
+  width: 3rem; 
+  height: 3rem; 
+  text-align: center;
+  line-height: 3rem; 
+  border-radius: 1rem;
+  background: transparent;
+  color: #000000;
+  /* transition: background 1s, transform 1s;  */
+}
+
+.socialmediaicons .fa-instagram:hover {
+  background: radial-gradient(circle at 30% 110%, 
+                               #ffdb8b 0%, 
+                               #ee653d 25%, 
+                               #d42e81 50%, 
+                               #a237b6 75%, 
+                               #3e57bc 100%);
+                               transition: all 0.3s ;
+  background-clip: padding-box;
+  border-radius: 1rem; 
+  color: white; 
+  transform: scale(1.1); 
+  
+}  
+.socialmediaicons .fa-facebook:hover{
+  transition: all 0.3s ;
+  color: blue;
+  
+  
+}   
+.socialmediaicons .fa-youtube:hover{
+  transition: all 0.3s ;
+  color: red;
+}
+
+
+.dark-mode .socialmediaicons a {
+  color: white;
+}
+
+.dark-mode .social-icons .fa-facebook{
+  color: #e8f6ff;
+}
+
+.dark-mode .socialmediaicons .fa-facebook:hover {
+  color: #425d9b
+}
+.dark-mode .socialmediaicons .fa-youtube:hover {
+  color: #f70000;
+}
+
+  .instagram {
+    
+    margin: 0.5rem;
+    
+  }
+
+
+  .facebook {
+    
+    margin: 0.5rem;
+  }
+  
+  .youtube {
+   
+    margin: 0.5rem;
+  }
+  .socialmediaicons .fa-github:hover {
+  transition: all 0.3s;
+  color: black; /* Original GitHub hover color */
+}
+
+.socialmediaicons .fa-linkedin:hover {
+  transition: all 0.3s;
+  color: #0077b5; /* Original LinkedIn hover color */
+}
+
+.socialmediaicons .fa-discord:hover {
+  transition: all 0.3s;
+  color: #7289da; /* Original Discord hover color */
+}
+
+.dark-mode .socialmediaicons .fa-github:hover {
+  color: #e1e1e1; /* Dark mode hover color for GitHub */
+}
+
+.dark-mode .socialmediaicons .fa-linkedin:hover {
+  color: #0e76a8; /* Dark mode hover color for LinkedIn */
+}
+
+.dark-mode .socialmediaicons .fa-discord:hover {
+  color: #a9a9a9; /* Dark mode hover color for Discord */
+}
+
+.instagram, .facebook, .youtube, .github, .linkedin, .discord {
+  margin: 0.5rem;
+}
+
+
+
+
+
+/* testimonal card fix by harshcodesit */
+    swiper-slide {
+      text-align: center;
+      font-size: 15;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 5rem;
+    }
+    /* ########### */
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      color: hsl(357, 37%, 62%);
+    }
+
+    swiper-container {
+
+       margin: auto;
+
+    }
+
+    .flip-card {
+      background-color: transparent;
+      width: 40rem;
+      height: 37rem;
+      /* margin: 0.2rem; */
+      /* border: 0.1rem solid #f1f1f1; */
+      perspective: 100rem;
+      /* Remove this if you don't want the 3D effect */
+    }
+
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.7s;
+      transform-style: preserve-3d;
+      padding: 1rem;
+    }
+
+    /* Do an horizontal flip when you move the mouse over the flip box container */
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Position the front and back side */
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      /* Safari */
+      backface-visibility: hidden;
+    }
+
+    /* Style the front side (fallback if image is missing) */
+    .light-mode .flip-card-front {
+      background-color: white;
+      color: black;
+    }
+    .dark-mode .flip-card-front {
+      background-color: black;
+      color: white;
+    }
+
+    /* Style the back side */
+    .flip-card-back {
+      background-color: white;
+      color: black;
+      transform: rotateY(180deg);
+    }
+
+    /* Light mode styles */
+    .light-mode .readmore-anim {
+      font-size: 1.8rem;
+      letter-spacing: 0;
+      color: hsl(357, 37%, 62%);
+    }
+
+    .light-mode .readmore-anim:hover {
+      color: red;
+      letter-spacing: 0.1em;
+      transition: ease-in-out;
+    }
+    .cta1{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: auto;
+  padding: 2rem 2.4rem;
+  color:  hsl(357, 37%, 62%);
+  font-family: Avenir, sans-serif;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 2.7rem;
+    left: 0;
+    display: block;
+    border-radius: 2.8rem;
+    background: rgba(255, 171, 157, 0.5);
+    width: 5.6rem;
+    height: 5.6rem;
+    transition: all 0.3s ease;
+  }
+  span {
+    position: relative;
+    font-size: 0.8rem;
+    line-height: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    vertical-align: middle;
+    color: var(--charcoal);
+  }
+  svg {
+    position: relative;
+    top: 2.7rem;
+    margin-left: 0.5rem;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: hsl(357, 37%, 62%);
+    stroke-width: 2;
+    transform: translateX(-0.5rem);
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    &:before {
+      width: 9%;
+      background: #ffab9d;
+    }
+    svg {
+      transform: translateX(0);
+    }
+    .active {
+      transform: scale(0.96);
+    }
+  }
+}
+
+.cta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: auto;
+  padding: 2rem 2.4rem;
+  color:  hsl(357, 37%, 62%);
+  font-family: Avenir, sans-serif;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 2.8rem;
+    background: rgba(255, 171, 157, 0.5);
+    width: 5.6rem;
+    height: 5.6rem;
+    transition: all 0.3s ease;
+  }
+  span {
+    position: relative;
+    font-size: 0.8rem;
+    line-height: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    vertical-align: middle;
+    color: var(--charcoal);
+  }
+  svg {
+    position: relative;
+    top: 0;
+    margin-left: 0.5rem;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: hsl(357, 37%, 62%);
+    stroke-width: 2;
+    transform: translateX(-0.5rem);
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    &:before {
+      width: 9%;
+      background: #ffab9d;
+    }
+    svg {
+      transform: translateX(0);
+    }
+    .active {
+      transform: scale(0.96);
+    }
+  }
+}
+
+
+
+
+    /* Dark Mode Styles */
+    .dark-mode .readmore-anim {
+      font-size: 1.8rem;
+      letter-spacing: 0;
+      color: hsl(357, 37%, 62%);
+    }
+
+    .readmore-anim .icon:hover {
+      color: red;
+    }
+
+    .dark-mode .readmore-anim:hover {
+      color: red;
+      letter-spacing: 0.1rem;
+      transition: ease-in-out;
+    }
+
+    .dark-mode .header.scrolled {
+      background-color: #232222; /* Change to a darker color when scrolled */
+      box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+    }
+
+    .dark-mode #dropdown-menu {
+      background-color: #151111;;
+      box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+      color: white;
+    }
+    .dark-mode .dropdown-menu-item a{
+      color: white;
+    }
+
+    #cookie-consent {
+  position: fixed;
+  background-color: #f1f1f1;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  bottom: 15px;
+  left: 20px;
+  width: 300px;
+  height: 250px;
+  z-index: 10000;
+  border-radius: 1rem;
+  margin-bottom: 5rem;
+  margin: 2rem;
+  border-right: 0.4rem solid transparent;
+  border-bottom: 0.4rem solid transparent;
+  transition: border-color 0.3s;
+  font-size: 12px;
+}
+    
+
+
+#cookie-consent:hover {
+  border-right-color: #A30F17;
+  border-bottom-color: #A30F17;
+}
+
+#cookie-consent p {
+  color: rgb(78, 7, 7);  /* Make the text black for better visibility */
+  margin: 10px opx;  /* Center align the text */
+}
+
+#cookie-container a {
+    color: rgb(78, 7, 7);
+    text-decoration: none;
+}
+
+#cookie-consent button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.accept-cookies,
+.reject-cookies {
+  width: 26rem;  /* Decrease the button width */
+  height: 3.5rem;  /* Decrease the button height */
+  color: white;
+  background-color: #A30F17;
+  font-size: 12px;
+  border: none;
+  border-radius: 0.5rem;  /* Add rounded corners */
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;  /* Smooth transition for effects */
+}
+
+.dark-mode #cookie-consent{
+  background-color: #252423;
+}
+
+
+.dark-mode #cookie-consent p{
+  color: white;
+}
+
+.reject-cookies {
+  margin-top: 1rem;
+}
+
+.accept-cookies:hover,
+.reject-cookies:hover {
+  transform: scale(0.95);
+  box-shadow: 0 0 1.5rem rgb(249, 212, 212);  /* Reduce the shadow size */
+}
+
+.accept-cookies:hover {
+  background-color: rgb(245, 202, 202);
+  color: #A30F17;
+}
+
+.reject-cookies:hover {
+  background-color: rgb(250, 192, 192);
+  color: #A30F17;
+}
+
+#cookie-content {
+  display: none;
+  margin-top: 1rem;
+}
+
+
+#back-to-top-container {
+  position: fixed;
+}
+
+
+
+    /* Basic navbar styling */
+    .header {
+  position: fixed;
+  width: 100%;
+  top: 1rem; /* Assuming you meant 1rem for the top */
+  z-index: 1000;
+  transition: top 0.3s, transform 0.3s ease;
+  margin-left: 9rem; /* Add a negative margin to shift left */
+}
+
+.navbar-link{
+  font-size: 1.5rem;
+}
+.navbar-link.active {
+    color: #af574c; /* Highlight color */
+    font-weight: bold;
+}
+
+/* Hide the navbar */
+.header.hidden {
+  top: -9.3rem; /* Adjust according to your header height */
+}
+
+/* Navbar styling when scrolled */
+.header.scrolled {
+  position: sticky !important;
+  background-color: #efefef; /* Change to a darker color when scrolled */
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+
+@media only screen and (max-width:106.3rem){
+    .nav{
+        flex-direction: row;
+    }
+
+    .header{
+
+        flex-direction:  column;
+        height:  53.8rem;
+        transition:  0.2s all ease-out;
+        padding-top:  0rem;
+
+    }
+
+    .navbar-item{
+
+        margin :  0
+        
+    }
+
+    .hamburger{
+        display: block;
+    }
+    .nav-h{
+        height: 7.8rem;
+        width: 100vw;
+    }
+    .vis-h{
+        opacity: 0;
+    }
+    .switch-container {
+      right: 7rem !important;
+    }
+}
+@media only screen and (max-width:990px){
+  .header{
+    height: 0;
+  }
+  .navbar-list{
+    top: 0;
+  }
+  .logo img{
+    top: -0.9rem;
+    left: 5rem;
+  }
+}
+
+/* Removed empty ruleset for .navbar-item */
+
+.navbar-item {
+  margin-top: 1rem; /* Increase the top margin of each item */
+  
+}
+
+.card-sty {
+    text-align: center;
+}
+.button-container {
+    text-align: center;
+}
+
+.donate-button {
+    display: inline-block;
+    padding: 0.9rem 1.8rem;
+    font-size: 1.6rem;
+    color: #fff;
+    background-color: #b00404; /* Red color */
+    text-decoration: none;
+    border-radius: 0.5rem;
+    border: 0.2rem solid #a60606; /* Same red color for border */
+}
+
+.donate-button:hover {
+    background-color: #cc0000; /* Darker red for hover effect */
+    border-color: #cc0000; /* Darker red for border on hover */
+}
+.donate-books-section {
+    text-align: center;
+}
+.donate-books-section p{
+  padding: 1rem;
+  text-align: justify;
+}
+.donate-books-section img {
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Adjust the gap between cards as needed */
+    flex-wrap: wrap; /* Allows cards to wrap onto the next line if the screen is too narrow */
+    padding: 0 1.5rem; /* Optional padding for responsiveness */
+}
+
+.card {
+    flex: 1 1 20rem; /* Allows cards to grow and shrink, with a minimum width of 200px */
+    max-width: 30rem; /* Optional max width for cards */
+    margin: 1rem; /* Optional margin around each card */
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+
+.chapter-card {
+  height: 45rem; /* Adjust margin as needed */
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1); /* Add shadow for depth effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chapter-card:hover {
+  transform: scale(1.02px);
+  box-shadow: 0.4rem 0.4rem 0.3rem rgba(0, 0, 0, 0.4) ;/* Scale up slightly on hover */
+}
+
+#connectReaderBtn{
+  border-radius: 1rem;
+}
+
+.footer-icons{
+  margin-top: 2rem;
+  display: flex;
+  font-size: 2rem;
+}
+
+
+.footer-icons .icon i {
+  font-size: 2rem;
+  /* Set the default font size for icons */
+  transition: all 0.15s ease;
+  /* Add transition for smooth animation */
+}
+
+.footer-icons .icon:hover {
+  transform: scale(1.5);
+  /* Scale the icon on hover */
+}
+
+
+.footer-icons .icon:hover .fa-linkedin {
+  color:#3e57bc;
+  transform: scale(1);
+  /* Scale the instagram icon on hover */
+}
+
+.footer-icons .icon:hover .fa-facebook {
+  color: #0077B5;
+  /* Change to Facebook color on hover */
+}
+
+.footer-icons .icon:hover .fa-twitter {
+  color: rgb(255, 255, 255);
+  /* Change to Twitter color on hover */
+}
+
+.footer-icons .icon .fa-instagram {
+  color: grey;
+  transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+
+.footer-icons .icon:hover .fa-instagram {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  background-clip: text;
+  -webkit-background-clip: text; 
+  color: transparent; 
+  border-radius: 20%;
+  transform: scale(1.1); 
+  transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+.footer-icons .icon:hover .fa-youtube {
+  color: #ff0001;
+  /* Change to YouTube color on hover */
+}
+
+.footer-icons .icon:hover .fa-github {
+  color: rgb(20, 15, 15);}
+  /* Change to Github color on hover */
+
+.footer-icons .icon:hover .fa-twitter{
+  color:#ffffff;
+}
+.icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center; 
+}
+
+.icon i {
+  font-size: 2.4rem; 
+  color: #ffffff; 
+  cursor: pointer;
+  margin: 0; 
+  padding: 0; 
+}
+
+.icon i:hover {
+  color: #555; 
+}
+/* Styling for the email input */
+.finput {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 0.2rem solid #ccc; 
+    border-radius: 0.5rem; 
+    outline: none; 
+    transition: border-color 0.3s ease; 
+}
+
+/* Hover effect to change the border color */
+.finput:hover {
+    border-color: #3498db; 
+}
+
+
+.finput:focus {
+    border-color: #2980b9; 
+}
+
+
+.subscribe {
+    padding: 1rem 2rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.subscribe:hover {
+    background-color: #2980b9;
+}
+/* Styling for the email input */
+.finput {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid #000000; /* Made the box-border thinner */
+  border-radius: 0.5rem; 
+  outline: none; 
+  transition: border-color 0.3s ease; 
+}
+
+/* Hover effect to change the border color */
+.finput:hover {
+  border-color: #000080;
+}
+
+/* Focus effect when the input is active */
+.finput:focus {
+  border-color: #000080;
+}
+
+/* Styling the subscribe button */
+.subscribe {
+  padding: 1rem 2rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.subscribe:hover {
+  background-color: #2980b9; }
+
+  /* Contact Us */
+  .section-contact {
+  color: black;
+  padding: 40px 20px;
+}
+
+.flexi {
+  display: flex;
+  justify-content: space-between; /* Ensure both containers are side by side */
+  flex-wrap: wrap; 
+}
+
+.contact {
+  width: 52%; /* Adjust width for the contact form */
+}
+
+.cardi {
+
+  width: 35%; /* Adjust width for the contact card */
+  max-width: 350px; /* Limit max width */
+  margin-left: 20px; /* Add some space between the two sections */
+}
+
+.contact-container {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(83, 18, 18, 0.1);
+  width: 85%;
+}
+
+.contact-card {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Ensure there's space above the card */
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center map inside container */
+  width: 100%;
+  height: 300px; /* Fixed height for map */
+  margin-top: 20px; /* Space above map */
+  margin-left: 50px;
+  transition: transform 0.3s ease; /* Add transition for smooth effect */
+}
+
+.map-container:hover {
+  transform: scale(0.95); /* Shrinks the container to 95% of its size */
+}
+ 
+.contact-form input,
+  .contact-form textarea {
+
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border:  1px solid #ffcfcf;
+    border-radius: 5px;
+    font-size: 14px;
+
+  }
+
+  .contact:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+  }
+
+  .cardi:hover {
+    transform: scale(1.02);
+  }
+
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove border for a cleaner look */
+  border-radius: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .flexi {
+    flex-direction: column; /* Stack elements on smaller screens */
+    align-items: center;
+  }
+  .contact, .cardi {
+    width: 90%; /* Ensure full width on smaller screens */
+    max-width: none; /* Remove max-width restriction */
+  }
+}
+
+
+
+  </style>
+<script type="text/javascript">
+  emailjs.init("Your_User_ID"); // Replace with your actual EmailJS User ID
+
+  // Function to validate email address
+  function isValidEmail(email) {
+      // Simple email validation regex
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!regex.test(email)) {
+          return false;
+      }
+
+      // Extract domain
+      const domain = email.split('@')[1].toLowerCase();
+      const validDomains = ['gmail.com', 'outlook.com', 'yahoo.com'];
+
+      return validDomains.includes(domain);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('subscribeForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+
+          var email = document.getElementById('emailInput').value;
+
+          if (!isValidEmail(email)) {
+              alert('Please enter a valid email address from Gmail, Outlook, or Yahoo.');
+              return;
+          }
+
+          // Prepare the parameters to send
+          var templateParams = {
+              to_email: email, // Set the recipient's email
+              from_name: 'SwapReads', // Replace with your company or your name
+              to_name: 'Subscriber',
+              message: 'Thank you for subscribing to our newsletter!'
+          };
+
+          // Send email
+          emailjs.send('Your_Service_ID', 'Your_Template_ID', templateParams)
+              .then(function(response) {
+                  console.log('Email sent successfully:', response);
+                  alert('Successfully subscribed to our newsletter!');
+                  location.reload(); 
+              }, function(error) {
+                  console.error('Error sending email:', error);
+                  alert('Failed to send email. Please try again later.');
+                  location.reload(); 
+              });
+      });
+  });
+</script>
+<style>
+  /* Circle styles */
+  .circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999;
+    transition: transform 0.1s ease-out;
+  }
+</style>
+</head>
+
+
+<body>
+
+    <!-- Circles -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+  
+  <style>
+    /* Fixed translate button */
+    *{
+      transition: all 0.3s ease-in-out;
+    }
+#translateButton {
+    position: fixed;
+    top: -15rem;
+    right: 4.4rem;
+    z-index: 1000;
+    width: 5.3rem;  
+    height: 5.3rem;
+    border-radius: 50%; 
+    border: none; 
+    background:linear-gradient(hwb(357 6% 36%),#d26d6d); 
+    color: white; 
+    text-align: center; 
+    display: inline-block; 
+    font-size: 1.6rem; 
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    transition: transform 0.3s ease;
+    margin-top: 75.8vh;
+    margin-right: 0px;
+}
+#translateButton:hover {
+    transform: scale(1.2); 
+}
+
+/* The popup modal */
+.popup {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+/* Popup content */
+.popup-content {
+  background:linear-gradient(hwb(357 6% 36%),#d26d6d);
+    margin-top: 60rem;
+    padding: 2rem;
+    border: 1rem solid #888;
+    width: 30rem;
+    border-radius: 10rem;
+    position: relative;
+    margin-left: 75vw;
+    /* margin-right: 0px; */
+}
+
+/* Close button */
+.close {
+    color: #073725;
+    float: right;
+    font-size: 2.8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Hide the default Google Translate widget */
+.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+    display: none !important;
+}
+
+
+body {
+    top: 0rem !important;
+}
+
+/* Hide the "Powered by Google" branding */
+.goog-logo-link {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    height: 2.8rem !important;
+    overflow: hidden;
+}
+
+/* Hide Google Translate notifications */
+.goog-te-spinner-pos,
+.goog-te-spinner,
+.goog-te-balloon-frame,
+.goog-te-banner-frame,
+.goog-te-banner,
+.goog-te-balloon {
+    display: none !important;
+}
+
+/* Custom styles for the Google Translate dropdown */
+#google_translate_element select {
+    background: #ffffff; 
+    border: 0.1rem solid #ccc; 
+    color: #d26d6d; 
+    padding: 0.5rem; 
+    font-size: 1.4rem; 
+    border-radius: 0.5rem; 
+    
+}
+
+/* Hide the Google Translate bar */
+body > .skiptranslate {
+    display: none !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+.goog-te-banner-frame {
+    display: none !important;
+}
+.goog-te-banner {
+    display: none !important;
+}
+
+.dropdown{
+  margin-right: 3rem;
+}
+
+.mobile-container-styles{
+  margin-left: 5rem;
+}
+
+.nav{
+  justify-content: space-around;
+}
+
+
+.section-contact {
+  color: black;
+  padding: 40px 20px;
+}
+
+.flexi {
+  display: flex;
+  justify-content: space-between; /* Ensure both containers are side by side */
+  flex-wrap: wrap; 
+}
+
+.contact {
+  
+  width: 1000px;  /* Adjust width for the contact form */
+}
+
+.cardi {
+  height: 67rem;
+  width: 35%; /* Adjust width for the contact card */
+  max-width: 350px; /* Limit max width */
+  margin-left: 20px; /* Add some space between the two sections */
+}
+
+.contact-container {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+.contact-container:hover{
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.386);
+}
+
+.contact-card {
+  height: 61rem;
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: -5px; /* Ensure there's space above the card */
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center map inside container */
+  width: 100%;
+  height: 300px; /* Fixed height for map */
+  margin-top: 20px; /* Space above map */
+}
+
+.contact-form input,
+  .contact-form textarea {
+
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border:  1px solid #ffcfcf;
+    border: 1px solid #ffcfcf;
+    background-color: #eeb9b9;
+    border-radius: 5px;
+    font-size: 14px;
+
+  }
+
   .contact:hover {
     transform: scale(1.02); /* Slightly enlarge on hover */
   }
@@ -1336,45 +3059,53 @@ iframe {
   <div class="socialmediaicons" style="z-index: 99;" >
 
     
-      <a class="active instagram" href="https://www.instagram.com/" class="" style="font-size: 2.5rem;" ><i class="fa-brands fa-instagram"></i>
-     </a>
-     <a class="active" href="https://www.facebook.com/" class="facebook" style="font-size: 2.5rem;" ><i class="fa-brands fa-facebook"></i>
-     </a>
-     <a class="active" href="https://www.youtube.com/" class="youtube" style="font-size: 2.5rem;" ><i class="fa-brands fa-youtube"></i>
-     </a>
-     
-    
+    <a class="active instagram" href="https://www.instagram.com/" class="" style="font-size: 2.5rem;" >
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a class="active" href="https://www.facebook.com/" class="facebook" style="font-size: 2.5rem;" >
+      <i class="fa-brands fa-facebook"></i>
+    </a>
+    <a class="active" href="https://www.youtube.com/" class="youtube" style="font-size: 2.5rem;" >
+      <i class="fa-brands fa-youtube"></i>
+    </a>
+    <a class="active linkedin" href="https://www.linkedin.com/" style="font-size: 2.5rem;">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a class="active github" href="https://github.com/" style="font-size: 2.5rem;">
+      <i class="fa-brands fa-github"></i>
+    </a>
+    <a class="active discord" href="https://discord.com/" style="font-size: 2.5rem; margin: 0 10px;">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+    <a class="active twitter" href="https://twitter.com/" style="font-size: 2.5rem; margin: 0 10px;">
+      <i class="fa-brands fa-x-twitter"></i>
+    </a> 
 </div>
 
   <div id="cookie-consent">
-    <button class="close-btn" id="closeBtn" style="padding: 0.5rem; height: 4rem; width: 4rem; border-radius: 100%; font-size: 3rem;" >&times;</button>
+    <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
+    <p >We value your privacy</p>
     <p>
-        We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy.
-        <a href="#" id="learn-more-link">Learn More</a>
-
+      <br>
+      We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
+      By clicking "Accept", you consent to our use of cookies.
+        <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
     </p>
-    <div id="learn-more-content" style="display: none;">
-        <p>Cookies are small text files that can be used by websites to make a user's experience more efficient. The law states that we can store cookies on your device if they are strictly necessary for the operation of this site. For all other types of cookies we need your permission.</p>
-        <p>This site uses different types of cookies. Some cookies are placed by third party services that appear on our pages.</p>
-    </div>
-
-    <a href="#" id="show-less-link" style="display: none;">Show Less</a>
     <button class="accept-cookies">Accept</button>
     <button class="reject-cookies">Reject</button>
   </div>
+  
 
   <script src="script.js"></script>
 
 <script>
 
-
-
   document.addEventListener('DOMContentLoaded', function() {
   const cookieConsent = document.getElementById('cookie-consent');
   const acceptButton = document.querySelector('.accept-cookies');
   const rejectButton = document.querySelector('.reject-cookies');
-  const learnMoreLink = document.getElementById('learn-more-link');
-  const learnMoreContent = document.getElementById('learn-more-content');
+  const closeButton = document.getElementById('closeBtn');
+
 
   // Hide preloader after page load
   window.addEventListener('load', function() {
@@ -1417,17 +3148,15 @@ iframe {
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
     });
+
+    // Add event listener for close button
+    closeButton.addEventListener('click', function() {
+      cookieConsent.style.display = 'none';
+    });
   } else {
     // Hide consent if localStorage is not available
     cookieConsent.style.display = 'none';
   }
-
-  // Add event listener to "Learn More" link
-  learnMoreLink.addEventListener('click', function(event) {
-    event.preventDefault();
-    learnMoreContent.style.display = 'block';
-    learnMoreLink.style.display = 'none';
-  });
 });
 </script>
   <header class="header header-anim nav-h" data-header>
@@ -1439,7 +3168,11 @@ iframe {
 
         <ul class="navbar-list nav">
           <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+<<<<<<< HEAD
             <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px 0px;">
+=======
+            <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
+>>>>>>> 1cb658656bdccc60ac025da61a769b43e80c8a41
           </a>
           <li class="navbar-item">
             <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
@@ -1593,6 +3326,7 @@ iframe {
           navbar_con.classList.toggle('nav_activated');
         });
       </script>
+      
    
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <div className="wrapper col-md-3 col-12" style= "justify-Content: 'center'; display: 'flex'">
@@ -1712,7 +3446,10 @@ iframe {
           <div class="hero-content">
             <p class="section-subtitle"> Let's Exchange Old Books and Discover New Stories Together!</p>
 
-            <h1 class="h1 hero-title" style="color: rgb(255, 255, 255);">SwapReads.com - Where Books Find New Adventures!</h1>
+           
+            
+            <h1 class="h1 hero-title" style="color: var(--text-color);">SwapReads.com - Where Books Find New Adventures!</h1>
+
 
             <p class="section-text " >
               Join SwapReads.com, the ultimate online community for book enthusiasts! Create your profile, list your
@@ -1784,6 +3521,7 @@ iframe {
             
               </div>
             </li>
+            
 
             <li class="canvas">
               <div class="benefits-card has-before has-after">
@@ -1835,7 +3573,7 @@ iframe {
 
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
                 </a> -->
-                <a href="#" class="cta style-9">
+                <a href="./connectWithsame.html" class="cta style-9">
                   <span>Read More</span>
                   <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                     <path d="M1,5 L11,5"></path>
@@ -1865,7 +3603,7 @@ iframe {
 
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
                 </a> -->
-                <a href="#" class="cta style-9">
+                <a href="./revitalize.html" class="cta style-9">
                   <span>Read More</span>
                   <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                     <path d="M1,5 L11,5"></path>
@@ -3011,6 +4749,7 @@ iframe {
     <p>Tell us about your experience!</p>
   </div>
 
+<<<<<<< HEAD
   <div class="stars">
     <input type="radio" id="star5" name="rate" value="5" />
     <label for="star5">😭</label>
@@ -3023,6 +4762,12 @@ iframe {
     <input type="radio" id="star1" name="rate" value="1" />
     <label for="star1">😍</label>
   </div>
+=======
+#rate-us:hover {
+  background-color: #A30F17;  
+  color: white;  
+} /* Closing brace for #rate-us:hover */
+>>>>>>> 1cb658656bdccc60ac025da61a769b43e80c8a41
 
   <div class="feedback-container">
     <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
@@ -3162,10 +4907,7 @@ iframe {
     <span class="span has-before"></span>
   </h2>
   <p class="section-subtitle" style="text-align: center;">Know what our customers say</p>
-  <div class="swiper-navigation">
-  <button class="swiper-button-prev custom-prev">❮</button>
-  <button class="swiper-button-next custom-next">❯</button>
-</div>
+  
   <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="40"
     loop="true" >
     <swiper-slide>
@@ -3694,16 +5436,24 @@ iframe {
 }
 </script>-->
         <div class="foot-right">
-        <h2 style="margin-bottom: 2.4rem; margin-top:0.5rem;">Stay Connected</h2>
-        <form id="newsform" onsubmit="return showConfirmationMessage();">
-            <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
-            <div class="row-flex display-flex">
-                <input class="finput" type="email" id="new-email" name="email" placeholder="Email address"
-                      pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
-                      title="Please enter a valid email address that ends with '.com'" required>
-                <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
-            </div>
-        </form>
+          
+     <div id="stay_connect">
+    <h2 style="margin-bottom: 2.4rem; margin-top: 0.5rem;">Stay Connected</h2>
+    <form id="newsform" onsubmit="return showConfirmationMessage();">
+        <label for="subscriber-name" class="news-form">Your Name</label>
+        <input class="finput" type="text" id="subscriber-name" name="name" placeholder="Your Name" required>
+
+        <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
+        <div class="row-flex display-flex">
+            <input class="finput" type="email" id="new-email" name="email" placeholder="Email address"
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+                title="Please enter a valid email address that ends with '.com'" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
+        </div>
+    </form>
+</div>
+
+
         <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
         <div class="icons">
           <!-- Discord icon -->
@@ -4276,6 +6026,60 @@ count=0
 }
 
 </script>
+<script>
+  // Coordinates for the cursor
+  const coords = { x: 0, y: 0 };
+  const circles = document.querySelectorAll(".circle");
+
+  // Colors for the circles
+  const colors = [
+    "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+    "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+    "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+    "#680060", "#60005f", "#48005f", "#3d005e"
+  ];
+
+  // Assign colors and initial position to each circle
+  circles.forEach(function (circle, index) {
+    circle.x = 0;
+    circle.y = 0;
+    circle.style.backgroundColor = colors[index % colors.length];
+  });
+
+  // Update the coordinates when the mouse moves
+  window.addEventListener("mousemove", function (e) {
+    coords.x = e.clientX;
+    coords.y = e.clientY;
+  });
+
+  // Animation function to move the circles
+  function animateCircles() {
+    let x = coords.x;
+    let y = coords.y;
+
+    circles.forEach(function (circle, index) {
+      // Update the position and scale of each circle
+      circle.style.left = x - 12 + "px";
+      circle.style.top = y - 12 + "px";
+      circle.style.scale = (circles.length - index) / circles.length;
+
+      circle.x = x;
+      circle.y = y;
+
+      // Get the next circle in the sequence
+      const nextCircle = circles[index + 1] || circles[0];
+      x += (nextCircle.x - x) * 0.3;
+      y += (nextCircle.y - y) * 0.3;
+    });
+
+    // Repeat the animation
+    requestAnimationFrame(animateCircles);
+  }
+
+  // Start the animation
+  animateCircles();
+</script>
+
 </body>
 
 </html>
