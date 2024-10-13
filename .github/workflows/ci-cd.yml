@@ -1,14 +1,62 @@
-name: CI/CD Workflow
-on: [push, pull_request]
+name: CI/CD Pipeline
+
+# Trigger the workflow on push or pull request events on main or feature branches
+on:
+  push:
+    branches:
+      - main
+      - 'feature/*'
+  pull_request:
+    branches:
+      - main
+      - 'feature/*'
+
 jobs:
+  # Job to install dependencies, test, build, and deploy
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
-      - run: npm install
-      - run: npm run test
-      - run: npm run build
+          node-version: '16'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run tests
+      - name: Run tests
+        run: npm run test
+
+      # Step 5: Build the project
+      - name: Build the project
+        run: npm run build
+
+  # Optional job for deployment
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build # This ensures deployment runs only if the build passes
+
+    steps:
+      # Step 1: Checkout the repository again
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js (for deployment if needed)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # Step 3: Add your deployment logic (example with SSH)
+      - name: Deploy
+        run: echo "Deploying application..."
+        # Add actual deployment command, e.g., upload files to a server, deploy to AWS, etc.
+        # Example: `scp -r ./build user@your-server.com:/path/to/deploy`
