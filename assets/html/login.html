@@ -100,11 +100,13 @@ button img {
 
 /* Header */
 .header {
-  position: fixed;
+  position: relative;
   width: 100%;
-  top: 10;
+/*  top: 10; */
   z-index: 1000;
   transition: top 0.3s;
+  padding :none;
+  left : -50px;
 }
 
 /* Action */
@@ -322,13 +324,22 @@ button img {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: nowrap;
     align-items: center;
     margin-top: 120px;;
     width: auto;
     height: 40px;
-    position: relative;
-  
-}#quicklinks {
+}
+
+.socialmediaicons i {
+  color: white
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 10px; /* Adjust space between icons */
+}
+
+#quicklinks {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -358,9 +369,13 @@ button img {
 .dark-mode .fas{
   color:white;
 }
+
 .dark-mode .flinks{
-  color:white;
+  
+  color: #80ddf4;
+
 }
+
 .dark-mode .finput{
       color: white;
       background-color: transparent; 
@@ -374,9 +389,7 @@ button img {
 .socialmediaicons a {
     display: inline-block;
     text-align: center;
-    padding: 5px;
-    transition: all 0.3s ease;
-    color: rgb(0, 0, 0);
+    padding: 10px;
     font-size: 20px;
   }
 
@@ -461,7 +474,9 @@ button img {
     width: 35px; /* Adjust the size of the icon */
     height: 30px;
 }
-
+.but{
+  font-size: x-large;
+}
 </style>
 <body>
 
@@ -483,10 +498,6 @@ button img {
             <a href="../../index.html" onclick="lenis.scrollTo('#home')" style="background-color: none;" class="navbar-link" data-nav-link><i
                 class="ri-home-fill"></i> Home</a>
           </li>
-           <li class="navbar-item">
-                <a href="../html/about.html" onclick="lenis.scrollTo('#home')"  class="navbar-link" data-nav-link><i
-                    class="ri-home-fill"></i>About Us</a>
-              </li>
               
           <li class="navbar-item">
             <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
@@ -497,18 +508,27 @@ button img {
             <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
                 class="ri-bar-chart-fill"></i> Genre</a>
           </li>
+        
+          <li class="navbar-item">
+            <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+          </li>
 
           <li class="navbar-item">
             <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
                 class="ri-customer-service-2-fill"></i> Contact</a>
             </li>
-            <li class="navbar-item">
-              <a href="../../index.html#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
-                  <i class="ri-questionnaire-fill"></i>FAQ</a>
           </li>
-
           <li class="navbar-item">
-            <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+            <a href="../../index.html#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
+                <i class="ri-questionnaire-fill"></i>FAQ</a>
+        </li>
+           <li class="navbar-item">
+            <a href="../html/about.html" onclick="lenis.scrollTo('#home')"  class="navbar-link" data-nav-link><i
+                class="ri-home-fill"></i>About Us</a>
+         
+
+
+         
            
           <li class="navbar-item" id="login-signup-link">
             <a href="..//html/login.html" class="navbar-link">Login/Signup</a>
@@ -525,7 +545,7 @@ button img {
 
               <ul class="dropdown-menu-list">
                 <li>
-                  <a href="chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                  <a href="../../chat.html" class="navbar-link" style="font-family: sans-serif; color: white; margin-bottom: 5px;">
                     Community chat
                 </a>
                 </li>
@@ -628,6 +648,12 @@ button img {
             justify-content: center;
         }
             }
+            .dropdown-menu {
+      display: none;
+  }
+  .dropdown-menu.show {
+      display: block;
+  }
           </style>
           <li>
             <div class="navbar darkmode" style="top: 15px; right:20px;">
@@ -671,6 +697,18 @@ button img {
             </ul>
               </div>
               <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const moreLink = document.getElementById("more-link");
+                    const dropdownMenu = document.getElementById("dropdown-menu");
+            
+                    moreLink.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        dropdownMenu.classList.toggle("show");
+                    });
+                });
+            </script>
+              <script>
+                
                document.addEventListener("DOMContentLoaded", () => {
     const savedAvatar = localStorage.getItem("selectedAvatar");
     if (savedAvatar) {
@@ -703,6 +741,15 @@ button img {
           }
         })
       </script>
+      
+<script>
+  document.getElementById("more-link").addEventListener("click", function (event) {
+  event.preventDefault();  // Prevent the default behavior of the link
+  const dropdownMenu = document.getElementById("dropdown-menu");
+  dropdownMenu.classList.toggle("active");  // Toggle the visibility of the dropdown menu
+});
+</script>
+</script>
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script>
       function loadGoogleTranslate() {
@@ -721,7 +768,7 @@ button img {
 
   <div class="note">
     <h1>Welcome to SwapReads</h1>
-    <h2>Join us by creating an account or log in if you already have an account.</h2>
+    <h2>Join us by creating an account or log in if you already have an account</h2>
   </div>
   <br />
 
@@ -733,30 +780,29 @@ button img {
                 <a href="..//html/login.html">
                     <label for="chk" aria-hidden="true" class="login">LOGIN</label>
                 </a>
-                <input class="input" type="email" name="email" id="loginEmail" placeholder="Email" required />
+                <input class="input" type="email" name="email" id="loginEmail" placeholder="example@gmail.com" required />
                 <div class="input-box">
                   <input class="input" type="password" name="pswd" id="loginPassword" placeholder="Password" required />
-                  <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-login">
+                  <img  src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-login">
                 </div>
-                <button type="submit" name="Login" id="login">Submit</button>
+                <br>
                 <p class="forget-password">
-                    Forgot Password?
-                    <a href="forgot-pass.html" id="forgot_password_link">Reset Here</a>
-                </p>
+                  <a href="forgot-pass.html" id="forgot_password_link">Forgot Password ?</a></p>
+                <button type="submit" name="Login" id="login">Login</button>
                 <div id="or">Or</div>
                 <div class="social-buttons" style="display: flex; gap: 5px; justify-content: center;">
                     <button class="p1" id="google-sign-in" style="
                         display: flex; 
                         align-items: center; 
                         justify-content: center; 
-                        width: 200px; 
-                        height: 40px; 
+                        width: 200px;  
+                        height: 45px;
                         margin-left: 20px;
                         background-color: #4285F4; 
                         color: white; 
                         border: none; 
                         border-radius: 24px; 
-                        font-size: 14px; 
+                        font-size: 13px; 
                         font-weight: bold; 
                         cursor: pointer; 
                         outline: none; 
@@ -775,12 +821,11 @@ button img {
                         align-items: center; 
                         justify-content: center; 
                         width: 200px; 
-                        height: 40px; 
                         background-color: #3b5998; 
                         color: white; 
                         border: none; 
                         border-radius: 24px; 
-                        font-size: 14px; 
+                        font-size: 13px; 
                         font-weight: bold; 
                         cursor: pointer; 
                         outline: none; 
@@ -798,11 +843,11 @@ button img {
 
       <div class="register">
         <form class="form" id="registerForm" id="register-form">
-          <label for="chk" aria-hidden="true">Create Account</label>
+          <label class="but" for="chk" aria-hidden="true">Create Account</label>
           <input class="input" type="email" name="email" id="registerEmail" placeholder="Email" required />
           <div class="input-box">
             <input class="input" type="password" name="pswd" id="registerPassword" placeholder="Password" required />
-<img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-register">
+            <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-register">
           </div>
 
           <div>
@@ -825,7 +870,6 @@ button img {
           <br>
         
           <button id="google-signup"> Sign Up with Google </button>
-          
           
         </form>
       </div>
@@ -914,6 +958,14 @@ button img {
          /* for small screen */
           @media (max-width: 768px) 
           {
+            .socialmediaicons {
+        flex-wrap: nowrap; /* Prevent wrapping */
+        justify-content: space-around; /* Space icons evenly */
+    }
+
+    .socialmediaicons i {
+        margin: 0 5px; /* Reduce space between icons on small screens */
+    }
             #confirmationMessage 
             {
                 margin-left: 0;

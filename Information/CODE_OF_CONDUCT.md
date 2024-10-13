@@ -126,3 +126,8 @@ enforcement ladder](https://github.com/mozilla/diversity).
 For answers to common questions about this code of conduct, see the FAQ at
 https://www.contributor-covenant.org/faq. Translations are available at
 https://www.contributor-covenant.org/translations.
+## help
+If after complaining no action is taken OR no responce is given to the victom then please contact @+91 xxxxxxxxxx this no. or email at 
+....... email.
+## review
+After resolving the issue or after taking strict action against the exploitor kindly review our app or website to motivate the idea and team members.
