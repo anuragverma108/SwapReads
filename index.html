@@ -5834,7 +5834,8 @@ iframe {
         <p>Stay updated with our latest news and offers</p>
         
         <form id="newsform" onsubmit="return showSuccessMessage();">
-            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="text" id="name" placeholder="Your Name" required required pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
+            oninput="this.setCustomValidity('')">
             <input type="email" id="email" placeholder="Your Email Address" required>
             <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
         </form>
