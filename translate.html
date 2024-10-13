@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwapReads Translate</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ff8c8c; 
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #ff8c8c;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: black;
+    }
+    p {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    button {
+      background-color: #29756e;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    #translatedText {
+      margin-top: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>SwapReads</h1>
+    <p id="originalText">SwapReads.com is the ultimate destination for book lovers seeking to swap and discover new literary gems. Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in the world of literature—all on one convenient platform. Join us and dive into a universe of endless possibilities!</p>
+    <button id="translateBtn">Translate</button>
+    <p id="translatedText"></p>
+  </div>
+
+  <script>
+    const translateBtn = document.getElementById('translateBtn');
+    const originalText = document.getElementById('originalText').innerText;
+    const translatedTextContainer = document.getElementById('translatedText');
+
+    // Translation function to Hindi
+    function translateText(text) {
+      return "SwapReads.com किताब प्रेमियों के लिए अंतिम गंतव्य है जो अपनी पसंदीदा किताबों का आदान-प्रदान करना और नई साहित्यिक रत्नों की खोज करना चाहते हैं। साथी उत्साही पाठकों से जुड़ें, अपनी पसंदीदा किताबों का आदान-प्रदान करें, और साहित्य की दुनिया में रोमांचक नई यात्रा पर निकलें—सभी एक सुविधाजनक मंच पर। हमारे साथ जुड़ें और अंतहीन संभावनाओं के ब्रह्मांड में डूब जाएं!";
+    }
+
+    translateBtn.addEventListener('click', () => {
+      const translatedText = translateText(originalText);
+      translatedTextContainer.innerText = translatedText;
+    });
+  </script>
+
+</body>
+</html>
