@@ -6137,6 +6137,45 @@ count=0
   animateCircles();
 </script>
 
+<button id="scrollBtn" class="scroll-button">Scroll</button>
+<style>
+  .scroll-button {
+    position: fixed;
+    right: 45px;
+    top: 40%;
+    transform: translateY(-50%);
+    background :linear-gradient(hwb(357 6% 36%),#d26d6d);
+    color: white;
+    border: none;
+    border-radius: 50%; /* Make it circular */
+    width: 50px; /* Set width */
+    height: 50px; /* Set height */
+    padding: 0; /* Remove padding */
+    cursor: pointer;
+    z-index: 1000; /* Ensure button is on top */
+    display: flex; /* Center content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    font-size: 12px; /* Smaller font size */
+    text-align: center; /* Center text */
+}
+       .scroll-button:hover {
+          transform: translateY(-50%) scale(1.2);
+        }
+    </style>
+<script>
+    document.getElementById("scrollBtn").addEventListener("click", function() {
+        // Get the height of the viewport
+        const viewportHeight = window.innerHeight;
+        
+        // Scroll down by one viewport height
+        window.scrollBy({
+            top: viewportHeight,
+            behavior: "smooth" // This makes the scrolling smooth
+        });
+    });
+</script>
+
 </body>
 
 </html>
