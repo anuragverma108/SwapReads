@@ -4877,7 +4877,7 @@ iframe {
   <br>
   <div class="container">
     <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; padding-bottom: 1rem; height: auto; ">
-          <img src="./lib.jpg" alt="Library Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
+          <img src="./assets/images/images/lib.jpg" alt="Library Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Library</h3>
               <p class="card-text" style="font-style: italic;">Donate your books to local libraries and help foster a love for reading in your community.</p>
@@ -4887,7 +4887,7 @@ iframe {
           </div>
       </div>
       <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; height: auto;">
-          <img src="./sc.jpg" alt="School Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
+          <img src="./assets/images/images/sc.jpg" alt="School Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Schools</h3>
               <p class="card-text" style="font-style: italic;">Support children's education by donating books to nearby schools for students of all ages.</p>
@@ -4897,7 +4897,7 @@ iframe {
           </div>
       </div>
       <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; height: auto;">
-          <img src="./n.jpg" alt="Organization Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
+          <img src="./assets/images/images/ngo.jpeg" alt="Organization Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Organizations</h3>
               <p class="card-text" style="font-style: italic;">Help NGOs and other organizations by donating books to support their educational programs.</p>
@@ -4920,11 +4920,19 @@ iframe {
       <style>
 #rate-us {
   transition: background-color 0.3s ease;  
+  padding: 10px 20px;
+  background-color:  #b51e26; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; 
 }
 
 #rate-us:hover {
   background-color: #A30F17;  
   color: white;  
+  transform: scale(1.1); 
 } /* Closing brace for #rate-us:hover */
 
 /* Additional styles */
@@ -5070,7 +5078,8 @@ iframe {
       <div class="contact-container">
         <form class="contact-form" id="contactForm" style=" width: 500px;">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your Name" required>
+          <input type="text" id="name" name="name" placeholder="Your Name" required required pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
+          oninput="this.setCustomValidity('')">
 
           <label for="email">Email</label>
           <input type="email" id="email" name="email" placeholder="your-email@example.com" required>
@@ -5453,99 +5462,147 @@ iframe {
       </div>
     </div>
   </div>
-  <style>
-  .newsletter {
-            width: 100%;
-            max-width: 875px;
-            margin: 50px auto;
-            background-color:  #f48a8a ;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  .newsletter h1 {
-            text-align: center;
-            color: rgb(255, 247, 247);
-            font-size: 25px;
-        }
-
-  .newsletter p {
-    text-align: center;
-    color: rgb(245, 8, 8);
-    font-size: 15px;
-  }
-
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        input[type="email"], input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid rgb(251, 243, 243);
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        subscribe {
-            padding: 10px;
-            background-color: white;
-            color: rgb(251, 162, 177);
-            border: none;
-            border-radius: 5px;
-            font-size: 25px;
-            cursor: pointer;
-        }
-        .subscribe:hover {
-  background: linear-gradient(hwb(357 6% 36%), #d26d6d);
-  transform: scale(1.1);
-}
-       subscribe:active {
-        transform: scale(0.98);
-       }
-       subscribe:focus {
-        outline: none;
-       }
-        
-        .newsletter:hover {
-  background: linear-gradient(hwb(357 68% 7%), #d26d6d);
   
+  <style>
+    @import url('https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css');
+
+.newsletter-container {
+  background-color: #FCE4EC;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
+
+h2 {
+  font-size: 26px;
+  color: #C2185B;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  color: #E91E63;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px 20px;
+  padding-left: 50px;
+  font-size: 16px;
+  border: 2px solid #F8BBD0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: #FCE4EC;
+  color: #555;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #E91E63;
+  background-color: #f3f3f368;
+  box-shadow: 0 0 8px rgba(233, 30, 99, 0.5);
+}
+
+.input-group i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #E91E63;
+  transition: color 0.3s ease;
+}
+
+.input-group input:focus + i {
+  color: #C2185B;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  background-color: #C2185B;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: #AD1457;
+  box-shadow: 0 0 15px rgba(194, 24, 91, 0.4);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(194, 24, 91, 0.8);
+}
+
 </style>
         
-<!--<script>
-  function showSuccessMessage() 
-  {
+<script>
+  function showSuccessMessage() {
     // Show success message
-    const successMessage = document.getElementById('successMessage');
+    const successMessage = document.createElement('div');
+    successMessage.id = 'successMessage';
     successMessage.innerHTML = "Thank you for subscribing!";
     successMessage.style.display = 'block';
-
+    successMessage.style.backgroundColor = '#C2185B';
+    successMessage.style.color = 'white';
+    successMessage.style.padding = '10px';
+    successMessage.style.borderRadius = '8px';
+    successMessage.style.marginTop = '20px';
+    successMessage.style.textAlign = 'center';
+    
+    // Append the success message to the form container
+    const formContainer = document.querySelector('.newsletter-container');
+    formContainer.appendChild(successMessage);
+    
     // Reset the form after 3 seconds
-    setTimeout(function() 
-    {
-        document.getElementById('newsletterForm').reset();
-        successMessage.style.display = 'none';
-        
+    setTimeout(function() {
+      document.getElementById('newsletterForm').reset();
+      successMessage.style.display = 'none';
     }, 3000);
-
+    
     return false; 
-}
-</script>-->
+  }
+  
+  // Attach the function to the form submission
+  document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    showSuccessMessage();
+  });
+</script>
 
-  <div class="newsletter">
-        <h1>Subscribe to Our Newsletter</h1>
-        <p>Stay updated with our latest news and offers</p>
-        
-        <form id="newsform" onsubmit="return showSuccessMessage();">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email Address" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
-        </form>
-        <div id="successmessage" style="display: none;">Thank you for subscribing!</div>
+<div class="newsletter-container">
+  <h2>Subscribe to Our Newsletter</h2>
+  <p>Stay updated with our latest news and offers</p>
+  
+  <form id="newsletterForm">
+    <div class="input-group">
+      <input type="text" id="name" placeholder="Your Name">
+      <i class='bx bx-user'></i>
     </div>
-
+    
+    <div class="input-group">
+      <input type="email" id="email" placeholder="Your Email Address">
+      <i class='bx bx-envelope'></i>
+    </div>
+    
+    <button type="submit">Subscribe</button>
+  </form>
+</div>
 
    
 
@@ -5735,53 +5792,23 @@ iframe {
 
 
 </script>
-  <style>
-  .newsletter {
-            width: 100%;
-            max-width: 875px;
-            margin: 50px auto;
-            background-color:  #f48a8a ;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  .newsletter h1 {
-            text-align: center;
-            color: rgb(255, 247, 247);
-            font-size: 25px;
-        }
+<style>
+  
+.subscribe {
+  background-color: #A30F17;
+  color: white; 
+  border: none; 
+  padding: 1rem 2rem; 
+  font-size: 1.6rem; 
+  font-family: Arial, sans-serif;
+  border-radius: 0.5rem; 
+  cursor: pointer; 
+  /*transition: background-color 0.3s, transform 0.2s;*/
+}
 
-  .newsletter p {
-    text-align: center;
-    color: rgb(245, 8, 8);
-    font-size: 15px;
-  }
-
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        input[type="email"], input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid rgb(251, 243, 243);
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        subscribe {
-            padding: 10px;
-            background-color: white;
-            color: rgb(251, 162, 177);
-            border: none;
-            border-radius: 5px;
-            font-size: 25px;
-            cursor: pointer;
-        }
-        .subscribe:hover {
-  background: linear-gradient(hwb(357 6% 36%), #d26d6d);
-  transform: scale(1.1);
+.subscribe:hover {
+  background: linear-gradient(hwb(357 0% 36%), #d26d6d);
+  transform: scale(1);
 }
        subscribe:active {
         transform: scale(0.98);
@@ -5821,7 +5848,8 @@ iframe {
         <p>Stay updated with our latest news and offers</p>
         
         <form id="newsform" onsubmit="return showSuccessMessage();">
-            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="text" id="name" placeholder="Your Name" required required pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
+            oninput="this.setCustomValidity('')">
             <input type="email" id="email" placeholder="Your Email Address" required>
             <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
         </form>
