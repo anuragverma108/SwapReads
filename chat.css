@@ -171,10 +171,14 @@ body {
 }
 
 .navbar-item {
+    width: 60px;
     font-size: 15px;
     font-family: sans-serif;
-    padding: 0 20px;
-    flex-shrink: 0;
+    padding: 0 10px; /* Reduced padding */
+    flex-shrink: 0; /* Prevents excessive shrinking */
+    flex-grow: 1; /* Distributes space equally */
+    white-space: nowrap; /* Prevents text from wrapping */
+    text-align: center; /* Centers text if needed */
 }
 
 .navbar-toggle {
@@ -186,19 +190,28 @@ body {
 }
 
 a {
+    
     text-decoration: none;
     color: black;
 }
 
 .navbar-menu {
+   
     display: flex;
     justify-content: space-between;
+    flex-wrap: nowrap; /* Prevents items from wrapping to the next line */
+    gap: 0px; /* Space between items */
+    gap: 5px; /* Space between items */
+    width: 100%; /* Ensure it takes full width */
 }
 
 .maindiv {
     display: flex;
     justify-content: center;
     margin-top: 80px; /* to prevent overlap with the fixed header */
+}
+.navbar {
+    overflow: hidden; /* Prevents items from overflowing */
 }
 
 /* Back Button */
