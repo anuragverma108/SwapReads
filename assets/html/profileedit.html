@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -125,104 +126,118 @@
 
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-*{
-	margin:0;
-	padding:0;
-	box-sizing: border-box;
-}
-.container{
-	max-width: 1170px;
-	margin:auto;
-}
-.row{
-	display: flex;
-	flex-wrap: wrap;
-}
-ul{
-	list-style: none;
-}
-.footer{
-    position: absolute;
-    top: 100%;
-    width: 100%;
-	background-color: #24262b;
-    padding: 70px 0;
-}
-.footer-col{
-   width: 25%;
-   padding: 0 15px;
-}
-.footer-col h4{
-	font-size: 18px;
-	color: whitesmoke;
-	text-transform: capitalize;
-	margin-bottom: 35px;
-	font-weight: 500;
-	position: relative;
-}
-.footer-col h4::before{
-	content: '';
-	position: absolute;
-	left:0;
-	bottom: -10px;
-	background-color: #e91e63;
-	height: 2px;
-	box-sizing: border-box;
-	width: 50px;
-}
-.footer-col ul li:not(:last-child){
-	margin-bottom: 10px;
-}
-.footer-col ul li a{
-	font-size: 16px;
-	text-transform: capitalize;
-	text-decoration: none;
-	font-weight: 300;
-	color: whitesmoke;
-	display: block;
-	transition: all 0.3s ease;
-}
-.footer-col ul li a:hover{
-	color: orangered;
-	padding-left: 8px;
-}
-.footer-col .social-links a{
-	display: inline-block;
-	height: 40px;
-	width: 40px;
-	background-color: rgba(255,255,255,0.2);
-	margin:0 10px 10px 0;
-	text-align: center;
-	line-height: 40px;
-	border-radius: 50%;
-	color: #ffffff;
-	transition: all 0.5s ease;
-}
-.footer-col .social-links a:hover{
-	color: #24262b;
-	background-color:	#0081FB;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/*responsive*/
-@media(max-width: 767px){
-  .footer-col{
-    width: 50%;
-    margin-bottom: 30px;
-}
-}
-@media(max-width: 574px){
-  .footer-col{
-    width: 100%;
-}
+        .container {
+            max-width: 1170px;
+            margin: auto;
+        }
 
-}
-.copyright{
-    position: absolute;
-    left: 35%;
-}
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
+        ul {
+            list-style: none;
+        }
+
+        .footer {
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            background-color: #24262b;
+            padding: 70px 0;
+        }
+
+        .footer-col {
+            width: 25%;
+            padding: 0 15px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            color: whitesmoke;
+            text-transform: capitalize;
+            margin-bottom: 35px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .footer-col h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background-color: #e91e63;
+            height: 2px;
+            box-sizing: border-box;
+            width: 50px;
+        }
+
+        .footer-col ul li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 16px;
+            text-transform: capitalize;
+            text-decoration: none;
+            font-weight: 300;
+            color: whitesmoke;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: orangered;
+            padding-left: 8px;
+        }
+
+        .footer-col .social-links a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all 0.5s ease;
+        }
+
+        .footer-col .social-links a:hover {
+            color: #24262b;
+            background-color: #0081FB;
+        }
+
+        /*responsive*/
+        @media(max-width: 767px) {
+            .footer-col {
+                width: 50%;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media(max-width: 574px) {
+            .footer-col {
+                width: 100%;
+            }
+
+        }
+
+        .copyright {
+            position: absolute;
+            left: 35%;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="edit-profile">
@@ -239,9 +254,11 @@ ul{
             </div>
             <div class="profile-details">
                 <h4>Edit Details</h4>
-                <input type="text" id="nameInput" placeholder="Enter Name">
-                <input type="email" id="emailInput" placeholder="Enter Email">
-                <input type="tel" id="phoneInput" placeholder="Enter Phone">
+                <input type="text" id="nameInput" placeholder="Enter Name" required required pattern="[a-zA-Z ]+"
+                    oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')"
+                    oninput="this.setCustomValidity('')">
+                <input type="email" id="emailInput" placeholder="Enter Email" required>
+                <input type="tel" id="phoneInput" placeholder="Enter Phone" required>
             </div>
             <button class="save-button" onclick="saveProfile()">Save Profile</button>
         </div>
@@ -286,19 +303,19 @@ ul{
                     <h4>follow us</h4>
                     <div class="social-links">
                         <a href="#"><i class='bx bxl-facebook'></i></a>
-                        <a href="#"><i class='bx bxl-twitter' ></i></a>
-                        <a href="#"><i class='bx bxl-instagram' ></i></a>
-                        <a href="#"><i class='bx bxl-linkedin' ></i></a>
+                        <a href="#"><i class='bx bxl-twitter'></i></a>
+                        <a href="#"><i class='bx bxl-instagram'></i></a>
+                        <a href="#"><i class='bx bxl-linkedin'></i></a>
                     </div>
                 </div>
             </div>
         </div>
-        <br/>
-        <h4 style="color: white;" class="copyright">	&#169; 2024 All Rights Reserved. Made By Guardian Hackers.</h4>
-        <br/>
-        <h4 style="color: white;" class="copyright">	Copyright policy | Privacy Notice | Our Vision</h4>
-   </footer>
- 
+        <br />
+        <h4 style="color: white;" class="copyright"> &#169; 2024 All Rights Reserved. Made By Guardian Hackers.</h4>
+        <br />
+        <h4 style="color: white;" class="copyright"> Copyright policy | Privacy Notice | Our Vision</h4>
+    </footer>
+
 
     <script>
         let selectedAvatar = "";
@@ -318,9 +335,20 @@ ul{
             const newEmail = document.getElementById("emailInput").value.trim();
             const newPhone = document.getElementById("phoneInput").value.trim();
 
+
+            // Check if all fields are valid before proceeding
+            if (!nameInput.checkValidity() || !emailInput.checkValidity() || !phoneInput.checkValidity()) {
+                // Trigger the default validation error message if any field is invalid
+                nameInput.reportValidity();
+                emailInput.reportValidity();
+                phoneInput.reportValidity();
+                return;  // Stop function execution if invalid
+            }
+
+
             if (newEmail && !validateEmail(newEmail)) {
-                 alert("Invalid email address");
-                 return;
+                alert("Invalid email address");
+                return;
             }
             if (selectedAvatar) {
                 localStorage.setItem("selectedAvatar", selectedAvatar);
@@ -338,8 +366,8 @@ ul{
             window.location.href = "../../index.html";
         }
         function validateEmail(email) {
-              const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-              return re.test(email);
+            const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return re.test(email);
         }
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -368,4 +396,5 @@ ul{
         });
     </script>
 </body>
+
 </html>
