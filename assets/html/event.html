@@ -1,373 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
-    <title>Reading Events</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
 
-        header {
-            width: 100%;
-            background-color: #f06d87;
-            color: white;
-            padding: 1em 0;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 1em;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-
-        main {
-            padding: 1em;
-            width: 100%;
-            max-width: 800px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        section {
-            margin-bottom: 2em;
-            width: 100%;
-        }
-
-        h2 {
-            color: #450105;
-        }
-
-       
-
-        .close-button {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close-button:hover,
-        .close-button:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .ul {
-            text-decoration: black;
-        }
-
-        #event-calendar {
-            width: 100%;
-            max-width: 800px;
-            background: #fff;
-            padding: 2em;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .calendar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .calendar-header button {
-            background: #2980b9;
-            color: #fff;
-            border: none;
-            padding: 0.5em 1em;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .calendar-header h3 {
-            margin: 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1em;
-        }
-
-        thead th {
-            background: #2980b9;
-            color: #fff;
-            padding: 0.5em 0;
-        }
-
-        tbody td {
-            padding: 1em;
-            text-align: center;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        tbody td:hover {
-            background: #f4f4f9;
-        }
-
-        .event {
-            background: #f39c12;
-            color: #fff;
-            border-radius: 50%;
-            padding: 0.3em;
-        }
-
-        #event-details {
-            margin-top: 2em;
-            width: 100%;
-        }
-
-        #event-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        #event-list li {
-            background: #f39c12;
-            color: #fff;
-            margin: 0.5em 0;
-            padding: 1em;
-            border-radius: 5px;
-        }
-.footer{
-    position: absolute;
-    left: 0%;
-    
-    width: 100%;
-background: pink;
-padding:30px 0px;
-font-family: 'Play', sans-serif;
-text-align:center;
-}
-
-.footer .row{
-width:100%;
-margin:1% 0%;
-padding:0.6% 0%;
-color:gray;
-font-size:0.8em;
-}
-
-.footer .row a{
-text-decoration:none;
-color:gray;
-transition:0.5s;
-}
-
-.footer .row a:hover{
-color:#fff;
-}
-
-.footer .row ul{
-width:100%;
-}
-
-.footer .row ul li{
-display:inline-block;
-margin:0px 30px;
-}
-
-.footer .row a i{
-font-size:2em;
-margin:0% 1%;
-}
-
-@media (max-width:720px){
-.footer{
-text-align:left;
-padding:5%;
-}
-.footer .row ul li{
-display:block;
-margin:10px 0px;
-text-align:left;
-}
-.footer .row a i{
-margin:0% 3%;
-}
-}
-    </style>
-</head>
-<body>
-    <header>
-        <h1 style="color: black;">SwapReads</h1>
-        <nav>
-            <ul>
-                <li><a href="../../index.html">Home</a></li>
-                <li><a href="./about.html">About Us</a></li>
-                <li><a href="../../index.html#contact">Contact</a></li>
-                <li><a href="#authors">Authors</a></li>
-                <li><a href="../../comsp.html">Community</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="event-calendar">
-            <h2>Reading Event Calendar</h2>
-            <div class="calendar">
-                <div class="calendar-header">
-                    <button id="prevMonth">‹</button>
-                    <h3 id="monthAndYear"></h3>
-                    <button id="nextMonth">›</button>
-                </div>
-                <table id="calendar-body">
-                    <thead>
-                        <tr>
-                            <th>Sun</th>
-                            <th>Mon</th>
-                            <th>Tue</th>
-                            <th>Wed</th>
-                            <th>Thu</th>
-                            <th>Fri</th>
-                            <th>Sat</th>
-                        </tr>
-                    </thead>
-                    <tbody id="calendar-days">
-                        <!-- Calendar days will be dynamically generated here -->
-                    </tbody>
-                </table>
-            </div>
-            <div id="event-details">
-                <h3>Event Details</h3>
-                <ul id="event-list">
-                    <!-- Event details will be dynamically generated here -->
-                </ul>
-            </div>
-        </section>
-    </main>
-
-
-
-    <footer>
-        <div class="footer">
-        <div class="row">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
-        <a href="#"><i class="fa fa-youtube"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        </div>
-        
-        <div class="row">
-        <ul>
-        <li><a href="#">Contact us</a></li>
-        <li><a href="#">Our Services</a></li>
-        <li><a href="#">Genre</a></li>
-        <li><a href="#">Community Spotlight</a></li>
-        <li><a href="#">FAQ</a></li>
-        </ul>
-        </div>
-        
-        <div class="row">
-        SwapReads Copyright © 2024 SwapReads - All rights reserved || Designed By: pranjal
-        </div>
-        </div>
-        </footer>
-        
-    <script>
-        const eventCalendar = {
-            events: [
-                { date: '2024-08-10', title: 'Book Club Meeting' },
-                { date: '2024-08-15', title: 'Author Talk: John Doe' },
-                { date: '2024-08-20', title: 'Children’s Story Hour' },
-                { date: '2024-08-25', title: 'Poetry Reading' },
-                { date: '2024-08-2', title: 'Guest Readers Talk' },
-            ],
-            monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-            today: new Date(),
-            currentMonth: new Date().getMonth(),
-            currentYear: new Date().getFullYear(),
-        };
-
-        function generateCalendar(month, year) {
-            const firstDay = (new Date(year, month)).getDay();
-            const daysInMonth = 32 - new Date(year, month, 32).getDate();
-
-            const calendarBody = document.getElementById('calendar-days');
-            calendarBody.innerHTML = '';
-
-            let date = 1;
-            for (let i = 0; i < 6; i++) {
-                let row = document.createElement('tr');
-
-                for (let j = 0; j < 7; j++) {
-                    if (i === 0 && j < firstDay) {
-                        let cell = document.createElement('td');
-                        let cellText = document.createTextNode('');
-                        cell.appendChild(cellText);
-                        row.appendChild(cell);
-                    } else if (date > daysInMonth) {
-                        break;
-                    } else {
-                        let cell = document.createElement('td');
-                        let cellText = document.createTextNode(date);
-                        cell.appendChild(cellText);
-
-                        let eventDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
-                        let event = eventCalendar.events.find(event => event.date === eventDate);
-
-                        if (event) {
-                            cell.classList.add('event');
-                            cell.addEventListener('click', () => showEventDetails(event));
-                        }
-
-                        row.appendChild(cell);
-                        date++;
-                    }
-                }
-
-                calendarBody.appendChild(row);
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+        <title>Reading Events</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f9;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
-            document.getElementById('monthAndYear').innerText = `${eventCalendar.monthNames[month]} ${year}`;
-        }
+            header {
+                width: 100%;
+                background-color: #f06d87;
+                color: white;
+                padding: 1em 0;
+                text-align: center;
+            }
 
-        function showEventDetails(event) {
-            const eventList = document.getElementById('event-list');
-            eventList.innerHTML = '';
-            let listItem = document.createElement('li');
-            listItem.innerText = event.title;
-            eventList.appendChild(listItem);
-        }
+            nav ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
 
-        document.getElementById('prevMonth').addEventListener('click', () => {
-            eventCalendar.currentYear = (eventCalendar.currentMonth === 0) ? eventCalendar.currentYear - 1 : eventCalendar.currentYear;
-            eventCalendar.currentMonth = (eventCalendar.currentMonth === 0) ? 11 : eventCalendar.currentMonth - 1;
+            nav ul li {
+                display: inline;
+                margin: 0 1em;
+            }
+
+            nav ul li a {
+                color: white;
+                text-decoration: none;
+            }
+
+            main {
+                padding: 1em;
+                width: 100%;
+                max-width: 800px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            section {
+                margin-bottom: 2em;
+                width: 100%;
+            }
+
+            h2 {
+                color: #450105;
+            }
+
+            #event-calendar {
+                width: 100%;
+                max-width: 800px;
+                background: #fff;
+                padding: 2em;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .calendar-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .calendar-header button {
+                background: #2980b9;
+                color: #fff;
+                border: none;
+                padding: 0.5em 1em;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .calendar-header h3 {
+                margin: 0;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 1em;
+            }
+
+            thead th {
+                background: #2980b9;
+                color: #fff;
+                padding: 0.5em 0;
+            }
+
+            tbody td {
+                padding: 1em;
+                text-align: center;
+                cursor: pointer;
+                transition: background 0.3s;
+            }
+
+            tbody td:hover {
+                background: #f4f4f9;
+            }
+
+            .event {
+                background: #f39c12;
+                color: #fff;
+                border-radius: 50%;
+                padding: 0.3em;
+            }
+
+            #event-details {
+                margin-top: 2em;
+                width: 100%;
+            }
+
+            #event-list {
+                list-style: none;
+                padding: 0;
+            }
+
+            #event-list li {
+                background: #f39c12;
+                color: #fff;
+                margin: 0.5em 0;
+                padding: 1em;
+                border-radius: 5px;
+            }
+
+            .footer {
+                position: absolute;
+                left: 0%;
+                width: 100%;
+                background: pink;
+                padding: 30px 0;
+                font-family: 'Play', sans-serif;
+                text-align: center;
+            }
+
+            .footer .row {
+                width: 100%;
+                margin: 1% 0;
+                padding: 0.6% 0;
+                color: gray;
+                font-size: 0.8em;
+            }
+
+            .footer .row a {
+                text-decoration: none;
+                color: gray;
+                transition: 0.5s;
+            }
+
+            .footer .row a:hover {
+                color: #fff;
+            }
+
+            .footer .row ul {
+                width: 100%;
+            }
+
+            .footer .row ul li {
+                display: inline-block;
+                margin: 0 30px;
+            }
+
+            .footer .row a i {
+                font-size: 2em;
+                margin: 0 1%;
+            }
+
+            @media (max-width:720px) {
+                .footer {
+                    text-align: left;
+                    padding: 5%;
+                }
+
+                .footer .row ul li {
+                    display: block;
+                    margin: 10px 0;
+                    text-align: left;
+                }
+
+                .footer .row a i {
+                    margin: 0 3%;
+                }
+            }
+
+            .past-date {
+                color: #ccc;
+                /* Light color to indicate it's a past date */
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1 style="color: black;">SwapReads</h1>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="./about.html">About Us</a></li>
+                    <li><a href="../../index.html#contact">Contact</a></li>
+                    <li><a href="#authors">Authors</a></li>
+                    <li><a href="../../comsp.html">Community</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="event-calendar">
+                <h2>Reading Event Calendar</h2>
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <button id="prevMonth">‹</button>
+                        <h3 id="monthAndYear"></h3>
+                        <button id="nextMonth">›</button>
+                    </div>
+                    <table id="calendar-body">
+                        <thead>
+                            <tr>
+                                <th>Sun</th>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                            </tr>
+                        </thead>
+                        <tbody id="calendar-days">
+                            <!-- Calendar days will be dynamically generated here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="event-details">
+                    <h3>Event Details</h3>
+                    <ul id="event-list">
+                        <!-- Event details will be dynamically generated here -->
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer">
+                <div class="row">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                </div>
+
+                <div class="row">
+                    <ul>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">Genre</a></li>
+                        <li><a href="#">Community Spotlight</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="row">
+                    SwapReads Copyright © 2024 SwapReads - All rights reserved || Designed By: pranjal
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            const eventCalendar = {
+                events: [
+                    { date: '2024-10-13', title: 'Book Club Meeting' }, // Today
+                    { date: '2024-10-14', title: 'Author Talk: John Doe' },
+                    { date: '2024-10-15', title: 'Children’s Story Hour' },
+                    { date: '2024-10-16', title: 'Poetry Reading' },
+                    { date: '2024-10-17', title: 'Guest Readers Talk' },
+                    { date: '2024-10-18', title: 'Literary Quiz Night' },
+                    { date: '2024-10-19', title: 'Mystery Novel Discussion' },
+                    { date: '2024-10-20', title: 'Sci-Fi Book Review' },
+                    { date: '2024-10-21', title: 'History of Literature Talk' },
+                    { date: '2024-10-22', title: 'Open Mic Night' },
+                    { date: '2024-10-23', title: 'Writing Workshop' },
+                    { date: '2024-10-24', title: 'Fantasy Novel Roundtable' },
+                    { date: '2024-10-25', title: 'Non-Fiction Book Discussion' },
+                    { date: '2024-10-26', title: 'Graphic Novel Club' },
+                    { date: '2024-10-27', title: 'Literature and Film Discussion' },
+                    { date: '2024-10-28', title: 'Poetry Slam' },
+                    { date: '2024-10-29', title: 'Classic Literature Review' },
+                    { date: '2024-10-30', title: 'Halloween Story Night' },
+                    { date: '2024-10-31', title: 'Spooky Stories Gathering' },
+                ],
+
+                monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                today: new Date(),
+                currentMonth: new Date().getMonth(),
+                currentYear: new Date().getFullYear(),
+            };
+
+            function generateCalendar(month, year) {
+                const firstDay = (new Date(year, month)).getDay();
+                const daysInMonth = 32 - new Date(year, month, 32).getDate();
+
+                const calendarBody = document.getElementById('calendar-days');
+                calendarBody.innerHTML = '';
+
+                let date = 1;
+                for (let i = 0; i < 6; i++) {
+                    let row = document.createElement('tr');
+
+                    for (let j = 0; j < 7; j++) {
+                        if (i === 0 && j < firstDay) {
+                            let cell = document.createElement('td');
+                            row.appendChild(cell);
+                        } else if (date > daysInMonth) {
+                            break;
+                        } else {
+                            let cell = document.createElement('td');
+                            let cellText = document.createTextNode(date);
+                            cell.appendChild(cellText);
+
+                            const eventDate = new Date(year, month, date);
+                            if (eventDate >= eventCalendar.today) {  // Check if the date is today or in the future
+                                let formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+                                let event = eventCalendar.events.find(event => event.date === formattedDate);
+
+                                if (event) {
+                                    cell.classList.add('event');
+                                    cell.addEventListener('click', () => showEventDetails(event));
+                                }
+                            } else {
+                                cell.classList.add('past-date'); // Optional: to style past dates differently if needed
+                            }
+
+                            row.appendChild(cell);
+                            date++;
+                        }
+                    }
+
+                    calendarBody.appendChild(row);
+                }
+
+                document.getElementById('monthAndYear').innerText = `${eventCalendar.monthNames[month]} ${year}`;
+            }
+
+            function showEventDetails(event) {
+                const eventList = document.getElementById('event-list');
+                eventList.innerHTML = '';
+                let listItem = document.createElement('li');
+                listItem.innerText = event.title;
+                eventList.appendChild(listItem);
+            }
+
+            document.getElementById('prevMonth').addEventListener('click', () => {
+                eventCalendar.currentYear = (eventCalendar.currentMonth === 0) ? eventCalendar.currentYear - 1 : eventCalendar.currentYear;
+                eventCalendar.currentMonth = (eventCalendar.currentMonth === 0) ? 11 : eventCalendar.currentMonth - 1;
+                generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
+            });
+
+            document.getElementById('nextMonth').addEventListener('click', () => {
+                eventCalendar.currentYear = (eventCalendar.currentMonth === 11) ? eventCalendar.currentYear + 1 : eventCalendar.currentYear;
+                eventCalendar.currentMonth = (eventCalendar.currentMonth === 11) ? 0 : eventCalendar.currentMonth + 1;
+                generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
+            });
+
             generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-        });
+        </script>
+    </body>
 
-        document.getElementById('nextMonth').addEventListener('click', () => {
-            eventCalendar.currentYear = (eventCalendar.currentMonth === 11) ? eventCalendar.currentYear + 1 : eventCalendar.currentYear;
-            eventCalendar.currentMonth = (eventCalendar.currentMonth === 11) ? 0 : eventCalendar.currentMonth + 1;
-            generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-        });
-
-        generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-    </script>
-</body>
 </html>
