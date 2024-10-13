@@ -1508,12 +1508,12 @@ iframe {
 
   <div id="cookie-consent">
     <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
-    <p >We value your privacy</p>
+    <p style="font-size: larger">We value your privacy</p>
     <p>
       <br>
       We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
       By clicking "Accept", you consent to our use of cookies.
-        <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
+      <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
     </p>
     <button class="accept-cookies">Accept</button>
     <button class="reject-cookies">Reject</button>
@@ -1522,13 +1522,12 @@ iframe {
   <script src="script.js"></script>
 
 <script>
-
-
-
   document.addEventListener('DOMContentLoaded', function() {
   const cookieConsent = document.getElementById('cookie-consent');
+  const closeBtn = document.getElementById('closeBtn');
   const acceptButton = document.querySelector('.accept-cookies');
   const rejectButton = document.querySelector('.reject-cookies');
+  
 
   // Hide preloader after page load
   window.addEventListener('load', function() {
@@ -1536,7 +1535,9 @@ iframe {
     if (preloader) {
       preloader.style.display = 'none';
     }
-    cookieConsent.style.display = 'block';
+    if(!localStorage.getItem('cookieConsent')){
+      cookieConsent.style.display = 'block';
+    }
   });
 
   // Check if localStorage is available
@@ -1571,11 +1572,17 @@ iframe {
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
     });
+    closeButton.addEventListener('click', function() {
+      cookieConsent.style.display = 'none';
+    });
   } else {
     // Hide consent if localStorage is not available
     cookieConsent.style.display = 'none';
   }
 });
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <title>SwapReads</title>
@@ -2133,23 +2140,21 @@ iframe {
   position: fixed;
   background-color: #f1f1f1;
   padding: 10px 15px;
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
   bottom: 15px;
   left: 20px;
   width: 300px;
-  height: 250px;
+  height: 300px;
   z-index: 10000;
   border-radius: 1rem;
-  margin-bottom: 5rem;
   margin: 2rem;
+  display: none;
   border-right: 0.4rem solid transparent;
   border-bottom: 0.4rem solid transparent;
   transition: border-color 0.3s;
   font-size: 12px;
 }
-    
+   
 
 
 #cookie-consent:hover {
@@ -2159,10 +2164,10 @@ iframe {
 
 #cookie-consent p {
   color: rgb(78, 7, 7);  /* Make the text black for better visibility */
-  margin: 10px opx;  /* Center align the text */
+  margin: 10px 0px;  /* Center align the text */
 }
 
-#cookie-container a {
+#cookie-consent a {
     color: rgb(78, 7, 7);
     text-decoration: none;
 }
@@ -2176,8 +2181,9 @@ iframe {
 
 .accept-cookies,
 .reject-cookies {
-  width: 26rem;  /* Decrease the button width */
-  height: 3.5rem;  /* Decrease the button height */
+  width: 100%;  /* Decrease the button width */
+  max-width: 280px;
+  height: 3.0 rem;  /* Decrease the button height */
   color: white;
   background-color: #A30F17;
   font-size: 12px;
@@ -2196,14 +2202,12 @@ iframe {
   color: white;
 }
 
-.reject-cookies {
-  margin-top: 1rem;
-}
+
 
 .accept-cookies:hover,
 .reject-cookies:hover {
   transform: scale(0.95);
-  box-shadow: 0 0 1.5rem rgb(249, 212, 212);  /* Reduce the shadow size */
+  box-shadow: 0 0 0.5rem rgb(249, 212, 212);  /* Reduce the shadow size */
 }
 
 .accept-cookies:hover {

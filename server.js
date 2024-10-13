@@ -149,6 +149,7 @@
 // });
 
 
+// Import required modules
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
@@ -157,8 +158,10 @@ import { RegisterSchema } from './assets/validation/zodschema.js';
 import validate from './assets/validation/validate.schema.js';
 import cors from 'cors';
 
+// Create an Express application
 const app = express();
 
+// Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
@@ -168,136 +171,148 @@ app.get('/', (req, res) => {
     res.send('Welcome to the SwapReads API! Use the endpoints for signup, login, etc.');
 });
 
+// MongoDB connection URI
 const MONGO_URI = "mongodb+srv://nishantkaushal0708:jhn14300@cluster0.vye07az.mongodb.net/";
 
+// Function to connect to the database
 const dbConnect = async () => {
-  try {
-    await mongoose.connect(MONGO_URI, {
-      serverSelectionTimeoutMS: 30000,
-    });
-    console.log("DB connected");
-  } catch (err) {
-    console.log("DB failed", err);
-  }
+    try {
+        await mongoose.connect(MONGO_URI, {
+            serverSelectionTimeoutMS: 30000,
+        });
+        console.log("DB connected");
+    } catch (err) {
+        console.log("DB failed", err);
+    }
 };
 
+// Connect to the database and set up routes
 dbConnect().then(() => {
-  const User = mongoose.model("User", { username: String, password: String });
+    // Define User model
+    const User = mongoose.model("User", { username: String, password: String });
 
-  app.post("/signup", validate(RegisterSchema), async (req, res) => {
-    const { username, password } = req.body;
-    const userExists = await User.findOne({ username });
+    // User signup endpoint
+    app.post("/signup", validate(RegisterSchema), async (req, res) => {
+        const { username, password } = req.body;
+        const userExists = await User.findOne({ username });
 
-    if (userExists) {
-      res.json({ success: false, message: "Username already exists." });
-    } else {
-      const newUser = new User({ username, password });
-      await newUser.save();
-      res.json({ success: true });
-    }
-  });
-
-  app.post("/login", validate(RegisterSchema), async (req, res) => {
-    const { username, password } = req.body;
-    const user = await User.findOne({ username, password });
-
-    if (user) {
-      res.json({ success: true });
-    } else {
-      res.json({ success: false, message: "Invalid username or password." });
-    }
-  });
-
-  // Book Exchange/Selling
-  const bookSchema = new mongoose.Schema({
-    title: String,
-    author: String,
-    price: Number,
-    sellerEmail: String,
-  });
-
-  const Book = mongoose.model("Book", bookSchema);
-
-  app.post("/sellBook", async (req, res) => {
-    const { title, author, price, sellerEmail } = req.body;
-    const newBook = new Book({ title, author, price, sellerEmail });
-
-    newBook.save()
-      .then((book) => {
-        sendListingEmailToSeller(sellerEmail, book.title);
-        res.json({ success: true, message: "Book listing added successfully!" });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.json({ success: false, message: "Internal Server Error" });
-      });
-  });
-
-  app.post("/buyBook", async (req, res) => {
-    const { bookID, buyerEmail } = req.body;
-    Book.findById(bookID)
-      .then((book) => {
-        if (!book) {
-          return res.json({ success: false, message: "Book Not Found." });
+        if (userExists) {
+            res.json({ success: false, message: "Username already exists." });
+        } else {
+            const newUser = new User({ username, password });
+            await newUser.save();
+            res.json({ success: true });
         }
-        sendBuyingEmailToSeller(book.sellerEmail, book.title, book.price, book.author, buyerEmail);
-        res.json({ success: true, message: "Email Sent to Seller" });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.json({ success: false, message: "Internal Server Error" });
-      });
-  });
-
-  // Contact form endpoint
-  app.post("/contact", async (req, res) => {
-    const { name, email, subject, message } = req.body;
-
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "enter_you_mail",
-        pass: "Enter_YOUR_APP_PASSWORD",
-      },
     });
 
-    const mailOptions = {
-      from: email,
-      to: "enter_you_mail",
-      subject: `You Have New Query from ${name} Regarding ${subject}`,
-      html: `Hey there is query from is  ${name} Email: ${email}  &nbsp; Message:<p style="color: red;"> ${message}</p>`,
-    };
+    // User login endpoint
+    app.post("/login", validate(RegisterSchema), async (req, res) => {
+        const { username, password } = req.body;
+        const user = await User.findOne({ username, password });
 
-    const acknowledgmentOptions = {
-      from: "enter_you_mail",
-      to: email,
-      subject: "Acknowledgment of your message",
-      html: `<div style="font-family: Arial, sans-serif; line-height: 1.6;">
-      <p>Dear <strong>${name}</strong>,</p>
-      <p>Thank you for reaching out to us. We have received your message and will get back to you shortly.</p>
-      <p style="margin-top: 20px;">Best regards,<br><strong>SwapReads.com</strong></p>
-    </div>`,
-    };
+        if (user) {
+            res.json({ success: true });
+        } else {
+            res.json({ success: false, message: "Invalid username or password." });
+        }
+    });
 
-    try {
-      await transporter.sendMail(mailOptions);
-      await transporter.sendMail(acknowledgmentOptions);
-      res.json({ success: true, message: "Message sent successfully" });
-    } catch (err) {
-      console.error("Error sending email:", err);
-      res.json({ success: false, message: "Error sending message" });
-    }
-  });
+    // Book schema and model
+    const bookSchema = new mongoose.Schema({
+        title: String,
+        author: String,
+        price: Number,
+        sellerEmail: String,
+    });
 
-  // Subscribe endpoint
-  app.post('/subscribe', (req, res) => {
-    let email = req.body.email;
-    console.log(email);
-    res.json({ success: true, message: "Subscribed successfully" });
-  });
+    const Book = mongoose.model("Book", bookSchema);
 
-  const PORT = process.env.PORT || 4000;
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
+    // Sell book endpoint
+    app.post("/sellBook", async (req, res) => {
+        const { title, author, price, sellerEmail } = req.body;
+        const newBook = new Book({ title, author, price, sellerEmail });
+
+        newBook.save()
+            .then((book) => {
+                sendListingEmailToSeller(sellerEmail, book.title);
+                res.json({ success: true, message: "Book listing added successfully!" });
+            })
+            .catch((err) => {
+                console.log(err);
+                res.json({ success: false, message: "Internal Server Error" });
+            });
+    });
+
+    // Buy book endpoint
+    app.post("/buyBook", async (req, res) => {
+        const { bookID, buyerEmail } = req.body;
+        Book.findById(bookID)
+            .then((book) => {
+                if (!book) {
+                    return res.json({ success: false, message: "Book Not Found." });
+                }
+                sendBuyingEmailToSeller(book.sellerEmail, book.title, book.price, book.author, buyerEmail);
+                res.json({ success: true, message: "Email Sent to Seller" });
+            })
+            .catch((err) => {
+                console.log(err);
+                res.json({ success: false, message: "Internal Server Error" });
+            });
+    });
+
+    // Contact form endpoint
+    app.post("/contact", async (req, res) => {
+        const { name, email, subject, message } = req.body;
+
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+                user: "enter_you_mail",
+                pass: "Enter_YOUR_APP_PASSWORD",
+            },
+        });
+
+        const mailOptions = {
+            from: email,
+            to: "enter_you_mail",
+            subject: `You Have New Query from ${name} Regarding ${subject}`,
+            html: `Hey there is a query from ${name} Email: ${email} &nbsp; Message:<p style="color: red;"> ${message}</p>`,
+        };
+
+        const acknowledgmentOptions = {
+            from: "enter_you_mail",
+            to: email,
+            subject: "Acknowledgment of your message",
+            html: `<div style="font-family: Arial, sans-serif; line-height: 1.6;">
+            <p>Dear <strong>${name}</strong>,</p>
+            <p>Thank you for reaching out to us. We have received your message and will get back to you shortly.</p>
+            <p style="margin-top: 20px;">Best regards,<br><strong>SwapReads.com</strong></p>
+            </div>`,
+        };
+
+        try {
+            await transporter.sendMail(mailOptions);
+            await transporter.sendMail(acknowledgmentOptions);
+            res.json({ success: true, message: "Message sent successfully" });
+        } catch (err) {
+            console.error("Error sending email:", err);
+            res.json({ success: false, message: "Error sending message" });
+        }
+    });
+
+    // Subscribe endpoint
+    app.post('/subscribe', (req, res) => {
+        let email = req.body.email;
+        console.log(email);
+        res.json({ success: true, message: "Subscribed successfully" });
+    });
+
+    // Set the port number
+    const PORT = process.env.PORT || 4000;
+
+    // Start the server
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
 });
+
