@@ -5475,100 +5475,147 @@ iframe {
       </div>
     </div>
   </div>
-  <style>
-  .newsletter {
-            width: 100%;
-            max-width: 875px;
-            margin: 50px auto;
-            background-color:  #f48a8a ;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  .newsletter h1 {
-            text-align: center;
-            color: rgb(255, 247, 247);
-            font-size: 25px;
-        }
-
-  .newsletter p {
-    text-align: center;
-    color: rgb(245, 8, 8);
-    font-size: 15px;
-  }
-
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        input[type="email"], input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid rgb(251, 243, 243);
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        subscribe {
-            padding: 10px;
-            background-color: white;
-            color: rgb(251, 162, 177);
-            border: none;
-            border-radius: 5px;
-            font-size: 25px;
-            cursor: pointer;
-        }
-        .subscribe:hover {
-  background: linear-gradient(hwb(357 6% 36%), #d26d6d);
-  transform: scale(1.1);
-}
-       subscribe:active {
-        transform: scale(0.98);
-       }
-       subscribe:focus {
-        outline: none;
-       }
-        
-        .newsletter:hover {
-  background: linear-gradient(hwb(357 68% 7%), #d26d6d);
   
+  <style>
+    @import url('https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css');
+
+.newsletter-container {
+  background-color: #FCE4EC;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
+
+h2 {
+  font-size: 26px;
+  color: #C2185B;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  color: #E91E63;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px 20px;
+  padding-left: 50px;
+  font-size: 16px;
+  border: 2px solid #F8BBD0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: #FCE4EC;
+  color: #555;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #E91E63;
+  background-color: #f3f3f368;
+  box-shadow: 0 0 8px rgba(233, 30, 99, 0.5);
+}
+
+.input-group i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #E91E63;
+  transition: color 0.3s ease;
+}
+
+.input-group input:focus + i {
+  color: #C2185B;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  background-color: #C2185B;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: #AD1457;
+  box-shadow: 0 0 15px rgba(194, 24, 91, 0.4);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(194, 24, 91, 0.8);
+}
+
 </style>
         
-<!--<script>
-  function showSuccessMessage() 
-  {
+<script>
+  function showSuccessMessage() {
     // Show success message
-    const successMessage = document.getElementById('successMessage');
+    const successMessage = document.createElement('div');
+    successMessage.id = 'successMessage';
     successMessage.innerHTML = "Thank you for subscribing!";
     successMessage.style.display = 'block';
-
+    successMessage.style.backgroundColor = '#C2185B';
+    successMessage.style.color = 'white';
+    successMessage.style.padding = '10px';
+    successMessage.style.borderRadius = '8px';
+    successMessage.style.marginTop = '20px';
+    successMessage.style.textAlign = 'center';
+    
+    // Append the success message to the form container
+    const formContainer = document.querySelector('.newsletter-container');
+    formContainer.appendChild(successMessage);
+    
     // Reset the form after 3 seconds
-    setTimeout(function() 
-    {
-        document.getElementById('newsletterForm').reset();
-        successMessage.style.display = 'none';
-        
+    setTimeout(function() {
+      document.getElementById('newsletterForm').reset();
+      successMessage.style.display = 'none';
     }, 3000);
-
+    
     return false; 
-}
-</script>-->
+  }
+  
+  // Attach the function to the form submission
+  document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    showSuccessMessage();
+  });
+</script>
 
-  <div class="newsletter">
-        <h1>Subscribe to Our Newsletter</h1>
-        <p>Stay updated with our latest news and offers</p>
-        
-        <form id="newsform" onsubmit="return showSuccessMessage();">
-            <input type="text" id="name" placeholder="Your Name" required required pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
-            oninput="this.setCustomValidity('')">
-            <input type="email" id="email" placeholder="Your Email Address" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
-        </form>
-        <div id="successmessage" style="display: none;">Thank you for subscribing!</div>
+<div class="newsletter-container">
+  <h2>Subscribe to Our Newsletter</h2>
+  <p>Stay updated with our latest news and offers</p>
+  
+  <form id="newsletterForm">
+    <div class="input-group">
+      <input type="text" id="name" placeholder="Your Name">
+      <i class='bx bx-user'></i>
     </div>
-
+    
+    <div class="input-group">
+      <input type="email" id="email" placeholder="Your Email Address">
+      <i class='bx bx-envelope'></i>
+    </div>
+    
+    <button type="submit">Subscribe</button>
+  </form>
+</div>
 
    
 
