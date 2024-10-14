@@ -581,7 +581,7 @@
   bottom: 15px;
   left: 20px;
   width: 300px;
-  height: 250px;
+  height: 300px;
   z-index: 10000;
   border-radius: 1rem;
   margin-bottom: 5rem;
@@ -618,8 +618,6 @@
 
 .accept-cookies,
 .reject-cookies {
-  width: 26rem;  /* Decrease the button width */
-  height: 3.5rem;  /* Decrease the button height */
   color: white;
   background-color: #A30F17;
   font-size: 12px;
@@ -636,10 +634,6 @@
 
 .dark-mode #cookie-consent p{
   color: white;
-}
-
-.reject-cookies {
-  margin-top: 1rem;
 }
 
 .accept-cookies:hover,
@@ -1507,7 +1501,7 @@ iframe {
 </div>
 
   <div id="cookie-consent">
-    <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
+    <button onclick="document.getElementById('cookie-consent').remove()" class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
     <p >We value your privacy</p>
     <p>
       <br>
@@ -1515,8 +1509,8 @@ iframe {
       By clicking "Accept", you consent to our use of cookies.
         <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
     </p>
-    <button class="accept-cookies">Accept</button>
-    <button class="reject-cookies">Reject</button>
+    <button class="accept-cookies" onclick="document.getElementById('cookie-consent').remove()">Accept</button>
+    <button class="reject-cookies" onclick="document.getElementById('cookie-consent').remove()">Reject</button>
   </div>
 
   <script src="script.js"></script>
@@ -1529,6 +1523,7 @@ iframe {
   const cookieConsent = document.getElementById('cookie-consent');
   const acceptButton = document.querySelector('.accept-cookies');
   const rejectButton = document.querySelector('.reject-cookies');
+});
 
   // Hide preloader after page load
   window.addEventListener('load', function() {
@@ -1566,16 +1561,17 @@ iframe {
     // Add event listeners to buttons
     acceptButton.addEventListener('click', function() {
       handleConsent('accepted');
+      cookieConsent.remove();
     });
 
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
+      cookieConsent.remove();
     });
   } else {
     // Hide consent if localStorage is not available
     cookieConsent.style.display = 'none';
   }
-});
 
 </script>
 
@@ -2138,7 +2134,7 @@ iframe {
   bottom: 15px;
   left: 20px;
   width: 300px;
-  height: 250px;
+  height: 300px;
   z-index: 10000;
   border-radius: 1rem;
   margin-bottom: 5rem;
@@ -2175,8 +2171,6 @@ iframe {
 
 .accept-cookies,
 .reject-cookies {
-  width: 26rem;  /* Decrease the button width */
-  height: 3.5rem;  /* Decrease the button height */
   color: white;
   background-color: #A30F17;
   font-size: 12px;
@@ -2195,9 +2189,6 @@ iframe {
   color: white;
 }
 
-.reject-cookies {
-  margin-top: 1rem;
-}
 
 .accept-cookies:hover,
 .reject-cookies:hover {
@@ -3063,16 +3054,15 @@ iframe {
 </div>
 
   <div id="cookie-consent">
-    <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
+    <button onclick="document.getElementById('cookie-consent').remove()"  class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
     <p >We value your privacy</p>
     <p>
-      <br>
       We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
       By clicking "Accept", you consent to our use of cookies.
         <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
     </p>
-    <button class="accept-cookies">Accept</button>
-    <button class="reject-cookies">Reject</button>
+    <button class="accept-cookies" onclick="document.getElementById('cookie-consent').remove()">Accept</button>
+    <button class="reject-cookies" onclick="document.getElementById('cookie-consent').remove()">Reject</button>
   </div>
   
 
@@ -3084,7 +3074,6 @@ iframe {
   const cookieConsent = document.getElementById('cookie-consent');
   const acceptButton = document.querySelector('.accept-cookies');
   const rejectButton = document.querySelector('.reject-cookies');
-  const closeButton = document.getElementById('closeBtn');
 
 
   // Hide preloader after page load
@@ -3123,15 +3112,12 @@ iframe {
     // Add event listeners to buttons
     acceptButton.addEventListener('click', function() {
       handleConsent('accepted');
+      cookieConsent.remove();
     });
 
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
-    });
-
-    // Add event listener for close button
-    closeButton.addEventListener('click', function() {
-      cookieConsent.style.display = 'none';
+      cookieConsent.remove();
     });
   } else {
     // Hide consent if localStorage is not available
@@ -5495,11 +5481,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-p {
-  font-size: 16px;
-  color: #E91E63;
-  margin-bottom: 30px;
-}
 
 .input-group {
   position: relative;
@@ -5540,7 +5521,6 @@ p {
 }
 
 button {
-  width: 100%;
   padding: 15px;
   background-color: #C2185B;
   color: white;
