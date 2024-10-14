@@ -97,7 +97,7 @@
   <body>
     <div class="form-container">
       <h1>Donate Books to Library</h1>
-      <form id="donationForm">
+      <form id="donationForm" onsubmit="submitForm(event)">
         <div class="form-group">
           <label for="name">Name:</label>
           <input type="text" id="name" name="name" required />
@@ -124,7 +124,7 @@
           </select>
         </div>
         <div class="form-group">
-          <button type="button" onclick="submitForm()">Submit</button>
+          <button type="submit" onclick="submitForm()">Submit</button>
         </div>
       </form>
       <div id="thankYouMessage" class="thank-you-message">
@@ -134,7 +134,8 @@
     </div>
 
     <script>
-      function submitForm() {
+      function submitForm(event) {
+        event.preventDefault();
         // Hide the form
         document.getElementById("donationForm").style.display = "none";
 
