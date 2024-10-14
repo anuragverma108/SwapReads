@@ -285,10 +285,11 @@
         padding: 10px;
         cursor: pointer;
         margin-bottom: 10px;
-        transition: background-color 0.3s;
+        transition: background-color 0.3s ease, transform 0.3s ease;
       }
       .play-pause-btn:hover {
         background-color: #c04848; /* Darker shade on hover */
+        transform: scale(1.1);
       }
       .audio-slider {
         width: 90%;
@@ -304,6 +305,37 @@
       .spotlight-card.playing {
         transform: scale(1.1); /* Zoom effect when playing */
       }
+
+
+.spotlight-card:hover {
+  transform: translateY(-20px); /* Hover lift effect */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.spotlight-card .content {
+  transition: transform 0.3s ease;
+}
+
+.spotlight-card:hover .content {
+  transform: translateY(20px); /* Ensure content moves up within the card */
+}
+
+.spotlight-card .imgBx img {
+  border-radius: 15px 15px 0 0;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.spotlight-card:hover .imgBx img {
+  opacity: 0.9;
+}
+
+.spotlight-card:hover h3,
+.spotlight-card:hover p {
+  color: #ff6347;
+}
 
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
       body {
