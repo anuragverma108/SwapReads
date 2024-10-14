@@ -5807,33 +5807,84 @@ button:focus {
 </script>
 <style>
   
+  .newsletter {
+    background-color: #ffd1d1;
+    padding: 30px;
+    max-width: 400px;
+    margin: auto;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter h1 {
+    color: #c62828;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.newsletter p {
+    color: #8c8c8c;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-group i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #c62828;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px;
+    border: 2px solid #c62828;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    background-color: #ffecec;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #ff6f6f;
+    outline: none;
+}
+
 .subscribe {
-  background-color: #A30F17;
-  color: white; 
-  border: none; 
-  padding: 1rem 2rem; 
-  font-size: 1.6rem; 
-  font-family: Arial, sans-serif;
-  border-radius: 0.5rem; 
-  cursor: pointer; 
-  /*transition: background-color 0.3s, transform 0.2s;*/
+    width: 100%;
+    background-color: #b71c1c;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .subscribe:hover {
-  background: linear-gradient(hwb(357 0% 36%), #d26d6d);
-  transform: scale(1);
+    background-color: #ff6f6f;
 }
-       subscribe:active {
-        transform: scale(0.98);
-       }
-       subscribe:focus {
-        outline: none;
-       }
-        
-        .newsletter:hover {
-  background: linear-gradient(hwb(357 68% 7%), #d26d6d);
-  
+
+.success-message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #388e3c;
+    display: none;
 }
+
+@media (max-width: 500px) {
+    .newsletter {
+        padding: 20px;
+    }
 </style>
         
 <!--<script>
@@ -5854,20 +5905,44 @@ button:focus {
 
     return false; 
 }
+
+function showSuccessMessage() {
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    
+    if (name && email) {
+        document.getElementById('successmessage').style.display = 'block';
+        document.getElementById('newsform').reset();
+        return false;  // Prevent form submission for demo purposes
+    }
+}
+
 </script>-->
 
-  <div class="newsletter">
-        <h1>Subscribe to Our Newsletter</h1>
-        <p>Stay updated with our latest news and offers</p>
-        
-        <form id="newsform" onsubmit="return showSuccessMessage();">
-            <input type="text" id="name" placeholder="Your Name" required required pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> 
+
+<div class="newsletter">
+    <h1>Subscribe to Our Newsletter</h1>
+    <p>Stay updated with our latest news and offers</p>
+    
+    <form id="newsform" onsubmit="return showSuccessMessage();">
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="name" placeholder="Your Name" required pattern="[a-zA-Z ]+" 
+            oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
             oninput="this.setCustomValidity('')">
+        </div>
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
             <input type="email" id="email" placeholder="Your Email Address" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
-        </form>
-        <div id="successmessage" style="display: none;">Thank you for subscribing!</div>
-    </div>
+        </div>
+        <button type="submit" class="subscribe" id="subs">Subscribe</button>
+    </form>
+    <div id="successmessage" class="success-message" style="display: none;">Thank you for subscribing!</div>
+</div>
+
+
+
 
         <div class="icons">
           <!-- Discord icon -->
