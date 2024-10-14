@@ -574,25 +574,30 @@
     #cookie-consent {
   position: fixed;
   background-color: #f1f1f1;
-  padding: 10px 15px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   bottom: 15px;
   left: 20px;
   width: 300px;
   height: 250px;
   z-index: 10000;
-  border-radius: 1rem;
-  margin-bottom: 5rem;
-  margin: 2rem;
+  border-radius: 20px; /* Rounded instead of a circle */
+  margin: 2rem;  /* Removes conflicting margin-bottom */
   border-right: 0.4rem solid transparent;
   border-bottom: 0.4rem solid transparent;
   transition: border-color 0.3s;
   font-size: 12px;
 }
-    
 
+.close-btn {
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 100%;
+}
 
 #cookie-consent:hover {
   border-right-color: #A30F17;
@@ -600,41 +605,42 @@
 }
 
 #cookie-consent p {
-  color: rgb(78, 7, 7);  /* Make the text black for better visibility */
-  margin: 10px opx;  /* Center align the text */
+  font-size: 10px;
+  color: rgb(78, 7, 7);
+  margin: 10px 0px;  /* Fixed typo */
 }
 
-#cookie-container a {
-    color: rgb(78, 7, 7);
-    text-decoration: none;
+#cookie-consent a {
+  color: rgb(78, 7, 7);
+  text-decoration: none;
 }
 
 #cookie-consent button {
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    font-size: 13px;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
 }
 
 .accept-cookies,
 .reject-cookies {
-  width: 26rem;  /* Decrease the button width */
-  height: 3.5rem;  /* Decrease the button height */
+  width: auto;  /* Auto width for responsiveness */
+  height: auto; /* Auto height */
+  padding: 10px 20px;
   color: white;
   background-color: #A30F17;
   font-size: 12px;
   border: none;
-  border-radius: 0.5rem;  /* Add rounded corners */
+  border-radius: 0.5rem;
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;  /* Smooth transition for effects */
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
 }
 
-.dark-mode #cookie-consent{
+.dark-mode #cookie-consent {
   background-color: #252423;
 }
 
-
-.dark-mode #cookie-consent p{
+.dark-mode #cookie-consent p {
   color: white;
 }
 
@@ -645,7 +651,7 @@
 .accept-cookies:hover,
 .reject-cookies:hover {
   transform: scale(0.95);
-  box-shadow: 0 0 1.5rem rgb(249, 212, 212);  /* Reduce the shadow size */
+  box-shadow: 0 0 1.5rem rgb(249, 212, 212);
 }
 
 .accept-cookies:hover {
@@ -660,12 +666,13 @@
 
 #cookie-content {
   display: none;
-  margin-top: 1rem;
+  margin: 1em;
 }
-
 
 #back-to-top-container {
   position: fixed;
+  bottom: 20px;
+  right: 20px;
 }
 
 
@@ -1524,20 +1531,11 @@ iframe {
 <script>
 
 
-
-  document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
   const cookieConsent = document.getElementById('cookie-consent');
+  const btn = document.querySelector('.close-btn');
   const acceptButton = document.querySelector('.accept-cookies');
   const rejectButton = document.querySelector('.reject-cookies');
-
-  // Hide preloader after page load
-  window.addEventListener('load', function() {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-      preloader.style.display = 'none';
-    }
-    cookieConsent.style.display = 'block';
-  });
 
   // Check if localStorage is available
   function localStorageAvailable() {
@@ -1553,7 +1551,14 @@ iframe {
 
   if (localStorageAvailable()) {
     // Check if the user has already made a choice
-    if (localStorage.getItem('cookieConsent')) {
+    const consentChoice = localStorage.getItem('cookieConsent');
+    
+    if (!consentChoice) {
+      // Only show cookie consent if no prior choice is made
+      window.addEventListener('load', function() {
+        cookieConsent.style.display = 'block';
+      });
+    } else {
       cookieConsent.style.display = 'none';
     }
 
@@ -1571,6 +1576,12 @@ iframe {
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
     });
+    
+    // Close button event listener
+    btn.addEventListener('click', function() {
+      cookieConsent.style.display = 'none';
+    });
+
   } else {
     // Hide consent if localStorage is not available
     cookieConsent.style.display = 'none';
