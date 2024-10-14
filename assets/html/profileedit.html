@@ -370,6 +370,18 @@
             return re.test(email);
         }
 
+
+        /**
+         * Ensures that the phone number input field never exceeds 10 digits
+         * @param {HTMLInputElement} input The phone number input field
+         */
+         function validatePhoneInput(input) {
+            input.value = input.value.replace(/\D/g, '');
+            if (input.value.length > 10) {
+                input.value = input.value.substring(0, 10);
+            }
+        }
+        
         document.addEventListener("DOMContentLoaded", () => {
             const savedAvatar = localStorage.getItem("selectedAvatar");
             if (savedAvatar) {
@@ -393,6 +405,13 @@
             if (savedPhone) {
                 document.getElementById("phoneInput").value = savedPhone;
             }
+
+            // a JavaScript function to handle input validation
+
+            const phoneInput = document.getElementById("phoneInput");
+            phoneInput.addEventListener('input', function () {
+                validatePhoneInput(this);
+            });
         });
     </script>
 </body>
