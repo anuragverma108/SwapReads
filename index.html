@@ -13,7 +13,7 @@
         scrollbar-color: #888 #f1f1f1;
         cursor: default; /* Show default cursor */
     }
- 
+
     body::-webkit-scrollbar {
       width: 12px;
     }
@@ -142,7 +142,11 @@
     
 
     /* Position the toggle button to the right */
-    
+    .switch-container {
+      position: absolute;
+      right: 10rem; /* Adjust this value to move the button more to the right */
+      top: 1.5rem; /* Adjust this value to move the button vertically */
+    }
 
     /* For responsiveness */
     @media (max-width: 99rem) {
@@ -578,7 +582,7 @@
   bottom: 15px;
   left: 20px;
   width: 300px;
-  height: 300px;
+  height: 250px;
   z-index: 10000;
   border-radius: 1rem;
   margin-bottom: 5rem;
@@ -615,6 +619,8 @@
 
 .accept-cookies,
 .reject-cookies {
+  width: 26rem;  /* Decrease the button width */
+  height: 3.5rem;  /* Decrease the button height */
   color: white;
   background-color: #A30F17;
   font-size: 12px;
@@ -631,6 +637,10 @@
 
 .dark-mode #cookie-consent p{
   color: white;
+}
+
+.reject-cookies {
+  margin-top: 1rem;
 }
 
 .accept-cookies:hover,
@@ -1039,15 +1049,15 @@
  
 .contact-form input,
   .contact-form textarea {
-
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
     border:  1px solid #ffcfcf;
     border-radius: 5px;
     font-size: 14px;
-
   }
+
+ 
 
   .contact:hover {
     transform: scale(1.02); /* Slightly enlarge on hover */
@@ -1476,7 +1486,7 @@ iframe {
 </div>
 
   <div id="cookie-consent">
-    <button onclick="document.getElementById('cookie-consent').remove()" class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
+    <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
     <p >We value your privacy</p>
     <p>
       <br>
@@ -1484,8 +1494,8 @@ iframe {
       By clicking "Accept", you consent to our use of cookies.
         <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
     </p>
-    <button class="accept-cookies" onclick="document.getElementById('cookie-consent').remove()">Accept</button>
-    <button class="reject-cookies" onclick="document.getElementById('cookie-consent').remove()">Reject</button>
+    <button class="accept-cookies">Accept</button>
+    <button class="reject-cookies">Reject</button>
   </div>
 
   <script src="script.js"></script>
@@ -1498,7 +1508,6 @@ iframe {
   const cookieConsent = document.getElementById('cookie-consent');
   const acceptButton = document.querySelector('.accept-cookies');
   const rejectButton = document.querySelector('.reject-cookies');
-});
 
   // Hide preloader after page load
   window.addEventListener('load', function() {
@@ -1536,17 +1545,16 @@ iframe {
     // Add event listeners to buttons
     acceptButton.addEventListener('click', function() {
       handleConsent('accepted');
-      cookieConsent.remove();
     });
 
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
-      cookieConsent.remove();
     });
   } else {
     // Hide consent if localStorage is not available
     cookieConsent.style.display = 'none';
   }
+});
 
 </script>
 
@@ -1670,7 +1678,12 @@ iframe {
     
 
     /* Position the toggle button to the right */
-    
+    .switch-container {
+      position: absolute;
+      right: 10rem; /* Adjust this value to move the button more to the right */
+      top: 1.5rem; /* Adjust this value to move the button vertically */
+    }
+
     /* For responsiveness */
     @media (max-width: 99rem) {
       .switch-container {
@@ -2105,7 +2118,7 @@ iframe {
   bottom: 15px;
   left: 20px;
   width: 300px;
-  height: 300px;
+  height: 250px;
   z-index: 10000;
   border-radius: 1rem;
   margin-bottom: 5rem;
@@ -2142,6 +2155,8 @@ iframe {
 
 .accept-cookies,
 .reject-cookies {
+  width: 26rem;  /* Decrease the button width */
+  height: 3.5rem;  /* Decrease the button height */
   color: white;
   background-color: #A30F17;
   font-size: 12px;
@@ -2160,6 +2175,9 @@ iframe {
   color: white;
 }
 
+.reject-cookies {
+  margin-top: 1rem;
+}
 
 .accept-cookies:hover,
 .reject-cookies:hover {
@@ -2255,7 +2273,9 @@ iframe {
     .vis-h{
         opacity: 0;
     }
-    
+    .switch-container {
+      right: 7rem !important;
+    }
 }
 @media only screen and (max-width:990px){
   .header{
@@ -3023,15 +3043,16 @@ iframe {
 </div>
 
   <div id="cookie-consent">
-    <button onclick="document.getElementById('cookie-consent').remove()"  class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
+    <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
     <p >We value your privacy</p>
     <p>
+      <br>
       We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
       By clicking "Accept", you consent to our use of cookies.
         <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
     </p>
-    <button class="accept-cookies" onclick="document.getElementById('cookie-consent').remove()">Accept</button>
-    <button class="reject-cookies" onclick="document.getElementById('cookie-consent').remove()">Reject</button>
+    <button class="accept-cookies">Accept</button>
+    <button class="reject-cookies">Reject</button>
   </div>
   
 
@@ -3043,6 +3064,7 @@ iframe {
   const cookieConsent = document.getElementById('cookie-consent');
   const acceptButton = document.querySelector('.accept-cookies');
   const rejectButton = document.querySelector('.reject-cookies');
+  const closeButton = document.getElementById('closeBtn');
 
 
   // Hide preloader after page load
@@ -3081,12 +3103,15 @@ iframe {
     // Add event listeners to buttons
     acceptButton.addEventListener('click', function() {
       handleConsent('accepted');
-      cookieConsent.remove();
     });
 
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
-      cookieConsent.remove();
+    });
+
+    // Add event listener for close button
+    closeButton.addEventListener('click', function() {
+      cookieConsent.style.display = 'none';
     });
   } else {
     // Hide consent if localStorage is not available
@@ -3147,12 +3172,12 @@ iframe {
             <a href="comsp.html" class="navbar-link">Community Spotlight</a>
           </li>
 
-          <li class="navbar-item" >
+          <li class="navbar-item">
               <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" data-nav-link>
-               Audio<br> Books
+                  <i class="ri-bar-chart-fill"></i> Audio<br> Books
               </a>
           </li>
-          
+            
           <li>
           <div class="action">
             <div class="profile" onclick="menuToggle();">
@@ -3160,7 +3185,6 @@ iframe {
             </div>
             <div class="menu">
               <h3>XYZ<br /><span>Book Lover</span></h3>
-          
               <ul>
                 <li>
                   <img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a>
@@ -3233,19 +3257,6 @@ iframe {
 </div>
 
 <script src="../../logout.js"></script>
-
-<li style="margin-left: 50px;" >
-  <div class="switch-container"  >
-    <input type="checkbox" id="switch" class="switch-checkbox">
-    <label for="switch" class="switch-label">
-      <div class="switch-button">
-        <span class="material-icons sun-icon">wb_sunny  </span>
-        <span class="material-icons moon-icon">brightness_2</span>
-      </div>
-    </label>
-  </div>
-</div>
-</li>
 
           <!-- Google Translate Element -->
           <!-- <li class="navbar-item">
@@ -3346,7 +3357,16 @@ iframe {
 
   window.addEventListener("scroll", onScroll);
 </script>
-
+      <div class="switch-container" style="top: 1.5rem;">
+        <input type="checkbox" id="switch" class="switch-checkbox">
+        <label for="switch" class="switch-label">
+          <div class="switch-button">
+            <span class="material-icons sun-icon">wb_sunny  </span>
+            <span class="material-icons moon-icon">brightness_2</span>
+          </div>
+        </label>
+      </div>
+    </div>
     </div>
   </header>
   <link rel="stylesheet" href="assets/css/refresher.css">
@@ -3413,41 +3433,7 @@ iframe {
         </div>
       </section>
 
-<style>
-  .hero-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.play-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px; /* Space between icon and text */
-  padding: 10px 20px;
-  background-color: #fff;
-  border: none;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.play-btn ion-icon {
-  font-size: 24px;
-  color: #333;
-}
-
-.play-btn h2 {
-  margin: 0;
-  font-size: 18px;
-}
-.play-btn h2:hover{
-  color: #fff;
-}
-
-  </style>
 
 
 
@@ -4884,7 +4870,7 @@ iframe {
   <br>
   <div class="container">
     <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; padding-bottom: 1rem; height: auto; ">
-          <img src="./assets/images/images/lib.jpg" alt="Library Image" style="display: block; width: 100%; height: 225.5px; border-radius: 1rem 1rem 0 0;">
+          <img src="./assets/images/images/lib.jpg" alt="Library Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Library</h3>
               <p class="card-text" style="font-style: italic;">Donate your books to local libraries and help foster a love for reading in your community.</p>
@@ -4894,7 +4880,7 @@ iframe {
           </div>
       </div>
       <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; height: auto;">
-          <img src="./assets/images/images/sc.jpg" alt="School Image" style="display: block; width: 100%; height: 225.5px; border-radius: 1rem 1rem 0 0;">
+          <img src="./assets/images/images/sc.jpg" alt="School Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Schools</h3>
               <p class="card-text" style="font-style: italic;">Support children's education by donating books to nearby schools for students of all ages.</p>
@@ -4904,7 +4890,7 @@ iframe {
           </div>
       </div>
       <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; height: auto;">
-          <img src="./assets/images/images/ngo.jpeg" alt="Organization Image" style="display: block; width: 100%; height: 225.px; border-radius: 1rem 1rem 0 0;">
+          <img src="./assets/images/images/ngo.jpeg" alt="Organization Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Organizations</h3>
               <p class="card-text" style="font-style: italic;">Help NGOs and other organizations by donating books to support their educational programs.</p>
@@ -5084,17 +5070,17 @@ iframe {
     <div class="contact" >
       <div class="contact-container">
         <form class="contact-form" id="contactForm" style=" width: 500px;">
-          <label for="name">Name</label>
+          <label for="name" class="label">Name</label>
           <input type="text" id="name" name="name" placeholder="Your Name" required required pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
           oninput="this.setCustomValidity('')">
 
-          <label for="email">Email</label>
+          <label for="email" class="label">Email</label>
           <input type="email" id="email" name="email" placeholder="your-email@example.com" required>
 
-          <label for="subject">Subject</label>
+          <label for="subject" class="label">Subject</label>
           <input type="text" id="subject" name="subject" placeholder="Subject" required>
 
-          <label for="message">Message</label>
+          <label for="message" class="label">Message</label>
           <textarea id="message" name="message" placeholder="Your Message" required></textarea>
 
           <button type="submit">Send Message</button>
@@ -5489,6 +5475,11 @@ h2 {
   margin-bottom: 10px;
 }
 
+p {
+  font-size: 16px;
+  color: #E91E63;
+  margin-bottom: 30px;
+}
 
 .input-group {
   position: relative;
@@ -5529,6 +5520,7 @@ h2 {
 }
 
 button {
+  width: 100%;
   padding: 15px;
   background-color: #C2185B;
   color: white;
