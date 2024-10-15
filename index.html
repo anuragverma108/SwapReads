@@ -13,7 +13,7 @@
         scrollbar-color: #888 #f1f1f1;
         cursor: default; /* Show default cursor */
     }
-
+ 
     body::-webkit-scrollbar {
       width: 12px;
     }
@@ -577,7 +577,7 @@
   bottom: 15px;
   left: 20px;
   width: 300px;
-  height: 250px;
+  height: 300px;
   z-index: 10000;
   border-radius: 1rem;
   margin-bottom: 5rem;
@@ -614,8 +614,6 @@
 
 .accept-cookies,
 .reject-cookies {
-  width: 26rem;  /* Decrease the button width */
-  height: 3.5rem;  /* Decrease the button height */
   color: white;
   background-color: #A30F17;
   font-size: 12px;
@@ -632,10 +630,6 @@
 
 .dark-mode #cookie-consent p{
   color: white;
-}
-
-.reject-cookies {
-  margin-top: 1rem;
 }
 
 .accept-cookies:hover,
@@ -1503,7 +1497,7 @@ iframe {
 </div>
 
   <div id="cookie-consent">
-    <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
+    <button onclick="document.getElementById('cookie-consent').remove()" class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
     <p >We value your privacy</p>
     <p>
       <br>
@@ -1511,8 +1505,8 @@ iframe {
       By clicking "Accept", you consent to our use of cookies.
         <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
     </p>
-    <button class="accept-cookies">Accept</button>
-    <button class="reject-cookies">Reject</button>
+    <button class="accept-cookies" onclick="document.getElementById('cookie-consent').remove()">Accept</button>
+    <button class="reject-cookies" onclick="document.getElementById('cookie-consent').remove()">Reject</button>
   </div>
 
   <script src="script.js"></script>
@@ -1525,6 +1519,7 @@ iframe {
   const cookieConsent = document.getElementById('cookie-consent');
   const acceptButton = document.querySelector('.accept-cookies');
   const rejectButton = document.querySelector('.reject-cookies');
+});
 
   // Hide preloader after page load
   window.addEventListener('load', function() {
@@ -1562,16 +1557,17 @@ iframe {
     // Add event listeners to buttons
     acceptButton.addEventListener('click', function() {
       handleConsent('accepted');
+      cookieConsent.remove();
     });
 
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
+      cookieConsent.remove();
     });
   } else {
     // Hide consent if localStorage is not available
     cookieConsent.style.display = 'none';
   }
-});
 
 </script>
 
@@ -2129,7 +2125,7 @@ iframe {
   bottom: 15px;
   left: 20px;
   width: 300px;
-  height: 250px;
+  height: 300px;
   z-index: 10000;
   border-radius: 1rem;
   margin-bottom: 5rem;
@@ -2166,8 +2162,6 @@ iframe {
 
 .accept-cookies,
 .reject-cookies {
-  width: 26rem;  /* Decrease the button width */
-  height: 3.5rem;  /* Decrease the button height */
   color: white;
   background-color: #A30F17;
   font-size: 12px;
@@ -2186,9 +2180,6 @@ iframe {
   color: white;
 }
 
-.reject-cookies {
-  margin-top: 1rem;
-}
 
 .accept-cookies:hover,
 .reject-cookies:hover {
@@ -3052,16 +3043,15 @@ iframe {
 </div>
 
   <div id="cookie-consent">
-    <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
+    <button onclick="document.getElementById('cookie-consent').remove()"  class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
     <p >We value your privacy</p>
     <p>
-      <br>
       We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
       By clicking "Accept", you consent to our use of cookies.
         <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
     </p>
-    <button class="accept-cookies">Accept</button>
-    <button class="reject-cookies">Reject</button>
+    <button class="accept-cookies" onclick="document.getElementById('cookie-consent').remove()">Accept</button>
+    <button class="reject-cookies" onclick="document.getElementById('cookie-consent').remove()">Reject</button>
   </div>
   
 
@@ -3073,7 +3063,6 @@ iframe {
   const cookieConsent = document.getElementById('cookie-consent');
   const acceptButton = document.querySelector('.accept-cookies');
   const rejectButton = document.querySelector('.reject-cookies');
-  const closeButton = document.getElementById('closeBtn');
 
 
   // Hide preloader after page load
@@ -3112,15 +3101,12 @@ iframe {
     // Add event listeners to buttons
     acceptButton.addEventListener('click', function() {
       handleConsent('accepted');
+      cookieConsent.remove();
     });
 
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
-    });
-
-    // Add event listener for close button
-    closeButton.addEventListener('click', function() {
-      cookieConsent.style.display = 'none';
+      cookieConsent.remove();
     });
   } else {
     // Hide consent if localStorage is not available
@@ -3447,7 +3433,41 @@ iframe {
         </div>
       </section>
 
+<style>
+  .hero-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.play-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  padding: 10px 20px;
+  background-color: #fff;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.play-btn ion-icon {
+  font-size: 24px;
+  color: #333;
+}
+
+.play-btn h2 {
+  margin: 0;
+  font-size: 18px;
+}
+.play-btn h2:hover{
+  color: #fff;
+}
+
+  </style>
 
 
 
@@ -4884,7 +4904,7 @@ iframe {
   <br>
   <div class="container">
     <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; padding-bottom: 1rem; height: auto; ">
-          <img src="./assets/images/images/lib.jpg" alt="Library Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
+          <img src="./assets/images/images/lib.jpg" alt="Library Image" style="display: block; width: 100%; height: 225.5px; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Library</h3>
               <p class="card-text" style="font-style: italic;">Donate your books to local libraries and help foster a love for reading in your community.</p>
@@ -4894,7 +4914,7 @@ iframe {
           </div>
       </div>
       <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; height: auto;">
-          <img src="./assets/images/images/sc.jpg" alt="School Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
+          <img src="./assets/images/images/sc.jpg" alt="School Image" style="display: block; width: 100%; height: 225.5px; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Schools</h3>
               <p class="card-text" style="font-style: italic;">Support children's education by donating books to nearby schools for students of all ages.</p>
@@ -4904,7 +4924,7 @@ iframe {
           </div>
       </div>
       <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; height: auto;">
-          <img src="./assets/images/images/ngo.jpeg" alt="Organization Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
+          <img src="./assets/images/images/ngo.jpeg" alt="Organization Image" style="display: block; width: 100%; height: 225.px; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Organizations</h3>
               <p class="card-text" style="font-style: italic;">Help NGOs and other organizations by donating books to support their educational programs.</p>
@@ -5489,11 +5509,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-p {
-  font-size: 16px;
-  color: #E91E63;
-  margin-bottom: 30px;
-}
 
 .input-group {
   position: relative;
@@ -5534,7 +5549,6 @@ p {
 }
 
 button {
-  width: 100%;
   padding: 15px;
   background-color: #C2185B;
   color: white;
@@ -5801,33 +5815,84 @@ button:focus {
 </script>
 <style>
   
+  .newsletter {
+    background-color: #ffd1d1;
+    padding: 30px;
+    max-width: 400px;
+    margin: auto;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter h1 {
+    color: #c62828;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.newsletter p {
+    color: #8c8c8c;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-group i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #c62828;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px;
+    border: 2px solid #c62828;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    background-color: #ffecec;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #ff6f6f;
+    outline: none;
+}
+
 .subscribe {
-  background-color: #A30F17;
-  color: white; 
-  border: none; 
-  padding: 1rem 2rem; 
-  font-size: 1.6rem; 
-  font-family: Arial, sans-serif;
-  border-radius: 0.5rem; 
-  cursor: pointer; 
-  /*transition: background-color 0.3s, transform 0.2s;*/
+    width: 100%;
+    background-color: #b71c1c;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .subscribe:hover {
-  background: linear-gradient(hwb(357 0% 36%), #d26d6d);
-  transform: scale(1);
+    background-color: #ff6f6f;
 }
-       subscribe:active {
-        transform: scale(0.98);
-       }
-       subscribe:focus {
-        outline: none;
-       }
-        
-        .newsletter:hover {
-  background: linear-gradient(hwb(357 68% 7%), #d26d6d);
-  
+
+.success-message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #388e3c;
+    display: none;
 }
+
+@media (max-width: 500px) {
+    .newsletter {
+        padding: 20px;
+    }
 </style>
         
 <!--<script>
@@ -5848,20 +5913,46 @@ button:focus {
 
     return false; 
 }
+
+function showSuccessMessage() {
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    
+    if (name && email) {
+        document.getElementById('successmessage').style.display = 'block';
+        document.getElementById('newsform').reset();
+        return false;  // Prevent form submission for demo purposes
+    }
+}
+
 </script>-->
 
-  <div class="newsletter " style="margin-right:100px ;">
-        <h1>Subscribe to Our Newsletter</h1>
-        <p>Stay updated with our latest news and offers</p>
-        
-        <form id="newsform" onsubmit="return showSuccessMessage();">
-            <input type="text" id="name" placeholder="Your Name" required required pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> 
+
+<div class="newsletter" style="margin-right:100px ;">
+    <h1>Subscribe to Our Newsletter</h1>
+    <p>Stay updated with our latest news and offers</p>
+    
+    <form id="newsform" onsubmit="return showSuccessMessage();">
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="name" placeholder="Your Name" required pattern="[a-zA-Z ]+" 
+            oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
+
             oninput="this.setCustomValidity('')">
+        </div>
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
             <input type="email" id="email" placeholder="Your Email Address" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
-        </form>
-        <div id="successmessage" style="display: none;">Thank you for subscribing!</div>
-    </div>
+        </div>
+        <button type="submit" class="subscribe" id="subs">Subscribe</button>
+    </form>
+    <div id="successmessage" class="success-message" style="display: none;">Thank you for subscribing!</div>
+</div>
+
+
+
 
         
         

@@ -23,6 +23,62 @@ import {getDatabase,set,ref,get,child} from 'https://www.gstatic.com/firebasejs/
 //   measurementId: 'G-L3PPD58MZ8',
 // };
 
+
+// List of allowed email domains
+const allowedDomains = ['gmail.com', 'outlook.com', 'yahoo.com', 'hotmail.com']; // Add more reputable domains as needed
+
+// Register event
+const registerForm = document.getElementById('registerForm');
+registerForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+
+    // Extract domain from email
+    const emailDomain = email.split('@')[1];
+
+    // Check if email domain is allowed
+    if (!allowedDomains.includes(emailDomain)) {
+        alert('Please use an email from a reputable provider (Gmail, Outlook, Yahoo, etc.)');
+        return; // Prevent form submission
+    }
+
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        // Send email verification
+        await sendEmailVerification(user);
+        alert('Something is worng! 204')
+
+        // Set a timeout for checking email verification
+        setTimeout(async () => {
+            await reload(user);
+            if (!user.emailVerified) {
+                await deleteUser(user)
+                    .then(() => {
+                        alert('Account deleted due to unverified email.');
+                        location.reload(); // Reload the page after deletion
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        alert(errorMessage);
+                        location.reload(); // Reload the page on error
+                    });
+            }
+        }, 30000); // 30 seconds
+
+    } catch (error) {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+        location.reload(); // Reload the page on error
+    }
+});
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyAIDh842xGC_NZj6pMcB9THjNQ1DyUVnZU",
   authDomain: "swapreads-c7d1d.firebaseapp.com",
