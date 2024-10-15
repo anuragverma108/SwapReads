@@ -13,7 +13,7 @@
         scrollbar-color: #888 #f1f1f1;
         cursor: default; /* Show default cursor */
     }
- 
+
     body::-webkit-scrollbar {
       width: 12px;
     }
@@ -48,13 +48,13 @@
    
 }
 </style>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     (function () {
       emailjs.init({
         publicKey: "Your_Public_key",
       });
     })();
-  </script>
+  </script> -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
@@ -99,10 +99,11 @@
   <script src="./assets/js/faq.js"></script>
   <script src="./assets/js/tilt.js"></script>
   <script src="./assets/js/scroll.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <link rel="stylesheet" href="./scrollbar.css">
-  <script type="text/javascript"
+  <!-- <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
+  </script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="modals(privacy policy).css">
 
@@ -141,7 +142,11 @@
     
 
     /* Position the toggle button to the right */
-    
+    .switch-container {
+      position: absolute;
+      right: 10rem; /* Adjust this value to move the button more to the right */
+      top: 1.5rem; /* Adjust this value to move the button vertically */
+    }
 
     /* For responsiveness */
     @media (max-width: 99rem) {
@@ -577,7 +582,7 @@
   bottom: 15px;
   left: 20px;
   width: 300px;
-  height: 300px;
+  height: 250px;
   z-index: 10000;
   border-radius: 1rem;
   margin-bottom: 5rem;
@@ -614,6 +619,8 @@
 
 .accept-cookies,
 .reject-cookies {
+  width: 26rem;  /* Decrease the button width */
+  height: 3.5rem;  /* Decrease the button height */
   color: white;
   background-color: #A30F17;
   font-size: 12px;
@@ -630,6 +637,10 @@
 
 .dark-mode #cookie-consent p{
   color: white;
+}
+
+.reject-cookies {
+  margin-top: 1rem;
 }
 
 .accept-cookies:hover,
@@ -917,6 +928,7 @@
     border-radius: 0.5rem; 
     outline: none; 
     transition: border-color 0.3s ease; 
+    margin-top: 2px;
 }
 
 /* Hover effect to change the border color */
@@ -954,6 +966,7 @@
   border-radius: 0.5rem; 
   outline: none; 
   transition: border-color 0.3s ease; 
+  
 }
 
 /* Hover effect to change the border color */
@@ -1038,15 +1051,15 @@
  
 .contact-form input,
   .contact-form textarea {
-
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
     border:  1px solid #ffcfcf;
     border-radius: 5px;
     font-size: 14px;
-
   }
+
+ 
 
   .contact:hover {
     transform: scale(1.02); /* Slightly enlarge on hover */
@@ -1079,55 +1092,33 @@ iframe {
 
 
   </style>
-<script type="text/javascript">
-  emailjs.init("Your_User_ID"); // Replace with your actual EmailJS User ID
+<script>
+  (function() {
+    emailjs.init("iBlg6K0pNW81tPXUQ0Pv0");
+  })();
 
-  // Function to validate email address
-  function isValidEmail(email) {
-      // Simple email validation regex
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!regex.test(email)) {
-          return false;
-      }
+  document.getElementById("newsletterForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-      // Extract domain
-      const domain = email.split('@')[1].toLowerCase();
-      const validDomains = ['gmail.com', 'outlook.com', 'yahoo.com'];
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
 
-      return validDomains.includes(domain);
-  }
+    if (!name || !email) {
+      alert("Please enter both your name and email.");
+      return;
+    }
 
-  document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('subscribeForm').addEventListener('submit', function(event) {
-          event.preventDefault();
-
-          var email = document.getElementById('emailInput').value;
-
-          if (!isValidEmail(email)) {
-              alert('Please enter a valid email address from Gmail, Outlook, or Yahoo.');
-              return;
-          }
-
-          // Prepare the parameters to send
-          var templateParams = {
-              to_email: email, // Set the recipient's email
-              from_name: 'SwapReads', // Replace with your company or your name
-              to_name: 'Subscriber',
-              message: 'Thank you for subscribing to our newsletter!'
-          };
-
-          // Send email
-          emailjs.send('Your_Service_ID', 'Your_Template_ID', templateParams)
-              .then(function(response) {
-                  console.log('Email sent successfully:', response);
-                  alert('Successfully subscribed to our newsletter!');
-                  location.reload(); 
-              }, function(error) {
-                  console.error('Error sending email:', error);
-                  alert('Failed to send email. Please try again later.');
-                  location.reload(); 
-              });
-      });
+    emailjs.send("service_0kn8v47", "template_gc5d7ed", {
+      from_name: name,
+      reply_to: email,
+    })
+    .then(function(response) {
+      alert("Thank you! A confirmation email has been sent.");
+      console.log('Email successfully sent!', response.status, response.text);
+    }, function(error) {
+      alert("Failed to send the email. Please try again.");
+      console.error('Failed to send email:', error);
+    });
   });
 </script>
 <style>
@@ -1507,7 +1498,7 @@ iframe {
 </div>
 
   <div id="cookie-consent">
-    <button onclick="document.getElementById('cookie-consent').remove()" class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
+    <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
     <p >We value your privacy</p>
     <p>
       <br>
@@ -1515,8 +1506,8 @@ iframe {
       By clicking "Accept", you consent to our use of cookies.
         <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
     </p>
-    <button class="accept-cookies" onclick="document.getElementById('cookie-consent').remove()">Accept</button>
-    <button class="reject-cookies" onclick="document.getElementById('cookie-consent').remove()">Reject</button>
+    <button class="accept-cookies">Accept</button>
+    <button class="reject-cookies">Reject</button>
   </div>
 
   <script src="script.js"></script>
@@ -1529,7 +1520,6 @@ iframe {
   const cookieConsent = document.getElementById('cookie-consent');
   const acceptButton = document.querySelector('.accept-cookies');
   const rejectButton = document.querySelector('.reject-cookies');
-});
 
   // Hide preloader after page load
   window.addEventListener('load', function() {
@@ -1567,17 +1557,16 @@ iframe {
     // Add event listeners to buttons
     acceptButton.addEventListener('click', function() {
       handleConsent('accepted');
-      cookieConsent.remove();
     });
 
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
-      cookieConsent.remove();
     });
   } else {
     // Hide consent if localStorage is not available
     cookieConsent.style.display = 'none';
   }
+});
 
 </script>
 
@@ -1604,16 +1593,17 @@ iframe {
     :root {
     --text-color-light: #333; /* Dark text for light mode */
     --text-color-dark: #fff; /* White text for dark mode */
+
    
 }
 </style>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     (function () {
       emailjs.init({
         publicKey: "Your_Public_key",
       });
     })();
-  </script>
+  </script> -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
@@ -1659,9 +1649,9 @@ iframe {
   <script src="./assets/js/tilt.js"></script>
   <script src="./assets/js/scroll.js"></script>
   <link rel="stylesheet" href="./scrollbar.css">
-  <script type="text/javascript"
+  <!-- <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
+  </script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="modals(privacy policy).css">
 
@@ -1678,6 +1668,41 @@ iframe {
   <script src="./script.js"></script>
   
   <style>
+    body {
+    margin: 0;
+    height: 100vh;
+    background-color: #fff; /* White background */
+    overflow-y: scroll; /* Enables vertical scrolling */
+    scrollbar-width: thin;
+    scrollbar-color: linear-gradient(
+      to bottom,
+      hsl(357, 37%, 62%),
+      hsl(304, 14%, 46%)
+    ) var(--grey-white);
+    cursor: default;
+}
+
+    body::-webkit-scrollbar {
+        width: 16px; 
+    }
+
+    body::-webkit-scrollbar-track {
+        background: var(--grey-white); 
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+            to bottom,
+            hsl(357, 37%, 62%),
+            hsl(304, 14%, 46%)
+        ); 
+        border-radius: 10px; /* Keeps the rounded thumb */
+        border: 3px solid var(--grey-white); 
+    }
+
+    body::-webkit-scrollbar-thumb:hover {
+        background: hsl(357, 60%, 45%); 
+    }
     swiper-container {
       width: 100%;
       height: 75%;
@@ -1700,7 +1725,12 @@ iframe {
     
 
     /* Position the toggle button to the right */
-    
+    .switch-container {
+      position: absolute;
+      right: 10rem; /* Adjust this value to move the button more to the right */
+      top: 1.5rem; /* Adjust this value to move the button vertically */
+    }
+
     /* For responsiveness */
     @media (max-width: 99rem) {
       .switch-container {
@@ -2143,7 +2173,7 @@ iframe {
   bottom: 15px;
   left: 20px;
   width: 300px;
-  height: 300px;
+  height: 250px;
   z-index: 10000;
   border-radius: 1rem;
   margin-bottom: 5rem;
@@ -2180,6 +2210,8 @@ iframe {
 
 .accept-cookies,
 .reject-cookies {
+  width: 26rem;  /* Decrease the button width */
+  height: 3.5rem;  /* Decrease the button height */
   color: white;
   background-color: #A30F17;
   font-size: 12px;
@@ -2198,6 +2230,9 @@ iframe {
   color: white;
 }
 
+.reject-cookies {
+  margin-top: 1rem;
+}
 
 .accept-cookies:hover,
 .reject-cookies:hover {
@@ -2293,7 +2328,9 @@ iframe {
     .vis-h{
         opacity: 0;
     }
-    
+    .switch-container {
+      right: 7rem !important;
+    }
 }
 @media only screen and (max-width:990px){
   .header{
@@ -2654,7 +2691,7 @@ iframe {
 
 
   </style>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   emailjs.init("Your_User_ID"); // Replace with your actual EmailJS User ID
 
   // Function to validate email address
@@ -2704,7 +2741,7 @@ iframe {
               });
       });
   });
-</script>
+</script> -->
 <style>
   /* Circle styles */
   .circle {
@@ -3071,15 +3108,16 @@ iframe {
 </div>
 
   <div id="cookie-consent">
-    <button onclick="document.getElementById('cookie-consent').remove()"  class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
+    <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
     <p >We value your privacy</p>
     <p>
+      <br>
       We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
       By clicking "Accept", you consent to our use of cookies.
         <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
     </p>
-    <button class="accept-cookies" onclick="document.getElementById('cookie-consent').remove()">Accept</button>
-    <button class="reject-cookies" onclick="document.getElementById('cookie-consent').remove()">Reject</button>
+    <button class="accept-cookies">Accept</button>
+    <button class="reject-cookies">Reject</button>
   </div>
   
 
@@ -3091,6 +3129,7 @@ iframe {
   const cookieConsent = document.getElementById('cookie-consent');
   const acceptButton = document.querySelector('.accept-cookies');
   const rejectButton = document.querySelector('.reject-cookies');
+  const closeButton = document.getElementById('closeBtn');
 
 
   // Hide preloader after page load
@@ -3129,12 +3168,15 @@ iframe {
     // Add event listeners to buttons
     acceptButton.addEventListener('click', function() {
       handleConsent('accepted');
-      cookieConsent.remove();
     });
 
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
-      cookieConsent.remove();
+    });
+
+    // Add event listener for close button
+    closeButton.addEventListener('click', function() {
+      cookieConsent.style.display = 'none';
     });
   } else {
     // Hide consent if localStorage is not available
@@ -3195,12 +3237,12 @@ iframe {
             <a href="comsp.html" class="navbar-link">Community Spotlight</a>
           </li>
 
-          <li class="navbar-item" >
+          <li class="navbar-item">
               <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" data-nav-link>
-               Audio<br> Books
+                  <i class="ri-bar-chart-fill"></i> Audio<br> Books
               </a>
           </li>
-          
+            
           <li>
           <div class="action">
             <div class="profile" onclick="menuToggle();">
@@ -3208,7 +3250,6 @@ iframe {
             </div>
             <div class="menu">
               <h3>XYZ<br /><span>Book Lover</span></h3>
-          
               <ul>
                 <li>
                   <img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a>
@@ -3281,19 +3322,6 @@ iframe {
 </div>
 
 <script src="../../logout.js"></script>
-
-<li style="margin-left: 50px;" >
-  <div class="switch-container"  >
-    <input type="checkbox" id="switch" class="switch-checkbox">
-    <label for="switch" class="switch-label">
-      <div class="switch-button">
-        <span class="material-icons sun-icon">wb_sunny  </span>
-        <span class="material-icons moon-icon">brightness_2</span>
-      </div>
-    </label>
-  </div>
-</div>
-</li>
 
           <!-- Google Translate Element -->
           <!-- <li class="navbar-item">
@@ -3394,7 +3422,16 @@ iframe {
 
   window.addEventListener("scroll", onScroll);
 </script>
-
+      <div class="switch-container" style="top: 1.5rem;">
+        <input type="checkbox" id="switch" class="switch-checkbox">
+        <label for="switch" class="switch-label">
+          <div class="switch-button">
+            <span class="material-icons sun-icon">wb_sunny  </span>
+            <span class="material-icons moon-icon">brightness_2</span>
+          </div>
+        </label>
+      </div>
+    </div>
     </div>
   </header>
   <link rel="stylesheet" href="assets/css/refresher.css">
@@ -3461,41 +3498,7 @@ iframe {
         </div>
       </section>
 
-<style>
-  .hero-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.play-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px; /* Space between icon and text */
-  padding: 10px 20px;
-  background-color: #fff;
-  border: none;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.play-btn ion-icon {
-  font-size: 24px;
-  color: #333;
-}
-
-.play-btn h2 {
-  margin: 0;
-  font-size: 18px;
-}
-.play-btn h2:hover{
-  color: #fff;
-}
-
-  </style>
 
 
 
@@ -4932,7 +4935,7 @@ iframe {
   <br>
   <div class="container">
     <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; padding-bottom: 1rem; height: auto; ">
-          <img src="./assets/images/images/lib.jpg" alt="Library Image" style="display: block; width: 100%; height: 225.5px; border-radius: 1rem 1rem 0 0;">
+          <img src="./assets/images/images/lib.jpg" alt="Library Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Library</h3>
               <p class="card-text" style="font-style: italic;">Donate your books to local libraries and help foster a love for reading in your community.</p>
@@ -4942,7 +4945,7 @@ iframe {
           </div>
       </div>
       <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; height: auto;">
-          <img src="./assets/images/images/sc.jpg" alt="School Image" style="display: block; width: 100%; height: 225.5px; border-radius: 1rem 1rem 0 0;">
+          <img src="./assets/images/images/sc.jpg" alt="School Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Schools</h3>
               <p class="card-text" style="font-style: italic;">Support children's education by donating books to nearby schools for students of all ages.</p>
@@ -4952,7 +4955,7 @@ iframe {
           </div>
       </div>
       <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; height: auto;">
-          <img src="./assets/images/images/ngo.jpeg" alt="Organization Image" style="display: block; width: 100%; height: 225.px; border-radius: 1rem 1rem 0 0;">
+          <img src="./assets/images/images/ngo.jpeg" alt="Organization Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Organizations</h3>
               <p class="card-text" style="font-style: italic;">Help NGOs and other organizations by donating books to support their educational programs.</p>
@@ -5132,17 +5135,17 @@ iframe {
     <div class="contact" >
       <div class="contact-container">
         <form class="contact-form" id="contactForm" style=" width: 500px;">
-          <label for="name">Name</label>
+          <label for="name" class="label">Name</label>
           <input type="text" id="name" name="name" placeholder="Your Name" required required pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
           oninput="this.setCustomValidity('')">
 
-          <label for="email">Email</label>
+          <label for="email" class="label">Email</label>
           <input type="email" id="email" name="email" placeholder="your-email@example.com" required>
 
-          <label for="subject">Subject</label>
+          <label for="subject" class="label">Subject</label>
           <input type="text" id="subject" name="subject" placeholder="Subject" required>
 
-          <label for="message">Message</label>
+          <label for="message" class="label">Message</label>
           <textarea id="message" name="message" placeholder="Your Message" required></textarea>
 
           <button type="submit">Send Message</button>
@@ -5200,7 +5203,7 @@ iframe {
   </div>
 </section>
 
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
 <script>
   document.getElementById("contactForm").addEventListener("submit", function(event) {
   event.preventDefault();
@@ -5537,6 +5540,11 @@ h2 {
   margin-bottom: 10px;
 }
 
+p {
+  font-size: 16px;
+  color: #E91E63;
+  margin-bottom: 30px;
+}
 
 .input-group {
   position: relative;
@@ -5577,6 +5585,7 @@ h2 {
 }
 
 button {
+  width: 100%;
   padding: 15px;
   background-color: #C2185B;
   color: white;
@@ -5649,10 +5658,21 @@ button:focus {
       <i class='bx bx-envelope'></i>
     </div>
     
-    <button type="submit">Subscribe</button>
+    <button type="submit" id="subs">Subscribe</button>
   </form>
 </div>
-
+<style>
+  
+  #name{
+    margin-top: 1.2rem;
+  }
+  #email{
+    margin-top: 1.2rem;
+  }
+  #subs{
+    margin-top: 1.2rem;
+  }
+</style>
    
 
   <script>
@@ -5737,7 +5757,7 @@ button:focus {
           </script>
           <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
           <div>
-            <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
+            <p style="text-align: justify;margin-left: 30px; " class="description">SwapReads.com is the ultimate destination for book
               lovers
               seeking to swap and
 
@@ -5843,6 +5863,7 @@ button:focus {
 </script>
 <style>
   
+FooterIssue
   .subscribe {
   background-color: #A30F17;
   color: white; 
@@ -5867,12 +5888,13 @@ button:focus {
   cursor: pointer; 
   /*transition: background-color 0.3s, transform 0.2s;*/
   margin-top: 5px;
+ main
 }
 
 .subscribe:hover {
-  background: linear-gradient(hwb(357 0% 36%), #d26d6d);
-  transform: scale(1);
+    background-color: #ff6f6f;
 }
+ 
        subscribe:active {
         transform: scale(0.98);
        }
@@ -5881,9 +5903,22 @@ button:focus {
        }
         
         .newsletter:hover {
-  background: linear-gradient(hwb(357 68% 7%), #d26d6d);
+  // background: linear-gradient(hwb(357 68% 7%), #d26d6d);
   
+
+
+.success-message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #388e3c;
+    display: none;
+
 }
+
+@media (max-width: 500px) {
+    .newsletter {
+        padding: 20px;
+    }
 </style>
         
 <!--<script>
@@ -5904,71 +5939,48 @@ button:focus {
 
     return false; 
 }
+
+function showSuccessMessage() {
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    
+    if (name && email) {
+        document.getElementById('successmessage').style.display = 'block';
+        document.getElementById('newsform').reset();
+        return false;  // Prevent form submission for demo purposes
+    }
+}
+
 </script>-->
 
-  <div class="newsletter">
-        <h1>Subscribe to Our Newsletter</h1>
-        <p>Stay updated with our latest news and offers</p>
-        
-        <form id="newsform" onsubmit="return showSuccessMessage();">
-            <input type="text" id="name" placeholder="Your Name" required required pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
-            oninput="this.setCustomValidity('')">
-            <input type="email" id="email" placeholder="Your Email Address" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
-        </form>
-        <div id="successmessage" style="display: none;">Thank you for subscribing!</div>
-    </div>
 
-        <div class="icons">
-          <!-- Discord icon -->
-          <a href="https://www.discord.com/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
-            </div>
-          </a>
-        
-          <!-- LinkedIn icon -->
-          <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-linkedin" title="LinkedIn" style="cursor: pointer;"></i>
-            </div>
-          </a>
-        
-          <!-- Facebook icon -->
-          <a href="https://www.facebook.com/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
-            </div>
-          </a>
-        
-          <!-- X (formerly Twitter) icon -->
-          <a href="https://x.com/anuragverma_108" target="_blank">
-            <div class="icon">
-              <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
-            </div>
-          </a>
-        
-          <!-- Instagram icon -->
-          <a href="https://www.instagram.com/">
-            <div class="icon" id="insta-icon">
-              <i class="fab fa-instagram" title="Instagram" style="cursor: pointer;"></i>
-            </div>
-          </a>
-        
-          <!-- YouTube icon -->
-          <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
-            <div class="icon">
-              <i class="fab fa-youtube" style="cursor: pointer;"></i>
-            </div>
-          </a>
-        
-          <!-- GitHub icon -->
-          <a href="https://github.com/anuragverma108">
-            <div class="icon">
-              <i class="fab fa-github" title="GitHub"></i>
-            </div>
-          </a>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> 
+
+<div class="newsletter" style="margin-right:100px ;">
+    <h1>Subscribe to Our Newsletter</h1>
+    <p>Stay updated with our latest news and offers</p>
+    
+    <form id="newsform" onsubmit="return showSuccessMessage();">
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="name" placeholder="Your Name" required pattern="[a-zA-Z ]+" 
+            oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
+
+            oninput="this.setCustomValidity('')">
         </div>
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" placeholder="Your Email Address" required>
+        </div>
+        <button type="submit" class="subscribe" id="subs">Subscribe</button>
+    </form>
+    <div id="successmessage" class="success-message" style="display: none;">Thank you for subscribing!</div>
+</div>
+
+
+
+
+        
         
        </div>
        <div>
@@ -6162,21 +6174,7 @@ function validateEmail(email_input) {
 
   <script>
 
-    //   function sendMail(){
-    //         let params={
-    //             name:document.getElementById('name').value,
-    //             email:document.getElementById('email').value,
-    //             subject:document.getElementById('subject').value,
-    //             message:document.getElementById('message').value,
-    //             subscribe:document.getElementById('newsletter-email').value
-    //         }
-    //         EmailJSResponseStatus.send("service_lktb68z","template_w79vd94",params,"o6kveYmOSDrs0l1Mg")
-    //         .then(alert('Email sent successfully'))
-    //       }
-
-
-    // document.querySelector('subscribe-btn').addEventListener('submit', sendMail());
-    // Function to toggle dark mode
+  
     function toggleDarkMode() {
       const isDarkMode = isDarkModePreferred();
       setDarkModePreference(!isDarkMode);
@@ -6251,6 +6249,47 @@ function validateEmail(email_input) {
   <script src="./assets/js/scroll-reveal.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+//   <script>
+//   // Initialize EmailJS with your User ID
+//   (function() {
+//     emailjs.init("YOUR_USER_ID");
+//   })();
+
+//   // Handle form submission
+//   document.getElementById("newsletterForm").addEventListener("submit", function(event) {
+//     event.preventDefault(); // Prevent the form from reloading the page
+
+//     // Get the values from the form
+//     const name = document.getElementById("name").value;
+//     const email = document.getElementById("email").value;
+
+//     // Validate if the name and email fields are filled
+//     if (!name || !email) {
+//       alert("Please enter both your name and email.");
+//       return;
+//     }
+
+//     // Call EmailJS to send the email
+//     emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+//       from_name: name,  // Pass the user's name
+//       reply_to: email,  // Pass the user's email
+//     })
+//     .then(function(response) {
+//       // Success handling
+//       alert("Thank you! A confirmation email has been sent.");
+//       console.log('Email successfully sent!', response.status, response.text);
+//     }, function(error) {
+//       // Error handling
+//       alert("Failed to send the email. Please try again.");
+//       console.error('Failed to send email:', error);
+//     });
+//   });
+// </script>
+
+
 
   <!-- Lenis smooth scrolling -->
   <script>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe to Newsletter</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #D4687F; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .subscribe-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .subscribe-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .subscribe-container input[type="email"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .subscribe-container input[type="email"]:focus {
+            border-color: #007BFF;
+        }
+
+        .subscribe-container button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .subscribe-container button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            .subscribe-container {
+                padding: 15px;
+            }
+
+            .subscribe-container input[type="email"],
+            .subscribe-container button {
+                width: 90%;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="subscribe-container">
+        <h2>Subscribe to Newsletter</h2>
+        <input type="email" placeholder="Enter your email address" id="email" required>
+        <br>
+        <button onclick="subscribe()">Subscribe</button>
+    </div>
+
+    <script>
+        function subscribe() {
+            var email = document.getElementById('email').value;
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Check if email is valid
+            if (email.match(emailPattern)) {
+                alert("Thank you for subscribing! A confirmation email has been sent to " + email);
+            } else {
+                alert("Please enter a valid email address.");
+            }
+        }
+    </script>
+</body>
+</html>
