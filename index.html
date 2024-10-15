@@ -48,13 +48,13 @@
    
 }
 </style>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     (function () {
       emailjs.init({
         publicKey: "Your_Public_key",
       });
     })();
-  </script>
+  </script> -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
@@ -99,10 +99,11 @@
   <script src="./assets/js/faq.js"></script>
   <script src="./assets/js/tilt.js"></script>
   <script src="./assets/js/scroll.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <link rel="stylesheet" href="./scrollbar.css">
-  <script type="text/javascript"
+  <!-- <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
+  </script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="modals(privacy policy).css">
 
@@ -1079,55 +1080,33 @@ iframe {
 
 
   </style>
-<script type="text/javascript">
-  emailjs.init("Your_User_ID"); // Replace with your actual EmailJS User ID
+<script>
+  (function() {
+    emailjs.init("iBlg6K0pNW81tPXUQ0Pv0");
+  })();
 
-  // Function to validate email address
-  function isValidEmail(email) {
-      // Simple email validation regex
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!regex.test(email)) {
-          return false;
-      }
+  document.getElementById("newsletterForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-      // Extract domain
-      const domain = email.split('@')[1].toLowerCase();
-      const validDomains = ['gmail.com', 'outlook.com', 'yahoo.com'];
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
 
-      return validDomains.includes(domain);
-  }
+    if (!name || !email) {
+      alert("Please enter both your name and email.");
+      return;
+    }
 
-  document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('subscribeForm').addEventListener('submit', function(event) {
-          event.preventDefault();
-
-          var email = document.getElementById('emailInput').value;
-
-          if (!isValidEmail(email)) {
-              alert('Please enter a valid email address from Gmail, Outlook, or Yahoo.');
-              return;
-          }
-
-          // Prepare the parameters to send
-          var templateParams = {
-              to_email: email, // Set the recipient's email
-              from_name: 'SwapReads', // Replace with your company or your name
-              to_name: 'Subscriber',
-              message: 'Thank you for subscribing to our newsletter!'
-          };
-
-          // Send email
-          emailjs.send('Your_Service_ID', 'Your_Template_ID', templateParams)
-              .then(function(response) {
-                  console.log('Email sent successfully:', response);
-                  alert('Successfully subscribed to our newsletter!');
-                  location.reload(); 
-              }, function(error) {
-                  console.error('Error sending email:', error);
-                  alert('Failed to send email. Please try again later.');
-                  location.reload(); 
-              });
-      });
+    emailjs.send("service_0kn8v47", "template_gc5d7ed", {
+      from_name: name,
+      reply_to: email,
+    })
+    .then(function(response) {
+      alert("Thank you! A confirmation email has been sent.");
+      console.log('Email successfully sent!', response.status, response.text);
+    }, function(error) {
+      alert("Failed to send the email. Please try again.");
+      console.error('Failed to send email:', error);
+    });
   });
 </script>
 <style>
@@ -1594,16 +1573,17 @@ iframe {
     :root {
     --text-color-light: #333; /* Dark text for light mode */
     --text-color-dark: #fff; /* White text for dark mode */
+
    
 }
 </style>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     (function () {
       emailjs.init({
         publicKey: "Your_Public_key",
       });
     })();
-  </script>
+  </script> -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
@@ -1649,9 +1629,9 @@ iframe {
   <script src="./assets/js/tilt.js"></script>
   <script src="./assets/js/scroll.js"></script>
   <link rel="stylesheet" href="./scrollbar.css">
-  <script type="text/javascript"
+  <!-- <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
+  </script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="modals(privacy policy).css">
 
@@ -2626,7 +2606,7 @@ iframe {
 
 
   </style>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   emailjs.init("Your_User_ID"); // Replace with your actual EmailJS User ID
 
   // Function to validate email address
@@ -2676,7 +2656,7 @@ iframe {
               });
       });
   });
-</script>
+</script> -->
 <style>
   /* Circle styles */
   .circle {
@@ -5172,7 +5152,7 @@ iframe {
   </div>
 </section>
 
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
 <script>
   document.getElementById("contactForm").addEventListener("submit", function(event) {
   event.preventDefault();
@@ -6195,21 +6175,7 @@ function validateEmail(email_input) {
 
   <script>
 
-    //   function sendMail(){
-    //         let params={
-    //             name:document.getElementById('name').value,
-    //             email:document.getElementById('email').value,
-    //             subject:document.getElementById('subject').value,
-    //             message:document.getElementById('message').value,
-    //             subscribe:document.getElementById('newsletter-email').value
-    //         }
-    //         EmailJSResponseStatus.send("service_lktb68z","template_w79vd94",params,"o6kveYmOSDrs0l1Mg")
-    //         .then(alert('Email sent successfully'))
-    //       }
-
-
-    // document.querySelector('subscribe-btn').addEventListener('submit', sendMail());
-    // Function to toggle dark mode
+  
     function toggleDarkMode() {
       const isDarkMode = isDarkModePreferred();
       setDarkModePreference(!isDarkMode);
@@ -6284,6 +6250,47 @@ function validateEmail(email_input) {
   <script src="./assets/js/scroll-reveal.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+//   <script>
+//   // Initialize EmailJS with your User ID
+//   (function() {
+//     emailjs.init("YOUR_USER_ID");
+//   })();
+
+//   // Handle form submission
+//   document.getElementById("newsletterForm").addEventListener("submit", function(event) {
+//     event.preventDefault(); // Prevent the form from reloading the page
+
+//     // Get the values from the form
+//     const name = document.getElementById("name").value;
+//     const email = document.getElementById("email").value;
+
+//     // Validate if the name and email fields are filled
+//     if (!name || !email) {
+//       alert("Please enter both your name and email.");
+//       return;
+//     }
+
+//     // Call EmailJS to send the email
+//     emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+//       from_name: name,  // Pass the user's name
+//       reply_to: email,  // Pass the user's email
+//     })
+//     .then(function(response) {
+//       // Success handling
+//       alert("Thank you! A confirmation email has been sent.");
+//       console.log('Email successfully sent!', response.status, response.text);
+//     }, function(error) {
+//       // Error handling
+//       alert("Failed to send the email. Please try again.");
+//       console.error('Failed to send email:', error);
+//     });
+//   });
+// </script>
+
+
 
   <!-- Lenis smooth scrolling -->
   <script>
