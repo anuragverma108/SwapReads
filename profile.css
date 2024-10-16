@@ -23,6 +23,8 @@ body {
   border-radius: 20px;
   display: flex;
   overflow: hidden;
+
+  height: 95vh;
 }
 
 /* Profile Sidebar */
@@ -118,8 +120,35 @@ body {
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 300px; /* Ensure scrolling when content overflows */
 }
+
+
+.profile-section::-webkit-scrollbar {
+  width: 8px; 
+}
+
+.profile-section::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1); 
+  border-radius: 10px; 
+}
+
+.profile-section::-webkit-scrollbar-thumb {
+  background-color: #6C63FF; 
+  border-radius: 10px; 
+}
+
+.profile-section::-webkit-scrollbar-thumb:hover {
+  background-color: #5B52E1; 
+}
+
+/* Firefox Scrollbar */
+.profile-section {
+  scrollbar-width: thin; /* Thin scrollbar */
+  scrollbar-color: #f57d7d rgba(0, 0, 0, 0.1); 
+}
+
 
 /* Section Headers */
 .profile-section h2 {
@@ -172,6 +201,7 @@ body {
 @media (max-width: 1024px) {
   .profile-container {
     flex-direction: column;
+    
   }
   
   .profile-sidebar {

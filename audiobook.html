@@ -33,7 +33,6 @@
     <meta name="theme-color" content="#ffffff" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="./assets/css/MenuClick.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -70,6 +69,7 @@
       rel="stylesheet"
     />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <title>Audio Books</title>
     <style>
       /* Header Styles */
@@ -106,7 +106,7 @@
         list-style: none;
         padding: 0;
         margin: 0;
-        gap: 3rem;
+        gap: 2rem;
       }
 
       /* Navbar items */
@@ -127,21 +127,21 @@
       }
 
       /* Responsive Design for Mobile */
-      @media (max-width: 768px) {
-        .container {
-          flex-direction: column; /* Stack logo and navbar vertically */
-          align-items: center;
-        }
+      /* @media (max-width: 768px) {
+              .container {
+                flex-direction: column;
+                align-items: center;
+              }
 
-        .navbar-list {
-          flex-direction: column;
-          margin-top: 20px;
-        }
+              .navbar-list {
+                flex-direction: column;
+                margin-top: 20px;
+              }
 
-        .navbar-item {
-          margin: 10px 0;
-        }
-      }
+              .navbar-item {
+                margin: 10px 0;
+              }
+            } */
 
       .action {
         display: flex;
@@ -200,36 +200,30 @@
       }
 
       /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .navbar-list {
+      @media (max-width: 660px) {
+        .container {
           flex-direction: column;
-          align-items: center;
         }
-
-        .navbar-item {
-          margin: 10px 0;
-        }
-
-        .logo img {
-          width: 120px;
-        }
-      }
-
-      @media (max-width: 425px) {
         .header {
-          flex-direction: column;
-          padding: 10px;
+          padding: 0 10px 20px 10px;
         }
-
-        .navbar {
-          display: none;
-        }
-
-        .logo img {
-          width: 100px;
-        }
+        
       }
 
+      @media (max-width: 500px) {
+        .header {
+          padding: 0 10px 20px 10px;
+        }
+        
+        .navbar-list {
+          gap: 1em;
+          padding: 0 2rem;
+          justify-content: center;
+        }
+        .navbar-item {
+          margin-left: 10px;
+        }
+      }
       body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -285,10 +279,11 @@
         padding: 10px;
         cursor: pointer;
         margin-bottom: 10px;
-        transition: background-color 0.3s;
+        transition: background-color 0.3s ease, transform 0.3s ease;
       }
       .play-pause-btn:hover {
         background-color: #c04848; /* Darker shade on hover */
+        transform: scale(1.1);
       }
       .audio-slider {
         width: 90%;
@@ -305,6 +300,38 @@
         transform: scale(1.1); /* Zoom effect when playing */
       }
 
+      .spotlight-card:hover {
+        transform: translateY(-20px); /* Hover lift effect */
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      }
+
+      .spotlight-card .content {
+        transition: transform 0.3s ease;
+      }
+
+      .spotlight-card:hover .content {
+        transform: translateY(
+          20px
+        ); /* Ensure content moves up within the card */
+      }
+
+      .spotlight-card .imgBx img {
+        border-radius: 15px 15px 0 0;
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: opacity 0.3s ease;
+      }
+
+      .spotlight-card:hover .imgBx img {
+        opacity: 0.9;
+      }
+
+      .spotlight-card:hover h3,
+      .spotlight-card:hover p {
+        color: #ff6347;
+      }
+
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
       body {
         line-height: 1.5;
@@ -315,24 +342,26 @@
         padding: 0;
         box-sizing: border-box;
       }
-      .container {
-        max-width: 1170px;
-        margin: auto;
-      }
+
       .row {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: row;
       }
       ul {
         list-style: none;
       }
       .footer {
         background-color: palevioletred;
-        padding: 70px 0;
+        padding: 70px 100px;
+        margin:0 auto;
       }
       .footer-col {
         width: 25%;
         padding: 0 15px;
+      }
+      .footer-col .social-links {
+        display: flex;
+        flex-direction: column;
       }
       .footer-col h4 {
         font-size: 18px;
@@ -385,17 +414,121 @@
         color: #24262b;
         background-color: #ffffff;
       }
-
+      @media (max-width: 900px) {
+        .row{
+          flex-wrap: wrap;
+        }
+        .footer{
+          padding:70px 20px;
+        }
+        
+      }
       /*responsive*/
       @media (max-width: 767px) {
         .footer-col {
           width: 50%;
           margin-bottom: 30px;
         }
+        .footer-col .social-links{
+          display:flex;
+          flex-direction: row;
+        }
       }
       @media (max-width: 574px) {
         .footer-col {
           width: 100%;
+        }
+      }
+
+      /* newsletter */
+      .newsletter {
+        background-color: #ffd1d1;
+        padding: 30px;
+        max-width: 400px;
+        margin: auto;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .newsletter h1 {
+        color: #c62828;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .newsletter p {
+        color: #8c8c8c;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .input-group {
+        position: relative;
+        margin-bottom: 15px;
+      }
+
+      .input-group i {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        color: #c62828;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 12px 40px;
+        border: 2px solid #c62828;
+        border-radius: 5px;
+        font-size: 14px;
+        color: #333;
+        background-color: #ffecec;
+        transition: border-color 0.3s ease;
+      }
+
+      .input-group input:focus {
+        border-color: #ff6f6f;
+        outline: none;
+      }
+
+      .subscribe {
+        width: 100%;
+        background-color: #b71c1c;
+        color: white;
+        border: none;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .subscribe:hover {
+        background-color: #ff6f6f;
+      }
+
+      subscribe:active {
+        transform: scale(0.98);
+      }
+      subscribe:focus {
+        outline: none;
+      }
+
+      .newsletter:hover {
+        background: linear-gradient(hwb(357 68% 7%), #d26d6d);
+      }
+
+      .success-message {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #388e3c;
+        display: none;
+      }
+
+      @media (max-width: 500px) {
+        .newsletter {
+          padding: 20px;
         }
       }
     </style>
@@ -412,19 +545,41 @@
         <nav class="navbar">
           <ul class="navbar-list">
             <li class="navbar-item">
-              <a href="index.html" class="navbar-link">Home</a>
+              <a href="index.html" class="navbar-link"> <lord-icon
+                src="https://cdn.lordicon.com/qeltvbrs.json"
+                trigger="hover"
+                colors="primary:#e88c30,secondary:#a30f17"
+                style="width:25px;height:25px">
+              </lord-icon>Home</a>
             </li>
             <li class="navbar-item">
-              <a href="books.html" class="navbar-link">Books</a>
+              <a href="books.html" class="navbar-link">   <lord-icon
+                src="https://cdn.lordicon.com/bhmovrlt.json"
+                trigger="hover"
+                state="morph-open"
+                colors="primary:#a30f17,secondary:#e88c30"
+                style="width:25px;height:25px">
+            </lord-icon>Books</a>
             </li>
             <li class="navbar-item">
               <a href="../SwapReads/index.html#genre" class="navbar-link"
-                >Genres</a
-              >
+                ><script src="https://cdn.lordicon.com/lordicon.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/lcvlsnre.json"
+                    trigger="hover"
+                    colors="primary:#a30f17,secondary:#e88c30"
+                    style="width:25px;height:25px">
+                </lord-icon>Genres</a>
             </li>
             <li class="navbar-item">
               <a href="../SwapReads/assets/html/about.html" class="navbar-link"
-                >About</a
+                >     <lord-icon
+                src="https://cdn.lordicon.com/fozsorqm.json"
+                trigger="hover"
+                stroke="bold"
+                state="hover-up"
+                colors="primary:#a30f17,secondary:#e88c30"
+                style="width:30px;height:30px"></lord-icon>About</a
               >
             </li>
           </ul>
@@ -557,7 +712,7 @@
             <ul>
               <li><a href="#">about us</a></li>
               <li><a href="#">Home</a></li>
-              <li><a href="#">Benefits</a></li>
+              <li><a href="../SwapReads/#benefits">Benefits</a></li>
               <li><a href="#">Contact</a></li>
             </ul>
           </div>
@@ -587,6 +742,44 @@
               <a href="#"><i class="fab fa-twitter"></i></a>
               <a href="#"><i class="fab fa-instagram"></i></a>
               <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="newsletter">
+            <h1>Subscribe to Our Newsletter</h1>
+            <p>Stay updated with our latest news and offers</p>
+
+            <form id="newsform" onsubmit="return showSuccessMessage();">
+              <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Your Name"
+                  required=""
+                  pattern="[a-zA-Z ]+"
+                  oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')"
+                  oninput="this.setCustomValidity('')"
+                />
+              </div>
+              <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Your Email Address"
+                  required=""
+                />
+              </div>
+              <button type="submit" class="subscribe" id="subs">
+                Subscribe
+              </button>
+            </form>
+            <div
+              id="successmessage"
+              class="success-message"
+              style="display: none"
+            >
+              Thank you for subscribing!
             </div>
           </div>
         </div>
