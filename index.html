@@ -1707,7 +1707,7 @@ iframe {
   position: sticky !important;
   align-items: center;
   justify-content: space-between;
-  margin-left: -18rem; 
+  margin-left: -5rem; 
   /* margin-left: 5rem; */
 }
 
@@ -3156,17 +3156,56 @@ iframe {
   }
 });
 </script>
+<style>
+  .dropdown {
+      position: relative;
+  }
+  .dropdown-menu {
+      display: none;
+      position: absolute;
+      background: white; /* Adjust as needed */
+      list-style: none;
+      padding: 10px; /* Adjust as needed */
+      border: 1px solid #ccc; /* Adjust as needed */
+      z-index: 1000; /* Ensure it appears above other elements */
+  }
+  .dropdown-menu {
+    display: none; /* Initially hide the dropdown */
+    position: absolute; /* Position it absolutely */
+    background-color: #fff; /* Background color */
+    z-index: 1; /* Ensure it is above other elements */
+}
+.dropdown:hover .dropdown-menu {
+    display: block; /* Show dropdown on hover */
+}
+.dropdown .navbar-link {
+    position: relative; /* Needed for arrow positioning */
+}
+  .dropdown-item {
+      padding: 5px 10px; /* Adjust padding */
+  }
+  .navbar-link {
+      display: block; /* Make links fill the container */
+      padding: 8px; /* Adjust padding */
+  }
+  .arrow {
+    transition: transform 0.3s; /* Smooth transition for arrow */
+}
+
+.dropdown:hover .arrow {
+    transform: rotate(180deg); /* Rotate arrow on hover */
+}
+</style>
+
   <header class="header header-anim nav-h" data-header>
 
     <div class="container mobile-container-styles">
 
-      <nav class="navbar nav_activated" data-navbar>
-
-
-        <ul class="navbar-list nav">
-          <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
-          </a>
+      <nav class="navbar nav_activated" data-navbar> 
+        <ul class="navbar-list nav"> 
+        <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+          <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
+        </a>  
           <li class="navbar-item">
             <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
                 class="ri-home-fill"></i> Home</a>
@@ -3175,8 +3214,14 @@ iframe {
                 <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><i
                     class="ri-home-fill"></i>About Us</a>
               </li>
-              
-          <li class="navbar-item">
+              <li class="navbar-item">
+                <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
+                    class="ri-customer-service-2-fill"></i> Contact</a>
+                </li>
+                <li class="navbar-item" id="login-signup-link">
+                  <a href="./assets/html/login.html" class="navbar-link">Create Account</a>
+                </li>
+            <!-- <li class="navbar-item">
             <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
                 class="ri-bar-chart-fill"></i> Benefits</a>
           </li>
@@ -3186,25 +3231,21 @@ iframe {
                 class="ri-bar-chart-fill"></i> Genre</a>
           </li>
 
-          <li class="navbar-item">
-            <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-                class="ri-customer-service-2-fill"></i> Contact</a>
-            </li>
+        
             
             <li class="navbar-item">
               <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
                   <i class="ri-questionnaire-fill"></i> FAQ
               </a>
-          </li>
+          </li> 
 
           <li class="navbar-item">
-            <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+            <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+          </li>
             <li class="navbar-item" id="login-signup-link">
               <a href="./assets/html/event.html" class="navbar-link">Events</a>
             </li>
-          <li class="navbar-item" id="login-signup-link">
-            <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
-          </li>
+          
           <li class="navbar-item" id="login-signup-link">
             <a href="comsp.html" class="navbar-link">Community Spotlight</a>
           </li>
@@ -3213,7 +3254,37 @@ iframe {
               <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" data-nav-link>
                   <i class="ri-bar-chart-fill"></i> Audio<br> Books
               </a>
+          </li> -->
+           <!-- New Dropdown Menu for More -->
+    <li class="navbar-item dropdown">
+      <a href="#" class="navbar-link dropdown-toggle" onclick="toggleDropdown(event)">More <span class="arrow" id="arrow" style="display: inline;">&#9660;</span></a>
+      <ul class="dropdown-menu">
+          <li class="dropdown-item">
+              <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link>
+                  <i class="ri-bar-chart-fill"></i> Benefits
+              </a>
           </li>
+          <li class="dropdown-item">
+              <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link>
+                  <i class="ri-bar-chart-fill"></i> Genre
+              </a>
+          </li>
+          <li class="dropdown-item">
+              <a href="#faq" onclick="lenis.scrollTo('#faq')" class="navbar-link" data-nav-link>
+                  <i class="ri-questionnaire-fill"></i> FAQ
+              </a>
+          </li>
+          <li class="dropdown-item">
+              <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+          </li>
+          <li class="dropdown-item" id="login-signup-link">
+              <a href="./assets/html/event.html" class="navbar-link">Events</a>
+          </li>
+          <li class="dropdown-item" id="login-signup-link">
+              <a href="comsp.html" class="navbar-link">Community Spotlight</a>
+          </li>
+      </ul>
+  </li>
             
           <li>
           <div class="action">
@@ -3241,6 +3312,13 @@ iframe {
                 </li>
               </ul>
               </div>
+              <script>
+                function toggleDropdown(event) {
+                    event.preventDefault();
+                    const dropdownMenu = event.currentTarget.nextElementSibling;
+                    dropdownMenu.classList.toggle('show');
+                }
+            </script>
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
                     const savedAvatar = localStorage.getItem("selectedAvatar");
@@ -3305,6 +3383,7 @@ iframe {
           <div class="line"></div>
           <div class="line"></div>
         </div> -->
+
       </nav>
       <div id="mobile_View_Menu">
         <span id="menu_lines"></span>
@@ -5926,6 +6005,7 @@ button:focus {
     .newsletter {
         padding: 20px;
     }
+  }
 </style>
         
 <!--<script>
