@@ -6,9 +6,9 @@
     <title>Donate Books to School</title>
     <style>
       body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        background-image: url("https://content.jdmagicbox.com/comp/kanpur/s9/0512px512.x512.221110025557.d4s9/catalogue/b-g-public-school-jajmau-kanpur-2e8dh0tkhf.jpg");
+        font-family:'Times New Roman', Times, serif;
+        margin: 2px auto;
+        background-image: url("../images/images/n.jpg");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -17,13 +17,9 @@
       }
       .form-container {
         max-width: 600px;
-        margin: auto;
-        background-color: rgba(
-          210,
-          248,
-          248,
-          0.6
-        ); /* Semi-transparent background */
+        max-height:900px;
+        margin:80px auto;
+        background-color: rgba(8, 8, 8, 0.995); /* Semi-transparent background */
         padding: 30px;
         border-radius: 25px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
@@ -31,7 +27,7 @@
       }
       .form-container h1 {
         text-align: center;
-        color: black;
+        color:rgb(187, 128, 128);
         font-size: 35px;
       }
       .form-group {
@@ -42,30 +38,33 @@
         margin-bottom: 10px;
         font-weight: bold;
         font-size: 20px;
+        color:rgb(187, 128, 128);
       }
       .form-group input,
       .form-group select {
         width: 100%;
-        background-color: rgb(238, 253, 253);
         padding: 8px;
         box-sizing: border-box;
         border-radius: 10px;
         margin-bottom: 10px;
+        background-color: rgb(68, 58, 58);
+        color: rgb(187, 128, 128);
       }
       .form-group button {
         display: block;
         width: 60%;
         padding: 10px 20px;
-        background-color: #0c0257;
-        color: white;
+        background-color: #5e0213;
+        color: rgb(187, 128, 128);;
         border: none;
         cursor: pointer;
         border-radius: 7px;
         text-align: center;
+        margin:auto
       }
       .form-group button:hover {
-        background-color: #6ee3fa;
-        color: black;
+        background-color: rgb(187, 128, 128);
+        color: #5e0213;
         border: 3px solid black;
       }
       .thank-you-message {
@@ -93,22 +92,22 @@
   <body>
     <div class="form-container">
       <h1>Donate Books to School</h1>
-      <form id="donationForm">
+      <form id="donationForm" onsubmit="submitForm(event)">
         <div class="form-group">
           <label for="name">Name of Donor:</label>
-          <input type="text" id="name" name="name" required />
+          <input type="text" id="name" name="name" placeholder="Enter your full name here" required />
         </div>
         <div class="form-group">
           <label for="phone">Phone Number:</label>
-          <input type="tel" id="phone" name="phone" required />
+          <input type="tel" id="phone" name="phone" placeholder="Enter phone number here" required />
         </div>
         <div class="form-group">
           <label for="email">Email ID:</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" name="email" placeholder="Enter valid email address here" required />
         </div>
         <div class="form-group">
           <label for="bookName">Book Name:</label>
-          <input type="text" id="bookName" name="bookName" required />
+          <input type="text" id="bookName" name="bookName" placeholder="Enter book name here" required />
         </div>
         <div class="form-group">
           <label for="library">Select School:</label>
@@ -120,7 +119,7 @@
           </select>
         </div>
         <div class="form-group">
-          <button type="button" onclick="submitForm()">Submit</button>
+          <button type="submit">Submit</button>
         </div>
       </form>
       <div id="thankYouMessage" class="thank-you-message">
@@ -130,7 +129,9 @@
     </div>
 
     <script>
-      function submitForm() {
+      function submitForm(event) {
+        event.preventDefault(); // Prevent the default form submission
+
         // Hide the form
         document.getElementById("donationForm").style.display = "none";
 
