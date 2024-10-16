@@ -563,12 +563,14 @@
       letter-spacing: 1px;
       transition: ease-in-out;
     }
+ 
+    .dark-mode  .header.scrolled {
 
-    .dark-mode .header.scrolled {
       background-color: #232222; /* Change to a darker color when scrolled */
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
-    }
 
+    }
+ 
     .dark-mode #dropdown-menu {
       background-color: #151111;;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -609,10 +611,12 @@
   text-align: center;  /* Center align the text */
 }
 
+#cookie-consent .close-btn:hover{
+  background-color: #20c1d3;
+}
+
 .accept-cookies,
 .reject-cookies {
-  width: 260px;  /* Decrease the button width */
-  height: 35px;  /* Decrease the button height */
   color: white;
   background-color: #A30F17;
   border: none;
@@ -630,9 +634,6 @@
   color: white;
 }
 
-.reject-cookies {
-  margin-top: 10px;
-}
 
 .accept-cookies:hover,
 .reject-cookies:hover {
@@ -677,14 +678,16 @@
 
     /* Basic navbar styling */
 .header {
-  position: fixed;
-  width: 100%;
-  top: 10;
-  z-index: 1000;
-  transition: top 0.3s;
-  transition: transform 0.3s ease;
-}
 
+  position: fixed;
+  width:  100%;
+  top:  10;
+  z-index:  1000;
+  transition:  top 0.3s;
+  transition:  transform 0.3s ease;
+
+}
+ 
 /* Hide the navbar */
 .header.hidden {
   top: -93px; /* Adjust according to your header height */
@@ -826,10 +829,12 @@
         flex-direction: row;
     }
     .header{
-        flex-direction: column;
-        height: 53.8rem;
-        transition: 0.55s all ease-out;
-        padding-top: 5px;
+ 
+        flex-direction:  column;
+        height:  53.8rem;
+        transition:  0.55s all ease-out;
+        padding-top:  5px;
+ 
     }
     .navbar-item{
         margin : 0
@@ -874,6 +879,7 @@
 .donate-button {
     display: inline-block;
     padding: 9px 18px;
+    margin: 25px auto;
     font-size: 16px;
     color: #fff;
     background-color: #b00404; /* Red color */
@@ -1134,7 +1140,7 @@ body > .skiptranslate {
 </div>
 
   <div id="cookie-consent">
-    <button class="close-btn" id="closeBtn" style="padding: 5px; height: 40px; width: 40px; border-radius: 100%; font-size: 30px;" >&times;</button>
+    <button onclick="document.getElementById('cookie-consent').remove()"  class="close-btn" id="closeBtn" style="padding: 5px; height: 40px; width: 40px; border-radius: 100%; font-size: 30px;" >&times;</button>
     <p>
         We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy.
         <a href="#" id="learn-more-link">Learn More</a>
@@ -1146,8 +1152,8 @@ body > .skiptranslate {
     </div>
 
     <a href="#" id="show-less-link" style="display: none;">Show Less</a>
-    <button class="accept-cookies">Accept</button>
-    <button class="reject-cookies">Reject</button>
+    <button class="accept-cookies" onclick="document.getElementById('cookie-consent').remove()">Accept</button>
+    <button class="reject-cookies" onclick="document.getElementById('cookie-consent').remove()">Reject</button>
   </div>
 
   <script src="script.js"></script>
@@ -1199,10 +1205,12 @@ body > .skiptranslate {
     // Add event listeners to buttons
     acceptButton.addEventListener('click', function() {
       handleConsent('accepted');
+      cookieConsent.remove();
     });
 
     rejectButton.addEventListener('click', function() {
       handleConsent('rejected');
+      cookieConsent.remove();
     });
   } else {
     // Hide consent if localStorage is not available
@@ -1217,7 +1225,8 @@ body > .skiptranslate {
   });
 });
 </script>
-  <header class="header header-anim nav-h" data-header>
+
+  <header class= "header header-anim nav-h" data-header>
 
     <div class="container mobile-container-styles" style="padding-left: 0;">
 
@@ -1225,17 +1234,14 @@ body > .skiptranslate {
 
 
         <ul class="navbar-list nav">
-          <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+          <a href="" onclick="lenis.scrollTo('');" class="logo" style="display:flex;">
             <img src="./assets/images/final.png" class="logopic" style=" width: 150px;">
           </a>
           <li class="navbar-item">
             <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
                 class="ri-home-fill"></i> Home</a>
           </li>
-           <li class="navbar-item">
-                <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><i
-                    class="ri-home-fill"></i> About Us </a>
-              </li>
+           
               
           <li class="navbar-item">
             <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
@@ -1246,6 +1252,9 @@ body > .skiptranslate {
             <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
                 class="ri-bar-chart-fill"></i> Genre</a>
           </li>
+          
+          <li class="navbar-item">
+            <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
 
           <li class="navbar-item">
             <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
@@ -1257,9 +1266,11 @@ body > .skiptranslate {
                   <i class="ri-questionnaire-fill"></i> FAQ
               </a>
           </li>
-
           <li class="navbar-item">
-            <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+            <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><i
+                class="ri-home-fill"></i> About Us </a>
+          </li>
+
             <li class="navbar-item" id="login-signup-link">
               <a href="./assets/html/event.html" class="navbar-link">Events</a>
             </li>
@@ -1287,6 +1298,12 @@ body > .skiptranslate {
                 <li class="dropdown-menu-item">
                   <a href="./assets/html/literaryrealms.html" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
                       class="ri-medal-fill"></i> Literary Realms</a>
+                </li>
+                <li>
+                  <a href="bookpref.html" class="navbar-link"
+                    style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                    Book Prefer Quiz
+                  </a>
                 </li>
                 <li class="dropdown-menu-item">
                   <a href="./assets/html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
@@ -1494,6 +1511,7 @@ body > .skiptranslate {
     </div>
     </div>
   </header>
+  
   <link rel="stylesheet" href="assets/css/refresher.css">
   <div id="caduceus-container">
     <img id="caduceus" src="assets/svg/refresher.svg" alt="Caduceus" title="refresher">
@@ -2703,7 +2721,7 @@ body > .skiptranslate {
   <br>
   <div class="container">
       <div class="card" style="overflow: hidden; margin: 15px; border: 1px solid #ccc; border-radius: 10px; transition: transform 0.3s ease;">
-          <img src="./lib.jpg" alt="Library Image" style="display: block; width: 100%; height: auto; border-radius: 10px 10px 0 0;">
+          <img src="../images/images/lib.jpg" alt="Library Image" style="display: block; width: 100%; height: auto; border-radius: 10px 10px 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Library</h3>
               <p class="card-text" style="font-style: italic;">Donate your books to local libraries and help foster a love for reading in your community.</p>
@@ -2713,7 +2731,7 @@ body > .skiptranslate {
           </div>
       </div>
       <div class="card" style="overflow: hidden; margin: 15px; border: 1px solid #ccc; border-radius: 10px; transition: transform 0.3s ease;">
-          <img src="./sc.jpg" alt="School Image" style="display: block; width: 100%; height: auto; border-radius: 10px 10px 0 0;">
+          <img src="../images/images/sc.jpg" alt="School Image" style="display: block; width: 100%; height: auto; border-radius: 10px 10px 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Schools</h3>
               <p class="card-text" style="font-style: italic;">Support children's education by donating books to nearby schools for students of all ages.</p>
@@ -2723,7 +2741,7 @@ body > .skiptranslate {
           </div>
       </div>
       <div class="card" style="overflow: hidden; margin: 15px; border: 1px solid #ccc; border-radius: 10px; transition: transform 0.3s ease;">
-          <img src="./n.jpg" alt="Organization Image" style="display: block; width: 100%; height: auto; border-radius: 10px 10px 0 0;">
+          <img src="../images/images/ngo.jpeg" alt="Organization Image" style="display: block; width: 100%; height: auto; border-radius: 10px 10px 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Organizations</h3>
               <p class="card-text" style="font-style: italic;">Help NGOs and other organizations by donating books to support their educational programs.</p>
@@ -3472,6 +3490,12 @@ body > .skiptranslate {
 }
 </script>-->
         <div class="icons">
+          <a href="https://www.discord.com/" target="_blank">
+            <div class="icon">
+              <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
+            </div>
+           </a>
+
           <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
             <div class="icon">
               <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
@@ -3877,7 +3901,7 @@ function validateEmail(email_input) {
       if (scrollTop + windowHeight >= documentHeight) {
         // Make an AJAX request to fetch more content
         // Replace 'more-content-url' with the actual URL to fetch more content
-        fetch('/index.html')
+        fetch('/')
           .then(response => response.text())
           .then(data => {
             // Append the fetched content to the page
@@ -3928,7 +3952,7 @@ function validateEmail(email_input) {
       e.preventDefault();
       signOut(auth).then(() => {
         alert("Logged out successfully.");
-        window.location.href = "../../index.html";
+        window.location.href = "../../";
       }).catch((error) => {
         console.error("Logout error:", error);
       });

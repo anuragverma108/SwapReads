@@ -1,297 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reading Events</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
 
-        header {
-            width: 100%;
-            background-color: #f06d87;
-            color: white;
-            padding: 1em 0;
-            text-align: center;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <title>Event Booking Calendar</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f9;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
+            header {
+                width: 100%;
+                background-color: #f06d87;
+                color: white;
+                padding: 1em 0;
+                text-align: center;
+            }
 
-        nav ul li {
-            display: inline;
-            margin: 0 1em;
-        }
+            nav ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
+            nav ul li {
+                display: inline;
+                margin: 0 1em;
+            }
 
-        main {
-            padding: 1em;
-            width: 100%;
-            max-width: 800px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+            nav ul li a {
+                color: white;
+                text-decoration: none;
+            }
 
-        section {
-            margin-bottom: 2em;
-            width: 100%;
-        }
+            main {
+                padding: 1em;
+                width: 100%;
+                max-width: 800px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
 
-        h2 {
-            color: #450105;
-        }
+            section {
+                margin-bottom: 2em;
+                width: 100%;
+            }
 
-        footer {
-            background-color: #f06d87;
-            color: white;
-            text-align: center;
-            padding: 1em;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
+            h2 {
+                color: #450105;
+            }
 
-        .close-button {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
+            #event-calendar {
+                width: 100%;
+                max-width: 800px;
+                background: #fff;
+                padding: 2em;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
 
-        .close-button:hover,
-        .close-button:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
+            .calendar-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
 
-        .ul {
-            text-decoration: black;
-        }
+            .calendar-header button {
+                background: #2980b9;
+                color: #fff;
+                border: none;
+                padding: 0.5em 1em;
+                border-radius: 5px;
+                cursor: pointer;
+            }
 
-        #event-calendar {
-            width: 100%;
-            max-width: 800px;
-            background: #fff;
-            padding: 2em;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+            .row {
+                display: flex;
+                justify-content: center;
+            }
 
-        .calendar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+            .day {
+                width: 50px;
+                height: 50px;
+                border: 1px solid #ccc;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 2px;
+                transition: background 0.3s;
+                cursor: pointer;
+            }
 
-        .calendar-header button {
-            background: #2980b9;
-            color: #fff;
-            border: none;
-            padding: 0.5em 1em;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+            .event {
+                background: green;
+                color: white;
+            }
 
-        .calendar-header h3 {
-            margin: 0;
-        }
+            .past {
+                color: gray;
+                text-decoration: line-through;
+                opacity: 0.5;
+                /* Make the past dates partially visible */
+            }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1em;
-        }
+            .footer {
+                position: absolute;
+                left: 0%;
+                width: 100%;
+                background: pink;
+                padding: 30px 0;
+                text-align: center;
+                font-size: 0.8em;
+                color: gray;
+            }
+        </style>
+    </head>
 
-        thead th {
-            background: #2980b9;
-            color: #fff;
-            padding: 0.5em 0;
-        }
-
-        tbody td {
-            padding: 1em;
-            text-align: center;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        tbody td:hover {
-            background: #f4f4f9;
-        }
-
-        .event {
-            background: #f39c12;
-            color: #fff;
-            border-radius: 50%;
-            padding: 0.3em;
-        }
-
-        #event-details {
-            margin-top: 2em;
-            width: 100%;
-        }
-
-        #event-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        #event-list li {
-            background: #f39c12;
-            color: #fff;
-            margin: 0.5em 0;
-            padding: 1em;
-            border-radius: 5px;
-        }
-
-    </style>
-</head>
-<body>
-    <header>
-        <h1 style="color: black;">SwapReads</h1>
-        <nav>
-            <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./about.html">About Us</a></li>
-                <li><a href="./index.html">Contact</a></li>
-                <li><a href="#authors">Authors</a></li>
-                <li><a href="#community">Community</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="event-calendar">
-            <h2>Reading Event Calendar</h2>
-            <div class="calendar">
+    <body>
+        <header>
+            <h1 style="color: black;">SwapReads</h1>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="./about.html">About Us</a></li>
+                    <li><a href="../../index.html#contact">Contact</a></li>
+                    <li><a href="#authors">Authors</a></li>
+                    <li><a href="../../comsp.html">Community</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="event-calendar">
+                <h2>Upcoming Event Calendar</h2>
                 <div class="calendar-header">
                     <button id="prevMonth">‹</button>
                     <h3 id="monthAndYear"></h3>
                     <button id="nextMonth">›</button>
                 </div>
-                <table id="calendar-body">
-                    <thead>
-                        <tr>
-                            <th>Sun</th>
-                            <th>Mon</th>
-                            <th>Tue</th>
-                            <th>Wed</th>
-                            <th>Thu</th>
-                            <th>Fri</th>
-                            <th>Sat</th>
-                        </tr>
-                    </thead>
-                    <tbody id="calendar-days">
-                        <!-- Calendar days will be dynamically generated here -->
-                    </tbody>
-                </table>
+                <div id="calendar-days">
+                    <!-- Calendar days will be dynamically generated here -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer">
+                SwapReads Copyright © 2024 SwapReads - All rights reserved || Designed By: pranjal
             </div>
-            <div id="event-details">
-                <h3>Event Details</h3>
-                <ul id="event-list">
-                    <!-- Event details will be dynamically generated here -->
-                </ul>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 SwapReads. All Rights Reserved.</p>
-    </footer>
-    <script>
-        const eventCalendar = {
-            events: [
-                { date: '2024-08-10', title: 'Book Club Meeting' },
-                { date: '2024-08-15', title: 'Author Talk: John Doe' },
-                { date: '2024-08-20', title: 'Children’s Story Hour' },
-                { date: '2024-08-25', title: 'Poetry Reading' },
-                { date: '2024-08-2', title: 'Guest Readers Talk' },
-            ],
-            monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-            today: new Date(),
-            currentMonth: new Date().getMonth(),
-            currentYear: new Date().getFullYear(),
-        };
+        </footer>
 
-        function generateCalendar(month, year) {
-            const firstDay = (new Date(year, month)).getDay();
-            const daysInMonth = 32 - new Date(year, month, 32).getDate();
+        <script>
+            const eventCalendar = {
+                events: [
+                    { date: '2024-10-07', title: 'Book Club Meeting' },
+                    { date: '2024-10-14', title: 'Author Talk: John Doe' },
+                    { date: '2024-10-21', title: 'Children’s Story Hour' },
+                    { date: '2024-10-28', title: 'Poetry Reading' },
+                ],
 
-            const calendarBody = document.getElementById('calendar-days');
-            calendarBody.innerHTML = '';
+                monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                today: new Date(),
+                currentMonth: new Date().getMonth(),
+                currentYear: new Date().getFullYear(),
+            };
 
-            let date = 1;
-            for (let i = 0; i < 6; i++) {
-                let row = document.createElement('tr');
+            function generateCalendar(month, year) {
+                const firstDay = (new Date(year, month)).getDay();
+                const daysInMonth = 32 - new Date(year, month, 32).getDate();
 
-                for (let j = 0; j < 7; j++) {
-                    if (i === 0 && j < firstDay) {
-                        let cell = document.createElement('td');
-                        let cellText = document.createTextNode('');
-                        cell.appendChild(cellText);
-                        row.appendChild(cell);
-                    } else if (date > daysInMonth) {
-                        break;
-                    } else {
-                        let cell = document.createElement('td');
-                        let cellText = document.createTextNode(date);
-                        cell.appendChild(cellText);
+                const calendarDays = document.getElementById('calendar-days');
+                calendarDays.innerHTML = '';
 
-                        let eventDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
-                        let event = eventCalendar.events.find(event => event.date === eventDate);
+                let date = 1;
+                for (let i = 0; i < 6; i++) {
+                    let row = document.createElement('div');
+                    row.classList.add('row');
 
-                        if (event) {
-                            cell.classList.add('event');
-                            cell.addEventListener('click', () => showEventDetails(event));
+                    for (let j = 0; j < 7; j++) {
+                        if (i === 0 && j < firstDay) {
+                            let cell = document.createElement('div');
+                            cell.classList.add('day');
+                            row.appendChild(cell);
+                        } else if (date > daysInMonth) {
+                            break;
+                        } else {
+                            let cell = document.createElement('div');
+                            cell.classList.add('day');
+                            cell.textContent = date;
+
+                            const eventDate = new Date(year, month, date);
+                            let formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+                            let event = eventCalendar.events.find(event => event.date === formattedDate);
+
+                            // Check if the date is in the past
+                            if (eventDate >= eventCalendar.today) {
+                                if (event) {
+                                    cell.classList.add('event');
+                                    cell.innerHTML = `<a href="booking.html?event=${encodeURIComponent(event.title)}">${date}</a>`;
+                                }
+                            } else {
+                                // Make past dates partially visible
+                                cell.classList.add('past');
+                            }
+
+                            row.appendChild(cell);
+                            date++;
                         }
-
-                        row.appendChild(cell);
-                        date++;
                     }
+                    calendarDays.appendChild(row);
                 }
-
-                calendarBody.appendChild(row);
+                document.getElementById('monthAndYear').innerText = `${eventCalendar.monthNames[month]} ${year}`;
             }
 
-            document.getElementById('monthAndYear').innerText = `${eventCalendar.monthNames[month]} ${year}`;
-        }
+            document.getElementById('prevMonth').addEventListener('click', () => {
+                eventCalendar.currentMonth = (eventCalendar.currentMonth === 0) ? 11 : eventCalendar.currentMonth - 1;
+                eventCalendar.currentYear = (eventCalendar.currentMonth === 11) ? eventCalendar.currentYear - 1 : eventCalendar.currentYear;
+                generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
+            });
 
-        function showEventDetails(event) {
-            const eventList = document.getElementById('event-list');
-            eventList.innerHTML = '';
-            let listItem = document.createElement('li');
-            listItem.innerText = event.title;
-            eventList.appendChild(listItem);
-        }
+            document.getElementById('nextMonth').addEventListener('click', () => {
+                eventCalendar.currentMonth = (eventCalendar.currentMonth === 11) ? 0 : eventCalendar.currentMonth + 1;
+                eventCalendar.currentYear = (eventCalendar.currentMonth === 0) ? eventCalendar.currentYear + 1 : eventCalendar.currentYear;
+                generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
+            });
 
-        document.getElementById('prevMonth').addEventListener('click', () => {
-            eventCalendar.currentYear = (eventCalendar.currentMonth === 0) ? eventCalendar.currentYear - 1 : eventCalendar.currentYear;
-            eventCalendar.currentMonth = (eventCalendar.currentMonth === 0) ? 11 : eventCalendar.currentMonth - 1;
             generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-        });
+        </script>
+    </body>
 
-        document.getElementById('nextMonth').addEventListener('click', () => {
-            eventCalendar.currentYear = (eventCalendar.currentMonth === 11) ? eventCalendar.currentYear + 1 : eventCalendar.currentYear;
-            eventCalendar.currentMonth = (eventCalendar.currentMonth === 11) ? 0 : eventCalendar.currentMonth + 1;
-            generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-        });
-
-        generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-    </script>
-</body>
 </html>
