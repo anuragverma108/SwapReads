@@ -33,6 +33,8 @@
   <script src="../js/scroll-reveal.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!-- Sweet alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script type="module" src="../js/login.js" defer></script>
   <script src="../js/rateUsModal.js" defer></script>
@@ -1434,6 +1436,27 @@ document.addEventListener("DOMContentLoaded", () => {
   </script>
 
   <script>
+    // SweetAlert
+    function showNotification(message) {
+    Swal.fire({
+      icon: 'success',
+      title: message,
+      showConfirmButton: false,
+      timer: 2000
+    });
+  }
+
+  function showNotificationError(message){
+    Swal.fire({
+        icon: 'error',
+        title: message,
+        showConfirmButton: false,
+        timer: 2000
+      });
+  }
+  </script>
+
+  <script>
 
     //   function sendMail(){
     //         let params={
@@ -1597,7 +1620,8 @@ count=0
 
       // Send email verification
       await sendEmailVerification(user);
-      alert('Registration successful! Please check your email to verify your account.');
+      showNotification('Registration successful! Please check your email to verify your account.')
+      // alert('Registration successful! Please check your email to verify your account.');
 
       // Set a timeout for checking email verification
       setTimeout(async () => {
@@ -1605,13 +1629,15 @@ count=0
         if (!user.emailVerified) {
           await deleteUser(user)
             .then(() => {
-              alert('Account deleted due to unverified email.');
+              // alert('Account deleted due to unverified email.');
+              showNotificationError('Account deleted due to unverified email.')
               location.reload(); // Reload the page after deletion
             })
             .catch((error) => {
               const errorCode = error.code;
               const errorMessage = error.message;
-              alert(errorMessage);
+              // alert(errorMessage);
+              showNotificationError(errorMessage)
               location.reload(); // Reload the page on error
             });
         }
@@ -1620,7 +1646,8 @@ count=0
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert(errorMessage);
+      // alert(errorMessage);
+      showNotificationError(error)
       location.reload(); // Reload the page on error
     }
   });
@@ -1646,14 +1673,19 @@ count=0
       // Check if email is verified
       await reload(user); // Ensure latest user data is fetched
       if (user.emailVerified) {
-        window.location.href = '/index.html'; // Redirect to index.html upon successful login
+        setTimeout(() => {
+          showNotification('Glad you are back!')
+          window.location.href = '/index.html'; // Redirect to index.html upon successful login
+      }, 5000);
       } else {
-        alert('Please verify your email address.');
+        showNotificationError('Please verify your email address.')
+        // alert('Please verify your email address.');
       }
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert(errorMessage);
+      showNotificationError(errorMessage);
+      // alert(errorMessage);
       location.reload(); // Reload the page on error
     }
   });
@@ -1666,11 +1698,15 @@ count=0
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       // Handle successful sign-in here
-      window.location.href = '/index.html'; // Redirect to index.html upon successful login
+      setTimeout(() => {
+          showNotification('We are happy to have you as a new customer!')
+          window.location.href = '/index.html'; // Redirect to index.html upon successful login
+      }, 5000);
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert(errorMessage);
+      // alert(errorMessage);
+      showNotificationError(errorMessage);
       location.reload(); // Reload the page on error
     }
   });
@@ -1687,7 +1723,8 @@ count=0
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert(errorMessage);
+      // alert(errorMessage);
+      showNotificationError(errorMessage);
       location.reload(); // Reload the page on error
     }
   });
