@@ -2,7 +2,9 @@
 <html lang="en">
 <title>SwapReads</title>
 
+
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     body {
         margin: 0;
@@ -93,8 +95,11 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- Sweet alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script src="./assets/js/rateUsModal.js" defer></script>
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="./assets/js/faq.js"></script>
   <script src="./assets/js/tilt.js"></script>
@@ -816,7 +821,7 @@
 
 
 .chapter-card {
-  height: 45rem; /* Adjust margin as needed */
+  height: 60rem; /* Adjust margin as needed */
   box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1); /* Add shadow for depth effect */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -1089,9 +1094,6 @@ iframe {
   }
 }
 
-
-
-
   </style>
 <script>
   (function() {
@@ -1167,9 +1169,19 @@ iframe {
 
   
   <style>
+
+    /* Fixed translate button */
+    *{
+
+      transition: all 0.3s ease-in-out;
+      text-align: center;
+
+    }
+
     /* Fixed translate button */
     *{
       transition: all 0.3s ease-in-out;
+      text-align: center;
     }
 #translateButton {
     position: fixed;
@@ -1311,101 +1323,6 @@ body > .skiptranslate {
   justify-content: space-around;
 }
 
-
-.section-contact {
-  color: black;
-  padding: 40px 20px;
-}
-
-.flexi {
-  display: flex;
-  justify-content: space-between; /* Ensure both containers are side by side */
-  flex-wrap: wrap; 
-}
-
-.contact {
-  
-  width: 1000px;  /* Adjust width for the contact form */
-}
-
-.cardi {
-  height: 67rem;
-  width: 35%; /* Adjust width for the contact card */
-  max-width: 350px; /* Limit max width */
-  margin-left: 20px; /* Add some space between the two sections */
-}
-
-.contact-container {
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-}
-.contact-container:hover{
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.386);
-}
-
-.contact-card {
-  height: 61rem;
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: -5px; /* Ensure there's space above the card */
-}
-
-.map-container {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Center map inside container */
-  width: 100%;
-  height: 300px; /* Fixed height for map */
-  margin-top: 20px; /* Space above map */
-}
-
-.contact-form input,
-  .contact-form textarea {
-
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border:  1px solid #ffcfcf;
-    border: 1px solid #ffcfcf;
-    background-color: #eeb9b9;
-    border-radius: 5px;
-    font-size: 14px;
-
-  }
-
-  .contact:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
-  }
-
-  .cardi:hover {
-    transform: scale(1.02);
-  }
-
-
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none; /* Remove border for a cleaner look */
-  border-radius: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .flexi {
-    flex-direction: column; /* Stack elements on smaller screens */
-    align-items: center;
-  }
-  .contact, .cardi {
-    width: 90%; /* Ensure full width on smaller screens */
-    max-width: none; /* Remove max-width restriction */
-  }
-}
-
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -1487,19 +1404,6 @@ iframe {
       <i class="fa-brands fa-x-twitter"></i>
     </a> 
 </div>
-
-  <div id="cookie-consent">
-    <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
-    <p >We value your privacy</p>
-    <p>
-      <br>
-      We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
-      By clicking "Accept", you consent to our use of cookies.
-        <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
-    </p>
-    <button class="accept-cookies">Accept</button>
-    <button class="reject-cookies">Reject</button>
-  </div>
 
   <script src="script.js"></script>
 
@@ -1708,7 +1612,7 @@ iframe {
   position: sticky !important;
   align-items: center;
   justify-content: space-between;
-  margin-left: -18rem; 
+  margin-left: -5rem; 
   /* margin-left: 5rem; */
 }
 
@@ -1773,11 +1677,19 @@ iframe {
   margin-right: 0.5rem; /* Adjust spacing between icon and text */
 }
 .dark-mode .fas{
-  color:white;
+  color:#8e6165;
 }
 .dark-mode .flinks{
-  color:white;
+  color:#4a749a;
 }
+
+.dark-mode .fas{
+  color:#8e6165;
+}
+.dark-mode .flinks{
+  color:#4a749a;
+}
+
 .dark-mode .finput{
       color: white;
       background-color: transparent;
@@ -2390,7 +2302,7 @@ iframe {
 
 
 .chapter-card {
-  height: 45rem; /* Adjust margin as needed */
+  height: 60rem; /* Adjust margin as needed */
   box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1); /* Add shadow for depth effect */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -2475,16 +2387,26 @@ iframe {
 .footer-icons .icon:hover .fa-twitter{
   color:#ffffff;
 }
+
+.icons {
+
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center; 
+}
+
+
 .icons {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
   justify-content: center; 
 }
 
 .icon i {
   font-size: 2.4rem; 
-  color: #ffffff; 
+  color: #8e6165;
   cursor: pointer;
   margin: 0; 
   padding: 0; 
@@ -2571,94 +2493,6 @@ iframe {
   .section-contact {
   color: black;
   padding: 40px 20px;
-}
-
-.flexi {
-  display: flex;
-  justify-content: space-between; /* Ensure both containers are side by side */
-  flex-wrap: wrap; 
-}
-
-.contact {
-  width: 52%; /* Adjust width for the contact form */
-}
-
-.cardi {
-
-  width: 35%; /* Adjust width for the contact card */
-  max-width: 350px; /* Limit max width */
-  margin-left: 20px; /* Add some space between the two sections */
-}
-
-.contact-container {
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(83, 18, 18, 0.1);
-  width: 85%;
-}
-
-.contact-card {
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px; /* Ensure there's space above the card */
-}
-
-.map-container {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Center map inside container */
-  width: 100%;
-  height: 300px; /* Fixed height for map */
-  margin-top: 20px; /* Space above map */
-  margin-left: 50px;
-  transition: transform 0.3s ease; /* Add transition for smooth effect */
-}
-
-.map-container:hover {
-  transform: scale(0.95); /* Shrinks the container to 95% of its size */
-}
- 
-.contact-form input,
-  .contact-form textarea {
-
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border:  1px solid #ffcfcf;
-    border-radius: 5px;
-    font-size: 14px;
-
-  }
-
-  .contact:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
-  }
-
-  .cardi:hover {
-    transform: scale(1.02);
-  }
-
-
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none; /* Remove border for a cleaner look */
-  border-radius: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .flexi {
-    flex-direction: column; /* Stack elements on smaller screens */
-    align-items: center;
-  }
-  .contact, .cardi {
-    width: 90%; /* Ensure full width on smaller screens */
-    max-width: none; /* Remove max-width restriction */
-  }
 }
 
 
@@ -2909,94 +2743,6 @@ body > .skiptranslate {
   padding: 40px 20px;
 }
 
-.flexi {
-  display: flex;
-  justify-content: space-between; /* Ensure both containers are side by side */
-  flex-wrap: wrap; 
-}
-
-.contact {
-  
-  width: 1000px;  /* Adjust width for the contact form */
-}
-
-.cardi {
-  height: 67rem;
-  width: 35%; /* Adjust width for the contact card */
-  max-width: 350px; /* Limit max width */
-  margin-left: 20px; /* Add some space between the two sections */
-}
-
-.contact-container {
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-}
-.contact-container:hover{
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.386);
-}
-
-.contact-card {
-  height: 61rem;
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: -5px; /* Ensure there's space above the card */
-}
-
-.map-container {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Center map inside container */
-  width: 100%;
-  height: 300px; /* Fixed height for map */
-  margin-top: 20px; /* Space above map */
-}
-
-.contact-form input,
-  .contact-form textarea {
-
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border:  1px solid #ffcfcf;
-    border: 1px solid #ffcfcf;
-    background-color: #eeb9b9;
-    border-radius: 5px;
-    font-size: 14px;
-
-  }
-
-  .contact:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
-  }
-
-  .cardi:hover {
-    transform: scale(1.02);
-  }
-
-
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none; /* Remove border for a cleaner look */
-  border-radius: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .flexi {
-    flex-direction: column; /* Stack elements on smaller screens */
-    align-items: center;
-  }
-  .contact, .cardi {
-    width: 90%; /* Ensure full width on smaller screens */
-    max-width: none; /* Remove max-width restriction */
-  }
-}
 
   </style>
   <script>
@@ -3082,15 +2828,15 @@ iframe {
 
   <div id="cookie-consent">
     <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
-    <p >We value your privacy</p>
-    <p>
+    <p style="margin-bottom: 0%;">We value your privacy</p>
+    <p style="margin-bottom: 0%;">
       <br>
       We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
       By clicking "Accept", you consent to our use of cookies.
         <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
     </p>
-    <button class="accept-cookies">Accept</button>
-    <button class="reject-cookies">Reject</button>
+    <button style="margin-bottom: 0%;" class="accept-cookies">Accept</button>
+    <button style="margin-bottom: 0%;" class="reject-cookies">Reject</button>
   </div>
   
 
@@ -3156,65 +2902,359 @@ iframe {
     cookieConsent.style.display = 'none';
   }
 });
-</script>
+
+</script> 
+<style>
+  .dropdown {
+      position: relative;
+  }
+  .dropdown-menu {
+      display: none;
+      position: absolute;
+      background: white; /* Adjust as needed */
+      list-style: none;
+      padding: 10px; /* Adjust as needed */
+      border: 1px solid #ccc; /* Adjust as needed */
+      z-index: 1000; /* Ensure it appears above other elements */
+  }
+  .dropdown-menu {
+    display: none; /* Initially hide the dropdown */
+    position: absolute; /* Position it absolutely */
+    background-color: #fff; /* Background color */
+    z-index: 1; /* Ensure it is above other elements */
+}
+.dropdown:hover .dropdown-menu {
+    display: block; /* Show dropdown on hover */
+}
+.dropdown .navbar-link {
+    position: relative; /* Needed for arrow positioning */
+}
+  .dropdown-item {
+      padding: 5px 10px; /* Adjust padding */
+  }
+  .navbar-link {
+      display: block; /* Make links fill the container */
+      padding: 8px; /* Adjust padding */
+  }
+  .arrow {
+    transition: transform 0.3s; /* Smooth transition for arrow */
+} 
+
+<!--my code-->
+
+<header class="header header-anim nav-h" data-header>
+
+  <div class="container mobile-container-styles">
+
+    <nav class="navbar nav_activated" data-navbar>
+
+
+      <ul class="navbar-list nav">
+        <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+          <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
+        </a>
+        <li class="navbar-item">
+          <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i class="fa-solid fa-house" style="font-size: 24px;"></i></a>
+        </li>
+        <li class="navbar-item">
+          <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
+            <i class="ri-information-fill"></i> About Us
+          </a>
+        </li>
+     
+       <li class="navbar-item">
+          <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
+              class="ri-bar-chart-fill"></i> Benefits</a>
+        </li>
+
+        <li class="navbar-item">
+          <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+              class="ri-bar-chart-fill"></i> Genre</a>
+        </li>
+
+       <li class="navbar-item">
+            <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
+                <i class="ri-questionnaire-fill"></i> FAQ
+            </a>
+        </li>
+
+        <li class="navbar-item" id="login-signup-link">
+          <a href="comsp.html" class="navbar-link">Community Spotlight</a>
+        </li>
+
+        <li class="navbar-item">
+          <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+          <li class="navbar-item" id="login-signup-link">
+            <a href="./assets/html/event.html" class="navbar-link" >Event</a>
+          </li>
+        
+          <li class="navbar-item">
+            <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i class="fa-solid fa-address-book" style="font-size: 24px;"></i> </a>
+            </li>
+        
+     
+
+        <li class="navbar-item">
+          <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" data-nav-link>
+            <i class="fa-solid fa-file-audio" style="font-size: 24px;"></i> 
+
+          </a>
+        </li>
+        <li class="navbar-item" id="login-signup-link">
+          <a href="./assets/html/login.html" class="navbar-link"  ><i class="fas fa-user " style="font-size: 24px;"></i></a>
+        </li>
+        
+          
+        <li>
+        <div class="action">
+          <div class="profile" onclick="menuToggle();">
+            <img id="profile-avatar"  src="./assets/images/avatar1.jpg" />
+          </div>
+          <div class="menu">
+            <h3>XYZ<br /><span>Book Lover</span></h3>
+            <ul>
+              <li>
+                <img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a>
+              </li>
+              <li>
+                <img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit profile</a>
+              </li>
+              <li>
+                <img src="./assets/images/inbox.png" /><a href="#">Inbox</a>
+              </li>
+              <li>
+                <img src="./assets/images/settings.png" /><a href="#">Settings</a>
+              </li>
+              <li><img src="./assets/images/help.png" /><a href="/help.html">Help</a></li>
+              <li>
+                <img src="./assets/images/logout.png" /><a id="logout-btn">Logout</a>
+              </li>
+            </ul>
+            </div>
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                  const savedAvatar = localStorage.getItem("selectedAvatar");
+                  if (savedAvatar) {
+                      document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+                  }
+              });
+      
+              function menuToggle() {
+                  const toggleMenu = document.querySelector(".menu");
+                  toggleMenu.classList.toggle("active");
+              }
+      
+              document.addEventListener("click", function(event) {
+                  const profile = document.querySelector(".profile");
+                  const menu = document.querySelector(".menu");
+      
+                  if (!profile.contains(event.target) && !menu.contains(event.target)) {
+                      menu.classList.remove("active");
+                  }
+              });
+              
+              // let lastScrollTop = 0;
+              // const header = document.querySelector('.header');
+      
+              // window.addEventListener('scroll', function() {
+              //     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+              //     if (scrollTop > lastScrollTop) {
+              //         // Downscroll
+              //         header.style.transform = 'translateY(-120%)';
+              //     } else {
+              //         // Upscroll
+              //         header.style.transform = 'translateY(0)';
+              //     }
+      
+              //     lastScrollTop = scrollTop;
+              // });
+          </script>
+        -->
+
+
+
+ 
+  <header class="header header-anim nav-h" data-header>
+
+
+.dropdown:hover .arrow {
+    transform: rotate(180deg); /* Rotate arrow on hover */
+}
+</style>
+
   <header class="header header-anim nav-h" data-header>
 
     <div class="container mobile-container-styles">
 
-      <nav class="navbar nav_activated" data-navbar>
-
-
-        <ul class="navbar-list nav">
-          <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
-          </a>
+      <nav class="navbar nav_activated" data-navbar> 
+        <ul class="navbar-list nav"> 
+        <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+          <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
+        </a>  
           <li class="navbar-item">
-            <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
-                class="ri-home-fill"></i> Home</a>
+             <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link> 
+              <lord-icon
+              src="https://cdn.lordicon.com/qeltvbrs.json"
+              trigger="hover"
+              colors="primary:#e88c30,secondary:#a30f17"
+              style="width:25px;height:25px">
+            </lord-icon> 
+            Home</a>
           </li>
            <li class="navbar-item">
-                <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><i
-                    class="ri-home-fill"></i>About Us</a>
+                <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><script src="https://cdn.lordicon.com/lordicon.js"></script>
+                  <lord-icon
+                      src="https://cdn.lordicon.com/fozsorqm.json"
+                      trigger="hover"
+                      stroke="bold"
+                      state="hover-up"
+                      colors="primary:#a30f17,secondary:#e88c30"
+                      style="width:30px;height:30px"></lord-icon>
+                 About</a>
               </li>
-              
-          <li class="navbar-item">
+
+              <li class="navbar-item">
+                <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
+                    class="ri-customer-service-2-fill"></i> Contact</a>
+                </li>
+                <li class="navbar-item" id="login-signup-link">
+                  <a href="./assets/html/login.html" class="navbar-link">Create Account</a>
+                </li>
+            <!-- <li class="navbar-item">
             <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
                 class="ri-bar-chart-fill"></i> Benefits</a>
+
+              
+          <li class="navbar-item">
+            <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link>
+              <lord-icon
+              src="https://cdn.lordicon.com/jibxifeu.json"
+              trigger="hover"
+              state="hover-up"
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:25px;height:25px">
+          </lord-icon> Benefits</a>
+
           </li>
 
           <li class="navbar-item">
-            <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
-                class="ri-bar-chart-fill"></i> Genre</a>
-          </li>
-
+            <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link>
+              <lord-icon
+              src="https://cdn.lordicon.com/bhmovrlt.json"
+              trigger="hover"
+              state="morph-open"
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:25px;height:25px">
+          </lord-icon>  Genre</a>
+          </li> 
+         
           <li class="navbar-item">
             <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-                class="ri-customer-service-2-fill"></i> Contact</a>
-            </li>
+                class="ri-customer-service-2-fill"></i><img src="./assets/images/telephone.png" height="25px" width="25px"/> Contact</a>
+            </li> 
             
             <li class="navbar-item">
               <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
-                  <i class="ri-questionnaire-fill"></i> FAQ
+                <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/motnbmtz.json"
+                    trigger="hover"
+                    stroke="bold"     
+                    colors="primary:#a30f17,secondary:#e88c30"
+                    style="width:25px;height:25px">
+                </lord-icon> FAQ
               </a>
-          </li>
+          </li> 
 
-          <li class="navbar-item">
-            <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+          <li class="navbar-item"> 
+            <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+          </li> 
+            <a href="rate.html" onclick="openRateUsModal(); return false;" class="navbar-link">
+            <lord-icon
+             src="https://cdn.lordicon.com/jxjfjyri.json"
+             trigger="morph"
+             stroke="bold"
+             state="morph-select"
+             colors="primary:#eeaa66,secondary:#e88c30"
+             style="width:25px;height:25px">
+            </lord-icon>  Rate</a></li>
+
+ 
             <li class="navbar-item" id="login-signup-link">
-              <a href="./assets/html/event.html" class="navbar-link">Events</a>
+              <a href="./assets/html/event.html" class="navbar-link"><script src="https://cdn.lordicon.com/lordicon.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/kvuyljqb.json"
+                    trigger="hover"
+                    stroke="bold"
+                    colors="primary:#eeaa66,secondary:#e88c30"
+                    style="width:25px;height:25px">
+                </lord-icon> Events</a>
             </li>
+          
           <li class="navbar-item" id="login-signup-link">
-            <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
-          </li>
+            <a href="../html/login.html" class="navbar-link">
+              <lord-icon
+              src="https://cdn.lordicon.com/xfzuyvam.json"
+              trigger="morph"
+              state="morph-group"
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:25px;height:25px">
+          </lord-icon> Login/Signup</a>
+          </li> 
           <li class="navbar-item" id="login-signup-link">
-            <a href="comsp.html" class="navbar-link">Community Spotlight</a>
+            <a href="comsp.html" class="navbar-link"><script src="https://cdn.lordicon.com/lordicon.js"></script>
+              <lord-icon
+                  src="https://cdn.lordicon.com/fqbvgezn.json"
+                  trigger="hover"
+                  stroke="bold"
+                  colors="primary:#a30f17,secondary:#e88c30"
+                  style="width:37px;height:37px">
+              </lord-icon>Community Spotlight</a>
           </li>
 
           <li class="navbar-item">
               <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" data-nav-link>
-                  <i class="ri-bar-chart-fill"></i> Audio<br> Books
+                <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/vycwlttg.json"
+                    trigger="hover"
+                    stroke="bold"
+                    colors="primary:#a30f17,secondary:#e88c30"
+                    style="width:25px;height:25px">
+                </lord-icon> Audio<br> Books
+              </a>
+          </li> -->
+           <!-- New Dropdown Menu for More -->
+    <li class="navbar-item dropdown">
+      <a href="#" class="navbar-link dropdown-toggle" onclick="toggleDropdown(event)">More <span class="arrow" id="arrow" style="display: inline;">&#9660;</span></a>
+      <ul class="dropdown-menu">
+          <li class="dropdown-item">
+              <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link>
+                  <i class="ri-bar-chart-fill"></i> Benefits
               </a>
           </li>
+          <li class="dropdown-item">
+              <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link>
+                  <i class="ri-bar-chart-fill"></i> Genre
+              </a>
+          </li>
+          <li class="dropdown-item">
+              <a href="#faq" onclick="lenis.scrollTo('#faq')" class="navbar-link" data-nav-link>
+                  <i class="ri-questionnaire-fill"></i> FAQ
+              </a>
+          </li>
+          <li class="dropdown-item">
+              <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+          </li>
+          <li class="dropdown-item" id="login-signup-link">
+              <a href="./assets/html/event.html" class="navbar-link">Events</a>
+          </li>
+          <li class="dropdown-item" id="login-signup-link">
+              <a href="comsp.html" class="navbar-link">Community Spotlight</a>
+          </li>
+      </ul>
+  </li>
             
           <li>
           <div class="action">
@@ -3242,6 +3282,13 @@ iframe {
                 </li>
               </ul>
               </div>
+              <script>
+                function toggleDropdown(event) {
+                    event.preventDefault();
+                    const dropdownMenu = event.currentTarget.nextElementSibling;
+                    dropdownMenu.classList.toggle('show');
+                }
+            </script>
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
                     const savedAvatar = localStorage.getItem("selectedAvatar");
@@ -3281,7 +3328,7 @@ iframe {
                 //     lastScrollTop = scrollTop;
                 // });
             </script>
-
+          -->
 <div id="modal">
   <form class="modal-box">
     <!-- <img src="https://st2.depositphotos.com/4103319/6625/i/450/depositphotos_66251761-stock-photo-logout-circular-icon-on-white.jpg" class="logout-img"/> -->
@@ -3306,6 +3353,7 @@ iframe {
           <div class="line"></div>
           <div class="line"></div>
         </div> -->
+
       </nav>
       <div id="mobile_View_Menu">
         <span id="menu_lines"></span>
@@ -3448,7 +3496,7 @@ iframe {
 
             <p class="section-text " >
               Join SwapReads.com, the ultimate online community for book enthusiasts! Create your profile, list your
-              favorite reads, and embark on literary journeys by swapping books with fellow passionate readers. Discover
+              favorite reads, and embark on   literary journeys by swapping books with fellow passionate readers. Discover
               a world where books find new adventures and readers connect through the joy of sharing stories.
             </p>
             <div class="container hero-button">
@@ -5107,7 +5155,7 @@ iframe {
   <div class="flexi">
     <div class="contact" >
       <div class="contact-container">
-        <form class="contact-form" id="contactForm" style=" width: 500px;">
+        <form class="contact-form" id="contactForm" >
           <label for="name" class="label">Name</label>
           <input type="text" id="name" name="name" placeholder="Your Name" required required pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
           oninput="this.setCustomValidity('')">
@@ -5514,7 +5562,6 @@ h2 {
 }
 
 p {
-  font-size: 16px;
   color: #E91E63;
   margin-bottom: 30px;
 }
@@ -5557,29 +5604,6 @@ p {
   color: #C2185B;
 }
 
-button {
-  width: 100%;
-  padding: 15px;
-  background-color: #C2185B;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-button:hover {
-  background-color: #AD1457;
-  box-shadow: 0 0 15px rgba(194, 24, 91, 0.4);
-}
-
-button:focus {
-  outline: none;
-  box-shadow: 0 0 10px rgba(194, 24, 91, 0.8);
-}
-
 </style>
         
 <script>
@@ -5616,24 +5640,6 @@ button:focus {
   });
 </script>
 
-<div class="newsletter-container">
-  <h2>Subscribe to Our Newsletter</h2>
-  <p>Stay updated with our latest news and offers</p>
-  
-  <form id="newsletterForm">
-    <div class="input-group">
-      <input type="text" id="name" placeholder="Your Name">
-      <i class='bx bx-user'></i>
-    </div>
-    
-    <div class="input-group">
-      <input type="email" id="email" placeholder="Your Email Address">
-      <i class='bx bx-envelope'></i>
-    </div>
-    
-    <button type="submit" id="subs">Subscribe</button>
-  </form>
-</div>
 <style>
   
   #name{
@@ -5682,7 +5688,7 @@ button:focus {
 
     observer.observe(faq);
   });
-});
+}); 
 
 
   </script>
@@ -5745,7 +5751,7 @@ button:focus {
         </div>
       </div>
       <div class="foot-middle">
-        <h2 style="margin-left: 2rem; margin-top: 2.75rem;">Quick Links</h2>
+        <h2 style="margin-left: 0rem; margin-top: 2.75rem;">Quick Links</h2>
         <div id="quicklinks" class="row">
           <div class="col-md-6">
             <ul>
@@ -5754,6 +5760,7 @@ button:focus {
               <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i> <p class="flinks">Literary</p></a></li>
               <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i><p class="flinks">Pricing</p> </a></li>
               <li class="foot-quick"><a href="./assets/html/bookrecommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><p class="flinks">Recommend</p></a></li>
+              <li class="foot-quick"><a href="/terms&cond.html"> <i class="fas fa-file-alt"></i><p class="flinks">Terms and Conditions</p></a></li>
             </ul>
           </div>
           <div class="col-md-6">
@@ -5810,10 +5817,7 @@ button:focus {
 }
 
         </style>
-
-
-
-
+ 
     
   <script>
   function showConfirmationMessage() {
@@ -5835,99 +5839,44 @@ button:focus {
 
 </script>
 <style>
-  
-  .newsletter {
-    background-color: #ffd1d1;
-    padding: 30px;
-    max-width: 400px;
-    margin: auto;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
+  .subscribe {
+    background-color: #A30F17;
+    color: white; 
+    border: none; 
+    padding: 1rem 2rem; 
+    font-size: 1.6rem; 
+    font-family: Arial, sans-serif;
+    border-radius: 0.5rem; 
+    cursor: pointer; 
+    margin-top: 5px;
+  }
 
-.newsletter h1 {
-    color: #c62828;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.newsletter p {
-    color: #8c8c8c;
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-.input-group {
-    position: relative;
-    margin-bottom: 15px;
-}
-
-.input-group i {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    color: #c62828;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 12px 40px;
-    border: 2px solid #c62828;
-    border-radius: 5px;
-    font-size: 14px;
-    color: #333;
-    background-color: #ffecec;
-    transition: border-color 0.3s ease;
-}
-
-.input-group input:focus {
-    border-color: #ff6f6f;
-    outline: none;
-}
-
-.subscribe {
-    width: 100%;
-    background-color: #b71c1c;
-    color: white;
-    border: none;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.subscribe:hover {
+  .subscribe:hover {
     background-color: #ff6f6f;
-}
- 
-       subscribe:active {
-        transform: scale(0.98);
-       }
-       subscribe:focus {
-        outline: none;
-       }
-        
-        .newsletter:hover {
-  // background: linear-gradient(hwb(357 68% 7%), #d26d6d);
-  
+  }
 
+  .subscribe:active {
+    transform: scale(0.98);
+  }
 
-.success-message {
+  .subscribe:focus {
+    outline: none;
+  }
+
+  .success-message {
     margin-top: 20px;
     font-size: 18px;
     color: #388e3c;
     display: none;
+  }
 
-}
-
-@media (max-width: 500px) {
+  @media (max-width: 500px) {
     .newsletter {
-        padding: 20px;
+      padding: 20px;
     }
+  }
 </style>
+
         
 <!--<script>
   function showSuccessMessage() 
@@ -5964,7 +5913,7 @@ function showSuccessMessage() {
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> 
 
-<div class="newsletter" style="margin-right:100px ;">
+<div class="newsletter">
     <h1>Subscribe to Our Newsletter</h1>
     <p>Stay updated with our latest news and offers</p>
     
@@ -6019,8 +5968,8 @@ function showSuccessMessage() {
  
       <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
       <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>  |
-      
-      <a href="our-vision.html" id="ourvisionlink">Our Vision</a></li>
+      <a href="our-vision.html" id="ourvisionlink">Our Vision</a></li> |
+      <a href="./contributors/contributor.html" id="ourvisionlink">Our Contributors </a></li>
     
     </div>
     </div>
@@ -6626,7 +6575,7 @@ count=0
        .scroll-button:hover {
           transform: translateY(-50%) scale(1.2);
         }
-    </style>
+</style>
 <script>
     document.getElementById("scrollBtn").addEventListener("click", function() {
         // Get the height of the viewport
@@ -6637,9 +6586,11 @@ count=0
             top: viewportHeight,
             behavior: "smooth" // This makes the scrolling smooth
         });
-    });
+      });
 </script>
 
-</body>
 
+
+
+</body>
 </html>

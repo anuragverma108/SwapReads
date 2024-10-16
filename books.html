@@ -962,6 +962,44 @@
     </div>
   </div>
   <br /><br />
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const faqContainers = document.querySelectorAll('.faq-container');
+
+  faqContainers.forEach(faq => {
+    const question = faq.querySelector('.question');
+    
+    question.addEventListener('click', () => {
+      const answers = faq.querySelector('.answers');
+   
+      answers.classList.toggle('visible');
+    
+      const icon = faq.querySelector('.icon');
+      icon.classList.toggle('fa-rotate-180');
+    });
+    
+   
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    observer.observe(faq);
+  });
+}); 
+
+
+  </script>
     
   <!--
     - #FOOTER
@@ -979,7 +1017,7 @@
             possibilities!
           </p>
         </div>
-      </div>
+      </div> 
       <div class="foot-middle">
         <h2>Quick Links</h2>
         <ul>
