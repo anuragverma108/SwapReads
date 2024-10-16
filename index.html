@@ -1091,6 +1091,64 @@ iframe {
 
 
 
+
+/* ################Embedded CSS for the publish your book section############*/
+.publish-book {
+      margin: 50px auto;
+      max-width: 600px;
+      padding: 20px;
+      background-color: #fae6e6;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .publish-book h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #218838;
+    }
+
+    #publish-status {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 18px;
+      color: #28a745;
+    }
+
+
+
   </style>
 <script>
   (function() {
@@ -5687,6 +5745,85 @@ button:focus {
   </script>
   <br /><br />
   <link rel="stylesheet" href="./assets/css/visitors.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--######### HTML content for publishing a book ##########-->
+  <section id="publish-book-section" class="publish-book">
+    <h2>Publish Your Book</h2>
+    <form id="publish-book-form">
+      <div class="form-group">
+        <label for="book-title">Book Title</label>
+        <input type="text" id="book-title" name="bookTitle" required>
+      </div>
+
+      <div class="form-group">
+        <label for="author-name">Author Name</label>
+        <input type="text" id="author-name" name="authorName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="book-description">Book Description</label>
+        <textarea id="book-description" name="bookDescription" rows="5" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="book-genre">Genre</label>
+        <select id="book-genre" name="bookGenre" required>
+          <option value="fiction">Fiction</option>
+          <option value="non-fiction">Non-fiction</option>
+          <option value="sci-fi">Sci-Fi</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="biography">Biography</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="book-cover">Book Cover Image</label>
+        <input type="file" id="book-cover" name="bookCover" accept="image/*">
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+    <div id="publish-status"></div>
+  </section>
+
+  <script>
+    // Embedded JavaScript
+    document.getElementById('publish-book-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get form values
+      const bookTitle = document.getElementById('book-title').value;
+      const authorName = document.getElementById('author-name').value;
+      const bookDescription = document.getElementById('book-description').value;
+      const bookGenre = document.getElementById('book-genre').value;
+
+      // Display submission message
+      const statusDiv = document.getElementById('publish-status');
+      statusDiv.innerHTML = `<p>Thank you! The book "${bookTitle}" by ${authorName} has been submitted for review.</p>`;
+
+      // Clear form fields after submission
+      this.reset();
+    });
+  </script>
+
+
+
+
+
+
   <!-- ############### Footer ############### -->
   <div class="visitor-counter">
     <div>Visitor</div>
