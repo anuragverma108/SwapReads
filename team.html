@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Contributors</title>
+    <link rel="stylesheet" href="communityStyle.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    
+body {
+    /* padding-top: 80px; */
+    background-color: #FFC1B7;
+}
+
+.team-top {
+    text-align: center;
+}
+
+.team-top h3 {
+    font-size: 36px;
+    margin-top: 20px;
+    border: 2.5px solid gray;
+}
+
+.team-members {
+    display: flex;
+    gap: 20px;
+    margin-top: 5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+    border: 4px solid #fff;
+}
+
+.team-member p {
+    font-size: 13px;
+    font-weight: bold;
+    color: rgb(241, 228, 228);
+}
+
+.team-member img:hover {
+    transform: scale(1.121);
+    border: 0px;
+    position: relative;
+}
+
+.team-member p:nth-child(1) {
+    z-index: 999;
+}
+
+.team-member p:nth-child(2) {
+    border: 2px solid #333;
+    background-color: #ffffff4a;
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.box-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.widget-container {
+    transition: all 0.3s ease;
+}
+
+.common-flip-style {
+    width: 250px;
+    height: 250px;
+    cursor: pointer;
+}
+
+.common-box-style {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+    border-radius: 10px;
+}
+
+.flip-box {
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.box-front {
+    transform: none;
+    z-index: 1;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.box-back {
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    transform: rotateX(0) rotateY(-180deg);
+    background: #fff;
+    color: red;
+    border: 5px solid orange;
+}
+
+.flip-box:hover .box-front {
+    transform: rotateX(0) rotateY(180deg);
+}
+
+.flip-box:hover .box-back {
+    border-radius: 50%;
+    color: red;
+    transform: none;
+}
+
+.box-content-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform: translateZ(90px);
+    border-radius: 50%;
+}
+
+.box-content-wrapper img {
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.heading-contributors {
+    margin-top: 5rem;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    font: 900 2.3rem 'Orbitron', sans-serif;
+    background: #222222;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.heading-contributors:after {
+    content: "Meet our awesome contributors 💙";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0) 45%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 0) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200%;
+    animation: shine 2.5s infinite;
+}
+
+
+</style>
+<body>
+
+    <!-- Header Include -->
+    <header>
+        <!-- Include your header here -->
+    </header>
+
+    <!-- Sidebar Include -->
+    <aside>
+        <!-- Include your sidebar here -->
+    </aside>
+
+    <!-- Navbar Include -->
+    <main>
+        <section class="team">
+            <div class="team-top" id="slide">
+                <div class="heading-contributors">Meet our awesome contributors 💙 </div>
+                <div class="team-members">
+                    <!-- Team members' data will be dynamically populated here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Include -->
+    <footer>
+        <!-- Include your footer here -->
+    </footer>
+
+    <script>
+        const ownerName = "anuragverma108";
+const repoName = "SwapReads";
+const apiURL = `https://api.github.com/repos/${ownerName}/${repoName}/contributors`;
+
+fetch(apiURL)
+    .then((response) => response.json())
+    .then((contributors) => {
+        const teamMembersDiv = document.querySelector(".team-members");
+        contributors.forEach((contributor) => {
+            const contributorDiv = document.createElement("div");
+            contributorDiv.classList.add("team-member");
+
+            const boxPanelSection = document.createElement("section");
+            boxPanelSection.classList.add("box-panel");
+            const widgetContainer = document.createElement("div");
+            widgetContainer.classList.add("widget-container");
+            const flipBox = document.createElement("div");
+            flipBox.classList.add("flip-box", "common-flip-style");
+            const boxFront = document.createElement("div");
+            boxFront.classList.add("box-front", "common-box-style");
+            const boxContentWrapperFront = document.createElement("div");
+            boxContentWrapperFront.classList.add("box-content-wrapper");
+            const contributorImageFront = document.createElement("img");
+            contributorImageFront.src = contributor.avatar_url;
+            contributorImageFront.alt = contributor.login;
+            boxContentWrapperFront.appendChild(contributorImageFront);
+            boxFront.appendChild(boxContentWrapperFront);
+
+            const boxBack = document.createElement("div");
+            boxBack.classList.add("box-back", "common-box-style", "box-bgi-effect");
+            const boxContentWrapperBack = document.createElement("div");
+            boxContentWrapperBack.classList.add("box-content-wrapper");
+            const boxContentBack = document.createElement("div");
+            boxContentBack.classList.add("box-content");
+            const contributorNameBack = document.createElement("h1");
+            contributorNameBack.textContent = "Hello there!";
+            const contributorRoleBack = document.createElement("h1");
+            contributorRoleBack.innerHTML = `I am the <strong>${contributor.login}</strong>.`;
+            const contributorCommitsBack = document.createElement("h1");
+            contributorCommitsBack.textContent = `Commits: ${contributor.contributions}`;
+            boxContentBack.appendChild(contributorNameBack);
+            boxContentBack.appendChild(contributorRoleBack);
+            boxContentBack.appendChild(contributorCommitsBack);
+            boxContentWrapperBack.appendChild(boxContentBack);
+            boxBack.appendChild(boxContentWrapperBack);
+
+            flipBox.appendChild(boxFront);
+            flipBox.appendChild(boxBack);
+            widgetContainer.appendChild(flipBox);
+            boxPanelSection.appendChild(widgetContainer);
+            contributorDiv.appendChild(boxPanelSection);
+
+            const contributorLink = document.createElement("a");
+            contributorLink.href = contributor.html_url;
+            contributorLink.target = "_blank";
+
+            const contributorName = document.createElement("p");
+            contributorName.textContent = contributor.login;
+
+            const contributorRole = document.createElement("p");
+            contributorRole.textContent = "Commits: " + contributor.contributions;
+
+            contributorDiv.appendChild(contributorLink);
+            teamMembersDiv.appendChild(contributorDiv);
+        });
+    })
+    .catch((error) => {
+        console.error("Error fetching contributors:", error);
+    });
+
+
+    
+    </script>
+</body>
+</html>
