@@ -787,23 +787,28 @@
     </footer>
 
     <script>
-      function toggleAudio(
-        audioId,
-        sliderId,
-        currentTimeId,
-        durationId,
-        button
-      ) {
+      let currentAudio = null; // Keep track of the currently playing audio
+    
+      function toggleAudio(audioId, sliderId, currentTimeId, durationId, button) {
         const audio = document.getElementById(audioId);
         const slider = document.getElementById(sliderId);
         const currentTimeDisplay = document.getElementById(currentTimeId);
         const durationDisplay = document.getElementById(durationId);
         const container = button.closest(".spotlight-card");
-
+    
+        // If there's an audio currently playing and it's not the same as the selected one, pause it
+        if (currentAudio && currentAudio !== audio) {
+          currentAudio.pause();
+          currentAudio.closest(".spotlight-card").classList.remove("playing");
+          document.querySelector(".play-pause-btn[onclick*='" + currentAudio.id + "']").textContent = "Play";
+        }
+    
+        // Toggle play/pause for the selected audio
         if (audio.paused) {
           audio.play();
           button.textContent = "Pause";
           container.classList.add("playing");
+          currentAudio = audio; // Set the currently playing audio
           updateSlider(slider, audio, currentTimeDisplay, durationDisplay);
         } else {
           audio.pause();
@@ -811,32 +816,28 @@
           container.classList.remove("playing");
         }
       }
-
-      function updateSlider(
-        slider,
-        audio,
-        currentTimeDisplay,
-        durationDisplay
-      ) {
+    
+      function updateSlider(slider, audio, currentTimeDisplay, durationDisplay) {
         audio.addEventListener("timeupdate", function () {
           slider.max = audio.duration;
           slider.value = audio.currentTime;
-
+    
           // Update current time and duration
           currentTimeDisplay.textContent = formatTime(audio.currentTime);
           durationDisplay.textContent = formatTime(audio.duration);
         });
-
+    
         slider.addEventListener("input", function () {
           audio.currentTime = slider.value;
         });
       }
-
+    
       function formatTime(seconds) {
         const minutes = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
         return minutes + ":" + (secs < 10 ? "0" : "") + secs;
       }
     </script>
+    
   </body>
 </html>
