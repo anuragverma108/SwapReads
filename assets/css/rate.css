@@ -15,23 +15,34 @@ body {
     background-size: cover;
     color: #444;
     user-select: none;
+    cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23ff66b2" d="M0 0h24v24H0z" fill="none"/%3E%3Cpath fill="%23ff66b2" d="M13.88 12.47L3.41 2H2v20h2V6.41l10.59 10.59L17 17.99l2-2-2-2-3.12-3.52zm4.83 5.59l-2.83-2.83-2.83 2.83 2.83 2.83 2.83-2.83z"/%3E%3C/svg%3E'), auto;
 }
 
 /* Rate Us Form Styling */
 #rate-us {
     max-width: 600px;
     margin: 50px auto;
-    background: #b00404;
+ 
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
     text-align: center;
+}
+
+#rate-us:hover {
+    background-color: #FFB2A8;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+    transform: scale(1.02);
+ 
 }
 
 #rate-us .heading {
     text-align: center;
-    color: #f1eeee;
+ 
+    color: #ff6666;
+ 
     margin-bottom: 20px;
 }
 
@@ -51,7 +62,10 @@ body {
 
 /* Heading Styling */
 #rate-us .heading p {
-    font-size: 21px;
+ 
+    font-size: 18px;
+    line-height: 1.5;
+ 
 }
 
 /* Emoji Ratings Styling */
@@ -70,15 +84,18 @@ body {
     font-size: 36px;
     margin: 0 10px;
     cursor: pointer;
-    transition: transform 0.6s ease-in-out, color 0.3s ease-in-out;
+ 
+    transition: transform 0.3s ease, color 0.3s ease;
+ 
 }
 
 #rate-us .stars label:hover {
     transform: scale(1.2);
     color: #ff6666;
 }
-
-#rate-us .stars input[type="radio"]:checked+label {
+ 
+#rate-us .stars input[type="radio"]:checked + label {
+ 
     animation: shine 0.5s infinite alternate;
     transform: scale(1.5);
 }
@@ -104,7 +121,10 @@ body {
     border-radius: 5px;
     padding: 10px;
     font-size: 16px;
-    color: #ffffff;
+ 
+    color: #444;
+    transition: border-color 0.3s ease;
+ 
 }
 
 #rate-us .feedback-container textarea::placeholder {
@@ -122,22 +142,28 @@ body {
 }
 
 #rate-us .button button {
-    background-color: #ebe7e7;
-    color: #b94c4c;
+ 
+    background-color: #ff6666;
+    color: #fff;
+ 
     padding: 10px 20px;
     font-size: 23px;
     font-weight: 500;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+ 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+ 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: inline-block;
 }
 
 #rate-us .button button:hover {
-    box-shadow: 0 6px 10px rgba(252, 252, 252, 0.2);
+ 
+    background-color: #e65c5c;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+ 
 }
 
 /* Toast Message Styling */
@@ -163,8 +189,4 @@ body {
 .toast-failure {
     background-color: #f44336;
 }
-
-/* Pink Cursor with Glow Effect */
-body {
-    cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23ff66b2" d="M0 0h24v24H0z" fill="none"/%3E%3Cpath fill="%23ff66b2" d="M13.88 12.47L3.41 2H2v20h2V6.41l10.59 10.59L17 17.99l2-2-2-2-3.12-3.52zm4.83 5.59l-2.83-2.83-2.83 2.83 2.83 2.83 2.83-2.83z"/%3E%3C/svg%3E'), auto;
-}
+ 
