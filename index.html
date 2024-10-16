@@ -5095,18 +5095,20 @@ iframe {
 
 
   <!-- --Contact Us -->
-                                    
+  <!-- Contact Us -->
 <section class="section-contact" id="contact" aria-label="contact">
   <h1 class="h1 section-title has-underline" style="margin-top: 15px;">
     Contact Us!
     <span class="span has-before"></span>
   </h1>
-  <p class="p">Have a Question?</p> 
+  <p class="p">Have a Question?</p>
   <h3 style="text-align: center; color: #A30F17;">GET IN TOUCH</h3>
+
   <div class="flexi">
-    <div class="contact" >
+    <!-- Contact Form Section -->
+    <div class="contact form-section">
       <div class="contact-container">
-        <form class="contact-form" id="contactForm" style=" width: 500px;">
+        <form class="contact-form" id="contactForm">
           <label for="name" class="label">Name</label>
           <input type="text" id="name" name="name" placeholder="Your Name" required required pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
           oninput="this.setCustomValidity('')">
@@ -5122,20 +5124,11 @@ iframe {
 
           <button type="submit">Send Message</button>
         </form>
-        <!-- Image Fader Section -->
-        <center>
-          <div class="image-fader">
-            <img src="./assets/images/ctc1.png" alt="ctc1">
-            <img src="./assets/images/ctc5.png" alt="ctc5">
-            <img src="./assets/images/ctc3.png" alt="ctc3">
-            <img src="./assets/images/ctc4.png" alt="ctc4">
-          </div>
-        </center>
       </div>
     </div>
 
     <!-- Contact Information Section -->
- <div class="contact">
+    <div class="contact info-section">
       <div class="contact-container">
         <ul class="flex-container">
           <li>
@@ -5163,6 +5156,7 @@ iframe {
             <a href="mailto:support@swapreads.com" class="card-link">support@swapreads.com</a>
           </li>
         </ul>
+
         <!-- Map Container -->
         <div class="map-container">
           <iframe
@@ -5174,6 +5168,51 @@ iframe {
     </div>
   </div>
 </section>
+
+<!-- CSS -->
+<style>
+  .flexi {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: nowrap; /* No wrapping, ensures elements stay on one line */
+    
+    padding: 20px;
+  }
+
+  .contact {
+    width: 48%; /* Both sections take 48% of the width to fit in one row */
+ 
+    box-sizing: border-box;
+    padding: 20px;
+    flex-grow: 1; /* Ensures both containers grow equally to take the same height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+ 
+
+  .form-section, .info-section {
+    display: flex;
+    flex-direction: row;
+    gap: -30px;
+  }
+
+  .map-container iframe {
+    width: 100%;
+    height: 250px;
+  }
+
+  @media (max-width: 992px) {
+    .flexi {
+      flex-wrap: wrap; /* On smaller screens, the sections will stack */
+    }
+    .contact {
+      width: 100%; /* Full width for each section in smaller screens */
+    }
+  }
+</style>
 
 
 <script>
