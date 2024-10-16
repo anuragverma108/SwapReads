@@ -4883,51 +4883,144 @@ iframe {
           </script>
         </div>
       </section>
+
 <!-- Donation of Books -->
 <br>
+
+<style>
+  .donate-books-section h1 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 2.5rem;
+  color: #A30F17;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card {
+  margin: 1.5rem;
+  border-bottom: 0.5rem solid #A30F17;
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding-bottom: 1rem;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: 50%;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-sty {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-style: italic;
+  text-align: center;
+  color: #555;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.donate-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #A30F17;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.donate-button:hover {
+  background-color: #8b0b14;
+  transform: scale(1.05);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.871);
+}
+
+</style>
+
 <div class="donate-books-section">
-  <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Donate Books</h1>
+  <h1>Donate Books</h1>
   <br>
   <div class="container">
-    <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; padding-bottom: 1rem; height: auto; ">
-          <img src="./assets/images/images/lib.jpg" alt="Library Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
-          <div class="card-body">
-              <h3 class="card-sty" style="text-align: center;">Library</h3>
-              <p class="card-text" style="font-style: italic;">Donate your books to local libraries and help foster a love for reading in your community.</p>
-              <div class="button-container" style="text-align: center; margin-top: 1rem; margin-bottom: 1rem; ">
-                  <a href="./assets/html/donate.html" class="donate-button">Donate to Libraries</a>
-              </div>
-          </div>
+    
+    <!-- Card 1 -->
+    <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+      <img src="./assets/images/images/lib.jpg" alt="Library Image">
+      <div class="card-body">
+        <h3 class="card-sty">Library</h3>
+        <p class="card-text">Donate your books to local libraries and help foster a love for reading in your community.</p>
+        <div class="button-container">
+          <a href="./assets/html/donate.html" class="donate-button">Donate to Libraries</a>
+        </div>
       </div>
-      <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; height: auto;">
-          <img src="./assets/images/images/sc.jpg" alt="School Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
-          <div class="card-body">
-              <h3 class="card-sty" style="text-align: center;">Schools</h3>
-              <p class="card-text" style="font-style: italic;">Support children's education by donating books to nearby schools for students of all ages.</p>
-              <div class="button-container" style="text-align: center; margin-top: 1rem;">
-                  <a href="./assets/html/school.html" class="donate-button">Donate to Schools</a>
-              </div>
-          </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+      <img src="./assets/images/images/sc.jpg" alt="School Image">
+      <div class="card-body">
+        <h3 class="card-sty">Schools</h3>
+        <p class="card-text">Support children's education by donating books to nearby schools for students of all ages.</p>
+        <div class="button-container">
+          <a href="./assets/html/school.html" class="donate-button">Donate to Schools</a>
+        </div>
       </div>
-      <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; height: auto;">
-          <img src="./assets/images/images/ngo.jpeg" alt="Organization Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
-          <div class="card-body">
-              <h3 class="card-sty" style="text-align: center;">Organizations</h3>
-              <p class="card-text" style="font-style: italic;">Help NGOs and other organizations by donating books to support their educational programs.</p>
-              <div class="button-container" style="text-align: center; margin-top: 1rem;">
-                  <a href="./assets/html/ngo.html" class="donate-button">Donate to Organizations</a>
-              </div>
-          </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+      <img src="./assets/images/images/ngo.jpeg" alt="Organization Image">
+      <div class="card-body">
+        <h3 class="card-sty">Organizations</h3>
+        <p class="card-text">Help the organizations by donating books to support their educational programs.</p>
+        <div class="button-container">
+          <a href="./assets/html/ngo.html" class="donate-button" style="margin-bottom:10rem;">Donate to Organizations</a>
+        </div>
       </div>
+    </div>
+
   </div>
 </div>
 
-<style>
-  .card:hover {
-    transform: scale(1.1);
+<script>
+  function hoverCard(card) {
+    card.style.transform = "scale(1.05)";
+    card.style.boxShadow = "0px 12px 20px rgba(0,0,0,0.2)";
   }
-</style>
 
+  function unhoverCard(card) {
+    card.style.transform = "scale(1)";
+    card.style.boxShadow = "0px 8px 15px rgba(0,0,0,0.1)";
+  }
+</script>
 
 <!-- rate us -->
       <style>
