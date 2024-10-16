@@ -4,12 +4,9 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- Bootstrap theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="./assets/css/MenuClick.css">
     <title>How to create Firebase login and register?</title>
-    <link rel="stylesheet" href="./assets/css/login.css" />
     <style>
         .remember-me-label {
             font-size: 14px;
@@ -19,14 +16,97 @@
 
         .remember-me-label input {
             margin-right: 8px;
-            /* Adjusted margin */
             margin-top: 1px;
-            /* Added margin-top for better alignment */
+        }
+
+        .main {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .login,
+        .register {
+            flex: 1;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .input {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        /* Style for highlighting valid conditions in green */
+        .valid-condition {
+            color: lightgreen;
+        }
+
+        /* Style for invalid conditions */
+        .invalid-condition {
+            color: red;
+        }
+
+        /* Hide the password conditions list by default */
+        #passwordConditions {
+            list-style: none;
+            padding: 0;
+            display: none; /* Hide initially */
+        }
+
+        /* Show the conditions list when the user starts typing */
+        .show-conditions #passwordConditions {
+            display: block;
+        }
+    </style>
+    <style>
+        /* Circle styles */
+        .circle {
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 99999999;
+            transition: transform 0.1s ease-out;
         }
     </style>
 </head>
 
 <body>
+    <!-- Circles -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
     <div class="navbar nav_activated">
         <div class="navbar-header">
             <a href="index.html">
@@ -53,12 +133,12 @@
                 <form class="form">
                     <label for="chk" aria-hidden="true">Log in</label>
                     <input class="input" type="email" name="email" id="login_email" placeholder="Email" required="" />
-                    <input class="input" type="password" name="pswd" id="login_password" placeholder="Password"
-                        required="" />
+                    <input class="input" type="password" name="pswd" id="login_password" placeholder="Password" required="" />
                     <label class="remember-me-label">
                         <input type="checkbox" id="rememberMe"> Remember Me
                     </label>
                     <button type="button" name="Login" id="login">Log in</button>
+                    <button type="button" id="forgotPassword">Forgot Password?</button>
                 </form>
             </div>
 
@@ -67,6 +147,16 @@
                     <label for="chk" aria-hidden="true">Register</label>
                     <input class="input" type="email" name="email" id="email" placeholder="Email" required="" />
                     <input class="input" type="password" name="pswd" id="password" placeholder="Password" required="" />
+
+                    <!-- Password strength conditions -->
+                    <ul id="passwordConditions">
+                        <li id="lengthCondition">At least 8 characters</li>
+                        <li id="uppercaseCondition">At least 1 uppercase letter</li>
+                        <li id="lowercaseCondition">At least 1 lowercase letter</li>
+                        <li id="numberCondition">At least 1 number</li>
+                        <li id="specialCharCondition">At least 1 special character</li>
+                    </ul>
+
                     <button type="button" name="register" id="register">Register</button>
                 </form>
             </div>
@@ -82,14 +172,14 @@
             </div>
         </div>
     </footer>
-    <script>document.getElementById("copyright-year").textContent = new Date().getFullYear();</script>
+    <script>
+        document.getElementById("copyright-year").textContent = new Date().getFullYear();
+    </script>
     <script type="module">
-        // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
-        // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCu2WXknNce_49J5BLuR1DyHm319hu6dWc",
             authDomain: "login-13127.firebaseapp.com",
@@ -100,12 +190,10 @@
             measurementId: "G-L3PPD58MZ8"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         const auth = getAuth();
 
-        // Remember Me functionality
         window.onload = function () {
             if (localStorage.getItem('rememberMe') === 'true') {
                 document.getElementById('login_email').value = localStorage.getItem('email');
@@ -118,10 +206,8 @@
             let email = document.getElementById("email").value;
             let password = document.getElementById("password").value;
 
-            // For new registration
             createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
-                    // Signed in
                     const user = userCredential.user;
                     console.log(user);
                     alert("Registration successful!");
@@ -142,7 +228,6 @@
 
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
-                    // Signed in
                     if (rememberMe) {
                         localStorage.setItem('email', email);
                         localStorage.setItem('password', password);
@@ -171,32 +256,133 @@
                     console.log("An error happened.");
                 });
         });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("forgotPassword").addEventListener("click", function () {
+                let email = document.getElementById("login_email").value;
+                if (email) {
+                    auth.sendPasswordResetEmail(email)
+                        .then(() => {
+                            alert("Password reset email sent!");
+                        })
+                        .catch((error) => {
+                            const errorMessage = error.message;
+                            console.log(errorMessage);
+                            alert(errorMessage);
+                        });
+                } else {
+                    alert("Please enter your email address to reset your password.");
+                }
+            });
+        });
+    </script>
+    <script>
+        // Password strength validation
+        const passwordInput = document.getElementById("password");
+        const conditionsList = document.getElementById("passwordConditions");
+
+        passwordInput.addEventListener("input", function () {
+            const password = passwordInput.value;
+
+            // Check conditions
+            const lengthCondition = password.length >= 8;
+            const uppercaseCondition = /[A-Z]/.test(password);
+            const lowercaseCondition = /[a-z]/.test(password);
+            const numberCondition = /\d/.test(password);
+            const specialCharCondition = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+            // Toggle valid and invalid classes
+            document.getElementById("lengthCondition").className = lengthCondition ? "valid-condition" : "invalid-condition";
+            document.getElementById("uppercaseCondition").className = uppercaseCondition ? "valid-condition" : "invalid-condition";
+            document.getElementById("lowercaseCondition").className = lowercaseCondition ? "valid-condition" : "invalid-condition";
+            document.getElementById("numberCondition").className = numberCondition ? "valid-condition" : "invalid-condition";
+            document.getElementById("specialCharCondition").className = specialCharCondition ? "valid-condition" : "invalid-condition";
+
+            // Show the conditions list when typing
+            if (password.length > 0) {
+                document.querySelector('.register').classList.add('show-conditions');
+            } else {
+                document.querySelector('.register').classList.remove('show-conditions');
+            }
+        });
+    </script>
+    <script>
+        const navbar = document.querySelector('.navbar'),
+            NavButton = document.querySelector('.nav-toggle-btn'),
+            open = document.querySelector('.open'),
+            close = document.querySelector('.close');
+        let count = 0;
+        NavButton.addEventListener('click', () => {
+            if (count === 0) {
+                navbar.classList.remove('nav_activated');
+                open.classList.add('close');
+                close.classList.add('open');
+                open.classList.remove('open');
+                close.classList.remove('close');
+                count++;
+            } else {
+                navbar.classList.add('nav_activated');
+                open.classList.add('open');
+                close.classList.add('close');
+                open.classList.remove('close');
+                close.classList.remove('open');
+                count = 0;
+            }
+        });
     </script>
 <script>
-const navbar=document.querySelector('.navbar'),
-NavButton=document.querySelector('.nav-toggle-btn'),
-open=document.querySelector('.open'),
-close=document.querySelector('.close');
-let count=0
-NavButton.addEventListener('click',()=>{
-      
-if(count===0){
-navbar.classList.remove('nav_activated')
-open.classList.add('close')
-close.classList.add('open')
-open.classList.remove('open')
-close.classList.remove('close')
-count++
-}
-else{
-navbar.classList.add('nav_activated')
-open.classList.add('open')
-close.classList.add('close')
-open.classList.remove('close')
-close.classList.remove('open')
-count=0
-}
-})
+    // Coordinates for the cursor
+    const coords = { x: 0, y: 0 };
+    const circles = document.querySelectorAll(".circle");
+
+    // Colors for the circles
+    const colors = [
+        "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+        "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+        "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+        "#680060", "#60005f", "#48005f", "#3d005e"
+    ];
+
+    // Assign colors and initial position to each circle
+    circles.forEach(function (circle, index) {
+        circle.x = 0;
+        circle.y = 0;
+        circle.style.backgroundColor = colors[index % colors.length];
+    });
+
+    // Update the coordinates when the mouse moves
+    window.addEventListener("mousemove", function (e) {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+    });
+
+    // Animation function to move the circles
+    function animateCircles() {
+        let x = coords.x;
+        let y = coords.y;
+
+        circles.forEach(function (circle, index) {
+            // Update the position and scale of each circle
+            circle.style.left = x - 12 + "px";
+            circle.style.top = y - 12 + "px";
+            circle.style.scale = (circles.length - index) / circles.length;
+
+            circle.x = x;
+            circle.y = y;
+
+            // Get the next circle in the sequence
+            const nextCircle = circles[index + 1] || circles[0];
+            x += (nextCircle.x - x) * 0.3;
+            y += (nextCircle.y - y) * 0.3;
+        });
+
+        // Repeat the animation
+        requestAnimationFrame(animateCircles);
+    }
+
+    // Start the animation
+    animateCircles();
 </script>
 </body>
+
 </html>

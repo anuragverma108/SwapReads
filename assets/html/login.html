@@ -29,10 +29,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <script src="../js/script.js" defer></script>
   <script src="../js/signup.js"></script>
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
 
   <script src="../js/scroll-reveal.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!-- Sweet alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script type="module" src="../js/login.js" defer></script>
   <script src="../js/rateUsModal.js" defer></script>
@@ -100,11 +103,13 @@ button img {
 
 /* Header */
 .header {
-  position: fixed;
+  position: relative;
   width: 100%;
-  top: 10;
+/*  top: 10; */
   z-index: 1000;
   transition: top 0.3s;
+  padding :none;
+  left : -50px;
 }
 
 /* Action */
@@ -354,12 +359,23 @@ button img {
 #quicklinks .foot-quick a i {
   margin-right: 5px; /* Adjust spacing between icon and text */
 }
+
+
 .dark-mode .fas{
   color:white;
 }
-.dark-mode .flinks{
-  color:white;
+
+.dark-mode .flinks{ 
+  color: #80ddf4;
+
 }
+.dark-mode .foot-quick a:hover .fas ,
+.dark-mode .foot-quick a:hover .flinks{
+  color:white;
+
+}
+
+
 .dark-mode .finput{
       color: white;
       background-color: transparent; 
@@ -460,7 +476,9 @@ button img {
     width: 35px; /* Adjust the size of the icon */
     height: 30px;
 }
-
+.but{
+  font-size: x-large;
+}
 </style>
 <body>
 
@@ -479,38 +497,89 @@ button img {
             <img src="../images/final.png" class="logopic" style=" width: 150px;">
           </a>
           <li class="navbar-item">
-            <a href="../../index.html" onclick="lenis.scrollTo('#home')" style="background-color: none;" class="navbar-link" data-nav-link><i
-                class="ri-home-fill"></i> Home</a>
+            <a href="../../index.html" onclick="lenis.scrollTo('#home')" style="background-color: none;" class="navbar-link" data-nav-link>
+              <lord-icon
+              src="https://cdn.lordicon.com/qeltvbrs.json"
+              trigger="hover"
+              colors="primary:#e88c30,secondary:#a30f17"
+              style="width:25px;height:25px">
+            </lord-icon>  Home</a>
           </li>
-           <li class="navbar-item">
-                <a href="../html/about.html" onclick="lenis.scrollTo('#home')"  class="navbar-link" data-nav-link><i
-                    class="ri-home-fill"></i>About Us</a>
-              </li>
               
           <li class="navbar-item">
-            <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
-                class="ri-bar-chart-fill"></i> Benefits</a>
+            <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link>
+              <lord-icon
+              src="https://cdn.lordicon.com/jibxifeu.json"
+              trigger="hover"
+              state="hover-up"
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:25px;height:25px">
+          </lord-icon> Benefits</a>
+
           </li>
 
           <li class="navbar-item">
-            <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
-                class="ri-bar-chart-fill"></i> Genre</a>
+            <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link>
+              <lord-icon
+              src="https://cdn.lordicon.com/bhmovrlt.json"
+              trigger="hover"
+              state="morph-open"
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:25px;height:25px">
+          </lord-icon> Genre</a>
+          </li>
+        
+          <li class="navbar-item">
+            <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link">
+              <lord-icon
+              src="https://cdn.lordicon.com/jxjfjyri.json"
+              trigger="morph"
+              stroke="bold"
+              state="morph-select"
+              colors="primary:#eeaa66,secondary:#e88c30"
+              style="width:25px;height:25px">
+          </lord-icon> Rate Us</a>
           </li>
 
           <li class="navbar-item">
-            <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-                class="ri-customer-service-2-fill"></i> Contact</a>
+            <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link>
+              <i
+                class="ri-customer-service-2-fill"></i><img src="../images/telephone.png" height="25px" width="25px"/> Contact</a>
             </li>
-            <li class="navbar-item">
-              <a href="../../index.html#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
-                  <i class="ri-questionnaire-fill"></i>FAQ</a>
           </li>
-
           <li class="navbar-item">
-            <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+            <a href="../../index.html#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
+              <lord-icon
+              src="https://cdn.lordicon.com/motnbmtz.json"
+              trigger="hover"
+              stroke="bold"     
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:25px;height:25px">
+          </lord-icon> FAQ</a>
+        </li>
+           <li class="navbar-item">
+            <a href="../html/about.html" onclick="lenis.scrollTo('#home')"  class="navbar-link" data-nav-link>
+              <lord-icon
+              src="https://cdn.lordicon.com/fozsorqm.json"
+              trigger="hover"
+              stroke="bold"
+              state="hover-up"
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:30px;height:30px"></lord-icon>About Us</a>
+         
+
+
+         
            
           <li class="navbar-item" id="login-signup-link">
-            <a href="..//html/login.html" class="navbar-link">Login/Signup</a>
+            <a href="..//html/login.html" class="navbar-link"> 
+              <lord-icon
+              src="https://cdn.lordicon.com/xfzuyvam.json"
+              trigger="morph"
+              state="morph-group"
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:25px;height:25px">
+          </lord-icon>Login/Signup</a>
           </li>
           
           
@@ -524,7 +593,7 @@ button img {
 
               <ul class="dropdown-menu-list">
                 <li>
-                  <a href="chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                  <a href="../../chat.html" class="navbar-link" style="font-family: sans-serif; color: white; margin-bottom: 5px;">
                     Community chat
                 </a>
                 </li>
@@ -627,6 +696,12 @@ button img {
             justify-content: center;
         }
             }
+            .dropdown-menu {
+      display: none;
+  }
+  .dropdown-menu.show {
+      display: block;
+  }
           </style>
           <li>
             <div class="navbar darkmode" style="top: 15px; right:20px;">
@@ -670,6 +745,18 @@ button img {
             </ul>
               </div>
               <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const moreLink = document.getElementById("more-link");
+                    const dropdownMenu = document.getElementById("dropdown-menu");
+            
+                    moreLink.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        dropdownMenu.classList.toggle("show");
+                    });
+                });
+            </script>
+              <script>
+                
                document.addEventListener("DOMContentLoaded", () => {
     const savedAvatar = localStorage.getItem("selectedAvatar");
     if (savedAvatar) {
@@ -702,6 +789,15 @@ button img {
           }
         })
       </script>
+      
+<script>
+  document.getElementById("more-link").addEventListener("click", function (event) {
+  event.preventDefault();  // Prevent the default behavior of the link
+  const dropdownMenu = document.getElementById("dropdown-menu");
+  dropdownMenu.classList.toggle("active");  // Toggle the visibility of the dropdown menu
+});
+</script>
+</script>
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script>
       function loadGoogleTranslate() {
@@ -720,7 +816,7 @@ button img {
 
   <div class="note">
     <h1>Welcome to SwapReads</h1>
-    <h2>Join us by creating an account or log in if you already have an account.</h2>
+    <h2>Join us by creating an account or log in if you already have an account</h2>
   </div>
   <br />
 
@@ -732,30 +828,29 @@ button img {
                 <a href="..//html/login.html">
                     <label for="chk" aria-hidden="true" class="login">LOGIN</label>
                 </a>
-                <input class="input" type="email" name="email" id="loginEmail" placeholder="Email" required />
+                <input class="input" type="email" name="email" id="loginEmail" placeholder="example@gmail.com" required />
                 <div class="input-box">
                   <input class="input" type="password" name="pswd" id="loginPassword" placeholder="Password" required />
-                  <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-login">
+                  <img  src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-login">
                 </div>
-                <button type="submit" name="Login" id="login">Submit</button>
+                <br>
                 <p class="forget-password">
-                    Forgot Password?
-                    <a href="forgot-pass.html" id="forgot_password_link">Reset Here</a>
-                </p>
+                  <a href="forgot-pass.html" id="forgot_password_link">Forgot Password ?</a></p>
+                <button type="submit" name="Login" id="login">Login</button>
                 <div id="or">Or</div>
                 <div class="social-buttons" style="display: flex; gap: 5px; justify-content: center;">
                     <button class="p1" id="google-sign-in" style="
                         display: flex; 
                         align-items: center; 
                         justify-content: center; 
-                        width: 200px; 
-                        height: 40px; 
+                        width: 200px;  
+                        height: 45px;
                         margin-left: 20px;
                         background-color: #4285F4; 
                         color: white; 
                         border: none; 
                         border-radius: 24px; 
-                        font-size: 14px; 
+                        font-size: 13px; 
                         font-weight: bold; 
                         cursor: pointer; 
                         outline: none; 
@@ -774,12 +869,11 @@ button img {
                         align-items: center; 
                         justify-content: center; 
                         width: 200px; 
-                        height: 40px; 
                         background-color: #3b5998; 
                         color: white; 
                         border: none; 
                         border-radius: 24px; 
-                        font-size: 14px; 
+                        font-size: 13px; 
                         font-weight: bold; 
                         cursor: pointer; 
                         outline: none; 
@@ -797,11 +891,11 @@ button img {
 
       <div class="register">
         <form class="form" id="registerForm" id="register-form">
-          <label for="chk" aria-hidden="true">Create Account</label>
+          <label class="but" for="chk" aria-hidden="true">Create Account</label>
           <input class="input" type="email" name="email" id="registerEmail" placeholder="Email" required />
           <div class="input-box">
             <input class="input" type="password" name="pswd" id="registerPassword" placeholder="Password" required />
-<img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-register">
+            <img src="../images/eye-close.png" alt="Eye close-image" id="eyeicon-register">
           </div>
 
           <div>
@@ -824,7 +918,6 @@ button img {
           <br>
         
           <button id="google-signup"> Sign Up with Google </button>
-          
           
         </form>
       </div>
@@ -1016,6 +1109,12 @@ button img {
 }
 </script>-->
         <div class="icons">
+          <a href="https://www.discord.com/" target="_blank">
+            <div class="icon">
+              <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
+            </div>
+           </a>
+
           <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
             <div class="icon">
               <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
@@ -1391,6 +1490,27 @@ document.addEventListener("DOMContentLoaded", () => {
   </script>
 
   <script>
+    // SweetAlert
+    function showNotification(message) {
+    Swal.fire({
+      icon: 'success',
+      title: message,
+      showConfirmButton: false,
+      timer: 2000
+    });
+  }
+
+  function showNotificationError(message){
+    Swal.fire({
+        icon: 'error',
+        title: message,
+        showConfirmButton: false,
+        timer: 2000
+      });
+  }
+  </script>
+
+  <script>
 
     //   function sendMail(){
     //         let params={
@@ -1554,7 +1674,8 @@ count=0
 
       // Send email verification
       await sendEmailVerification(user);
-      alert('Registration successful! Please check your email to verify your account.');
+      showNotification('Registration successful! Please check your email to verify your account.')
+      // alert('Registration successful! Please check your email to verify your account.');
 
       // Set a timeout for checking email verification
       setTimeout(async () => {
@@ -1562,13 +1683,15 @@ count=0
         if (!user.emailVerified) {
           await deleteUser(user)
             .then(() => {
-              alert('Account deleted due to unverified email.');
+              // alert('Account deleted due to unverified email.');
+              showNotificationError('Account deleted due to unverified email.')
               location.reload(); // Reload the page after deletion
             })
             .catch((error) => {
               const errorCode = error.code;
               const errorMessage = error.message;
-              alert(errorMessage);
+              // alert(errorMessage);
+              showNotificationError(errorMessage)
               location.reload(); // Reload the page on error
             });
         }
@@ -1577,7 +1700,8 @@ count=0
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert(errorMessage);
+      // alert(errorMessage);
+      showNotificationError(error)
       location.reload(); // Reload the page on error
     }
   });
@@ -1603,14 +1727,19 @@ count=0
       // Check if email is verified
       await reload(user); // Ensure latest user data is fetched
       if (user.emailVerified) {
-        window.location.href = '/index.html'; // Redirect to index.html upon successful login
+        setTimeout(() => {
+          showNotification('Glad you are back!')
+          window.location.href = '/index.html'; // Redirect to index.html upon successful login
+      }, 5000);
       } else {
-        alert('Please verify your email address.');
+        showNotificationError('Please verify your email address.')
+        // alert('Please verify your email address.');
       }
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert(errorMessage);
+      showNotificationError(errorMessage);
+      // alert(errorMessage);
       location.reload(); // Reload the page on error
     }
   });
@@ -1623,11 +1752,15 @@ count=0
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       // Handle successful sign-in here
-      window.location.href = '/index.html'; // Redirect to index.html upon successful login
+      setTimeout(() => {
+          showNotification('We are happy to have you as a new customer!')
+          window.location.href = '/index.html'; // Redirect to index.html upon successful login
+      }, 5000);
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert(errorMessage);
+      // alert(errorMessage);
+      showNotificationError(errorMessage);
       location.reload(); // Reload the page on error
     }
   });
@@ -1644,7 +1777,8 @@ count=0
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert(errorMessage);
+      // alert(errorMessage);
+      showNotificationError(errorMessage);
       location.reload(); // Reload the page on error
     }
   });

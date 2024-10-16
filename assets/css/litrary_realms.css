@@ -27,22 +27,25 @@
 /* Carousel styles */
 .carousell-wrapper {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   align-items: center;
-  justify-content: center; 
-  padding: 20px;
-  margin: 10px;
+  justify-content: center;
+  padding: 0 20px; /* Adjust padding for container */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .carousell {
   display: flex;
   transition: transform 0.5s ease;
-  width: 100%; /* Adjusted to accommodate padding and arrows */
+  width: 100%;
   margin: 0;
-  overflow: hidden;
-  scroll-behavior: smooth;
+  
   padding: 0;
+  gap: 20px; /* Gap between cards */
+  overflow: hidden; /* Hide extra cards outside of the view */
+  scroll-behavior: smooth;
 }
 
 .carousell-wrapper i {
@@ -65,22 +68,28 @@
 }
 
 #left-arrow {
-  left: 10px; 
-  z-index: 10; 
+  position: absolute;
+  left: -60px;
+  z-index: 10;
 }
 
 #right-arrow {
-  right: 10px;
+  position: absolute;
+  right: -60px;
+  z-index: 10;
 }
 
+
 .litrealms_card {
+  flex: 0 0 calc((100% / 3) - 20px); 
   min-width: 320px;
-  margin: 0 25px;
-  background: transparent;
-  padding: 0px;
+  max-width: 320px; 
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   border-radius: 10px;
   text-align: center;
+  padding: 0px;
+  box-sizing: border-box;
+  transition: transform 0.5s ease;
 }
 
 .cardo {
@@ -205,14 +214,14 @@
 
 /* Responsive styles */
 @media screen and (max-width: 768px) {
-  .carousell-wrapper {
-    padding: 10px;
+  .carousell {
+    gap: 10px; /* Reduce gap for smaller screens */
   }
 
   .litrealms_card {
-    min-width: 90%; /* Adjust card width for smaller screens */
-    margin: 0 17px;
-    height: 25%;
+    flex: 0 0 90%; /* Show one card at a time on smaller screens */
+    min-width: 90%;
+    margin: 0 5px; /* Adjust margin */
   }
 
   #left-arrow,
@@ -221,8 +230,5 @@
     height: 40px;
     width: 40px;
     line-height: 40px;
-  }
-  .cardo{
-    padding: 20px 14px;
   }
 }
