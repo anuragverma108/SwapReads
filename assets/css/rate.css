@@ -1,5 +1,5 @@
 /* Global Reset and Typography */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
     margin: 0;
@@ -21,37 +21,40 @@ body {
 #rate-us {
     max-width: 600px;
     margin: 50px auto;
-    background: #b00404;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    background: #ebb4ad;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow:1px 1px 2px black;
+    transition: all 0.4s ease-in-out;
     text-align: center;
 }
 
 #rate-us .heading {
-    text-align: center;
-    color: #f1eeee;
-    margin-bottom: 20px;
+    color: #c80000;
+    text-shadow: 2px 2px 2px black;
+    margin-bottom: 25px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 #rate-us .heading h3 {
-    font-size: 30px;
-    text-transform: uppercase;
+    font-size: 35px;
     font-weight: 800;
-    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 #rate-us:hover {
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
-    transform: scale(1.06);
-    color: #ffffff;
-    border-radius: 10px;
+    box-shadow: 0 1px 3px black;
+    transform: scale(1.05);
+    background-color: #f19285ea;
 }
 
-/* Heading Styling */
+/* Heading Subtitle Styling */
 #rate-us .heading p {
-    font-size: 21px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+    letter-spacing: 1px;
 }
 
 /* Emoji Ratings Styling */
@@ -59,7 +62,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 #rate-us .stars input[type="radio"] {
@@ -67,28 +70,29 @@ body {
 }
 
 #rate-us .stars label {
-    font-size: 36px;
+    font-size: 40px;
     margin: 0 10px;
     cursor: pointer;
-    transition: transform 0.6s ease-in-out, color 0.3s ease-in-out;
+    transition: transform 0.4s ease-in-out, color 0.4s ease-in-out;
 }
 
 #rate-us .stars label:hover {
-    transform: scale(1.2);
-    color: #ff6666;
+    transform: scale(1.3);
+    color: #ff8080;
+    filter: drop-shadow(0px 1px 2px rgb(0, 0, 0));
 }
 
 #rate-us .stars input[type="radio"]:checked+label {
-    animation: shine 0.5s infinite alternate;
-    transform: scale(1.5);
+    animation: shine 0.6s infinite alternate;
+    transform: scale(1.4);
 }
 
 @keyframes shine {
     0% {
-        text-shadow: 0 0 10px #ff6666, 0 0 20px #ff6666, 0 0 30px #ff6666, 0 0 40px #ff6666;
+        text-shadow: 0 0 10px #ff6666, 0 0 20px #ff6666, 0 0 30px #ff6666;
     }
     100% {
-        text-shadow: 0 0 20px #ff6666, 0 0 30px #ff6666, 0 0 40px #ff6666, 0 0 50px #ff6666;
+        text-shadow: 0 0 20px #ff6666, 0 0 30px #ff6666, 0 0 40px #ff6666;
     }
 }
 
@@ -99,45 +103,50 @@ body {
 
 #rate-us .feedback-container textarea {
     width: 100%;
-    height: 100px;
+    height: 120px;
     border: 2px solid #fafafa;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 10px;
+    padding: 12px;
     font-size: 16px;
     color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    transition: border-color 0.3s ease-in-out;
 }
 
 #rate-us .feedback-container textarea::placeholder {
-    color: #fdfcfc;
+    color: #000000;
+    font-family: fantasy;
 }
 
 #rate-us .feedback-container textarea:focus {
-    border-color: #ff6666;
+    border-color: #fb1313;
+    outline: none;
 }
 
 /* Submit Button Styling */
 #rate-us .button {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 #rate-us .button button {
-    background-color: #ebe7e7;
-    color: #b94c4c;
-    padding: 10px 20px;
+    background-color: #f37777;
+    color: #0e0e0e;
+    padding: 12px 20px;
     font-size: 23px;
-    font-weight: 500;
+    font-weight: 600;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     width: 100%;
     transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: inline-block;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.763);
 }
 
 #rate-us .button button:hover {
-    box-shadow: 0 6px 10px rgba(252, 252, 252, 0.2);
+    background-color: #b94c4c;
+    color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Toast Message Styling */
@@ -148,23 +157,35 @@ body {
     transform: translateX(-50%);
     background-color: #333;
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    display: none;
-    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
-.toast-success {
-    background-color: #4CAF50;
+#toastMessage.show {
+    opacity: 1;
+    visibility: visible;
 }
 
-.toast-failure {
-    background-color: #f44336;
-}
+/* Media Queries */
+@media (max-width: 768px) {
+    #rate-us {
+        padding: 20px;
+    }
 
-/* Pink Cursor with Glow Effect */
-body {
-    cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23ff66b2" d="M0 0h24v24H0z" fill="none"/%3E%3Cpath fill="%23ff66b2" d="M13.88 12.47L3.41 2H2v20h2V6.41l10.59 10.59L17 17.99l2-2-2-2-3.12-3.52zm4.83 5.59l-2.83-2.83-2.83 2.83 2.83 2.83 2.83-2.83z"/%3E%3C/svg%3E'), auto;
+    #rate-us .heading h3 {
+        font-size: 24px;
+    }
+
+    #rate-us .stars label {
+        font-size: 32px;
+    }
+
+    #rate-us .button button {
+        font-size: 20px;
+    }
 }

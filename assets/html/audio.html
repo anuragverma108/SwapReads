@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwapReads - Custom Audiobook Player</title>
+    <title>SwapReads - Audiobook Player</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #15b6ec;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -17,33 +17,40 @@
         }
 
         .audiobook-container {
-            max-width: 600px;
+            max-width: 500px;
             width: 100%;
             background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .audiobook-container:hover {
+            transform: translateY(-10px);
         }
 
         .book-image {
-            width: 200px;
-            height: 300px;
+            width: 180px;
+            height: 280px;
             background-color: #ddd;
-            border-radius: 10px;
+            border-radius: 8px;
             background-size: cover;
             background-position: center;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 22px;
+            margin-bottom: 8px;
+            color: #2c3e50;
         }
 
         p {
-            color: #555;
-            margin-bottom: 20px;
+            color: #7f8c8d;
+            margin-bottom: 25px;
         }
 
         .audio-player {
@@ -57,40 +64,77 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         .play-btn {
-            background-color: #4CAF50;
+            background-color: #2ecc71;
             color: white;
             border: none;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 24px;
+            width: 55px;
+            height: 55px;
+            font-size: 26px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .play-btn:hover {
+            background-color: #27ae60;
         }
 
         .progress-container {
             width: 100%;
-            background-color: #ddd;
-            border-radius: 5px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
             cursor: pointer;
+            height: 10px;
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
         }
 
         .progress {
-            height: 10px;
-            background-color: #4CAF50;
-            border-radius: 5px;
+            height: 100%;
+            background-color: #3498db;
             width: 0;
         }
 
         .time {
             font-size: 14px;
-            color: #555;
+            color: #34495e;
+        }
+
+        .time-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 8px;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            .audiobook-container {
+                padding: 20px;
+            }
+
+            .book-image {
+                width: 150px;
+                height: 220px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .play-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 22px;
+            }
         }
     </style>
 </head>
@@ -103,12 +147,13 @@
         <div class="audio-player">
             <div class="controls">
                 <button class="play-btn" id="playBtn">▶️</button>
-                <div class="time" id="currentTime">0:00</div>
-                <div class="time">/</div>
-                <div class="time" id="durationTime">0:00</div>
             </div>
             <div class="progress-container" id="progressContainer">
                 <div class="progress" id="progress"></div>
+            </div>
+            <div class="time-container">
+                <div class="time" id="currentTime">0:00</div>
+                <div class="time" id="durationTime">0:00</div>
             </div>
         </div>
 

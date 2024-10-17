@@ -37,6 +37,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
 
   <script src="./../js/rateUsModal.js" defer></script>
   <script src="https://unpkg.com/scrollreveal"></script>
@@ -115,20 +116,39 @@ iframe {
 }  */
 
 .action {
+
   position: fixed;
   top: 20px;
-  right: 30px;
+  right: 150px;
+
+}
+
+.action {
+  position: fixed;
+  top: 20px;
+  right: 150px;
 }
 
 .action .profile {
+
   position: relative;
   width: 60px;
   height: 60px;
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
+
 }
 
+
+.action .profile {
+  position:  relative;
+  width:  60px;
+  height:  60px;
+  border-radius:  50%;
+  overflow: hidden;
+  cursor:  pointer;
+}
 .action .profile img {
   position: absolute;
   top: 0;
@@ -137,21 +157,23 @@ iframe {
   height: 100%;
   object-fit: cover;
 }
-
+ 
 .action .menu {
-  position: absolute;
-  top: 120px;
-  right: -10px;
-  padding: 10px 20px;
-  background: #fff;
-  width: 200px;
-  box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
-  transition: 0.5s;
-  visibility: hidden;
-  opacity: 0;
-}
 
+  position:  absolute;
+  top:  120px;
+  right:  -10px;
+  padding:  10px 20px;
+  background: #fff;
+  width:  200px;
+  box-sizing:  0 5px 25px rgba(0, 0, 0, 0.1);
+  border-radius:  15px;
+  transition:  0.5s;
+  visibility:  hidden;
+  opacity:  0;
+
+}
+ 
 .action .menu.active {
   top: 80px;
   visibility: visible;
@@ -295,6 +317,158 @@ iframe {
   margin-top: 10px; /* Increase the top margin of each item */
 }
 
+/* footer  */
+
+.socialmediaicons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin-top: 120px;;
+    width: 40px;
+    height: 150px;
+  
+}#quicklinks {
+  display: flex;
+  justify-content: space-between; /* Ensures columns are evenly spaced */
+}
+
+#quicklinks .col-md-6 ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#quicklinks .foot-quick {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Adjust spacing between list items */
+}
+
+#quicklinks .foot-quick a {
+  text-decoration: none;
+  color: rgb(83, 74, 74); /* Adjust link color as needed */
+  display: flex;
+  align-items: center;
+}
+
+#quicklinks .foot-quick a i {
+  margin-right: 5px; /* Adjust spacing between icon and text */
+}
+.dark-mode .fas{
+  color:white;
+}
+
+.dark-mode .flinks{
+  
+  color: #80ddf4;
+
+}
+
+.dark-mode .finput{
+      color: white;
+      background-color: transparent; 
+      padding: 10px; 
+      border: 1px solid white;
+      
+}
+.dark-mode .finput::placeholder {
+      color: rgba(255, 255, 255, 0.6); 
+    }
+.socialmediaicons a {
+    display: inline;
+    text-align: center;
+    padding: 5px;
+    transition: all 0.3s ease;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+  }
+
+  .socialmediaicons .fa-instagram {
+  display: inline-block;
+  width: 30px; 
+  height: 30px; 
+  text-align: center;
+  line-height: 30px; 
+  border-radius: 10px;
+  background: transparent;
+  color: #000000;
+  transition: background 0.3s, transform 0.3s; 
+}
+
+.socialmediaicons .fa-instagram:hover {
+  background: radial-gradient(circle at 30% 110%, 
+                               #ffdb8b 0%, 
+                               #ee653d 25%, 
+                               #d42e81 50%, 
+                               #a237b6 75%, 
+                               #3e57bc 100%);
+  background-clip: padding-box;
+  border-radius: 10px; 
+  color: white; 
+  transform: scale(1.1); 
+  
+}  
+.socialmediaicons .fa-facebook:hover{
+  color: blue;
+}   
+.socialmediaicons .fa-youtube:hover{
+  color: red;
+}
+
+
+.dark-mode .socialmediaicons a {
+  color: white;
+}
+
+
+.dark-mode .socialmediaicons .fa-facebook:hover {
+  color: #425d9b
+}
+.dark-mode .socialmediaicons .fa-youtube:hover {
+  color: #f70000;
+}
+
+  .instagram {
+    
+    margin: 5px;
+    
+  }
+
+
+  .facebook {
+    
+    margin: 5px;
+  }
+  
+  .youtube {
+   
+    margin: 5px;
+  }
+
+  .input-box {
+    position: relative;
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+    padding-right: 40px; /* Space for the eye icon */
+}
+
+#eyeicon-register {
+    position: absolute;
+    top: 70%;
+    right: 10px; /* Adjust as needed */
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 35px; /* Adjust the size of the icon */
+    height: 30px;
+}
+.but{
+  font-size: x-large;
+}
+
 </style>
 
 
@@ -396,43 +570,97 @@ iframe {
               <img src="../images/final.png" class="logopic" style=" width: 150px;">
             </a>
             <li class="navbar-item">
-              <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
-                  class="ri-home-fill"></i> Home</a>
+              <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link>
+                <lord-icon
+                src="https://cdn.lordicon.com/qeltvbrs.json"
+                trigger="hover"
+                colors="primary:#e88c30,secondary:#a30f17"
+                style="width:25px;height:25px">
+              </lord-icon>  Home</a>
             </li>
             
                 
             <li class="navbar-item">
-              <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
-                  class="ri-bar-chart-fill"></i> Benefits</a>
+              <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link>
+                <lord-icon
+                src="https://cdn.lordicon.com/jibxifeu.json"
+                trigger="hover"
+                state="hover-up"
+                colors="primary:#a30f17,secondary:#e88c30"
+                style="width:25px;height:25px">
+            </lord-icon> Benefits</a>
             </li>
   
             <li class="navbar-item">
-              <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
-                  class="ri-bar-chart-fill"></i> Genre</a>
+              <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link>
+                <lord-icon
+                src="https://cdn.lordicon.com/bhmovrlt.json"
+                trigger="hover"
+                state="morph-open"
+                colors="primary:#a30f17,secondary:#e88c30"
+                style="width:25px;height:25px">
+            </lord-icon> Genre</a>
             </li>
             <li class="navbar-item">
-              <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+              <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link"><lord-icon
+                src="https://cdn.lordicon.com/jxjfjyri.json"
+                trigger="morph"
+                stroke="bold"
+                state="morph-select"
+                colors="primary:#eeaa66,secondary:#e88c30"
+                style="width:25px;height:25px">
+               </lord-icon>Rate Us</a></li>
              
   
             <li class="navbar-item">
               <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-                  class="ri-customer-service-2-fill"></i> Contact</a>
+                class="ri-customer-service-2-fill"></i><img src="../images/telephone.png" height="25px" width="25px"/> Contact</a>
               </li>
               <li class="navbar-item">
                 <a href="../../index.html#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
-                    <i class="ri-questionnaire-fill"></i> FAQ
+                  <lord-icon
+                  src="https://cdn.lordicon.com/motnbmtz.json"
+                  trigger="hover"
+                  stroke="bold"     
+                  colors="primary:#a30f17,secondary:#e88c30"
+                  style="width:25px;height:25px">
+              </lord-icon> FAQ
                 </a>
             </li>
             <li class="navbar-item">
-              <a href="../html/about.html"  class="navbar-link" data-nav-link><i
-                  class="ri-home-fill"></i> About Us </a>
+              <a href="../html/about.html"  class="navbar-link" data-nav-link>           
+                <lord-icon
+                src="https://cdn.lordicon.com/fozsorqm.json"
+                trigger="hover"
+                stroke="bold"
+                state="hover-up"
+                colors="primary:#a30f17,secondary:#e88c30"
+                style="width:30px;height:30px"></lord-icon> AboutUs </a>
             </li>
   
             <li class="navbar-item">
-              <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+              <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link"> 
+                <lord-icon
+                  src="https://cdn.lordicon.com/jxjfjyri.json"
+                  trigger="morph"
+                  stroke="bold"
+                  state="morph-select"
+                  colors="primary:#eeaa66,secondary:#e88c30"
+                  style="width:25px;height:25px">
+                </lord-icon> 
+                RateUs
+              </a>
+            </li>
+            
              
             <li class="navbar-item" id="login-signup-link">
-              <a href="../html/login.html" class="navbar-link">Login/Signup</a>
+              <a href="../html/login.html" class="navbar-link"> <lord-icon
+                src="https://cdn.lordicon.com/xfzuyvam.json"
+                trigger="morph"
+                state="morph-group"
+                colors="primary:#a30f17,secondary:#e88c30"
+                style="width:25px;height:25px">
+            </lord-icon> Login/Signup</a>
             </li>
             
             
@@ -1033,7 +1261,7 @@ this.style.display = "none";
 
 
 
-<footer>
+<footer class="ff">
   <div class="foot-top">
     <div class="foot-left">
 
@@ -1055,7 +1283,7 @@ this.style.display = "none";
     "https://translate.google.com/translate_a/element.js?
     cb=googleTranslateElementInit">
         </script>
-        <div><a href="#" class="logo">SwapReads</a></div>
+        <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
         <div>
           <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
             lovers
@@ -1073,132 +1301,213 @@ this.style.display = "none";
     </div>
     <div class="foot-middle">
       <h2>Quick Links</h2>
-      <div id="quicklinks">
-        <div>
-        <ul>
-          <li class="foot-quick"><a href="index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
-          <li class="foot-quick"><a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
-          <li class="foot-quick"><a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
-          <li class="foot-quick"><a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
-          <li class="foot-quick"><a href="book_recommend.html"
-            onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
-        </ul>
-      </div>
-      <div>
-        <ul>
-          <li class="foot-quick"><a href="addremovebook.html" >Swap
-              BookList</a></li>
-          <li class="foot-quick"><a href="freeBooks.html"
-              onclick="lenis.scrollTo('#contact')">E-Book</a></li>
-          <li class="foot-quick"><a href="about.html" >About</a>
-          </li>
-          <li class="foot-quick"><a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
-          <li class="foot-quick"><a href="../../index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
-        </ul>
-      </div>
+      <div id="quicklinks" class="row">
+        <div class="col-md-6">
+          <ul>
+            <li class="foot-quick" style="color: white;"><a href="/index.html#home" onclick="lenis.scrollTo('#home')"><i class="fas fa-home"></i><p class="flinks">Home</p></a></li>
+            <li class="foot-quick"><a href="/index.html#benefits" onclick="lenis.scrollTo('#benefits')"><i class="fas fa-book"></i> <p class="flinks">Benefits</p></a></li>
+            <li class="foot-quick"><a href="/index.html#chapters" onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i> <p class="flinks">Literary</p></a></li>
+            <li class="foot-quick"><a href="/index.html#pricing" onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i><p class="flinks">Pricing</p> </a></li>
+            <li class="foot-quick"><a href="./assets/html/bookrecommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><p class="flinks">Recommend</p></a></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul>
+            <li class="foot-quick"><a href="/assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-exchange-alt"></i><p class="flinks">Swap</p> </a></li>
+            <li class="foot-quick"><a href="/assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-file-pdf"></i> <p class="flinks">E-Book</p></a></li>
+            <li class="foot-quick"><a href="/assets/html/about.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-info-circle"></i> <p class="flinks">About</p></a></li>
+            <li class="foot-quick"><a href="/index.html#contact" onclick="lenis.scrollTo('#contact')"><i class="fas fa-envelope"></i><p class="flinks">Contact</p> </a></li>
+            <li class="foot-quick"><a href="/index.html#faqq" onclick="lenis.scrollTo('#faqq')"><i class="fas fa-question-circle"></i> <p class="flinks">FAQ</p></a></li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="social-icons">
-     
+    
+
       <style>
-        .social-icons input[type="email"] {
+        .social-icons input[type="email"] 
+        {
             border: 2px solid #ccc; /* Gray border */
             border-radius: 4px; /* Rounded corners */
             padding: 10px; /* Inner padding */
             font-size: 16px; /* Font size */
         }
-        #confirmationMessage{
-            margin-left: 50px;
-            font-size: 23px;
-            color: rgb(15, 15, 16);
+        #confirmationMessage
+        {
+          margin-left: 50px;
+          font-size: 23px;
+          color: green;
+
+        }
+       /* for small screen */
+        @media (max-width: 768px) 
+        {
+          #confirmationMessage 
+          {
+              margin-left: 0;
+              text-align: center;
+              font-size: 18px;
           }
+      }
+      </style>
+      <style>
+        #confirmationmessage {
+  position: fixed;
+  top: 42rem;
+  right: 10px;
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: none;
+}
+
       </style>
 
-<form type="newsletter" onsubmit="return showConfirmationMessage()">
-  <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
-  <div class="row-flex">
-      <!-- Email input -->
-      <input type="email" id="newsletter-email" name="email" placeholder="Email address"
-             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
-             title="Please enter a valid email address that ends with '.com'" required>
-      <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
-  </div>
+   <form id="newsform" onsubmit="return showConfirmationMessage();">
+    <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
+    <div class="row-flex display-flex">
+        <input class="finput" type="email" id="new-email" name="email" placeholder="Email address"
+               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+               title="Please enter a valid email address that ends with '.com'" required>
+        <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
+    </div>
 </form>
-<div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
-
+<div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
+  
 <script>
 function showConfirmationMessage() {
-  var confirmationMessage = document.getElementById("confirmationMessage");
-  confirmationMessage.style.display = "block";
 
-  return false;
+const form = document.getElementById('newsform');
+const confirmationMessage = document.getElementById('confirmationmessage');
+
+
+confirmationMessage.style.display = 'block';
+setTimeout(function() {
+  location.reload(); 
+}, 3000);
+
 }
 </script>
-    
+<style>
+
+.subscribe {
+background-color: #A30F17;
+color: white; 
+border: none; 
+padding: 10px 20px; 
+font-size: 16px; 
+font-family: Arial, sans-serif;
+border-radius: 5px; 
+cursor: pointer; 
+transition: background-color 0.3s, transform 0.2s;
+}
+
+.subscribe:hover {
+background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+transform: scale(1.1);
+}
+
+.subscribe:active {
+transform: scale(0.98); 
+}
+
+.subscribe:focus {
+outline: none; 
+}
+
+</style>
+
+<script>
+function showConfirmationMessage() 
+{
+  // Show confirmation message
+  const confirmationMessage = document.getElementById('confirmationMessage');
+  confirmationMessage.innerHTML = "Thank you for subscribing!";
+  confirmationMessage.style.display = 'block';
+
+  // Reset the form after 3 seconds
+  setTimeout(function() 
+  {
+      document.getElementById('newsletterForm').reset();
+      confirmationMessage.style.display = 'none';
       
+  }, 3000);
+
+  return false; 
+}
+</script>
       <div class="icons">
         <a href="https://www.discord.com/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
-            </div>
-           </a>
+          <div class="icon">
+            <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
+          </div>
+         </a>
 
         <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
-            </div>
-          </a>
+          <div class="icon">
+            <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
+          </div>
+        </a>
 
-          <a href="#" target="_blank">
-            <div class="icon">
-              <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
-            </div>
-          </a>
+        <a href="https://www.facebook.com/" target="_blank">
+          <div class="icon">
+            <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
+          </div>
+        </a>
 
-          <a href="https://x.com/anuragverma_108" target="_blank">
-            <div class="icon">
-              <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
-            </div>
-          </a>
+        <a href="https://x.com/anuragverma_108" target="_blank">
+          <div class="icon">
+            <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
+          </div>
+        </a>
 
-          <a href="#">
-            <div class="icon">
-              <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
-            </div>
-          </a>
+        <a href="https://www.instagram.com/">
+          <div class="icon" id="insta-icon">
+            <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
+          </div>
+        </a>
 
 
-          <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
-            <div class="icon">
-              <i class="fab fa-youtube" style="cursor: pointer;"></i>
-            </div>
-          </a>
-          <a href="">
-            <div class="icon">
-              <i class="fab fa-github" title="Github"></i>
-            </div>
-          </a>
+        <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
+          <div class="icon">
+            <i class="fab fa-youtube" style="cursor: pointer;"></i>
+          </div>
+        </a>
+
+
+
+        <a href="https://github.com/anuragverma108">
+          <div class="icon">
+            <i class="fab fa-github" title="Github"></i>
+          </div>
+        </a>
+       
+
       </div>
-     
-
+     </div>
+     <div>
       <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
-        <div class="circle1">
-          <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-            class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-            <path
-              d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-          </svg>
-        </div>
+        <button class="Btn">
+          <svg height="1.2em" class="arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path></svg>
+        <p class="text">Back to Top</p>
+        </button>
       </div>
-      
+      <div>
+        <button id="translateButton">Translate</button>
+      </div>
+    </div>
+
     </div>
   </div>
 
-      
+
 
 
   <!-- adding privacy policy and copyright popup-->
-  <div style="text-align: center; align-items: center;">
+  <div class="footer-f" style="text-align: center; align-items: center;">
     <p style="text-align: center">
       &copy;
       <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
@@ -1206,13 +1515,14 @@ function showConfirmationMessage() {
     <div class="row-copy">
 
 
-    <a href="/copyrightpolicy.html">Copyright Policy</a> |
-    <a href="/privacynotice.html">Privacy Notice</a>
+    <a href="/copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+    <a href="/privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>  
+    <a href="/our-vision.html">Our Vision</a></li>
   </div>
   </div>
-  
+
   <!-- Copyright Policy Modal -->
-  <!-- <div id="copyrightPolicyModal" class="modal">
+<div id="copyrightPolicyModal" class="modal">
     <div class="modal-content">
       <span class="close" id="closeCopyright">&times;</span>
       <h1>Copyright Policy</h1>
@@ -1225,10 +1535,10 @@ function showConfirmationMessage() {
         <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
       </ul>
     </div>
-  </div> -->
-  
+  </div>
+
   <!-- Privacy Notice Modal -->
-  <!-- <div id="privacyNoticeModal" class="modal">
+ <div id="privacyNoticeModal" class="modal">
     <div class="modal-content">
       <span class="close" id="closePrivacy">&times;</span>
       <h1>Privacy Notice</h1>
@@ -1242,29 +1552,28 @@ function showConfirmationMessage() {
         <li>By using our site, you consent to our privacy practices.</li>
       </ul>
     </div>
-  </div>
-  
-  <script>
+  </div> 
+<script>
     // Get the modal elements
     var copyrightModal = document.getElementById("copyrightPolicyModal");
     var privacyModal = document.getElementById("privacyNoticeModal");
-  
+
     // Get the link elements
     var copyrightLink = document.getElementById("copyrightPolicyLink");
     var privacyLink = document.getElementById("privacyNoticeLink");
-  
+
     // Get the <span> elements that close the modals
     var closeCopyright = document.getElementById("closeCopyright");
     var closePrivacy = document.getElementById("closePrivacy");
-  
-    // When the user clicks the link, open the modal 
+
+    // When the user clicks the link, open the modal
     copyrightLink.onclick = function() {
       copyrightModal.style.display = "block";
     }
     privacyLink.onclick = function() {
       privacyModal.style.display = "block";
     }
-  
+
     // When the user clicks on <span> (x), close the modal
     closeCopyright.onclick = function() {
       copyrightModal.style.display = "none";
@@ -1272,9 +1581,8 @@ function showConfirmationMessage() {
     closePrivacy.onclick = function() {
       privacyModal.style.display = "none";
     }
-</script> -->
-  
-    <!-- // When the user clicks anywhere outside of the modal, close it
+
+    // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
       if (event.target == copyrightModal) {
         copyrightModal.style.display = "none";
@@ -1283,7 +1591,10 @@ function showConfirmationMessage() {
         privacyModal.style.display = "none";
       }
     }
-  </script> -->
+  </script>
+
+
+
 </footer>
   <!-- Footer ended-->
 

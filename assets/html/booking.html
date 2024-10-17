@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <title>Book Your Ticket</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #9d9db6;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header {
+                width: 100%;
+                background-color: #e63aaf;
+                color: white;
+                padding: 1em 0;
+                text-align: center;
+            }
+
+            nav ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            nav ul li {
+                display: inline;
+                margin: 0 1em;
+            }
+
+            nav ul li a {
+                color: white;
+                text-decoration: none;
+            }
+
+            main {
+                padding: 1em;
+                width: 100%;
+                max-width: 800px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .booking-container {
+                background: rgba(255, 255, 255, 0.9);
+                padding: 2em;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                width: 100%;
+            }
+
+            .bed-selection {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+
+            .bed {
+                width: 60px;
+                height: 60px;
+                background-color: #21ce49;
+                border-radius: 8px;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: background-color 0.3s;
+                position: relative;
+            }
+
+            .bed:hover {
+                background-color: #0056b3;
+                transform: scale(1.1);
+            }
+
+            .bed.selected {
+                background-color: red;
+                /* Change the color to red when selected */
+            }
+
+            .bed i {
+                position: absolute;
+                font-size: 24px;
+                color: white;
+            }
+
+            button {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                padding: 10px;
+                width: 100%;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+            .confirmation {
+                margin-top: 20px;
+                display: none;
+            }
+
+            .footer {
+                position: absolute;
+                left: 0%;
+                width: 100%;
+                background: #e63aaf;
+                padding: 30px 0;
+                text-align: center;
+                font-size: 0.8em;
+                color: gray;
+            }
+
+            .blinking {
+                color: red;
+                font-weight: bold;
+                animation: blink 1s infinite;
+            }
+
+            @keyframes blink {
+                0% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1 style="color: black;">SwapReads</h1>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="./about.html">About Us</a></li>
+                    <li><a href="../../index.html#contact">Contact</a></li>
+                    <li><a href="#authors">Authors</a></li>
+                    <li><a href="../../comsp.html">Community</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="booking-container">
+                <h2>Book Your Ticket</h2>
+                <h3 id="event-title"></h3>
+                <p id="available-chairs">Available Chairs: <span id="available-count" class="blinking">50</span></p>
+                <div class="bed-selection">
+                    <!-- Loop for 50 chairs with chair numbers -->
+                    <script>
+                        for (let i = 1; i <= 50; i++) {
+                            document.write(`
+                            <div class="bed" data-bed="${i}">
+                                <i class="fas fa-chair"></i>
+                                <span>${i}</span>
+                            </div>
+                        `);
+                        }
+                    </script>
+                </div>
+                <button id="book-btn">Book Selected Chair</button>
+                <div class="confirmation" id="confirmation">
+                    <h3>Booking Confirmation</h3>
+                    <p id="confirmation-message"></p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer">
+                SwapReads Copyright © 2024 SwapReads - All rights reserved || Designed By: pranjal
+            </div>
+        </footer>
+
+        <script>
+            const params = new URLSearchParams(window.location.search);
+            const eventTitle = params.get('event');
+            document.getElementById('event-title').innerText = eventTitle;
+
+            // Variables to track the selected chair and available count
+            let selectedBed = null;
+            let availableCount = 50;
+
+            document.querySelectorAll('.bed').forEach(bed => {
+                bed.addEventListener('click', function () {
+                    // Deselect previously selected bed
+                    if (selectedBed) {
+                        selectedBed.classList.remove('selected');
+                    }
+
+                    // Select the new bed
+                    this.classList.add('selected');
+                    selectedBed = this;
+                });
+            });
+
+            document.getElementById('book-btn').addEventListener('click', function () {
+                if (selectedBed) {
+                    const bedNumber = selectedBed.getAttribute('data-bed');
+                    selectedBed.classList.add('selected');
+                    selectedBed.style.pointerEvents = 'none'; // Disable further clicks on this chair
+                    availableCount--;
+                    document.getElementById('available-count').innerText = availableCount;
+                    document.getElementById('confirmation').style.display = 'block';
+                    document.getElementById('confirmation-message').innerText = `You have successfully booked Chair ${bedNumber} for ${eventTitle}.`;
+
+                    // Clear selection
+                    selectedBed = null;
+                } else {
+                    alert('Please select a chair to book.');
+                }
+            });
+        </script>
+    </body>
+
+</html>
