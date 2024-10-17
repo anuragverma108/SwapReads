@@ -164,6 +164,11 @@ Contributions are what make the open-source community such an amazing place to l
 
 Your involvement helps to improve the project and make it better for everyone. Thank you for your contributions!
 
+## My Contributions (@Chitrakadyan2005)
+- Improved the UI of the cookie consent modal.
+- Added a smooth scroll feature for better accessibility.
+
+
 Kindly go through [CONTRIBUTING.md](CONTRIBUTING.md) to understand everything from setup to contributing guidelines.
 
 If you would like to contribute to the project, please follow our contribution guidelines.
