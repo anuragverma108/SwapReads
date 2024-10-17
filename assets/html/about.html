@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,8 +79,10 @@
   <style>
     .action {
       position: fixed;
-      top: 20px;
-      right: 30px;
+      
+
+      top:0px;
+      right: -160px;
     }
  
     .action .profile {
@@ -314,6 +316,7 @@
       }
 
       .header {
+        position: sticky;
         flex-direction: column;
         height: 53.8rem;
         transition: 0.55s all ease-out;
@@ -326,6 +329,9 @@
 
       .navbar-list {
         position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .hamburger {
@@ -351,6 +357,7 @@
 
     @media only screen and (max-width:990px) {
       .header {
+        position: sticky;
         height: 9rem;
       }
 
@@ -561,16 +568,21 @@
 
 
   </style>
-  <header class="header header-anim nav-h" data-header>
 
-    <div class="container mobile-container-styles" >
 
+<header class="header header-anim nav-h" data-header style="position: sticky; margin: auto; height:8vh; align-items: center ;">
+
+    
+  <div class="container mobile-container-styles" style="padding: 0; width: 100vw; position:relative; bottom:29px">
       <nav class="navbar nav_activated" data-navbar>
 
 
-        <ul class="navbar-list nav">
+        
+        <ul class="navbar-list nav" style="padding: 0; width: 100vw; position: relative; right: 18vw">
           <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="../images/final.png" class="logopic" style=" width: 150px;">
+            <img src="../images/final.png" class="logopic" style=" width: 150px;
+            position: absolute;
+            left: 30px;">
           </a>
           <li class="navbar-item">
             <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link>
@@ -615,9 +627,18 @@
         </lord-icon> Rate Us</a>
         </li>
 
-          <li class="navbar-item">
+          
+
+
+
+
+
+
+        <li class="navbar-item" style="padding:0; width:130px">
             <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-                class="ri-customer-service-2-fill"></i><img src="../images/telephone.png" height="25px" width="25px"/> Contact</a>
+                
+              class="ri-customer-service-2-fill" ></i><img src="../images/telephone.png" height="25px" width="25px" style="position: relative; top:17px; right: 5px;"/><span style="position: relative; left:20px; bottom:12px">Contact</span></a>
+
           </li>
           
           <li class="navbar-item">
@@ -710,8 +731,12 @@
           </li>
           <li>
             <div class="action">
+              <div class="profile" onclick="menuToggle();">
+                <img id="profile-avatar" src="../images/avatar1.jpg"  />
+              </div>
               
-              <!-- <div class="menu">
+
+              <div class="menu">
                 <h3>XYZ<br /><span>Book Lover</span></h3>
                 <ul>
                   <li>
@@ -731,7 +756,8 @@
                     <img src="../images/logout.png" /><a href="#">Logout</a>
                   </li>
                 </ul>
-              </div> -->
+             
+              </div>
           </li>
     </div>
     </ul>
