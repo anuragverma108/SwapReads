@@ -31,6 +31,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="../js/script.js" defer></script>
   <script src="../js/scroll-reveal.js"></script>
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <link rel="stylesheet" href="../css/styles.css">
@@ -38,10 +40,10 @@
   <style>
     /* Circle styles */
     .circle {
-      height: 24px;
-      width: 24px;
+      height: 34px;
+      width: 34px;
       border-radius: 50%;
-      background-color: black;
+      background-color: red;
       position: fixed;
       top: 0;
       left: 0;
@@ -90,18 +92,20 @@
       overflow: hidden;
       cursor: pointer;
     }
- 
+  
+    /* profile section*/
+
     .action .profile img {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 30000;
+      left: 130;
+      width: 85%;
+      height: 95%;
       object-fit: cover;
     }
 
     .about p {
-      color: var(--sonic-silver);
+      color: var(--purple);
       font-size: 16px;
       line-height: 1.6;
       margin-bottom: 20px;
@@ -111,7 +115,7 @@
       background-color: var(--seashell);
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border: 1px solid #ddd;
+      border: 1px solid red;
       padding: 20px;
       margin-bottom: 40px;
     }
@@ -169,7 +173,7 @@
       margin-bottom: 5rem;
       margin-top: 160px;
       /* Adjust this value to position it below the header */
-      color: red;
+      color: purple;
 
     }
 
@@ -535,6 +539,23 @@
   font-size: x-large;
 }
 
+.navbar-item {
+  list-style: none;
+}
+
+.navbar-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar-link lord-icon {
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
 
 
 
@@ -542,7 +563,7 @@
   </style>
   <header class="header header-anim nav-h" data-header>
 
-    <div class="container mobile-container-styles" style="padding-left: 0;">
+    <div class="container mobile-container-styles" >
 
       <nav class="navbar nav_activated" data-navbar>
 
@@ -552,42 +573,87 @@
             <img src="../images/final.png" class="logopic" style=" width: 150px;">
           </a>
           <li class="navbar-item">
-            <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
-                class="ri-home-fill"></i> Home</a>
+            <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link>
+              <lord-icon
+              src="https://cdn.lordicon.com/qeltvbrs.json"
+              trigger="hover"
+              colors="primary:#e88c30,secondary:#a30f17"
+              style="width:25px;height:25px">
+            </lord-icon> Home</a>
           </li>
          
           <li class="navbar-item">
             <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link"
-              data-nav-link><i class="ri-bar-chart-fill"></i> Benefits</a>
+              data-nav-link><lord-icon
+              src="https://cdn.lordicon.com/jibxifeu.json"
+              trigger="hover"
+              state="hover-up"
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:25px;height:25px">
+          </lord-icon>Benefits</a>
           </li>
 
           <li class="navbar-item">
-            <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
-                class="ri-bar-chart-fill"></i> Genre</a>
+            <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link>
+              <lord-icon
+              src="https://cdn.lordicon.com/bhmovrlt.json"
+              trigger="hover"
+              state="morph-open"
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:25px;height:25px">
+          </lord-icon>   Genre</a>
           </li>
         </li>
         <li class="navbar-item">
-          <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+          <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link"> <lord-icon
+            src="https://cdn.lordicon.com/jxjfjyri.json"
+            trigger="morph"
+            stroke="bold"
+            state="morph-select"
+            colors="primary:#eeaa66,secondary:#e88c30"
+            style="width:25px;height:25px">
+        </lord-icon> Rate Us</a>
         </li>
 
           <li class="navbar-item">
             <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-                class="ri-customer-service-2-fill"></i> Contact</a>
+                class="ri-customer-service-2-fill"></i><img src="../images/telephone.png" height="25px" width="25px"/> Contact</a>
           </li>
+          
           <li class="navbar-item">
             <a href="../../index.html#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
-              <i class="ri-questionnaire-fill"></i> FAQ
+              <lord-icon
+              src="https://cdn.lordicon.com/motnbmtz.json"
+              trigger="hover"
+              stroke="bold"     
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:25px;height:25px">
+          </lord-icon> FAQ
             </a>
+            </li>
          
 
           <li class="navbar-item">
-            <a href="../html/about.html" class="navbar-link" data-nav-link><i class="ri-home-fill"></i> About Us </a>
+            <a href="../html/about.html" class="navbar-link" data-nav-link>
+              <lord-icon
+              src="https://cdn.lordicon.com/fozsorqm.json"
+              trigger="hover"
+              stroke="bold"
+              state="hover-up"
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:30px;height:30px"></lord-icon> About Us </a>
           </li>
 
         
 
           <li class="navbar-item" id="login-signup-link">
-            <a href="../html/login.html" class="navbar-link">Login/Signup</a>
+            <a href="../html/login.html" class="navbar-link"> <lord-icon
+              src="https://cdn.lordicon.com/xfzuyvam.json"
+              trigger="morph"
+              state="morph-group"
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:25px;height:25px">
+          </lord-icon>Login/Signup</a>
           </li>
 
 
@@ -600,15 +666,15 @@
             <div class="dropdown-menu" id="dropdown-menu">
 
               <ul class="dropdown-menu-list">
-                <li>
+                <li class="dropdown-menu-item">
                   <a href="../../chat.html" class="navbar-link"
-                    style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                    style="font-family: sans-serif;  margin-bottom: 5px;">
                     Community chat
                   </a>
                 </li>
-                <li>
+                <li class="dropdown-menu-item">
                   <a href="bookpref.html" class="navbar-link"
-                    style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                    style="font-family: sans-serif;  margin-bottom: 5px;">
                     Book Prefer Quiz
                   </a>
                 </li>

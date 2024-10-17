@@ -2,7 +2,9 @@
 <html lang="en">
 <title>SwapReads</title>
 
+
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     body {
         margin: 0;
@@ -34,12 +36,12 @@
 
     .cursor {
         position: absolute;
-        width: 15px; /* Circle size */
-        height: 15px; /* Circle size */
-        background-color: rgba(255, 165, 0, 0.8); /* Orange color */
-        border-radius: 50%; /* Circular shape */
+        width: 6px; /* Circle size */
+        height: 6px; /* Circle size */
+        background-color: rgba(255, 165, 0, 0.6); /* Orange color */
+        border-radius: 10%; /* Circular shape */
         pointer-events: none; /* Prevent interaction */
-        transform: translate(-50%, -50%); /* Center the circle */
+        transform: translate(-10%, -10%); /* Center the circle */
         transition: transform 0.1s ease-out; /* Smooth movement */
     }
     :root {
@@ -93,8 +95,11 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- Sweet alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script src="./assets/js/rateUsModal.js" defer></script>
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="./assets/js/faq.js"></script>
   <script src="./assets/js/tilt.js"></script>
@@ -174,12 +179,13 @@
   
 }#quicklinks {
   display: flex;
-  justify-content: space-between; /* Ensures columns are evenly spaced */
+  justify-content:space-between; /* Ensures columns are evenly spaced */
+  padding-right: 8px;
 }
 
-#quicklinks .col-md-6 ul {
+#quicklinks .col-md-2 ul {
   list-style-type: none;
-  padding: 0;
+  padding: 2px;
 }
 
 #quicklinks .foot-quick {
@@ -189,15 +195,21 @@
 }
 
 #quicklinks .foot-quick a {
+  display: flex;
+  flex-direction: row; /* Ensure icon and text are in a row */
+  align-items: center; /* Vertically center-align the icon and text */
   text-decoration: none;
   color: rgb(83, 74, 74); /* Adjust link color as needed */
-  display: flex;
-  align-items: center;
 }
 
 #quicklinks .foot-quick a i {
   margin-right: 0.5rem; /* Adjust spacing between icon and text */
 }
+
+#quicklinks .foot-quick a p {
+  margin: 0; /* Remove default margins from <p> */
+}
+
 .dark-mode .fas{
   color:white;
 }
@@ -765,7 +777,9 @@
     text-align: center;
 }
 .button-container {
-    text-align: center;
+  text-align: center;
+    margin-top: 1rem;
+    
 }
 
 .donate-button {
@@ -778,7 +792,13 @@
     border-radius: 0.5rem;
     border: 0.2rem solid #a60606; /* Same red color for border */
 }
-
+.card-body {
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px; /* Ensure cards have a consistent height */
+    padding: 1rem;
+}
 .donate-button:hover {
     background-color: #cc0000; /* Darker red for hover effect */
     border-color: #cc0000; /* Darker red for border on hover */
@@ -809,6 +829,8 @@
     margin: 1rem; /* Optional margin around each card */
 }
 
+
+
 .card img {
     width: 100%;
     height: auto;
@@ -816,7 +838,7 @@
 
 
 .chapter-card {
-  height: 45rem; /* Adjust margin as needed */
+  height: 60rem; /* Adjust margin as needed */
   box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1); /* Add shadow for depth effect */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -995,8 +1017,8 @@
 .subscribe:hover {
   background-color: #2980b9; }
 
-  /* Contact Us */
-  .section-contact {
+/* Contact Us Section */
+.section-contact {
   color: black;
   padding: 40px 20px;
 }
@@ -1004,7 +1026,7 @@
 .flexi {
   display: flex;
   justify-content: space-between; /* Ensure both containers are side by side */
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
 
 .contact {
@@ -1012,7 +1034,6 @@
 }
 
 .cardi {
-
   width: 35%; /* Adjust width for the contact card */
   max-width: 350px; /* Limit max width */
   margin-left: 20px; /* Add some space between the two sections */
@@ -1048,27 +1069,24 @@
 .map-container:hover {
   transform: scale(0.95); /* Shrinks the container to 95% of its size */
 }
- 
+
 .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border:  1px solid #ffcfcf;
-    border-radius: 5px;
-    font-size: 14px;
-  }
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ffcfcf;
+  border-radius: 5px;
+  font-size: 14px;
+}
 
- 
+.contact:hover {
+  transform: scale(1.02); /* Slightly enlarge on hover */
+}
 
-  .contact:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
-  }
-
-  .cardi:hover {
-    transform: scale(1.02);
-  }
-
+.cardi:hover {
+  transform: scale(1.02);
+}
 
 iframe {
   width: 100%;
@@ -1083,71 +1101,69 @@ iframe {
     flex-direction: column; /* Stack elements on smaller screens */
     align-items: center;
   }
-  .contact, .cardi {
+  .contact,
+  .cardi {
     width: 90%; /* Ensure full width on smaller screens */
     max-width: none; /* Remove max-width restriction */
   }
 }
 
-
-
-
-/* ################Embedded CSS for the publish your book section############*/
+/* ################ Embedded CSS for the Publish Your Book Section ############ */
 .publish-book {
-      margin: 50px auto;
-      max-width: 600px;
-      padding: 20px;
-      background-color: #fae6e6;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+  margin: 50px auto;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #fae6e6;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-    .publish-book h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+.publish-book h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-    .form-group {
-      margin-bottom: 15px;
-    }
+.form-group {
+  margin-bottom: 15px;
+}
 
-    .form-group label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
 
-    .form-group input, .form-group textarea, .form-group select {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
 
-    button[type="submit"] {
-      width: 100%;
-      padding: 12px;
-      background-color: #28a745;
-      color: #fff;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #28a745;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-    button[type="submit"]:hover {
-      background-color: #218838;
-    }
+button[type="submit"]:hover {
+  background-color: #218838;
+}
 
-    #publish-status {
-      margin-top: 20px;
-      text-align: center;
-      font-size: 18px;
-      color: #28a745;
-    }
-
-
+#publish-status {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+  color: #28a745;
+}
 
   </style>
 <script>
@@ -1224,9 +1240,19 @@ iframe {
 
   
   <style>
+
+    /* Fixed translate button */
+    *{
+
+      transition: all 0.3s ease-in-out;
+      text-align: center;
+
+    }
+
     /* Fixed translate button */
     *{
       transition: all 0.3s ease-in-out;
+      text-align: center;
     }
 #translateButton {
     position: fixed;
@@ -1368,101 +1394,6 @@ body > .skiptranslate {
   justify-content: space-around;
 }
 
-
-.section-contact {
-  color: black;
-  padding: 40px 20px;
-}
-
-.flexi {
-  display: flex;
-  justify-content: space-between; /* Ensure both containers are side by side */
-  flex-wrap: wrap; 
-}
-
-.contact {
-  
-  width: 1000px;  /* Adjust width for the contact form */
-}
-
-.cardi {
-  height: 67rem;
-  width: 35%; /* Adjust width for the contact card */
-  max-width: 350px; /* Limit max width */
-  margin-left: 20px; /* Add some space between the two sections */
-}
-
-.contact-container {
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-}
-.contact-container:hover{
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.386);
-}
-
-.contact-card {
-  height: 61rem;
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: -5px; /* Ensure there's space above the card */
-}
-
-.map-container {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Center map inside container */
-  width: 100%;
-  height: 300px; /* Fixed height for map */
-  margin-top: 20px; /* Space above map */
-}
-
-.contact-form input,
-  .contact-form textarea {
-
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border:  1px solid #ffcfcf;
-    border: 1px solid #ffcfcf;
-    background-color: #eeb9b9;
-    border-radius: 5px;
-    font-size: 14px;
-
-  }
-
-  .contact:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
-  }
-
-  .cardi:hover {
-    transform: scale(1.02);
-  }
-
-
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none; /* Remove border for a cleaner look */
-  border-radius: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .flexi {
-    flex-direction: column; /* Stack elements on smaller screens */
-    align-items: center;
-  }
-  .contact, .cardi {
-    width: 90%; /* Ensure full width on smaller screens */
-    max-width: none; /* Remove max-width restriction */
-  }
-}
-
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -1545,19 +1476,6 @@ iframe {
     </a> 
 </div>
 
-  <div id="cookie-consent">
-    <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
-    <p >We value your privacy</p>
-    <p>
-      <br>
-      We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
-      By clicking "Accept", you consent to our use of cookies.
-        <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
-    </p>
-    <button class="accept-cookies">Accept</button>
-    <button class="reject-cookies">Reject</button>
-  </div>
-
   <script src="script.js"></script>
 
 <script>
@@ -1630,12 +1548,12 @@ iframe {
 
     .cursor {
         position: absolute;
-        width: 15px; /* Circle size */
-        height: 15px; /* Circle size */
+        width: 6px; /* Circle size */
+        height: 6px; /* Circle size */
         background-color: rgba(255, 165, 0, 0.8); /* Orange color */
-        border-radius: 50%; /* Circular shape */
+        border-radius: 10%; /* Circular shape */
         pointer-events: none; /* Prevent interaction */
-        transform: translate(-50%, -50%); /* Center the circle */
+        transform: translate(-10%, -10%); /* Center the circle */
         transition: transform 0.1s ease-out; /* Smooth movement */
     }
     :root {
@@ -1765,7 +1683,7 @@ iframe {
   position: sticky !important;
   align-items: center;
   justify-content: space-between;
-  margin-left: -18rem; 
+  margin-left: -5rem; 
   /* margin-left: 5rem; */
 }
 
@@ -1803,9 +1721,11 @@ iframe {
     width: 4rem;
     height: 15rem;
   
-}#quicklinks {
+}
+#quicklinks {
   display: flex;
-  justify-content: space-between; /* Ensures columns are evenly spaced */
+  justify-content: space-between; 
+  /* Ensures columns are evenly spaced */
 }
 
 #quicklinks .col-md-6 ul {
@@ -1816,25 +1736,40 @@ iframe {
 #quicklinks .foot-quick {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem; /* Adjust spacing between list items */
+  margin-bottom: 0rem;
+   /* Adjust spacing between list items */
 }
 
 #quicklinks .foot-quick a {
+  display: flex;
+  flex-direction: row; /* Ensure icon and text are in a row */
+  align-items: center; /* Vertically center-align the icon and text */
   text-decoration: none;
   color: rgb(83, 74, 74); /* Adjust link color as needed */
-  display: flex;
-  align-items: center;
 }
 
 #quicklinks .foot-quick a i {
   margin-right: 0.5rem; /* Adjust spacing between icon and text */
 }
+
+#quicklinks .foot-quick a p {
+  margin: 0; /* Remove default margins from <p> */
+}
+
 .dark-mode .fas{
-  color:white;
+  color:#8e6165;
 }
 .dark-mode .flinks{
-  color:white;
+  color:#4a749a;
 }
+
+.dark-mode .fas{
+  color:#8e6165;
+}
+.dark-mode .flinks{
+  color:#4a749a;
+}
+
 .dark-mode .finput{
       color: white;
       background-color: transparent;
@@ -2396,9 +2331,18 @@ iframe {
     text-align: center;
 }
 .button-container {
-    text-align: center;
+  text-align: center;
+    margin-top: 1rem;
+    
 }
 
+.card-body {
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px; /* Ensure cards have a consistent height */
+    padding: 1rem;
+}
 .donate-button {
     display: inline-block;
     padding: 0.9rem 1.8rem;
@@ -2424,6 +2368,8 @@ iframe {
 .donate-books-section img {
     border-top-left-radius: 2.5rem;
     border-top-right-radius: 2.5rem;
+    width: 100%; /* Ensure consistent image size */
+    height: auto;
 }
 
 .container {
@@ -2447,7 +2393,7 @@ iframe {
 
 
 .chapter-card {
-  height: 45rem; /* Adjust margin as needed */
+  height: 60rem; /* Adjust margin as needed */
   box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1); /* Add shadow for depth effect */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -2532,16 +2478,26 @@ iframe {
 .footer-icons .icon:hover .fa-twitter{
   color:#ffffff;
 }
+
+.icons {
+
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center; 
+}
+
+
 .icons {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
   justify-content: center; 
 }
 
 .icon i {
   font-size: 2.4rem; 
-  color: #ffffff; 
+  color: #8e6165;
   cursor: pointer;
   margin: 0; 
   padding: 0; 
@@ -2628,94 +2584,6 @@ iframe {
   .section-contact {
   color: black;
   padding: 40px 20px;
-}
-
-.flexi {
-  display: flex;
-  justify-content: space-between; /* Ensure both containers are side by side */
-  flex-wrap: wrap; 
-}
-
-.contact {
-  width: 52%; /* Adjust width for the contact form */
-}
-
-.cardi {
-
-  width: 35%; /* Adjust width for the contact card */
-  max-width: 350px; /* Limit max width */
-  margin-left: 20px; /* Add some space between the two sections */
-}
-
-.contact-container {
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(83, 18, 18, 0.1);
-  width: 85%;
-}
-
-.contact-card {
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px; /* Ensure there's space above the card */
-}
-
-.map-container {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Center map inside container */
-  width: 100%;
-  height: 300px; /* Fixed height for map */
-  margin-top: 20px; /* Space above map */
-  margin-left: 50px;
-  transition: transform 0.3s ease; /* Add transition for smooth effect */
-}
-
-.map-container:hover {
-  transform: scale(0.95); /* Shrinks the container to 95% of its size */
-}
- 
-.contact-form input,
-  .contact-form textarea {
-
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border:  1px solid #ffcfcf;
-    border-radius: 5px;
-    font-size: 14px;
-
-  }
-
-  .contact:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
-  }
-
-  .cardi:hover {
-    transform: scale(1.02);
-  }
-
-
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none; /* Remove border for a cleaner look */
-  border-radius: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .flexi {
-    flex-direction: column; /* Stack elements on smaller screens */
-    align-items: center;
-  }
-  .contact, .cardi {
-    width: 90%; /* Ensure full width on smaller screens */
-    max-width: none; /* Remove max-width restriction */
-  }
 }
 
 
@@ -2966,94 +2834,6 @@ body > .skiptranslate {
   padding: 40px 20px;
 }
 
-.flexi {
-  display: flex;
-  justify-content: space-between; /* Ensure both containers are side by side */
-  flex-wrap: wrap; 
-}
-
-.contact {
-  
-  width: 1000px;  /* Adjust width for the contact form */
-}
-
-.cardi {
-  height: 67rem;
-  width: 35%; /* Adjust width for the contact card */
-  max-width: 350px; /* Limit max width */
-  margin-left: 20px; /* Add some space between the two sections */
-}
-
-.contact-container {
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-}
-.contact-container:hover{
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.386);
-}
-
-.contact-card {
-  height: 61rem;
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: -5px; /* Ensure there's space above the card */
-}
-
-.map-container {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Center map inside container */
-  width: 100%;
-  height: 300px; /* Fixed height for map */
-  margin-top: 20px; /* Space above map */
-}
-
-.contact-form input,
-  .contact-form textarea {
-
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border:  1px solid #ffcfcf;
-    border: 1px solid #ffcfcf;
-    background-color: #eeb9b9;
-    border-radius: 5px;
-    font-size: 14px;
-
-  }
-
-  .contact:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
-  }
-
-  .cardi:hover {
-    transform: scale(1.02);
-  }
-
-
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none; /* Remove border for a cleaner look */
-  border-radius: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .flexi {
-    flex-direction: column; /* Stack elements on smaller screens */
-    align-items: center;
-  }
-  .contact, .cardi {
-    width: 90%; /* Ensure full width on smaller screens */
-    max-width: none; /* Remove max-width restriction */
-  }
-}
 
   </style>
   <script>
@@ -3139,15 +2919,15 @@ iframe {
 
   <div id="cookie-consent">
     <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
-    <p >We value your privacy</p>
-    <p>
+    <p style="margin-bottom: 0%;">We value your privacy</p>
+    <p style="margin-bottom: 0%;">
       <br>
       We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
       By clicking "Accept", you consent to our use of cookies.
         <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
     </p>
-    <button class="accept-cookies">Accept</button>
-    <button class="reject-cookies">Reject</button>
+    <button style="margin-bottom: 0%;" class="accept-cookies">Accept</button>
+    <button style="margin-bottom: 0%;" class="reject-cookies">Reject</button>
   </div>
   
 
@@ -3213,65 +2993,369 @@ iframe {
     cookieConsent.style.display = 'none';
   }
 });
-</script>
+
+</script> 
+<style>
+  .dropdown {
+      position: relative;
+  }
+  .dropdown-menu {
+      display: none;
+      position: absolute;
+      background: white; /* Adjust as needed */
+      list-style: none;
+      padding: 10px; /* Adjust as needed */
+      border: 1px solid #ccc; /* Adjust as needed */
+      z-index: 1000; /* Ensure it appears above other elements */
+  }
+  .dropdown-menu {
+    display: none; /* Initially hide the dropdown */
+    position: absolute; /* Position it absolutely */
+    background-color: #fff; /* Background color */
+    z-index: 1; /* Ensure it is above other elements */
+}
+.dropdown:hover .dropdown-menu {
+    display: block; /* Show dropdown on hover */
+}
+.dropdown .navbar-link {
+    position: relative; /* Needed for arrow positioning */
+}
+  .dropdown-item {
+      padding: 5px 10px; /* Adjust padding */
+  }
+  .navbar-link {
+      display: block; /* Make links fill the container */
+      padding: 8px; /* Adjust padding */
+  }
+  .arrow {
+    transition: transform 0.3s; /* Smooth transition for arrow */
+} 
+
+<!--my code-->
+
+<header class="header header-anim nav-h" data-header>
+
+  <div class="container mobile-container-styles">
+
+    <nav class="navbar nav_activated" data-navbar>
+
+
+      <ul class="navbar-list nav" style="margin-right: 10px;">
+        <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+          <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
+        </a>
+        
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link>
+            <i class="ri-home-fill"></i> Home
+          </a>
+        </li>
+        
+        
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
+            <i class="ri-information-fill"></i> AboutUs
+          </a>
+        </li>
+     
+       <li class="navbar-item" style="margin-right: 10px;">
+          <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
+              class="ri-bar-chart-fill"></i> Benefits</a>
+        </li>
+
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+              class="ri-bar-chart-fill"></i> Genre</a>
+        </li>
+
+       <li class="navbar-item" style="margin-right: 10px;">
+            <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
+                <i class="ri-questionnaire-fill"></i> FAQ
+            </a>
+        </li>
+
+        
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link>
+            <i class="ri-contacts-fill"></i> Contact
+          </a>
+        </li>
+        
+        <li class="navbar-item" id="login-signup-link" style="margin-right: 10px;">
+          <a href="login-signup.html" class="navbar-link">
+            <i class="ri-login-box-fill"></i> Login/Signup
+          </a>
+        </li>
+        
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="#about-books" onclick="lenis.scrollTo('#about-books')" class="navbar-link" data-nav-link>
+            <i class="ri-book-fill"></i> AboutBooks
+          </a>
+        </li>
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="#community" onclick="lenis.scrollTo('#community')" class="navbar-link" data-nav-link>
+            <i class="ri-community-fill"></i> Community
+          </a>
+        </li>
+        
+        
+
+
+  
+        
+        
+        
+          
+        <li>
+        <div class="action" >
+          <div class="profile" onclick="menuToggle();">
+            <img id="profile-avatar"  src="./assets/images/avatar1.jpg" />
+          </div>
+          <div class="menu">
+            <h3>XYZ<br /><span>Book Lover</span></h3>
+            <ul>
+              <li>
+                <img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a>
+              </li>
+              <li>
+                <img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit profile</a>
+              </li>
+              <li>
+                <img src="./assets/images/inbox.png" /><a href="#">Inbox</a>
+              </li>
+              <li>
+                <img src="./assets/images/settings.png" /><a href="#">Settings</a>
+              </li>
+              <li><img src="./assets/images/help.png" /><a href="/help.html">Help</a></li>
+              <li>
+                <img src="./assets/images/logout.png" /><a id="logout-btn">Logout</a>
+              </li>
+            </ul>
+            </div>
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                  const savedAvatar = localStorage.getItem("selectedAvatar");
+                  if (savedAvatar) {
+                      document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+                  }
+              });
+      
+              function menuToggle() {
+                  const toggleMenu = document.querySelector(".menu");
+                  toggleMenu.classList.toggle("active");
+              }
+      
+              document.addEventListener("click", function(event) {
+                  const profile = document.querySelector(".profile");
+                  const menu = document.querySelector(".menu");
+      
+                  if (!profile.contains(event.target) && !menu.contains(event.target)) {
+                      menu.classList.remove("active");
+                  }
+              });
+              
+              // let lastScrollTop = 0;
+              // const header = document.querySelector('.header');
+      
+              // window.addEventListener('scroll', function() {
+              //     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+              //     if (scrollTop > lastScrollTop) {
+              //         // Downscroll
+              //         header.style.transform = 'translateY(-120%)';
+              //     } else {
+              //         // Upscroll
+              //         header.style.transform = 'translateY(0)';
+              //     }
+      
+              //     lastScrollTop = scrollTop;
+              // });
+          </script>
+        -->
+
+
+
+ 
+  <header class="header header-anim nav-h" data-header>
+
+
+.dropdown:hover .arrow {
+    transform: rotate(180deg); /* Rotate arrow on hover */
+}
+</style>
+
   <header class="header header-anim nav-h" data-header>
 
     <div class="container mobile-container-styles">
 
-      <nav class="navbar nav_activated" data-navbar>
-
-
-        <ul class="navbar-list nav">
-          <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
-          </a>
+      <nav class="navbar nav_activated" data-navbar> 
+        <ul class="navbar-list nav"> 
+        <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+          <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
+        </a>  
           <li class="navbar-item">
-            <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
-                class="ri-home-fill"></i> Home</a>
+             <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link> 
+              <lord-icon
+              src="https://cdn.lordicon.com/qeltvbrs.json"
+              trigger="hover"
+              colors="primary:#e88c30,secondary:#a30f17"
+              style="width:25px;height:25px">
+            </lord-icon> 
+            Home</a>
           </li>
            <li class="navbar-item">
-                <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><i
-                    class="ri-home-fill"></i>About Us</a>
+                <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><script src="https://cdn.lordicon.com/lordicon.js"></script>
+                  <lord-icon
+                      src="https://cdn.lordicon.com/fozsorqm.json"
+                      trigger="hover"
+                      stroke="bold"
+                      state="hover-up"
+                      colors="primary:#a30f17,secondary:#e88c30"
+                      style="width:30px;height:30px"></lord-icon>
+                 About</a>
               </li>
-              
-          <li class="navbar-item">
+
+              <li class="navbar-item">
+                <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
+                    class="ri-customer-service-2-fill"></i> Contact</a>
+                </li>
+                <li class="navbar-item" id="login-signup-link">
+                  <a href="./assets/html/login.html" class="navbar-link">Create Account</a>
+                </li>
+            <!-- <li class="navbar-item">
             <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
                 class="ri-bar-chart-fill"></i> Benefits</a>
+
+              
+          <li class="navbar-item">
+            <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link>
+              <lord-icon
+              src="https://cdn.lordicon.com/jibxifeu.json"
+              trigger="hover"
+              state="hover-up"
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:25px;height:25px">
+          </lord-icon> Benefits</a>
+
           </li>
 
           <li class="navbar-item">
-            <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
-                class="ri-bar-chart-fill"></i> Genre</a>
-          </li>
-
+            <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link>
+              <lord-icon
+              src="https://cdn.lordicon.com/bhmovrlt.json"
+              trigger="hover"
+              state="morph-open"
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:25px;height:25px">
+          </lord-icon>  Genre</a>
+          </li> 
+         
           <li class="navbar-item">
             <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-                class="ri-customer-service-2-fill"></i> Contact</a>
-            </li>
+                class="ri-customer-service-2-fill"></i><img src="./assets/images/telephone.png" height="25px" width="25px"/> Contact</a>
+            </li> 
             
             <li class="navbar-item">
               <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
-                  <i class="ri-questionnaire-fill"></i> FAQ
+                <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/motnbmtz.json"
+                    trigger="hover"
+                    stroke="bold"     
+                    colors="primary:#a30f17,secondary:#e88c30"
+                    style="width:25px;height:25px">
+                </lord-icon> FAQ
               </a>
-          </li>
+          </li> 
 
-          <li class="navbar-item">
-            <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+          <li class="navbar-item"> 
+            <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+          </li> 
+            <a href="rate.html" onclick="openRateUsModal(); return false;" class="navbar-link">
+            <lord-icon
+             src="https://cdn.lordicon.com/jxjfjyri.json"
+             trigger="morph"
+             stroke="bold"
+             state="morph-select"
+             colors="primary:#eeaa66,secondary:#e88c30"
+             style="width:25px;height:25px">
+            </lord-icon>  Rate</a></li>
+
+ 
             <li class="navbar-item" id="login-signup-link">
-              <a href="./assets/html/event.html" class="navbar-link">Events</a>
+              <a href="./assets/html/event.html" class="navbar-link"><script src="https://cdn.lordicon.com/lordicon.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/kvuyljqb.json"
+                    trigger="hover"
+                    stroke="bold"
+                    colors="primary:#eeaa66,secondary:#e88c30"
+                    style="width:25px;height:25px">
+                </lord-icon> Events</a>
             </li>
+          
           <li class="navbar-item" id="login-signup-link">
-            <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
-          </li>
+            <a href="../html/login.html" class="navbar-link">
+              <lord-icon
+              src="https://cdn.lordicon.com/xfzuyvam.json"
+              trigger="morph"
+              state="morph-group"
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:25px;height:25px">
+          </lord-icon> Login/Signup</a>
+          </li> 
           <li class="navbar-item" id="login-signup-link">
-            <a href="comsp.html" class="navbar-link">Community Spotlight</a>
+            <a href="comsp.html" class="navbar-link"><script src="https://cdn.lordicon.com/lordicon.js"></script>
+              <lord-icon
+                  src="https://cdn.lordicon.com/fqbvgezn.json"
+                  trigger="hover"
+                  stroke="bold"
+                  colors="primary:#a30f17,secondary:#e88c30"
+                  style="width:37px;height:37px">
+              </lord-icon>Community Spotlight</a>
           </li>
 
           <li class="navbar-item">
               <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" data-nav-link>
-                  <i class="ri-bar-chart-fill"></i> Audio<br> Books
+                <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/vycwlttg.json"
+                    trigger="hover"
+                    stroke="bold"
+                    colors="primary:#a30f17,secondary:#e88c30"
+                    style="width:25px;height:25px">
+                </lord-icon> Audio<br> Books
+              </a>
+          </li> -->
+           <!-- New Dropdown Menu for More -->
+    <li class="navbar-item dropdown">
+      <a href="#" class="navbar-link dropdown-toggle" onclick="toggleDropdown(event)">More <span class="arrow" id="arrow" style="display: inline;">&#9660;</span></a>
+      <ul class="dropdown-menu">
+          <li class="dropdown-item">
+              <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link>
+                  <i class="ri-bar-chart-fill"></i> Benefits
               </a>
           </li>
+          <li class="dropdown-item">
+              <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link>
+                  <i class="ri-bar-chart-fill"></i> Genre
+              </a>
+          </li>
+          <li class="dropdown-item">
+              <a href="#faq" onclick="lenis.scrollTo('#faq')" class="navbar-link" data-nav-link>
+                  <i class="ri-questionnaire-fill"></i> FAQ
+              </a>
+          </li>
+          <li class="dropdown-item">
+              <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+          </li>
+          <li class="dropdown-item" id="login-signup-link">
+              <a href="./assets/html/event.html" class="navbar-link">Events</a>
+          </li>
+          <li class="dropdown-item" id="login-signup-link">
+              <a href="comsp.html" class="navbar-link">Community Spotlight</a>
+          </li>
+      </ul>
+  </li>
             
           <li>
           <div class="action">
@@ -3299,6 +3383,13 @@ iframe {
                 </li>
               </ul>
               </div>
+              <script>
+                function toggleDropdown(event) {
+                    event.preventDefault();
+                    const dropdownMenu = event.currentTarget.nextElementSibling;
+                    dropdownMenu.classList.toggle('show');
+                }
+            </script>
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
                     const savedAvatar = localStorage.getItem("selectedAvatar");
@@ -3338,7 +3429,7 @@ iframe {
                 //     lastScrollTop = scrollTop;
                 // });
             </script>
-
+          -->
 <div id="modal">
   <form class="modal-box">
     <!-- <img src="https://st2.depositphotos.com/4103319/6625/i/450/depositphotos_66251761-stock-photo-logout-circular-icon-on-white.jpg" class="logout-img"/> -->
@@ -3363,6 +3454,7 @@ iframe {
           <div class="line"></div>
           <div class="line"></div>
         </div> -->
+
       </nav>
       <div id="mobile_View_Menu">
         <span id="menu_lines"></span>
@@ -3505,7 +3597,7 @@ iframe {
 
             <p class="section-text " >
               Join SwapReads.com, the ultimate online community for book enthusiasts! Create your profile, list your
-              favorite reads, and embark on literary journeys by swapping books with fellow passionate readers. Discover
+              favorite reads, and embark on   literary journeys by swapping books with fellow passionate readers. Discover
               a world where books find new adventures and readers connect through the joy of sharing stories.
             </p>
             <div class="container hero-button">
@@ -4958,178 +5050,318 @@ iframe {
           </script>
         </div>
       </section>
+
 <!-- Donation of Books -->
 <br>
+
+<style>
+  .donate-books-section h1 {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: 2.8rem;
+  color: #A30F17;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.donate-books-section h1:hover{
+  text-decoration: underline;
+  transition: ease-in;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card {
+  margin: 1.5rem;
+  border-bottom: 0.5rem solid #A30F17;
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding-bottom: 1rem;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: 50%;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-sty {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-style: italic;
+  text-align: center;
+  color: #555;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.donate-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #A30F17;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.donate-button:hover {
+  background-color: #8b0b14;
+  transform: scale(1.05);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.871);
+}
+
+</style>
+
 <div class="donate-books-section">
-  <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Donate Books</h1>
+  <h1>Donate Books</h1>
   <br>
   <div class="container">
+
+    
+    <!-- Card 1 -->
+    <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+      <img src="./assets/images/images/lib.jpg" alt="Library Image">
+      <div class="card-body">
+        <h3 class="card-sty">Library</h3>
+        <p class="card-text">Donate your books to local libraries and help foster a love for reading in your community.</p>
+        <div class="button-container">
+          <a href="./assets/html/donate.html" class="donate-button">Donate to Libraries</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+      <img src="./assets/images/images/sc.jpg" alt="School Image">
+      <div class="card-body">
+        <h3 class="card-sty">Schools</h3>
+        <p class="card-text">Support children's education by donating books to nearby schools for students of all ages.</p>
+        <div class="button-container">
+          <a href="./assets/html/school.html" class="donate-button">Donate to Schools</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+      <img src="./assets/images/images/ngo.jpeg" alt="Organization Image">
+      <div class="card-body">
+        <h3 class="card-sty">Organizations</h3>
+        <p class="card-text">Help the organizations by donating books to support their educational programs.</p>
+        <div class="button-container">
+          <a href="./assets/html/ngo.html" class="donate-button" style="margin-bottom:10rem;">Donate to Organizations</a>
+        </div>
+
     <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; padding-bottom: 1rem; height: auto; ">
           <img src="./assets/images/images/lib.jpg" alt="Library Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Library</h3>
               <p class="card-text" style="font-style: italic;">Donate your books to local libraries and help foster a love for reading in your community.</p>
-              <div class="button-container" style="text-align: center; margin-top: 1rem; margin-bottom: 1rem; ">
+              <div class="button-container">
                   <a href="./assets/html/donate.html" class="donate-button">Donate to Libraries</a>
               </div>
           </div>
       </div>
-      <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; height: auto;">
-          <img src="./assets/images/images/sc.jpg" alt="School Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
+      <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; padding-bottom: 1rem; height: auto;">
+          <img src="./assets/images/images/school.png" alt="School Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Schools</h3>
               <p class="card-text" style="font-style: italic;">Support children's education by donating books to nearby schools for students of all ages.</p>
-              <div class="button-container" style="text-align: center; margin-top: 1rem;">
+              <div class="button-container">
                   <a href="./assets/html/school.html" class="donate-button">Donate to Schools</a>
               </div>
           </div>
       </div>
-      <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; height: auto;">
+      <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; padding-bottom: 1rem; height: auto;">
           <img src="./assets/images/images/ngo.jpeg" alt="Organization Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
           <div class="card-body">
               <h3 class="card-sty" style="text-align: center;">Organizations</h3>
-              <p class="card-text" style="font-style: italic;">Help NGOs and other organizations by donating books to support their educational programs.</p>
-              <div class="button-container" style="text-align: center; margin-top: 1rem;">
+              <p class="card-text" style="font-style: italic;">Donate books to support educational programs of NGOs and other organizations.</p>
+              <div class="button-container">
                   <a href="./assets/html/ngo.html" class="donate-button">Donate to Organizations</a>
               </div>
           </div>
       </div>
+    </div>
+
   </div>
 </div>
 
-<style>
-  .card:hover {
-    transform: scale(1.1);
+<script>
+  function hoverCard(card) {
+    card.style.transform = "scale(1.05)";
+    card.style.boxShadow = "0px 12px 20px rgba(0,0,0,0.2)";
   }
-</style>
+
+  function unhoverCard(card) {
+    card.style.transform = "scale(1)";
+    card.style.boxShadow = "0px 8px 15px rgba(0,0,0,0.1)";
+  }
+</script>
 
 
-<!-- rate us -->
-      <style>
-#rate-us {
-  transition: background-color 0.3s ease;  
-  padding: 10px 20px;
-  background-color:  #b51e26; 
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease; 
-}
+<!-- Rate Us Section -->
+<div id="rate-us">
+  <div class="heading">
+    <h3>Rate Us</h3>
+    <p>Tell us about your experience!</p>
+  </div>
 
-#rate-us:hover {
-  background-color: #A30F17;  
-  color: white;  
-  transform: scale(1.1); 
-} /* Closing brace for #rate-us:hover */
+  <div class="stars">
+    <input type="radio" id="star5" name="rate" value="5">
+    <label for="star5" class="emoji-label">😭</label>
+    <input type="radio" id="star4" name="rate" value="4">
+    <label for="star4" class="emoji-label">😢</label>
+    <input type="radio" id="star3" name="rate" value="3">
+    <label for="star3" class="emoji-label">😐</label>
+    <input type="radio" id="star2" name="rate" value="2">
+    <label for="star2" class="emoji-label">😊</label>
+    <input type="radio" id="star1" name="rate" value="1">
+    <label for="star1" class="emoji-label">😍</label>
+  </div>
 
-/* Additional styles */
-.toast-message {
-  display: none;  
-  padding: 10px;
-  border-radius: 5px;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
+  <div class="feedback-container">
+    <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
+  </div>
 
-.modal {
-  display: none;  
-}
-</style>
+  <div class="button">
+    <center><button id="submit-btn">Submit</button></center>
+  </div>
+</div>
+
+<div id="toastMessage" class="toast-message"></div>
 
 
+<!-- Rate Us Component -->
+<div id="rate-us">
+  <div class="heading">
+    <h3>Rate Us</h3>
+    <p>Tell us about your experience!</p>
+  </div>
 
+  <div class="stars">
+    <input type="radio" id="star5" name="rate" value="5" />
+    <label for="star5">😭</label>
+    <input type="radio" id="star4" name="rate" value="4" />
+    <label for="star4">😢</label>
+    <input type="radio" id="star3" name="rate" value="3" />
+    <label for="star3">😐</label>
+    <input type="radio" id="star2" name="rate" value="2" />
+    <label for="star2">😊</label>
+    <input type="radio" id="star1" name="rate" value="1" />
+    <label for="star1">😍</label>
+  </div>
 
-      <!-- rate us -->
+  <div class="feedback-container">
+    <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
+  </div>
 
+  <div class="button">
+    <center><button id="submit-btn">Submit</button></center>
+  </div>
+</div>
 
-       <!-- Rate Us Component -->
-       <div id="rate-us">
-        <div class="heading">
-            <h3>Rate Us</h3>
-            <p>Tell us about your experience!</p>
-        </div>
-    
-        <div class="stars">
-            <input type="radio" id="star5" name="rate" value="5" />
-            <label for="star5">😭</label>
-            <input type="radio" id="star4" name="rate" value="4" />
-            <label for="star4">😢</label>
-            <input type="radio" id="star3" name="rate" value="3" />
-            <label for="star3">😐</label>
-            <input type="radio" id="star2" name="rate" value="2" />
-            <label for="star2">😊</label>
-            <input type="radio" id="star1" name="rate" value="1" />
-            <label for="star1">😍</label>
-        </div>
-    
-        <div class="feedback-container">
-            <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
-        </div>
-    
-        <div class="button">
-          
-            <center><button id="submit-btn">Submit</button></center>
-        </div>
-    </div>
-    
-    <div id="toastMessage" class="toast-message"></div>
-    <script>
-     document.addEventListener("DOMContentLoaded", function() {
+<div id="toastMessage" class="toast-message"></div>
+
+<!-- JavaScript for form submission and rate us functionality -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Handle form submission for Rate Us
+    const submitBtn = document.getElementById("submit-btn");
+    const toastMessage = document.getElementById("toastMessage");
+
+    submitBtn.addEventListener("click", function() {
+      const rating = document.querySelector('input[name="rate"]:checked');
+      const feedback = document.getElementById("feedback").value;
+
+      if (!rating || feedback.trim() === "") {
+        toastMessage.innerText = "Please provide both rating and feedback!";
+        toastMessage.style.color = "red";
+      } else {
+        toastMessage.innerText = "Thank you for your feedback!";
+        toastMessage.style.color = "green";
+
+        // You can implement form submission logic here, like sending data to the server
+        console.log("Rating: " + rating.value);
+        console.log("Feedback: " + feedback);
+      }
+
+      setTimeout(() => {
+        toastMessage.innerText = "";
+      }, 3000);
+    });
+  });
+</script>
+
     const toastMessage = document.getElementById("toastMessage");
 
     document.getElementById("submit-btn").addEventListener("click", function(event) {
-        event.preventDefault(); // Prevent default form submission
+      event.preventDefault(); // Prevent default form submission
 
-        let selectedEmoji = document.querySelector('input[name="rate"]:checked');
-        let feedback = document.getElementById("feedback").value.trim();
+      let selectedEmoji = document.querySelector('input[name="rate"]:checked');
+      let feedback = document.getElementById("feedback").value.trim();
+
+      if (selectedEmoji && feedback !== "") {
+        // Show success toast message
+        toastMessage.textContent = "Feedback submitted successfully!";
+        toastMessage.style.backgroundColor = "green";
+        showToastMessage();
         
-        if (selectedEmoji && feedback !== "") {
-            // Show success toast message
-            toastMessage.textContent = "Feedback submitted successfully :)";
-            toastMessage.style.backgroundColor = "green"; // Green color for success
-            toastMessage.style.color = "white";
-            toastMessage.style.borderRadius = "0.5rem";
-            toastMessage.style.position = "fixed";
-                      toastMessage.style.display = "block";
-
-            // Hide toast message after 3 seconds (adjust as needed)
-            setTimeout(function() {
-                toastMessage.style.display = "none";
-            }, 3000);
-
-            // Reset form fields
-            document.getElementById("feedback").value = "";
-            let starInputs = document.querySelectorAll('input[name="rate"]');
-            starInputs.forEach(input => {
-                input.checked = false;
-            });
-        } else {
-            // Show failure toast message
-            toastMessage.textContent = "Select Emoji and give Feedback :(";
-            toastMessage.style.backgroundColor = "red"; // Red color for failure
-            toastMessage.style.color = "white";
-            toastMessage.style.borderRadius = "0.5rem";
-            toastMessage.style.position = "fixed";
-            
-            toastMessage.style.display = "block";
-
-            // Hide toast message after 3 seconds (adjust as needed)
-            setTimeout(function() {
-                toastMessage.style.display = "none";
-            }, 3000);
-            
-            document.getElementById("feedback").value = "";
-            let starInputs = document.querySelectorAll('input[name="rate"]');
-            starInputs.forEach(input => {
-                input.checked = false;
-            });
-        }
+        // Reset form fields
+        document.getElementById("feedback").value = "";
+        let starInputs = document.querySelectorAll('input[name="rate"]');
+        starInputs.forEach(input => input.checked = false);
+      } else {
+        // Show failure toast message
+        toastMessage.textContent = "Please select an emoji and give feedback.";
+        toastMessage.style.backgroundColor = "red";
+        showToastMessage();
+      }
     });
-});
 
-  </script>
+    function showToastMessage() {
+      toastMessage.style.display = "block";
+      setTimeout(() => {
+        toastMessage.style.opacity = "1";
+      }, 100);
+
+      setTimeout(function() {
+        toastMessage.style.opacity = "0";
+        setTimeout(() => {
+          toastMessage.style.display = "none";
+        }, 300);
+      }, 3000);
+    }
+  });
+</script>
+
+
   <div id="toastMessage"></div>
 
     <!-- Confirmation Modal -->
@@ -5164,7 +5396,7 @@ iframe {
   <div class="flexi">
     <div class="contact" >
       <div class="contact-container">
-        <form class="contact-form" id="contactForm" style=" width: 500px;">
+        <form class="contact-form" id="contactForm" >
           <label for="name" class="label">Name</label>
           <input type="text" id="name" name="name" placeholder="Your Name" required required pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
           oninput="this.setCustomValidity('')">
@@ -5571,7 +5803,6 @@ h2 {
 }
 
 p {
-  font-size: 16px;
   color: #E91E63;
   margin-bottom: 30px;
 }
@@ -5614,29 +5845,6 @@ p {
   color: #C2185B;
 }
 
-button {
-  width: 100%;
-  padding: 15px;
-  background-color: #C2185B;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-button:hover {
-  background-color: #AD1457;
-  box-shadow: 0 0 15px rgba(194, 24, 91, 0.4);
-}
-
-button:focus {
-  outline: none;
-  box-shadow: 0 0 10px rgba(194, 24, 91, 0.8);
-}
-
 </style>
         
 <script>
@@ -5673,24 +5881,6 @@ button:focus {
   });
 </script>
 
-<div class="newsletter-container">
-  <h2>Subscribe to Our Newsletter</h2>
-  <p>Stay updated with our latest news and offers</p>
-  
-  <form id="newsletterForm">
-    <div class="input-group">
-      <input type="text" id="name" placeholder="Your Name">
-      <i class='bx bx-user'></i>
-    </div>
-    
-    <div class="input-group">
-      <input type="email" id="email" placeholder="Your Email Address">
-      <i class='bx bx-envelope'></i>
-    </div>
-    
-    <button type="submit" id="subs">Subscribe</button>
-  </form>
-</div>
 <style>
   
   #name{
@@ -5739,7 +5929,7 @@ button:focus {
 
     observer.observe(faq);
   });
-});
+}); 
 
 
   </script>
@@ -5842,7 +6032,7 @@ button:focus {
     - #FOOTER
   -->
 
-  <footer class="ff">
+  <footer class="ff" style="background-color: #f0c8c1;">
     <div class="foot-top">
       <div class="foot-left">
 
@@ -5864,48 +6054,60 @@ button:focus {
       "https://translate.google.com/translate_a/element.js?
       cb=googleTranslateElementInit">
           </script>
-          <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
+          <div class="SwapReads" style="margin-right: 120px;"><a href="#" class="logo">SwapReads</a></div>
           <div>
-            <p style="text-align: justify;margin-left: 30px; " class="description">SwapReads.com is the ultimate destination for book
-              lovers
-              seeking to swap and
-
-              discover new literary gems.
-              Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
-              the
+            <p style="text-align: justify;" class="description">SwapReads.com is the ultimate destination for book lovers seeking to swap and discover new literary gems. Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in the
               world of literature—all on one convenient platform. Join us and dive into a universe of endless
               possibilities!
             </p>
-          </div>
-
-        </div>
-      </div>
-      <div class="foot-middle">
-        <h2 style="margin-left: 2rem; margin-top: 2.75rem;">Quick Links</h2>
+            <div class="foot-middle">
+        <h2 style="margin-left: 0rem; margin-top: 0rem;">Quick Links</h2>
         <div id="quicklinks" class="row">
-          <div class="col-md-6">
+          <div class="col-md-2">
             <ul>
-              <li class="foot-quick" style="color: white;"><a href="#home" onclick="lenis.scrollTo('#home')"><i class="fas fa-home"></i><p class="flinks">Home</p></a></li>
-              <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')"><i class="fas fa-book"></i> <p class="flinks">Benefits</p></a></li>
-              <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i> <p class="flinks">Literary</p></a></li>
-              <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i><p class="flinks">Pricing</p> </a></li>
-              <li class="foot-quick"><a href="./assets/html/bookrecommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><p class="flinks">Recommend</p></a></li>
+              <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')"><i class="fas fa-home"></i><h4 class="flinks">Home</h4></a></li>
+              <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')"><i class="fas fa-book"></i> <h4 class="flinks">Benefits</h4></a></li>
             </ul>
           </div>
-          <div class="col-md-6">
+            <div class="col-md-2">
             <ul>
-              <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-exchange-alt"></i><p class="flinks">Swap</p> </a></li>
-              <li class="foot-quick"><a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-file-pdf"></i> <p class="flinks">E-Book</p></a></li>
-              <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-info-circle"></i> <p class="flinks">About</p></a></li>
-              <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')"><i class="fas fa-envelope"></i><p class="flinks">Contact</p> </a></li>
-              <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')"><i class="fas fa-question-circle"></i> <p class="flinks">FAQ</p></a></li>
+              <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i><h4 class="flinks">Pricing</h4> </a></li>
+              <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')"><i class="fas fa-envelope"></i><h4 class="flinks">Contact</h4> </a></li>
             </ul>
+          </div>
+          <div class="col-md-2">
+            <ul>
+              <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i> <h4 class="flinks">Literary</h4></a></li>
+              <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')"><i class="fas fa-question-circle"></i> <h4 class="flinks">FAQ</h4></a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <ul>
+              <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-exchange-alt"></i><h4 class="flinks">Swap</h4> </a></li>
+              <li class="foot-quick"><a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-file-pdf"></i> <h4 class="flinks">E-Book</h4></a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <ul>
+              <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-info-circle"></i> <h4 class="flinks">About</h4></a></li>
+              <li class="foot-quick"><a href="./assets/html/bookrecommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><h4 class="flinks">Recommend</h4></a></li>
+            </ul>
+          </div>
+          <div>
+          <ul>
+            <li class="foot-quick"><a href="/terms&cond.html"> <i class="fas fa-file-alt"></i><h4 class="flinks">Terms and<br>Conditions</h4></a></li>
+          </ul>
           </div>
         </div>
       </div>
-      
+          </div>
 
+        </div>
+      </div>
         <style>
+          #quicklinks:hover{
+            text-decoration: none;
+          }
           .social-icons input[type="email"] 
           {
               border: 0.2rem solid #ccc; /* Gray border */
@@ -5946,10 +6148,7 @@ button:focus {
 }
 
         </style>
-
-
-
-
+ 
     
   <script>
   function showConfirmationMessage() {
@@ -5971,99 +6170,44 @@ button:focus {
 
 </script>
 <style>
-  
-  .newsletter {
-    background-color: #ffd1d1;
-    padding: 30px;
-    max-width: 400px;
-    margin: auto;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
+  .subscribe {
+    background-color: #A30F17;
+    color: white; 
+    border: none; 
+    padding: 1rem 2rem; 
+    font-size: 1.6rem; 
+    font-family: Arial, sans-serif;
+    border-radius: 0.5rem; 
+    cursor: pointer; 
+    margin-top: 5px;
+  }
 
-.newsletter h1 {
-    color: #c62828;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.newsletter p {
-    color: #8c8c8c;
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-.input-group {
-    position: relative;
-    margin-bottom: 15px;
-}
-
-.input-group i {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    color: #c62828;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 12px 40px;
-    border: 2px solid #c62828;
-    border-radius: 5px;
-    font-size: 14px;
-    color: #333;
-    background-color: #ffecec;
-    transition: border-color 0.3s ease;
-}
-
-.input-group input:focus {
-    border-color: #ff6f6f;
-    outline: none;
-}
-
-.subscribe {
-    width: 100%;
-    background-color: #b71c1c;
-    color: white;
-    border: none;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.subscribe:hover {
+  .subscribe:hover {
     background-color: #ff6f6f;
-}
- 
-       subscribe:active {
-        transform: scale(0.98);
-       }
-       subscribe:focus {
-        outline: none;
-       }
-        
-        .newsletter:hover {
-  // background: linear-gradient(hwb(357 68% 7%), #d26d6d);
-  
+  }
 
+  .subscribe:active {
+    transform: scale(0.98);
+  }
 
-.success-message {
+  .subscribe:focus {
+    outline: none;
+  }
+
+  .success-message {
     margin-top: 20px;
     font-size: 18px;
     color: #388e3c;
     display: none;
+  }
 
-}
-
-@media (max-width: 500px) {
+  @media (max-width: 500px) {
     .newsletter {
-        padding: 20px;
+      padding: 20px;
     }
+  }
 </style>
+
         
 <!--<script>
   function showSuccessMessage() 
@@ -6100,7 +6244,7 @@ function showSuccessMessage() {
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> 
 
-<div class="newsletter" style="margin-right:100px ;">
+<div class="newsletter">
     <h1>Subscribe to Our Newsletter</h1>
     <p>Stay updated with our latest news and offers</p>
     
@@ -6155,8 +6299,8 @@ function showSuccessMessage() {
  
       <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
       <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>  |
-      
-      <a href="our-vision.html" id="ourvisionlink">Our Vision</a></li>
+      <a href="our-vision.html" id="ourvisionlink">Our Vision</a></li> |
+      <a href="./contributors/contributor.html" id="ourvisionlink">Our Contributors </a></li>
     
     </div>
     </div>
@@ -6725,8 +6869,8 @@ count=0
 
       // Get the next circle in the sequence
       const nextCircle = circles[index + 1] || circles[0];
-      x += (nextCircle.x - x) * 0.3;
-      y += (nextCircle.y - y) * 0.3;
+      x += (nextCircle.x - x) * 0.15;
+      y += (nextCircle.y - y) * 0.15;
     });
 
     // Repeat the animation
@@ -6744,7 +6888,7 @@ count=0
     right: 45px;
     top: 40%;
     transform: translateY(-50%);
-    background :linear-gradient(hwb(357 6% 36%),#d26d6d);
+    background :linear-gradient(hwb(357 6% 30%),#d26d6d);
     color: white;
     border: none;
     border-radius: 50%; /* Make it circular */
@@ -6762,7 +6906,7 @@ count=0
        .scroll-button:hover {
           transform: translateY(-50%) scale(1.2);
         }
-    </style>
+</style>
 <script>
     document.getElementById("scrollBtn").addEventListener("click", function() {
         // Get the height of the viewport
@@ -6773,9 +6917,11 @@ count=0
             top: viewportHeight,
             behavior: "smooth" // This makes the scrolling smooth
         });
-    });
+      });
 </script>
 
-</body>
 
+
+
+</body>
 </html>
