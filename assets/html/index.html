@@ -892,8 +892,16 @@
     background-color: #cc0000; /* Darker red for hover effect */
     border-color: #cc0000; /* Darker red for border on hover */
 }
-.donate-books-section {
+.donate-books-section .container {
     text-align: center;
+  display: flex;
+  flex-wrap: wrap; /* This wraps cards to the next line when space runs out */
+  justify-content: space-between; /* Distributes cards evenly with space between */
+  width: 100%; 
+}
+.donate-books-section .card {
+  width: calc(33.33% - 1.5rem); /* Calculates card width based on 3 cards per row */
+  margin: 1.5rem;
 }
 .donate-books-section p{
   padding: 10px;
@@ -903,20 +911,10 @@
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
-
-.container {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Adjust the gap between cards as needed */
-    flex-wrap: wrap; /* Allows cards to wrap onto the next line if the screen is too narrow */
-    padding: 0 15px; /* Optional padding for responsiveness */
+.donate-books-section.container{
+  margin: 50px;
 }
 
-.card {
-    flex: 1 1 200px; /* Allows cards to grow and shrink, with a minimum width of 200px */
-    max-width: 300px; /* Optional max width for cards */
-    margin: 10px; /* Optional margin around each card */
-}
 
 .card img {
     width: 100%;
