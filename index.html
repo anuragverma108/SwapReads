@@ -1104,7 +1104,7 @@
     /* Fixed translate button */
     *{
       transition: all 0.3s ease-in-out;
-      text-align: center;
+      text-align: left;
     }
 #translateButton {
     position: fixed;
@@ -4793,136 +4793,6 @@ body > .skiptranslate {
   </div>
 </section>
 
-
-      <!--Book Exchange Hub-->
-      <section class="section preview" aria-label="preview">
-        <div class="container1">
-          <h2 class="h2 section-title has-underline" style="margin-bottom: 0px;">
-            Book Exchange Hub
-            <span class="span has-before"></span>
-          </h2>
-          <p class="section-text booktext">
-            Connect with fellow readers in our Book Exchange Hub. Sell your old books at half price and give your
-            favorite reads a new home. Fill out the form below to get started!
-          </p>
-      
-          <div class="exchange-form">
-            <div class="form-fields">
-              <label class="form-label" for="bookTitle">Book Title:</label>
-              <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the title of your book" required class="input-field">
-              <span id="bookTitle-error" class="error"></span>
-      
-              <label class="form-label" for="bookAuthor">Author:</label>
-              <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter the author's name" required class="input-field">
-              <span id="bookAuthor-error" class="error"></span>
-      
-              <label class="form-label" for="yourPrice">Your Price (50% Off):</label>
-              <div class="currency-container">
-                <label class="currency-label" for="currency">Currency: </label>
-                <select id="currency" name="currency" class="input-field currency-select">
-                  <option value="INR">INR</option>
-                  <option value="USD">USD</option>
-                  <option value="EUR">EUR</option>
-                  <option value="GBP">GBP</option>
-                </select>
-              </div>
-              <input type="number" min="1" id="yourPrice" name="yourPrice" placeholder="Enter your desired selling price" required class="input-field">
-              <span id="yourPrice-error" class="error"></span>
-            </div>
-      
-            <button type="button" class="btn btn-primary" id="connectReaderBtn">Connect with a Reader</button>
-          </div>
-      
-          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-          <script>
-            function submitForm() {
-              // Get form elements
-              const bookTitle = document.getElementById("bookTitle").value.trim();
-              const bookAuthor = document.getElementById("bookAuthor").value.trim();
-              const yourPrice = document.getElementById("yourPrice").value.trim();
-              const currency = document.getElementById("currency").value.trim();
-      
-              // Perform form validation
-              if (bookTitle === "") {
-                Swal.fire({
-                  icon: "error",
-                  title: "Oops...",
-                  text: "Please enter the title of your book.",
-                  customClass: {
-                    popup: "swal-popup",
-                    title: "swal-title",
-                    content: "swal-content",
-                    confirmButton: "swal-confirm-button",
-                  },
-                });
-                return;
-              }
-      
-              if (bookAuthor === "") {
-                Swal.fire({
-                  icon: "error",
-                  title: "Oops...",
-                  text: "Please enter the author's name.",
-                  customClass: {
-                    popup: "swal-popup",
-                    title: "swal-title",
-                    content: "swal-content",
-                    confirmButton: "swal-confirm-button",
-                  },
-                });
-                return;
-              }
-      
-              if (yourPrice === "" || isNaN(parseFloat(yourPrice)) || parseFloat(yourPrice) < 1) {
-                Swal.fire({
-                  icon: "error",
-                  title: "Oops...",
-                  text: "Please enter a valid selling price greater than or equal to 1.",
-                  customClass: {
-                    popup: "swal-popup",
-                    title: "swal-title",
-                    content: "swal-content",
-                    confirmButton: "swal-confirm-button",
-                  },
-                });
-                return;
-              }
-      
-              // Show success message
-              Swal.fire({
-                icon: "success",
-                title: "Success!",
-                text: "Your book details have been submitted.",
-                customClass: {
-                  popup: "swal-popup",
-                  title: "swal-title",
-                  content: "swal-content",
-                  confirmButton: "swal-confirm-button",
-                },
-              }).then((result) => {
-                if (result.isConfirmed || result.isDismissed) {
-                  resetForm(); // Reset form after successful submission
-                }
-              });
-            }
-      
-            // Function to reset form fields
-            function resetForm() {
-              document.getElementById("bookTitle").value = "";
-              document.getElementById("bookAuthor").value = "";
-              document.getElementById("yourPrice").value = "";
-              document.getElementById("currency").value = "INR"; // Reset currency select to default
-              document.getElementById("bookTitle-error").textContent = "";
-              document.getElementById("bookAuthor-error").textContent = "";
-              document.getElementById("yourPrice-error").textContent = "";
-              document.getElementById("connectReaderBtn").disabled = true; // Disable submit button after reset
-            }
-      
-            // Event listener for the submit button
-            document.getElementById("connectReaderBtn").addEventListener("click", submitForm);
-          </script>
-        </div>
-      </section>
 
 <!-- Donation of Books -->
 <br>
