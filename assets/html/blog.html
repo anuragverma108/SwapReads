@@ -5,83 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book-Related Blogs and Articles</title>
     <style>
-       
+        /* Global Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
 
         header {
-            background-color:  #f06d87;
+            background-color: #f72297;
             color: white;
-            padding: 1em;
+            padding: 1.5em 0;
             text-align: center;
-            
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
         }
 
         nav ul {
-            list-style-type: none;
+            list-style: none;
             padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
         }
 
         nav ul li {
-            display: inline;
             margin: 0 1em;
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
+            font-size: 1.1em;
+            padding: 0.5em;
+        }
+
+        nav ul li a:hover {
+            border-bottom: 2px solid white;
         }
 
         main {
-            padding: 1em;
+            padding: 2em 1em;
         }
 
-        section {
-            margin-bottom: 2em;
-        }
-
-        h2 {
-            color: #450105;
-        }
-
-        
-        footer {
-            background-color: #f06d87;
-            color: white;
-            text-align: center;
-            padding: 1em;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-
-        .close-button {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close-button:hover,
-        .close-button:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .ul{
-            text-decoration: black;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
+        /* Blog Section Styling */
         .blog-articles {
             padding: 4em 0;
             background-color: #fff;
             text-align: center;
-            margin-bottom: 2em;
         }
 
         .section__container {
@@ -93,12 +70,12 @@
         .section__title {
             font-size: 2.5em;
             margin-bottom: 0.5em;
-            color: #2c3e50;
+            color: #d1495b;
         }
 
         .section__subtitle {
             font-size: 1.2em;
-            color: #7f8c8d;
+            color: #6c757d;
             margin-bottom: 3em;
         }
 
@@ -109,13 +86,12 @@
         }
 
         .blog__card {
-            background-color: #fffad7;
+            background-color: #fceef3;
             border: 1px solid #ddd;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: left;
         }
 
         .blog__card:hover {
@@ -141,15 +117,69 @@
 
         .blog__details p {
             font-size: 1em;
-            margin: 0;
             color: #34495e;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #f72297;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+
+        /* Modal Styling */
+        #content-modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 2em;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            right: 1em;
+            top: 1em;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
         }
 
     </style>
 </head>
 <body>
     <header>
-        <h1 style="color: black;">SwapReads</h1>
+        <h1>SwapReads</h1>
         <nav>
             <ul>
                 <li><a href="./index.html">Home</a></li>
@@ -157,14 +187,14 @@
                 <li><a href="./index.html">Contact</a></li>
                 <li><a href="#authors">Authors</a></li>
                 <li><a href="#community">Community</a></li>
-                
             </ul>
         </nav>
     </header>
+
     <main>
         <section class="blog-articles">
             <div class="section__container">
-                <h2 class="section__title" style="color: maroon;">Book-Related Blogs and Articles</h2>
+                <h2 class="section__title">Book-Related Blogs and Articles</h2>
                 <p class="section__subtitle">Inspire and motivate yourself with our curated blogs and articles</p>
                 <div class="blog__grid">
                     <div class="blog__card">
@@ -193,19 +223,15 @@
                         <div class="blog__details">
                             <h4>How to Choose Your Next Book</h4>
                             <p>Tips and strategies for selecting your next great read from the vast world of literature.</p>
-                        
                         </div>
-
-                    </div>
-                    
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
+
     <footer>
-        <p style="color: rgb(0, 0, 0);">&copy; 2024 SwapReads. All rights reserved.</p>
+        <p>&copy; 2024 SwapReads. All rights reserved.</p>
     </footer>
 
     <!-- Modal for displaying content -->
@@ -261,12 +287,4 @@
                 modal.style.display = "none";
             });
 
-            window.addEventListener("click", function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+            window.addEventListener("click", function(event)

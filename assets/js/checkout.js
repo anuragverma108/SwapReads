@@ -43,5 +43,19 @@ const tick = () => {
   }
 }
 
+function showNotification(message) {
+  Swal.fire({
+    icon: 'success',
+    title: message,
+    showConfirmButton: false,
+    timer: 2000
+  });
+}
+
+document.getElementById('paymentForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form
+  showNotification('Payment confirmed! Your order is being processed.');
+});
+
 const interval = setInterval(tick, 1000);
 tick();

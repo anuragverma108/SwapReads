@@ -2,7 +2,9 @@
 <html lang="en">
 <title>SwapReads</title>
 
+
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     body {
         margin: 0;
@@ -34,12 +36,12 @@
 
     .cursor {
         position: absolute;
-        width: 15px; /* Circle size */
-        height: 15px; /* Circle size */
-        background-color: rgba(255, 165, 0, 0.8); /* Orange color */
-        border-radius: 50%; /* Circular shape */
+        width: 6px; /* Circle size */
+        height: 6px; /* Circle size */
+        background-color: rgba(255, 165, 0, 0.6); /* Orange color */
+        border-radius: 10%; /* Circular shape */
         pointer-events: none; /* Prevent interaction */
-        transform: translate(-50%, -50%); /* Center the circle */
+        transform: translate(-10%, -10%); /* Center the circle */
         transition: transform 0.1s ease-out; /* Smooth movement */
     }
     :root {
@@ -48,13 +50,13 @@
    
 }
 </style>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     (function () {
       emailjs.init({
         publicKey: "Your_Public_key",
       });
     })();
-  </script>
+  </script> -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
@@ -93,16 +95,20 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- Sweet alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script src="./assets/js/rateUsModal.js" defer></script>
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="./assets/js/faq.js"></script>
   <script src="./assets/js/tilt.js"></script>
   <script src="./assets/js/scroll.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <link rel="stylesheet" href="./scrollbar.css">
-  <script type="text/javascript"
+  <!-- <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
+  </script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="modals(privacy policy).css">
 
@@ -173,12 +179,13 @@
   
 }#quicklinks {
   display: flex;
-  justify-content: space-between; /* Ensures columns are evenly spaced */
+  justify-content:space-between; /* Ensures columns are evenly spaced */
+  padding-right: 8px;
 }
 
-#quicklinks .col-md-6 ul {
+#quicklinks .col-md-2 ul {
   list-style-type: none;
-  padding: 0;
+  padding: 2px;
 }
 
 #quicklinks .foot-quick {
@@ -188,15 +195,21 @@
 }
 
 #quicklinks .foot-quick a {
+  display: flex;
+  flex-direction: row; /* Ensure icon and text are in a row */
+  align-items: center; /* Vertically center-align the icon and text */
   text-decoration: none;
   color: rgb(83, 74, 74); /* Adjust link color as needed */
-  display: flex;
-  align-items: center;
 }
 
 #quicklinks .foot-quick a i {
   margin-right: 0.5rem; /* Adjust spacing between icon and text */
 }
+
+#quicklinks .foot-quick a p {
+  margin: 0; /* Remove default margins from <p> */
+}
+
 .dark-mode .fas{
   color:white;
 }
@@ -764,7 +777,9 @@
     text-align: center;
 }
 .button-container {
-    text-align: center;
+  text-align: center;
+    margin-top: 1rem;
+    
 }
 
 .donate-button {
@@ -777,7 +792,13 @@
     border-radius: 0.5rem;
     border: 0.2rem solid #a60606; /* Same red color for border */
 }
-
+.card-body {
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px; /* Ensure cards have a consistent height */
+    padding: 1rem;
+}
 .donate-button:hover {
     background-color: #cc0000; /* Darker red for hover effect */
     border-color: #cc0000; /* Darker red for border on hover */
@@ -808,6 +829,8 @@
     margin: 1rem; /* Optional margin around each card */
 }
 
+
+
 .card img {
     width: 100%;
     height: auto;
@@ -815,7 +838,7 @@
 
 
 .chapter-card {
-  height: 45rem; /* Adjust margin as needed */
+  height: 60rem; /* Adjust margin as needed */
   box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1); /* Add shadow for depth effect */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -927,6 +950,7 @@
     border-radius: 0.5rem; 
     outline: none; 
     transition: border-color 0.3s ease; 
+    margin-top: 2px;
 }
 
 /* Hover effect to change the border color */
@@ -964,6 +988,7 @@
   border-radius: 0.5rem; 
   outline: none; 
   transition: border-color 0.3s ease; 
+  
 }
 
 /* Hover effect to change the border color */
@@ -992,152 +1017,34 @@
 .subscribe:hover {
   background-color: #2980b9; }
 
-  /* Contact Us */
-  .section-contact {
-  color: black;
-  padding: 40px 20px;
-}
-
-.flexi {
-  display: flex;
-  justify-content: space-between; /* Ensure both containers are side by side */
-  flex-wrap: wrap; 
-}
-
-.contact {
-  width: 52%; /* Adjust width for the contact form */
-}
-
-.cardi {
-
-  width: 35%; /* Adjust width for the contact card */
-  max-width: 350px; /* Limit max width */
-  margin-left: 20px; /* Add some space between the two sections */
-}
-
-.contact-container {
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(83, 18, 18, 0.1);
-  width: 85%;
-}
-
-.contact-card {
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px; /* Ensure there's space above the card */
-}
-
-.map-container {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Center map inside container */
-  width: 100%;
-  height: 300px; /* Fixed height for map */
-  margin-top: 20px; /* Space above map */
-  margin-left: 50px;
-  transition: transform 0.3s ease; /* Add transition for smooth effect */
-}
-
-.map-container:hover {
-  transform: scale(0.95); /* Shrinks the container to 95% of its size */
-}
- 
-.contact-form input,
-  .contact-form textarea {
-
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border:  1px solid #ffcfcf;
-    border-radius: 5px;
-    font-size: 14px;
-
-  }
-
-  .contact:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
-  }
-
-  .cardi:hover {
-    transform: scale(1.02);
-  }
-
-
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none; /* Remove border for a cleaner look */
-  border-radius: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .flexi {
-    flex-direction: column; /* Stack elements on smaller screens */
-    align-items: center;
-  }
-  .contact, .cardi {
-    width: 90%; /* Ensure full width on smaller screens */
-    max-width: none; /* Remove max-width restriction */
-  }
-}
-
-
-
   </style>
-<script type="text/javascript">
-  emailjs.init("Your_User_ID"); // Replace with your actual EmailJS User ID
+<script>
+  (function() {
+    emailjs.init("iBlg6K0pNW81tPXUQ0Pv0");
+  })();
 
-  // Function to validate email address
-  function isValidEmail(email) {
-      // Simple email validation regex
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!regex.test(email)) {
-          return false;
-      }
+  document.getElementById("newsletterForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-      // Extract domain
-      const domain = email.split('@')[1].toLowerCase();
-      const validDomains = ['gmail.com', 'outlook.com', 'yahoo.com'];
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
 
-      return validDomains.includes(domain);
-  }
+    if (!name || !email) {
+      alert("Please enter both your name and email.");
+      return;
+    }
 
-  document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('subscribeForm').addEventListener('submit', function(event) {
-          event.preventDefault();
-
-          var email = document.getElementById('emailInput').value;
-
-          if (!isValidEmail(email)) {
-              alert('Please enter a valid email address from Gmail, Outlook, or Yahoo.');
-              return;
-          }
-
-          // Prepare the parameters to send
-          var templateParams = {
-              to_email: email, // Set the recipient's email
-              from_name: 'SwapReads', // Replace with your company or your name
-              to_name: 'Subscriber',
-              message: 'Thank you for subscribing to our newsletter!'
-          };
-
-          // Send email
-          emailjs.send('Your_Service_ID', 'Your_Template_ID', templateParams)
-              .then(function(response) {
-                  console.log('Email sent successfully:', response);
-                  alert('Successfully subscribed to our newsletter!');
-                  location.reload(); 
-              }, function(error) {
-                  console.error('Error sending email:', error);
-                  alert('Failed to send email. Please try again later.');
-                  location.reload(); 
-              });
-      });
+    emailjs.send("service_0kn8v47", "template_gc5d7ed", {
+      from_name: name,
+      reply_to: email,
+    })
+    .then(function(response) {
+      alert("Thank you! A confirmation email has been sent.");
+      console.log('Email successfully sent!', response.status, response.text);
+    }, function(error) {
+      alert("Failed to send the email. Please try again.");
+      console.error('Failed to send email:', error);
+    });
   });
 </script>
 <style>
@@ -1185,9 +1092,19 @@ iframe {
 
   
   <style>
+
+    /* Fixed translate button */
+    *{
+
+      transition: all 0.3s ease-in-out;
+      text-align: center;
+
+    }
+
     /* Fixed translate button */
     *{
       transition: all 0.3s ease-in-out;
+      text-align: center;
     }
 #translateButton {
     position: fixed;
@@ -1329,101 +1246,6 @@ body > .skiptranslate {
   justify-content: space-around;
 }
 
-
-.section-contact {
-  color: black;
-  padding: 40px 20px;
-}
-
-.flexi {
-  display: flex;
-  justify-content: space-between; /* Ensure both containers are side by side */
-  flex-wrap: wrap; 
-}
-
-.contact {
-  
-  width: 1000px;  /* Adjust width for the contact form */
-}
-
-.cardi {
-  height: 67rem;
-  width: 35%; /* Adjust width for the contact card */
-  max-width: 350px; /* Limit max width */
-  margin-left: 20px; /* Add some space between the two sections */
-}
-
-.contact-container {
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-}
-.contact-container:hover{
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.386);
-}
-
-.contact-card {
-  height: 61rem;
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: -5px; /* Ensure there's space above the card */
-}
-
-.map-container {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Center map inside container */
-  width: 100%;
-  height: 300px; /* Fixed height for map */
-  margin-top: 20px; /* Space above map */
-}
-
-.contact-form input,
-  .contact-form textarea {
-
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border:  1px solid #ffcfcf;
-    border: 1px solid #ffcfcf;
-    background-color: #eeb9b9;
-    border-radius: 5px;
-    font-size: 14px;
-
-  }
-
-  .contact:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
-  }
-
-  .cardi:hover {
-    transform: scale(1.02);
-  }
-
-
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none; /* Remove border for a cleaner look */
-  border-radius: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .flexi {
-    flex-direction: column; /* Stack elements on smaller screens */
-    align-items: center;
-  }
-  .contact, .cardi {
-    width: 90%; /* Ensure full width on smaller screens */
-    max-width: none; /* Remove max-width restriction */
-  }
-}
-
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -1506,19 +1328,6 @@ iframe {
     </a> 
 </div>
 
-  <div id="cookie-consent">
-    <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
-    <p >We value your privacy</p>
-    <p>
-      <br>
-      We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
-      By clicking "Accept", you consent to our use of cookies.
-        <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
-    </p>
-    <button class="accept-cookies">Accept</button>
-    <button class="reject-cookies">Reject</button>
-  </div>
-
   <script src="script.js"></script>
 
 <script>
@@ -1591,27 +1400,28 @@ iframe {
 
     .cursor {
         position: absolute;
-        width: 15px; /* Circle size */
-        height: 15px; /* Circle size */
+        width: 6px; /* Circle size */
+        height: 6px; /* Circle size */
         background-color: rgba(255, 165, 0, 0.8); /* Orange color */
-        border-radius: 50%; /* Circular shape */
+        border-radius: 10%; /* Circular shape */
         pointer-events: none; /* Prevent interaction */
-        transform: translate(-50%, -50%); /* Center the circle */
+        transform: translate(-10%, -10%); /* Center the circle */
         transition: transform 0.1s ease-out; /* Smooth movement */
     }
     :root {
     --text-color-light: #333; /* Dark text for light mode */
     --text-color-dark: #fff; /* White text for dark mode */
+
    
 }
 </style>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     (function () {
       emailjs.init({
         publicKey: "Your_Public_key",
       });
     })();
-  </script>
+  </script> -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
@@ -1657,9 +1467,9 @@ iframe {
   <script src="./assets/js/tilt.js"></script>
   <script src="./assets/js/scroll.js"></script>
   <link rel="stylesheet" href="./scrollbar.css">
-  <script type="text/javascript"
+  <!-- <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
+  </script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="modals(privacy policy).css">
 
@@ -1676,6 +1486,41 @@ iframe {
   <script src="./script.js"></script>
   
   <style>
+    body {
+    margin: 0;
+    height: 100vh;
+    background-color: #fff; /* White background */
+    overflow-y: scroll; /* Enables vertical scrolling */
+    scrollbar-width: thin;
+    scrollbar-color: linear-gradient(
+      to bottom,
+      hsl(357, 37%, 62%),
+      hsl(304, 14%, 46%)
+    ) var(--grey-white);
+    cursor: default;
+}
+
+    body::-webkit-scrollbar {
+        width: 16px; 
+    }
+
+    body::-webkit-scrollbar-track {
+        background: var(--grey-white); 
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+            to bottom,
+            hsl(357, 37%, 62%),
+            hsl(304, 14%, 46%)
+        ); 
+        border-radius: 10px; /* Keeps the rounded thumb */
+        border: 3px solid var(--grey-white); 
+    }
+
+    body::-webkit-scrollbar-thumb:hover {
+        background: hsl(357, 60%, 45%); 
+    }
     swiper-container {
       width: 100%;
       height: 75%;
@@ -1690,7 +1535,7 @@ iframe {
   position: sticky !important;
   align-items: center;
   justify-content: space-between;
-  margin-left: -18rem; 
+  margin-left: -5rem; 
   /* margin-left: 5rem; */
 }
 
@@ -1728,9 +1573,11 @@ iframe {
     width: 4rem;
     height: 15rem;
   
-}#quicklinks {
+}
+#quicklinks {
   display: flex;
-  justify-content: space-between; /* Ensures columns are evenly spaced */
+  justify-content: space-between; 
+  /* Ensures columns are evenly spaced */
 }
 
 #quicklinks .col-md-6 ul {
@@ -1741,25 +1588,40 @@ iframe {
 #quicklinks .foot-quick {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem; /* Adjust spacing between list items */
+  margin-bottom: 0rem;
+   /* Adjust spacing between list items */
 }
 
 #quicklinks .foot-quick a {
+  display: flex;
+  flex-direction: row; /* Ensure icon and text are in a row */
+  align-items: center; /* Vertically center-align the icon and text */
   text-decoration: none;
   color: rgb(83, 74, 74); /* Adjust link color as needed */
-  display: flex;
-  align-items: center;
 }
 
 #quicklinks .foot-quick a i {
   margin-right: 0.5rem; /* Adjust spacing between icon and text */
 }
+
+#quicklinks .foot-quick a p {
+  margin: 0; /* Remove default margins from <p> */
+}
+
 .dark-mode .fas{
-  color:white;
+  color:#8e6165;
 }
 .dark-mode .flinks{
-  color:white;
+  color:#4a749a;
 }
+
+.dark-mode .fas{
+  color:#8e6165;
+}
+.dark-mode .flinks{
+  color:#4a749a;
+}
+
 .dark-mode .finput{
       color: white;
       background-color: transparent;
@@ -2321,9 +2183,18 @@ iframe {
     text-align: center;
 }
 .button-container {
-    text-align: center;
+  text-align: center;
+    margin-top: 1rem;
+    
 }
 
+.card-body {
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px; /* Ensure cards have a consistent height */
+    padding: 1rem;
+}
 .donate-button {
     display: inline-block;
     padding: 0.9rem 1.8rem;
@@ -2349,6 +2220,8 @@ iframe {
 .donate-books-section img {
     border-top-left-radius: 2.5rem;
     border-top-right-radius: 2.5rem;
+    width: 100%; /* Ensure consistent image size */
+    height: auto;
 }
 
 .container {
@@ -2367,12 +2240,11 @@ iframe {
 
 .card img {
     width: 100%;
-    height: auto;
 }
 
 
 .chapter-card {
-  height: 45rem; /* Adjust margin as needed */
+  height: 60rem; /* Adjust margin as needed */
   box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1); /* Add shadow for depth effect */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -2457,16 +2329,26 @@ iframe {
 .footer-icons .icon:hover .fa-twitter{
   color:#ffffff;
 }
+
+.icons {
+
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center; 
+}
+
+
 .icons {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
   justify-content: center; 
 }
 
 .icon i {
   font-size: 2.4rem; 
-  color: #ffffff; 
+  color: #8e6165;
   cursor: pointer;
   margin: 0; 
   padding: 0; 
@@ -2555,98 +2437,10 @@ iframe {
   padding: 40px 20px;
 }
 
-.flexi {
-  display: flex;
-  justify-content: space-between; /* Ensure both containers are side by side */
-  flex-wrap: wrap; 
-}
-
-.contact {
-  width: 52%; /* Adjust width for the contact form */
-}
-
-.cardi {
-
-  width: 35%; /* Adjust width for the contact card */
-  max-width: 350px; /* Limit max width */
-  margin-left: 20px; /* Add some space between the two sections */
-}
-
-.contact-container {
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(83, 18, 18, 0.1);
-  width: 85%;
-}
-
-.contact-card {
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px; /* Ensure there's space above the card */
-}
-
-.map-container {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Center map inside container */
-  width: 100%;
-  height: 300px; /* Fixed height for map */
-  margin-top: 20px; /* Space above map */
-  margin-left: 50px;
-  transition: transform 0.3s ease; /* Add transition for smooth effect */
-}
-
-.map-container:hover {
-  transform: scale(0.95); /* Shrinks the container to 95% of its size */
-}
- 
-.contact-form input,
-  .contact-form textarea {
-
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border:  1px solid #ffcfcf;
-    border-radius: 5px;
-    font-size: 14px;
-
-  }
-
-  .contact:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
-  }
-
-  .cardi:hover {
-    transform: scale(1.02);
-  }
-
-
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none; /* Remove border for a cleaner look */
-  border-radius: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .flexi {
-    flex-direction: column; /* Stack elements on smaller screens */
-    align-items: center;
-  }
-  .contact, .cardi {
-    width: 90%; /* Ensure full width on smaller screens */
-    max-width: none; /* Remove max-width restriction */
-  }
-}
-
 
 
   </style>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   emailjs.init("Your_User_ID"); // Replace with your actual EmailJS User ID
 
   // Function to validate email address
@@ -2696,7 +2490,7 @@ iframe {
               });
       });
   });
-</script>
+</script> -->
 <style>
   /* Circle styles */
   .circle {
@@ -2891,94 +2685,6 @@ body > .skiptranslate {
   padding: 40px 20px;
 }
 
-.flexi {
-  display: flex;
-  justify-content: space-between; /* Ensure both containers are side by side */
-  flex-wrap: wrap; 
-}
-
-.contact {
-  
-  width: 1000px;  /* Adjust width for the contact form */
-}
-
-.cardi {
-  height: 67rem;
-  width: 35%; /* Adjust width for the contact card */
-  max-width: 350px; /* Limit max width */
-  margin-left: 20px; /* Add some space between the two sections */
-}
-
-.contact-container {
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-}
-.contact-container:hover{
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.386);
-}
-
-.contact-card {
-  height: 61rem;
-  background-color: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: -5px; /* Ensure there's space above the card */
-}
-
-.map-container {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Center map inside container */
-  width: 100%;
-  height: 300px; /* Fixed height for map */
-  margin-top: 20px; /* Space above map */
-}
-
-.contact-form input,
-  .contact-form textarea {
-
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border:  1px solid #ffcfcf;
-    border: 1px solid #ffcfcf;
-    background-color: #eeb9b9;
-    border-radius: 5px;
-    font-size: 14px;
-
-  }
-
-  .contact:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
-  }
-
-  .cardi:hover {
-    transform: scale(1.02);
-  }
-
-
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none; /* Remove border for a cleaner look */
-  border-radius: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .flexi {
-    flex-direction: column; /* Stack elements on smaller screens */
-    align-items: center;
-  }
-  .contact, .cardi {
-    width: 90%; /* Ensure full width on smaller screens */
-    max-width: none; /* Remove max-width restriction */
-  }
-}
 
   </style>
   <script>
@@ -3064,15 +2770,15 @@ iframe {
 
   <div id="cookie-consent">
     <button class="close-btn" id="closeBtn" style="position: absolute; border-radius: 100%; top: 10px; right: 10px; font-size: 2rem; cursor: pointer;" >&times;</button>
-    <p >We value your privacy</p>
-    <p>
+    <p style="margin-bottom: 0%;">We value your privacy</p>
+    <p style="margin-bottom: 0%;">
       <br>
       We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
       By clicking "Accept", you consent to our use of cookies.
         <a href="cookiepolicy.html" style="color: #d4151f; text-decoration: underline; font-size: small;">Cookie Policy</a>
     </p>
-    <button class="accept-cookies">Accept</button>
-    <button class="reject-cookies">Reject</button>
+    <button style="margin-bottom: 0%;" class="accept-cookies">Accept</button>
+    <button style="margin-bottom: 0%;" class="reject-cookies">Reject</button>
   </div>
   
 
@@ -3138,92 +2844,254 @@ iframe {
     cookieConsent.style.display = 'none';
   }
 });
-</script>
+
+</script> 
+<style>
+  .dropdown {
+      position: relative;
+  }
+  .dropdown-menu {
+      display: none;
+      position: absolute;
+      background: white; /* Adjust as needed */
+      list-style: none;
+      padding: 10px; /* Adjust as needed */
+      border: 1px solid #ccc; /* Adjust as needed */
+      z-index: 1000; /* Ensure it appears above other elements */
+  }
+  .dropdown-menu {
+    display: none; /* Initially hide the dropdown */
+    position: absolute; /* Position it absolutely */
+    background-color: #fff; /* Background color */
+    z-index: 1; /* Ensure it is above other elements */
+}
+.dropdown:hover .dropdown-menu {
+    display: block; /* Show dropdown on hover */
+}
+.dropdown .navbar-link {
+    position: relative; /* Needed for arrow positioning */
+}
+  .dropdown-item {
+      padding: 5px 10px; /* Adjust padding */
+  }
+  .navbar-link {
+      display: block; /* Make links fill the container */
+      padding: 8px; /* Adjust padding */
+  }
+  .arrow {
+    transition: transform 0.3s; /* Smooth transition for arrow */
+} 
+</style>
+<!--my code-->
+
+<header class="header header-anim nav-h" data-header>
+
+  <div class="container mobile-container-styles">
+
+    <nav class="navbar nav_activated" data-navbar>
+
+
+      <ul class="navbar-list nav" style="margin-right: 10px;">
+        <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+          <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
+        </a>
+        
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link>
+            <i class="ri-home-fill"></i> Home
+          </a>
+        </li>
+        
+        
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
+            <i class="ri-information-fill"></i> AboutUs
+          </a>
+        </li>
+     
+       <li class="navbar-item" style="margin-right: 10px;">
+          <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
+              class="ri-bar-chart-fill"></i> Benefits</a>
+        </li>
+
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+              class="ri-bar-chart-fill"></i> Genre</a>
+        </li>
+
+       <li class="navbar-item" style="margin-right: 10px;">
+            <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
+                <i class="ri-questionnaire-fill"></i> FAQ
+            </a>
+        </li>
+
+        
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link>
+            <i class="ri-contacts-fill"></i> Contact
+          </a>
+        </li>
+        
+        <li class="navbar-item" id="login-signup-link" style="margin-right: 10px;">
+          <a href="login-signup.html" class="navbar-link">
+            <i class="ri-login-box-fill"></i> Login/Signup
+          </a>
+        </li>
+        
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="#about-books" onclick="lenis.scrollTo('#about-books')" class="navbar-link" data-nav-link>
+            <i class="ri-book-fill"></i> AboutBooks
+          </a>
+        </li>
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="#community" onclick="lenis.scrollTo('#community')" class="navbar-link" data-nav-link>
+            <i class="ri-community-fill"></i> Community
+          </a>
+        </li>
+    
+          
+        <li>
+        <div class="action" >
+          <div class="profile" onclick="menuToggle();">
+            <img id="profile-avatar"  src="./assets/images/avatar1.jpg" />
+          </div>
+          <div class="menu">
+            <h3>XYZ<br /><span>Book Lover</span></h3>
+            <ul>
+              <li>
+                <img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a>
+              </li>
+              <li>
+                <img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit profile</a>
+              </li>
+              <li>
+                <img src="./assets/images/inbox.png" /><a href="#">Inbox</a>
+              </li>
+              <li>
+                <img src="./assets/images/settings.png" /><a href="#">Settings</a>
+              </li>
+              <li><img src="./assets/images/help.png" /><a href="/help.html">Help</a></li>
+              <li>
+                <img src="./assets/images/logout.png" /><a id="logout-btn">Logout</a>
+              </li>
+            </ul>
+            </div>
+            </header>           
+            
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                  const savedAvatar = localStorage.getItem("selectedAvatar");
+                  if (savedAvatar) {
+                      document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+                  }
+              });
+      
+              function menuToggle() {
+                  const toggleMenu = document.querySelector(".menu");
+                  toggleMenu.classList.toggle("active");
+              }
+      
+              document.addEventListener("click", function(event) {
+                  const profile = document.querySelector(".profile");
+                  const menu = document.querySelector(".menu");
+      
+                  if (!profile.contains(event.target) && !menu.contains(event.target)) {
+                      menu.classList.remove("active");
+                  }
+              });
+              
+              // let lastScrollTop = 0;
+              // const header = document.querySelector('.header');
+      
+              // window.addEventListener('scroll', function() {
+              //     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+              //     if (scrollTop > lastScrollTop) {
+              //         // Downscroll
+              //         header.style.transform = 'translateY(-120%)';
+              //     } else {
+              //         // Upscroll
+              //         header.style.transform = 'translateY(0)';
+              //     }
+      
+              //     lastScrollTop = scrollTop;
+              // });
+          </script>
+    
+  </div>
+      <style>
+        .dropdown:hover .arrow {
+    transform: rotate(180deg); /* Rotate arrow on hover */
+             }
+      </style>
+
   <header class="header header-anim nav-h" data-header>
 
     <div class="container mobile-container-styles">
 
       <nav class="navbar nav_activated" data-navbar>
-
-
         <ul class="navbar-list nav">
-          <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
-          </a>
-          <li class="navbar-item">
-            <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
-                class="ri-home-fill"></i> Home</a>
-          </li>
-           <li class="navbar-item">
-                <a href="./assets/html/about.html"  class="navbar-link" data-nav-link><i
-                    class="ri-home-fill"></i>About Us</a>
-              </li>
-              
-          <li class="navbar-item">
-            <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
-                class="ri-bar-chart-fill"></i> Benefits</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
-                class="ri-bar-chart-fill"></i> Genre</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-                class="ri-customer-service-2-fill"></i> Contact</a>
+            <li class="navbar-item logo-item" style="display:flex;">
+                <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo">
+                    <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
+                </a>
             </li>
-            
+            <li class="navbar-item" style="margin-right: -30px;"></li>
+                <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i class="ri-home-fill"></i> Home</a>
+            </li>
             <li class="navbar-item">
-              <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
-                  <i class="ri-questionnaire-fill"></i> FAQ
-              </a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
-            <li class="navbar-item" id="login-signup-link">
-              <a href="./assets/html/event.html" class="navbar-link">Events</a>
+                <a href="./assets/html/about.html" class="navbar-link" data-nav-link><i class="ri-home-fill"></i>About Us</a>
             </li>
-          <li class="navbar-item" id="login-signup-link">
-            <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
-          </li>
-          <li class="navbar-item" id="login-signup-link">
-            <a href="comsp.html" class="navbar-link">Community Spotlight</a>
-          </li>
-
-          <li class="navbar-item">
-              <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" data-nav-link>
-                  <i class="ri-bar-chart-fill"></i> Audio<br> Books
-              </a>
-          </li>
-            
-          <li>
-          <div class="action">
-            <div class="profile" onclick="menuToggle();">
-              <img id="profile-avatar"  src="./assets/images/avatar1.jpg" />
-            </div>
-            <div class="menu">
-              <h3>XYZ<br /><span>Book Lover</span></h3>
-              <ul>
-                <li>
-                  <img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a>
-                </li>
-                <li>
-                  <img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit profile</a>
-                </li>
-                <li>
-                  <img src="./assets/images/inbox.png" /><a href="#">Inbox</a>
-                </li>
-                <li>
-                  <img src="./assets/images/settings.png" /><a href="#">Settings</a>
-                </li>
-                <li><img src="./assets/images/help.png" /><a href="/help.html">Help</a></li>
-                <li>
-                  <img src="./assets/images/logout.png" /><a id="logout-btn">Logout</a>
-                </li>
-              </ul>
-              </div>
+            <li class="navbar-item">
+                <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i class="ri-bar-chart-fill"></i> Benefits</a>
+            </li>
+            <li class="navbar-item">
+                <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i class="ri-bar-chart-fill"></i> Genre</a>
+            </li>
+            <li class="navbar-item">
+                <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
+            </li>
+            <li class="navbar-item">
+                <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
+                    <i class="ri-questionnaire-fill"></i> FAQ
+                </a>
+            </li>
+            <li class="navbar-item">
+                <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+            </li>
+            <li class="navbar-item" id="login-signup-link">
+                <a href="./assets/html/event.html" class="navbar-link">Events</a>
+            </li>
+            <li class="navbar-item" id="login-signup-link">
+                <a href="./assets/html/login.html" class="navbar-link">Login</a>
+            </li>
+            <li class="navbar-item" id="login-signup-link">
+                <a href="comsp.html" class="navbar-link">Community Spotlight</a>
+            </li>
+            <li class="navbar-item">
+                <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" data-nav-link>
+                    <i class="ri-bar-chart-fill"></i> Audio<br> Books
+                </a>
+            </li>
+            <li>
+                <div class="action">
+                    <div class="profile" onclick="menuToggle();">
+                        <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+     
+          
+           
+              <script>
+                function toggleDropdown(event) {
+                    event.preventDefault();
+                    const dropdownMenu = event.currentTarget.nextElementSibling;
+                    dropdownMenu.classList.toggle('show');
+                }
+            </script>
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
                     const savedAvatar = localStorage.getItem("selectedAvatar");
@@ -3263,7 +3131,7 @@ iframe {
                 //     lastScrollTop = scrollTop;
                 // });
             </script>
-
+          -->
 <div id="modal">
   <form class="modal-box">
     <!-- <img src="https://st2.depositphotos.com/4103319/6625/i/450/depositphotos_66251761-stock-photo-logout-circular-icon-on-white.jpg" class="logout-img"/> -->
@@ -3288,6 +3156,7 @@ iframe {
           <div class="line"></div>
           <div class="line"></div>
         </div> -->
+
       </nav>
       <div id="mobile_View_Menu">
         <span id="menu_lines"></span>
@@ -3430,7 +3299,7 @@ iframe {
 
             <p class="section-text " >
               Join SwapReads.com, the ultimate online community for book enthusiasts! Create your profile, list your
-              favorite reads, and embark on literary journeys by swapping books with fellow passionate readers. Discover
+              favorite reads, and embark on   literary journeys by swapping books with fellow passionate readers. Discover
               a world where books find new adventures and readers connect through the joy of sharing stories.
             </p>
             <div class="container hero-button">
@@ -3465,8 +3334,10 @@ iframe {
         <div class="container">
           <div class="flex">
             <div class="benefits-content">
-              <h2 class="h2 section-title" style="text-align: center; margin-top: 7.9rem; padding-top: 2rem">Unleash the Magic of Book Swapping!</h2>
+
+              <h2 class="h2 section-title" style="text-align: center; margin-top: 7.9rem; padding-top: 2rem">ㅤㅤㅤㅤㅤUnleash the Magic of Book Swapping!</h2>
               <p class="section-text" style="text-align: center;">"SwapReads.com - Where Every Book is a Portal to a New
+                
                 Adventure!"</p>
             </div>
 
@@ -4923,78 +4794,342 @@ iframe {
 </section>
 
 
+      <!--Book Exchange Hub-->
+      <section class="section preview" aria-label="preview">
+        <div class="container1">
+          <h2 class="h2 section-title has-underline" style="margin-bottom: 0px;">
+            Book Exchange Hub
+            <span class="span has-before"></span>
+          </h2>
+          <p class="section-text booktext">
+            Connect with fellow readers in our Book Exchange Hub. Sell your old books at half price and give your
+            favorite reads a new home. Fill out the form below to get started!
+          </p>
+      
+          <div class="exchange-form">
+            <div class="form-fields">
+              <label class="form-label" for="bookTitle">Book Title:</label>
+              <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the title of your book" required class="input-field">
+              <span id="bookTitle-error" class="error"></span>
+      
+              <label class="form-label" for="bookAuthor">Author:</label>
+              <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter the author's name" required class="input-field">
+              <span id="bookAuthor-error" class="error"></span>
+      
+              <label class="form-label" for="yourPrice">Your Price (50% Off):</label>
+              <div class="currency-container">
+                <label class="currency-label" for="currency">Currency: </label>
+                <select id="currency" name="currency" class="input-field currency-select">
+                  <option value="INR">INR</option>
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="GBP">GBP</option>
+                </select>
+              </div>
+              <input type="number" min="1" id="yourPrice" name="yourPrice" placeholder="Enter your desired selling price" required class="input-field">
+              <span id="yourPrice-error" class="error"></span>
+            </div>
+      
+            <button type="button" class="btn btn-primary" id="connectReaderBtn">Connect with a Reader</button>
+          </div>
+      
+          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+          <script>
+            function submitForm() {
+              // Get form elements
+              const bookTitle = document.getElementById("bookTitle").value.trim();
+              const bookAuthor = document.getElementById("bookAuthor").value.trim();
+              const yourPrice = document.getElementById("yourPrice").value.trim();
+              const currency = document.getElementById("currency").value.trim();
+      
+              // Perform form validation
+              if (bookTitle === "") {
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: "Please enter the title of your book.",
+                  customClass: {
+                    popup: "swal-popup",
+                    title: "swal-title",
+                    content: "swal-content",
+                    confirmButton: "swal-confirm-button",
+                  },
+                });
+                return;
+              }
+      
+              if (bookAuthor === "") {
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: "Please enter the author's name.",
+                  customClass: {
+                    popup: "swal-popup",
+                    title: "swal-title",
+                    content: "swal-content",
+                    confirmButton: "swal-confirm-button",
+                  },
+                });
+                return;
+              }
+      
+              if (yourPrice === "" || isNaN(parseFloat(yourPrice)) || parseFloat(yourPrice) < 1) {
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: "Please enter a valid selling price greater than or equal to 1.",
+                  customClass: {
+                    popup: "swal-popup",
+                    title: "swal-title",
+                    content: "swal-content",
+                    confirmButton: "swal-confirm-button",
+                  },
+                });
+                return;
+              }
+      
+              // Show success message
+              Swal.fire({
+                icon: "success",
+                title: "Success!",
+                text: "Your book details have been submitted.",
+                customClass: {
+                  popup: "swal-popup",
+                  title: "swal-title",
+                  content: "swal-content",
+                  confirmButton: "swal-confirm-button",
+                },
+              }).then((result) => {
+                if (result.isConfirmed || result.isDismissed) {
+                  resetForm(); // Reset form after successful submission
+                }
+              });
+            }
+      
+            // Function to reset form fields
+            function resetForm() {
+              document.getElementById("bookTitle").value = "";
+              document.getElementById("bookAuthor").value = "";
+              document.getElementById("yourPrice").value = "";
+              document.getElementById("currency").value = "INR"; // Reset currency select to default
+              document.getElementById("bookTitle-error").textContent = "";
+              document.getElementById("bookAuthor-error").textContent = "";
+              document.getElementById("yourPrice-error").textContent = "";
+              document.getElementById("connectReaderBtn").disabled = true; // Disable submit button after reset
+            }
+      
+            // Event listener for the submit button
+            document.getElementById("connectReaderBtn").addEventListener("click", submitForm);
+          </script>
+        </div>
+      </section>
+
 <!-- Donation of Books -->
 <br>
+
+<style>
+  .donate-books-section h1 {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: 2.8rem;
+  color: #A30F17;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.donate-books-section h1:hover{
+  text-decoration: underline;
+  transition: ease-in;
+}
+.donate-books-section{
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.donate-books-section .container {
+  display: grid;
+  margin: 120px;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  width: 100%;
+}
+
+.card {
+
+  margin: 1.5rem;
+  border-bottom: 0.5rem solid #A30F17;
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding-bottom: 1rem;
+  height: 50rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+
+  background-color: #fff;
+  border-radius: 10px;
+  height: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: 50%;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-sty {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-style: italic;
+  text-align: center;
+  color: #555;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.donate-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #A30F17;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.donate-button:hover {
+  background-color: #8b0b14;
+  transform: scale(1.05);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.871);
+}
+
+</style>
+
 <div class="donate-books-section">
-  <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Donate Books</h1>
+  <h1>Donate Books</h1>
   <br>
   <div class="container">
-    <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; padding-bottom: 1rem; height: auto; ">
-          <img src="./lib.jpg" alt="Library Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
-          <div class="card-body">
-              <h3 class="card-sty" style="text-align: center;">Library</h3>
-              <p class="card-text" style="font-style: italic;">Donate your books to local libraries and help foster a love for reading in your community.</p>
-              <div class="button-container" style="text-align: center; margin-top: 1rem; margin-bottom: 1rem; ">
-                  <a href="./assets/html/donate.html" class="donate-button">Donate to Libraries</a>
-              </div>
-          </div>
+
+
+    
+    <!-- Card 1 -->
+    <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+      <img src="./assets/images/images/lib.jpg" alt="Library Image">
+      <div class="card-body">
+        <h3 class="card-sty">Library</h3>
+        <p class="card-text">Donate your books to local libraries and help foster a love for reading in your community.</p>
+        <div class="button-container">
+          <a href="./assets/html/donate.html" class="donate-button">Donate to Libraries</a>
+        </div>
       </div>
-      <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; height: auto;">
-          <img src="./sc.jpg" alt="School Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
-          <div class="card-body">
-              <h3 class="card-sty" style="text-align: center;">Schools</h3>
-              <p class="card-text" style="font-style: italic;">Support children's education by donating books to nearby schools for students of all ages.</p>
-              <div class="button-container" style="text-align: center; margin-top: 1rem;">
-                  <a href="./assets/html/school.html" class="donate-button">Donate to Schools</a>
-              </div>
-          </div>
+    </div>
+  
+
+    <!-- Card 2 -->
+    <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+      <img src="./assets/images/images/school.png" alt="School Image">
+      <div class="card-body">
+        <h3 class="card-sty">Schools</h3>
+        <p class="card-text">Support children's education by donating books to nearby schools for students of all ages.</p>
+        <div class="button-container">
+          <a href="./assets/html/school.html" class="donate-button">Donate to Schools</a>
+        </div>
       </div>
-      <div class="card" style=" margin: 1.5rem; border-bottom: 0.5rem solid #A30F17; border-radius: 1rem; transition: transform 0.3s ease; height: auto;">
-          <img src="./n.jpg" alt="Organization Image" style="display: block; width: 100%; height: auto; border-radius: 1rem 1rem 0 0;">
-          <div class="card-body">
-              <h3 class="card-sty" style="text-align: center;">Organizations</h3>
-              <p class="card-text" style="font-style: italic;">Help NGOs and other organizations by donating books to support their educational programs.</p>
-              <div class="button-container" style="text-align: center; margin-top: 1rem;">
-                  <a href="./assets/html/ngo.html" class="donate-button">Donate to Organizations</a>
-              </div>
+    </div>
+    
+    <!-- Card 3 -->
+    <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+      <img src="./assets/images/images/ngo.jpeg" alt="Organization Image">
+      <div class="card-body">
+        <h3 class="card-sty">Organizations</h3>
+        <p class="card-text">Help the organizations by donating books to support their educational programs.</p>
+        <div class="button-container">
+          <a href="./assets/html/ngo.html" class="donate-button" style="margin-bottom:10rem;">Donate to Organizations</a>
+          
           </div>
-      </div>
+          </div>
+          </div>
+      
+    </div>
+
   </div>
 </div>
 
-<style>
-  .card:hover {
-    transform: scale(1.1);
+  
+
+<script>
+  function hoverCard(card) {
+    card.style.transform = "scale(1.05)";
+    card.style.boxShadow = "0px 12px 20px rgba(0,0,0,0.2)";
   }
-</style>
+
+  function unhoverCard(card) {
+    card.style.transform = "scale(1)";
+    card.style.boxShadow = "0px 8px 15px rgba(0,0,0,0.1)";
+  }
+</script>
 
 
-<!-- rate us -->
-      <style>
-#rate-us {
-  transition: background-color 0.3s ease;  
-}
+<!-- Rate Us Section -->
+<div id="rate-us">
+  <div class="heading">
+    <h3>Rate Us</h3>
+    <p>Tell us about your experience!</p>
+  </div>
 
-#rate-us:hover {
-  background-color: #A30F17;  
-  color: white;  
-} /* Closing brace for #rate-us:hover */
+  <div class="stars">
+    <input type="radio" id="star5" name="rate" value="5">
+    <label for="star5" class="emoji-label">😭</label>
+    <input type="radio" id="star4" name="rate" value="4">
+    <label for="star4" class="emoji-label">😢</label>
+    <input type="radio" id="star3" name="rate" value="3">
+    <label for="star3" class="emoji-label">😐</label>
+    <input type="radio" id="star2" name="rate" value="2">
+    <label for="star2" class="emoji-label">😊</label>
+    <input type="radio" id="star1" name="rate" value="1">
+    <label for="star1" class="emoji-label">😍</label>
+  </div>
 
-/* Additional styles */
-.toast-message {
-  display: none;  
-  padding: 10px;
-  border-radius: 5px;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
+  <div class="feedback-container">
+    <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
+  </div>
 
-.modal {
-  display: none;  
-}
-</style>
+  <div class="button">
+    <center><button id="submit-btn">Submit</button></center>
+  </div>
+</div>
 
+<div id="toastMessage" class="toast-message"></div>
+
+ main
+    <script>
+     document.addEventListener("DOMContentLoaded", function() {
+
+
+
+<!-- JavaScript for form submission -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
 
 
 
@@ -5004,7 +5139,7 @@ iframe {
        <!-- Rate Us Component -->
        <div id="rate-us">
         <div class="heading">
-            <h3>Rate Us</h3>
+            <h3>Rateus</h3>
             <p>Tell us about your experience!</p>
         </div>
     
@@ -5034,59 +5169,50 @@ iframe {
     <div id="toastMessage" class="toast-message"></div>
     <script>
      document.addEventListener("DOMContentLoaded", function() {
+main
     const toastMessage = document.getElementById("toastMessage");
 
     document.getElementById("submit-btn").addEventListener("click", function(event) {
-        event.preventDefault(); // Prevent default form submission
+      event.preventDefault(); // Prevent default form submission
 
-        let selectedEmoji = document.querySelector('input[name="rate"]:checked');
-        let feedback = document.getElementById("feedback").value.trim();
+      let selectedEmoji = document.querySelector('input[name="rate"]:checked');
+      let feedback = document.getElementById("feedback").value.trim();
+
+      if (selectedEmoji && feedback !== "") {
+        // Show success toast message
+        toastMessage.textContent = "Feedback submitted successfully!";
+        toastMessage.style.backgroundColor = "green";
+        showToastMessage();
         
-        if (selectedEmoji && feedback !== "") {
-            // Show success toast message
-            toastMessage.textContent = "Feedback submitted successfully :)";
-            toastMessage.style.backgroundColor = "green"; // Green color for success
-            toastMessage.style.color = "white";
-            toastMessage.style.borderRadius = "0.5rem";
-            toastMessage.style.position = "fixed";
-                      toastMessage.style.display = "block";
-
-            // Hide toast message after 3 seconds (adjust as needed)
-            setTimeout(function() {
-                toastMessage.style.display = "none";
-            }, 3000);
-
-            // Reset form fields
-            document.getElementById("feedback").value = "";
-            let starInputs = document.querySelectorAll('input[name="rate"]');
-            starInputs.forEach(input => {
-                input.checked = false;
-            });
-        } else {
-            // Show failure toast message
-            toastMessage.textContent = "Select Emoji and give Feedback :(";
-            toastMessage.style.backgroundColor = "red"; // Red color for failure
-            toastMessage.style.color = "white";
-            toastMessage.style.borderRadius = "0.5rem";
-            toastMessage.style.position = "fixed";
-            
-            toastMessage.style.display = "block";
-
-            // Hide toast message after 3 seconds (adjust as needed)
-            setTimeout(function() {
-                toastMessage.style.display = "none";
-            }, 3000);
-            
-            document.getElementById("feedback").value = "";
-            let starInputs = document.querySelectorAll('input[name="rate"]');
-            starInputs.forEach(input => {
-                input.checked = false;
-            });
-        }
+        // Reset form fields
+        document.getElementById("feedback").value = "";
+        let starInputs = document.querySelectorAll('input[name="rate"]');
+        starInputs.forEach(input => input.checked = false);
+      } else {
+        // Show failure toast message
+        toastMessage.textContent = "Please select an emoji and give feedback.";
+        toastMessage.style.backgroundColor = "red";
+        showToastMessage();
+      }
     });
-});
 
-  </script>
+    function showToastMessage() {
+      toastMessage.style.display = "block";
+      setTimeout(() => {
+        toastMessage.style.opacity = "1";
+      }, 100);
+
+      setTimeout(function() {
+        toastMessage.style.opacity = "0";
+        setTimeout(() => {
+          toastMessage.style.display = "none";
+        }, 300);
+      }, 3000);
+    }
+  });
+</script>
+
+
   <div id="toastMessage"></div>
 
     <!-- Confirmation Modal -->
@@ -5121,17 +5247,18 @@ iframe {
   <div class="flexi">
     <div class="contact" >
       <div class="contact-container">
-        <form class="contact-form" id="contactForm" style=" width: 500px;">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <form class="contact-form" id="contactForm" >
+          <label for="name" class="label">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required required pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
+          oninput="this.setCustomValidity('')">
 
-          <label for="email">Email</label>
+          <label for="email" class="label">Email</label>
           <input type="email" id="email" name="email" placeholder="your-email@example.com" required>
 
-          <label for="subject">Subject</label>
+          <label for="subject" class="label">Subject</label>
           <input type="text" id="subject" name="subject" placeholder="Subject" required>
 
-          <label for="message">Message</label>
+          <label for="message" class="label">Message</label>
           <textarea id="message" name="message" placeholder="Your Message" required></textarea>
 
           <button type="submit">Send Message</button>
@@ -5189,7 +5316,7 @@ iframe {
   </div>
 </section>
 
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
 <script>
   document.getElementById("contactForm").addEventListener("submit", function(event) {
   event.preventDefault();
@@ -5206,7 +5333,7 @@ iframe {
     </article>
   </main>
 
-  <!-- --Testimonials -->
+  
 
   <h2 class="h2 section-title has-underline" style="margin-top: 10.5rem;">
     Testimonials
@@ -5506,100 +5633,117 @@ iframe {
       </div>
     </div>
   </div>
-  <style>
-  .newsletter {
-            width: 100%;
-            max-width: 875px;
-            margin: 50px auto;
-            background-color:  #f48a8a ;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  .newsletter h1 {
-            text-align: center;
-            color: rgb(255, 247, 247);
-            font-size: 25px;
-        }
-
-  .newsletter p {
-    text-align: center;
-    color: rgb(245, 8, 8);
-    font-size: 15px;
-  }
-
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        input[type="email"], input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid rgb(251, 243, 243);
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        subscribe {
-            padding: 10px;
-            background-color: white;
-            color: rgb(251, 162, 177);
-            border: none;
-            border-radius: 5px;
-            font-size: 25px;
-            cursor: pointer;
-        }
-        .subscribe:hover {
-  background: linear-gradient(hwb(357 6% 36%), #d26d6d);
-  transform: scale(1.1);
-}
-       subscribe:active {
-        transform: scale(0.98);
-       }
-       subscribe:focus {
-        outline: none;
-       }
-        
-        .newsletter:hover {
-  background: linear-gradient(hwb(357 68% 7%), #d26d6d);
   
+  <style>
+    @import url('https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css');
+
+.newsletter-container {
+  background-color: #FCE4EC;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
+
+h2 {
+  font-size: 26px;
+  color: #C2185B;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #E91E63;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px 20px;
+  padding-left: 50px;
+  font-size: 16px;
+  border: 2px solid #F8BBD0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: #FCE4EC;
+  color: #555;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #E91E63;
+  background-color: #f3f3f368;
+  box-shadow: 0 0 8px rgba(233, 30, 99, 0.5);
+}
+
+.input-group i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #E91E63;
+  transition: color 0.3s ease;
+}
+
+.input-group input:focus + i {
+  color: #C2185B;
+}
+
 </style>
         
-<!--<script>
-  function showSuccessMessage() 
-  {
+<script>
+  function showSuccessMessage() {
     // Show success message
-    const successMessage = document.getElementById('successMessage');
+    const successMessage = document.createElement('div');
+    successMessage.id = 'successMessage';
     successMessage.innerHTML = "Thank you for subscribing!";
     successMessage.style.display = 'block';
-
+    successMessage.style.backgroundColor = '#C2185B';
+    successMessage.style.color = 'white';
+    successMessage.style.padding = '10px';
+    successMessage.style.borderRadius = '8px';
+    successMessage.style.marginTop = '20px';
+    successMessage.style.textAlign = 'center';
+    
+    // Append the success message to the form container
+    const formContainer = document.querySelector('.newsletter-container');
+    formContainer.appendChild(successMessage);
+    
     // Reset the form after 3 seconds
-    setTimeout(function() 
-    {
-        document.getElementById('newsletterForm').reset();
-        successMessage.style.display = 'none';
-        
+    setTimeout(function() {
+      document.getElementById('newsletterForm').reset();
+      successMessage.style.display = 'none';
     }, 3000);
-
+    
     return false; 
-}
-</script>-->
+  }
+  
+  // Attach the function to the form submission
+  document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    showSuccessMessage();
+  });
+</script>
 
-  <div class="newsletter">
-        <h1>Subscribe to Our Newsletter</h1>
-        <p>Stay updated with our latest news and offers</p>
-        
-        <form id="newsform" onsubmit="return showSuccessMessage();">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email Address" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
-        </form>
-        <div id="successmessage" style="display: none;">Thank you for subscribing!</div>
-    </div>
-
-
+<style>
+  
+  #name{
+    margin-top: 1.2rem;
+  }
+  #email{
+    margin-top: 1.2rem;
+  }
+  #subs{
+    margin-top: 1.2rem;
+  }
+</style>
    
 
   <script>
@@ -5636,7 +5780,7 @@ iframe {
 
     observer.observe(faq);
   });
-});
+}); 
 
 
   </script>
@@ -5660,7 +5804,7 @@ iframe {
     - #FOOTER
   -->
 
-  <footer class="ff">
+  <footer class="ff" style="background-color: #f0c8c1;">
     <div class="foot-top">
       <div class="foot-left">
 
@@ -5682,48 +5826,60 @@ iframe {
       "https://translate.google.com/translate_a/element.js?
       cb=googleTranslateElementInit">
           </script>
-          <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
+          <div class="SwapReads" style="margin-right: 120px;"><a href="#" class="logo">SwapReads</a></div>
           <div>
-            <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
-              lovers
-              seeking to swap and
-
-              discover new literary gems.
-              Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
-              the
+            <p style="text-align: justify;" class="description">SwapReads.com is the ultimate destination for book lovers seeking to swap and discover new literary gems. Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in the
               world of literature—all on one convenient platform. Join us and dive into a universe of endless
               possibilities!
             </p>
-          </div>
-
-        </div>
-      </div>
-      <div class="foot-middle">
-        <h2 style="margin-left: 2rem; margin-top: 2.75rem;">Quick Links</h2>
+            <div class="foot-middle">
+        <h2 style="margin-left: 0rem; margin-top: 0rem;">Quick Links</h2>
         <div id="quicklinks" class="row">
-          <div class="col-md-6">
+          <div class="col-md-2">
             <ul>
-              <li class="foot-quick" style="color: white;"><a href="#home" onclick="lenis.scrollTo('#home')"><i class="fas fa-home"></i><p class="flinks">Home</p></a></li>
-              <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')"><i class="fas fa-book"></i> <p class="flinks">Benefits</p></a></li>
-              <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i> <p class="flinks">Literary</p></a></li>
-              <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i><p class="flinks">Pricing</p> </a></li>
-              <li class="foot-quick"><a href="./assets/html/bookrecommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><p class="flinks">Recommend</p></a></li>
+              <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')"><i class="fas fa-home"></i><h4 class="flinks">Home</h4></a></li>
+              <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')"><i class="fas fa-book"></i> <h4 class="flinks">Benefits</h4></a></li>
             </ul>
           </div>
-          <div class="col-md-6">
+            <div class="col-md-2">
             <ul>
-              <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-exchange-alt"></i><p class="flinks">Swap</p> </a></li>
-              <li class="foot-quick"><a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-file-pdf"></i> <p class="flinks">E-Book</p></a></li>
-              <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-info-circle"></i> <p class="flinks">About</p></a></li>
-              <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')"><i class="fas fa-envelope"></i><p class="flinks">Contact</p> </a></li>
-              <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')"><i class="fas fa-question-circle"></i> <p class="flinks">FAQ</p></a></li>
+              <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i><h4 class="flinks">Pricing</h4> </a></li>
+              <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')"><i class="fas fa-envelope"></i><h4 class="flinks">Contact</h4> </a></li>
             </ul>
+          </div>
+          <div class="col-md-2">
+            <ul>
+              <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i> <h4 class="flinks">Literary</h4></a></li>
+              <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')"><i class="fas fa-question-circle"></i> <h4 class="flinks">FAQ</h4></a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <ul>
+              <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-exchange-alt"></i><h4 class="flinks">Swap</h4> </a></li>
+              <li class="foot-quick"><a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-file-pdf"></i> <h4 class="flinks">E-Book</h4></a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <ul>
+              <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-info-circle"></i> <h4 class="flinks">About</h4></a></li>
+              <li class="foot-quick"><a href="./assets/html/bookrecommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><h4 class="flinks">Recommend</h4></a></li>
+            </ul>
+          </div>
+          <div>
+          <ul>
+            <li class="foot-quick"><a href="/terms&cond.html"> <i class="fas fa-file-alt"></i><h4 class="flinks">Terms and<br>Conditions</h4></a></li>
+          </ul>
           </div>
         </div>
       </div>
-      
+          </div>
 
+        </div>
+      </div>
         <style>
+          #quicklinks:hover{
+            text-decoration: none;
+          }
           .social-icons input[type="email"] 
           {
               border: 0.2rem solid #ccc; /* Gray border */
@@ -5764,10 +5920,7 @@ iframe {
 }
 
         </style>
-
-
-
-
+ 
     
   <script>
   function showConfirmationMessage() {
@@ -5788,66 +5941,45 @@ iframe {
 
 
 </script>
-  <style>
-  .newsletter {
-            width: 100%;
-            max-width: 875px;
-            margin: 50px auto;
-            background-color:  #f48a8a ;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  .newsletter h1 {
-            text-align: center;
-            color: rgb(255, 247, 247);
-            font-size: 25px;
-        }
-
-  .newsletter p {
-    text-align: center;
-    color: rgb(245, 8, 8);
-    font-size: 15px;
+<style>
+  .subscribe {
+    background-color: #A30F17;
+    color: white; 
+    border: none; 
+    padding: 1rem 2rem; 
+    font-size: 1.6rem; 
+    font-family: Arial, sans-serif;
+    border-radius: 0.5rem; 
+    cursor: pointer; 
+    margin-top: 5px;
   }
 
+  .subscribe:hover {
+    background-color: #ff6f6f;
+  }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        input[type="email"], input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid rgb(251, 243, 243);
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        subscribe {
-            padding: 10px;
-            background-color: white;
-            color: rgb(251, 162, 177);
-            border: none;
-            border-radius: 5px;
-            font-size: 25px;
-            cursor: pointer;
-        }
-        .subscribe:hover {
-  background: linear-gradient(hwb(357 6% 36%), #d26d6d);
-  transform: scale(1.1);
-}
-       subscribe:active {
-        transform: scale(0.98);
-       }
-       subscribe:focus {
-        outline: none;
-       }
-        
-        .newsletter:hover {
-  background: linear-gradient(hwb(357 68% 7%), #d26d6d);
-  
-}
+  .subscribe:active {
+    transform: scale(0.98);
+  }
+
+  .subscribe:focus {
+    outline: none;
+  }
+
+  .success-message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #388e3c;
+    display: none;
+  }
+
+  @media (max-width: 500px) {
+    .newsletter {
+      padding: 20px;
+    }
+  }
 </style>
+
         
 <!--<script>
   function showSuccessMessage() 
@@ -5867,70 +5999,48 @@ iframe {
 
     return false; 
 }
+
+function showSuccessMessage() {
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    
+    if (name && email) {
+        document.getElementById('successmessage').style.display = 'block';
+        document.getElementById('newsform').reset();
+        return false;  // Prevent form submission for demo purposes
+    }
+}
+
 </script>-->
 
-  <div class="newsletter">
-        <h1>Subscribe to Our Newsletter</h1>
-        <p>Stay updated with our latest news and offers</p>
-        
-        <form id="newsform" onsubmit="return showSuccessMessage();">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email Address" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
-        </form>
-        <div id="successmessage" style="display: none;">Thank you for subscribing!</div>
-    </div>
 
-        <div class="icons">
-          <!-- Discord icon -->
-          <a href="https://www.discord.com/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
-            </div>
-          </a>
-        
-          <!-- LinkedIn icon -->
-          <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-linkedin" title="LinkedIn" style="cursor: pointer;"></i>
-            </div>
-          </a>
-        
-          <!-- Facebook icon -->
-          <a href="https://www.facebook.com/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
-            </div>
-          </a>
-        
-          <!-- X (formerly Twitter) icon -->
-          <a href="https://x.com/anuragverma_108" target="_blank">
-            <div class="icon">
-              <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
-            </div>
-          </a>
-        
-          <!-- Instagram icon -->
-          <a href="https://www.instagram.com/">
-            <div class="icon" id="insta-icon">
-              <i class="fab fa-instagram" title="Instagram" style="cursor: pointer;"></i>
-            </div>
-          </a>
-        
-          <!-- YouTube icon -->
-          <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
-            <div class="icon">
-              <i class="fab fa-youtube" style="cursor: pointer;"></i>
-            </div>
-          </a>
-        
-          <!-- GitHub icon -->
-          <a href="https://github.com/anuragverma108">
-            <div class="icon">
-              <i class="fab fa-github" title="GitHub"></i>
-            </div>
-          </a>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> 
+
+<div class="newsletter">
+    <h1>Subscribe to Our Newsletter</h1>
+    <p>Stay updated with our latest news and offers</p>
+    
+    <form id="newsform" onsubmit="return showSuccessMessage();">
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="name" placeholder="Your Name" required pattern="[a-zA-Z ]+" 
+            oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')" 
+
+            oninput="this.setCustomValidity('')">
         </div>
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" placeholder="Your Email Address" required>
+        </div>
+        <button type="submit" class="subscribe" id="subs">Subscribe</button>
+    </form>
+    <div id="successmessage" class="success-message" style="display: none;">Thank you for subscribing!</div>
+</div>
+
+
+
+
+        
         
        </div>
        <div>
@@ -5961,8 +6071,8 @@ iframe {
  
       <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
       <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>  |
-      
-      <a href="our-vision.html" id="ourvisionlink">Our Vision</a></li>
+      <a href="our-vision.html" id="ourvisionlink">Our Vision</a></li> |
+      <a href="./contributors/contributor.html" id="ourvisionlink">Our Contributors </a></li>
     
     </div>
     </div>
@@ -6124,21 +6234,7 @@ function validateEmail(email_input) {
 
   <script>
 
-    //   function sendMail(){
-    //         let params={
-    //             name:document.getElementById('name').value,
-    //             email:document.getElementById('email').value,
-    //             subject:document.getElementById('subject').value,
-    //             message:document.getElementById('message').value,
-    //             subscribe:document.getElementById('newsletter-email').value
-    //         }
-    //         EmailJSResponseStatus.send("service_lktb68z","template_w79vd94",params,"o6kveYmOSDrs0l1Mg")
-    //         .then(alert('Email sent successfully'))
-    //       }
-
-
-    // document.querySelector('subscribe-btn').addEventListener('submit', sendMail());
-    // Function to toggle dark mode
+  
     function toggleDarkMode() {
       const isDarkMode = isDarkModePreferred();
       setDarkModePreference(!isDarkMode);
@@ -6213,6 +6309,47 @@ function validateEmail(email_input) {
   <script src="./assets/js/scroll-reveal.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+//   <script>
+//   // Initialize EmailJS with your User ID
+//   (function() {
+//     emailjs.init("YOUR_USER_ID");
+//   })();
+
+//   // Handle form submission
+//   document.getElementById("newsletterForm").addEventListener("submit", function(event) {
+//     event.preventDefault(); // Prevent the form from reloading the page
+
+//     // Get the values from the form
+//     const name = document.getElementById("name").value;
+//     const email = document.getElementById("email").value;
+
+//     // Validate if the name and email fields are filled
+//     if (!name || !email) {
+//       alert("Please enter both your name and email.");
+//       return;
+//     }
+
+//     // Call EmailJS to send the email
+//     emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+//       from_name: name,  // Pass the user's name
+//       reply_to: email,  // Pass the user's email
+//     })
+//     .then(function(response) {
+//       // Success handling
+//       alert("Thank you! A confirmation email has been sent.");
+//       console.log('Email successfully sent!', response.status, response.text);
+//     }, function(error) {
+//       // Error handling
+//       alert("Failed to send the email. Please try again.");
+//       console.error('Failed to send email:', error);
+//     });
+//   });
+// </script>
+
+
 
   <!-- Lenis smooth scrolling -->
   <script>
@@ -6504,8 +6641,8 @@ count=0
 
       // Get the next circle in the sequence
       const nextCircle = circles[index + 1] || circles[0];
-      x += (nextCircle.x - x) * 0.3;
-      y += (nextCircle.y - y) * 0.3;
+      x += (nextCircle.x - x) * 0.15;
+      y += (nextCircle.y - y) * 0.15;
     });
 
     // Repeat the animation
@@ -6523,7 +6660,7 @@ count=0
     right: 45px;
     top: 40%;
     transform: translateY(-50%);
-    background :linear-gradient(hwb(357 6% 36%),#d26d6d);
+    background :linear-gradient(hwb(357 6% 30%),#d26d6d);
     color: white;
     border: none;
     border-radius: 50%; /* Make it circular */
@@ -6541,7 +6678,7 @@ count=0
        .scroll-button:hover {
           transform: translateY(-50%) scale(1.2);
         }
-    </style>
+</style>
 <script>
     document.getElementById("scrollBtn").addEventListener("click", function() {
         // Get the height of the viewport
@@ -6552,9 +6689,11 @@ count=0
             top: viewportHeight,
             behavior: "smooth" // This makes the scrolling smooth
         });
-    });
+      });
 </script>
 
-</body>
 
+
+
+</body>
 </html>

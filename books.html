@@ -51,6 +51,38 @@
     left:0;
     top:25%;
     }
+  
+  #book-search{
+    border: 4px solid white;
+    border-radius: 70px;
+    color: black;
+    padding: 20px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    box-shadow: 4px 4px 14px rgba(185, 182, 182, 0.892);
+    background-color: white;
+    font-size: 2rem;
+  }
+  #book-search::placeholder{
+    color: black;
+  }
+
+  #text{
+    position: relative;
+  }
+  
+
+  #store{
+    display:flex; 
+    direction:row;
+    justify-content:flex-end; 
+    align-items: center; 
+  }
+
+  #book-search:hover{
+    box-shadow: 4px 4px 14px #A30F17;
+  }
+
   </style>
 
 </head>
@@ -67,6 +99,7 @@
 
 <body>
   <style>
+  
     .action {
   position: fixed;
   top: 20px;
@@ -250,11 +283,12 @@
 
 
         <ul class="navbar-list nav">
-          <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+
+          <a href="./index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
             <img src="../SwapReads/assets/images/final.png" class="logopic" style=" width: 150px;">
           </a>
           <li class="navbar-item">
-            <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
+            <a href="./index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
                 class="ri-home-fill"></i> Home</a>
           </li>
               
@@ -589,13 +623,16 @@
 
     <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
 
-        <nav id="store" class="w-full z-30 top-0 px-6 py-1">
-            <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
+        
+      <nav id="store" class="w-full z-30 top-0 px-6 py-1">
+        <input type="text" id="book-search" placeholder="Search books..." class="p-2 border border-gray-300 rounded-md mb-4 outline-none mt-[20px] border-b-gray-400 border-b-[1px] ">
 
-                <div class="flex items-center" id="store-nav-content">
+            <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3" style="width:24px; height: 24px; position: absolute; right: 560px;">
+
+                <div class="flex items-center" id="store-nav-content" style="width:24px; height: 24px; bottom: 10px">
 
                     <a class="pl-3 inline-block no-underline hover:text-black" href="#">
-                        <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
                             <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
                         </svg>
                     </a>
@@ -609,7 +646,6 @@
                 </div>
           </div>
         </nav>
-        <input type="text" id="book-search" style="border-bottom:solid gray 1px ;" placeholder="Search books..." class="p-2 border border-gray-300 rounded-md mb-4 outline-none mt-[20px] border-b-gray-400 border-b-[1px] ">
 
         <!--books start here-->
 
@@ -926,6 +962,44 @@
     </div>
   </div>
   <br /><br />
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const faqContainers = document.querySelectorAll('.faq-container');
+
+  faqContainers.forEach(faq => {
+    const question = faq.querySelector('.question');
+    
+    question.addEventListener('click', () => {
+      const answers = faq.querySelector('.answers');
+   
+      answers.classList.toggle('visible');
+    
+      const icon = faq.querySelector('.icon');
+      icon.classList.toggle('fa-rotate-180');
+    });
+    
+   
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    observer.observe(faq);
+  });
+}); 
+
+
+  </script>
     
   <!--
     - #FOOTER
@@ -943,7 +1017,7 @@
             possibilities!
           </p>
         </div>
-      </div>
+      </div> 
       <div class="foot-middle">
         <h2>Quick Links</h2>
         <ul>
@@ -1021,7 +1095,7 @@
         <div id="quicklinks">
           <div>
           <ul>
-            <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')">Home</a></li>
+            <li class="foot-quick"><a href="./index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
             <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
             <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
             <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
