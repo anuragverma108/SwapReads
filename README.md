@@ -53,7 +53,10 @@ SwapReads.com is the solution to common challenges faced by book enthusiasts in 
 
 <hr>
 
-## Table of Contents
+
+<details>
+  <summary><h2>:pushpin:Table of Contents: </h2></summary>
+    
 1. [Introduction](#about-us)
 2. [Featured In](#featured-in)
 3. [The Problem](#the-problem)
@@ -68,7 +71,8 @@ SwapReads.com is the solution to common challenges faced by book enthusiasts in 
 12. [Website Preview](#-website-preview)
 12. [Stargazers](#stargazers)
 13. [Forkers](#forkers)
-
+    
+</details>
 <hr>
 
 ## About Us
@@ -154,7 +158,8 @@ Join us today and explore a world where books are exchanged, friendships are for
 
 <hr>
 
- ## <img src="https://github.com/Meetjain1/wanderlust/assets/133582566/90f3930e-5a12-4a4e-8ac9-0dc7d5396adb" width="35" height="35"> Contribution
+ <details>
+   <summary><h2><img src="https://github.com/Meetjain1/wanderlust/assets/133582566/90f3930e-5a12-4a4e-8ac9-0dc7d5396adb" width="35" height="35"> Contribution</h2></summary>
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -167,6 +172,8 @@ Your involvement helps to improve the project and make it better for everyone. T
 Kindly go through [CONTRIBUTING.md](CONTRIBUTING.md) to understand everything from setup to contributing guidelines.
 
 If you would like to contribute to the project, please follow our contribution guidelines.
+
+</details>
 
 <hr>
 
@@ -301,10 +308,18 @@ https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
 ![Contributors](https://contrib.rocks/image?repo=anuragverma108/SwapReads)
 
-# 📸 Website Preview
+<hr>
+
+ <details>
+   <summary><h2>📸 Website Preview</h2></summary>
+    
 <img src="./home.png" />
 <img src="./benefits.png" />
 <img src="./genre.png" />
+
+</details>
+
+<hr>
 
 🌐 **Visit our website:** [SwapReads](https://swapreadsconnect.netlify.app/#)
 
@@ -323,10 +338,18 @@ https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
 </div>
 
+<hr>
+
+<div>
+  <h2><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f64f_1f3fb/512.webp" width="35" height="35"> Support </h2>
+</div>
+
+<div>
+  Don't forget to leave a star<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f31f/512.webp" width="35" height="30"> for this project!
+</div> 
+<hr>
 <div align="center">
     <a href="#top">
         <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
     </a>
 </div>
-
-### Show some ❤️ by starring this awesome repository!
