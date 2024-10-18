@@ -302,6 +302,11 @@ https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 ![Contributors](https://contrib.rocks/image?repo=anuragverma108/SwapReads)
 
 # 📸 Website Preview
+
+
+https://github.com/user-attachments/assets/f430e59e-d744-4b60-9884-b7eb4643ba72
+
+
 <img src="./home.png" />
 <img src="./benefits.png" />
 <img src="./genre.png" />
