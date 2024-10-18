@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Login - Dark Mode</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Reset */
@@ -19,7 +20,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at center, #8C5B2A 0%, #5B3A29 100%); /* Dark background */
+            background: radial-gradient(circle at center, #8C5B2A 0%, #5B3A29 100%);
             font-family: 'Poppins', sans-serif;
             color: #ffffff;
             overflow: hidden;
@@ -27,34 +28,17 @@
 
         /* Login Container */
         .login-container {
-            background: #3E2A23; /* Darker base color */
+            background: #3E2A23;
             border-radius: 12px;
             padding: 40px;
             max-width: 400px;
             width: 100%;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
-            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
             text-align: center;
-            transform: translateZ(0); /* Enables 3D rendering */
-            overflow: hidden; /* To contain the pseudo-element */
+            overflow: hidden;
         }
 
-        /* 3D Effect with Shadow */
-        .login-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
-            border-radius: 12px;
-            z-index: -1;
-            filter: blur(15px);
-            transform: translateZ(-1px);
-        }
-
-        h2 {
+        .login-container h2 {
             font-size: 28px;
             margin-bottom: 30px;
             letter-spacing: 2px;
@@ -67,15 +51,15 @@
             margin: 12px 0;
             border: none;
             border-radius: 8px;
-            background-color: #BF8B58; /* Light brown shade for input */
+            background-color: #BF8B58;
             color: #7d0404;
             font-size: 16px;
             transition: background-color 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         .input-field:focus {
-            background-color: #D1A679; /* Lighter brown on focus */
+            background-color: #D1A679;
             outline: none;
         }
 
@@ -104,7 +88,7 @@
             margin-top: 20px;
             cursor: pointer;
             transition: all 0.4s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         .login-btn:hover {
@@ -112,6 +96,7 @@
             transform: scale(1.05);
         }
 
+        /* Forgot Password */
         .forgot-password {
             margin-top: 15px;
             font-size: 14px;
@@ -136,25 +121,25 @@
             border-radius: 8px;
             color: white;
             text-align: center;
-            font-size: 10px;
+            font-size: 12px;
             cursor: pointer;
             text-decoration: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: flex; /* Flex for icon alignment */
-            align-items: center; /* Centering icon vertically */
-            justify-content: center; /* Centering content */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         .google-btn {
-            background: #db4437; /* Google color */
+            background: #db4437;
         }
 
         .facebook-btn {
-            background: #3b5998; /* Facebook color */
+            background: #3b5998;
         }
 
         .social-btn:hover {
-            opacity: 0.85;
+            opacity: 0.9;
             transform: scale(1.05);
             transition: all 0.3s ease;
         }
@@ -172,7 +157,7 @@
             color: #ffffff;
         }
 
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 768px) {
             .login-container {
                 padding: 30px;
@@ -187,22 +172,29 @@
                 width: 100%;
             }
         }
+
+        /* Accessibility */
+        label {
+            cursor: pointer;
+        }
     </style>
 </head>
-<body>
 
+<body>
     <div class="login-container">
         <h2>Login</h2>
-        <input type="email" class="input-field" placeholder="Email">
-        <div class="password-field">
-            <input type="password" class="input-field" id="password" placeholder="Password">
-            <div class="show-password">
-                <input type="checkbox" id="togglePassword">
-                <label for="togglePassword">Show Password</label>
+        <form>
+            <input type="email" class="input-field" placeholder="Email" aria-label="Email">
+            <div class="password-field">
+                <input type="password" class="input-field" id="password" placeholder="Password" aria-label="Password">
+                <div class="show-password">
+                    <input type="checkbox" id="togglePassword" aria-label="Show Password">
+                    <label for="togglePassword">Show Password</label>
+                </div>
             </div>
-        </div>
-        <a href="#" class="forgot-password">Forgot Password?</a>
-        <button class="login-btn">Login</button>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+            <button type="button" class="login-btn">Login</button>
+        </form>
 
         <div class="social-btns">
             <a href="#" class="social-btn google-btn">
@@ -222,12 +214,9 @@
         const passwordInput = document.getElementById('password');
 
         togglePassword.addEventListener('change', () => {
-            if (togglePassword.checked) {
-                passwordInput.type = 'text';
-            } else {
-                passwordInput.type = 'password';
-            }
+            passwordInput.type = togglePassword.checked ? 'text' : 'password';
         });
     </script>
 </body>
+
 </html>
