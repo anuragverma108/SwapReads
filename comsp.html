@@ -18,7 +18,9 @@
        <link rel="stylesheet" href="./assets/font-6/css/all.css">
        <link rel="stylesheet" href="header.css">
        <link rel="stylesheet" href="./assets/css/MenuClick.css">
-     
+       <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+       <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
        <link rel="preconnect" href="https://fonts.googleapis.com">
        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
        <link
@@ -43,7 +45,9 @@
        <script src="./assets/js/scroll.js"></script>
        <link rel="stylesheet" href="./scrollbar.css">
        <script src="https://cdn.lordicon.com/lordicon.js"></script>
-     
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
        <link rel="stylesheet" href="modals(privacy policy).css">
      
@@ -91,87 +95,220 @@
       
 
       .section__container {
-          max-width: 1200px;
+          max-width: 800px;
           margin: 0 auto;
           padding: 0 1em;
       }
 
       .section__title {
-          font-size: 2em;
+          font-size: 3em;
           margin-bottom: 0.5em;
+          font-family: "Arvo", serif;
+          font-weight: 700;
+          font-style: normal;
       }
 
       .section__subtitle {
-          font-size: 1.1em;
+          font-size: 1.6em;
           color: #666;
           margin-bottom: 2em;
-      }
+          text-align: center;
+          
+        }
 
-      .spotlight__grid {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1em;
-          justify-content: center;
-      }
+            .spotlight__grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-      .spotlight__card {
-          background-color: #fff2ba;
-          border: 1px solid #ddd;
-          border-radius: 8px;
-          overflow: hidden;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          width: 250px;
-          max-width: 100%;
-          transition: transform 0.3s ease;
-          text-align: left;
-      }
+        .spotlight__card {
+            display: flex;
+            background-color: #fff2ba;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
 
-      .spotlight__card img {
-          width: 100%;
-          height: 200px;
-          object-fit: cover;
-      }
+        .spotlight__card img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
 
-      .spotlight__details {
-          padding: 1em;
-      }
+        .spotlight__details {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40%;
+    background-color: #fff2ba;
+}
 
-      .spotlight__details h4 {
-          font-size: 1.2em;
-          margin: 0;
-      }
+.spotlight__details h4 {
+    color: maroon;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    font-weight: 700;
+    border-bottom: 2px solid maroon;
+    padding-bottom: 5px;
+}
 
-      .spotlight__details p {
-          font-size: 1em;
-          margin: 0.5em 0 0;
-      }
+.spotlight__details p {
+    font-size: 1em;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
 
-      .spotlight__card:hover {
-          transform: scale(1.05);
-      }
-     
-     
-         
+.spotlight__book {
+    font-style: italic;
+    color: #666;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-top: auto;
+}
+
+        .spotlight__card:hover {
+            transform: scale(1.03);
+        }
+        .swiper-container {
+            perspective: 1200px;
+        }
+
+        .swiper-slide {
+            backface-visibility: hidden;
+            transition: transform 0.8s;
+        }
+
+        .swiper-slide-active {
+            z-index: 2;
+        }
+        .swiper-navigation {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      margin-top: 30px;
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+      position: static;
+      margin: 0 10px;
+      width: 50px;
+      height: 50px;
+      background-color: #fff;
+      border: 2px solid maroon;
+      border-radius: 8px;
+      color: maroon;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+  }
+
+  .swiper-button-next:after, .swiper-button-prev:after {
+      font-size: 24px;
+      font-weight: bold;
+  }
+
+  .swiper-button-next:hover, .swiper-button-prev:hover {
+      background-color: maroon;
+      color: #fff;
+  }
+
+  .swiper-button-disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+  }
+  .swiper-pagination {
+    position: relative;
+    margin-top: 20px;
+}
+
+.swiper-pagination-bullet {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+    color: #000;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.swiper-pagination-bullet-active {
+    color: #fff;
+    background: maroon;
+}
+
+
+
+        
+
+
        
          /* Theme Change Button Style */
-         @media (max-width: 990px) {
-           .switch-container {
-             margin-top: 3.2rem;
-             margin-right: -0.5rem;
-           }
-         }
-         @media (max-width: 575px) {
-           .switch-container {
-             margin-top: 2.4rem;
-             margin-right: -0.5rem;
-           }
-           /* Navbar Toggle Button placed in center */
-           .nav-toggle-btn{
-             margin-top: -2rem;
-             margin-left: 2.2rem;
-           }
-         }
-     
+         @media (max-width: 768px) {
+    .spotlight__card {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .spotlight__card img {
+        height: 200px;
+    }
+
+    .spotlight__details {
+        padding: 10px;
+    }
+
+    .spotlight__details h4 {
+        font-size: 1.3em;
+    }
+
+    .spotlight__details p {
+        font-size: 1em;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+        width: 40px;
+        height: 40px;
+    }
+
+    .swiper-button-next:after, .swiper-button-prev:after {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .spotlight__card img {
+        height: 120px;
+        width: 120px;
+    }
+
+    .spotlight__details h4 {
+        font-size: 1em;
+    }
+
+    .spotlight__details p {
+        font-size: 0.9em;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+        width: 30px;
+        height: 30px;
+    }
+
+    .swiper-button-next:after, .swiper-button-prev:after {
+        font-size: 14px;
+    }
+}
+
      
          
          .cta1{
@@ -866,42 +1003,58 @@ color: #d26d6d;
     </div>
 </header>
     <main>
-        <section class="community-spotlight">
-            <div class="section__container">
-                <h2 class="section__title" style="color: maroon; margin-top:150px;text-align:center">Community Spotlight</h2>
-                <p class="section__subtitle" style="color: black;text-align:center"">Meet our active community members and explore their book recommendations</p>
-                <div class="spotlight__grid">
-                    <div class="spotlight__card">
-                        <img src="assets/images/ja.jpeg" alt="Jane Doe">
-                        <div class="spotlight__details">
-                            <h4 style="color: maroon;">Jane Doe</h4>
-                            <p>Recommended Book: "To Kill a Mockingbird" by Harper Lee</p>
+      <section class="community-spotlight">
+        <div class="section__container">
+            <h2 class="section__title" style="color: maroon; margin-top:150px;text-align:center">Community Spotlight</h2>
+            <p class="section__subtitle" style="color: black;text-align:center">Meet our active community members and explore their book recommendations</p>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="spotlight__card">
+                            <img src="assets/images/ja.jpeg" alt="Jane Doe">
+                            <div class="spotlight__details">
+                                <h4 style="color: maroon;">Jane Doe</h4>
+                                <p class="spotlight_book">Recommended Book:<strong> "To Kill a Mockingbird" </strong> by Harper Lee</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="spotlight__card">
-                        <img src="assets/images/jo.jpeg" alt="John Smith">
-                        <div class="spotlight__details">
-                            <h4 style="color: maroon;">John Smith</h4>
-                            <p>Recommended Book: "1984" by George Orwell</p>
+                    <div class="swiper-slide">
+                        <div class="spotlight__card">
+                            <img src="assets/images/jo.jpeg" alt="John Smith">
+                            <div class="spotlight__details">
+                                <h4 style="color: maroon;">John Smith</h4>
+                                <p>Recommended Book:<strong> "1984" </strong>by George Orwell</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="spotlight__card">
-                        <img src="assets/images/em.jpeg" alt="Emily Johnson">
-                        <div class="spotlight__details">
-                            <h4 style="color: maroon;">Emily Johnson</h4>
-                            <p>Recommended Book: "Pride and Prejudice" by Jane Austen</p>
+                    <div class="swiper-slide">
+                        <div class="spotlight__card">
+                            <img src="assets/images/em.jpeg" alt="Emily Johnson">
+                            <div class="spotlight__details">
+                                <h4 style="color: maroon;">Emily Johnson</h4>
+                                <p>Recommended Book:<strong> "Pride and Prejudice"</strong> by Jane Austen</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="spotlight__card">
-                        <img src="assets/images/ma.jpg" alt="Mark Brown">
-                        <div class="spotlight__details">
-                            <h4 style="color: maroon;">Mark Brown</h4>
-                            <p>Recommended Book: "The Great Gatsby" by F. Scott Fitzgerald</p>
+                    <div class="swiper-slide">
+                        <div class="spotlight__card">
+                            <img src="assets/images/ma.jpg" alt="Mark Brown">
+                            <div class="spotlight__details">
+                                <h4 style="color: maroon;">Mark Brown</h4>
+                                <p>Recommended Book:<strong> "The Great Gatsby"</strong> by F. Scott Fitzgerald</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-navigation">
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+              </div>
             </div>
-        </section>  
+        </div>
+    </section>
+    
 
     </main>
 
@@ -1231,6 +1384,29 @@ color: #d26d6d;
                 }
             });
         });
+        var swiper = new Swiper('.swiper-container', {
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true
+    },
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + '</span>';
+        },
+    },
+});
+
+
+
     </script>
 </body>
 </html>
