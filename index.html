@@ -9,6 +9,9 @@
     body {
         margin: 0;
         height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         background-color: #fff; /* White background */
         overflow-y: scroll;
         scrollbar-width: thin;
@@ -1108,7 +1111,7 @@
     /* Fixed translate button */
     *{
       transition: all 0.3s ease-in-out;
-      text-align: center;
+      text-align: left;
     }
 #translateButton {
     position: fixed;
@@ -1576,7 +1579,8 @@ body > .skiptranslate {
     margin-top: 12rem;;
     width: 4rem;
     height: 15rem;
-  
+    top: 0;
+    left: 2rem;
 }
 #quicklinks {
   display: flex;
@@ -3297,13 +3301,8 @@ body > .skiptranslate {
         <div class="container">
 
           <div class="hero-content">
-            <p class="section-subtitle"> Let's Exchange Old Books and Discover New Stories Together!</p>
-
-           
-            
+            <p class="section-subtitle"> Let's Exchange Old Books and Discover New Stories Together!</p>      
             <h1 class="h1 hero-title" style="color: var(--text-color);">SwapReads.com - Where Books Find New Adventures!</h1>
-
-
             <p class="section-text " >
               Join SwapReads.com, the ultimate online community for book enthusiasts! Create your profile, list your
               favorite reads, and embark on   literary journeys by swapping books with fellow passionate readers. Discover
@@ -3315,23 +3314,13 @@ body > .skiptranslate {
                 <h2>Play Now</h2>
               </button>
             </div>
-
-
           </div>
-
           <div class="hero-banner has-before" data-tilt="">
             <img src="./assets/images/hero-banner.png" width="431" height="700"
               alt="things i never said, a novel by claudia wilson" class="w-100">
-
-
           </div>
-
         </div>
       </section>
-
-
-
-
 
       <!--
         - #BENEFITS
@@ -3958,14 +3947,13 @@ body > .skiptranslate {
           </h2>
 
           <ul class="grid-list">
-
             <li>
               <div class="chapter-card">
 
                 <p class="card-subtitle">01</p>
                 <div class="iconrow">
                   <h3 class="h3 card-title">Classic Literature</h3>
-                  <span style='font: size 5rem;filter: grayscale(100%);'>&#128395;</span>
+                  <span style='font-size: 5rem;filter: grayscale(100%);'>&#128395;</span>
                 </div>
                 
 
@@ -3989,8 +3977,8 @@ body > .skiptranslate {
             <li>
               <div class="chapter-card">
 
-                <p class="card-subtitle">02</p>
-                <div class="iconrow">
+                <p class="card-subtitle" style=" width: 202.48px; height: 13px;">02</p>
+                <div class="iconrow" style=" width: 202.48px; height: 79px;">
                   <h3 class="h3 card-title">Romance</h3>
                     <span style='font-size:5rem;filter: grayscale(100%);'>&#10084;</span>
                   </div>
@@ -4016,7 +4004,7 @@ body > .skiptranslate {
               <div class="chapter-card">
 
                 <p class="card-subtitle">03</p>
-                <div class="iconrow">
+                <div class="iconrow" style=" width: 202.48px; height: 79px;">
                 <h3 class="h3 card-title">Suspense Thriller</h3>
                   <span style='font-size:5rem;filter: grayscale(100%);'>&#128269;</span>
                 </div>
@@ -4632,135 +4620,178 @@ body > .skiptranslate {
       <!--
         - #CHAPTERS
       -->
-      <!--Book Exchange Hub-->
-      <section class="section preview" aria-label="preview">
-        <div class="container1">
-          <h2 class="h2 section-title has-underline" style="margin-bottom: 0px;">
-            Book Exchange Hub
-            <span class="span has-before"></span>
-          </h2>
-          <p class="section-text booktext">
-            Connect with fellow readers in our Book Exchange Hub. Sell your old books at half price and give your
-            favorite reads a new home. Fill out the form below to get started!
-          </p>
-      
-          <div class="exchange-form">
-            <div class="form-fields">
-              <label class="form-label" for="bookTitle">Book Title:</label>
-              <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the title of your book" required class="input-field">
-              <span id="bookTitle-error" class="error"></span>
-      
-              <label class="form-label" for="bookAuthor">Author:</label>
-              <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter the author's name" required class="input-field">
-              <span id="bookAuthor-error" class="error"></span>
-      
-              <label class="form-label" for="yourPrice">Your Price (50% Off):</label>
-              <div class="currency-container">
-                <label class="currency-label" for="currency">Currency: </label>
-                <select id="currency" name="currency" class="input-field currency-select">
-                  <option value="INR">INR</option>
-                  <option value="USD">USD</option>
-                  <option value="EUR">EUR</option>
-                  <option value="GBP">GBP</option>
-                </select>
-              </div>
-              <input type="number" min="1" id="yourPrice" name="yourPrice" placeholder="Enter your desired selling price" required class="input-field">
-              <span id="yourPrice-error" class="error"></span>
-            </div>
-      
-            <button type="button" class="btn btn-primary" id="connectReaderBtn">Connect with a Reader</button>
-          </div>
-      
-          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-          <script>
-            function submitForm() {
-              // Get form elements
-              const bookTitle = document.getElementById("bookTitle").value.trim();
-              const bookAuthor = document.getElementById("bookAuthor").value.trim();
-              const yourPrice = document.getElementById("yourPrice").value.trim();
-              const currency = document.getElementById("currency").value.trim();
-      
-              // Perform form validation
-              if (bookTitle === "") {
-                Swal.fire({
-                  icon: "error",
-                  title: "Oops...",
-                  text: "Please enter the title of your book.",
-                  customClass: {
-                    popup: "swal-popup",
-                    title: "swal-title",
-                    content: "swal-content",
-                    confirmButton: "swal-confirm-button",
-                  },
-                });
-                return;
-              }
-      
-              if (bookAuthor === "") {
-                Swal.fire({
-                  icon: "error",
-                  title: "Oops...",
-                  text: "Please enter the author's name.",
-                  customClass: {
-                    popup: "swal-popup",
-                    title: "swal-title",
-                    content: "swal-content",
-                    confirmButton: "swal-confirm-button",
-                  },
-                });
-                return;
-              }
-      
-              if (yourPrice === "" || isNaN(parseFloat(yourPrice)) || parseFloat(yourPrice) < 1) {
-                Swal.fire({
-                  icon: "error",
-                  title: "Oops...",
-                  text: "Please enter a valid selling price greater than or equal to 1.",
-                  customClass: {
-                    popup: "swal-popup",
-                    title: "swal-title",
-                    content: "swal-content",
-                    confirmButton: "swal-confirm-button",
-                  },
-                });
-                return;
-              }
-      
-              // Show success message
-              Swal.fire({
-                icon: "success",
-                title: "Success!",
-                text: "Your book details have been submitted.",
-                customClass: {
-                  popup: "swal-popup",
-                  title: "swal-title",
-                  content: "swal-content",
-                  confirmButton: "swal-confirm-button",
-                },
-              }).then((result) => {
-                if (result.isConfirmed || result.isDismissed) {
-                  resetForm(); // Reset form after successful submission
-                }
-              });
+      <!-- Book Exchange Hub -->
+<section class="section preview" aria-label="preview">
+  <div class="container1">
+    <h2 class="h2 section-title has-underline" style="margin-bottom: 0px;">
+      Book Exchange Hub
+      <span class="span has-before"></span>
+    </h2>
+    <p class="section-text booktext">
+      Connect with fellow readers in our Book Exchange Hub. Sell your old books at a discounted price of your choice and give your
+      favorite reads a new home. Fill out the form below to get started!
+    </p>
+
+    <div class="exchange-form">
+      <div class="form-fields">
+        <!-- Book Details -->
+        <label class="form-label" for="bookTitle">Book Title:</label>
+        <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the title of your book" required class="input-field">
+        <span id="bookTitle-error" class="error"></span>
+
+        <label class="form-label" for="bookAuthor">Author:</label>
+        <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter the author's name" required class="input-field">
+        <span id="bookAuthor-error" class="error"></span>
+
+        <!-- Genre Selection -->
+        <label class="form-label" for="genre">Genre:</label>
+        <select id="genre" name="genre" class="input-field" required>
+          <option disabled selected value="">Select the genre</option>
+          <option value="fiction">Fiction</option>
+          <option value="non-fiction">Non-Fiction</option>
+          <option value="sci-fi">Sci-Fi</option>
+          <option value="biography">Biography</option>
+          <option value="self-help">Self-Help</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="mystery">Mystery</option>
+          <option value="romance">Romance</option>
+          <option value="historical">Historical</option>
+          <option value="thriller">Thriller</option>
+          <option value="children">Children's Books</option>
+          <option value="poetry">Poetry</option>
+        </select>
+
+        <!-- Condition Selection -->
+        <label class="form-label" for="condition">Condition of the Book:</label>
+        <select id="condition" name="condition" class="input-field" required>
+          <option disabled selected value="">Select the condition</option>
+          <option value="relatively-new">Relatively New</option>
+          <option value="used">Used</option>
+          <option value="heavily-used">Heavily Used</option>
+        </select>
+
+        <!-- Pricing Information -->
+        <label class="form-label" for="actualPrice">Actual Price:</label>
+        <input type="number" min="1" id="actualPrice" name="actualPrice" placeholder="Enter actual price" required class="input-field">
+        <span id="actualPrice-error" class="error"></span>
+
+        <label class="form-label" for="discountRate">Discount Rate (%):</label>
+        <input type="number" min="0" id="discountRate" name="discountRate" placeholder="Enter discount rate" required class="input-field">
+        <span id="discountRate-error" class="error"></span>
+
+        <!-- Predict Price Button -->
+        <button type="button" class="btn btn-secondary" id="predictPriceBtn">Predict Price</button>
+
+        <!-- Predicted price display -->
+        <p id="predictedPrice" class="section-text" style="font-weight: bold; margin-top: 10px;">Predicted Price: </p>
+
+        <!-- User Contact Information -->
+        <label class="form-label" for="userName">Your Name:</label>
+        <input type="text" id="userName" name="userName" placeholder="Enter your name" required class="input-field">
+
+        <label class="form-label" for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required class="input-field">
+
+        <!-- Additional Information -->
+        <label class="form-label" for="additionalInfo">Additional Information:</label>
+        <textarea id="additionalInfo" name="additionalInfo" placeholder="Any additional details about the book..." class="input-field"></textarea>
+
+        <!-- Upload Image -->
+        <label class="form-label" for="bookImage">Upload Book Image:</label>
+        <input type="file" id="bookImage" name="bookImage" accept="image/*" class="input-field">
+      </div>
+
+      <!-- Connect with a Reader Button -->
+      <button type="button" class="btn btn-primary" id="connectReaderBtn">Connect with a Reader</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Predict price
+        document.getElementById("predictPriceBtn").addEventListener("click", function () {
+          const actualPrice = parseFloat(document.getElementById("actualPrice").value);
+          const discountRate = parseFloat(document.getElementById("discountRate").value);
+
+          if (!isNaN(actualPrice) && !isNaN(discountRate)) {
+            const discountAmount = (discountRate / 100) * actualPrice;
+            const predictedPriceValue = actualPrice - discountAmount;
+            document.getElementById("predictedPrice").textContent = `Predicted Price: ₹${predictedPriceValue.toFixed(2)}`;
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Please enter valid numbers for the price and discount rate.",
+            });
+          }
+        });
+         
+
+        // Form submission
+        document.getElementById("connectReaderBtn").addEventListener("click", function () {
+          // Get form values
+          const bookTitle = document.getElementById("bookTitle").value.trim();
+          const bookAuthor = document.getElementById("bookAuthor").value.trim();
+          const genre = document.getElementById("genre").value;
+          const condition = document.getElementById("condition").value;
+          const actualPrice = document.getElementById("actualPrice").value.trim();
+          const discountRate = document.getElementById("discountRate").value.trim();
+          const userName = document.getElementById("userName").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const additionalInfo = document.getElementById("additionalInfo").value.trim();
+          const bookImage = document.getElementById("bookImage").files[0];
+
+          // Form validation
+          if (bookTitle === "" || bookAuthor === "" || genre === "" || condition === "" || actualPrice === "" || userName === "" || email === "") {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Please fill in all required fields.",
+            });
+            return;
+          }
+
+          // Show success message
+          Swal.fire({
+            icon: "success",
+            title: "Success!",
+            text: "Your book details have been submitted.",
+            customClass: {
+              popup: "swal-popup",
+              title: "swal-title",
+              content: "swal-content",
+              confirmButton: "swal-confirm-button",
+            },
+          }).then((result) => {
+            if (result.isConfirmed || result.isDismissed) {
+              resetForm();
             }
+          });
+        });
+
+        // Function to reset form fields
+        function resetForm() {
+          document.getElementById("bookTitle").value = "";
+          document.getElementById("bookAuthor").value = "";
+          document.getElementById("genre").value = "";
+          document.getElementById("condition").value = "";
+          document.getElementById("actualPrice").value = "";
+          document.getElementById("discountRate").value = "";
+          document.getElementById("userName").value = "";
+          document.getElementById("email").value = "";
+          document.getElementById("additionalInfo").value = "";
+          document.getElementById("bookImage").value = "";
+
+          document.getElementById("predictedPrice").textContent = "Predicted Price: "; // Reset predicted price display
+        }
+        
+          document.getElementById("connectReaderBtn").addEventListener("click", submitForm);   // Event listener for the submit button
+          
+      });
+    </script>
+  </div>
+</section>
       
-            // Function to reset form fields
-            function resetForm() {
-              document.getElementById("bookTitle").value = "";
-              document.getElementById("bookAuthor").value = "";
-              document.getElementById("yourPrice").value = "";
-              document.getElementById("currency").value = "INR"; // Reset currency select to default
-              document.getElementById("bookTitle-error").textContent = "";
-              document.getElementById("bookAuthor-error").textContent = "";
-              document.getElementById("yourPrice-error").textContent = "";
-              document.getElementById("connectReaderBtn").disabled = true; // Disable submit button after reset
-            }
-      
-            // Event listener for the submit button
-            document.getElementById("connectReaderBtn").addEventListener("click", submitForm);
-          </script>
-        </div>
-      </section>
 
 <!-- Donation of Books -->
 <br>
@@ -4955,7 +4986,6 @@ body > .skiptranslate {
 
 <div id="toastMessage" class="toast-message"></div>
 
- main
     <script>
      document.addEventListener("DOMContentLoaded", function() {
 
