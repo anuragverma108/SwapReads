@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Book Categories</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #fdf6f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            border-top: 5px solid #ffafcc;
+            position: relative;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .card .card-content {
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .card.flipped .card-content {
+            transform: rotateY(180deg);
+        }
+
+        .card h2 {
+            color: #1b1a17;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4f4a45;
+            margin-bottom: 15px;
+        }
+
+        .card .heart, .card .magnifying-glass {
+            font-size: 20px;
+            color: #e63946;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover .heart {
+            transform: scale(1.3);
+        }
+
+        .card:hover .magnifying-glass {
+            transform: rotate(20deg);
+        }
+
+        .book-list {
+            text-align: left;
+            font-size: 15px;
+            margin-top: 10px;
+        }
+
+        .book-list li {
+            margin-bottom: 5px;
+        }
+
+        .card-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffe0b3;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+        }
+
+        .card-front {
+            backface-visibility: hidden;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Card 1: Classic Literature -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="card-content">
+                <div class="card-front">
+                    <h2>Classic Literature</h2>
+                    <p>The category of classic literature contains literature that is worthy of being read through the ages. Classic literature is timeless and well-written. Writers such as Sophocles, Charles Dickens, Jane Austen, and Virgil are considered classical authors.</p>
+                    <div class="book-list">
+                        <strong>Book Recommendations:</strong>
+                        <ul>
+                            <li>Pride and Prejudice by Jane Austen</li>
+                            <li>Moby-Dick by Herman Melville</li>
+                            <li>1984 by George Orwell</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <h2>Why Read Classics?</h2>
+                    <p>Classics offer timeless insights into human nature and society. They inspire readers across generations and remain culturally significant. Start your literary journey today!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Romance -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="card-content">
+                <div class="card-front">
+                    <h2>Romance <span class="heart">♥</span></h2>
+                    <p>Romance stories focus on the relationship between main characters, often culminating in a happy ending. A hallmark of this genre is 'happily ever after'.</p>
+                    <div class="book-list">
+                        <strong>Book Recommendations:</strong>
+                        <ul>
+                            <li>Pride and Prejudice by Jane Austen</li>
+                            <li>The Notebook by Nicholas Sparks</li>
+                            <li>Me Before You by Jojo Moyes</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <h2>Why Read Romance?</h2>
+                    <p>Romance books are filled with emotion, offering readers stories of love and connection. They provide escapism, passion, and a sense of hope.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Suspense Thriller -->
+        <div class="card" onclick="flipCard(this)">
+            <div class="card-content">
+                <div class="card-front">
+                    <h2>Suspense Thriller <span class="magnifying-glass">🔍</span></h2>
+                    <p>Suspense thrillers take readers on a rollercoaster ride of tension and intrigue. These gripping stories are full of twists, keeping readers guessing until the very end.</p>
+                    <div class="book-list">
+                        <strong>Book Recommendations:</strong>
+                        <ul>
+                            <li>Gone Girl by Gillian Flynn</li>
+                            <li>The Girl with the Dragon Tattoo by Stieg Larsson</li>
+                            <li>The Da Vinci Code by Dan Brown</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <h2>Why Read Thrillers?</h2>
+                    <p>Thrillers keep your heart racing, offering thrilling mysteries and unpredictable twists that make for unforgettable reading experiences.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to flip the card
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+    </script>
+</body>
+</html>
