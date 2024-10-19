@@ -11,26 +11,30 @@
                 font-family: Arial, sans-serif;
                 margin: 0;
                 padding: 0;
-                background-color: #f4f4f9;
+                background: rgba(255, 171, 157, 0.5);
                 display: flex;
                 flex-direction: column;
                 align-items: center;
             }
+            
+            
 
             header {
                 width: 100%;
-                background-color: #f06d87;
-                color: white;
-                padding: 1em 0;
-                text-align: center;
+    background-color: #fff;
+    padding: 1em 0;
+    display: flex;
+    /* This ensures the logo and nav are spaced properly */
+    align-items: center;
             }
 
             nav ul {
                 list-style: none;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-                gap: 45px;
+    padding: 0;
+    margin-left: 300px;
+    display: flex;
+    align-items: center;
+    gap: 45px; /* Spacing between nav items */
             }
 
             nav ul li {
@@ -39,10 +43,13 @@
 
             nav ul li a {
                 text-decoration: none;
-                color: #0a0000;
-                font-size: 18px;
-                padding-bottom: 5px;
-                transition: color 0.3s ease;
+    color: #0a0000;
+    font-size: 18px;
+    padding-bottom: 5px;
+    padding-left: 10px; /* Adjust padding */
+    padding-right: 10px; /* Adjust padding */
+    transition: color 0.3s ease;
+    cursor: pointer;
             }
             nav ul li a::after {
             content: "";
@@ -63,10 +70,10 @@ nav ul li a:hover::after {
   transform-origin: left;
 }
 nav ul li a:hover {
-  color:#ccc;
-  text-shadow: 0 0 1px #fff;
+  color:var(--old-rose);
+  text-shadow: 0 0 1px rgb(126,0,21);
   transition: 0.6s ease;
-  cursor: pointer;
+  
 }
 
             main {
@@ -150,19 +157,30 @@ nav ul li a:hover {
                 font-size: 0.8em;
                 color: gray;
             }
+            .logopic{
+                width: 15rem;
+                margin: 0px 0px 0px 1.8rem;
+                max-height: 100px;
+                height: auto;
+                transition: all 0.3s ease;
+                display: block;
+            }
+            .logopic:hover{
+                transform: scale(1.09);
+            }
         </style>
     </head>
 
     <body>
         <header>
-            <h1 style="color: black;">SwapReads</h1>
+           <a href="../../index.html"><img src="http://127.0.0.1:56445/SwapReads/assets/images/final.png" class="logopic"></a>
             <nav>
                 <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="./about.html">About Us</a></li>
-                    <li><a href="../../index.html#contact">Contact</a></li>
-                    <li><a href="#authors">Authors</a></li>
-                    <li><a href="../../comsp.html">Community</a></li>
+                    <li><a href="../../index.html"><i class="fas fa-home" ></i>Home</a></li>
+                    <li><a href="./about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+                    <li><a href="../../index.html#contact"><i class="fas fa-envelope"></i>Contact</a></li>
+                    <li><a href="#authors"><i class="fas fa-user"></i>Authors</a></li>
+                    <li><a href="../../comsp.html"><i class="fas fa-users"></i> Community</a></li>
                 </ul>
             </nav>
         </header>
