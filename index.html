@@ -3301,8 +3301,38 @@ body > .skiptranslate {
         <div class="container">
 
           <div class="hero-content">
-            <p class="section-subtitle"> Let's Exchange Old Books and Discover New Stories Together!</p>      
-            <h1 class="h1 hero-title" style="color: var(--text-color);">SwapReads.com - Where Books Find New Adventures!</h1>
+            <p class="section-subtitle"> Let's Exchange Old Books and Discover New Stories Together!</p>
+            <h1 class="h1 hero-title" id="h1-hero-title" style="color: var(--text-color);">SwapReads.com - Where Books Find New Adventures!</h1>
+            <h1 class="h1 hero-title" id="h1-hero-title-1" style="color: var(--text-color);"></h1>
+            <script>
+                const h1Typing = document.getElementById('h1-hero-title');
+                const h1Text = h1Typing.textContent;
+                h1Typing.textContent = '';
+                let i = 0;
+                function typing() {
+                if (i < h1Text.length) {
+                  h1Typing.textContent += h1Text.charAt(i);
+                  i++;
+                  setTimeout(typing, 100);
+                } else {
+                  h1Typing.classList.add('blinking-cursor');
+                }
+                }
+                typing();
+                
+                // Add CSS for blinking cursor
+                const style = document.createElement('style');
+                style.innerHTML = `
+                .blinking-cursor::after {
+                  content: '|';
+                  animation: blink 1s step-end infinite;
+                }
+                @keyframes blink {
+                  from, to { opacity: 1; }
+                  50% { opacity: 0; }
+                }`;
+                document.head.appendChild(style);
+            </script>
             <p class="section-text " >
               Join SwapReads.com, the ultimate online community for book enthusiasts! Create your profile, list your
               favorite reads, and embark on   literary journeys by swapping books with fellow passionate readers. Discover
