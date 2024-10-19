@@ -99,6 +99,13 @@
 
 <body>
   <style>
+  .error-message{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10%;
+    width: 100%;
+    height: 300px;
+  }
     .action {
       position: fixed;
       top: 20px;
@@ -551,34 +558,51 @@
 
       .hover\:grow:hover {
         transform: scale(1.02);
-      }
-    </style>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const searchInput = document.getElementById('book-search');
-        const allBooks = document.querySelectorAll('.flex.flex-col');
+    }
 
-        searchInput.addEventListener('input', function () {
-          const searchTerm = searchInput.value.toLowerCase();
 
-          allBooks.forEach(book => {
+
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('book-search');
+    const allBooks = document.querySelectorAll('.flex.flex-col');
+    const parentElement = document.getElementById('books-container');
+    let noBooksMessage;
+    searchInput.addEventListener('input', function() {
+        const searchTerm = searchInput.value.toLowerCase();
+        var count = 0; 
+        allBooks.forEach(book => {
             const title = book.querySelector('p').textContent.toLowerCase();
 
             if (title.includes(searchTerm)) {
-              book.style.display = 'block'; // Show matching book
+                count++;
+                book.style.display = 'block'; // Show matching book
             } else {
               book.style.display = 'none'; // Hide non-matching book
             }
-          });
         });
-      });
-    </script>
-    <style>
-      #chaps {
-        margin-top: 150px;
-        /* Adjust the margin-top value as needed */
-      }
-    </style>
+        // Showing No books found if none of the books match
+        if(count == 0){
+          if(!noBooksMessage){
+            noBooksMessage = document.createElement("p");
+            noBooksMessage.classList.add("error-message")
+            noBooksMessage.textContent = "No books Found ";
+            parentElement.appendChild(noBooksMessage);
+          }
+        }
+        else if(noBooksMessage){
+          noBooksMessage.remove();
+          noBooksMessage = null;
+        }
+    });
+});
+</script>
+<style>
+  #chaps {
+      margin-top: 150px; /* Adjust the margin-top value as needed */
+  }
+  </style>
 
     <section class="section chapters" id="chapters">
       <div class="container" id="chaps">
@@ -590,12 +614,11 @@
           <span class="span has-before"></span>
         </h2>
 
-        <ul class="grid-list">
+        <ul class="grid-list justify-center">
 
           <li>
-            <div class="chapter-card h-1/4">
+            <div class="chapter-card" style="height: 550px;">
 
-              
               <h3 class="h3 card-title"> "Fall in love on every page"</h3>
               <p class="card-subtitle mt-20 italic">Love, One Page at a Time</p>
 
@@ -611,7 +634,7 @@
           </li>
 
           <li>
-            <div class="chapter-card">
+            <div class="chapter-card" style="height: 550px;">
 
               <h3 class="h3 card-title">"Escape Reality, Embrace Stories"</h3>
 
@@ -630,7 +653,7 @@
           </li>
 
           <li>
-            <div class="chapter-card">
+            <div class="chapter-card" style="height: 550px;">
 
               
               <h3 class="h3 card-title">"Unlock New Worlds, One Chapter at a Time"</h3>
@@ -652,17 +675,15 @@
 
     <!--THE BOOKS-->
 
-    <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
+    <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12" id="books-container">
 
 
       <nav id="store" class="w-full z-30 top-0 px-6 py-1">
-        <input type="text" id="book-search" placeholder="Search books..."
-          class="p-2 border border-gray-300 rounded-md mb-4 outline-none mt-[20px] border-b-gray-400 border-b-[1px] ">
+        <input type="text" id="book-search" placeholder="Search books..." class="px-20 py-2 border border-gray-300 rounded-md mb-4 outline-none mt-[20px] border-b-gray-400 border-b-[1px] ">
 
-        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3"
-          style="width:24px; height: 24px; position: absolute; right: 560px;">
+            <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3" style="width:24px; height: 24px;">
 
-          <div class="flex items-center" id="store-nav-content" style="width:24px; height: 24px; bottom: 10px">
+                <div class="flex items-center justify-end" id="store-nav-content" style="position: absolute; right: 20%">
 
             <a class="pl-3 inline-block no-underline hover:text-black" href="#">
               <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
