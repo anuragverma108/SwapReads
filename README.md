@@ -35,39 +35,28 @@
 </table>
 </div>
 
-## 📚 Table of Contents
 
-- 📺 Featured In
-- ❓ The Problem
-- 💡 How SwapReads.com Solves These Problems
-- 💻 Tech Stacks
-- 🤝 Ready to Contribute?
-- 🌍 Open Innovation Challenge
-- 📞 Contact Us
-- 📜 Code of Conduct
-- 🙌 Our Contributors
+<hr>
+
+## 📚 Table of Contents
+- 📖 [Introduction](#about-us)
+- 📰 [Featured In](#featured-in)
+- ❓ [The Problem](#the-problem)
+- 💡 [How SwapReads.com Solves These Problems](#how-swapreadscom-solves-these-problems)
+- 💻 [Tech Stacks](#-tech-stacks)
+- 🤝 [Contribution](#contribution)
+- 🌍 [Open Innovation Challenge](#open-innovation-challenge)
+- 📞 [Contact Us](#-contact-us)
+- 📜 [Code of Conduct](#code-of-conduct)
+- 💙 [Support Our Project](#support-our-project)
+- 🎉 [Contributors](#our-contributors)
+- 🌐 [Website Preview](#-website-preview)
+- ⭐ [Stargazers](#stargazers)
+- 🍴 [Forkers](#forkers)
 
 
 
 SwapReads.com is the solution to common challenges faced by book enthusiasts in today's digital age. We've identified key problems and developed a platform that addresses them efficiently and effectively.
-
-<hr>
-
-## Table of Contents
-1. [Introduction](#about-us)
-2. [Featured In](#featured-in)
-3. [The Problem](#the-problem)
-4. [How SwapReads.com Solves These Problems](#how-swapreadscom-solves-these-problems)
-5. [Tech Stacks](#-tech-stacks)
-6. [Contribution](#contribution)
-7. [Open Innovation Challenge](#open-innovation-challenge)
-8. [Contact Us](#-contact-us)
-9. [Code of Conduct](#code-of-conduct)
-10. [Support Our Project](#support-our-project)
-11. [Contributors](#our-contributors)
-12. [Website Preview](#-website-preview)
-12. [Stargazers](#stargazers)
-13. [Forkers](#forkers)
 
 <hr>
 
