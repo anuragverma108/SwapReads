@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_package_v0.16/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-32x32.png">
     <title>Donate Books to Organizations</title>
     <style>
       body {
@@ -61,7 +64,7 @@
         cursor: pointer;
         border-radius: 7px;
         text-align: center;
-        margin:auto
+        margin:auto;
       }
       .form-group button:hover {
         background-color: rgb(187, 128, 128);
@@ -75,6 +78,25 @@
         color: rgb(1, 153, 1);
         text-align: center;
         font-size: 30px;
+      }
+      .back-button {
+        display: none;
+        margin-top: 20px;
+        text-align: center;
+      }
+      .back-button button {
+        width: 30%;
+        padding: 10px;
+        background-color: #5e0213;
+        color: rgb(187, 128, 128);
+        border: none;
+        cursor: pointer;
+        border-radius: 7px;
+      }
+      .back-button button:hover {
+        background-color: rgb(187, 128, 128);
+        color: #5e0213;
+        border: 3px solid black;
       }
       @media (max-width: 600px) {
         body {
@@ -114,33 +136,37 @@
           <label for="library">Select Organization:</label>
           <select id="library" name="library" required>
             <option value="">Select an Organization</option>
-            <option value="pratham_education">
-              Pratham Education Foundation
-            </option>
-            <option value="helpless_organization">
-              Organization for Helpless
-            </option>
+            <option value="pratham_education">Pratham Education Foundation</option>
+            <option value="helpless_organization">Organization for Helpless</option>
             <option value="care_foundation">Care Foundation Trust</option>
           </select>
         </div>
         <div class="form-group">
-          <button type="submit" onclick="submitForm()">Submit</button>
+          <button type="submit">Submit</button>
         </div>
       </form>
       <div id="thankYouMessage" class="thank-you-message">
-        Thank you for your contribution! We will contact you for further
-        details.
+        Thank you for your contribution! We will contact you for further details.
+      </div>
+      <div id="backButton" class="back-button">
+        <button onclick="goHome()">Back to Home</button>
       </div>
     </div>
 
     <script>
       function submitForm(event) {
-        event.preventdefault();
+        event.preventDefault();
         // Hide the form
         document.getElementById("donationForm").style.display = "none";
 
         // Show thank you message
         document.getElementById("thankYouMessage").style.display = "block";
+        // Show back button
+        document.getElementById("backButton").style.display = "block";
+      }
+
+      function goHome() {
+        window.location.href = "/"; // Redirect to home page
       }
     </script>
   </body>
