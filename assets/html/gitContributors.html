@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SwapReads Contributors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: rgba(255, 171, 157, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 60px;
+        }
+
+        header {
+            width: 100%;
+            background-color: #fff;
+            padding: 1em 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-left: 300px;
+            display: flex;
+            align-items: center;
+            gap: 45px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #0a0000;
+            font-size: 18px;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #fcb0b480;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.6s ease;
+        }
+
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        nav ul li a:hover {
+            color: var(--old-rose);
+            text-shadow: 0 0 1px rgb(126, 0, 21);
+            transition: 0.6s ease;
+        }
+
+        .contributors-container {
+            max-width: 100%;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1.text-center {
+            color: #450105;
+            margin-bottom: 2rem;
+        }
+
+        .loader-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .contributor-subContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contributor-card {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 1rem;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contributor-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .contributor-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contributor-avatar:hover {
+            transform: rotate(360deg);
+        }
+
+        .contributor-info h2 {
+            font-size: 1.25rem;
+            margin: 0;
+            color: #450105;
+        }
+
+        .contribution {
+            color: green;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            width: 100%;
+            background: pink;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.8em;
+            color: gray;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="../../index.html"><img src="http://127.0.0.1:56445/SwapReads/assets/images/final.png"
+                class="logopic"></a>
+        <nav>
+            <ul>
+                <li><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="./about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="../../index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="#authors"><i class="fas fa-user"></i> Authors</a></li>
+                <li><a href="../../comsp.html"><i class="fas fa-users"></i> Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contributors-container">
+        <h1 class="text-center">🤝 GitHub Contributors</h1>
+
+        <!-- Loader -->
+        <div id="loader" class="loader-container">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Contributor List -->
+        <div id="contributors" class="contributor-subContainer" style="display: none;"></div>
+    </div>
+
+    <!-- <footer>
+        <div class="footer">
+            Research Nexas © 2024 - All rights reserved || Designed by: pranjal
+        </div>
+    </footer> -->
+
+    <script>
+        const contributorsContainer = document.getElementById('contributors');
+        const loader = document.getElementById('loader');
+
+        async function fetchContributors() {
+            try {
+                const response = await fetch('https://api.github.com/repos/anuragverma108/SwapReads/contributors');
+                const contributors = await response.json();
+
+                // Hide loader and show contributors container
+                loader.style.display = 'none';
+                contributorsContainer.style.display = 'flex';
+
+                // Display each contributor
+                contributors.forEach(contributor => {
+                    const card = document.createElement('div');
+                    card.className = 'contributor-card';
+                    card.onclick = () => window.open(contributor.html_url, '_blank');
+
+                    const avatar = document.createElement('img');
+                    avatar.src = contributor.avatar_url;
+                    avatar.alt = `${contributor.login} avatar`;
+                    avatar.className = 'contributor-avatar';
+
+                    const info = document.createElement('div');
+                    info.className = 'contributor-info';
+
+                    const name = document.createElement('h2');
+                    name.textContent = contributor.login;
+
+                    const contributions = document.createElement('p');
+                    contributions.className = 'contribution';
+                    contributions.textContent = `${contributor.contributions} contributions`;
+
+                    info.appendChild(name);
+                    card.appendChild(avatar);
+                    card.appendChild(info);
+                    card.appendChild(contributions);
+                    contributorsContainer.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Error fetching contributors:', error);
+                loader.textContent = 'Failed to load contributors.';
+            }
+        }
+
+        // Fetch contributors on page load
+        fetchContributors();
+    </script>
+
+</body>
+
+</html>
