@@ -285,6 +285,23 @@
       animation: none;
     }
 
+    
+/* Initially hide the dropdown */
+#dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #7c0f1b;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 10px;
+}
+
+/* Show the dropdown when the 'open' class is added */
+#dropdown-menu.open {
+  display: block;
+}
+
+
     /* .prebut
       { */
     /* position: fixed; */
@@ -650,6 +667,8 @@
             </div>
           </li>
           <li>
+
+            
             <div class="action">
               <div class="profile" onclick="menuToggle();">
                 <img id="profile-avatar" src="../images/avatar1.jpg" />
@@ -685,6 +704,14 @@
           document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
         }
       });
+
+      document.getElementById('more-link').addEventListener('click', function(event) {
+  event.preventDefault(); // Prevent the default action of the anchor tag
+
+  // Toggle the 'open' class for the dropdown menu
+  const dropdownMenu = document.getElementById('dropdown-menu');
+  dropdownMenu.classList.toggle('open');
+});
 
 
       function menuToggle() {
