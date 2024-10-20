@@ -73,176 +73,203 @@
 <script src="https://unpkg.com/scrollreveal"></script>
 
 <style>
-    .work-sans {
-        font-family: 'Work Sans', sans-serif;
-    }
-
-    #menu-toggle:checked+#menu {
-        display: block;
-    }
-
-    .hover\:grow {
-        transition: all 0.3s;
-        transform: scale(1);
-    }
-
-    .hover\:grow:hover {
-        transform: scale(1.02);
-    }
-</style>
-
-<style>
-    #chaps {
-        margin-top: 150px;
-    }
-</style>
-<style>
-    /* styles.css */
-
-    /* Base styling */
-    body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-        background-color: #ffdcd4;
-        color: black;
-    }
-
-    .notice {
-        padding: 2rem;
-        max-width: 800px;
-        color:black;
-        margin: 2rem auto;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        border-radius: 8px;
-        padding-bottom: 100px;
-        margin-top: 200px;
-        backdrop-filter: blur(10px);
-        background-color: rgba(255, 255, 255, 0.086);
-        
-    }
-    @property --gradient-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-.notice::before,
-.notice::after {
-  content: "";
-  position: absolute;
-  inset: -0.1rem;
-  z-index: 2;
-  background: conic-gradient(
-    from var(--gradient-angle),
-    hsl(340, 94%, 40%),
-    hsl(344, 69%, 53%),
-    hsl(0, 88%, 86%),
-    hsl(344, 64%, 52%),
-    hsl(340, 94%, 43%)
-  );
-  border-radius: inherit;
-  animation: moving 3s linear infinite;
-
-  mask: linear-gradient(
-      to right,
-      black 0.4%,
-      transparent 0%,
-      transparent 99.6%,
-      black 90%
-    ),
-    linear-gradient(
-      to bottom,
-      black 0.5%,
-      transparent 0%,
-      transparent 99.5%,
-      black 90%
-    );
-}
-
-
-@keyframes moving {
-  0% {
-    --gradient-angle: 0deg;
+  body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #ffdcd4;
+      color: black;
   }
-  100% {
-    --gradient-angle: 360deg;
+
+  .work-sans {
+      font-family: 'Work Sans', sans-serif;
   }
-}
-    .main h1 {
-        text-align: center;
-        font-size: 30px;
-        font-weight: 600;
-        color: hsl(340, 93%, 42%);
-        margin-bottom: 50px;
-        margin-top: 10px;
-    }
 
-    .main p {
-        margin: 10px 2px;
-    }
+  #menu-toggle:checked + #menu {
+      display: block;
+  }
 
-    
-    .un-list {
-        list-style-type: none;
-        /* padding: 0; */
-    }
+  .hover\:grow {
+      transition: all 0.3s;
+      transform: scale(1);
+  }
 
-    .un-list li {
-        margin: 2px 1px;
-        padding: 0.2rem;
-    }
+  .hover\:grow:hover {
+      transform: scale(1.02);
+  }
 
-    .un-list li a {
-        color: hsl(340, 93%, 42%);
-        display: inline;
-    }
+  #chaps {
+      margin-top: 150px;
+  }
 
-    .un-list li a:hover {
-        color: #e6482e;
-    }
-    /* Dark Mode Styles */
-    .dark-mode .readmore-anim {
+  .notice {
+      padding: 2rem;
+      max-width: 800px;
+      color: black;
+      margin: 2rem auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      padding-bottom: 100px;
+      margin-top: 200px;
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.086);
+      position: relative;
+  }
+
+
+  .notice::before,
+  .notice::after {
+      content: "";
+      position: absolute;
+      inset: -0.1rem;
+      z-index: 2;
+      background: conic-gradient(
+          from var(--gradient-angle),
+          hsl(340, 94%, 40%),
+          hsl(344, 69%, 53%),
+          hsl(0, 88%, 86%),
+          hsl(344, 64%, 52%),
+          hsl(340, 94%, 43%)
+      );
+      border-radius: inherit;
+      animation: moving 3s linear infinite;
+
+      mask: linear-gradient(
+              to right,
+              black 0.4%,
+              transparent 0%,
+              transparent 99.6%,
+              black 90%
+          ),
+          linear-gradient(
+              to bottom,
+              black 0.5%,
+              transparent 0%,
+              transparent 99.5%,
+              black 90%
+          );
+  }
+
+  @keyframes moving {
+      0% {
+          --gradient-angle: 0deg;
+      }
+      100% {
+          --gradient-angle: 360deg;
+      }
+  }
+
+  .main h1 {
+      text-align: center;
+      font-size: 30px;
+      font-weight: 600;
+      color: hsl(340, 93%, 42%);
+      margin-bottom: 50px;
+      margin-top: 30px;
+  }
+
+  .main p {
+      margin: 15px 0;
+      padding: 10px;
+      font-size: 18px;
+      color: #4a4a4a;
+      transition: color 0.3s ease;
+  }
+
+  .main p:hover {
+      color: #ff5f4b;
+  }
+
+  .un-list {
+      list-style-type: none;
+      padding: 0;
+  }
+
+  .un-list li {
+      margin: 12px 0;
+      padding: 12px;
+      background-color: #ffe4dc;
+      border-left: 4px solid #ff5f4b;
+      border-radius: 5px;
+      font-size: 17px;
+      color: #333;
+      font-weight: bold;
+      transition: all 0.3s ease;
+  }
+
+  .un-list li:hover {
+      background-color: #ffddc5;
+  }
+
+  .un-list li a {
+      color: hsl(340, 93%, 42%);
+      font-weight: 600;
+  }
+
+  .un-list li a:hover {
+      color: #e6482e;
+  }
+
+  body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+  }
+
+  .dark-mode .notice {
+      color: white;
+  }
+
+  body.dark-mode .main p {
+      color: #dddddd;
+  }
+
+  body.dark-mode .main p:hover {
+      color: #ff5f4b;
+  }
+
+  body.dark-mode .un-list li {
+      background-color: #2b2b2b;
+      color: #dddddd;
+      border-left: 4px solid hsl(357, 37%, 62%);
+  }
+
+  body.dark-mode .un-list li:hover {
+      background-color: #3a3a3a;
+  }
+
+  .dark-mode .main a {
+      color: hsl(340, 87%, 73%);
+  }
+
+  .dark-mode .readmore-anim {
       font-size: 18px;
       letter-spacing: 0;
       color: hsl(357, 37%, 62%);
-    }
-    .dark-mode .readmore-anim:hover {
-        color: #e6482e;
+  }
+
+  .dark-mode .readmore-anim:hover {
+      color: #e6482e;
       letter-spacing: 1px;
       transition: ease-in-out;
-    }
+  }
 
-    .dark-mode .header.scrolled {
-      background-color: #232222; /* Change to a darker color when scrolled */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
-    }
-    body.dark-mode {
-    background-color: #121212;
-    color:#ffffff;
-}
-body.dark-mode .notice{
-    
-    color: white;
-} 
-.main a {
-    color: hsl(340, 93%, 42%);
-    display: inline;
-}
+  .dark-mode .header.scrolled {
+      background-color: #232222;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
 
-.dark-mode  .main a {
-    color: hsl(340, 87%, 73%);
-    display: inline;
-}
-.dark-mode .switch-container {
-  right: 12px;
-  top: 10px;
-}
-.light-mode .switch-container {
-    right: 12px;
-    top: 10px;
-}
+  .dark-mode .switch-container {
+      right: 12px;
+      top: 10px;
+  }
+
+  .light-mode .switch-container {
+      right: 12px;
+      top: 10px;
+  }
 </style>
+
 </head>
 
 <body>
@@ -399,7 +426,7 @@ body.dark-mode .notice{
             the age of 18 years to transact on SwapReads, their legal guardians have expressly consented to their use
             and we disclaim any liability arising from your failure to do so.</p>
         <br>
-        <h2 style="font-size: 16px; font-weight: 600;">Information We Collect</h2>
+        <h2 style="font-size: 20px; font-weight: 600;">1. Information We Collect</h2>
         <p>We may collect your personal data when you:</p>
         <ul class="un-list">
             <li>a) create an account with us or</li>
@@ -425,7 +452,7 @@ body.dark-mode .notice{
           </div>
         </ul>
         <br>
-        <h2 style="font-size: 16px; font-weight: 600;">How We Use Your Information</h2>
+        <h2 style="font-size: 20px; font-weight: 600;">2. How We Use Your Information</h2>
         <p>This computer data is collected for analysis and evaluation in order to help us improve
           SwapReads, the services we provide and to enhance your experience by providing you with better services and
             benefits that you shall be entitled to the extent that such computer data is maintained in a manner that
@@ -455,7 +482,7 @@ body.dark-mode .notice{
         
 
           <br>
-        <h2 style="font-size: 16px; font-weight: 600;">Sharing Your Information</h2>
+        <h2 style="font-size: 20px; font-weight: 600;">3. Sharing Your Information</h2>
 
         <p>When you register an account or otherwise provide us with your personal data, we may also use
             the personal data to send to you marketing and/or promotional materials about us and our services from time
@@ -516,7 +543,7 @@ body.dark-mode .notice{
               </p>
 
               <br>
-        <h2 style="font-size: 16px; font-weight: 600;">Data Security</h2>
+        <h2 style="font-size: 20px; font-weight: 600;">4. Data Security</h2>
         <p>
           If any disclosure of your personal data involves the transfer of your personal data by SwapReads out of India, we will take steps to reasonably ensure that the receiving jurisdiction has in place a standard of protection accorded to personal data that is comparable to the protection under India's data protection laws.</p>
 
@@ -529,18 +556,18 @@ body.dark-mode .notice{
               </p>
 
               <br>
-        <h2 style="font-size: 16px; font-weight: 600;">Your Rights and Choices</h2>
+        <h2 style="font-size: 20px; font-weight: 600;">5. Your Rights and Choices</h2>
         <p>You undertake to treat your password and other confidential information in relation to the use of SwapReads and its services confidentially, and we disclaim any liability arising from your failure to do so.</p>
 
         <p>
           Some of our web pages use "cookies" so that we can better serve you with customized information when you return to our site. Cookies are identifiers which a web site can send to your browser to keep on your computer to facilitate your next visit to our site. You can set your browser to notify you when you are sent a cookie, giving you the option to decide whether or not to accept it. The information we collect and analyze is used to improve our service to you. Please note, if you refuse cookies this may mean that you can't use some of the additional features of our website and may not be able to access certain parts of the website.
           </p>
           <br>
-        <h2 style="font-size: 16px; font-weight: 600;">Cookies and Similar Technologies</h2>
+        <h2 style="font-size: 20px; font-weight: 600;">6. Cookies and Similar Technologies</h2>
         <p>You may update any of your personal data we possess by contacting us at <a href="mailto:support@swapreads.com" >support@swapreads.com</a> and we will endeavour to serve your request for updation. Bigtree reserves the right to accept or reject requests made for updating of personal data and in case of any such refusal we will also endeavour to inform you the reason for such refusal.</p>
 
         <br>
-        <h2 style="font-size: 16px; font-weight: 600;">Links to Third-Party Websites</h2>
+        <h2 style="font-size: 20px; font-weight: 600;">7. Links to Third-Party Websites</h2>
         <p>You may communicate your objection to our continual use and/or disclosure of your personal data for any of the purposes and in the manner as stated above at any time by contacting us at <a href="mailto:support@swapreads.com">support@swapreads.com</a></p>
 
         <p>If you do not wish for us to continue using your information, and/or disclose your personal data for any of the purposes and in the manner as stated above at any time, you may opt out of providing the same by contacting us at <a href="mailto:support@swapreads.com" >support@swapreads.com</a>. Please note that if you choose not to provide the Information we request, you can still visit SwapReads, but you may not be able to access certain options, offers and services. SwapReads reserves all legal rights and remedies in such an event.</p>
@@ -555,10 +582,10 @@ body.dark-mode .notice{
             </ul>
 
             <br>
-        <h2 style="font-size: 16px; font-weight: 600;">Changes to This Privacy Policy</h2>
+        <h2 style="font-size: 20px; font-weight: 600;">8. Changes to This Privacy Policy</h2>
         <p>If our privacy policy changes in the future, it will be posted here and a new effective date will be shown. You should access our privacy policy regularly to ensure you understand our current policies. Please reference the privacy policy in your subject line. SwapReads will attempt to respond to all reasonable concerns or inquiries within 30 business days of receipt.</p>
             <br>
-        <h2 style="font-size: 16px; font-weight: 600;">Contact Us</h2>
+        <h2 style="font-size: 20px; font-weight: 600;">9. Contact Us</h2>
         <p>If you have an enquiry or a complaint about the way we handle your personal information, or to seek to exercise your privacy rights in relation to the personal information we hold about you, you may contact our customer grievance officer as follows:</p>
 
         <p>By Email:<a href="mailto:support@swapreads.com" > support@swapreads.com</a> </p>
