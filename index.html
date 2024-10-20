@@ -232,26 +232,34 @@
 .dark-mode .finput::placeholder {
       color: rgba(255, 255, 255, 0.6); 
     }
-.socialmediaicons a {
-    display: inline;
-    text-align: center;
-    padding: 0.5rem;
-    transition: all 0.3s ease;
-    color: rgb(0, 0, 0);
-    font-size: 2rem;
-  }
-
-  .socialmediaicons .fa-instagram {
-    margin-top:150px;
-  display: inline-block;
-  width: 3rem; 
-  height: 3rem; 
+    .socialmediaicons a {
+  display: inline-block; /* For better control of icons */
   text-align: center;
-  line-height: 3rem; 
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  font-size: 2rem;
+  color: rgb(0, 0, 0); /* Set default icon color to black */
+  background-color: transparent; /* Ensure background is transparent */
+  border: none; /* No borders */
+  box-shadow: none; /* Remove any default shadow */
+}
+
+.socialmediaicons a:hover {
+  background-color: transparent !important; /* Ensure hover background is transparent */
+  color: inherit; /* Ensure the hover does not change color unless specified */
+  border: none;
+}
+
+.socialmediaicons .fa-instagram {
+  margin-top: 150px;
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  line-height: 3rem;
   border-radius: 1rem;
   background: transparent;
-  color: #000000;
-  /* transition: background 1s, transform 1s;  */
+  color: #000000; /* Set default color to black */
 }
 
 .socialmediaicons .fa-instagram:hover {
@@ -260,86 +268,60 @@
                                #ee653d 25%, 
                                #d42e81 50%, 
                                #a237b6 75%, 
-                               #3e57bc 100%);
-                               transition: all 0.3s ;
-  background-clip: padding-box;
-  border-radius: 1rem; 
-  color: white; 
-  transform: scale(1.1); 
-  
-}  
-.socialmediaicons .fa-facebook:hover{
-  transition: all 0.3s ;
-  color: blue;
-  
-  
-}   
-.socialmediaicons .fa-youtube:hover{
-  transition: all 0.3s ;
-  color: red;
+                               #3e57bc 100%) !important;
+  color: white !important; /* Change icon color to white on hover */
+  transform: scale(1.1);
+  transition: all 0.3s ease;
 }
 
+.socialmediaicons .fa-facebook:hover {
+  color: #1877f2 !important; /* Facebook official blue */
+  transition: all 0.3s ease;
+}
+
+.socialmediaicons .fa-youtube:hover {
+  color: #ff0000 !important; /* YouTube official red */
+  transition: all 0.3s ease;
+}
 
 .dark-mode .socialmediaicons a {
-  color: white;
-}
-
-.dark-mode .social-icons .fa-facebook{
-  color: #e8f6ff;
+  color: white; /* Ensure the icon color is white in dark mode */
 }
 
 .dark-mode .socialmediaicons .fa-facebook:hover {
-  color: #425d9b
+  color: #425d9b !important; /* Facebook hover color in dark mode */
 }
+
 .dark-mode .socialmediaicons .fa-youtube:hover {
-  color: #f70000;
+  color: #f70000 !important; /* YouTube hover color in dark mode */
 }
 
-  .instagram {
-    
-    margin: 0.5rem;
-    
-  }
-
-
-  .facebook {
-    
-    margin: 0.5rem;
-  }
-  
-  .youtube {
-   
-    margin: 0.5rem;
-  }
-  .socialmediaicons .fa-github:hover {
-  transition: all 0.3s;
-  color: black; /* Original GitHub hover color */
+.socialmediaicons .fa-github:hover {
+  color: black !important; /* GitHub hover color */
+  transition: all 0.3s ease;
 }
 
 .socialmediaicons .fa-linkedin:hover {
-  transition: all 0.3s;
-  color: #0077b5; /* Original LinkedIn hover color */
+  color: #0077b5 !important; /* LinkedIn official blue */
+  transition: all 0.3s ease;
 }
 
 .socialmediaicons .fa-discord:hover {
-  transition: all 0.3s;
-  color: #7289da; /* Original Discord hover color */
-}
-
-.dark-mode .socialmediaicons .fa-github:hover {
-  color: #e1e1e1; /* Dark mode hover color for GitHub */
-}
-
-.dark-mode .socialmediaicons .fa-linkedin:hover {
-  color: #0e76a8; /* Dark mode hover color for LinkedIn */
-}
-
-.dark-mode .socialmediaicons .fa-discord:hover {
-  color: #a9a9a9; /* Dark mode hover color for Discord */
+  color: #7289da !important; /* Discord official purple */
+  transition: all 0.3s ease;
 }
 
 .instagram, .facebook, .youtube, .github, .linkedin, .discord {
   margin: 0.5rem;
+  background-color: transparent; /* Ensure no background during normal state */
+  border: none; /* No border */
+}
+
+.socialmediaicons a:focus, 
+.socialmediaicons a:active {
+  outline: none;
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 
 
@@ -1642,26 +1624,40 @@ body > .skiptranslate {
 .dark-mode .finput::placeholder {
       color: rgba(255, 255, 255, 0.6); 
     }
-.socialmediaicons a {
-    display: inline;
-    text-align: center;
-    padding: 0.5rem;
-    transition: all 0.3s ease;
-    color: rgb(0, 0, 0);
-    font-size: 2rem;
-  }
 
-  .socialmediaicons .fa-instagram {
-    margin-top:150px;
-  display: inline-block;
-  width: 3rem; 
-  height: 3rem; 
+
+
+
+
+    
+.socialmediaicons a {
+  display: inline-block; /* To control dimensions of the icons */
   text-align: center;
-  line-height: 3rem; 
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  background-color: transparent; /* Ensure initial background is transparent */
+  border: none; /* Remove any borders */
+  box-shadow: none; /* Remove any shadow */
+}
+
+.socialmediaicons a:hover {
+  background-color: transparent !important; /* Ensure hover background is transparent */
+  box-shadow: none; /* Remove any shadow during hover */
+  border: none; /* Ensure no borders on hover */
+}
+
+.socialmediaicons .fa-instagram {
+  margin-top: 150px;
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  line-height: 3rem;
   border-radius: 1rem;
-  background: transparent;
+  background: transparent; /* No initial background */
   color: #000000;
-  /* transition: background 1s, transform 1s;  */
 }
 
 .socialmediaicons .fa-instagram:hover {
@@ -1670,89 +1666,83 @@ body > .skiptranslate {
                                #ee653d 25%, 
                                #d42e81 50%, 
                                #a237b6 75%, 
-                               #3e57bc 100%);
-                               transition: all 0.3s ;
-  background-clip: padding-box;
-  border-radius: 1rem; 
-  color: white; 
-  transform: scale(1.1); 
-  
-}  
-.socialmediaicons .fa-facebook:hover{
-  transition: all 0.3s ;
-  color: blue;
-  
-  
-}   
-.socialmediaicons .fa-youtube:hover{
-  transition: all 0.3s ;
-  color: red;
+                               #3e57bc 100%) !important;
+  color: white;
+  transform: scale(1.1);
+  transition: all 0.3s;
 }
 
+.socialmediaicons .fa-facebook:hover {
+  color: blue;
+  transition: all 0.3s;
+}
+
+.socialmediaicons .fa-youtube:hover {
+  color: red;
+  transition: all 0.3s;
+}
 
 .dark-mode .socialmediaicons a {
   color: white;
+  background-color: transparent !important; /* Ensure transparent background in dark mode */
 }
 
-.dark-mode .social-icons .fa-facebook{
+.dark-mode .socialmediaicons .fa-facebook {
   color: #e8f6ff;
 }
 
 .dark-mode .socialmediaicons .fa-facebook:hover {
-  color: #425d9b
+  color: #425d9b;
 }
+
 .dark-mode .socialmediaicons .fa-youtube:hover {
   color: #f70000;
 }
 
-  .instagram {
-    
-    margin: 0.5rem;
-    
-  }
-
-
-  .facebook {
-    
-    margin: 0.5rem;
-  }
-  
-  .youtube {
-   
-    margin: 0.5rem;
-  }
-  .socialmediaicons .fa-github:hover {
+.socialmediaicons .fa-github:hover {
+  color: black;
   transition: all 0.3s;
-  color: black; /* Original GitHub hover color */
 }
 
 .socialmediaicons .fa-linkedin:hover {
+  color: #0077b5;
   transition: all 0.3s;
-  color: #0077b5; /* Original LinkedIn hover color */
 }
 
 .socialmediaicons .fa-discord:hover {
+  color: #7289da;
   transition: all 0.3s;
-  color: #7289da; /* Original Discord hover color */
 }
 
 .dark-mode .socialmediaicons .fa-github:hover {
-  color: #e1e1e1; /* Dark mode hover color for GitHub */
+  color: #e1e1e1;
 }
 
 .dark-mode .socialmediaicons .fa-linkedin:hover {
-  color: #0e76a8; /* Dark mode hover color for LinkedIn */
+  color: #0e76a8;
 }
-.dark-mode .socialmediaicons .fa-discord{
-  color:white;
+
+.dark-mode .socialmediaicons .fa-discord {
+  color: white;
 }
+
 .dark-mode .socialmediaicons .fa-discord:hover {
-  color: #7289da; /* Dark mode hover color for Discord */
+  color: #7289da;
 }
 
 .instagram, .facebook, .youtube, .github, .linkedin, .discord {
   margin: 0.5rem;
+  background-color: transparent; /* Ensure no background during normal state */
+  border: none; /* No border */
 }
+
+.socialmediaicons a:focus, 
+.socialmediaicons a:active {
+  outline: none;
+  background-color: transparent !important; /* Ensure no background during focus/active */
+  box-shadow: none !important; /* Remove any shadow on focus/active */
+}
+
 
 
 
