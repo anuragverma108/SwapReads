@@ -82,96 +82,131 @@
         margin-top: 150px;
     }
 </style>
+
 <style>
+    /* Font and Global Styles */
     body {
         font-family: Arial, sans-serif;
         line-height: 1.6;
         margin: 0;
         padding: 0;
-        background-color: #ffdcd4;
-        color: black;
+        background-color: #ffdcd4; /* Light background color */
+        color: black; /* Default text color */
     }
-    /* .main {
-    position: relative;
-    transition: transform 0.3s ease; /* Smooth transition effect */
-/* } */ 
-
-
 
     .main {
         padding: 2rem;
         max-width: 800px;
         margin: 2rem auto;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        border-radius: 8px;
-        padding-bottom: 100px;
-        margin-top: 200px;
-        position: relative;
-        transition: transform 0.5s ease-in-out; /* Smooth transition effect */
-    }
-    .main:hover {
-        transform: scale(1.05); /* Moves the box up by 10px */
-}
-    .main h1 {
-        text-align: center;
-        font-size: 30px;
-        font-weight: 600;
-        color: #ff5f4b;
-        margin-bottom: 50px;
-        margin-top: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Shadow effect for main container */
+        border-radius: 8px; /* Rounded corners */
+        padding-bottom: 100px; /* Extra padding at the bottom */
+        margin-top: 200px; /* Top margin */
     }
 
+    .main h1 {
+        text-align: center;
+        font-size: 30px; /* Header font size */
+        font-weight: 600; /* Header font weight */
+        color: #ff5f4b; /* Header color */
+        margin-bottom: 50px; /* Margin below header */
+        margin-top: 10px; /* Margin above header */
+    }
+
+    /* Unique <p> Tag Styling */
     .main p {
-        margin: 10px 2px;
+        margin: 15px 0; /* Vertical margin */
+        padding: 10px; /* Padding around text */
+        font-size: 19px; /* Font size for paragraphs */
+        font-style: italic; /* Italic style for paragraphs */
+        color: #4a4a4a; /* Soft gray for paragraph text */
+        transition: color 0.3s ease; /* Transition effect for hover */
     }
-    .main:hover{
-        transition: all;
+
+    .main p:hover {
+        color: #ff5f4b; /* Color change on hover */
     }
+
+    /* Unordered List (li) Styling */
     .un-list {
-        list-style-type: none;
-        /* padding: 0; */
+        list-style-type: none; /* No bullet points */
+        padding: 0; /* Remove padding */
     }
 
     .un-list li {
-        margin: 9px 2px;
-        padding: 0.5rem;
+        margin: 12px 0; /* Vertical margin for list items */
+        padding: 12px; /* Padding for list items */
+        background-color: #ffe4dc; /* Background color for list items */
+        border-left: 4px solid #ff5f4b; /* Left border for emphasis */
+        border-radius: 5px; /* Slight rounding for list items */
+        font-size: 17px; /* Increased font size for list items */
+        color: #333; /* Darker text for list items */
+        font-weight: bold; /* Bold text for list items */
+        transition: all 0.3s ease; /* Transition effect for hover */
+    }
+
+    .un-list li:hover {
+        background-color: #ffddc5; /* Change background color on hover */
     }
 
     .un-list li a {
-        color: #ff5f4b;
-        display: inline;
+        color: #ff5f4b; /* Link color in list */
+        font-weight: 600; /* Bold link text */
     }
 
     .un-list li a:hover {
-        color: #e6482e;
+        color: #e6482e; /* Darker link color on hover */
     }
-    
-    /* Dark Mode Styles */
-    .dark-mode .readmore-anim {
-      font-size: 18px;
-      letter-spacing: 0;
-      color: hsl(357, 37%, 62%);
-    }
-    .dark-mode .readmore-anim:hover {
-      color: red;
-      letter-spacing: 1px;
-      transition: ease-in-out;
-    }
-    
-    .dark-mode .header.scrolled {
-      background-color: #232222; /* Change to a darker color when scrolled */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
-    }
-    body.dark-mode {
-    background-color: #121212;
-    color:#ffffff;
-}
-body.dark-mode .main{
-    box-shadow: 0 0 20px hsl(0deg 100% 80.49%); ;
-    
-} 
 
+    /* Dark Mode Styles */
+    body.dark-mode {
+        background-color: #121212; /* Dark background for dark mode */
+        color: #ffffff; /* Light text for dark mode */
+    }
+
+    body.dark-mode .main {
+        box-shadow: 0 0 20px hsl(0deg 100% 80%); /* Shadow effect for main in dark mode */
+    }
+
+    /* Dark Mode for <p> Tags */
+    body.dark-mode .main p {
+        color: #dddddd; /* Light text color for paragraphs in dark mode */
+    }
+
+    body.dark-mode .main p:hover {
+        color: #ff5f4b; /* Change color on hover in dark mode */
+    }
+
+    /* Dark Mode for <li> Elements */
+    body.dark-mode .un-list li {
+        background-color: #2b2b2b; /* Dark background for list items */
+        color: #dddddd; /* Light text color for list items */
+        border-left: 4px solid hsl(357, 37%, 62%); /* Left border in dark mode */
+    }
+
+    body.dark-mode .un-list li:hover {
+        background-color: #3a3a3a; /* Change background on hover in dark mode */
+    }
+
+    /* Additional Styles */
+    #menu-toggle:checked + #menu {
+        display: block; /* Show menu when toggle is checked */
+    }
+
+    .hover\:grow {
+        transition: all 0.3s; /* Transition for hover effect */
+        transform: scale(1); /* Initial scale */
+    }
+
+    .hover\:grow:hover {
+        transform: scale(1.02); /* Scale on hover */
+    }
+
+    #chaps {
+        margin-top: 150px; /* Margin for chapters section */
+    }
 </style>
+
 </head>
 
 <body>
