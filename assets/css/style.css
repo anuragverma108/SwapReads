@@ -1436,28 +1436,34 @@ body.dark-mode .chapter-card:hover {
 \*-----------------------------------*/
  
 #pricing .container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 97%;
+  padding: 20px 0px;
+  margin-left: 100px;
+}
 
-  margin-top:  20px;
-  margin-bottom:  20px;
-  width:  97%;
-  padding:  20px 0px;
-  margin-left:  100px;
+.pricing-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between the cards */
+  justify-content: space-around;
 
 }
 
 .pricing-card {
   box-shadow: rgba(53, 31, 31, 0.5) 0px 5px 10px 0px inset;
-  padding: 40px 50px;
+  padding: 20px 30px;
   background-color: var(--seashell);
   text-align: center;
   transition: var(--transition-2);
   border-radius: var(--radius-5);
-  /* box-shadow: var(--shadow-2); */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 150px;
-  margin-top: 100px;
+  flex-basis: 30%; /* Adjust width for 3 cards in a row */
+  min-height: 150px; /* Set the minimum height */
+ 
 }
 
 .pricing-card button {
@@ -1510,19 +1516,10 @@ body.dark-mode .pricing-card button {
   font-weight: var(--fw-700);
   margin-block-start: 10px;
   padding-left: 25%;
-  padding-right: 25%; 
+  padding-right: 25%;
 }
 .pricing-card .price:hover {
   color: rgb(255, 195, 0);
-}
-
-/* .pricing-card-list {
-  margin-block: 20px 40px;
-  flex-grow: 1;
-} */
-
-.pricing-card-list .card-item:not(:last-child) {
-  border-block-end: 1px solid var(--ghost-white);
 }
 
 .pricing-card .card-text {
@@ -1538,7 +1535,7 @@ body.dark-mode .pricing-card button {
   align-self: center;
   margin-top: auto;
 }
-*/ .dark-mode .pricing-card .btn {
+.dark-mode .pricing-card .btn {
   background-color: #8e4949 !important;
   border: none !important;
 }
@@ -1546,6 +1543,22 @@ body.dark-mode .pricing-card button {
   color: white;
   transform: scale(1.1);
 }
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .pricing-card {
+    flex-basis: 45%; /* Adjust for smaller screens */
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-card {
+    flex-basis: 100%; /* Single column layout for small screens */
+    min-height: 180px;
+  }
+}
+
 
 /*-----------------------------------*\
   #AUTHOR
