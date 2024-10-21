@@ -461,25 +461,25 @@
     max-width: 30rem; /* Optional max width for cards */
     margin: 1rem; /* Optional margin around each card */
 }
-
-
-
 .card img {
     width: 100%;
     height: auto;
 }
 
+/* Initially hide the dropdown */
+#dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #7c0f1b;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 10px;
+}
 
-
-
-
-
-
-
-
-
-
-
+/* Show the dropdown when the 'open' class is added */
+#dropdown-menu.open {
+  display: block;
+}
 
     </style>
 </head>
@@ -587,13 +587,13 @@
 
               <ul class="dropdown-menu-list">
                 <li>
-                  <a href="chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                  <a href="/chat.html" class="navbar-link" style="font-family: sans-serif; margin-bottom: 5px;">
                     Community chat
                 </a>
                 </li>
                 <li>
                   <a href="bookpref.html" class="navbar-link"
-                    style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                    style="font-family: sans-serif; margin-bottom: 5px;">
                     Book Prefer Quiz
                   </a>
                 </li>
@@ -617,7 +617,7 @@
                   <a href="../html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href=".../html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
+                  <a href="../html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
                 </li>
                 <li class="dropdown-menu-item">
                   <a href="../html/about.html" class="navbar-link">About</a>
@@ -661,6 +661,13 @@
                       document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
                   }
                 });
+                document.getElementById('more-link').addEventListener('click', function(event) {
+  event.preventDefault(); // Prevent the default action of the anchor tag
+
+  // Toggle the 'open' class for the dropdown menu
+  const dropdownMenu = document.getElementById('dropdown-menu');
+  dropdownMenu.classList.toggle('open');
+});
 
         
                 function menuToggle() {
