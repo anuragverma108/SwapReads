@@ -38,6 +38,13 @@
 
 <hr>
 
+## Project Structure
+
+<!-- START_STRUCTURE -->
+<!-- END_STRUCTURE -->
+
+<hr>
+
 ## 📚 Table of Contents
 - 📖 [Introduction](#about-us)
 - 📰 [Featured In](#featured-in)
