@@ -232,26 +232,34 @@
 .dark-mode .finput::placeholder {
       color: rgba(255, 255, 255, 0.6); 
     }
-.socialmediaicons a {
-    display: inline;
-    text-align: center;
-    padding: 0.5rem;
-    transition: all 0.3s ease;
-    color: rgb(0, 0, 0);
-    font-size: 2rem;
-  }
-
-  .socialmediaicons .fa-instagram {
-    margin-top:150px;
-  display: inline-block;
-  width: 3rem; 
-  height: 3rem; 
+    .socialmediaicons a {
+  display: inline-block; /* For better control of icons */
   text-align: center;
-  line-height: 3rem; 
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  font-size: 2rem;
+  color: rgb(0, 0, 0); /* Set default icon color to black */
+  background-color: transparent; /* Ensure background is transparent */
+  border: none; /* No borders */
+  box-shadow: none; /* Remove any default shadow */
+}
+
+.socialmediaicons a:hover {
+  background-color: transparent !important; /* Ensure hover background is transparent */
+  color: inherit; /* Ensure the hover does not change color unless specified */
+  border: none;
+}
+
+.socialmediaicons .fa-instagram {
+  margin-top: 150px;
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  line-height: 3rem;
   border-radius: 1rem;
   background: transparent;
-  color: #000000;
-  /* transition: background 1s, transform 1s;  */
+  color: #000000; /* Set default color to black */
 }
 
 .socialmediaicons .fa-instagram:hover {
@@ -260,86 +268,60 @@
                                #ee653d 25%, 
                                #d42e81 50%, 
                                #a237b6 75%, 
-                               #3e57bc 100%);
-                               transition: all 0.3s ;
-  background-clip: padding-box;
-  border-radius: 1rem; 
-  color: white; 
-  transform: scale(1.1); 
-  
-}  
-.socialmediaicons .fa-facebook:hover{
-  transition: all 0.3s ;
-  color: blue;
-  
-  
-}   
-.socialmediaicons .fa-youtube:hover{
-  transition: all 0.3s ;
-  color: red;
+                               #3e57bc 100%) !important;
+  color: white !important; /* Change icon color to white on hover */
+  transform: scale(1.1);
+  transition: all 0.3s ease;
 }
 
+.socialmediaicons .fa-facebook:hover {
+  color: #1877f2 !important; /* Facebook official blue */
+  transition: all 0.3s ease;
+}
+
+.socialmediaicons .fa-youtube:hover {
+  color: #ff0000 !important; /* YouTube official red */
+  transition: all 0.3s ease;
+}
 
 .dark-mode .socialmediaicons a {
-  color: white;
-}
-
-.dark-mode .social-icons .fa-facebook{
-  color: #e8f6ff;
+  color: white; /* Ensure the icon color is white in dark mode */
 }
 
 .dark-mode .socialmediaicons .fa-facebook:hover {
-  color: #425d9b
+  color: #425d9b !important; /* Facebook hover color in dark mode */
 }
+
 .dark-mode .socialmediaicons .fa-youtube:hover {
-  color: #f70000;
+  color: #f70000 !important; /* YouTube hover color in dark mode */
 }
 
-  .instagram {
-    
-    margin: 0.5rem;
-    
-  }
-
-
-  .facebook {
-    
-    margin: 0.5rem;
-  }
-  
-  .youtube {
-   
-    margin: 0.5rem;
-  }
-  .socialmediaicons .fa-github:hover {
-  transition: all 0.3s;
-  color: black; /* Original GitHub hover color */
+.socialmediaicons .fa-github:hover {
+  color: black !important; /* GitHub hover color */
+  transition: all 0.3s ease;
 }
 
 .socialmediaicons .fa-linkedin:hover {
-  transition: all 0.3s;
-  color: #0077b5; /* Original LinkedIn hover color */
+  color: #0077b5 !important; /* LinkedIn official blue */
+  transition: all 0.3s ease;
 }
 
 .socialmediaicons .fa-discord:hover {
-  transition: all 0.3s;
-  color: #7289da; /* Original Discord hover color */
-}
-
-.dark-mode .socialmediaicons .fa-github:hover {
-  color: #e1e1e1; /* Dark mode hover color for GitHub */
-}
-
-.dark-mode .socialmediaicons .fa-linkedin:hover {
-  color: #0e76a8; /* Dark mode hover color for LinkedIn */
-}
-
-.dark-mode .socialmediaicons .fa-discord:hover {
-  color: #a9a9a9; /* Dark mode hover color for Discord */
+  color: #7289da !important; /* Discord official purple */
+  transition: all 0.3s ease;
 }
 
 .instagram, .facebook, .youtube, .github, .linkedin, .discord {
   margin: 0.5rem;
+  background-color: transparent; /* Ensure no background during normal state */
+  border: none; /* No border */
+}
+
+.socialmediaicons a:focus, 
+.socialmediaicons a:active {
+  outline: none;
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 
 
@@ -982,7 +964,9 @@
     transition: background-color 0.3s ease;
 }
 
-
+.dark-mode .subscribe:hover{
+  background-color: #D32F2F;
+}
 .subscribe:hover {
     background-color: #2980b9;
 }
@@ -1642,26 +1626,40 @@ body > .skiptranslate {
 .dark-mode .finput::placeholder {
       color: rgba(255, 255, 255, 0.6); 
     }
-.socialmediaicons a {
-    display: inline;
-    text-align: center;
-    padding: 0.5rem;
-    transition: all 0.3s ease;
-    color: rgb(0, 0, 0);
-    font-size: 2rem;
-  }
 
-  .socialmediaicons .fa-instagram {
-    margin-top:150px;
-  display: inline-block;
-  width: 3rem; 
-  height: 3rem; 
+
+
+
+
+    
+.socialmediaicons a {
+  display: inline-block; /* To control dimensions of the icons */
   text-align: center;
-  line-height: 3rem; 
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  background-color: transparent; /* Ensure initial background is transparent */
+  border: none; /* Remove any borders */
+  box-shadow: none; /* Remove any shadow */
+}
+
+.socialmediaicons a:hover {
+  background-color: transparent !important; /* Ensure hover background is transparent */
+  box-shadow: none; /* Remove any shadow during hover */
+  border: none; /* Ensure no borders on hover */
+}
+
+.socialmediaicons .fa-instagram {
+  margin-top: 150px;
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  line-height: 3rem;
   border-radius: 1rem;
-  background: transparent;
+  background: transparent; /* No initial background */
   color: #000000;
-  /* transition: background 1s, transform 1s;  */
 }
 
 .socialmediaicons .fa-instagram:hover {
@@ -1670,89 +1668,83 @@ body > .skiptranslate {
                                #ee653d 25%, 
                                #d42e81 50%, 
                                #a237b6 75%, 
-                               #3e57bc 100%);
-                               transition: all 0.3s ;
-  background-clip: padding-box;
-  border-radius: 1rem; 
-  color: white; 
-  transform: scale(1.1); 
-  
-}  
-.socialmediaicons .fa-facebook:hover{
-  transition: all 0.3s ;
-  color: blue;
-  
-  
-}   
-.socialmediaicons .fa-youtube:hover{
-  transition: all 0.3s ;
-  color: red;
+                               #3e57bc 100%) !important;
+  color: white;
+  transform: scale(1.1);
+  transition: all 0.3s;
 }
 
+.socialmediaicons .fa-facebook:hover {
+  color: blue;
+  transition: all 0.3s;
+}
+
+.socialmediaicons .fa-youtube:hover {
+  color: red;
+  transition: all 0.3s;
+}
 
 .dark-mode .socialmediaicons a {
   color: white;
+  background-color: transparent !important; /* Ensure transparent background in dark mode */
 }
 
-.dark-mode .social-icons .fa-facebook{
+.dark-mode .socialmediaicons .fa-facebook {
   color: #e8f6ff;
 }
 
 .dark-mode .socialmediaicons .fa-facebook:hover {
-  color: #425d9b
+  color: #425d9b;
 }
+
 .dark-mode .socialmediaicons .fa-youtube:hover {
   color: #f70000;
 }
 
-  .instagram {
-    
-    margin: 0.5rem;
-    
-  }
-
-
-  .facebook {
-    
-    margin: 0.5rem;
-  }
-  
-  .youtube {
-   
-    margin: 0.5rem;
-  }
-  .socialmediaicons .fa-github:hover {
+.socialmediaicons .fa-github:hover {
+  color: black;
   transition: all 0.3s;
-  color: black; /* Original GitHub hover color */
 }
 
 .socialmediaicons .fa-linkedin:hover {
+  color: #0077b5;
   transition: all 0.3s;
-  color: #0077b5; /* Original LinkedIn hover color */
 }
 
 .socialmediaicons .fa-discord:hover {
+  color: #7289da;
   transition: all 0.3s;
-  color: #7289da; /* Original Discord hover color */
 }
 
 .dark-mode .socialmediaicons .fa-github:hover {
-  color: #e1e1e1; /* Dark mode hover color for GitHub */
+  color: #e1e1e1;
 }
 
 .dark-mode .socialmediaicons .fa-linkedin:hover {
-  color: #0e76a8; /* Dark mode hover color for LinkedIn */
+  color: #0e76a8;
 }
-.dark-mode .socialmediaicons .fa-discord{
-  color:white;
+
+.dark-mode .socialmediaicons .fa-discord {
+  color: white;
 }
+
 .dark-mode .socialmediaicons .fa-discord:hover {
-  color: #7289da; /* Dark mode hover color for Discord */
+  color: #7289da;
 }
 
 .instagram, .facebook, .youtube, .github, .linkedin, .discord {
   margin: 0.5rem;
+  background-color: transparent; /* Ensure no background during normal state */
+  border: none; /* No border */
 }
+
+.socialmediaicons a:focus, 
+.socialmediaicons a:active {
+  outline: none;
+  background-color: transparent !important; /* Ensure no background during focus/active */
+  box-shadow: none !important; /* Remove any shadow on focus/active */
+}
+
 
 
 
@@ -3893,80 +3885,50 @@ body > .skiptranslate {
         - #PRICING BASED ON THEIR VERSION
       -->
       <section class="section pricing" id="pricing" aria-label="pricing">
-        <div class="container">
+  <div class="container">
+    <p class="section-subtitle">Pricing</p>
+    <h2 class="h2 section-title has-underline">
+      Pricing based on their version
+      <span class="span has-before"></span>
+    </h2>
 
-          
-          <!-- <div class="pricingContainer" style="margin-top : -3rem" > -->
-            <p class="section-subtitle">Pricing</p>
-            
-            <h2 class="h2 section-title has-underline" ">
-              Pricing based on their version
-              <span class="span has-before"></span>
-            </h2>
-          <!-- </div> -->
+    <div class="pricing-container">
+      <div class="pricing-card">
+        <h3 class="h3 card-title">Fresh Pages - New Releases</h3>
+        <data class="price" value="5">75% Off</data>
+        <p class="card-text">
+          Exchange any recently released or gently used books, less than a year old, at 75% of the original cost (Limited Offer)
+        </p>
+        <a href="assets/html/checkout.html">
+          <button class="btn btn-secondary">BUY NOW</button>
+        </a>
+      </div>
 
-          <ul class="grid-list">
+      <div class="pricing-card">
+        <h3 class="h3 card-title">Timeless Classics - Aged Wonders</h3>
+        <data class="price" value="15">50% Off</data>
+        <p class="card-text">
+          Beloved classics or books aged 1 to 5 years at 50% of the original cost, preserving the magic of timeless stories.
+        </p>
+        <a href="assets/html/checkout.html">
+          <button class="btn btn-secondary">BUY NOW</button>
+        </a>
+      </div>
 
-            <li>
-              <div class="pricing-card">
+      <div class="pricing-card">
+        <h3 class="h3 card-title">Hidden Treasures - Vintage Editions</h3>
+        <data class="price" value="10">25% Off</data>
+        <p class="card-text">
+          Dive into the past with vintage editions or books over 5 years old, available for exchange at 25% of their original cost.
+        </p>
+        <a href="assets/html/checkout.html">
+          <button class="btn btn-secondary">BUY NOW</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <h3 class="h3 card-title">Fresh Pages - New Releases</h3>
-
-                <data class="price" value="5">75% Off</data>
-
-                <ul class="pricing-card-list">
-
-                  <li class="card-item">
-                    <p class="card-text">Exchange any recently released or gently used books, less than a year old, at
-                      75% of the original cost (Limited Offer)</p>
-                  </li>
-                  <li class="card-img">
-                    
-                  </li>
-                </ul>
-
-              <a href="assets\html\checkout.html"><button class="btn btn-secondary" >BUY NOW</button></a>
-              </div>
-            </li>
-            <li>
-              <div class="pricing-card">
-                <h3 class="h3 card-title">Timeless Classics - Aged Wonders</h3>
-                <data class="price" value="15">50% Off</data>
-                <ul class="pricing-card-list">
-
-                  <li class="card-item">
-                    <p class="card-text">beloved classics or books aged 1 to 5 years at 50% of the original cost,
-                      preserving the magic of timeless stories.</p>
-                  </li>
-                </ul>
-
-                <a href="assets\html\checkout.html"><button class="btn btn-secondary" >BUY NOW</button></a>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="pricing-card">
-                <h3 class="h3 card-title">Hidden Treasures - Vintage Editions</h3>
-                <data class="price" value="10">25% Off</data>
-                <ul class="pricing-card-list">
-
-
-                  <li class="card-item">
-                    <p class="card-text"> into the past with vintage editions or books over 5 years old, available
-                      for exchange at 25% of their original cost.</p>
-                  </li>
-                </ul>
-
-                <a href="assets\html\checkout.html"><button class="btn btn-secondary" >BUY NOW</button></a>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
-        </section>
 
       <!-- Genre -->
 
@@ -5239,29 +5201,22 @@ main
   </h2>
   <p class="section-subtitle" style="text-align: center;">Know what our customers say</p>
   
-  <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="40"
-    loop="true" >
+  <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="40" loop="true">
     <swiper-slide>
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front fronts dark-mode">
-            <div class="">
-
-              <div class="image-content">
-
-
-                <div class="card-image">
-                  <img src="./assets/images/testimonials-4.jpg" alt="" class="card-img">
-                </div>
-                <h2 style="font-size: 2rem;">Sonal K</h2>
-                <div class="bio">"I'm an avid reader who loves getting lost in the pages of a good book, always seeking new stories and perspectives."</div>
-                <div class="rows-icons">
-                  <i class="fa-brands fa-linkedin-in"></i>
-                  <i class="fa-brands fa-github-alt"></i>
-                  <i class="fa-brands fa-instagram"></i>
-                </div>
+            <div class="image-content">
+              <div class="card-image">
+                <img src="./assets/images/testimonials-4.jpg" alt="Sonal K" class="card-img">
               </div>
-
+              <h2>Sonal K</h2>
+              <p class="bio">"I'm an avid reader who loves getting lost in the pages of a good book, always seeking new stories and perspectives."</p>
+              <div class="rows-icons">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <i class="fa-brands fa-github-alt"></i>
+                <i class="fa-brands fa-instagram"></i>
+              </div>
               <div class="rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -5272,34 +5227,27 @@ main
             </div>
           </div>
           <div class="flip-card-back backs">
-            SwapReads has completely transformed my reading experience! Not only have I discovered new books I never
-            would have picked up otherwise, but I've also connected with fellow book lovers who share my passion. It's
-            like having a personalized library with endless possibilities. Highly recommend!
+            SwapReads has completely transformed my reading experience! I’ve connected with book lovers and discovered new books that I never would have picked up otherwise. Highly recommend!
           </div>
         </div>
       </div>
     </swiper-slide>
+
     <swiper-slide>
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front fronts dark-mode">
-            <div class="">
-
-              <div class="image-content">
-
-
-                <div class="card-image">
-                  <img src="./assets/images/testimonials-2.jpg" alt="" class="card-img">
-                </div>
-                <h2 style="font-size: 2rem;">Prem Sampath</h2>
-                <div class="bio">"I'm passionate about reading, exploring new worlds & ideas through books, whether it's fiction or non-fiction."</div>
-                <div class="rows-icons">
-                  <i class="fa-brands fa-linkedin-in"></i>
-                  <i class="fa-brands fa-github-alt"></i>
-                  <i class="fa-brands fa-instagram"></i>
-                </div>
+            <div class="image-content">
+              <div class="card-image">
+                <img src="./assets/images/testimonials-2.jpg" alt="Prem Sampath" class="card-img">
               </div>
-
+              <h2>Prem Sampath</h2>
+              <p class="bio">"I'm passionate about reading, exploring new worlds & ideas through books, whether it's fiction or non-fiction."</p>
+              <div class="rows-icons">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <i class="fa-brands fa-github-alt"></i>
+                <i class="fa-brands fa-instagram"></i>
+              </div>
               <div class="rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -5310,168 +5258,137 @@ main
             </div>
           </div>
           <div class="flip-card-back backs">
-            SwapReads has transformed my reading habits. Beyond swapping books, it's about fostering a community of
-            passionate readers. I've made friends, broadened my literary horizons, and unearthed hidden gems. Thank you,
+            SwapReads has transformed my reading habits. Beyond swapping books, it's about fostering a community of passionate readers. I've made friends, broadened my literary horizons, and unearthed hidden gems. Thank you!
           </div>
         </div>
       </div>
     </swiper-slide>
+
     <swiper-slide>
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front fronts dark-mode">
-            <div class="">
-
-              <div class="image-content">
-
-
-                <div class="card-image">
-                  <img src="./assets/images/testimonials-3.jpg" alt="" class="card-img">
-                </div>
-                <h2 style="font-size: 2rem;">Aron Loes</h2>
-                <div class="bio">"Books are my escape; I relish the adventure of exploring new worlds and perspectives with every page I turn."</div>
-                <div class="rows-icons">
-                  <i class="fa-brands fa-linkedin-in"></i>
-                  <i class="fa-brands fa-github-alt"></i>
-                  <i class="fa-brands fa-instagram"></i>
-                </div>
-                <div class="rating">
+            <div class="image-content">
+              <div class="card-image">
+                <img src="./assets/images/testimonials-3.jpg" alt="Aron Loes" class="card-img">
+              </div>
+              <h2>Aron Loes</h2>
+              <p class="bio">"Books are my escape; I relish the adventure of exploring new worlds and perspectives with every page I turn."</p>
+              <div class="rows-icons">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <i class="fa-brands fa-github-alt"></i>
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div class="rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
               </div>
-              </div>
-
-             
             </div>
           </div>
           <div class="flip-card-back backs">
-            SwapReads is a bookworm's paradise! With its user-friendly interface, welcoming community, and vast variety
-            of books for swapping, I've embarked on countless new literary adventures. It's like an ever-active book
-            club where I've connected with fellow literature lovers. I'm completely hooked!
+            SwapReads is a bookworm's paradise! With its user-friendly interface, welcoming community, and vast variety of books for swapping, I've embarked on countless new literary adventures. I'm completely hooked!
           </div>
         </div>
       </div>
     </swiper-slide>
+
     <swiper-slide>
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front fronts dark-mode">
-            <div class="">
-
-              <div class="image-content">
-
-
-                <div class="card-image">
-                  <img src="./assets/images/testimonials-1.jpg" alt="" class="card-img">
-                </div>
-                <h2 style="font-size: 2rem;">B.Sharmila</h2>
-                <div class="bio">"I’m a book lover who enjoys immersing myself in different genres, always on the lookout for the next great story or thought-provoking read."</div>
-                <div class="rows-icons">
-                  <i class="fa-brands fa-linkedin-in"></i>
-                  <i class="fa-brands fa-github-alt"></i>
-                  <i class="fa-brands fa-instagram"></i>
-                </div>
-                <div class="rating">
+            <div class="image-content">
+              <div class="card-image">
+                <img src="./assets/images/testimonials-1.jpg" alt="B.Sharmila" class="card-img">
+              </div>
+              <h2>B.Sharmila</h2>
+              <p class="bio">"I’m a book lover who enjoys immersing myself in different genres, always on the lookout for the next great story or thought-provoking read."</p>
+              <div class="rows-icons">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <i class="fa-brands fa-github-alt"></i>
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div class="rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
               </div>
-              </div>
-
-             
             </div>
           </div>
           <div class="flip-card-back backs">
-            SwapReads revolutionized my reading life! I've decluttered my shelf, discovered hidden gems, and connected
-            with a passionate community. Thank you, SwapReads, for stealing my heart!
+            SwapReads revolutionized my reading life! I've decluttered my shelf, discovered hidden gems, and connected with a passionate community. Thank you, SwapReads, for stealing my heart!
           </div>
         </div>
       </div>
     </swiper-slide>
+
     <swiper-slide>
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front fronts dark-mode">
-            <div class="">
-
-              <div class="image-content">
-
-
-                <div class="card-image">
-                  <img src="./assets/images/testimonials-5.jpg" alt="" class="card-img">
-                </div>
-                <h2 style="font-size: 2rem;">Jane Doe</h2>
-                <div class="bio">"Reading is my passion—I’m always seeking out the next compelling book to fuel my love for storytelling and knowledge."</div>
-                <div class="rows-icons">
-                  <i class="fa-brands fa-linkedin-in"></i>
-                  <i class="fa-brands fa-github-alt"></i>
-                  <i class="fa-brands fa-instagram"></i>
-                </div>
-                <div class="rating">
+            <div class="image-content">
+              <div class="card-image">
+                <img src="./assets/images/testimonials-5.jpg" alt="Jane Doe" class="card-img">
+              </div>
+              <h2>Jane Doe</h2>
+              <p class="bio">"Reading is my passion—I’m always seeking out the next compelling book to fuel my love for storytelling and knowledge."</p>
+              <div class="rows-icons">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <i class="fa-brands fa-github-alt"></i>
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div class="rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
               </div>
-              </div>
-
-             
             </div>
           </div>
           <div class="flip-card-back backs">
-            I love SwapReads! It's a fantastic way to keep my reading list dynamic and engaging. The platform is
-            easy to use, and the community is incredibly supportive and passionate about books. SwapReads has
-            definitely enriched my reading experience.
+            I love SwapReads! It's a fantastic way to keep my reading list dynamic and engaging. The platform is easy to use, and the community is incredibly supportive and passionate about books.
           </div>
         </div>
       </div>
     </swiper-slide>
+
     <swiper-slide>
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front fronts dark-mode">
-            <div class="">
-
-              <div class="image-content">
-
-
-                <div class="card-image">
-                  <img src="./assets/images/testimonials-6.jpg" alt="" class="card-img">
-                </div>
-                <h2 style="font-size: 2rem;">Maya Verma</h2>
-                <div class="bio">"I thrive on the thrill of reading, embracing every opportunity to delve into captivating narratives and diverse viewpoints."</div>
-                <div class="rows-icons">
-                  <i class="fa-brands fa-linkedin-in"></i>
-                  <i class="fa-brands fa-github-alt"></i>
-                  <i class="fa-brands fa-instagram"></i>
-                </div>
-                <div class="rating">
+            <div class="image-content">
+              <div class="card-image">
+                <img src="./assets/images/testimonials-6.jpg" alt="Maya Verma" class="card-img">
+              </div>
+              <h2>Maya Verma</h2>
+              <p class="bio">"I thrive on the thrill of reading, embracing every opportunity to delve into captivating narratives and diverse viewpoints."</p>
+              <div class="rows-icons">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <i class="fa-brands fa-github-alt"></i>
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div class="rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
               </div>
-              </div>
-
-             
             </div>
           </div>
           <div class="flip-card-back backs">
-            SwapReads has completely changed the way I read and discover books. The swapping system is seamless,
-            and I've found so many new favorites. Plus, the community is amazing – it's like having a book club at
-            my fingertips!
+            SwapReads has completely changed the way I read and discover books. The swapping system is seamless, and I've found so many new favorites. Plus, the community is amazing – it's like having a book club at my fingertips!
           </div>
         </div>
       </div>
     </swiper-slide>
   </swiper-container>
+
 </br>
 
   <!-- Testimonials -->
@@ -5975,14 +5892,33 @@ function showSuccessMessage() {
     </div>
     </div>
     <style>
+      .dark-mode #copyrightPolicyLink:hover{
+      color: #708090;
+      transition: color 0.5s ease;
+    }
+    .dark-mode #privacyNoticeLink:hover{
+      color: #708090;
+      transition: color 0.5s ease;
+    }
+    .dark-mode #privacyNoticeLink:hover{
+      color: #708090;
+      transition: color 0.5s ease;
+    }
+    .dark-mode #ourvisionlink:hover{
+      color: #708090;
+      transition: color 0.5s ease;
+    }
     #copyrightPolicyLink:hover{
       color: rgb(126, 0, 21);
+      transition: color 0.5s ease;
     }
     #privacyNoticeLink:hover{
       color: rgb(126, 0, 21);
+      transition: color 0.5s ease;
     }
     #ourvisionlink:hover{
       color: rgb(126, 0, 21);
+      transition: color 0.5s ease;
     }
   </style>
     <!-- Copyright Policy Modal -->
