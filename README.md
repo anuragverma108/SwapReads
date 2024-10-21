@@ -38,6 +38,402 @@
 
 <hr>
 
+## Project Structure
+
+<!-- START_STRUCTURE -->
+```
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── DOTENV
+├── Information/
+│   ├── CODE_OF_CONDUCT.md
+│   ├── Create Contributing.md
+│   ├── LICENSE
+│   ├── Learn.md
+│   ├── desktop.png
+│   ├── index.txt
+│   └── style-guide.md
+├── LICENSE
+├── Mystical-fantaies.html
+├── README.md
+├── SwapReads/
+│   └── assets/
+│       └── images/
+│           └── ctc2.png
+├── assets/
+│   ├── JSON/
+│   │   ├── package-lock.json
+│   │   └── package.json
+│   ├── css/
+│   │   ├── Available.css
+│   │   ├── BookRecommend.css
+│   │   ├── Error.css
+│   │   ├── MenuClick.css
+│   │   ├── about.css
+│   │   ├── aboutus.css
+│   │   ├── addremove.css
+│   │   ├── checkout.css
+│   │   ├── contributor.css
+│   │   ├── event.css
+│   │   ├── forgot-pass.css
+│   │   ├── freeBooks.css
+│   │   ├── litrary_realms.css
+│   │   ├── login.css
+│   │   ├── preloader.css
+│   │   ├── rate.css
+│   │   ├── read_later.css
+│   │   ├── readerConn.css
+│   │   ├── refresher.css
+│   │   ├── socialmedia.css
+│   │   ├── style.css
+│   │   ├── styles.css
+│   │   ├── swiper-bundle.min.css
+│   │   ├── test-style.css
+│   │   └── visitors.css
+│   ├── event.css
+│   ├── favicon_package_v0.16/
+│   │   ├── android-chrome-192x192.png
+│   │   ├── android-chrome-256x256.png
+│   │   ├── apple-touch-icon.png
+│   │   ├── browserconfig.xml
+│   │   ├── favicon-16x16.png
+│   │   ├── favicon-32x32.png
+│   │   ├── favicon.ico
+│   │   ├── favicon.svg
+│   │   ├── mstile-150x150.png
+│   │   ├── safari-pinned-tab.svg
+│   │   └── site.webmanifest
+│   ├── font-6/
+│   │   ├── css/
+│   │   │   ├── all.css
+│   │   │   ├── all.min.css
+│   │   │   ├── brands.css
+│   │   │   ├── brands.min.css
+│   │   │   ├── fontawesome.css
+│   │   │   ├── fontawesome.min.css
+│   │   │   ├── regular.css
+│   │   │   ├── regular.min.css
+│   │   │   ├── solid.css
+│   │   │   ├── solid.min.css
+│   │   │   ├── svg-with-js.css
+│   │   │   ├── svg-with-js.min.css
+│   │   │   ├── v4-font-face.css
+│   │   │   ├── v4-font-face.min.css
+│   │   │   ├── v4-shims.css
+│   │   │   ├── v4-shims.min.css
+│   │   │   ├── v5-font-face.css
+│   │   │   └── v5-font-face.min.css
+│   │   └── webfonts/
+│   │       ├── fa-brands-400.ttf
+│   │       ├── fa-brands-400.woff2
+│   │       ├── fa-regular-400.ttf
+│   │       ├── fa-regular-400.woff2
+│   │       ├── fa-solid-900.ttf
+│   │       ├── fa-solid-900.woff2
+│   │       ├── fa-v4compatibility.ttf
+│   │       └── fa-v4compatibility.woff2
+│   ├── free books/
+│   │   ├── The-Power-of-Positive-Thinking.pdf
+│   │   ├── Time Management (McGraw-Hill).pdf
+│   │   └── Web Programming with HTML5, CSS, and JavaScript.pdf
+│   ├── hacktoberfest.png
+│   ├── html/
+│   │   ├── ConnReader.html
+│   │   ├── Error.html
+│   │   ├── about.html
+│   │   ├── about1.html
+│   │   ├── addremovebook.html
+│   │   ├── assets/
+│   │   │   └── css/
+│   │   │       └── event.css
+│   │   ├── audio.html
+│   │   ├── blog.html
+│   │   ├── book_recommend.html
+│   │   ├── booking.html
+│   │   ├── booklistswap.html
+│   │   ├── bookpref.html
+│   │   ├── borrow.html
+│   │   ├── checkout.html
+│   │   ├── comsp.html
+│   │   ├── custom.html
+│   │   ├── donate.html
+│   │   ├── event.html
+│   │   ├── forgot-pass.html
+│   │   ├── freeBooks.html
+│   │   ├── googlece7a206a6cfbb7ed.html
+│   │   ├── index.html
+│   │   ├── login.html
+│   │   ├── mood.html
+│   │   ├── mylogin.html
+│   │   ├── ngo.html
+│   │   ├── pricing.html
+│   │   ├── profileedit.html
+│   │   ├── quiz.html
+│   │   ├── rate.html
+│   │   ├── read.html
+│   │   ├── read_later.html
+│   │   ├── school.html
+│   │   └── social.html
+│   ├── images/
+│   │   ├── FB icon.png
+│   │   ├── LogoPicDark.png
+│   │   ├── LogoPicLight.png
+│   │   ├── YT icon.png
+│   │   ├── achievement-1.jpg
+│   │   ├── achievement-2.jpg
+│   │   ├── achievement-3.jpg
+│   │   ├── achievement-4.jpg
+│   │   ├── achievement-5.jpg
+│   │   ├── author-banner.png
+│   │   ├── avatar1.jpg
+│   │   ├── avatar2.jpg
+│   │   ├── avatar3.jpg
+│   │   ├── avatar4.jpg
+│   │   ├── avatar5.jpg
+│   │   ├── award.svg
+│   │   ├── be.jpeg
+│   │   ├── benefits-1.svg
+│   │   ├── benefits-2.svg
+│   │   ├── benefits-3.svg
+│   │   ├── benefits-4.svg
+│   │   ├── benefits-5.svg
+│   │   ├── benefits-6.svg
+│   │   ├── book/
+│   │   │   ├── Army.jpg
+│   │   │   ├── Economist.jpg
+│   │   │   ├── Forbes.jpg
+│   │   │   ├── Frontline.jpg
+│   │   │   ├── Newsweek.jpg
+│   │   │   ├── Philosophy.jpg
+│   │   │   ├── Science.jpg
+│   │   │   ├── Techlife.jpg
+│   │   │   ├── Time_Special.jpg
+│   │   │   └── newScience.jpg
+│   │   ├── book.png
+│   │   ├── bookhover.png
+│   │   ├── books_swapRead.jpg
+│   │   ├── bookshelf.png
+│   │   ├── bookshelfhover.png
+│   │   ├── cl.jpg
+│   │   ├── close-white.png
+│   │   ├── close.png
+│   │   ├── close1.png
+│   │   ├── community.png
+│   │   ├── communityhover.png
+│   │   ├── ctc1.png
+│   │   ├── ctc2.png
+│   │   ├── ctc3.png
+│   │   ├── ctc4.png
+│   │   ├── ctc5.png
+│   │   ├── darkmode_bg.png
+│   │   ├── edit profile.jpg
+│   │   ├── em.jpeg
+│   │   ├── emoji/
+│   │   │   ├── emoji-1.png
+│   │   │   ├── emoji-2.png
+│   │   │   ├── emoji-3.png
+│   │   │   ├── emoji-4.png
+│   │   │   └── emoji-5.png
+│   │   ├── eye-close.png
+│   │   ├── eye-open.png
+│   │   ├── final.png
+│   │   ├── genres/
+│   │   │   ├── 1.jpg
+│   │   │   ├── 10.jpg
+│   │   │   ├── 2.jpg
+│   │   │   ├── 3.jpg
+│   │   │   ├── 4.jpg
+│   │   │   ├── 5.jpeg
+│   │   │   ├── 6.jpg
+│   │   │   ├── 7.jpg
+│   │   │   ├── 8.jpg
+│   │   │   ├── 9.jpg
+│   │   │   ├── auth1.jpg
+│   │   │   ├── auth2.jpg
+│   │   │   ├── auth3.jpg
+│   │   │   └── c1.jpg
+│   │   ├── google button.jpeg
+│   │   ├── google icon.jpeg
+│   │   ├── gr.jpeg
+│   │   ├── help.png
+│   │   ├── hero-banner.png
+│   │   ├── hero-section.avif
+│   │   ├── icons8-sun.svg
+│   │   ├── images/
+│   │   │   ├── b.jpg
+│   │   │   ├── bl.jpeg
+│   │   │   ├── lib.jpg
+│   │   │   ├── n.jpg
+│   │   │   ├── nGO.jpg
+│   │   │   ├── ngo.jpeg
+│   │   │   ├── quiz.jpg
+│   │   │   └── school.png
+│   │   ├── inbox.png
+│   │   ├── insta icon.png
+│   │   ├── ja.jpeg
+│   │   ├── jk.jpeg
+│   │   ├── jo.jpeg
+│   │   ├── logo_darkbg.png
+│   │   ├── logo_whitebg.png
+│   │   ├── logout.png
+│   │   ├── ma.jpg
+│   │   ├── mg.jpeg
+│   │   ├── moon.png
+│   │   ├── moon_solid.svg
+│   │   ├── ne.jpeg
+│   │   ├── nes.jpeg
+│   │   ├── new_logo.png
+│   │   ├── new_logo_banner_dark.png
+│   │   ├── new_logo_banner_light.png
+│   │   ├── new_logo_dark.png
+│   │   ├── pic1.jpeg
+│   │   ├── pic2.jpeg
+│   │   ├── pic3.jpeg
+│   │   ├── pic4.jpeg
+│   │   ├── preview-1.png
+│   │   ├── preview-2.png
+│   │   ├── preview-3.png
+│   │   ├── preview-4.png
+│   │   ├── preview-5.png
+│   │   ├── re.jpg
+│   │   ├── read.png
+│   │   ├── readhover.png
+│   │   ├── settings.png
+│   │   ├── sun.png
+│   │   ├── tele.png
+│   │   ├── telephone.png
+│   │   ├── testimonials-1.jpg
+│   │   ├── testimonials-2.jpg
+│   │   ├── testimonials-3.jpg
+│   │   ├── testimonials-4.jpg
+│   │   ├── testimonials-5.jpg
+│   │   ├── testimonials-6.jpg
+│   │   ├── trendingbook1.jpg
+│   │   ├── trendingbook2.jpg
+│   │   ├── trendingbook3.jpg
+│   │   ├── trendingbook4.jpg
+│   │   ├── trendingbook5.jpg
+│   │   ├── twitter-icon.png
+│   │   ├── twitter.png
+│   │   ├── user.jpg
+│   │   └── website-ss.png
+│   ├── js/
+│   │   ├── ReaderConn.js
+│   │   ├── addremove.js
+│   │   ├── checkout.js
+│   │   ├── comsp.js
+│   │   ├── contribute.js
+│   │   ├── downloadPDF.js
+│   │   ├── faq.js
+│   │   ├── fire.js
+│   │   ├── forgotPassword.js
+│   │   ├── freeBooks.js
+│   │   ├── login.js
+│   │   ├── menuButton.js
+│   │   ├── preloader.js
+│   │   ├── rate.js
+│   │   ├── rateUsModal.js
+│   │   ├── read_later.js
+│   │   ├── refresher.js
+│   │   ├── script.js
+│   │   ├── scroll-reveal.js
+│   │   ├── scroll.js
+│   │   ├── signinGoogle.js
+│   │   ├── signup.js
+│   │   ├── swiper-bundle.min.js
+│   │   ├── test-script.js
+│   │   └── visitors.js
+│   ├── package-lock.json
+│   ├── svg/
+│   │   └── refresher.svg
+│   └── validation/
+│       ├── validate.schema.js
+│       └── zodschema.js
+├── audio/
+│   ├── Bernice Bobs Her Hair by F. Scott Fitzgerald _ Audiobooks Youtube Free _ Short Stories Youtube [ ezmp3.cc ].mp3
+│   ├── The Landlady - Roald Dahl [ ezmp3.cc ].mp3
+│   ├── The Lottery Ticket by Anton Chekhov Audiobook [ ezmp3.cc ].mp3
+│   ├── The Magic Shop by H. G. Wells Audiobook - FULL [ ezmp3.cc ] (1).mp3
+│   ├── au1.mp3
+│   ├── bernier bobs her hair.jpg
+│   ├── landlady.jpg
+│   ├── lotery ticket.jpeg
+│   └── the-magic-shop-17 (1).jpg
+├── audiobook.html
+├── benefits.png
+├── biographies.html
+├── books.html
+├── chat.css
+├── chat.html
+├── chat.js
+├── comsp.html
+├── connectWithsame.html
+├── contactus1.html
+├── contributors/
+│   ├── contributor.css
+│   ├── contributor.html
+│   └── contributor.js
+├── cookiepolicy.html
+├── cookies.html
+├── copyrightpolicy.html
+├── costefficient.html
+├── darkmode1.html
+├── diverseLiteracy.html
+├── e.css
+├── e.html
+├── e.js
+├── email.css
+├── email.html
+├── environmental-impact.html
+├── footer1.css
+├── footer1.html
+├── genre.png
+├── help.html
+├── historical-chronicals.html
+├── home.png
+├── index.html
+├── intriguing-mysteries.html
+├── lib.jpg
+├── logout.css
+├── logout.js
+├── lol.html
+├── mindful-living.html
+├── modals(privacy policy).css
+├── models/
+│   └── BookDonation.js
+├── mylogin.html
+├── n.jpg
+├── our-vision.html
+├── package-lock.json
+├── package.json
+├── pricing.html
+├── privacynotice.html
+├── profile.css
+├── profile.html
+├── repo_structure.txt
+├── revitalize.html
+├── romantic-esc.html
+├── sc.jpg
+├── scifi.html
+├── script.js
+├── scrollbar.css
+├── scrollbar.js
+├── sense-sensibility_01_austen_64kb.mp3
+├── server.js
+├── signup1.html
+├── stackbit.config.ts
+├── stay_connect.css
+├── subscribe.html
+├── terms&cond.html
+├── thrilling-adventures.html
+├── translate.html
+├── vanilla-tilt.js
+└── vedio.mp4
+```
+<!-- END_STRUCTURE -->
+
+<hr>
+
 ## 📚 Table of Contents
 - 📖 [Introduction](#about-us)
 - 📰 [Featured In](#featured-in)
