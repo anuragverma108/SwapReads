@@ -1784,14 +1784,31 @@ body.dark-mode .pricing-card button {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+.contact-container {
+  background-color:var(--white);
+  display: flex;
+  justify-content: space-between; /* Ensures the contact details and map are at the left and right ends */
+  align-items: flex-start; /* Aligns the content vertically at the top */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.flex-container {
+  flex: 1; /* Takes up the left side space */
+  margin-right: 20px; /* Adds space between the contact details and map */
+  padding-top:50px;
+  padding-left:40px;
+}
+
 .map-container {
   width: 100%;
-  max-width: 400px;
-  aspect-ratio: 1;
+  max-width: 400px; /* Keeps the map responsive */
+  aspect-ratio: 1; /* Ensures a square aspect ratio */
   margin: 20px 0;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0; /* Prevents shrinking of the map */
+  border:2px solid #c36969;
 }
 
 .map-container iframe {
