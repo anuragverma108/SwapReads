@@ -119,3 +119,4 @@ window.addEventListener("scroll", function () {
 
 window.onscroll = calcScrollValue;
 window.onload = calcScrollValue;
+ 
