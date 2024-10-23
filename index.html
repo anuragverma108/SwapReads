@@ -2803,9 +2803,10 @@ body > .skiptranslate {
         align-items: center;
         z-index: 1009;
     }
-
+    @media screen and (min-width: 768px) {
     .popup-content-nl {
         display: flex;
+        flex-direction: row;
         background-color: white;
         border-radius: 10px;
         max-width: 800px;
@@ -2814,6 +2815,53 @@ body > .skiptranslate {
         position: relative;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     }
+
+    .popup-left-nl {
+        flex: 1;
+    }
+
+    .popup-right-nl {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .popup-left-nl img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .popup-content-nl {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 10px;
+        max-width: 300px;
+        height: 800px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .popup-left-nl img {
+        width: 100%;
+        max-height: 400px;
+    }
+
+    .popup-right-nl {
+        padding: 15px;
+        width: 100%;
+        max-height: 400px;
+        text-align: center;
+    }
+}
+
 
     .close1-btn-nl {
         width: 20px;
@@ -2833,8 +2881,9 @@ body > .skiptranslate {
     }
 
     .popup-right-nl {
+        margin-top: 10px;
         padding: 20px;
-        width: 50%;
+        width: 100%;
         display: flex;
         flex-direction: column; 
         align-items: center;
@@ -2861,6 +2910,7 @@ body > .skiptranslate {
     .pop_up-nl {
         margin-bottom: 15px;
         font-weight: bold;
+        text-align: center;
         background: -webkit-linear-gradient(left, #fd1c1c, #3375c7, #14addd);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
