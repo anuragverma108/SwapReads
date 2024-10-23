@@ -11,7 +11,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: rgba(194, 192, 192, 0.5);
+            background: rgba(255, 171, 157, 0.5);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -19,7 +19,7 @@
 
         header {
             width: 100%;
-            background: rgba(255, 171, 157, 0.5);
+            background:white
             padding: 0.5em 0;
             display: flex;
             align-items: center;
@@ -58,7 +58,7 @@
             bottom: 0;
             width: 100%;
             height: 3px;
-            /* background-color: #fcb0b480; */
+             background-color: #fcb0b480; 
             transform: scaleX(0);
             transform-origin: right;
             transition: transform 0.6s ease;
@@ -203,14 +203,132 @@
             border-style: solid;
             border-color: #000 transparent transparent transparent;
         }
+        /* Styles for devices with a width of 600px or less */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    header {
+        flex-direction: column;
+        padding: 1em;
+    }
+
+    .logopic {
+        margin-left: 0;
+        width: 10rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-left: 0;
+        gap: 20px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    main {
+        max-width: 100%;
+        padding: 1em;
+    }
+
+    .calendar-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .row {
+        justify-content: space-between;
+    }
+
+    .day {
+        width: 40px;
+        height: 40px;
+    }
+
+    .footer {
+        font-size: 0.7em;
+        padding: 20px;
+    }
+}
+
+/* Styles for tablets and devices up to 1024px */
+@media (max-width: 1024px) {
+    nav ul {
+        gap: 20px;
+        margin-left: 50px;
+    }
+
+    .logopic {
+        width: 12rem;
+    }
+
+    .calendar-header {
+        flex-direction: row;
+    }
+
+    .day {
+        width: 45px;
+        height: 45px;
+    }
+}
+/* Hamburger menu for small screens */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px;
+}
+
+@media (max-width: 600px) {
+    .hamburger {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+}
+/* .logopic {
+    width: 100%;
+    max-width: 15rem; /* Maximum width for larger screens */
+    /* height: auto; */
+ */
+
+
+
     </style>
 </head>
 
 <body>
     <header>
-        <a href="index.html" class="logo">
-            <img src="./assets/images/final.png" class="logopic" alt="Logo" />
+        <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+            <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
           </a>
+          <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <nav>
             <ul class="navbar-list">
                 <li class="navbar-item">
@@ -277,6 +395,8 @@
     </footer>
 
     <script>
+
+
         const eventCalendar = {
             events: [
                 { date: '2024-10-07', title: 'Book Club Meeting' },
@@ -357,7 +477,12 @@
             eventCalendar.currentYear = (eventCalendar.currentMonth === 0) ? eventCalendar.currentYear + 1 : eventCalendar.currentYear;
             generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
         });
+        const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('nav ul');
 
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
         generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
     </script>
 </body>
