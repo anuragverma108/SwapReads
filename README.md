@@ -435,7 +435,7 @@
 <hr>
 
 ## 📚 Table of Contents
-- 📖 [Introduction](#introduction)
+- 📖 [Introduction](#-introduction)
 - 📰 [Featured In](#featured-in)
 - ❓ [The Problem](#the-problem)
 - 💡 [How SwapReads.com Solves These Problems](#how-swapreadscom-solves-these-problems)
