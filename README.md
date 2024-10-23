@@ -340,6 +340,7 @@
 │   │   ├── scroll.js
 │   │   ├── signinGoogle.js
 │   │   ├── signup.js
+│   │   ├── subscribe.js
 │   │   ├── swiper-bundle.min.js
 │   │   ├── test-script.js
 │   │   └── visitors.js
@@ -373,6 +374,8 @@
 │   ├── contributor.css
 │   ├── contributor.html
 │   └── contributor.js
+├── controller/
+│   └── subscribe.js
 ├── cookiepolicy.html
 ├── cookies.html
 ├── copyrightpolicy.html
@@ -407,6 +410,8 @@
 ├── our-vision.html
 ├── package-lock.json
 ├── package.json
+├── popup.jpg
+├── popup.js
 ├── pricing.html
 ├── privacynotice.html
 ├── profile.css
