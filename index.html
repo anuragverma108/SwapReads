@@ -5817,44 +5817,51 @@ p {
 </style>
    
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-  const faqContainers = document.querySelectorAll('.faq-container');
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqContainers = document.querySelectorAll('.faq-container');
 
-  faqContainers.forEach(faq => {
-    const question = faq.querySelector('.question');
-    
-    question.addEventListener('click', () => {
-      const answers = faq.querySelector('.answers');
-   
-      answers.classList.toggle('visible');
-    
-      const icon = faq.querySelector('.icon');
-      icon.classList.toggle('fa-rotate-180');
-    });
-    
-   
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
+    faqContainers.forEach(faq => {
+      const question = faq.querySelector('.question');
 
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+      question.addEventListener('click', () => {
+        
+        faqContainers.forEach(otherFaq => {
+          if (otherFaq !== faq) {
+            const otherAnswers = otherFaq.querySelector('.answers');
+            const otherIcon = otherFaq.querySelector('.icon');
+            otherAnswers.classList.remove('visible');
+            otherIcon.classList.remove('fa-rotate-180');
+          }
+        });
+
+        const answers = faq.querySelector('.answers');
+        answers.classList.toggle('visible');
+
+        const icon = faq.querySelector('.icon');
+        icon.classList.toggle('fa-rotate-180');
       });
-    }, observerOptions);
 
-    observer.observe(faq);
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      observer.observe(faq);
+    });
   });
-}); 
+</script>
 
-
-  </script>
   <br /><br />
   <link rel="stylesheet" href="./assets/css/visitors.css">
   <!-- ############### Footer ############### -->
