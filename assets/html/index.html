@@ -65,6 +65,7 @@
   <script src="./script.js"></script>
   
   <style>
+
     swiper-container {
       width: 100%;
       height: 75%;
@@ -72,7 +73,33 @@
     .flip-card-back .backs{
      background-color: #ffb2a8 !important;
     }
+ 
 
+  /*  load more */
+.grid-list li {
+  display: none;
+}
+
+.grid-list li:nth-child(-n+6) {
+  display: block; 
+}
+
+
+.load-more {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.load-more:hover {
+  background-color: #0056b3;
+}
+
+/* end  */
     
     .nav {
       display: flex;
@@ -2579,9 +2606,25 @@ body > .skiptranslate {
               </div>
             </li>
           </ul>
-
+          <button class="load-more" id="loadMoreBtn">Load More</button>
         </div>
       </section>
+
+ <script>
+  document.getElementById('loadMoreBtn').addEventListener('click', function() {
+    // Get all cards in the list
+    var cards = document.querySelectorAll('.grid-list li');
+    
+    // Loop through the hidden cards and show them
+    for (var i = 6; i < cards.length; i++) {
+      cards[i].style.display = 'block';
+    }
+  
+    // Hide the Load More button after clicking
+    this.style.display = 'none';
+  });
+ </script>
+      
       <!--
         - #CHAPTERS
       -->
