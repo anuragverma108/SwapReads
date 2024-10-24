@@ -866,7 +866,7 @@
   <div id="about-us ">
     <h1 class="about-us-heading">About Us</h1>
     <div class="container " style="text-align: center;">
-      <iframe style="margin-bottom: 3.5rem;" src="https://www.youtube.com/embed/I2JaNUsPCc0?si=FYZkYQ1mTYHr74I-"
+      <iframe style="margin-bottom: 3.5rem; height: 60vh; width: 70vw;" src="https://www.youtube.com/embed/I2JaNUsPCc0?si=FYZkYQ1mTYHr74I-"
         allowfullscreen></iframe>
     </div>
 
@@ -1311,15 +1311,14 @@ setTimeout(function() {
 
 </script>
 <style>
-
-
+.finput:hover{
+  border:0.2rem solid #A30F17;
+  margin-bottom:-0.2rem;
+}
 form {
   width: 500px;
   height:300px;
   font-size: larger;
-}
-form:hover{
-  background-color: black;
 }
 
 .subscribe {
@@ -1430,19 +1429,22 @@ function showConfirmationMessage()
       <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
         <button class="Btn">
           <svg height="1.2em" class="arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path></svg>
-        <p class="text">Back to Top</p>
+          <p class="text">Back to Top</p>
         </button>
       </div>
       <div>
-        <button id="translateButton">Translate</button>
+        <button id="translateButton" style="background-color: #A30F17; transition:all 1s ease 0.1s;">Translate</button>
       </div>
     </div>
 
     </div>
   </div>
-
-
-
+<style>
+  #translateButton:hover{
+    background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+    transform:scale(1.1);
+  }
+</style>
 
   <!-- adding privacy policy and copyright popup-->
   <div class="footer-f" style="text-align: center; align-items: center;">
@@ -1737,35 +1739,41 @@ function showConfirmationMessage()
         speed: 400
       });
     </script>
-    <script>
+<script>
+  const owner = 'anuragverma108';
+  const repo = 'SwapReads';
+  const contributorsPerPage = 8;
+  let contributors = [];
+  let currentPage = 1;
 
-      // Function for the contributors section
+  async function fetchContributors() {
+      let allContributors = [];
+      let page = 1;
 
-      const owner = 'anuragverma108';
-      const repo = 'SwapReads';
-      const contributorsPerPage = 8;
-      let contributors = [];
-      let currentPage = 1;
-
-      async function fetchContributors() {
-        const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contributors`);
-        if (!response.ok) {
-          console.error('Failed to fetch contributors:', response.statusText);
-          return;
-        }
-        contributors = await response.json();
-        displayContributors();
-        createPaginationButtons();
+      while (true) {
+          const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contributors?page=${page}&per_page=100`);
+          if (!response.ok) {
+              console.error('Failed to fetch contributors:', response.statusText);
+              break;
+          }
+          const data = await response.json();
+          allContributors = allContributors.concat(data);
+          if (data.length < 100) break; // Stop if fewer than 100 returned
+          page++;
       }
+      contributors = allContributors;
+      displayContributors();
+      createPaginationButtons();
+  }
 
-      function displayContributors() {
-        const container = document.getElementById('contributor-cards');
-        container.innerHTML = '';
-        const start = (currentPage - 1) * contributorsPerPage;
-        const end = start + contributorsPerPage;
-        const currentContributors = contributors.slice(start, end);
+  function displayContributors() {
+      const container = document.getElementById('contributor-cards');
+      container.innerHTML = '';
+      const start = (currentPage - 1) * contributorsPerPage;
+      const end = start + contributorsPerPage;
+      const currentContributors = contributors.slice(start, end);
 
-        currentContributors.forEach(contributor => {
+      currentContributors.forEach(contributor => {
           const card = document.createElement('div');
           card.className = 'contributor-member';
           card.setAttribute('data-tilt', '');
@@ -1783,129 +1791,54 @@ function showConfirmationMessage()
           const viewProfileButton = document.createElement("button");
           viewProfileButton.textContent = "View Profile";
           viewProfileButton.addEventListener("click", () => {
-            window.open(contributor.html_url, "_blank");
+              window.open(contributor.html_url, "_blank");
           });
 
           card.appendChild(img);
           card.appendChild(name);
           card.appendChild(contributions);
-          container.appendChild(card);
           card.appendChild(viewProfileButton);
-        });
-      }
-
-      function createPaginationButtons() {
-        const paginationContainer = document.getElementById('pagination');
-        paginationContainer.innerHTML = '';
-        const totalPages = Math.ceil(contributors.length / contributorsPerPage);
-
-        for (let i = 1; i <= totalPages; i++) {
-          const button = document.createElement('button');
-          button.textContent = i;
-          button.classList.add('pagination-button');
-          if (i === currentPage) {
-            button.classList.add('active');
-          }
-          button.addEventListener('click', () => {
-            currentPage = i;
-            displayContributors();
-            updatePaginationButtons();
-          });
-          paginationContainer.appendChild(button);
-        }
-      }
-
-      function updatePaginationButtons() {
-        const buttons = document.querySelectorAll('.pagination-button');
-        buttons.forEach(button => {
-          button.classList.remove('active');
-          if (parseInt(button.textContent) === currentPage) {
-            button.classList.add('active');
-          }
-        });
-      }
-
-      fetchContributors();
-    </script>
-    <script>
-      const navbar = document.querySelector('.navbar'),
-        NavButton = document.querySelector('.nav-toggle-btn'),
-        open = document.querySelector('.open'),
-        close = document.querySelector('.close');
-      let count = 0
-      NavButton.addEventListener('click', () => {
-
-        if (count === 0) {
-          navbar.classList.remove('nav_activated')
-          open.classList.add('close')
-          close.classList.add('open')
-          open.classList.remove('open')
-          close.classList.remove('close')
-          count++
-        }
-        else {
-          navbar.classList.add('nav_activated')
-          open.classList.add('open')
-          close.classList.add('close')
-          open.classList.remove('close')
-          close.classList.remove('open')
-          count = 0
-        }
-      })
-    </script>
-<script>
-  // Coordinates for the cursor
-  const coords = { x: 0, y: 0 };
-  const circles = document.querySelectorAll(".circle");
-
-  // Colors for the circles
-  const colors = [
-    "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
-    "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
-    "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
-    "#680060", "#60005f", "#48005f", "#3d005e"
-  ];
-
-  // Assign colors and initial position to each circle
-  circles.forEach(function (circle, index) {
-    circle.x = 0;
-    circle.y = 0;
-    circle.style.backgroundColor = colors[index % colors.length];
-  });
-
-  // Update the coordinates when the mouse moves
-  window.addEventListener("mousemove", function (e) {
-    coords.x = e.clientX;
-    coords.y = e.clientY;
-  });
-
-  // Animation function to move the circles
-  function animateCircles() {
-    let x = coords.x;
-    let y = coords.y;
-
-    circles.forEach(function (circle, index) {
-      // Update the position and scale of each circle
-      circle.style.left = x - 12 + "px";
-      circle.style.top = y - 12 + "px";
-      circle.style.scale = (circles.length - index) / circles.length;
-
-      circle.x = x;
-      circle.y = y;
-
-      // Get the next circle in the sequence
-      const nextCircle = circles[index + 1] || circles[0];
-      x += (nextCircle.x - x) * 0.3;
-      y += (nextCircle.y - y) * 0.3;
-    });
-
-    // Repeat the animation
-    requestAnimationFrame(animateCircles);
+          container.appendChild(card);
+      });
   }
 
-  // Start the animation
-  animateCircles();
+  function createPaginationButtons() {
+      const paginationContainer = document.getElementById('pagination');
+      paginationContainer.innerHTML = '';
+
+      const totalPages = Math.ceil(contributors.length / contributorsPerPage);
+
+      const prevButton = document.createElement('button');
+      prevButton.textContent = '« Previous';
+      prevButton.disabled = currentPage === 1; // Disable if on the first page
+      prevButton.addEventListener('click', () => {
+          if (currentPage > 1) {
+              currentPage--;
+              displayContributors();
+              createPaginationButtons();
+          }
+      });
+      paginationContainer.appendChild(prevButton);
+
+      const nextButton = document.createElement('button');
+      nextButton.textContent = 'Next »';
+      nextButton.disabled = currentPage === totalPages; // Disable if on the last page
+      nextButton.addEventListener('click', () => {
+          if (currentPage < totalPages) {
+              currentPage++;
+              displayContributors();
+              createPaginationButtons();
+          }
+      });
+      paginationContainer.appendChild(nextButton);
+  }
+
+  fetchContributors();
 </script>
-  </body>
+
+
+  
+  <!-- Your other scripts here -->
+</body>
 
 </html>

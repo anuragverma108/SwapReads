@@ -5,6 +5,7 @@
 
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="exchangeHub.css">
   <style>
     body {
         margin: 0;
@@ -1860,8 +1861,8 @@ body > .skiptranslate {
     left: 0;
     display: block;
     border-radius: 2.8rem;
-    background: rgba(255, 171, 157, 0.5);
-    width: 5.6rem;
+    background: rgb(255 144 125 / 91%);
+    width: 12.6rem;
     height: 5.6rem;
     transition: all 0.3s ease;
   }
@@ -1878,11 +1879,11 @@ body > .skiptranslate {
   svg {
     position: relative;
     top: 2.7rem;
-    margin-left: 0.5rem;
+    margin-left: 0.7rem;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke: hsl(357, 37%, 62%);
+    stroke: hsl(357deg 28.47% 38.09%);
     stroke-width: 2;
     transform: translateX(-0.5rem);
     transition: all 0.3s ease;
@@ -1914,15 +1915,15 @@ body > .skiptranslate {
   transition: all 0.2s ease;
   &:before {
     content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    border-radius: 2.8rem;
-    background: rgba(255, 171, 157, 0.5);
-    width: 5.6rem;
-    height: 5.6rem;
-    transition: all 0.3s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        border-radius: 2.8rem;
+        background: rgb(255 144 125 / 91%);
+        width: 12.6rem;
+        height: 5.6rem;
+        transition: all 0.3s ease;
   }
   span {
     position: relative;
@@ -1937,11 +1938,11 @@ body > .skiptranslate {
   svg {
     position: relative;
     top: 0;
-    margin-left: 0.5rem;
+    margin-left: 0.7rem;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke: hsl(357, 37%, 62%);
+    stroke: hsl(357deg 28.47% 38.09%);
     stroke-width: 2;
     transform: translateX(-0.5rem);
     transition: all 0.3s ease;
@@ -2787,6 +2788,217 @@ body > .skiptranslate {
     <button style="margin-bottom: 0%;" class="accept-cookies">Accept</button>
     <button class="reject-cookies">Reject</button>
   </div>
+
+<!-- Newsletter pop-up -->
+ <style>
+    .popup-nl {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        z-index: 1009;
+    }
+    @media screen and (min-width: 768px) {
+    .popup-content-nl {
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        border-radius: 10px;
+        max-width: 800px;
+        height: 450px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .popup-left-nl {
+        flex: 1;
+    }
+
+    .popup-right-nl {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .popup-left-nl img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .popup-content-nl {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 10px;
+        max-width: 300px;
+        height: 800px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .popup-left-nl img {
+        width: 100%;
+        max-height: 400px;
+    }
+
+    .popup-right-nl {
+        padding: 15px;
+        width: 100%;
+        max-height: 400px;
+        text-align: center;
+    }
+}
+
+
+    .close1-btn-nl {
+        width: 20px;
+        cursor: pointer;
+        margin: 18px 10px;
+        position: absolute;
+        top: -4px;
+        right: 12px;
+        font-size: 18px;
+        font-weight: 800;
+    }
+
+    .popup-left-nl img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .popup-right-nl {
+        margin-top: 10px;
+        padding: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center;
+    }
+
+    .popup-nl h1 {
+        font-size: 24px;
+        background: linear-gradient(to right, #ff3527, #fb5283, #ffd700); 
+        -webkit-text-fill-color: transparent; 
+        -webkit-background-clip: text; 
+        text-align: center;
+        margin-bottom: 12px;
+        margin-top: 35px;
+    }
+
+    .h2-nl{
+        font-size: 18px;
+        margin-bottom: 8px;
+        text-align: center;
+        color: #333;
+    }
+
+    .pop_up-nl {
+        margin-bottom: 15px;
+        font-weight: bold;
+        text-align: center;
+        background: -webkit-linear-gradient(left, #fd1c1c, #3375c7, #14addd);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 12.7px;
+
+    }
+
+    .bold{
+        font-size: 13.1px;
+    }
+
+    input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 16px;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .signup-btn1-nl {
+        width: 100%;
+        text-align: center;
+        background-color: linear-gradient(to right, #ff3527, #fb5283, #ffd700);;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .signup-btn1-nl:hover {
+        background-color: #4682B4;
+    }
+
+    .no-thanks-nl {
+        display: block;
+        margin-top: 10px;
+        color: #888;
+        text-decoration: none;
+        margin-bottom: 15px;
+    }
+
+    .no-thanks-nl:hover {
+        color: #000000;
+        font-size: 14px;
+    }
+
+    .terms-nl {
+        margin-top: 15px;
+        font-size: 10px;
+        color: #888;
+    }
+
+    .terms-nl a {
+        display: inline;
+    }
+    .terms-nl a:hover {
+        text-decoration: underline;
+    }
+
+    .popup-right-nl p {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+ </style>
+<div id="popup-nl" class="popup-nl">
+    <div class="popup-content-nl">
+        <div class="popup-left-nl">
+            <img src="popup.jpg" alt="Gaming Tools Image">
+        </div>
+
+        <div class="popup-right-nl">
+            <a href="# " class="close1-btn-nl close-nl">X</a>
+            <h1>Subscribe to Newsletter</h1>
+            <h2 class="h2-nl">Receive weekly books recommendation</h2>
+            <p class="pop_up-nl">Join our community and get <strong class="bold">special</strong> offers</p>
+            <form id="emailForm-nl">
+                <input type="email" id="email-nl" placeholder="Enter your email" required>
+                <button type="submit" class="signup-btn1-nl">Subscribe</button>
+            </form>
+            <a href="#" class="no-thanks-nl close-nl">No thanks</a>
+            <p class="terms-nl" style="white-space: nowrap;">By subscribing to newsletters, you agree to our <br><a href="terms&cond.html">Terms of Service</a> and <a href="privacynotice.html">Privacy Policy</a>.</p>
+        </div>
+    </div>
+</div>
+<script src="popup.js"></script>
   
 
   <script src="script.js"></script>
@@ -3043,7 +3255,7 @@ body > .skiptranslate {
                     <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; ">
                 </a>
             </li>
-            <li class="navbar-item" style="left: -30px;"></li>
+            <li class="navbar-item" style="left: -30px;">
                 <a href="#home" onclick="lenis.scrollTo('#home')" style="left: -30px;" class="navbar-link" data-nav-link><i class="ri-home-fill"></i> Home</a>
             </li>
             <li class="navbar-item">
@@ -3178,6 +3390,7 @@ body > .skiptranslate {
           menu.classList.toggle('open_menu');
           navbar_con.classList.toggle('nav_activated');
         });
+        
       </script>
       
    
@@ -5604,44 +5817,51 @@ p {
 </style>
    
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-  const faqContainers = document.querySelectorAll('.faq-container');
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqContainers = document.querySelectorAll('.faq-container');
 
-  faqContainers.forEach(faq => {
-    const question = faq.querySelector('.question');
-    
-    question.addEventListener('click', () => {
-      const answers = faq.querySelector('.answers');
-   
-      answers.classList.toggle('visible');
-    
-      const icon = faq.querySelector('.icon');
-      icon.classList.toggle('fa-rotate-180');
-    });
-    
-   
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
+    faqContainers.forEach(faq => {
+      const question = faq.querySelector('.question');
 
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+      question.addEventListener('click', () => {
+        
+        faqContainers.forEach(otherFaq => {
+          if (otherFaq !== faq) {
+            const otherAnswers = otherFaq.querySelector('.answers');
+            const otherIcon = otherFaq.querySelector('.icon');
+            otherAnswers.classList.remove('visible');
+            otherIcon.classList.remove('fa-rotate-180');
+          }
+        });
+
+        const answers = faq.querySelector('.answers');
+        answers.classList.toggle('visible');
+
+        const icon = faq.querySelector('.icon');
+        icon.classList.toggle('fa-rotate-180');
       });
-    }, observerOptions);
 
-    observer.observe(faq);
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      observer.observe(faq);
+    });
   });
-}); 
+</script>
 
-
-  </script>
   <br /><br />
   <link rel="stylesheet" href="./assets/css/visitors.css">
   <!-- ############### Footer ############### -->
@@ -5895,6 +6115,7 @@ function showSuccessMessage() {
     <div id="successmessage" class="success-message" style="display: none;">Thank you for subscribing!</div>
 </div>
 
+<script src="./assets/js/subscribe.js"></script>
 
 
 
@@ -6043,6 +6264,9 @@ function showSuccessMessage() {
 
   <!-- Footer ended-->
   <script src="./assets/js/script.js" defer></script>
+
+
+  
   <script>
     document.addEventListener('DOMContentLoaded', (event) => {
       let subject_full= document.getElementById("subject-full");

@@ -558,6 +558,20 @@ body.dark-mode .main{
 .but{
   font-size: x-large;
 }
+
+#dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #7c0f1b;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 10px;
+}
+
+/* Show the dropdown when the 'open' class is added */
+#dropdown-menu.open {
+  display: block;
+}
 </style>
 
 </head>
@@ -664,7 +678,7 @@ body.dark-mode .main{
 
               <ul class="dropdown-menu-list">
                 <li>
-                  <a href="chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                  <a href="/chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
                     Community chat
                 </a>
                 </li>
@@ -681,6 +695,12 @@ body.dark-mode .main{
                     <i class="ri-customer-service-2-fill"></i> Book Recommendation
                   </a>
                 </li>
+                <li>
+                  <a href="./bookpref.html" class="navbar-link"
+                    style="font-family: sans-serif; margin-bottom: 5px;">
+                    Book Prefer Quiz
+                  </a>
+                </li>
                 <li class="dropdown-menu-item">
                   <a href="../html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
                     data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
@@ -689,7 +709,7 @@ body.dark-mode .main{
                   <a href="../html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href=".../html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
+                  <a href="../html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
                 </li>
                 <li class="dropdown-menu-item">
                   <a href="../html/about.html" class="navbar-link">About</a>
@@ -732,14 +752,12 @@ body.dark-mode .main{
     if (savedAvatar) {
         document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
     }
-
     document.getElementById('more-link').addEventListener('click', function(event) {
-  event.preventDefault(); // Prevent the default action of the anchor tag
+    event.preventDefault(); 
+    const dropdownMenu = document.getElementById('dropdown-menu');
+     dropdownMenu.classList.toggle('open');
+    });
 
-  // Toggle the 'open' class for the dropdown menu
-  const dropdownMenu = document.getElementById('dropdown-menu');
-  dropdownMenu.classList.toggle('open');
-});
 
 });
 
