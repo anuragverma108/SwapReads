@@ -41,7 +41,6 @@
   transition: transform 0.5s ease;
   width: 100%;
   margin: 0;
-  
   padding: 0;
   gap: 20px; /* Gap between cards */
   overflow: hidden; /* Hide extra cards outside of the view */
@@ -77,8 +76,19 @@
   position: absolute;
   right: -60px;
   z-index: 10;
+  transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
+#right-arrow:hover,
+#left-arrow:hover { 
+  color: hsl(357, 79%, 72%); /* Change the color on hover */
+}
+
+/* Dark mode hover styles */
+.dark-mode #right-arrow:hover,
+.dark-mode #left-arrow:hover {
+  color: hsl(357, 79%, 72%); /* Change the color on hover */
+}
 
 .litrealms_card {
   flex: 0 0 calc((100% / 3) - 20px); 
@@ -170,7 +180,7 @@
 /* Dark mode styles for lit realms */
 .dark-mode #right-arrow,
 .dark-mode #left-arrow {
-  background-color: rgb(45, 45, 46);
+  background-color: rgb(46, 45, 45);
 }
 
 .dark-mode #right-arrow::before,
