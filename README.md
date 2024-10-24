@@ -441,21 +441,21 @@
 <hr>
 
 ## 📚 Table of Contents
-- 📖 [Introduction](#introduction)
-- 📰 [Featured In](#featured-in)
-- ❓ [The Problem](#the-problem)
-- 💡 [How SwapReads.com Solves These Problems](#how-swapreadscom-solves-these-problems)
-- 💻 [Tech Stacks](#tech-stacks)
-- 🤝 [Contribution](#contribution)
-- 🌍 [Open Innovation Challenge](#open-innovation-challenge)
-- 📞 [Contact Us](#contact-us)
-- 📜 [Code of Conduct](#code-of-conduct)
-- 💙 [Support Our Project](#support-our-project)
-- ⚙️ [Project Setup](#project-setup)
-- 🎉 [Contributors](#contributors)
-- 🌐 [Website Preview](#website-preview)
-- ⭐ [Stargazers](#stargazers)
-- 🍴 [Forkers](#forkers)
+- 📖 [Introduction](#-introduction)
+- 📰 [Featured In](#-featured-in)
+- ❓ [The Problem](#-the-problem)
+- 💡 [How SwapReads.com Solves These Problems](#-how-swapreadscom-solves-these-problems)
+- 💻 [Tech Stacks](#-tech-stacks)
+- 🤝 [Contribution](#-contribution)
+- 🌍 [Open Innovation Challenge](#-open-innovation-challenge)
+- 📞 [Contact Us](#-contact-us)
+- 📜 [Code of Conduct](#-code-of-conduct)
+- 💙 [Support Our Project](#-support-our-project)
+- ⚙️ [Project Setup](#-project-setup)
+- 🎉 [Contributors](#-contributors)
+- 🌐 [Website Preview](#-website-preview)
+- ⭐ [Stargazers](#-stargazers)
+- 🍴 [Forkers](#-forkers)
 
 
 
@@ -514,7 +514,7 @@ Join us today and explore a world where books are exchanged, friendships are for
 5. **Unused Book Collections:**
    - Readers often have books that are read and then set aside, collecting dust.
 
-## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Light%20Bulb.png" alt="Light Bulb" width="25" height="25" />How SwapReads.com Solves These Problems</h2>
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Light%20Bulb.png" alt="Light Bulb" width="25" height="25" /> How SwapReads.com Solves These Problems</h2>
 
 1. **Global Book Exchange:**
    - SwapReads.com connects users globally, allowing them to exchange books regardless of location.

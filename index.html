@@ -1861,8 +1861,8 @@ body > .skiptranslate {
     left: 0;
     display: block;
     border-radius: 2.8rem;
-    background: rgba(255, 171, 157, 0.5);
-    width: 5.6rem;
+    background: rgb(255 144 125 / 91%);
+    width: 12.6rem;
     height: 5.6rem;
     transition: all 0.3s ease;
   }
@@ -1879,11 +1879,11 @@ body > .skiptranslate {
   svg {
     position: relative;
     top: 2.7rem;
-    margin-left: 0.5rem;
+    margin-left: 0.7rem;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke: hsl(357, 37%, 62%);
+    stroke: hsl(357deg 28.47% 38.09%);
     stroke-width: 2;
     transform: translateX(-0.5rem);
     transition: all 0.3s ease;
@@ -1915,15 +1915,15 @@ body > .skiptranslate {
   transition: all 0.2s ease;
   &:before {
     content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    border-radius: 2.8rem;
-    background: rgba(255, 171, 157, 0.5);
-    width: 5.6rem;
-    height: 5.6rem;
-    transition: all 0.3s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        border-radius: 2.8rem;
+        background: rgb(255 144 125 / 91%);
+        width: 12.6rem;
+        height: 5.6rem;
+        transition: all 0.3s ease;
   }
   span {
     position: relative;
@@ -1938,11 +1938,11 @@ body > .skiptranslate {
   svg {
     position: relative;
     top: 0;
-    margin-left: 0.5rem;
+    margin-left: 0.7rem;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke: hsl(357, 37%, 62%);
+    stroke: hsl(357deg 28.47% 38.09%);
     stroke-width: 2;
     transform: translateX(-0.5rem);
     transition: all 0.3s ease;
@@ -5817,44 +5817,51 @@ p {
 </style>
    
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-  const faqContainers = document.querySelectorAll('.faq-container');
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqContainers = document.querySelectorAll('.faq-container');
 
-  faqContainers.forEach(faq => {
-    const question = faq.querySelector('.question');
-    
-    question.addEventListener('click', () => {
-      const answers = faq.querySelector('.answers');
-   
-      answers.classList.toggle('visible');
-    
-      const icon = faq.querySelector('.icon');
-      icon.classList.toggle('fa-rotate-180');
-    });
-    
-   
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
+    faqContainers.forEach(faq => {
+      const question = faq.querySelector('.question');
 
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+      question.addEventListener('click', () => {
+        
+        faqContainers.forEach(otherFaq => {
+          if (otherFaq !== faq) {
+            const otherAnswers = otherFaq.querySelector('.answers');
+            const otherIcon = otherFaq.querySelector('.icon');
+            otherAnswers.classList.remove('visible');
+            otherIcon.classList.remove('fa-rotate-180');
+          }
+        });
+
+        const answers = faq.querySelector('.answers');
+        answers.classList.toggle('visible');
+
+        const icon = faq.querySelector('.icon');
+        icon.classList.toggle('fa-rotate-180');
       });
-    }, observerOptions);
 
-    observer.observe(faq);
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      observer.observe(faq);
+    });
   });
-}); 
+</script>
 
-
-  </script>
   <br /><br />
   <link rel="stylesheet" href="./assets/css/visitors.css">
   <!-- ############### Footer ############### -->
