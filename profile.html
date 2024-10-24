@@ -54,7 +54,22 @@
             opacity: 0;
             animation: fade-in 1s ease-in-out forwards;
         }
-
+        /* Style for Back to Top Button */
+    #backToTopBtn {
+        position: fixed;
+        bottom: 50px;
+        right: 30px;
+        font-size: 45px;
+        background-color: #deb6a8; /* Dark gray */
+        color: white;
+        padding: 5px 15px 0px 15px;
+        border-radius: 40px;
+        cursor: pointer;
+        height: 50px;
+      }
+      #backToTopBtn:hover {
+        background-color: #333; /* Darker gray */
+      }
         @keyframes fade-in {
             0% {
                 opacity: 0;
@@ -601,6 +616,27 @@ a {
             </div>
         </div>
     </div>
+    <button id="backToTopBtn" title="Go to top">^</button>
+  <script>
+      // Get the button element
+      let backToTopBtn = document.getElementById("backToTopBtn");
+      // Show the button when the user scrolls down 20px from the top of the document
+      window.onscroll = function() {
+        scrollFunction();
+      };
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          backToTopBtn.style.display = "block";
+        } else {
+          backToTopBtn.style.display = "none";
+        }
+      }
+      // Scroll to the top of the document when the button is clicked
+      backToTopBtn.onclick = function() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+      };
+  </script>
     <div class="pg-footer">
         <footer class="footer">
           <svg class="footer-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
