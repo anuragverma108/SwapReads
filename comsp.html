@@ -225,6 +225,9 @@
       opacity: 0.5;
       cursor: not-allowed;
   }
+  .dark-mode .swiper-pagination-bullet{
+    color: white;
+  }
   .swiper-pagination {
     position: relative;
     margin-top: 20px;
@@ -430,8 +433,7 @@
      }
      
      
-     
-         
+    
      
      
     
@@ -500,7 +502,6 @@
        z-index: 1000;
        transition: top 0.3s;
      }
-     
      /* Hide the navbar */
      .header.hidden {
        top: -93px; /* Adjust according to your header height */
@@ -1100,6 +1101,11 @@ color: #635656; /* Ensure icon hover colors remain visible */
     </div>
 </header>
     <main>
+      <style>
+        .dark-mode .section__subtitle{
+          color:#ffffff !important;
+        }
+      </style>
       <section class="community-spotlight">
         <div class="section__container">
             <h2 class="section__title" style="color: maroon; margin-top:150px;text-align:center">Community Spotlight</h2>
@@ -1167,15 +1173,31 @@ color: #635656; /* Ensure icon hover colors remain visible */
                 Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
                 the world of literature—all on one convenient platform. Join us and dive into a universe of endless possibilities!
               </p>
+              <style>
+                .dark-mode .logo{
+                  color: maroon !important;
+                }
+                .dark-mode .description{
+                  color: white !important;
+                }
+              </style>
             </div>
             
   
           </div>
         </div>
         <div class="foot-middle">
-          <h2 style="margin-left: 2rem; margin-top: 2.75rem;">Quick Links</h2>
+          <h2 style="margin-left: 2rem; margin-top: 2.75rem;" id="quicklinks-color">Quick Links</h2>
+          <style>
+            .dark-mode #quicklinks-color{
+              color: maroon !important;
+            }
+            .dark-mode #quicklinks ul li a{
+              color: white !important;
+            }
+          </style>
           <div id="quicklinks" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
-            <div>
+            <div class="linkscolor">
               <ul style="list-style: none; padding: 0;">
                 <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
                   <i class="fas fa-home" style="color: #374151; margin-right: 4px;"></i>
@@ -1326,7 +1348,12 @@ color: #635656; /* Ensure icon hover colors remain visible */
   </style>
   
           <div class="foot-right">
-          <h2 style="margin-bottom: 2.4rem; margin-top:0.5rem;">Stay Connected</h2>
+          <h2 style="margin-bottom: 2.4rem; margin-top:0.5rem;" id="stayconnected-color">Stay Connected</h2>
+          <style>
+            .dark-mode #stayconnected-color{
+              color:maroon !important;
+            }
+          </style>
           <form id="newsform" onsubmit="return showConfirmationMessage();">
               <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
               <div class="row-flex display-flex">
@@ -1343,6 +1370,11 @@ color: #635656; /* Ensure icon hover colors remain visible */
               <div class="icon">
                 <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
               </div>
+              <style>
+                .dark-mode .fab.fa-discord:hover{
+                  color:#3b5998 !important; 
+                }
+              </style>
             </a>
           
             <!-- LinkedIn icon -->
@@ -1364,6 +1396,11 @@ color: #635656; /* Ensure icon hover colors remain visible */
               <div class="icon">
                 <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
               </div>
+              <style>
+                .dark-mode .fab.fa-twitter:hover{
+                  color: white !important;
+                }
+              </style>
             </a>
           
             <!-- Instagram icon -->
@@ -1385,6 +1422,11 @@ color: #635656; /* Ensure icon hover colors remain visible */
               <div class="icon">
                 <i class="fab fa-github" title="GitHub"></i>
               </div>
+              <style>
+                .dark-mode .fab.fa-github:hover{
+                  color: white !important;
+                }
+              </style>
             </a>
           </div>
          </div>
