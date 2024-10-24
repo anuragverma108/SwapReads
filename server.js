@@ -158,6 +158,8 @@ import validate from './assets/validation/validate.schema.js';
 import cors from 'cors';
 import { sendEmail } from './controller/subscribe.js';
 import dotenv from 'dotenv';
+ 
+import fetchBookController from "./controller/fetchBookController.js";
 dotenv.config();
 
 const app = express();
@@ -304,6 +306,8 @@ dbConnect().then(() => {
         res.status(200).send('Success');
     });
 });
+
+app.use("/api" ,  fetchBookController);
 
   const PORT = process.env.PORT || 4000;
   app.listen(PORT, () => {
