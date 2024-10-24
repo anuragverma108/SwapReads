@@ -250,7 +250,6 @@
       }
 
       .navbar-list {
-        position: relative;
         top: 200px;
       }
 
@@ -300,24 +299,116 @@
       margin-top: 10px;
       /* Increase the top margin of each item */
     }
+    /* For large screens (desktops) */
+@media (min-width: 1024px) {
+  .navbar-list {
+    justify-content: center;
+  }
+
+  .logopic {
+    width: 12rem; /* Decrease the logo size */
+    margin: 0 1.2rem;
+  }
+
+  .navbar-item {
+    margin: 0 0.5rem;
+  }
+}
+
+/* For tablets and medium screens */
+@media (max-width: 1024px) {
+  .navbar-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logopic {
+    width: 10rem; /* Adjust the logo size for smaller screens */
+    margin: 0 1rem;
+  }
+
+  .navbar-item {
+    margin: 0 0.8rem; /* Adjust the margin for tablet size */
+    font-size: 0.9rem;
+  }
+
+  .header {
+    height: 70px;
+    margin-top: 6vh;
+  }
+}
+
+/* For small screens (mobiles) */
+@media (max-width: 768px) {
+  .header {
+    position: relative; /* Change from absolute to relative */
+    left: 0; /* Remove the left offset */
+    transform: none; /* Remove the translate */
+    margin-top: 0; /* Adjust margin to fit better */
+    height: 60px; /* Adjust height for smaller screens */
+  }
+
+  .navbar-list {
+    flex-direction: column; /* Stack the navbar items vertically */
+    align-items: center;
+    padding: 10px;
+  }
+
+  .logopic {
+    width: 8rem; /* Reduce logo size for mobile */
+    margin: 0;
+  }
+
+  .navbar-item {
+    margin: 5px 0; /* Reduce margin between items */
+    font-size: 0.8rem; /* Smaller font size for mobile */
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .header {
+    position: relative; /* Ensure proper positioning */
+    left: 0;
+    transform: none;
+    margin-top: 0; /* Remove vertical margin */
+    height: 50px; /* Adjust height */
+  }
+
+  .navbar-list {
+    flex-direction: column; /* Keep items stacked */
+    align-items: center;
+  }
+
+  .logopic {
+    width: 6rem;
+  }
+
+  .navbar-item {
+    margin: 5px 0;
+    font-size: 0.75rem;
+  }
+}
+
+
   </style>
 
-   <header class="header header-anim" data-header>
+   <header class="header header-anim" data-header style="height: 80px; margin-top: 8vh; position: absolute;  left: 50%; transform: translate(-50%, -50%); width: 100%; z-index: 1000;">
 
-    <div class="container" style="padding-left: 0; width: 100%;">
+    <div class="container" style="padding-left: 0; width: 100%; text-align: center;">
         <div style="width: 100%;">
         <nav class="navbar nav_activated" data-navbar style="width: 100%;">
-            <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex">
+            <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex; justify-content: center;">
                 <img src="./assets/images/final.png" alt="" class="logopic"
-                    style=" width:0.1px;opacity: 0;" />
+                    style="width:0.1px;opacity: 0;" />
             </a>
 
-            <ul class="navbar-list" style="width: 100%;">
-              <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-                <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px 1.8rem;">
+            <ul class="navbar-list" style="width: 100%; display: flex; justify-content: center;">
+              <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex; justify-content: center;">
+                <img src="./assets/images/final.png" class="logopic" style="width: 15rem; margin:0px 0px 0px 1.8rem;">
               </a>
 
-                <li class="navbar-item">
+                <li class="navbar-item" style="list-style: none; margin: 0 1rem;">
                     <a href="index.html#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link>
                     <lord-icon
                   src="https://cdn.lordicon.com/qeltvbrs.json"
@@ -327,7 +418,7 @@
                 </lord-icon> Home</a>
                 </li>
 
-                <li class="navbar-item">
+                <li class="navbar-item" style="list-style: none; margin: 0 1rem;">
                     <a href="index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link"
                         data-nav-link><lord-icon
                         src="https://cdn.lordicon.com/jibxifeu.json"
@@ -338,7 +429,7 @@
                     </lord-icon>Benefits</a>
                 </li>
 
-                <li class="navbar-item">
+                <li class="navbar-item" style="list-style: none; margin: 0 1rem;">
                     <a href="index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link"
                         data-nav-link> <lord-icon
                         src="https://cdn.lordicon.com/bhmovrlt.json"
@@ -350,7 +441,7 @@
                 </li>
 
                 
-                <li class="navbar-item">
+                <li class="navbar-item" style="list-style: none; margin: 0 1rem;">
                   <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link"> <lord-icon
                     src="https://cdn.lordicon.com/jxjfjyri.json"
                     trigger="morph"
@@ -360,12 +451,13 @@
                     style="width:25px;height:25px">
                 </lord-icon>Rate Us</a>
               </li>
-                <li class="navbar-item">
+
+                <li class="navbar-item" style="list-style: none; margin: 0 1rem;">
                     <a href="index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link"
-                        data-nav-link><i class="ri-customer-service-2-fill"></i> <img src="/assets/images/telephone.png" height="25px" width="25px"/> Contact</a>
+                        data-nav-link><i class="ri-customer-service-2-fill"></i> <img src="./assets/images/telephone.png" height="25px" width="25px"/> Contact</a>
                 </li>
 
-                <li class="navbar-item" id="login-signup-link">
+                <li class="navbar-item" id="login-signup-link" style="list-style: none; margin: 0 1rem;">
                     <a href="./assets/html/login.html" class="navbar-link"> <lord-icon
                       src="https://cdn.lordicon.com/xfzuyvam.json"
                       trigger="morph"
@@ -375,117 +467,12 @@
                   </lord-icon>Login/Signup</a>
                 </li>
 
-                <li class="navbar-item dropdown" id="more-dropdown">
-                    <a href="#" class="navbar-link" id="more-link">More
-                        <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
-                            viewBox="0 0 24 24">
-                            <path fill="currentcolor"
-                                d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
-                        </svg></a>
-                    <div class="dropdown-menu" id="dropdown-menu">
-
-                        <ul class="dropdown-menu-list">
-                            <li class="dropdown-menu-item">
-                                <a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')"
-                                    class="navbar-link" data-nav-link><i class="ri-medal-fill"></i> Literary
-                                    Realms</a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')"
-                                    class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>
-                                    Pricing</a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="./assets/html/addremovebook.html" class="navbar-link">Booklist for
-                                    Swapping</a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="./assets/html/book_recommend.html" class="navbar-link" data-nav-link>
-                                    <i class="ri-customer-service-2-fill"></i> Book Recommendation
-                                </a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#E-books')"
-                                    class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Free
-                                    E-books</a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="././read_later.html" class="navbar-link">Booklist for Swapping</a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="./assets/html/about.html" class="navbar-link">About</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                
-                <div class="action">
-                  <div class="profile" onclick="menuToggle();">
-                      <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
-                  </div>
-                  <div class="menu">
-                      <h3>XYZ<br /><span>Book Lover</span></h3>
-                      <ul>
-                          <li><img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a></li>
-                          <li><img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit profile</a></li>
-                          <li><img src="./assets/images/inbox.png" /><a href="#">Inbox</a></li>
-                          <li><img src="./assets/images/settings.png" /><a href="#">Settings</a></li>
-                          <li><img src="./assets/images/help.png" /><a href="/help.html">Help</a></li>
-                          <li><img src="./assets/images/logout.png" /><a id="logout-btn">Logout</a></li>
-                      </ul>
-                  </div>
-              </div>
-
-  
-
-              
-              
-                    <script>
-                      document.addEventListener("DOMContentLoaded", () => {
-                          const savedAvatar = localStorage.getItem("selectedAvatar");
-                          if (savedAvatar) {
-                              document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
-                          }
-                      });
-              
-                      function menuToggle() {
-                          const toggleMenu = document.querySelector(".menu");
-                          toggleMenu.classList.toggle("active");
-                      }
-              
-                      document.addEventListener("click", function(event) {
-                          const profile = document.querySelector(".profile");
-                          const menu = document.querySelector(".menu");
-              
-                          if (!profile.contains(event.target) && !menu.contains(event.target)) {
-                              menu.classList.remove("active");
-                          }
-                      });
-              
-                      let lastScrollTop = 0;
-                      const header = document.querySelector('.header');
-              
-                      window.addEventListener('scroll', function() {
-                          let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-              
-                          if (scrollTop > lastScrollTop) {
-                              // Downscroll
-                              header.style.transform = 'translateY(-120%)';
-                          } else {
-                              // Upscroll
-                              header.style.transform = 'translateY(0)';
-                          }
-              
-                          lastScrollTop = scrollTop;
-                      });
-                  </script>
-      
-
-               
             </ul>
         </nav>
         
     </div>
+</header>
+
 
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script>
