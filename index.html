@@ -5186,6 +5186,8 @@ body > .skiptranslate {
     <label for="star1" class="emoji-label">😍</label>
   </div>
 
+
+
   <div class="feedback-container">
     <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
   </div>
@@ -5194,6 +5196,25 @@ body > .skiptranslate {
     <center><button id="submit-btn">Submit</button></center>
   </div>
 </div>
+
+<script>
+    document.getElementById('submit-btn').addEventListener('click', async () => {
+  const rating = document.querySelector('input[name="rate"]:checked').value;
+  const feedback = document.getElementById('feedback').value;
+
+  const response = await fetch('http://localhost:4000/rate', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ rating, feedback })
+  });
+
+  const data = await response.json();
+  alert(data.message);
+});
+
+    </script>
 
 <div id="toastMessage" class="toast-message"></div>
 

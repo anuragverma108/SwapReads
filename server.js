@@ -160,6 +160,7 @@ import { sendEmail } from './controller/subscribe.js';
 import dotenv from 'dotenv';
  
 import fetchBookController from "./controller/fetchBookController.js";
+import submitRating from './controller/Rating.js';
 dotenv.config();
 
 const app = express();
@@ -308,6 +309,7 @@ dbConnect().then(() => {
 });
 
 app.use("/api" ,  fetchBookController);
+app.post('/rate', submitRating);
 
   const PORT = process.env.PORT || 4000;
   app.listen(PORT, () => {
