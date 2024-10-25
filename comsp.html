@@ -180,10 +180,15 @@
             perspective: 1200px;
         }
 
-        .swiper-slide {
-            backface-visibility: hidden;
-            transition: transform 0.8s;
-        }
+        swiper-slide {
+      text-align: center;
+      font-size: 15;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 5rem;
+    }
 
         .swiper-slide-active {
             z-index: 2;
@@ -198,13 +203,7 @@
 
   .swiper-button-next, .swiper-button-prev {
       position: static;
-      margin: 0 10px;
-      width: 50px;
-      height: 50px;
-      background-color: #fff;
-      border: 2px solid maroon;
-      border-radius: 8px;
-      color: maroon;
+      background-color: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1096,61 +1095,103 @@ color: #635656; /* Ensure icon hover colors remain visible */
 }
 
  </style>
+<style>
+  
+
+  .community-spotlight {
+    padding: 60px 0;
+    text-align: center;
+  }
+
+  .swiper-container {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px 0;
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-front {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .rows-icons i {
+    margin: 0 10px;
+    font-size: 20px;
+    color: #555;
+    cursor: pointer;
+  }
+
+  .bio, .recommendation {
+    margin-top: 10px;
+    text-align: center;
+  }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
     </div>
 </header>
     <main>
       <section class="community-spotlight">
-        <div class="section__container">
-            <h2 class="section__title" style="color: maroon; margin-top:150px;text-align:center">Community Spotlight</h2>
-            <p class="section__subtitle" style="color: black;text-align:center">Meet our active community members and explore their book recommendations</p>
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="spotlight__card">
-                            <img src="assets/images/ja.jpeg" alt="Jane Doe">
-                            <div class="spotlight__details">
-                                <h4 style="color: maroon;">Jane Doe</h4>
-                                <p class="spotlight_book">Recommended Book:<strong> "To Kill a Mockingbird" </strong> by Harper Lee</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="spotlight__card">
-                            <img src="assets/images/jo.jpeg" alt="John Smith">
-                            <div class="spotlight__details">
-                                <h4 style="color: maroon;">John Smith</h4>
-                                <p>Recommended Book:<strong> "1984" </strong>by George Orwell</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="spotlight__card">
-                            <img src="assets/images/em.jpeg" alt="Emily Johnson">
-                            <div class="spotlight__details">
-                                <h4 style="color: maroon;">Emily Johnson</h4>
-                                <p>Recommended Book:<strong> "Pride and Prejudice"</strong> by Jane Austen</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="spotlight__card">
-                            <img src="assets/images/ma.jpg" alt="Mark Brown">
-                            <div class="spotlight__details">
-                                <h4 style="color: maroon;">Mark Brown</h4>
-                                <p>Recommended Book:<strong> "The Great Gatsby"</strong> by F. Scott Fitzgerald</p>
-                            </div>
-                        </div>
-                    </div>
+        <h2 style="color: maroon; margin: 30px; font-size: 40px;">Community Spotlight</h2>
+        <p style="color: black;">Meet our active community members and explore their book recommendations</p>
+      
+        <div class="swiper-container mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="card-front">
+                <div class="card-image">
+                  <img src="assets/images/ja.jpeg" alt="Jane Doe">
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-navigation">
-                  <div class="swiper-button-prev"></div>
-                  <div class="swiper-button-next"></div>
+                <h2>Jane Doe</h2>
+                <p class="bio">"Reading is my passion—I’m always seeking the next compelling book."</p>
+                <div class="rows-icons">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                  <i class="fa-brands fa-github-alt"></i>
+                  <i class="fa-brands fa-instagram"></i>
+                </div>
+                <p class="recommendation">Recommended Book: <strong>"To Kill a Mockingbird"</strong> by Harper Lee</p>
               </div>
             </div>
+      
+            <div class="swiper-slide">
+              <div class="card-front">
+                <div class="card-image">
+                  <img src="assets/images/jo.jpeg" alt="John Smith">
+                </div>
+                <h2>John Smith</h2>
+                <p class="bio">"Books help me explore new ideas—fiction or non-fiction."</p>
+                <div class="rows-icons">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                  <i class="fa-brands fa-github-alt"></i>
+                  <i class="fa-brands fa-instagram"></i>
+                </div>
+                <p class="recommendation">Recommended Book: <strong>"1984"</strong> by George Orwell</p>
+              </div>
+            </div>
+          </div>
+      
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
-    </section>
+      </section>
+      
+      
+      
     
 
     </main>
@@ -1275,7 +1316,71 @@ color: #635656; /* Ensure icon hover colors remain visible */
   
   
   
-  
+  <style>
+    .community-spotlight {
+  padding: 60px 0;
+}
+
+.swiper-container {
+  width: 100%;
+  padding: 40px 0;
+}
+
+.card-front {
+  background-color: lightyellow;
+  width: 300px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image-content {
+  text-align: center;
+}
+
+.card-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.rows-icons i {
+  margin: 0 8px;
+  font-size: 20px;
+  color: #555;
+  cursor: pointer;
+}
+
+.bio {
+  margin: 10px 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.recommendation {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #444;
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #aaa;
+  opacity: 1;
+  margin: 5px;
+}
+
+  </style>
       
     <script>
     function showConfirmationMessage() {
