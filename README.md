@@ -398,6 +398,7 @@
 ├── our-vision.html
 ├── package-lock.json
 ├── package.json
+├── playNow.html
 ├── popup.jpg
 ├── popup.js
 ├── pricing.html
