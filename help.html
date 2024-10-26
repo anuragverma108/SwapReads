@@ -33,7 +33,6 @@
         font-family: "Poppins", sans-serif;
         margin: 0;
         padding: 0;
-        display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
@@ -261,7 +260,7 @@ html {
 } */
 
 .footer {
-  position: absolute;
+  position: sticky;
   top: 130%;
   width: 100%;
   display: flex;
@@ -511,19 +510,142 @@ html {
   </div>
 </div>
 
-      <div class="mt-5 section-2">
-        <h2 class="mb-4">Need More Help?</h2>
-        <p>
-          If you couldn't find the answer to your question in our FAQ, please
-          don't hesitate to contact our support team.
-        </p>
-        <div class="text-center">
-          <a href="/index.html#contact" class="btn btn-custom"
-            >Contact Support</a
-          >
-        </div>
-      </div>
-
+      
+      <header>
+        <input type="text" id="searchBar" placeholder="Search for help topics...">
+      </header>
+      <main>
+        <section id="faq">
+            <h2 style="text-align: center;">Help Topics</h2>
+            
+            <!-- Account Help Section -->
+            <div class="faq-category">
+                <h3>Account Help</h3>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer('an1')">How do I reset my password?</button>
+                    <div class="faq-answer" id="an1">To reset your password, go to the login page and click "Forgot Password." Follow the prompts to reset.</div>
+                </div>
+                <div class="faq-item" >
+                    <button class="faq-question" onclick="toggleAnswer('an2')">How do I update my email?</button>
+                    <div class="faq-answer" id="an2">To update your email, go to account settings, and select "Edit Email."</div>
+                </div>
+            </div>
+            
+            <!-- Technical Issues Section -->
+            <div class="faq-category">
+                <h3>Technical Issues</h3>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer('an3')">Why can't I log in?</button>
+                    <div class="faq-answer" id="an3">Ensure your internet connection is stable and try again. If the problem persists, reset your password.</div>
+                </div>
+            </div>
+            
+            <!-- Billing and Payments Section -->
+            <div class="faq-category">
+                <h3>Billing and Payments</h3>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer('an4')">How do I view my payment history?</button>
+                    <div class="faq-answer" id="an4">Go to the Billing section in your account to view past payments.</div>
+                </div>
+            </div>
+      
+            <!-- General FAQs Section -->
+            <div class="faq-category">
+                <h3>General FAQs</h3>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleAnswer('an5')">What is your refund policy?</button>
+                    <div class="faq-answer" id="an5">Our refund policy allows you to request a refund within 30 days of purchase.</div>
+                </div>
+            </div>
+            <script>
+              function toggleAnswer(element) {
+        const answer = element.nextElementSibling; // Select the answer div
+        answer.classList.toggle("show"); // Toggle the 'show' class to control visibility
+    }
+             </script>
+        </section>
+      </main>
+      <footer>
+        <button id="contactSupport">Contact Support</button>
+      </footer> 
+      <style>
+        #searchBar {
+          width: 80%;
+          padding: 10px;
+          margin-top: 10px;
+          border-radius: 5px;
+          border: 2px solid #fb7272;
+          font-size: 1em;
+      }
+      
+      .faq-category {
+          margin: 15px 0;
+      }
+      
+      h3 {
+          color: #333;
+          margin-bottom: 10px;
+      }
+      
+      /* FAQ items */
+      .faq-item {
+          background-color: #ff9292;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          margin: 10px 0;
+          overflow: hidden;
+      }
+      
+      .faq-question {
+          width: 100%;
+          padding: 15px;
+          background: #ff9292;
+          border: none;
+          text-align: left;
+          font-size: 1.1em;
+          cursor: pointer;
+      }
+      
+      .faq-answer {
+          padding: 15px;
+          display: none;
+          background-color: #fff;
+          font-size: 0.9em;
+          line-height: 1.6;
+          color: #666;
+      }
+      
+      /* Transition effect */
+      .faq-answer {
+          transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+      }
+      
+      /* Contact Support button */
+      footer {
+          margin: 20px;
+      }
+      
+      #contactSupport {
+          padding: 10px 20px;
+          font-size: 1em;
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+      
+      /* Responsive design */
+      @media (max-width: 600px) {
+          #searchBar, main {
+              width: 100%;
+          }
+      
+          #contactSupport {
+              width: 100%;
+          }
+      }
+      </style>
       <div class="mt-5 section-3">
         <h2 class="mb-4">You Can Also Contact:</h2>
         <ul class="contact-card">
