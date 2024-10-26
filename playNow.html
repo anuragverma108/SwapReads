@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
 
     <style>
       /* General Styles */
@@ -187,9 +190,9 @@ body {
   background-color: #ffffff; /* White background */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   margin: 0 auto; /* Center header */
-  padding: 10px 0; /* Reduce padding for a thinner look */
   z-index: 10;
   border-radius: 10px;
+  margin-top: 25px;
 }
 
 
@@ -205,7 +208,10 @@ body {
 .navbar {
   display: flex;
   align-items: center;
-  gap: 15px; /* Reduced spacing for a thinner look */
+  justify-content: space-between;
+  gap: 40px; /* Reduced spacing for a thinner look */
+  max-height: 80px;
+
 }
 
 .navbar-list {
@@ -221,32 +227,39 @@ body {
 .navbar-link {
   color: #000000; /* Black text */
   text-decoration: none;
-  font-size: 0.95rem; /* Slightly smaller font */
-  padding: 5px 8px;
+  font-size: 17px; /* Slightly smaller font */
   position: relative;
   transition: color 0.3s ease;
   font-weight: normal; /* Remove bold font */
+  margin: 0 10px; 
+}
+
+.navbar-link {
+  position: relative; /* Ensure the link has a position for the absolute positioning of the pseudo-element */
 }
 
 .navbar-link:hover {
-  color: #d72672; /* Dark pink on hover */
+  color: #a52644; /* Dark pink on hover */
 }
 
 .navbar-link::after {
   content: "";
-  display: block;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(to right, #d76b9d, #ff9aa2, #ffd9b3); /* Subtle gradient */
-  transition: width 0.3s ease;
   position: absolute;
-  bottom: -3px;
-  left: 0;
+  bottom: -5px; /* Adjust this value to create a gap */
+  left: 0px;
+  height: 3px;
+  background-color: #fcb0b480;
+  width: 0;
+  box-shadow: 0 0 10px #f39d127e;
+  transition: all 0.6s;
+  text-decoration: none;
 }
 
 .navbar-link:hover::after {
-  width: 100%; /* Expand underline on hover */
+  width: 100%;
+  text-decoration: none;
 }
+
 
 .action {
   position: relative;
@@ -335,21 +348,155 @@ input, button, textarea {
     padding: 10px;
     font: inherit;}
 
+/* Base styling for the hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  z-index: 1001;
+}
 
-    </style>
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  transition: transform 0.3s ease;
+}
+
+/* Responsive styling */
+@media (max-width: 1000px) {
+  /* Hide the navbar by default on small screens */
+  .navbar {
+    display: none;
+    position: absolute;
+    top: 70px; /* Matches header height for below-header dropdown */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: initial;
+  }
+
+  .header{
+    width: 100%;
+  }
+
+  .navbar.active {
+    display: block;
+  }
+
+  /* Hamburger icon visible only on smaller screens */
+  .hamburger {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Center-align navbar links in mobile view */
+  .navbar ul.navbar-list {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Adjusted theme switcher styling for mobile */
+  .switch-container {
+    margin: 0 auto;
+    padding-top: 1rem;
+  }
+}
+
+
+  /* Container for the switch */
+  .switch-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Hide default checkbox */
+  .switch-checkbox {
+    display: none;
+  }
+
+  /* Style the label */
+  .switch-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50px;
+    height: 24px;
+    border-radius: 50px;
+    background-color: #ccc;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+  /* Style the toggle button */
+  .switch-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 5px;
+    position: absolute; /* Fixes the position */
+    left: 0; /* Keeps the button fixed */
+  }
+
+  /* Sun and moon icon styles */
+  .sun-icon,
+  .moon-icon {
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Color the icons */
+  .sun-icon {
+    color: orange; /* Sun icon color */
+  }
+
+  .moon-icon {
+    color: lightblue; /* Moon icon color */
+    opacity: 0; /* Initially hidden */
+  }
+
+  /* Style for checked state */
+  .switch-checkbox:checked + .switch-label {
+    background-color: #333;
+  }
+
+  .switch-checkbox:checked + .switch-label .sun-icon {
+    opacity: 0; /* Hide sun icon in dark mode */
+  }
+
+  .switch-checkbox:checked + .switch-label .moon-icon {
+    opacity: 1; /* Show moon icon in dark mode */
+  }
+</style>
+
   </head>
 
   <body>
     <header class="header header-anim nav-h" data-header>
 
         <div class="container mobile-container-styles">
-      
+          <button class="hamburger" id="hamburger-button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
           <nav class="navbar nav_activated" data-navbar>
       
       
             <ul class="navbar-list nav" style="margin-right: 10px;">
               <a href="index.html" class="logo" style="display:flex;">
-                <img src="./assets/images/final.png" class="logopic" style=" width: 10rem; height:100px; margin:0px 0px 0px -10px;">
+                <img src="./assets/images/final.png" class="logopic" style=" width: 10rem; height:100px; margin:0px 0px 15px -10px;">
               </a>
       
               <li class="navbar-item" style="margin-right: 10px;">
@@ -441,77 +588,11 @@ input, button, textarea {
                         }
                       });
                     });
+                  // Hamburger toggle
+                  document.getElementById('hamburger-button').addEventListener('click', function() {
+                    document.querySelector('.navbar').classList.toggle('active');
+                  });
                   </script>
-                
-                <style>
-                  /* Container for the switch */
-                  .switch-container {
-                    display: flex;
-                    align-items: center;
-                    position: relative;
-                  }
-                
-                  /* Hide default checkbox */
-                  .switch-checkbox {
-                    display: none;
-                  }
-                
-                  /* Style the label */
-                  .switch-label {
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    width: 50px;
-                    height: 24px;
-                    border-radius: 50px;
-                    background-color: #ccc;
-                    transition: background-color 0.3s ease;
-                    position: relative;
-                  }
-                
-                  /* Style the toggle button */
-                  .switch-button {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    width: 100%;
-                    padding: 0 5px;
-                    position: absolute; /* Fixes the position */
-                    left: 0; /* Keeps the button fixed */
-                  }
-                
-                  /* Sun and moon icon styles */
-                  .sun-icon,
-                  .moon-icon {
-                    font-size: 16px;
-                    transition: opacity 0.3s ease;
-                  }
-                
-                  /* Color the icons */
-                  .sun-icon {
-                    color: orange; /* Sun icon color */
-                  }
-                
-                  .moon-icon {
-                    color: lightblue; /* Moon icon color */
-                    opacity: 0; /* Initially hidden */
-                  }
-                
-                  /* Style for checked state */
-                  .switch-checkbox:checked + .switch-label {
-                    background-color: #333;
-                  }
-                
-                  .switch-checkbox:checked + .switch-label .sun-icon {
-                    opacity: 0; /* Hide sun icon in dark mode */
-                  }
-                
-                  .switch-checkbox:checked + .switch-label .moon-icon {
-                    opacity: 1; /* Show moon icon in dark mode */
-                  }
-                </style>
-                
                   </header>
 
     <div class="section-title">
