@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications Inbox</title>
+</head>
+<style>
+    /* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 20px;
+    background-color: #e99067;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+/* Filter Tabs */
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tab {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tab:hover {
+    background-color: #e0e0e0;
+}
+
+/* Notification List */
+.notification-list {
+    padding: 20px;
+    max-width: 600px;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.notification-card {
+    background-color: #ffffff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s;
+}
+
+.notification-card:hover {
+    background-color: #f1f9ff;
+}
+
+/* Notification Details */
+.notification-content {
+    flex-grow: 1;
+}
+
+.sender {
+    font-weight: bold;
+    margin: 0;
+}
+
+.message-preview {
+    color: #666;
+    margin: 5px 0;
+}
+
+.timestamp {
+    font-size: 0.8em;
+    color: #999;
+}
+
+/* Icons */
+.notification-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.notification-actions i {
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s;
+}
+
+.notification-actions i:hover {
+    color: #e69d74;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .notification-list {
+        padding: 10px;
+    }
+
+    .notification-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .notification-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+</style>
+<body>
+    <header>
+        <h1>Notifications</h1>
+        <div class="filter-tabs">
+            <button class="tab" onclick="filterNotifications('all')">All</button>
+            <button class="tab" onclick="filterNotifications('unread')">Unread</button>
+            <button class="tab" onclick="filterNotifications('read')">Read</button>
+            <button class="tab" onclick="filterNotifications('archived')">Archived</button>
+        </div>
+    </header>
+    <main>
+        <section class="notification-list" id="notificationList">
+            <!-- Notification Cards will be added here -->
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+<script>
+    // Sample Notifications Data
+const notifications = [
+    //this are for eg 
+    { id: 1, sender: "John Doe", message: "Your order has shipped!", timestamp: "2 hrs ago", status: "unread" },
+    { id: 2, sender: "System", message: "Password changed successfully", timestamp: "5 hrs ago", status: "read" },
+    { id: 3, sender: "Alice", message: "New comment on your post", timestamp: "1 day ago", status: "archived" },
+    // Add more notifications here
+];
+
+// Function to render notifications
+function renderNotifications(filter = 'all') {
+    const list = document.getElementById('notificationList');
+    list.innerHTML = '';
+    notifications
+        .filter(notification => filter === 'all' || notification.status === filter)
+        .forEach(notification => {
+            list.innerHTML += `
+                <div class="notification-card">
+                    <div class="notification-content">
+                        <p class="sender">${notification.sender}</p>
+                        <p class="message-preview">${notification.message}</p>
+                        <p class="timestamp">${notification.timestamp}</p>
+                    </div>
+                    <div class="notification-actions">
+                        <i onclick="toggleRead(${notification.id})" title="Mark as ${notification.status === 'unread' ? 'Read' : 'Unread'}">
+                            ${notification.status === 'unread' ? '📩' : '📥'}
+                        </i>
+                        <i onclick="deleteNotification(${notification.id})" title="Delete">🗑️</i>
+                    </div>
+                </div>
+            `;
+        });
+}
+
+// Functions for marking, deleting, and filtering
+function toggleRead(id) {
+    const notification = notifications.find(n => n.id === id);
+    if (notification) {
+        notification.status = notification.status === 'unread' ? 'read' : 'unread';
+        renderNotifications();
+    }
+}
+
+function deleteNotification(id) {
+    const index = notifications.findIndex(n => n.id === id);
+    if (index > -1) {
+        notifications.splice(index, 1);
+        renderNotifications();
+    }
+}
+
+function filterNotifications(status) {
+    renderNotifications(status);
+}
+
+// Initialize notifications
+document.addEventListener("DOMContentLoaded", () => renderNotifications());
+
+</script>
+</html>
