@@ -1421,7 +1421,7 @@
     <div class="progress-bar" id="progress-bar"></div>
   </div>
 
-  
+
 
   <script src="script.js"></script>
 
@@ -3767,6 +3767,9 @@
                     setTimeout(typing, 100);
                   } else {
                     h1Typing.classList.add('blinking-cursor');
+                    setTimeout(() => {
+                      h1Typing.classList.remove('blinking-cursor');
+                    }, 2000); //Timeout the cursor after 2 seconds
                   }
                 }
                 typing();
