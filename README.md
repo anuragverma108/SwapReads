@@ -552,6 +552,10 @@ Contributions are what make the open-source community such an amazing place to l
 
 Your involvement helps to improve the project and make it better for everyone. Thank you for your contributions!
 
+my contribution(@Chitrakadyan2005)
+- Enhanced the visibility of active navbar links by changing their color to **Crimson (#DC143C)** and applying a bold style. This update improves user experience by making the active page easily identifiable. The change adds a touch of vibrant color, making the navigation bar look more polished and appealing.
+
+
 Kindly go through [CONTRIBUTING.md](CONTRIBUTING.md) to understand everything from setup to contributing guidelines.
 
 If you would like to contribute to the project, please follow our contribution guidelines.
