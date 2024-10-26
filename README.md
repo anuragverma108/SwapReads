@@ -72,6 +72,7 @@
 │   │   ├── freeBooks.css
 │   │   ├── litrary_realms.css
 │   │   ├── login.css
+│   │   ├── playNow.css
 │   │   ├── preloader.css
 │   │   ├── rate.css
 │   │   ├── read_later.css
