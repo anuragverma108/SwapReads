@@ -42,6 +42,7 @@
 
 <!-- START_STRUCTURE -->
 ```
+├── Code_of_Conduct.md
 ├── DOTENV
 ├── Information/
 │   ├── CODE_OF_CONDUCT.md
