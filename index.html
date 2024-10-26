@@ -5198,23 +5198,28 @@ body > .skiptranslate {
 </div>
 
 <script>
-    document.getElementById('submit-btn').addEventListener('click', async () => {
-  const rating = document.querySelector('input[name="rate"]:checked').value;
-  const feedback = document.getElementById('feedback').value;
+  document.getElementById('submit-btn').addEventListener('click', async () => {
+    const rating = document.querySelector('input[name="rate"]:checked').value;
+    const feedback = document.getElementById('feedback').value;
 
-  const response = await fetch('http://localhost:4000/rate', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ rating, feedback })
+    // Set the backend URL based on the current environment
+    const backendURL = window.location.hostname === 'localhost'
+      ? 'http://localhost:4000'
+      : 'https://your-production-url.com'; // Replace with your production URL
+
+    const response = await fetch(`${backendURL}/rate`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ rating, feedback })
+    });
+
+    const data = await response.json();
+    alert(data.message);
   });
+</script>
 
-  const data = await response.json();
-  alert(data.message);
-});
-
-    </script>
 
 <div id="toastMessage" class="toast-message"></div>
 
