@@ -358,207 +358,113 @@
      }
      
      
-     
-         /* Basic navbar styling */
-     .header {
-       position: fixed;
-       width: 100%;
-       top: 10;
-       z-index: 1000;
-       transition: top 0.3s;
-     }
-     
-     /* Hide the navbar */
-     .header.hidden {
-       top: -93px; /* Adjust according to your header height */
-     }
-     
-     /* Navbar styling when scrolled */
-     .header.scrolled {
-       background-color: #efefef; /* Change to a darker color when scrolled */
-       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
-     }
-     * {
-       margin: 0;
-       padding: 0;
-       font-family: "Poppins", sans-serif;
-     }
-     
-     body {
-       background: #ffccbc;
-     }
-     
-     .action {
-       position: fixed;
-       top: 43px;
-       right: 83px;
-     }
-     
-     .action .profile {
-       position: relative;
-       width: 60px;
-       height: 60px;
-       border-radius: 50%;
-       overflow: hidden;
-       cursor: pointer;
-     }
-     
-     .action .profile img {
-       position: absolute;
-       top: 0;
-       left: 0;
-       width: 100%;
-       height: 100%;
-       object-fit: cover;
-     }
-     
-     .action .menu {
-       position: absolute;
-       top: 120px;
-       right: -10px;
-       padding: 10px 20px;
-       background: #fff;
-       width: 200px;
-       box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
-       border-radius: 15px;
-       transition: 0.5s;
-       visibility: hidden;
-       opacity: 0;
-     }
-     
-     .action .menu.active {
-       top: 80px;
-       visibility: visible;
-       opacity: 1;
-     }
-     
-     .action .menu::before {
-       content: "";
-       position: absolute;
-       top: -5px;
-       right: 28px;
-       width: 20px;
-       height: 20px;
-       background: #fff;
-       transform: rotate(45deg);
-     }
-     
-     .action .menu h3 {
-       width: 100%;
-       text-align: center;
-       font-size: 18px;
-       padding: 20px 0;
-       font-weight: 500;
-       color: #555;
-       line-height: 1.5em;
-     }
-     
-     .action .menu h3 span {
-       font-size: 14px;
-       color: #cecece;
-       font-weight: 300;
-     }
-     
-     .action .menu ul li {
-       list-style: none;
-       padding: 16px 0;
-       border-top: 1px solid rgba(0, 0, 0, 0.05);
-       display: flex;
-       align-items: center;
-     }
-     
-     .action .menu ul li img {
-       max-width: 20px;
-       margin-right: 10px;
-       opacity: 0.5;
-       transition: 0.5s;
-     }
-     
-     .action .menu ul li:hover img {
-       opacity: 1;
-     }
-     
-     .action .menu ul li a {
-       display: inline-flex;
-       text-align: center;
-       padding-left: 5%;
-       font-weight: 300;
-       font-size: 19px;
-       text-decoration: none;
-       color: #555;
-       font-weight: 500;
-       transition: 0.5s;
-     }
-     
-     .action .menu ul li:hover a {
-       color: #ff5d94;
-       font-size: 21px;
-     
-     }
-     .hamburger{
-         display: none;
-         cursor: pointer;
-         position: absolute;
-         top: 24px;
-         left: 1.5%;
-     }
-     .line{
-         width: 36px;
-         height: 5px;
-         margin: 4px 4px;
-         background-color: rgb(240, 15, 15);
-     }
-     @media only screen and (max-width:1063px){
-         .nav{
-             flex-direction: column;
-         }
-         .header{
-             flex-direction: column;
-             height: 53.8rem;
-             transition: 0.55s all ease-out;
-             padding-top: 5px;
-         }
-         .navbar-item{
-             margin-right: 40px;
-         }
-         .navbar-list{
-           position: relative;
-           top: 200px;
-         }
-         .hamburger{
-             display: block;
-         }
-         .nav-h{
-             height: 78px;
-             width: 100vw;
-         }
-         .vis-h{
-             opacity: 0;
-         }
-         .logo img{
-           position: relative;
-           top: 17px;
-           left: 350px;
-         }
-     }
-     @media only screen and (max-width:990px){
-       .header{
-         height: 0;
-       }
-       .navbar-list{
-         top: 0;
-       }
-       .logo img{
-         top: -9px;
-         left: 50px;
-       }
-     }
-     @media (min-width: 990px){
+      /* Basic navbar styling */
+    .header {
+      position: fixed;
+      width: 100%;
+      top: 1rem;
+      /* Assuming you meant 1rem for the top */
+      z-index: 1000;
+      transition: top 0.3s, transform 0.3s ease;
+      margin-left: 9rem;
+      /* Add a negative margin to shift left */
+    }
 
+    .navbar-link {
+      font-size: 1.5rem;
+    }
+
+    .navbar-link.active {
+      color: #af574c;
+      /* Highlight color */
+      font-weight: bold;
+    }
+
+    /* Hide the navbar */
+    .header.hidden {
+      top: -9.3rem;
+      /* Adjust according to your header height */
+    }
+
+    /* Navbar styling when scrolled */
+    .header.scrolled {
+      position: sticky !important;
+      background-color: #efefef;
+      /* Change to a darker color when scrolled */
+      box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+      /* Add shadow for better visibility */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+    }
+
+
+    @media only screen and (max-width:106.3rem) {
+      .nav {
+        flex-direction: row;
+      }
+
+      .header {
+
+        flex-direction: column;
+        height: 53.8rem;
+        transition: 0.2s all ease-out;
+        padding-top: 0rem;
+
+      }
+
+      .navbar-item {
+
+        margin: 0
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .nav-h {
+        height: 7.8rem;
+        width: 100vw;
+      }
+
+      .vis-h {
+        opacity: 0;
+      }
+
+      .switch-container {
+        right: 7rem !important;
+      }
+    }
+
+    @media only screen and (max-width:990px) {
+      .header {
+        height: 0;
+      }
+
+      .navbar-list {
+        top: 0;
+      }
+
+      .logo img {
+        top: -0.9rem;
+        left: 5rem;
+      }
+    }
+
+    /* Removed empty ruleset for .navbar-item */
+
+    .navbar-item {
+      margin-top: 1rem;
+      /* Increase the top margin of each item */
+
+    }
      .grid-list {
     grid-template-columns: repeat(2, 1fr);
 }
-     }
+     
      .chapter-card{
         width: 30vw;
         height: 400px;
