@@ -181,7 +181,8 @@
 │   │   ├── read.html
 │   │   ├── read_later.html
 │   │   ├── school.html
-│   │   └── social.html
+│   │   ├── social.html
+│   │   └── tips.html
 │   ├── images/
 │   │   ├── FB icon.png
 │   │   ├── LogoPicDark.png
@@ -382,6 +383,7 @@
 ├── chat.css
 ├── chat.html
 ├── chat.js
+├── classic-literature.html
 ├── comsp.html
 ├── connectWithsame.html
 ├── contactus1.html
@@ -390,6 +392,8 @@
 │   ├── contributor.html
 │   └── contributor.js
 ├── controller/
+│   ├── Rating.js
+│   ├── fetchBookController.js
 │   └── subscribe.js
 ├── cookiepolicy.html
 ├── cookies.html
@@ -417,7 +421,8 @@
 ├── mindful-living.html
 ├── modals(privacy policy).css
 ├── models/
-│   └── BookDonation.js
+│   ├── BookDonation.js
+│   └── Rating.js
 ├── mylogin.html
 ├── n.jpg
 ├── our-vision.html
