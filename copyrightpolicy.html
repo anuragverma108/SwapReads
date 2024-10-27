@@ -59,6 +59,27 @@
 <script src="https://unpkg.com/scrollreveal"></script>
 
 <style>
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none; /* Hide links on mobile */
+            flex-direction: column;
+            position: absolute;
+            top: 60px; /* Adjust based on your header height */
+            left: 0;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+    
+        .nav-links.active {
+            display: flex; /* Show links when active */
+        }
+    
+        .menu-toggle {
+            display: block; /* Show hamburger menu on mobile */
+        }
+    }
     .work-sans {
         font-family: 'Work Sans', sans-serif;
     }
@@ -124,7 +145,7 @@
     }
 
     .main p:hover {
-        color: #ff5f4b; /* Color change on hover */
+        color: #ed9a8f; /* Color change on hover */
     }
 
     /* Unordered List (li) Styling */
@@ -136,7 +157,7 @@
     .un-list li {
         margin: 12px 0; /* Vertical margin for list items */
         padding: 12px; /* Padding for list items */
-        background-color: #ffe4dc; /* Background color for list items */
+        background-color:rgb(247, 158, 165); /* Background color for list items */
         border-left: 4px solid #ff5f4b; /* Left border for emphasis */
         border-radius: 5px; /* Slight rounding for list items */
         font-size: 17px; /* Increased font size for list items */
@@ -146,16 +167,16 @@
     }
 
     .un-list li:hover {
-        background-color: #ffddc5; /* Change background color on hover */
+        background-color: #fba99e; /* Change background color on hover */
     }
 
     .un-list li a {
-        color: #ff5f4b; /* Link color in list */
+        color:#1c1b1b; /* Link color in list */
         font-weight: 600; /* Bold link text */
     }
 
     .un-list li a:hover {
-        color: #e6482e; /* Darker link color on hover */
+        color: #fa9c8e; /* Darker link color on hover */
     }
 
     /* Dark Mode Styles */
@@ -174,7 +195,7 @@
     }
 
     body.dark-mode .main p:hover {
-        color: #ff5f4b; /* Change color on hover in dark mode */
+        color: #f8988b; /* Change color on hover in dark mode */
     }
 
     /* Dark Mode for <li> Elements */
@@ -205,6 +226,74 @@
     #chaps {
         margin-top: 150px; /* Margin for chapters section */
     }
+</style>
+<style>
+   
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .box {
+            background-color:#ffc7c0;
+            border-left: 8px solid  #ff5f4b;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .box h2 {
+            font-size: 1.2em;
+            margin: 0;
+            color: #0d0d0d;
+        }
+        .box p {
+            margin: 10px 0 0 0;
+            font-size: 1em;
+            color: #333;
+        }
+        .container .box:last-child {
+            margin-bottom: 0;
+        }
+        .box:hover {
+            background-color:  #fba99e;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        /* Define the keyframes for the bottom-up animation */
+@keyframes slideUp {
+    0% {
+        transform: translateY(20px); /* Start 20px below its original position */
+        opacity: 0; /* Start invisible */
+    }
+    100% {
+        transform: translateY(0); /* End at its original position */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+/* Apply the animation to each box */
+.box {
+    animation: slideUp 0.8s ease forwards; /* Duration and easing function */
+    opacity: 0; /* Start hidden */
+}
+
+/* Delay each box's animation for a staggered effect */
+.box:nth-child(1) { animation-delay: 0s; }
+.box:nth-child(2) { animation-delay: 0.1s; }
+.box:nth-child(3) { animation-delay: 0.4s; }
+.box:nth-child(4) { animation-delay: 0.6s; }
+.box:nth-child(5) { animation-delay: 0.7s; }
+.box:nth-child(6) { animation-delay: 0.9s; }
+.box:nth-child(7) { animation-delay: 0.9s; }
+.box:nth-child(8) { animation-delay: 0.95s; }
+.box:nth-child(9) { animation-delay: 1.0s; }
+
+        
 </style>
 
 </head>
@@ -330,34 +419,78 @@
 
     <main class="main">
         <h1>Copyright Policy</h1>
-        <p>Welcome to SwapReads. SwapReads is the solution to common challenges faced by book enthusiasts in today's digital age.
-            We've identified key problems and developed a platform that addresses them efficiently and effectively. </p>
-        <p style ="font-size : 16px; font-weight: 600;">Here is our copyright policy:</p>
-        <ul class="un-list">
-            <li>- All content on this website, including text, graphics, logos, and images, is owned by SwapReads unless
-                otherwise stated.</li>
-            <li>- You may not reproduce, distribute, or use the content without prior written permission from SwapReads.
-            </li>
-            <li>- Users may download and print content from this website for personal and non-commercial use only.</li>
-            <li>- Unauthorized use of any content may violate copyright, trademark, and other laws and is strictly
-                prohibited.</li>
-            <li>If you believe your copyrighted work is being infringed upon, please contact us at <a
-                    href="mailto:copyright@swapreads.com">copyright@swapreads.com</a> with detailed information about
-                the alleged infringement.</li>
-                </ul>
-            <p>We will investigate and address any copyright infringement complaints promptly and take appropriate
-                action.</p>
-            <p>SwapReads reserves the right to change, update, or modify this policy at any time without prior notice.
-            
-            All trademarks, logos, and service marks displayed on the website are the property of SwapReads or their
-                respective owners. You are not permitted to use them without the prior written consent of SwapReads or
-                such third parties who may own the trademarks.</p>
-            <p>Any unauthorized use of the content or trademarks may result in legal consequences, including but not
-                limited to civil and criminal penalties.</p>
-            <p>We respect the intellectual property rights of others and expect our users to do the same.</p>
-        
+    
+        <div class="box">
+            <h2>Introduction</h2>
+            <ul class="un-list">
+                <li>Welcome to SwapReads. SwapReads is the solution to common challenges faced by book enthusiasts in today's digital age. We've identified key problems and developed a platform that addresses them efficiently and effectively.</li>
+            </ul>
+        </div>
+    
+        <div class="box">
+            <h2>Policy Overview</h2>
+            <ul class="un-list">
+                <li style="font-size: 16px; font-weight: 600;">Here is our copyright policy:</li>
+            </ul>
+        </div>
+    
+        <div class="box">
+            <h2>Ownership of Content</h2>
+            <ul class="un-list">
+                <li>All content on this website, including text, graphics, logos, and images, is owned by SwapReads unless otherwise stated.</li>
+            </ul>
+        </div>
+    
+        <div class="box">
+            <h2>Restrictions on Use</h2>
+            <ul class="un-list">
+                <li>You may not reproduce, distribute, or use the content without prior written permission from SwapReads.</li>
+                <li>Users may download and print content from this website for personal and non-commercial use only.</li>
+                <li>Unauthorized use of any content may violate copyright, trademark, and other laws and is strictly prohibited.</li>
+            </ul>
+        </div>
+    
+        <div class="box">
+            <h2>Copyright Infringement</h2>
+            <ul class="un-list">
+                <li>If you believe your copyrighted work is being infringed upon, please contact us at 
+                    <a href="mailto:copyright@swapreads.com">copyright@swapreads.com</a> with detailed 
+                    information about the alleged infringement. We will investigate and address any copyright 
+                    infringement complaints promptly and take appropriate action.
+                </li>
+            </ul>
+        </div>
+    
+        <div class="box">
+            <h2>Policy Updates</h2>
+            <ul class="un-list">
+                <li>SwapReads reserves the right to change, update, or modify this policy at any time without prior notice.</li>
+            </ul>
+        </div>
+    
+        <div class="box">
+            <h2>Trademarks and Logos</h2>
+            <ul class="un-list">
+                <li>All trademarks, logos, and service marks displayed on the website are the property of SwapReads or their respective owners. You are not permitted to use them without the prior written consent of SwapReads or such third parties who may own the trademarks.</li>
+            </ul>
+        </div>
+    
+        <div class="box">
+            <h2>Legal Consequences</h2>
+            <ul class="un-list">
+                <li>Any unauthorized use of the content or trademarks may result in legal consequences, including but not limited to civil and criminal penalties.</li>
+            </ul>
+        </div>
+    
+        <div class="box">
+            <h2>Respect for Intellectual Property</h2>
+            <ul class="un-list">
+                <li>We respect the intellectual property rights of others and expect our users to do the same.</li>
+            </ul>
+        </div>
     </main>
-
+    
+    
     <footer>
         <div class="foot-top">
             <div class="foot-left">
@@ -540,6 +673,9 @@
                 <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
             </div>
         </div>
+    </body>
+
+    </html>
 <style>
     #copyrightPolicyLink:hover{
         color:rgb(126, 0, 21);
@@ -555,7 +691,7 @@
         <script src="./assets/js/script.js" defer></script>
 
 
-        </script>
+
         <!-- Swiper JS -->
         <script src="assets/js/swiper-bundle.min.js"></script>
         <!-- Custom JavaScript -->
@@ -749,6 +885,4 @@
         
       </script>
       <style>
-</body>
 
-</html>
