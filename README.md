@@ -154,6 +154,7 @@
 │   │   │   └── css/
 │   │   │       └── event.css
 │   │   ├── audio.html
+│   │   ├── author.html
 │   │   ├── blog.html
 │   │   ├── book_recommend.html
 │   │   ├── booking.html
@@ -225,6 +226,7 @@
 │   │   ├── close-white.png
 │   │   ├── close.png
 │   │   ├── close1.png
+│   │   ├── comedy.jpg
 │   │   ├── community.png
 │   │   ├── communityhover.png
 │   │   ├── ctc1.png
@@ -295,6 +297,7 @@
 │   │   ├── new_logo_banner_dark.png
 │   │   ├── new_logo_banner_light.png
 │   │   ├── new_logo_dark.png
+│   │   ├── philopsphy.jpg
 │   │   ├── pic1.jpeg
 │   │   ├── pic2.jpeg
 │   │   ├── pic3.jpeg
@@ -325,6 +328,7 @@
 │   │   ├── trendingbook3.jpg
 │   │   ├── trendingbook4.jpg
 │   │   ├── trendingbook5.jpg
+│   │   ├── true crime.jpg
 │   │   ├── twitter-icon.png
 │   │   ├── twitter.png
 │   │   ├── user.jpg
