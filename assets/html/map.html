@@ -1,121 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>India Book Readers Map</title>
-
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      background-color: rgb(240, 143, 158);
-    }
-
-    #backButton {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-top: 20px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    #backButton:hover {
-      background-color: #0056b3;
-    }
-
-    /* Map container styling */
-    #map {
-      width: 80vw;
-      height: 80vh;
-      margin: 20px auto;
-      border: 1px solid #ddd;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Readership Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+        /* Style for the Back to Home button */
+        .back-home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #007bff; /* Button color */
+            color: white; /* Text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000; /* Make sure it's on top of the map */
+        }
+        .back-home-button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+    </style>
 </head>
-
 <body>
-  <button id="backButton" onclick="window.location.href='../../index.html'">Back to Home</button>
-  <h2>Book Readers in India</h2>
-  <p>States color-coded by readership levels</p>
+    <h1>India Readership Map</h1>
+    <div id="map"></div>
+    <button class="back-home-button" onclick="goToHomePage()">Back to Home</button>
+    
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Function to go back to the home page
+        function goToHomePage() {
+            window.location.href = '../../index.html'; // Change this to your home page URL
+        }
 
-  <!-- Map container -->
-  <div id="map"></div>
+        // Initialize the map centered on India
+        const map = L.map('map', {
+            center: [20.5937, 78.9629], // Centered in India
+            zoom: 5,
+            maxZoom: 18
+        });
 
-  <script>
-    // Initialize the map centered on India with Leaflet
-    const map = L.map('map').setView([22.9734, 78.6569], 5);
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
 
-    // Add the base map layer from OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+        // Add custom image overlay
+        const imageUrl = 'https://nict.co.in/assets/img/contact-map.png'; // Image URL
+        const imageBounds = [[6.4626, 68.1766], [37.0841, 97.4026]]; // Adjusted bounds for the image
 
-    // Color settings for each readership level
-    const readershipLevels = {
-      low: { color: "red", radius: 8 },
-      medium: { color: "orange", radius: 10 },
-      high: { color: "green", radius: 12 }
-    };
+        L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
-    // List of states with coordinates and readership levels
-    const states = [
-      { name: 'Bihar', coords: [25.0961, 85.3131], level: 'low' },
-      { name: 'Uttar Pradesh', coords: [26.8467, 80.9462], level: 'medium' },
-      { name: 'Kerala', coords: [10.8505, 76.2711], level: 'high' },
-      { name: 'Maharashtra', coords: [19.7515, 75.7139], level: 'medium' },
-      { name: 'West Bengal', coords: [22.9868, 87.8550], level: 'low' },
-      { name: 'Karnataka', coords: [15.3173, 75.7139], level: 'high' },
-      { name: 'Tamil Nadu', coords: [11.1271, 78.6569], level: 'medium' },
-      { name: 'Andhra Pradesh', coords: [15.9129, 79.7400], level: 'medium' },
-      { name: 'Telangana', coords: [18.1124, 79.0193], level: 'high' },
-      { name: 'Gujarat', coords: [22.2587, 71.1924], level: 'low' },
-      { name: 'Rajasthan', coords: [27.0238, 74.2179], level: 'medium' },
-      { name: 'Madhya Pradesh', coords: [22.9734, 78.6569], level: 'low' },
-      { name: 'Odisha', coords: [20.9517, 85.0985], level: 'low' },
-      { name: 'Punjab', coords: [31.1471, 75.3412], level: 'medium' },
-      { name: 'Haryana', coords: [29.0588, 76.0856], level: 'medium' },
-      { name: 'Chhattisgarh', coords: [21.2787, 81.8661], level: 'low' },
-      { name: 'Jharkhand', coords: [23.6102, 85.2799], level: 'low' },
-      { name: 'Assam', coords: [26.2006, 92.9376], level: 'high' },
-      { name: 'Himachal Pradesh', coords: [31.1048, 77.1734], level: 'medium' },
-      { name: 'Uttarakhand', coords: [30.0668, 79.0193], level: 'medium' },
-      { name: 'Goa', coords: [15.2993, 74.1240], level: 'high' },
-      { name: 'Tripura', coords: [23.9408, 91.9882], level: 'low' },
-      { name: 'Meghalaya', coords: [25.4670, 91.3662], level: 'medium' },
-      { name: 'Manipur', coords: [24.6637, 93.9063], level: 'low' },
-      { name: 'Nagaland', coords: [26.1584, 94.5624], level: 'low' },
-      { name: 'Sikkim', coords: [27.5330, 88.5122], level: 'high' },
-      { name: 'Mizoram', coords: [23.1645, 92.9376], level: 'low' },
-      { name: 'Arunachal Pradesh', coords: [28.2180, 94.7278], level: 'low' },
-      { name: 'Jammu and Kashmir', coords: [34.0837, 74.7973], level: 'medium' }
-    ];
+        // Set the map view to the bounds of the image
+        map.fitBounds(imageBounds);
 
-    // Add circles for each state based on readership level
-    states.forEach(state => {
-      const { color, radius } = readershipLevels[state.level];
+        // Color settings for each readership level
+        const readershipLevels = {
+            low: { color: "red", radius: 4 },   // Reduced size
+            medium: { color: "orange", radius: 6 }, // Reduced size
+            high: { color: "green", radius: 8 } // Reduced size
+        };
 
-      // Create and add a circle marker for each state
-      L.circleMarker(state.coords, {
-        color: color,
-        radius: radius,
-        fillOpacity: 0.6
-      })
-      .addTo(map)
-      .bindPopup(`<b>${state.name}</b><br>Readership Level: ${state.level.charAt(0).toUpperCase() + state.level.slice(1)}`);
-    });
-  </script>
+        // List of states with coordinates and readership levels
+        const states = [
+            { name: 'Andhra Pradesh', coords: [15.9129, 79.7400], level: 'medium' },
+            { name: 'Arunachal Pradesh', coords: [28.2180, 94.7278], level: 'low' },
+            { name: 'Assam', coords: [26.2006, 92.9376], level: 'high' },
+            { name: 'Bihar', coords: [25.0961, 85.3131], level: 'low' },
+            { name: 'Chhattisgarh', coords: [21.2787, 81.8661], level: 'low' },
+            { name: 'Goa', coords: [15.2993, 74.1240], level: 'high' },
+            { name: 'Gujarat', coords: [22.2587, 71.1924], level: 'low' },
+            { name: 'Haryana', coords: [29.0588, 76.0856], level: 'medium' },
+            { name: 'Himachal Pradesh', coords: [31.1048, 77.1734], level: 'medium' },
+            { name: 'Jharkhand', coords: [23.6102, 85.2799], level: 'low' },
+            { name: 'Karnataka', coords: [15.3173, 75.7139], level: 'high' },
+            { name: 'Kerala', coords: [10.8505, 76.2711], level: 'high' },
+            { name: 'Madhya Pradesh', coords: [22.9734, 78.6569], level: 'low' },
+            { name: 'Maharashtra', coords: [19.7515, 75.7139], level: 'medium' },
+            { name: 'Manipur', coords: [24.6637, 93.9063], level: 'low' },
+            { name: 'Meghalaya', coords: [25.4670, 91.3662], level: 'medium' },
+            { name: 'Mizoram', coords: [23.1645, 92.9376], level: 'low' },
+            { name: 'Nagaland', coords: [26.1584, 94.5624], level: 'low' },
+            { name: 'Odisha', coords: [20.9517, 85.0985], level: 'low' },
+            { name: 'Punjab', coords: [31.1471, 75.3412], level: 'medium' },
+            { name: 'Rajasthan', coords: [27.0238, 74.2179], level: 'medium' },
+            { name: 'Sikkim', coords: [27.5330, 88.5122], level: 'high' },
+            { name: 'Tamil Nadu', coords: [11.1271, 78.6569], level: 'medium' },
+            { name: 'Telangana', coords: [18.1124, 79.0193], level: 'high' },
+            { name: 'Tripura', coords: [23.9408, 91.9882], level: 'low' },
+            { name: 'Uttar Pradesh', coords: [26.8467, 80.9462], level: 'medium' },
+            { name: 'Uttarakhand', coords: [30.0668, 79.0193], level: 'medium' },
+            { name: 'West Bengal', coords: [22.9868, 87.8550], level: 'low' },
+            { name: 'Jammu and Kashmir', coords: [34.0837, 74.7973], level: 'medium' }
+        ];
+
+        // Add circles for each state based on readership level
+        states.forEach(state => {
+            const { color, radius } = readershipLevels[state.level];
+
+            // Create and add a circle marker for each state
+            L.circleMarker(state.coords, {
+                color: color,
+                radius: radius,
+                fillOpacity: 0.6
+            })
+            .addTo(map)
+            .bindPopup(`<b>${state.name}</b><br>Readership Level: ${state.level.charAt(0).toUpperCase() + state.level.slice(1)}`);
+        });
+    </script>
 </body>
 </html>
