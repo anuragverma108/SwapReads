@@ -154,6 +154,7 @@
 │   │   │   └── css/
 │   │   │       └── event.css
 │   │   ├── audio.html
+│   │   ├── author.html
 │   │   ├── blog.html
 │   │   ├── book_recommend.html
 │   │   ├── booking.html
