@@ -436,7 +436,17 @@
         const bookName = document.getElementById('bookName').value;
         const authorName = document.getElementById('authorName').value;
         const bookGenre = document.getElementById('bookGenre').value;
+        const regex = /^(?=.*[A-Za-z])[A-Za-z\s]+$/;
 
+    if (!regex.test(bookName)) {
+        alert("Error: Invalid Book name");
+        return;
+    }
+
+    if (!regex.test(authorName)) {
+        alert("Error: Invalid Author name");
+        return;
+    }
         const note = {
           bookName,
           authorName,
