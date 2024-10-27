@@ -8,6 +8,7 @@
       sizes="180x180"
       href="./assets/favicon_package_v0.16/apple-touch-icon.png"
     />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link
       rel="icon"
       type="image/png"
@@ -73,9 +74,109 @@
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <title>Audio Books</title>
     <style>
+       .switch-container {
+      position: absolute;
+      right: 10rem;
+      /* Adjust this value to move the button more to the right */
+      top: 1.5rem;
+      /* Adjust this value to move the button vertically */
+    }
+
+    /* For responsiveness */
+    @media (max-width: 99rem) {
+      .switch-container {
+        right: 9rem;
+        /* Adjust this value for smaller screens */
+      }
+    }
+
+    @media only screen and (max-width:1063px) {
+      .switch-container {
+        right: 7rem !important;
+      }
+    }
+
+    <style>
+            .switch-container {
+      position: absolute;
+      right: 10rem;
+      /* Adjust this value to move the button more to the right */
+      top: 1.5rem;
+      /* Adjust this value to move the button vertically */
+    }
+    /* Position the toggle button to the right */
+    .switch-container {
+      position: absolute;
+      right: 10rem;
+      /* Adjust this value to move the button more to the right */
+      top: 1.5rem;
+      /* Adjust this value to move the button vertically */
+    }
+  
+      .switch-checkbox {
+        display: none;
+      }
+  
+      .switch-label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        width: 60px;
+        height: 30px;
+        background-color: #ccc;
+        border-radius: 30px;
+        position: relative;
+        transition: background-color 0.3s;
+      }
+  
+      
+  
+      .switch-button {
+        position: absolute;
+        top: 50%;
+        left: 4px;
+        width: 26px;
+        height: 26px;
+        background-color: white;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        transition: left 0.3s;
+      }
+  
+      .switch-checkbox:checked + .switch-label .switch-button {
+        left: 30px;
+      }
+  
+      .sun-icon, .moon-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+        transition: opacity 0.3s;
+      }
+  
+      .sun-icon {
+        left: 8px;
+        opacity: 1;
+      }
+  
+      .moon-icon {
+        right: 8px;
+        opacity: 0;
+      }
+  
+      .switch-checkbox:checked + .switch-label .sun-icon {
+        opacity: 0;
+      }
+  
+      .switch-checkbox:checked + .switch-label .moon-icon {
+        opacity: 1;
+      }
+    </style>
+    <style>
       /* Header Styles */
       .header {
-        background-color: #f3a5a5;
+        background-color: white;
         padding: 0 40px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       }
@@ -706,7 +807,16 @@
                 <i class="ri-community-fill"></i> Community
               </a>
             </li>
-  
+            <div style="top: 1.5rem;">
+              <input type="checkbox" id="switch" class="switch-checkbox">
+              <label for="switch" class="switch-label">
+                <div class="switch-button">
+                  <span class="material-icons sun-icon">wb_sunny </span>
+                  <span class="material-icons moon-icon">brightness_2</span>
+                </div>
+              </label>
+            </div>
+
   
             <li>
               <div class="action">
