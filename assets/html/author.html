@@ -36,7 +36,7 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <link rel="stylesheet" href="../css/styles.css">
-  <title>About Us</title>
+  <title>Authors</title>
   <style>
     /* Circle styles */
     .circle {
@@ -407,7 +407,8 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
-      padding: 30px;
+      /* Increased padding from 30px to 80px to seperate the navbar with the cards */
+      padding: 80px;
       margin-top: 70px;
       max-width: 1200px;
     }
@@ -440,13 +441,182 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
+    /* Changes required here */
     .card-front {
       background-color: #f59595;
-      color: white;
+      /* Changed color of text to match current UI and also make it visible */
+      color: rgb(189, 7, 86);
       font-size: 1.8em;
       text-align: center;
+      position: absolute;
     }
 
+    .card-front h1{
+      position: relative;
+      bottom: -120px;
+      background: #e97070;
+    }
+    
+    /* Added: Image for J.K. Rowling */
+    .Rowling{
+      background-image: url("https://people.com/thmb/aBDa7w2gbRPaNvsn4MEYhRDfXTw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(511x0:513x2)/jk-rowling-1024-f6d4d7c9b7b04c1cb7ae7c92e0a1ccdf.jpg");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for Mark Twain */
+    .Twain{
+      background-image: url("https://poemanalysis.com/wp-content/uploads/2019/04/Mark-Twain-Portrait.jpg");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for George Orwell */
+    .Orwell{
+      background-image: url("https://m.media-amazon.com/images/M/MV5BYWUxN2Q1OTItOTYxMS00ZThmLWI4Y2MtZWQ3MDI3NDlmMTYzXkEyXkFqcGc@._V1_.jpg");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for Agatha Christie */
+    .Christie{
+      background-image: url("https://hips.hearstapps.com/hmg-prod/images/portrait-of-agatha-christie-english-writer-undated-news-photo-1713817532.jpg");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for Dr. Seuss */
+    .Seuss{
+      background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Theodor_Seuss_Geisel_%2801037v%29.jpg/330px-Theodor_Seuss_Geisel_%2801037v%29.jpg");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for Jane Austen */
+    .Austen{
+      background-image: url("https://cdn.britannica.com/12/172012-050-DAA7CE6B/Jane-Austen-Cassandra-engraving-portrait-1810.jpg");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for Charles Dickens */
+    .Dickens{
+      background-image: url("https://cdn.sanity.io/images/cxgd3urn/production/b7fc85c1400fc90f77aa9c9e6525d02871b9f073-2400x3000.jpg?w=1200&h=1500&fit=crop&auto=format");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for William Shakespeare */
+    .Shakespeare{
+      background-image: url("https://www.meisterdrucke.ie/kunstwerke/1260px/School_English_-_William_Shakespeare_%28colour_engraving%29_-_%28MeisterDrucke-1426574%29.jpg");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for H.G. Wells */
+    .Wells{
+      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSydFytIlMB_YodL6DQAXR9_Mj9RbUp3oFbAqPqYGr-fmIhyAId");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for Leo Tolstoy */
+    .Tolstoy{
+      background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTSGPSIYWlND2C0xSdh4YrSUcr00TGyFGk8KymYDxIJZQ_Rkb73");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for Fyodor Dostoevsky */
+    .Dostoevsky{
+      background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSAUAYGGkFCbCTpHsNGOiEF28rICUyvLwM3tL9q8gkD-0_3Ia_K");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for Virginia Woolf */
+    .Woolf{
+      background-image: url("https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRSFS3__u54Rma_JVg555XzGTVkWtBL7u5p-FUqACvCKHOOG9ITjkjEeSEViRz3mxELpt5JhHZhU-Tf_lo");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for James Joyce */
+    .Joyce{
+      background-image: url("https://m.media-amazon.com/images/S/pv-target-images/10d12f1910dd15e8b9a891761dba8a2c8bc91f57e699107ee4c5f3504743b762.jpg");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for Oscar Wilde */
+    .Wilde{
+      background-image: url("https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcTDJ6jXTLUVZ9l0bBB7Xoy-ODFMUndkb2lfWPrkzBeQkuSaC5M51hVUkfllGDByBinE38ltzDz4_-M-5Rw");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for Ernest Hemingway */
+    .Hemingway{
+      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKFvwn47ZHVVTxkuUclfyHgJiI_TDwtsU2o8C6Ct7a_76UaBPy");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for John Steinbeck */
+    .Steinbeck{
+      background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQpmOOyJdbJenmTN8XfnqZY4lfC0bjEjT7vu6r3f-CYNj5BJG7c");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for Gabriel García Márquez */
+    .Márquez{
+      background-image: url("https://i.ytimg.com/vi/pzx1msp4-Ik/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB45oIFtdUu6QAuf_SvP6mfVuvxrA");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for Franz Kafka */
+    .Kafka{
+      background-image: url("https://i.namu.wiki/i/TizD0h9O5WgIQ53i0zm9MTSXEFeN_BbXAOslS_qqRaMGWDVaGBGXOn0EMW6K2nqnApS6_MgopR_ifuOcYSGD8g.webp");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for Homer */
+    .Homer{
+      background-image: url("https://upload.wikimedia.org/wikipedia/commons/1/1c/Homer_British_Museum.jpg");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /* Added: Image for Plato */
+    .Plato{
+      background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQIu-meUG1H-FxfuVWJoEl_dyM1jaMgj4jvaKGi2MWpenxNI0lX");
+      background-size: cover;           /* Ensures the image covers the div */
+      background-position: center;      /* Centers the image */
+      background-repeat: no-repeat;     /* Prevents repeating */
+    }
+    
     .card-back {
       background-color: #ffffff;
       color: #333;
@@ -947,14 +1117,14 @@
 
 
 
-
+<!-- Changes here -->
  
 
 <!-- Card Container -->
 <div class="card-container">
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>J.K. Rowling</h1></div>
+      <div class="card-front Rowling"><h1>J.K. Rowling</h1></div>
       <div class="card-back">
         <h3>Pen Name: Robert Galbraith</h3>
         <p><strong>Famous Books:</strong> Harry Potter series, The Casual Vacancy</p>
@@ -965,7 +1135,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>Mark Twain</h1></div>
+      <div class="card-front Twain"><h1>Mark Twain</h1></div>
       <div class="card-back">
         <h3>Pen Name: Samuel Clemens</h3>
         <p><strong>Famous Books:</strong> The Adventures of Tom Sawyer, Adventures of Huckleberry Finn</p>
@@ -975,7 +1145,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>George Orwell</h1></div>
+      <div class="card-front Orwell"><h1>George Orwell</h1></div>
       <div class="card-back">
         <h3>Pen Name: Eric Arthur Blair</h3>
         <p><strong>Famous Books:</strong> 1984, Animal Farm</p>
@@ -985,7 +1155,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>Agatha Christie</h1></div>
+      <div class="card-front Christie"><h1>Agatha Christie</h1></div>
       <div class="card-back">
         <h3>Pen Name: Mary Westmacott</h3>
         <p><strong>Famous Books:</strong> Murder on the Orient Express, And Then There Were None</p>
@@ -995,7 +1165,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>Dr. Seuss</h1></div>
+      <div class="card-front Seuss"><h1>Dr. Seuss</h1></div>
       <div class="card-back">
         <h3>Pen Name: Theodor Seuss Geisel</h3>
         <p><strong>Famous Books:</strong> The Cat in the Hat, Green Eggs and Ham</p>
@@ -1005,7 +1175,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>Jane Austen</h1></div>
+      <div class="card-front Austen"><h1>Jane Austen</h1></div>
       <div class="card-back">
         <h3>Famous Books:</h3>
         <p>Pride and Prejudice, Sense and Sensibility</p>
@@ -1015,7 +1185,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>Charles Dickens</h1></div>
+      <div class="card-front Dickens"><h1>Charles Dickens</h1></div>
       <div class="card-back">
         <h3>Famous Books:</h3>
         <p>A Tale of Two Cities, Oliver Twist</p>
@@ -1025,7 +1195,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>William Shakespeare</h1></div>
+      <div class="card-front Shakespeare"><h1>William Shakespeare</h1></div>
       <div class="card-back">
         <h3>Famous Books:</h3>
         <p>Romeo and Juliet, Hamlet</p>
@@ -1035,7 +1205,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>H.G. Wells</h1></div>
+      <div class="card-front Wells"><h1>H.G. Wells</h1></div>
       <div class="card-back">
         <h3>Famous Books:</h3>
         <p>The War of the Worlds, The Time Machine</p>
@@ -1045,7 +1215,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>Leo Tolstoy</h1></div>
+      <div class="card-front Tolstoy"><h1>Leo Tolstoy</h1></div>
       <div class="card-back">
         <h3>Famous Books:</h3>
         <p>War and Peace, Anna Karenina</p>
@@ -1055,7 +1225,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>Fyodor Dostoevsky</h1></div>
+      <div class="card-front Dostoevsky"><h1>Fyodor Dostoevsky</h1></div>
       <div class="card-back">
         <h3>Famous Books:</h3>
         <p>Crime and Punishment, The Brothers Karamazov</p>
@@ -1065,7 +1235,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>Virginia Woolf</h1></div>
+      <div class="card-front Woolf"><h1>Virginia Woolf</h1></div>
       <div class="card-back">
         <h3>Famous Books:</h3>
         <p>To the Lighthouse, Mrs. Dalloway</p>
@@ -1075,7 +1245,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>James Joyce</h1></div>
+      <div class="card-front Joyce"><h1>James Joyce</h1></div>
       <div class="card-back">
         <h3>Famous Books:</h3>
         <p>Ulysses, A Portrait of the Artist as a Young Man</p>
@@ -1085,7 +1255,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>Oscar Wilde</h1></div>
+      <div class="card-front Wilde"><h1>Oscar Wilde</h1></div>
       <div class="card-back">
         <h3>Famous Books:</h3>
         <p>The Picture of Dorian Gray, The Importance of Being Earnest</p>
@@ -1095,7 +1265,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>Ernest Hemingway</h1></div>
+      <div class="card-front Hemingway"><h1>Ernest Hemingway</h1></div>
       <div class="card-back">
         <h3>Famous Books:</h3>
         <p>The Old Man and the Sea, A Farewell to Arms</p>
@@ -1105,7 +1275,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>John Steinbeck</h1></div>
+      <div class="card-front Steinbeck"><h1>John Steinbeck</h1></div>
       <div class="card-back">
         <h3>Famous Books:</h3>
         <p>The Grapes of Wrath, East of Eden</p>
@@ -1115,7 +1285,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>Gabriel García Márquez</h1></div>
+      <div class="card-front Márquez"><h1>Gabriel García Márquez</h1></div>
       <div class="card-back">
         <h3>Famous Books:</h3>
         <p>One Hundred Years of Solitude, Love in the Time of Cholera</p>
@@ -1125,7 +1295,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>Franz Kafka</h1></div>
+      <div class="card-front Kafka"><h1>Franz Kafka</h1></div>
       <div class="card-back">
         <h3>Famous Books:</h3>
         <p>The Metamorphosis, The Trial</p>
@@ -1135,7 +1305,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>Homer</h1></div>
+      <div class="card-front Homer"><h1>Homer</h1></div>
       <div class="card-back">
         <h3>Famous Books:</h3>
         <p>The Iliad, The Odyssey</p>
@@ -1145,7 +1315,7 @@
   </div>
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
-      <div class="card-front"><h1>Plato</h1></div>
+      <div class="card-front Plato"><h1>Plato</h1></div>
       <div class="card-back">
         <h3>Famous Books:</h3>
         <p>The Republic, Symposium</p>
