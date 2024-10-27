@@ -38,28 +38,35 @@
 
 <hr>
 
+  ### This project is now OFFICIALLY accepted for
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/329829127-e79eb6de-81b1-4ffb-b6ed-f018bb977e88.png" alt="GSSoC 2024 Extd" width="80%">
+</div>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/hacktober.png" alt="Hacktober fest 2024" width="80%">
+</div>
+
+<br>  
+
+
 ## Project Structure
 
 <!-- START_STRUCTURE -->
 ```
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
+├── Code_of_Conduct.md
 ├── DOTENV
 ├── Information/
 │   ├── CODE_OF_CONDUCT.md
-│   ├── Create Contributing.md
+│   ├── CONTRIBUTING.md
 │   ├── LICENSE
 │   ├── Learn.md
-│   ├── desktop.png
 │   ├── index.txt
 │   └── style-guide.md
 ├── LICENSE
 ├── Mystical-fantaies.html
 ├── README.md
-├── SwapReads/
-│   └── assets/
-│       └── images/
-│           └── ctc2.png
 ├── assets/
 │   ├── JSON/
 │   │   ├── package-lock.json
@@ -79,6 +86,7 @@
 │   │   ├── freeBooks.css
 │   │   ├── litrary_realms.css
 │   │   ├── login.css
+│   │   ├── playNow.css
 │   │   ├── preloader.css
 │   │   ├── rate.css
 │   │   ├── read_later.css
@@ -87,7 +95,6 @@
 │   │   ├── socialmedia.css
 │   │   ├── style.css
 │   │   ├── styles.css
-│   │   ├── swiper-bundle.min.css
 │   │   ├── test-style.css
 │   │   └── visitors.css
 │   ├── event.css
@@ -161,7 +168,6 @@
 │   │   ├── forgot-pass.html
 │   │   ├── freeBooks.html
 │   │   ├── googlece7a206a6cfbb7ed.html
-│   │   ├── index.html
 │   │   ├── login.html
 │   │   ├── mood.html
 │   │   ├── mylogin.html
@@ -236,6 +242,7 @@
 │   │   │   └── emoji-5.png
 │   │   ├── eye-close.png
 │   │   ├── eye-open.png
+│   │   ├── fantasy.jpg
 │   │   ├── final.png
 │   │   ├── genres/
 │   │   │   ├── 1.jpg
@@ -280,6 +287,7 @@
 │   │   ├── mg.jpeg
 │   │   ├── moon.png
 │   │   ├── moon_solid.svg
+│   │   ├── mystery.jpg
 │   │   ├── ne.jpeg
 │   │   ├── nes.jpeg
 │   │   ├── new_logo.png
@@ -298,6 +306,8 @@
 │   │   ├── re.jpg
 │   │   ├── read.png
 │   │   ├── readhover.png
+│   │   ├── rom.jpg
+│   │   ├── sci.jpg
 │   │   ├── settings.png
 │   │   ├── sun.png
 │   │   ├── tele.png
@@ -308,6 +318,7 @@
 │   │   ├── testimonials-4.jpg
 │   │   ├── testimonials-5.jpg
 │   │   ├── testimonials-6.jpg
+│   │   ├── thriller.jpg
 │   │   ├── trendingbook1.jpg
 │   │   ├── trendingbook2.jpg
 │   │   ├── trendingbook3.jpg
@@ -361,7 +372,6 @@
 │   ├── lotery ticket.jpeg
 │   └── the-magic-shop-17 (1).jpg
 ├── audiobook.html
-├── benefits.png
 ├── biographies.html
 ├── books.html
 ├── chat.css
@@ -391,10 +401,8 @@
 ├── exchangeHub.css
 ├── footer1.css
 ├── footer1.html
-├── genre.png
 ├── help.html
 ├── historical-chronicals.html
-├── home.png
 ├── index.html
 ├── intriguing-mysteries.html
 ├── lib.jpg
@@ -410,6 +418,7 @@
 ├── our-vision.html
 ├── package-lock.json
 ├── package.json
+├── playNow.html
 ├── popup.jpg
 ├── popup.js
 ├── pricing.html
@@ -427,6 +436,7 @@
 ├── sense-sensibility_01_austen_64kb.mp3
 ├── server.js
 ├── signup1.html
+├── sitemap.html
 ├── stackbit.config.ts
 ├── stay_connect.css
 ├── subscribe.html
@@ -697,9 +707,7 @@ https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
 https://github.com/user-attachments/assets/f430e59e-d744-4b60-9884-b7eb4643ba72
 
-<img src="./home.png" />
-<img src="./benefits.png" />
-<img src="./genre.png" />
+
 
 🌐 **Visit our website:** [SwapReads](https://swapreadsconnect.netlify.app/#)
 

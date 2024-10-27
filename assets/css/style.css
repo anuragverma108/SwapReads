@@ -1034,7 +1034,9 @@ body.dark-mode .dropdown-menu-item:hover {
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
 
 }
-
+.play-btn:hover h2 {
+  color: black; /* Change text color to black on hover for better visibility */
+}
 play-btn ion-icon {
   font-size: 24px;
 }
@@ -1448,15 +1450,17 @@ body.dark-mode .chapter-card:hover {
   flex-wrap: wrap;
   gap: 20px; 
   justify-content: space-around;
-  margin-left: -90px;
+  margin-left: -110px;
 }
-
+@media (max-width: 768px) {
 .pricing-container {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 20px; /* Space between the cards */
   justify-content: space-around;
 
+}
 }
 
 .pricing-card {
@@ -1523,9 +1527,10 @@ body.dark-mode .pricing-card button {
   color: var(--charcoal);
   font-weight: var(--fw-700);
   margin-block-start: 10px;
-  padding-left: 25%;
-  padding-right: 25%;
+  text-align: center;
 }
+
+
 .pricing-card .price:hover {
   color: rgb(255, 195, 0);
 }
@@ -1556,7 +1561,9 @@ body.dark-mode .pricing-card button {
 @media (max-width: 768px) {
   .pricing-card {
     flex-basis: 45%; /* Adjust for smaller screens */
-    min-height: 200px;
+    min-height: 100px;
+    max-width: 300px;
+
   }
 }
 
@@ -1564,6 +1571,7 @@ body.dark-mode .pricing-card button {
   .pricing-card {
     flex-basis: 100%; /* Single column layout for small screens */
     min-height: 180px;
+
   }
 }
 
@@ -1697,6 +1705,7 @@ body.dark-mode .pricing-card button {
   position: relative;
   overflow: hidden;
   border: 2px solid #ccc; /* Optional styling */
+ margin-left: 20px;
 }
 
 .map-container iframe {
@@ -1802,16 +1811,17 @@ body.dark-mode .pricing-card button {
 
 .flex-container {
   flex: 1; /* Takes up the left side space */
-  margin-right: 20px; /* Adds space between the contact details and map */
+  margin-right: 10px; /* Adds space between the contact details and map */
   padding-top:50px;
+  margin-left: 10px;
   padding-left:40px;
 }
 
 .map-container {
-  width: 100%;
+  width: 50%;
   max-width: 400px; /* Keeps the map responsive */
   aspect-ratio: 1; /* Ensures a square aspect ratio */
-  margin: 20px 0;
+  margin: 20px 18px;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -1915,11 +1925,6 @@ body.dark-mode .pricing-card button {
   width: 30%;
   height: 70%;
   /* border: 2px solid black; */
-}
-
-.rating_heading {
-  color: white;
-  animation: scale-up 1s ease;
 }
 
 @keyframes scale-up {
@@ -4336,7 +4341,8 @@ body.dark-mode .h3 {
     max-width: 800px;
   }
   .pricing-card {
-    min-height: 70rem !important;
+    min-height: 55rem !important;
+    max-width: 400px;
   }
   .container01 {
     max-width: 800px;
