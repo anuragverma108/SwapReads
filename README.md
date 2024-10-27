@@ -38,28 +38,35 @@
 
 <hr>
 
+  ### This project is now OFFICIALLY accepted for
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/329829127-e79eb6de-81b1-4ffb-b6ed-f018bb977e88.png" alt="GSSoC 2024 Extd" width="80%">
+</div>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/hacktober.png" alt="Hacktober fest 2024" width="80%">
+</div>
+
+<br>  
+
+
 ## Project Structure
 
 <!-- START_STRUCTURE -->
 ```
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
+├── Code_of_Conduct.md
 ├── DOTENV
 ├── Information/
 │   ├── CODE_OF_CONDUCT.md
-│   ├── Create Contributing.md
+│   ├── CONTRIBUTING.md
 │   ├── LICENSE
 │   ├── Learn.md
-│   ├── desktop.png
 │   ├── index.txt
 │   └── style-guide.md
 ├── LICENSE
 ├── Mystical-fantaies.html
 ├── README.md
-├── SwapReads/
-│   └── assets/
-│       └── images/
-│           └── ctc2.png
 ├── assets/
 │   ├── JSON/
 │   │   ├── package-lock.json
@@ -79,6 +86,7 @@
 │   │   ├── freeBooks.css
 │   │   ├── litrary_realms.css
 │   │   ├── login.css
+│   │   ├── playNow.css
 │   │   ├── preloader.css
 │   │   ├── rate.css
 │   │   ├── read_later.css
@@ -87,7 +95,6 @@
 │   │   ├── socialmedia.css
 │   │   ├── style.css
 │   │   ├── styles.css
-│   │   ├── swiper-bundle.min.css
 │   │   ├── test-style.css
 │   │   └── visitors.css
 │   ├── event.css
@@ -147,6 +154,7 @@
 │   │   │   └── css/
 │   │   │       └── event.css
 │   │   ├── audio.html
+│   │   ├── author.html
 │   │   ├── blog.html
 │   │   ├── book_recommend.html
 │   │   ├── booking.html
@@ -161,8 +169,10 @@
 │   │   ├── forgot-pass.html
 │   │   ├── freeBooks.html
 │   │   ├── googlece7a206a6cfbb7ed.html
-│   │   ├── index.html
+│   │   ├── image.png
+│   │   ├── img.png
 │   │   ├── login.html
+│   │   ├── map.html
 │   │   ├── mood.html
 │   │   ├── mylogin.html
 │   │   ├── ngo.html
@@ -173,11 +183,13 @@
 │   │   ├── read.html
 │   │   ├── read_later.html
 │   │   ├── school.html
-│   │   └── social.html
+│   │   ├── social.html
+│   │   └── tips.html
 │   ├── images/
 │   │   ├── FB icon.png
 │   │   ├── LogoPicDark.png
 │   │   ├── LogoPicLight.png
+│   │   ├── Screenshot 2024-10-28 at 12.09.51 AM
 │   │   ├── YT icon.png
 │   │   ├── achievement-1.jpg
 │   │   ├── achievement-2.jpg
@@ -218,8 +230,10 @@
 │   │   ├── close-white.png
 │   │   ├── close.png
 │   │   ├── close1.png
+│   │   ├── comedy.jpg
 │   │   ├── community.png
 │   │   ├── communityhover.png
+│   │   ├── contact.png
 │   │   ├── ctc1.png
 │   │   ├── ctc2.png
 │   │   ├── ctc3.png
@@ -236,6 +250,7 @@
 │   │   │   └── emoji-5.png
 │   │   ├── eye-close.png
 │   │   ├── eye-open.png
+│   │   ├── fantasy.jpg
 │   │   ├── final.png
 │   │   ├── genres/
 │   │   │   ├── 1.jpg
@@ -280,12 +295,14 @@
 │   │   ├── mg.jpeg
 │   │   ├── moon.png
 │   │   ├── moon_solid.svg
+│   │   ├── mystery.jpg
 │   │   ├── ne.jpeg
 │   │   ├── nes.jpeg
 │   │   ├── new_logo.png
 │   │   ├── new_logo_banner_dark.png
 │   │   ├── new_logo_banner_light.png
 │   │   ├── new_logo_dark.png
+│   │   ├── philopsphy.jpg
 │   │   ├── pic1.jpeg
 │   │   ├── pic2.jpeg
 │   │   ├── pic3.jpeg
@@ -298,6 +315,8 @@
 │   │   ├── re.jpg
 │   │   ├── read.png
 │   │   ├── readhover.png
+│   │   ├── rom.jpg
+│   │   ├── sci.jpg
 │   │   ├── settings.png
 │   │   ├── sun.png
 │   │   ├── tele.png
@@ -308,11 +327,13 @@
 │   │   ├── testimonials-4.jpg
 │   │   ├── testimonials-5.jpg
 │   │   ├── testimonials-6.jpg
+│   │   ├── thriller.jpg
 │   │   ├── trendingbook1.jpg
 │   │   ├── trendingbook2.jpg
 │   │   ├── trendingbook3.jpg
 │   │   ├── trendingbook4.jpg
 │   │   ├── trendingbook5.jpg
+│   │   ├── true crime.jpg
 │   │   ├── twitter-icon.png
 │   │   ├── twitter.png
 │   │   ├── user.jpg
@@ -340,6 +361,7 @@
 │   │   ├── scroll.js
 │   │   ├── signinGoogle.js
 │   │   ├── signup.js
+│   │   ├── subscribe.js
 │   │   ├── swiper-bundle.min.js
 │   │   ├── test-script.js
 │   │   └── visitors.js
@@ -360,12 +382,12 @@
 │   ├── lotery ticket.jpeg
 │   └── the-magic-shop-17 (1).jpg
 ├── audiobook.html
-├── benefits.png
 ├── biographies.html
 ├── books.html
 ├── chat.css
 ├── chat.html
 ├── chat.js
+├── classic-literature.html
 ├── comsp.html
 ├── connectWithsame.html
 ├── contactus1.html
@@ -373,6 +395,10 @@
 │   ├── contributor.css
 │   ├── contributor.html
 │   └── contributor.js
+├── controller/
+│   ├── Rating.js
+│   ├── fetchBookController.js
+│   └── subscribe.js
 ├── cookiepolicy.html
 ├── cookies.html
 ├── copyrightpolicy.html
@@ -388,10 +414,8 @@
 ├── exchangeHub.css
 ├── footer1.css
 ├── footer1.html
-├── genre.png
 ├── help.html
 ├── historical-chronicals.html
-├── home.png
 ├── index.html
 ├── intriguing-mysteries.html
 ├── lib.jpg
@@ -401,12 +425,16 @@
 ├── mindful-living.html
 ├── modals(privacy policy).css
 ├── models/
-│   └── BookDonation.js
+│   ├── BookDonation.js
+│   └── Rating.js
 ├── mylogin.html
 ├── n.jpg
 ├── our-vision.html
 ├── package-lock.json
 ├── package.json
+├── playNow.html
+├── popup.jpg
+├── popup.js
 ├── pricing.html
 ├── privacynotice.html
 ├── profile.css
@@ -422,6 +450,7 @@
 ├── sense-sensibility_01_austen_64kb.mp3
 ├── server.js
 ├── signup1.html
+├── sitemap.html
 ├── stackbit.config.ts
 ├── stay_connect.css
 ├── subscribe.html
@@ -436,20 +465,21 @@
 <hr>
 
 ## 📚 Table of Contents
-- 📖 [Introduction](#about-us)
-- 📰 [Featured In](#featured-in)
-- ❓ [The Problem](#the-problem)
-- 💡 [How SwapReads.com Solves These Problems](#how-swapreadscom-solves-these-problems)
+- 📖 [Introduction](#-introduction)
+- 📰 [Featured In](#-featured-in)
+- ❓ [The Problem](#-the-problem)
+- 💡 [How SwapReads.com Solves These Problems](#-how-swapreadscom-solves-these-problems)
 - 💻 [Tech Stacks](#-tech-stacks)
-- 🤝 [Contribution](#contribution)
-- 🌍 [Open Innovation Challenge](#open-innovation-challenge)
+- 🤝 [Contribution](#-contribution)
+- 🌍 [Open Innovation Challenge](#-open-innovation-challenge)
 - 📞 [Contact Us](#-contact-us)
-- 📜 [Code of Conduct](#code-of-conduct)
-- 💙 [Support Our Project](#support-our-project)
-- 🎉 [Contributors](#our-contributors)
+- 📜 [Code of Conduct](#-code-of-conduct)
+- 💙 [Support Our Project](#-support-our-project)
+- ⚙️ [Project Setup](#-project-setup)
+- 🎉 [Contributors](#-contributors)
 - 🌐 [Website Preview](#-website-preview)
-- ⭐ [Stargazers](#stargazers)
-- 🍴 [Forkers](#forkers)
+- ⭐ [Stargazers](#-stargazers)
+- 🍴 [Forkers](#-forkers)
 
 
 
@@ -457,7 +487,7 @@ SwapReads.com is the solution to common challenges faced by book enthusiasts in 
 
 <hr>
 
-## About Us
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Open%20Book.png" alt="Open Book" width="25" height="25" /> Introduction<h2>
 
 [SwapReads](https://swapreadsconnect.netlify.app/#) is a vibrant online platform dedicated to connecting book lovers from around the world. Our mission is to make reading more accessible, affordable, and sustainable by enabling readers to exchange books and discover new literary adventures.
 
@@ -467,7 +497,7 @@ We believe in fostering a global community of readers who are passionate about s
 
 Join us today and explore a world where books are exchanged, friendships are formed, and new adventures are just a swap away!
 
-## Featured In
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Newspaper.png" alt="Newspaper" width="25" height="25" /> Featured In</h2>
 
 <table>
 
@@ -491,7 +521,7 @@ Join us today and explore a world where books are exchanged, friendships are for
 
 <hr>
 
-## The Problem:
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Red%20Question%20Mark.png" alt="Red Question Mark" width="25" height="25" /> The Problem</h2>
 
 1. **Limited Book Access:**
    - Many readers struggle to find a variety of books locally.
@@ -508,7 +538,7 @@ Join us today and explore a world where books are exchanged, friendships are for
 5. **Unused Book Collections:**
    - Readers often have books that are read and then set aside, collecting dust.
 
-## How SwapReads.com Solves These Problems:
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Light%20Bulb.png" alt="Light Bulb" width="25" height="25" /> How SwapReads.com Solves These Problems</h2>
 
 1. **Global Book Exchange:**
    - SwapReads.com connects users globally, allowing them to exchange books regardless of location.
@@ -527,20 +557,16 @@ Join us today and explore a world where books are exchanged, friendships are for
   
 <hr>
 
-<div align="center">
-
-### 💻 **Tech Stacks**
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Laptop.png" alt="Laptop" width="25" height="25" /> Tech Stacks</h2>
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
 ![HTML](https://img.shields.io/badge/HTML-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
 
-</div>
-
 <hr>
 
- ## <img src="https://github.com/Meetjain1/wanderlust/assets/133582566/90f3930e-5a12-4a4e-8ac9-0dc7d5396adb" width="35" height="35"> Contribution
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" alt="Handshake" width="25" height="25" /> Contribution</h2>
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -556,14 +582,14 @@ If you would like to contribute to the project, please follow our contribution g
 
 <hr>
 
-## Open Innovation Challenge
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Globe%20Showing%20Americas.png" alt="Globe Showing Americas" width="25" height="25" /> Open Innovation Challenge</h2>
 
 SwapReads.com actively participates in the Open Innovation Challenge by cultivating a global community of readers. Our platform champions open access to a wide range of books, promotes sustainable reading habits through book swapping, and harnesses user-generated content to offer personalized recommendations. With community-driven discussions and data-driven optimizations, SwapReads.com is committed to advancing the goals of inclusivity, sustainability, and collaborative innovation in the world of literature.
 
 Join SwapReads.com today and embark on a literary journey like never before!
 
 
-##  <h2>🔗 Contact Us</h2>
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Telephone%20Receiver.png" alt="Telephone Receiver" width="25" height="25" /> Contact Us</h2>
 
 <table>
     <tr>
@@ -608,7 +634,7 @@ Join SwapReads.com today and embark on a literary journey like never before!
 
 <!-- Code of conduct -->
 
-## <h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35" height="35"> Code of Conduct</h2>
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Scroll.png" alt="Scroll" width="25" height="25" /> Code of Conduct</h2>
 
 We are committed to fostering a welcoming and inclusive environment for everyone. All contributors and participants are expected to uphold the following values:
 
@@ -621,12 +647,13 @@ If anyone violates these standards, they may be banned from the community.
 
 <hr>
 
-⭐️ Support Our Project
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Blue%20Heart.png" alt="Blue Heart" width="25" height="25" /> Support Our Project</h2>
+
 If you find this project helpful, please consider giving it a star on GitHub! Your support helps to grow the project and reach more contributors.
 
 <hr>
 
-## Project Setup
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png" alt="Gear" width="25" height="25" /> Project Setup</h2>
 
 This section guides you through setting up the project on your local machine. Follow these steps to get started:
 
@@ -682,24 +709,23 @@ https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
     npm install  # Or yarn install, if using yarn
    ```
 
-##  <h2 align = "center"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" width="35" height="35">Our Contributors</h2>
- <h3>Thank you for contributing to our repository</h3>
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Party%20Popper.png" alt="Party Popper" width="25" height="25" /> Contributors</h2>
+<div align='center'>
+   <h3>Thank you for contributing to our repository</h3>
 
-![Contributors](https://contrib.rocks/image?repo=anuragverma108/SwapReads)
+   [![Contributors](https://contrib.rocks/image?repo=anuragverma108/SwapReads)](https://contrib.rocks/image?repo=anuragverma108/SwapReads)
 
-# 📸 Website Preview
+</div>
 
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Globe%20with%20Meridians.png" alt="Globe with Meridians" width="25" height="25" /> Website Preview</h2>
 
 https://github.com/user-attachments/assets/f430e59e-d744-4b60-9884-b7eb4643ba72
 
 
-<img src="./home.png" />
-<img src="./benefits.png" />
-<img src="./genre.png" />
 
 🌐 **Visit our website:** [SwapReads](https://swapreadsconnect.netlify.app/#)
 
-## Stargazers
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Star.png" alt="Star" width="25" height="25" /> Stargazers</h2>
 
 <div align='center'>
 
@@ -707,7 +733,7 @@ https://github.com/user-attachments/assets/f430e59e-d744-4b60-9884-b7eb4643ba72
 
 </div>
 
-## Forkers
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Fork%20and%20Knife.png" alt="Fork and Knife" width="25" height="25" /> Forkers</h2>
 <div align='center'>
 
 [![Forkers repo roster for @anuragverma108/SwapReads](https://reporoster.com/forks/anuragverma108/SwapReads)](https://github.com/anuragverma108/SwapReads/network/members)

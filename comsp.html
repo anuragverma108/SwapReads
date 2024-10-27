@@ -225,6 +225,9 @@
       opacity: 0.5;
       cursor: not-allowed;
   }
+  .dark-mode .swiper-pagination-bullet{
+    color: white;
+  }
   .swiper-pagination {
     position: relative;
     margin-top: 20px;
@@ -430,8 +433,7 @@
      }
      
      
-     
-         
+    
      
      
     
@@ -493,14 +495,30 @@
      
      
          /* Basic navbar styling */
-     .header {
-       position: fixed;
-       width: 100%;
-       top: 10;
-       z-index: 1000;
-       transition: top 0.3s;
+     .dark-mode .header {
+      width: 100vw; /* Full viewport width */
+    max-width: 100%; /* Ensure it doesn't go beyond viewport width */
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    transition: top 0.3s;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-color: #000;
      }
-     
+     .header{
+      width: 100vw; /* Full viewport width */
+    max-width: 100%; /* Ensure it doesn't go beyond viewport width */
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    transition: top 0.3s;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    
+     }
      /* Hide the navbar */
      .header.hidden {
        top: -93px; /* Adjust according to your header height */
@@ -523,8 +541,8 @@
      
      .action {
        /* position: fixed */
-       top: 43px;
-       right: 83px;
+       top: -12px;
+       right: -1px;
        display: flex;
        justify-content: center;
        align-items: center;
@@ -726,6 +744,73 @@ color: #d26d6d;
        </style>
      </head>
 <body> 
+
+
+  <style>
+
+    /* Circle styles */
+    .circle {
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      background-color: black;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 99999999;
+      transition: transform 0.1s ease-out;
+    }
+  </style>
+  </head>
+  
+  
+  <body>
+  
+      <!-- Circles -->
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div> 
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+  
+
      
    <script>
    
@@ -797,7 +882,7 @@ color: #d26d6d;
         <button id="mobile_View_Menu" class="mobile-menu-toggle">
             <i class="ri-menu-fill"></i>
         </button>
-
+        <div class="navbar-align">
         <nav class="navbar nav_activated" data-navbar>
             <ul class="navbar-list nav">
                 <li class="navbar-item logo-item" style="display:flex;">
@@ -862,6 +947,12 @@ color: #d26d6d;
                 </li>
             </ul>
         </nav>
+        </div>
+        <style>
+          .navbar-align{
+            width: 100%;
+          }
+        </style>
 
         <script>
             // Toggle dropdown
@@ -983,7 +1074,7 @@ color: #dbc4c4; /* Dark text color */
 }
 
 .dark-mode .nav {
-background-color: #d5d5d5; /* Slightly darker grey for navigation */
+background-color: #000000; /* Slightly darker grey for navigation */
 color: #121212; /* Dark text color */
 }
 
@@ -1033,6 +1124,11 @@ color: #635656; /* Ensure icon hover colors remain visible */
     </div>
 </header>
     <main>
+      <style>
+        .dark-mode .section__subtitle{
+          color:#ffffff !important;
+        }
+      </style>
       <section class="community-spotlight">
         <div class="section__container">
             <h2 class="section__title" style="color: maroon; margin-top:150px;text-align:center">Community Spotlight</h2>
@@ -1100,15 +1196,31 @@ color: #635656; /* Ensure icon hover colors remain visible */
                 Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
                 the world of literature—all on one convenient platform. Join us and dive into a universe of endless possibilities!
               </p>
+              <style>
+                .dark-mode .logo{
+                  color: maroon !important;
+                }
+                .dark-mode .description{
+                  color: white !important;
+                }
+              </style>
             </div>
             
   
           </div>
         </div>
         <div class="foot-middle">
-          <h2 style="margin-left: 2rem; margin-top: 2.75rem;">Quick Links</h2>
+          <h2 style="margin-left: 2rem; margin-top: 2.75rem;" id="quicklinks-color">Quick Links</h2>
+          <style>
+            .dark-mode #quicklinks-color{
+              color: maroon !important;
+            }
+            .dark-mode #quicklinks ul li a{
+              color: white !important;
+            }
+          </style>
           <div id="quicklinks" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
-            <div>
+            <div class="linkscolor">
               <ul style="list-style: none; padding: 0;">
                 <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
                   <i class="fas fa-home" style="color: #374151; margin-right: 4px;"></i>
@@ -1259,7 +1371,12 @@ color: #635656; /* Ensure icon hover colors remain visible */
   </style>
   
           <div class="foot-right">
-          <h2 style="margin-bottom: 2.4rem; margin-top:0.5rem;">Stay Connected</h2>
+          <h2 style="margin-bottom: 2.4rem; margin-top:0.5rem;" id="stayconnected-color">Stay Connected</h2>
+          <style>
+            .dark-mode #stayconnected-color{
+              color:maroon !important;
+            }
+          </style>
           <form id="newsform" onsubmit="return showConfirmationMessage();">
               <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
               <div class="row-flex display-flex">
@@ -1276,6 +1393,11 @@ color: #635656; /* Ensure icon hover colors remain visible */
               <div class="icon">
                 <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
               </div>
+              <style>
+                .dark-mode .fab.fa-discord:hover{
+                  color:#3b5998 !important; 
+                }
+              </style>
             </a>
           
             <!-- LinkedIn icon -->
@@ -1297,6 +1419,11 @@ color: #635656; /* Ensure icon hover colors remain visible */
               <div class="icon">
                 <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
               </div>
+              <style>
+                .dark-mode .fab.fa-twitter:hover{
+                  color: white !important;
+                }
+              </style>
             </a>
           
             <!-- Instagram icon -->
@@ -1318,6 +1445,11 @@ color: #635656; /* Ensure icon hover colors remain visible */
               <div class="icon">
                 <i class="fab fa-github" title="GitHub"></i>
               </div>
+              <style>
+                .dark-mode .fab.fa-github:hover{
+                  color: white !important;
+                }
+              </style>
             </a>
           </div>
          </div>
@@ -1438,5 +1570,60 @@ color: #635656; /* Ensure icon hover colors remain visible */
 
 
     </script>
+    <script>
+      // Coordinates for the cursor
+      const coords = { x: 0, y: 0 };
+      const circles = document.querySelectorAll(".circle");
+    
+      // Colors for the circles
+      const colors = [
+        "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+        "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+        "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+        "#680060", "#60005f", "#48005f", "#3d005e"
+      ];
+    
+      // Assign colors and initial position to each circle
+      circles.forEach(function (circle, index) {
+        circle.x = 0;
+        circle.y = 0;
+        circle.style.backgroundColor = colors[index % colors.length];
+      });
+    
+      // Update the coordinates when the mouse moves
+      window.addEventListener("mousemove", function (e) {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+      });
+    
+      // Animation function to move the circles
+      function animateCircles() {
+        let x = coords.x;
+        let y = coords.y;
+    
+        circles.forEach(function (circle, index) {
+          // Update the position and scale of each circle
+          circle.style.left = x - 12 + "px";
+          circle.style.top = y - 12 + "px";
+          circle.style.scale = (circles.length - index) / circles.length;
+    
+          circle.x = x;
+          circle.y = y;
+    
+          // Get the next circle in the sequence
+          const nextCircle = circles[index + 1] || circles[0];
+          x += (nextCircle.x - x) * 0.15;
+          y += (nextCircle.y - y) * 0.15;
+        });
+    
+        // Repeat the animation
+        requestAnimationFrame(animateCircles);
+      }
+    
+      // Start the animation
+      animateCircles();
+
+    </script>
+    
 </body>
 </html>
