@@ -237,6 +237,10 @@
                         localStorage.removeItem('password');
                         localStorage.removeItem('rememberMe');
                     }
+
+                    // Hide the login-signup link on successful login
+                    document.getElementById("login-signup-link").style.display = "none";
+
                     window.location.href = "index.html";
                     document.getElementById("logout").style.display = "block";
                 })
@@ -251,6 +255,9 @@
             signOut(auth)
                 .then(() => {
                     console.log("Sign-out successful.");
+                    // Show the login-signup link on logout
+                    document.getElementById("login-signup-link").style.display = "block";
+
                 })
                 .catch((error) => {
                     console.log("An error happened.");
