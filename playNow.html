@@ -486,10 +486,63 @@ input, button, textarea {
 
 
 </style>
-
+<style>
+  /* Circle styles */
+  .circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999;
+    transition: transform 0.1s ease-out;
+  }
+  .cursor {
+      position: absolute;
+      width: 6px;
+      /* Circle size */
+      height: 6px;
+      /* Circle size */
+      background-color: rgba(255, 165, 0, 0.6);
+      /* Orange color */
+      border-radius: 10%;
+      /* Circular shape */
+      pointer-events: none;
+      /* Prevent interaction */
+      transform: translate(-10%, -10%);
+      /* Center the circle */
+      transition: transform 0.1s ease-out;
+      /* Smooth movement */
+    }
+</style>
   </head>
 
   <body>
+      <!-- Circles -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
     <header class="header header-anim nav-h" data-header>
 
         <div class="container mobile-container-styles">
@@ -599,6 +652,57 @@ input, button, textarea {
                   document.getElementById('hamburger-button').addEventListener('click', function() {
                     document.querySelector('.navbar').classList.toggle('active');
                   });
+                // Coordinates for the cursor
+                const coords = {x: 0, y: 0 };
+                const circles = document.querySelectorAll(".circle");
+
+                // Colors for the circles
+                const colors = [
+                "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+                "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+                "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+                "#680060", "#60005f", "#48005f", "#3d005e"
+                ];
+
+                // Assign colors and initial position to each circle
+                circles.forEach(function (circle, index) {
+                  circle.x = 0;
+                circle.y = 0;
+                circle.style.backgroundColor = colors[index % colors.length];
+  });
+
+                // Update the coordinates when the mouse moves
+                window.addEventListener("mousemove", function (e) {
+                  coords.x = e.clientX;
+                coords.y = e.clientY;
+  });
+
+                // Animation function to move the circles
+                function animateCircles() {
+                  let x = coords.x;
+                let y = coords.y;
+
+                circles.forEach(function (circle, index) {
+                  // Update the position and scale of each circle
+                  circle.style.left = x - 12 + "px";
+                circle.style.top = y - 12 + "px";
+                circle.style.scale = (circles.length - index) / circles.length;
+
+                circle.x = x;
+                circle.y = y;
+
+                // Get the next circle in the sequence
+                const nextCircle = circles[index + 1] || circles[0];
+                x += (nextCircle.x - x) * 0.15;
+                y += (nextCircle.y - y) * 0.15;
+    });
+
+                // Repeat the animation
+                requestAnimationFrame(animateCircles);
+  }
+
+                // Start the animation
+                animateCircles();
                   </script>
                   </header>
 
@@ -741,6 +845,82 @@ input, button, textarea {
           </p>
         </div>
       </div>
+
+      <!-- Comedy Genre Section -->
+      <div class="genre-section">
+        <div class="genre-content">
+          <h2 class="genre-title">Carry On, Jeeves</h2>
+          <span style="font-size:5rem;filter: grayscale(100%); float: right;">🤹</span>
+          <p class="book-author">by P. G. Wodehouse</p>
+          <p class="book-genre">Classic Comedy Book</p>
+          <p class="book-description">
+            "Carry On, Jeeves" is a delightful collection of stories featuring the 
+            effortlessly charming Jeeves and his well-meaning but hapless employer, 
+            Bertie Wooster. With wit and humor, P. G. Wodehouse crafts a world where 
+            Jeeves's quick thinking and clever schemes save Bertie from one humorous 
+            misadventure after another. This book is a masterpiece of British comedy, 
+            filled with laughter, wit, and the classic antics of a beloved duo.
+          </p>
+        </div>
+        <div class="hero-banner has-before">
+          <img
+            src="./assets/images/comedy.jpg"
+            alt="Comedy Book Cover"
+            class="w-100"
+          />
+        </div>
+      </div>
+
+      <!-- True Crime Genre Section -->
+      <div class="genre-section">
+        <div class="hero-banner has-before">
+          <img
+            src="./assets/images/true crime.jpg"
+            alt="True Crime Book Cover"
+            class="w-100"
+          />
+        </div>
+        <div class="genre-content">
+          <h2 class="genre-title">Who Killed Jane Stanford?</h2>
+          <span style="font-size:5rem;filter: grayscale(100%); float: right;">🕵</span>
+          <p class="book-author">by Richard White</p>
+          <p class="book-genre">Top True Crime Book</p>
+          <p class="book-description">
+            "Who Killed Jane Stanford?" dives deep into the mysterious and still-unsolved 
+            case surrounding the death of Jane Stanford, co-founder of Stanford University. 
+            Richard White meticulously examines the strange events and complex relationships 
+            that preceded her sudden poisoning, revealing a tangled web of suspects, secrets, 
+            and lies. This gripping true-crime narrative explores corruption, power, and 
+            the lengths people will go to protect their own interests.
+          </p>
+        </div>
+      </div>
+
+      <!-- Philosophy Genre Section -->
+      <div class="genre-section">
+        <div class="genre-content">
+          <h2 class="genre-title">Meditations</h2>
+          <span style="font-size:5rem;filter: grayscale(100%); float: right;">📜</span>
+          <p class="book-author">by Marcus Aurelius</p>
+          <p class="book-genre">Classic Philosophy Book</p>
+          <p class="book-description">
+            "Meditations" by Marcus Aurelius is a profound reflection on life, virtue, and the 
+            nature of existence. Written by the Roman emperor as personal notes, it delves into 
+            stoic philosophy, offering timeless insights into resilience, discipline, and inner 
+            peace. This work serves as a guide for those seeking to live with purpose, align 
+            with natural order, and rise above life's challenges with wisdom and calm.
+          </p>
+        </div>
+        <div class="hero-banner has-before">
+          <img
+            src="./assets/images/philopsphy.jpg"
+            alt="Philosophy Book Cover"
+            class="w-100"
+          />
+        </div>
+      </div>
+
+    
     </div>
   </body>
 </html>
@@ -869,6 +1049,9 @@ outline: none;
 
     </div>
   </div>
+
+
+
 
   <!-- adding privacy policy and copyright popup-->
   <div class="footer-f" style="text-align: center; align-items: center;">
