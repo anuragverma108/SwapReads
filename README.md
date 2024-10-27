@@ -169,7 +169,10 @@
 │   │   ├── forgot-pass.html
 │   │   ├── freeBooks.html
 │   │   ├── googlece7a206a6cfbb7ed.html
+│   │   ├── image.png
+│   │   ├── img.png
 │   │   ├── login.html
+│   │   ├── map.html
 │   │   ├── mood.html
 │   │   ├── mylogin.html
 │   │   ├── ngo.html
@@ -180,7 +183,8 @@
 │   │   ├── read.html
 │   │   ├── read_later.html
 │   │   ├── school.html
-│   │   └── social.html
+│   │   ├── social.html
+│   │   └── tips.html
 │   ├── images/
 │   │   ├── FB icon.png
 │   │   ├── LogoPicDark.png
@@ -225,6 +229,7 @@
 │   │   ├── close-white.png
 │   │   ├── close.png
 │   │   ├── close1.png
+│   │   ├── comedy.jpg
 │   │   ├── community.png
 │   │   ├── communityhover.png
 │   │   ├── ctc1.png
@@ -295,6 +300,7 @@
 │   │   ├── new_logo_banner_dark.png
 │   │   ├── new_logo_banner_light.png
 │   │   ├── new_logo_dark.png
+│   │   ├── philopsphy.jpg
 │   │   ├── pic1.jpeg
 │   │   ├── pic2.jpeg
 │   │   ├── pic3.jpeg
@@ -325,6 +331,7 @@
 │   │   ├── trendingbook3.jpg
 │   │   ├── trendingbook4.jpg
 │   │   ├── trendingbook5.jpg
+│   │   ├── true crime.jpg
 │   │   ├── twitter-icon.png
 │   │   ├── twitter.png
 │   │   ├── user.jpg
@@ -378,6 +385,7 @@
 ├── chat.css
 ├── chat.html
 ├── chat.js
+├── classic-literature.html
 ├── comsp.html
 ├── connectWithsame.html
 ├── contactus1.html
@@ -386,6 +394,8 @@
 │   ├── contributor.html
 │   └── contributor.js
 ├── controller/
+│   ├── Rating.js
+│   ├── fetchBookController.js
 │   └── subscribe.js
 ├── cookiepolicy.html
 ├── cookies.html
@@ -413,7 +423,8 @@
 ├── mindful-living.html
 ├── modals(privacy policy).css
 ├── models/
-│   └── BookDonation.js
+│   ├── BookDonation.js
+│   └── Rating.js
 ├── mylogin.html
 ├── n.jpg
 ├── our-vision.html

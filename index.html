@@ -3519,6 +3519,10 @@
                   class="ri-home-fill"></i>Authors</a>
             </li>
             <li class="navbar-item">
+              <a href="./assets/html/tips.html" class="navbar-link" style="left: -30px;" data-nav-link><i
+                  class="ri-home-fill"></i>Tips</a>
+            </li>
+            <li class="navbar-item">
               <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" style="left: -30px;"
                 data-nav-link><i class="ri-bar-chart-fill"></i> Benefits</a>
             </li>
@@ -3545,10 +3549,15 @@
               <a href="./assets/html/event.html" class="navbar-link" style="left: -30px;">Events</a>
             </li>
             <li class="navbar-item" id="login-signup-link">
+              <a href="./assets/html/map.html" class="navbar-link" style="left: -30px;">Map</a>
+            </li>
+            <li class="navbar-item" id="login-signup-link">
               <a href="./assets/html/login.html" class="navbar-link" style="left: -30px;">Login</a>
             </li>
             <li class="navbar-item" id="login-signup-link">
-              <a href="comsp.html" class="navbar-link" style="left: -30px;">Community <br>Spotlight</a>
+
+              <a href="comsp.html" class="navbar-link" style="left: -30px;">Community<br> Spotlight</a>
+
             </li>
             <li class="navbar-item">
               <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" style="left: -30px;"
@@ -3830,7 +3839,7 @@
 
                 <h2 class="h2 section-title" style="text-align: center; margin-top: 7.9rem; padding-top: 2rem">
                   ㅤㅤㅤㅤㅤUnleash the Magic of Book Swapping!</h2>
-                <p class="section-text" style="width:100%;text-align:center;margin-left: 70px;">"SwapReads.com - Where
+                <p class="section-text" style="width:100%;text-align:center;margin-left: 0px;">"SwapReads.com - Where
                   Every Book is a Portal to a New
 
                   Adventure!"</p>
@@ -4571,6 +4580,7 @@
 
             <ul class="grid-list">
               <li>
+                <a href="classic-literature.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">01</p>
@@ -4597,6 +4607,7 @@
                   </ul>
 
                 </div>
+                </a>
               </li>
 
               <li>
@@ -5628,6 +5639,10 @@
           }
         </script>
 
+      
+
+
+<div id="toastMessage" class="toast-message"></div>
 
         <!-- Rate Us Section -->
         <div id="rate-us">
@@ -5657,7 +5672,28 @@
             <center><button id="submit-btn">Submit</button></center>
           </div>
         </div>
+        <script>
+            document.getElementById('submit-btn').addEventListener('click', async () => {
+              const rating = document.querySelector('input[name="rate"]:checked').value;
+              const feedback = document.getElementById('feedback').value;
 
+              // Set the backend URL based on the current environment
+              const backendURL = window.location.hostname === 'localhost'
+                ? 'http://localhost:4000'
+                : 'https://your-production-url.com'; // Replace with your production URL
+
+              const response = await fetch(`${backendURL}/rate`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ rating, feedback })
+              });
+
+              const data = await response.json();
+              alert(data.message);
+            });
+          </script>
         <div id="toastMessage" class="toast-message"></div>
 
         <script>
