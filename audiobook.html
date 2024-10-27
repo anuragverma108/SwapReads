@@ -75,10 +75,11 @@
     <style>
       /* Header Styles */
       .header {
-        background-color: #f3a5a5;
+        background-color: whitesmoke;
         padding: 0 40px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       }
+     
 
       /* Flex container for header */
       .container {
@@ -126,6 +127,11 @@
         font-size: 18px;
         color: #333;
         transition: color 0.3s ease;
+      }
+      .navbar-link.active {
+        color: #af574c;
+        /* Highlight color */
+        font-weight: bold;
       }
 
       .navbar-link:hover {
@@ -699,52 +705,67 @@
     <header class="header">
       <div class="container">
         <!-- Left Side: Logo -->
-        <a href="index.html" class="logo">
-          <img src="./assets/images/final.png" class="logopic" alt="Logo" />
-        </a>
+        
 
         <!-- Right Side: Navigation Links -->
-        <nav class="navbar">
-          <ul class="navbar-list">
-            <li class="navbar-item">
-              <a href="index.html" class="navbar-link">
-                <lord-icon
-                  src="https://cdn.lordicon.com/qeltvbrs.json"
-                  trigger="hover"
-                  colors="primary:#e88c30,secondary:#a30f17"
-                  style="width: 25px; height: 25px">
-                </lord-icon>Home</a>
+        <nav class="navbar nav_activated" data-navbar>
+          <ul style="max-width: 1300px; display: flex; justify-content: space-between; align-items: center; gap: 5px;"
+            class="navbar-list nav">
+            <li class="navbar-item logo-item" style="display:flex;">
+              <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo">
+                <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; ">
+              </a>
+            </li>
+            <li class="navbar-item" style="left: -30px;">
+              <a href="#home" onclick="lenis.scrollTo('#home')" style="left: -30px;" class="navbar-link"
+                data-nav-link><i class="ri-home-fill"></i> Home</a>
             </li>
             <li class="navbar-item">
-              <a href="books.html" class="navbar-link">
-                <lord-icon
-                  src="https://cdn.lordicon.com/bhmovrlt.json"
-                  trigger="hover"
-                  state="morph-open"
-                  colors="primary:#a30f17,secondary:#e88c30"
-                  style="width: 25px; height: 25px">
-                </lord-icon>Books</a>
+              <a href="./assets/html/about.html" class="navbar-link" style="left: -30px;" data-nav-link><i
+                  class="ri-home-fill"></i>About Us</a>
             </li>
             <li class="navbar-item">
-              <a href="./index.html#genre" class="navbar-link">
-                <script src="https://cdn.lordicon.com/lordicon.js"></script>
-                <lord-icon
-                  src="https://cdn.lordicon.com/lcvlsnre.json"
-                  trigger="hover"
-                  colors="primary:#a30f17,secondary:#e88c30"
-                  style="width: 25px; height: 25px">
-                </lord-icon>Genres</a>
+              <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" style="left: -30px;"
+                data-nav-link><i class="ri-bar-chart-fill"></i> Benefits</a>
             </li>
             <li class="navbar-item">
-              <a href="./assets/html/about.html" class="navbar-link">
-                <lord-icon
-                  src="https://cdn.lordicon.com/fozsorqm.json"
-                  trigger="hover"
-                  stroke="bold"
-                  state="hover-up"
-                  colors="primary:#a30f17,secondary:#e88c30"
-                  style="width: 30px; height: 25px">
-                </lord-icon>About</a>
+              <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" style="left: -30px;"
+                data-nav-link><i class="ri-bar-chart-fill"></i> Genre</a>
+            </li>
+            <li class="navbar-item">
+              <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" style="left: -30px;"
+                data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
+            </li>
+            <li class="navbar-item">
+              <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" style="left: -30px;" data-nav-link>
+                <i class="ri-questionnaire-fill"></i> FAQ
+              </a>
+            </li>
+            <li class="navbar-item">
+              <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link"
+                style="left: -30px;">Rate Us</a>
+            </li>
+            <li class="navbar-item" id="login-signup-link">
+              <a href="./assets/html/event.html" class="navbar-link" style="left: -30px;">Events</a>
+            </li>
+            <li class="navbar-item" id="login-signup-link">
+              <a href="./assets/html/login.html" class="navbar-link" style="left: -30px;">Login</a>
+            </li>
+            <li class="navbar-item" id="login-signup-link">
+              <a href="comsp.html" class="navbar-link" style="left: -30px;">Community Spotlight</a>
+            </li>
+            <li class="navbar-item">
+              <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" style="left: -30px;"
+                data-nav-link>
+                <i class="ri-bar-chart-fill"></i> Audio Books
+              </a>
+            </li>
+            <li>
+              <div class="action" style="right: 30px; padding-bottom: 20px;">
+                <div class="profile" onclick="menuToggle();">
+                  <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
+                </div>
+              </div>
             </li>
           </ul>
         </nav>
