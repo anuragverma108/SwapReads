@@ -169,7 +169,10 @@
 │   │   ├── forgot-pass.html
 │   │   ├── freeBooks.html
 │   │   ├── googlece7a206a6cfbb7ed.html
+│   │   ├── image.png
+│   │   ├── img.png
 │   │   ├── login.html
+│   │   ├── map.html
 │   │   ├── mood.html
 │   │   ├── mylogin.html
 │   │   ├── ngo.html
@@ -186,6 +189,7 @@
 │   │   ├── FB icon.png
 │   │   ├── LogoPicDark.png
 │   │   ├── LogoPicLight.png
+│   │   ├── Screenshot 2024-10-28 at 12.09.51 AM
 │   │   ├── YT icon.png
 │   │   ├── achievement-1.jpg
 │   │   ├── achievement-2.jpg
@@ -229,6 +233,7 @@
 │   │   ├── comedy.jpg
 │   │   ├── community.png
 │   │   ├── communityhover.png
+│   │   ├── contact.png
 │   │   ├── ctc1.png
 │   │   ├── ctc2.png
 │   │   ├── ctc3.png
@@ -434,6 +439,7 @@
 ├── privacynotice.html
 ├── profile.css
 ├── profile.html
+├── refundpolicy.html
 ├── repo_structure.txt
 ├── revitalize.html
 ├── romantic-esc.html

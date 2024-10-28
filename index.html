@@ -6,6 +6,7 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="exchangeHub.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <style>
     body {
       margin: 0;
@@ -58,6 +59,14 @@
       /* Smooth movement */
     }
 
+    .action .menu.active {
+      top: 60px;
+      visibility: visible;
+      opacity: 1;
+      right: 60px;
+      z-index: 1000000;
+    }
+
     :root {
       --text-color-light: #333;
       /* Dark text for light mode */
@@ -65,6 +74,30 @@
       /* White text for dark mode */
 
     }
+    .contact-container {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 20px !important;
+  align-items: flex-start !important;
+  padding: 20px !important;
+}
+
+.flex-container {
+  width: 50% !important;
+  list-style-type: none;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.map-container {
+  width: 50% !important;
+}
+
+.map-container iframe {
+  width: 100% !important;
+  height: 100% !important;
+}
+    
   </style>
   <!-- <script type="text/javascript">
     (function () {
@@ -90,7 +123,7 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/litrary_realms.css">
   <link rel="stylesheet" href="./assets/font-6/css/all.css">
-  <link rel="stylesheet" href="header.css">
+
   <link rel="stylesheet" href="logout.css">
   <link rel="stylesheet" href="./assets/css/MenuClick.css">
   <link rel="stylesheet" href="https://fontawesome.com/icons/cloudflare?f=brands&s=solid">
@@ -3145,7 +3178,8 @@
         width: 100%;
         padding: 10px;
         margin-bottom: 16px;
-        border: 1px solid #000000;
+        /* Changed the border color */
+        border: 1px solid #c36969;
         border-radius: 5px;
         font-size: 14px;
       }
@@ -3362,8 +3396,8 @@
                 <i class="ri-home-fill"></i> Home
               </a>
             </li>
-           
-            
+
+
             <li class="navbar-item" style="margin-right: 10px;">
               <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
                 <i class="ri-information-fill"></i> AboutUs
@@ -3374,7 +3408,7 @@
                 <i class="ri-information-fill"></i> Authors
               </a>
             </li>
-            
+
 
             <li class="navbar-item" style="margin-right: 10px;">
               <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
@@ -3415,7 +3449,7 @@
                 <i class="ri-community-fill"></i> Community
               </a>
             </li>
-           
+
 
             <li>
               <div class="action">
@@ -3530,7 +3564,7 @@
               <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" style="left: -30px;"
                 data-nav-link><i class="ri-bar-chart-fill"></i> Genre</a>
             </li>
-            
+
             <li class="navbar-item">
               <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" style="left: -30px;"
                 data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
@@ -3540,7 +3574,7 @@
                 <i class="ri-questionnaire-fill"></i> FAQ
               </a>
             </li>
-           
+
             <li class="navbar-item">
               <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link"
                 style="left: -30px;">Rate Us</a>
@@ -3549,10 +3583,15 @@
               <a href="./assets/html/event.html" class="navbar-link" style="left: -30px;">Events</a>
             </li>
             <li class="navbar-item" id="login-signup-link">
+              <a href="./assets/html/map.html" class="navbar-link" style="left: -30px;">Map</a>
+            </li>
+            <li class="navbar-item" id="login-signup-link">
               <a href="./assets/html/login.html" class="navbar-link" style="left: -30px;">Login</a>
             </li>
             <li class="navbar-item" id="login-signup-link">
-              <a href="comsp.html" class="navbar-link" style="left: -30px;">Community <br>Spotlight</a>
+
+              <a href="comsp.html" class="navbar-link" style="left: -30px;">Community<br> Spotlight</a>
+
             </li>
             <li class="navbar-item">
               <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" style="left: -30px;"
@@ -4574,38 +4613,37 @@
             </h2>
 
             <ul class="grid-list">
-              <li>
+              <li data-aos="slide-right">
                 <a href="classic-literature.html" style="text-decoration: none; color: inherit;">
-                <div class="chapter-card">
+                  <div class="chapter-card">
+                    <p class="card-subtitle">01</p>
+                    <div class="iconrow">
+                      <h3 class="h3 card-title">Classic Literature</h3>
+                      <span style='font-size: 5rem;filter: grayscale(100%);'>&#128395;</span>
+                    </div>
 
-                  <p class="card-subtitle">01</p>
-                  <div class="iconrow">
-                    <h3 class="h3 card-title">Classic Literature</h3>
-                    <span style='font-size: 5rem;filter: grayscale(100%);'>&#128395;</span>
+
+                    <p class="card-text">
+                      The category of classic literature contains literature that is worthy of being read through the
+                      ages.
+                      Classic literature is timeless and well-written. Sophocles,Charles Dickens, Jane Austen and Virgil
+                      are
+                      all writers whose works are considered classical literature.
+                    </p>
+                    <p class="book-recommendation">
+                      Book Recommendations:
+                    </p>
+                    <ul class="book-list">
+                      <li>1. Pride and Prejudice by Jane Austen</li>
+                      <li>2. Moby-Dick by Herman Melville </li>
+                      <li>3. 1984 by George Orwell</li>
+                    </ul>
+
                   </div>
-
-
-                  <p class="card-text">
-                    The category of classic literature contains literature that is worthy of being read through the
-                    ages.
-                    Classic literature is timeless and well-written. Sophocles,Charles Dickens, Jane Austen and Virgil
-                    are
-                    all writers whose works are considered classical literature.
-                  </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Pride and Prejudice by Jane Austen</li>
-                    <li>2. Moby-Dick by Herman Melville </li>
-                    <li>3. 1984 by George Orwell</li>
-                  </ul>
-
-                </div>
                 </a>
               </li>
 
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
 
                   <p class="card-subtitle" style=" width: 202.48px; height: 13px;">02</p>
@@ -4632,7 +4670,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">03</p>
@@ -4659,7 +4697,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">04</p>
@@ -4686,7 +4724,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">05</p>
@@ -4712,7 +4750,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">06</p>
@@ -4738,7 +4776,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">07</p>
@@ -4765,7 +4803,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">08</p>
@@ -4790,7 +4828,7 @@
 
                 </div>
               </li>
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">09</p>
@@ -4816,7 +4854,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">10</p>
@@ -4844,7 +4882,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">11</p>
@@ -4871,7 +4909,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">12</p>
@@ -4898,7 +4936,7 @@
               </li>
 
               <!-- Added three more genres here-->
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">13</p>
@@ -4923,7 +4961,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">14</p>
@@ -4948,7 +4986,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">15</p>
@@ -4974,7 +5012,7 @@
 
                 </div>
               </li>
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
                   <p class="card-subtitle">16</p>
                   <div class="iconrow">
@@ -4997,7 +5035,7 @@
                   </ul>
                 </div>
               </li>
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
                   <p class="card-subtitle">17</p>
                   <div class="iconrow">
@@ -5020,7 +5058,7 @@
                   </ul>
                 </div>
               </li>
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
                   <p class="card-subtitle">18</p>
                   <div class="iconrow">
@@ -5044,7 +5082,7 @@
                   </ul>
                 </div>
               </li>
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
                   <p class="card-subtitle">19</p>
                   <div class="iconrow">
@@ -5069,7 +5107,7 @@
 
               </li>
 
-              <li>
+              <li data-aos="zoom-int">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">20</p>
@@ -5095,7 +5133,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">21</p>
@@ -5122,7 +5160,7 @@
               </li>
 
 
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">22</p>
@@ -5149,7 +5187,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">23</p>
@@ -5175,7 +5213,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">24</p>
@@ -5201,7 +5239,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
                   <p class="card-subtitle">25</p>
                   <div class="iconrow">
@@ -5226,7 +5264,7 @@
               </li>
 
               </li>
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">26</p>
@@ -5252,7 +5290,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">27</p>
@@ -5475,22 +5513,18 @@
             color: #461316;
             letter-spacing: 1px;
             text-transform: uppercase;
-          }
-
-          .donate-books-section h1:hover {
-            text-decoration: underline;
-            transition: ease-in;
+            margin-top: 80px;
           }
 
           .donate-books-section {
             width: 100%;
-            padding: 20px;
+            padding: 10px;
             box-sizing: border-box;
           }
 
           .donate-books-section .container {
             display: grid;
-            margin: 120px;
+            margin: 40px 120px 120px 100px;
             grid-template-columns: repeat(3, 1fr);
             /* 3 columns */
             width: 100%;
@@ -5576,7 +5610,7 @@
 
 
             <!-- Card 1 -->
-            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)" data-aos="slide-right">
               <img src="./assets/images/images/lib.jpg" alt="Library Image" loading="lazy">
               <div class="card-body">
                 <h3 class="card-sty">Library</h3>
@@ -5591,7 +5625,7 @@
 
 
             <!-- Card 2 -->
-            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)" data-aos="zoom-in">
               <img src="./assets/images/images/school.png" alt="School Image" loading="lazy">
               <div class="card-body">
                 <h3 class="card-sty">Schools</h3>
@@ -5605,7 +5639,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)" data-aos="slide-left">
               <img src="./assets/images/images/ngo.jpeg" alt="Organization Image" loading="lazy">
               <div class="card-body">
                 <h3 class="card-sty">Organizations</h3>
@@ -5634,10 +5668,10 @@
           }
         </script>
 
-      
 
 
-<div id="toastMessage" class="toast-message"></div>
+
+        <div id="toastMessage" class="toast-message"></div>
 
         <!-- Rate Us Section -->
         <div id="rate-us">
@@ -5668,27 +5702,27 @@
           </div>
         </div>
         <script>
-            document.getElementById('submit-btn').addEventListener('click', async () => {
-              const rating = document.querySelector('input[name="rate"]:checked').value;
-              const feedback = document.getElementById('feedback').value;
+          document.getElementById('submit-btn').addEventListener('click', async () => {
+            const rating = document.querySelector('input[name="rate"]:checked').value;
+            const feedback = document.getElementById('feedback').value;
 
-              // Set the backend URL based on the current environment
-              const backendURL = window.location.hostname === 'localhost'
-                ? 'http://localhost:4000'
-                : 'https://your-production-url.com'; // Replace with your production URL
+            // Set the backend URL based on the current environment
+            const backendURL = window.location.hostname === 'localhost'
+              ? 'http://localhost:4000'
+              : 'https://your-production-url.com'; // Replace with your production URL
 
-              const response = await fetch(`${backendURL}/rate`, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ rating, feedback })
-              });
-
-              const data = await response.json();
-              alert(data.message);
+            const response = await fetch(`${backendURL}/rate`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ rating, feedback })
             });
-          </script>
+
+            const data = await response.json();
+            alert(data.message);
+          });
+        </script>
         <div id="toastMessage" class="toast-message"></div>
 
         <script>
@@ -5817,30 +5851,28 @@
             <div class="contact">
               <div class="contact-container">
                 <form class="contact-form" id="contactForm">
-                  <label for="name" class="label">Name</label>
+                  <label for="name" class="label" class="label dark-mode" id="one">Name</label>
                   <input type="text" id="name" name="name" placeholder="Your Name" required required
                     pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')"
                     oninput="this.setCustomValidity('')">
 
-                  <label for="email" class="label">Email</label>
+                  <label for="email" class="label" class="label dark-mode" id="one">Email</label>
                   <input type="email" id="email" name="email" placeholder="your-email@example.com" required>
 
-                  <label for="subject" class="label">Subject</label>
+                  <label for="subject" class="label" class="label dark-mode" id="one">Subject</label>
                   <input type="text" id="subject" name="subject" placeholder="Subject" required>
 
-                  <label for="message" class="label">Message</label>
+                  <label for="message" class="label" class="label dark-mode" id="one">Message</label>
                   <textarea id="message" name="message" placeholder="Your Message" required></textarea>
 
                   <button type="submit">Send Message</button>
                 </form>
-                <!-- Image Fader Section -->
+
                 <center>
-                  <div class="image-fader">
-                    <img src="./assets/images/ctc1.png" alt="ctc1" loading="lazy">
-                    <img src="./assets/images/ctc5.png" alt="ctc5" loading="lazy">
-                    <img src="./assets/images/ctc3.png" alt="ctc3" loading="lazy">
-                    <img src="./assets/images/ctc4.png" alt="ctc4" loading="lazy">
-                  </div>
+                  <img src="./assets/images/contact.png" style="width: 250px; margin-top: 50px;">
+                  <img src="./assets/images/ctc1.png" style="width: 370px;height: 450px;" alt="ctc1">
+
+
                 </center>
               </div>
             </div>
@@ -5857,7 +5889,7 @@
                         Address:
                       </p>
                     </div>
-                    <address class="address" style="margin-left: 35px;">
+                    <address class="address" style="margin-left: 35px;color: #0077B5;">
                       12, Nayabad<br>
                       Kolkata, India 700054
                     </address>
@@ -6674,7 +6706,8 @@ function showSuccessMessage() {
           <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
           <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a> |
           <a href="our-vision.html" id="ourvisionlink">Our Vision</a></li> |
-          <a href="./contributors/contributor.html" id="ourvisionlink">Our Contributors </a></li>
+          <a href="./contributors/contributor.html" id="ourvisionlink">Our Contributors </a></li> |
+          <a href="refundpolicy.html">Refund Policy</a>
 
         </div>
       </div>
@@ -6712,6 +6745,11 @@ function showSuccessMessage() {
         #ourvisionlink:hover {
           color: rgb(126, 0, 21);
           transition: color 0.5s ease;
+        }
+
+        .dark-mode #one {
+          color: white;
+
         }
       </style>
       <!-- <script>
@@ -7301,6 +7339,12 @@ open.classList.add('open')
                 behavior: "smooth" // This makes the scrolling smooth
         });
       });
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+                AOS.init({
+                  duration: 2000
+  });
     </script>
 
 
