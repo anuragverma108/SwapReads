@@ -948,10 +948,39 @@ color: #d26d6d;
             </ul>
         </nav>
         </div>
+        <button class="go-top-btn">
+            <img height="20px" width="20" src="up-arrow (1).png" alt="arrow up">
+        </button>
         <style>
           .navbar-align{
             width: 100%;
           }
+          .go-top-btn{
+  position:fixed;
+  bottom: 35px;
+  right: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background:#222325;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition:background-color 0.3s, box-shadow 0.3s,transform 0.3s;
+  margin-top: 500px;
+ 
+}
+.go-top-btn:hover{
+  box-shadow: 0px 6px 12px rgba(0,0,0 ,0.25);
+  transform: translateY(-2px)
+  
+}
+
+
+          
         </style>
 
         <script>
@@ -1065,6 +1094,24 @@ color: #d26d6d;
                     }
                 });
             });
+
+            // scroll to top button js 
+
+const goTopBtn = document.querySelector('.go-top-btn');
+    window.addEventListener('scroll', checkHeight)
+    function checkHeight() {
+      if (window.scrollY > 200) {
+        goTopBtn.style.display = "flex"
+      } else {
+        goTopBtn.style.display = "none"
+      }
+    }
+    goTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      })
+    })
         </script>
 
 <style>
