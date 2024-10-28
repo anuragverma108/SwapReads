@@ -154,6 +154,7 @@
 │   │   │   └── css/
 │   │   │       └── event.css
 │   │   ├── audio.html
+│   │   ├── author.html
 │   │   ├── blog.html
 │   │   ├── book_recommend.html
 │   │   ├── booking.html
@@ -168,7 +169,10 @@
 │   │   ├── forgot-pass.html
 │   │   ├── freeBooks.html
 │   │   ├── googlece7a206a6cfbb7ed.html
+│   │   ├── image.png
+│   │   ├── img.png
 │   │   ├── login.html
+│   │   ├── map.html
 │   │   ├── mood.html
 │   │   ├── mylogin.html
 │   │   ├── ngo.html
@@ -179,11 +183,13 @@
 │   │   ├── read.html
 │   │   ├── read_later.html
 │   │   ├── school.html
-│   │   └── social.html
+│   │   ├── social.html
+│   │   └── tips.html
 │   ├── images/
 │   │   ├── FB icon.png
 │   │   ├── LogoPicDark.png
 │   │   ├── LogoPicLight.png
+│   │   ├── Screenshot 2024-10-28 at 12.09.51 AM
 │   │   ├── YT icon.png
 │   │   ├── achievement-1.jpg
 │   │   ├── achievement-2.jpg
@@ -224,8 +230,10 @@
 │   │   ├── close-white.png
 │   │   ├── close.png
 │   │   ├── close1.png
+│   │   ├── comedy.jpg
 │   │   ├── community.png
 │   │   ├── communityhover.png
+│   │   ├── contact.png
 │   │   ├── ctc1.png
 │   │   ├── ctc2.png
 │   │   ├── ctc3.png
@@ -294,6 +302,7 @@
 │   │   ├── new_logo_banner_dark.png
 │   │   ├── new_logo_banner_light.png
 │   │   ├── new_logo_dark.png
+│   │   ├── philopsphy.jpg
 │   │   ├── pic1.jpeg
 │   │   ├── pic2.jpeg
 │   │   ├── pic3.jpeg
@@ -324,6 +333,7 @@
 │   │   ├── trendingbook3.jpg
 │   │   ├── trendingbook4.jpg
 │   │   ├── trendingbook5.jpg
+│   │   ├── true crime.jpg
 │   │   ├── twitter-icon.png
 │   │   ├── twitter.png
 │   │   ├── user.jpg
@@ -377,6 +387,7 @@
 ├── chat.css
 ├── chat.html
 ├── chat.js
+├── classic-literature.html
 ├── comsp.html
 ├── connectWithsame.html
 ├── contactus1.html
@@ -385,6 +396,8 @@
 │   ├── contributor.html
 │   └── contributor.js
 ├── controller/
+│   ├── Rating.js
+│   ├── fetchBookController.js
 │   └── subscribe.js
 ├── cookiepolicy.html
 ├── cookies.html
@@ -412,7 +425,8 @@
 ├── mindful-living.html
 ├── modals(privacy policy).css
 ├── models/
-│   └── BookDonation.js
+│   ├── BookDonation.js
+│   └── Rating.js
 ├── mylogin.html
 ├── n.jpg
 ├── our-vision.html
@@ -425,6 +439,7 @@
 ├── privacynotice.html
 ├── profile.css
 ├── profile.html
+├── refundpolicy.html
 ├── repo_structure.txt
 ├── revitalize.html
 ├── romantic-esc.html
