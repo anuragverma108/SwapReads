@@ -74,30 +74,6 @@
       /* White text for dark mode */
 
     }
-    .contact-container {
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 20px !important;
-  align-items: flex-start !important;
-  padding: 20px !important;
-}
-
-.flex-container {
-  width: 50% !important;
-  list-style-type: none;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.map-container {
-  width: 50% !important;
-}
-
-.map-container iframe {
-  width: 100% !important;
-  height: 100% !important;
-}
-    
   </style>
   <!-- <script type="text/javascript">
     (function () {
@@ -3182,8 +3158,7 @@
         width: 100%;
         padding: 10px;
         margin-bottom: 16px;
-        /* Changed the border color */
-        border: 1px solid #c36969;
+        border: 1px solid #000000;
         border-radius: 5px;
         font-size: 14px;
       }
@@ -3381,6 +3356,30 @@
         /* Smooth transition for arrow */
       }
     </style>
+    <style>
+      .button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.load-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    margin-bottom: 10px;
+    border-color: black;
+    border-radius: 15px;
+    background-color: #fca498;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.load-button:hover {
+    background-color:  #6c2121;
+}
+    </style>
+
     <!--my code-->
 
     <header class="header header-anim nav-h" data-header>
@@ -4616,10 +4615,10 @@
               <span class="span has-before"></span>
             </h2>
 
-            <ul class="grid-list">
+            <ul class="grid-list" id="genre-list" >
               <li data-aos="slide-right">
                 <a href="classic-literature.html" style="text-decoration: none; color: inherit;">
-                  <div class="chapter-card">
+                <div class="chapter-card">
                     <p class="card-subtitle">01</p>
                     <div class="iconrow">
                       <h3 class="h3 card-title">Classic Literature</h3>
@@ -4648,7 +4647,7 @@
               </li>
 
               <li data-aos="zoom-in">
-                <div class="chapter-card">
+                <div class="chapter-card" >
 
                   <p class="card-subtitle" style=" width: 202.48px; height: 13px;">02</p>
                   <div class="iconrow" style=" width: 202.48px; height: 79px;">
@@ -4858,7 +4857,7 @@
                 </div>
               </li>
 
-              <li data-aos="slide-right">
+              <li data-aos="slide-right" >
                 <div class="chapter-card">
 
                   <p class="card-subtitle">10</p>
@@ -5318,9 +5317,18 @@
                 </div>
               </li>
             </ul>
-
-          </div>
+            
+            <div class="button-container">
+            <button id="load-more" class="load-button">Load More</button>
+            <button id="load-less" class="load-button" style="display: none;">Load Less</button>
+        </div>
+        </div>
         </section>
+        // <script src="loadmore.js"></script>
+        <script src="./assets/js/loadmore.js" defer></script>
+        <script>
+          
+          </script>
         <!--
         - #CHAPTERS
       -->
@@ -5849,34 +5857,34 @@
             Contact Us!
             <span class="span has-before"></span>
           </h1>
-          
-         
+          <p class="p" style="color:#e7a7e8">Have a Question?</p>
+          <h3 style="text-align: center; color: #4f1316;">GET IN TOUCH</h3>
           <div class="flexi">
             <div class="contact">
               <div class="contact-container">
                 <form class="contact-form" id="contactForm">
-                  <label for="name" class="label" class="label dark-mode" id="one">Name</label>
+                  <label for="name" class="label">Name</label>
                   <input type="text" id="name" name="name" placeholder="Your Name" required required
                     pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')"
                     oninput="this.setCustomValidity('')">
 
-                  <label for="email" class="label" class="label dark-mode" id="one">Email</label>
+                  <label for="email" class="label">Email</label>
                   <input type="email" id="email" name="email" placeholder="your-email@example.com" required>
 
-                  <label for="subject" class="label" class="label dark-mode" id="one">Subject</label>
+                  <label for="subject" class="label">Subject</label>
                   <input type="text" id="subject" name="subject" placeholder="Subject" required>
 
-                  <label for="message" class="label" class="label dark-mode" id="one">Message</label>
+                  <label for="message" class="label">Message</label>
                   <textarea id="message" name="message" placeholder="Your Message" required></textarea>
 
                   <button type="submit">Send Message</button>
                 </form>
-
+            
                 <center>
                   <img src="./assets/images/contact.png" style="width: 250px; margin-top: 50px;">
-                  <img src="./assets/images/ctc1.png" style="width: 370px;height: 450px;" alt="ctc1">
-
-
+                    <img src="./assets/images/ctc1.png" style="width: 370px;height: 450px;" alt="ctc1" >
+                
+                
                 </center>
               </div>
             </div>
@@ -5893,7 +5901,7 @@
                         Address:
                       </p>
                     </div>
-                    <address class="address" style="margin-left: 35px;color: #0077B5;">
+                    <address class="address" style="margin-left: 35px;">
                       12, Nayabad<br>
                       Kolkata, India 700054
                     </address>
@@ -6428,92 +6436,81 @@
                 possibilities!
               </p>
               <div class="foot-middle">
-    <h2 style="margin-left: 0; margin-top: 0; font-size: 1.8rem; color: #d81b60;">Quick Links</h2>
-    <div id="quicklinks" class="row" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; padding-top: 1rem;">
-        
-        <div class="col-md-2">
-            <ul>
-                <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')" style="text-decoration: none;">
-                    <i class="fas fa-home" style="color: #2196F3;"></i>
-                    <h4 class="flinks" style="display: inline; margin-left: 5px; color: #333;">Home</h4>
-                </a></li>
-                <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')" style="text-decoration: none;">
-                    <i class="fas fa-book" style="color: #4CAF50;"></i>
-                    <h4 class="flinks" style="display: inline; margin-left: 5px; color: #333;">Benefits</h4>
-                </a></li>
-<li class="foot-quick"><a href="/sitemap" onclick="lenis.scrollTo('#contact')" style="text-decoration: none;">
-                    <i class="fa-solid fa-sitemap" style="color: #607D8B;"></i>
-                    <h4 class="flinks" style="display: inline; margin-left: 5px; color: #333;">Site Map</h4>
-                </a></li>
-            </ul>
-        </div>
-        
-        <div class="col-md-2">
-            <ul>
-                <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')" style="text-decoration: none;">
-                    <i class="fas fa-dollar-sign" style="color: #FF9800;"></i>
-                    <h4 class="flinks" style="display: inline; margin-left: 5px; color: #333;">Pricing</h4>
-                </a></li>
-                <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')" style="text-decoration: none;">
-                    <i class="fas fa-envelope" style="color: #F44336;"></i>
-                    <h4 class="flinks" style="display: inline; margin-left: 5px; color: #333;">Contact</h4>
-                </a></li>
-    <li class="foot-quick"><a href="/terms&amp;cond" style="text-decoration: none;">
-                    <i class="fas fa-file-alt" style="color: #8E24AA;"></i>
-                    <h4 class="flinks" style="display: inline; margin-left: 5px; color: #333;">Terms and Conditions</h4>
-                </a></li>
-            </ul>
-        </div>
-        
-        <div class="col-md-2">
-            <ul>
-                <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')" style="text-decoration: none;">
-                    <i class="fas fa-globe" style="color: #673AB7;"></i>
-                    <h4 class="flinks" style="display: inline; margin-left: 5px; color: #333;">Literary</h4>
-                </a></li>
-                <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')" style="text-decoration: none;">
-                    <i class="fas fa-question-circle" style="color: #3F51B5;"></i>
-                    <h4 class="flinks" style="display: inline; margin-left: 5px; color: #333;">FAQ</h4>
-                </a></li>
-                <li class="foot-quick"><a href="/assets/html/about" onclick="lenis.scrollTo('#contact')" style="text-decoration: none;">
-                    <i class="fas fa-info-circle" style="color: #795548;"></i>
-                    <h4 class="flinks" style="display: inline; margin-left: 5px; color: #333;">About</h4>
-                </a></li>
-            </ul>
-        </div>
-        
-        <div class="col-md-2">
-            <ul>
-                <li class="foot-quick"><a href="/assets/html/booklistswap" onclick="lenis.scrollTo('#contact')" style="text-decoration: none;">
-                    <i class="fas fa-exchange-alt" style="color: #009688;"></i>
-                    <h4 class="flinks" style="display: inline; margin-left: 5px; color: #333;">Swap</h4>
-                </a></li>
-                <li class="foot-quick"><a href="/assets/html/freebooks" onclick="lenis.scrollTo('#contact')" style="text-decoration: none;">
-                    <i class="fas fa-file-pdf" style="color: #E91E63;"></i>
-                    <h4 class="flinks" style="display: inline; margin-left: 5px; color: #333;">E-Book</h4>
-                </a></li>
-                <li class="foot-quick"><a href="./assets/html/bookrecommend.html" onclick="lenis.scrollTo('#contact')" style="text-decoration: none;">
-                    <i class="fas fa-bookmark" style="color: #FFC107;"></i>
-                    <h4 class="flinks" style="display: inline; margin-left: 5px; color: #333;">Recommend</h4>
-                </a></li>
-            </ul>
-        </div>
-        
-        <div class="col-md-2">
-            <ul>
-                
-                
-            </ul>
-        </div>
-        
-        <div class="col-md-2">
-            <ul>
-                
-            </ul>
-        </div>
-        
-    </div>
-</div>
+                <h2 style="margin-left: 0rem; margin-top: 0rem;">Quick Links</h2>
+                <div id="quicklinks" class="row">
+                  <div class="col-md-2">
+                    <ul>
+                      <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')"><i
+                            class="fas fa-home"></i>
+                          <h4 class="flinks">Home</h4>
+                        </a></li>
+                      <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')"><i
+                            class="fas fa-book"></i>
+                          <h4 class="flinks">Benefits</h4>
+                        </a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-2">
+                    <ul>
+                      <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')"><i
+                            class="fas fa-dollar-sign"></i>
+                          <h4 class="flinks">Pricing</h4>
+                        </a></li>
+                      <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')"><i
+                            class="fas fa-envelope"></i>
+                          <h4 class="flinks">Contact</h4>
+                        </a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-2">
+                    <ul>
+                      <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')"><i
+                            class="fas fa-globe"></i>
+                          <h4 class="flinks">Literary</h4>
+                        </a></li>
+                      <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')"><i
+                            class="fas fa-question-circle"></i>
+                          <h4 class="flinks">FAQ</h4>
+                        </a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-2">
+                    <ul>
+                      <li class="foot-quick"><a href="./assets/html/booklistswap.html"
+                          onclick="lenis.scrollTo('#contact')"><i class="fas fa-exchange-alt"></i>
+                          <h4 class="flinks">Swap</h4>
+                        </a></li>
+                      <li class="foot-quick"><a href="./assets/html/freeBooks.html"
+                          onclick="lenis.scrollTo('#contact')"><i class="fas fa-file-pdf"></i>
+                          <h4 class="flinks">E-Book</h4>
+                        </a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-2">
+                    <ul>
+                      <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')"><i
+                            class="fas fa-info-circle"></i>
+                          <h4 class="flinks">About</h4>
+                        </a></li>
+                      <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
+                          onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i>
+                          <h4 class="flinks">Recommend</h4>
+                        </a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <ul>
+                      <li class="foot-quick"><a href="/sitemap.html" onclick="lenis.scrollTo('#contact')"><i
+                            class="fa-solid fa-sitemap"></i>
+                          <h4 class="flinks">Site Map</h4>
+                        </a></li>
+                      <li class="foot-quick"><a href="./terms&cond.html"> <i class="fas fa-file-alt"></i>
+                          <h4 class="flinks">Terms and<br>Conditions</h4>
+                        </a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -6761,11 +6758,6 @@ function showSuccessMessage() {
           color: rgb(126, 0, 21);
           transition: color 0.5s ease;
         }
-
-        .dark-mode #one {
-          color: white;
-
-        }
       </style>
       <!-- <script>
       // Get the modal elements
@@ -6806,6 +6798,7 @@ function showSuccessMessage() {
         }
       }
     </script> -->
+    
 
 
 
@@ -7305,6 +7298,7 @@ open.classList.add('open')
                 // Start the animation
                 animateCircles();
     </script>
+    
 
     <button id="scrollBtn" class="scroll-button">Scroll</button>
     <style>
@@ -7355,12 +7349,13 @@ open.classList.add('open')
         });
       });
     </script>
+    
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-                AOS.init({
-                  duration: 2000
+<script>
+  AOS.init({
+    duration: 2000
   });
-    </script>
+</script>
 
 
 
