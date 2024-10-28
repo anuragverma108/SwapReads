@@ -66,6 +66,7 @@
 ├── Mystical-fantaies.html
 ├── README.md
 ├── assets/
+│   ├── GSSoC-Ext.png
 │   ├── JSON/
 │   │   ├── package-lock.json
 │   │   └── package.json
