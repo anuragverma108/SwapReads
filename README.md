@@ -175,7 +175,6 @@
 │   │   ├── mood.html
 │   │   ├── mylogin.html
 │   │   ├── ngo.html
-│   │   ├── pricing.html
 │   │   ├── profileedit.html
 │   │   ├── quiz.html
 │   │   ├── rate.html
@@ -397,7 +396,6 @@
 │   └── contributor.js
 ├── controller/
 │   ├── Rating.js
-│   ├── fetchBookController.js
 │   └── subscribe.js
 ├── cookiepolicy.html
 ├── cookies.html
@@ -412,6 +410,7 @@
 ├── email.html
 ├── environmental-impact.html
 ├── exchangeHub.css
+├── fantasy.html
 ├── footer1.css
 ├── footer1.html
 ├── help.html
@@ -442,8 +441,10 @@
 ├── refundpolicy.html
 ├── repo_structure.txt
 ├── revitalize.html
+├── romance.html
 ├── romantic-esc.html
 ├── sc.jpg
+├── science-fiction.html
 ├── scifi.html
 ├── script.js
 ├── scrollbar.css
@@ -455,6 +456,7 @@
 ├── stackbit.config.ts
 ├── stay_connect.css
 ├── subscribe.html
+├── suspense-thriller.html
 ├── terms&cond.html
 ├── thrilling-adventures.html
 ├── translate.html
