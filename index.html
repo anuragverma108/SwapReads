@@ -3065,30 +3065,34 @@
       }
 
       @media screen and (max-width: 768px) {
-        .popup-content-nl {
-          display: flex;
-          flex-direction: column;
-          background-color: white;
-          border-radius: 10px;
-          max-width: 300px;
-          height: 800px;
-          overflow: hidden;
-          position: relative;
-          box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        }
+  .popup-content-nl {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    max-width: 90%; 
+    height: auto; 
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin: 0 auto; 
+    padding: 10px; 
+  }
 
-        .popup-left-nl img {
-          width: 100%;
-          max-height: 400px;
-        }
+  .popup-left-nl img {
+    width: 100%;
+    max-height: 300px; 
+    object-fit: cover; 
+  }
 
-        .popup-right-nl {
-          padding: 15px;
-          width: 100%;
-          max-height: 400px;
-          text-align: center;
-        }
-      }
+  .popup-right-nl {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    max-height: none;
+  }
+}
+
 
 
       .close1-btn-nl {
@@ -3352,6 +3356,30 @@
         /* Smooth transition for arrow */
       }
     </style>
+    <style>
+      .button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.load-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    margin-bottom: 10px;
+    border-color: black;
+    border-radius: 15px;
+    background-color: #fca498;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.load-button:hover {
+    background-color:  #6c2121;
+}
+    </style>
+
     <!--my code-->
 
     <header class="header header-anim nav-h" data-header>
@@ -4587,7 +4615,7 @@
               <span class="span has-before"></span>
             </h2>
 
-            <ul class="grid-list"  >
+            <ul class="grid-list" id="genre-list" >
               <li data-aos="slide-right">
                 <a href="classic-literature.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
@@ -5289,9 +5317,18 @@
                 </div>
               </li>
             </ul>
-
-          </div>
+            
+            <div class="button-container">
+            <button id="load-more" class="load-button">Load More</button>
+            <button id="load-less" class="load-button" style="display: none;">Load Less</button>
+        </div>
+        </div>
         </section>
+        // <script src="loadmore.js"></script>
+        <script src="./assets/js/loadmore.js" defer></script>
+        <script>
+          
+          </script>
         <!--
         - #CHAPTERS
       -->
@@ -6761,6 +6798,7 @@ function showSuccessMessage() {
         }
       }
     </script> -->
+    
 
 
 
@@ -7260,6 +7298,7 @@ open.classList.add('open')
                 // Start the animation
                 animateCircles();
     </script>
+    
 
     <button id="scrollBtn" class="scroll-button">Scroll</button>
     <style>
@@ -7310,6 +7349,7 @@ open.classList.add('open')
         });
       });
     </script>
+    
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
   AOS.init({
