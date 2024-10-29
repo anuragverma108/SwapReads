@@ -8,6 +8,7 @@
       sizes="180x180"
       href="./assets/favicon_package_v0.16/apple-touch-icon.png"
     />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link
       rel="icon"
       type="image/png"
@@ -73,52 +74,289 @@
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <title>Audio Books</title>
     <style>
-      /* Header Styles */
-      .header {
-        background-color: #f3a5a5;
-        padding: 0 40px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
+       .switch-container {
+      position: absolute;
+      right: 10rem;
+      /* Adjust this value to move the button more to the right */
+      top: 1.5rem;
+      /* Adjust this value to move the button vertically */
+    }
 
-      /* Flex container for header */
-      .container {
+    /* For responsiveness */
+    @media (max-width: 99rem) {
+      .switch-container {
+        right: 9rem;
+        /* Adjust this value for smaller screens */
+      }
+    }
+
+    @media only screen and (max-width:1063px) {
+      .switch-container {
+        right: 7rem !important;
+      }
+    }
+      
+.header {
+  width: 90%; /* Set a width to make it look like a centered rectangle */
+  max-width: 1200px;
+  background-color: #ffffff; /* White background */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center header */
+  padding: 10px 0; /* Reduce padding for a thinner look */
+  z-index: 10;
+  border-radius: 10px;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #000000; /* Black text color */
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Reduced spacing for a thinner look */
+}
+
+.navbar-list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar-item {
+  position: relative;
+}
+
+.navbar-link {
+  color: #000000; /* Black text */
+  text-decoration: none;
+  font-size: 0.95rem; /* Slightly smaller font */
+  padding: 5px 8px;
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: normal; /* Remove bold font */
+}
+
+.navbar-link:hover {
+  color: #d72672; /* Dark pink on hover */
+}
+
+.navbar-link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #d76b9d, #ff9aa2, #ffd9b3); /* Subtle gradient */
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+}
+
+.navbar-link:hover::after {
+  width: 100%; /* Expand underline on hover */
+}
+
+.action {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden initially */
+  width: 200px;
+  z-index: 100;
+  padding: 10px;
+}
+
+            .switch-container {
+      position: absolute;
+      right: 10rem;
+      /* Adjust this value to move the button more to the right */
+      top: 1.5rem;
+      /* Adjust this value to move the button vertically */
+    }
+    /* Position the toggle button to the right */
+    .switch-container {
+      position: absolute;
+      right: 10rem;
+      /* Adjust this value to move the button more to the right */
+      top: 1.5rem;
+      /* Adjust this value to move the button vertically */
+    }
+  
+      .switch-checkbox {
+        display: none;
+      }
+  
+      .switch-label {
         display: flex;
-        justify-content: space-between;
-        /* Align logo on left and nav links on right */
         align-items: center;
-        width: 100%;
+        cursor: pointer;
+        width: 60px;
+        height: 30px;
+        background-color: #ccc;
+        border-radius: 30px;
+        position: relative;
+        transition: background-color 0.3s;
       }
-
-
+      .switch-button {
+        position: absolute;
+        top: 50%;
+        left: 4px;
+        width: 26px;
+        height: 26px;
+        background-color: white;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        transition: left 0.3s;
       /* Logo Styling */
       .logo img {
         width: 150px;
         /* Adjust width as per your logo size */
         height: auto;
       }
-
-      /* Navbar Styling */
-      .navbar {
-        flex-grow: 1;
-        text-align: right;
-        /* Align links to the right */
+  
+      .switch-checkbox:checked + .switch-label .switch-button {
+        left: 30px;
       }
-
-      /* Navbar list */
-      .navbar-list {
-        display: flex;
-        justify-content: flex-end;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        gap: 2rem;
+  
+      .sun-icon, .moon-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+        transition: opacity 0.3s;
       }
-
-      /* Navbar items */
-      .navbar-item {
-        margin-left: 32px;
-        /* Space between links */
+  
+      .sun-icon {
+        left: 8px;
+        opacity: 1;
       }
+  
+      .moon-icon {
+        right: 8px;
+        opacity: 0;
+      }
+  
+      .switch-checkbox:checked + .switch-label .sun-icon {
+        opacity: 0;
+      }
+  
+      .switch-checkbox:checked + .switch-label .moon-icon {
+        opacity: 1;
+      }
+    </style>
+    <style>
+      /* Header Styles */
+      /* General Reset for Consistency */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header styling */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  background-color: white;
+}
+
+/* Navbar container styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Logo adjustments */
+.logo img {
+  width: 8rem;
+  height: auto;
+  margin-right: 20px;
+}
+
+/* Navbar list styling */
+.navbar-list {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  list-style: none;
+}
+
+/* Navbar item links */
+.navbar-item a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.navbar-item a:hover {
+  color: #555;
+}
+
+/* Switch container adjustments */
+.switch-container {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+/* Adjust spacing and height of the navbar */
+.nav-h {
+  height: 90px;
+}
+
+/* Reduce the switch button padding and adjust icon size */
+.switch-label {
+  width: 40px;
+  height: 20px;
+}
+
+.switch-button {
+  padding: 0 4px;
+}
+
+.sun-icon,
+.moon-icon {
+  font-size: 14px;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .navbar-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .switch-container {
+    margin-top: 10px;
+  }
+}
 
       /* Navbar links */
       .navbar-link {
@@ -237,6 +475,7 @@
         margin: 0;
         padding: 0;
         height: 100vh;
+        background-color: #f6cac2;
       }
 
       section {
@@ -694,63 +933,38 @@
         <div class="circle"></div>
         <div class="circle"></div>
     
-  
-       
-    <header class="header">
-      <div class="container">
-        <!-- Left Side: Logo -->
-        <a href="index.html" class="logo">
-          <img src="./assets/images/final.png" class="logopic" alt="Logo" />
-        </a>
-
-        <!-- Right Side: Navigation Links -->
-        <nav class="navbar">
-          <ul class="navbar-list">
-            <li class="navbar-item">
-              <a href="index.html" class="navbar-link">
-                <lord-icon
-                  src="https://cdn.lordicon.com/qeltvbrs.json"
-                  trigger="hover"
-                  colors="primary:#e88c30,secondary:#a30f17"
-                  style="width: 25px; height: 25px">
-                </lord-icon>Home</a>
-            </li>
-            <li class="navbar-item">
-              <a href="books.html" class="navbar-link">
-                <lord-icon
-                  src="https://cdn.lordicon.com/bhmovrlt.json"
-                  trigger="hover"
-                  state="morph-open"
-                  colors="primary:#a30f17,secondary:#e88c30"
-                  style="width: 25px; height: 25px">
-                </lord-icon>Books</a>
-            </li>
-            <li class="navbar-item">
-              <a href="./index.html#genre" class="navbar-link">
-                <script src="https://cdn.lordicon.com/lordicon.js"></script>
-                <lord-icon
-                  src="https://cdn.lordicon.com/lcvlsnre.json"
-                  trigger="hover"
-                  colors="primary:#a30f17,secondary:#e88c30"
-                  style="width: 25px; height: 25px">
-                </lord-icon>Genres</a>
-            </li>
-            <li class="navbar-item">
-              <a href="./assets/html/about.html" class="navbar-link">
-                <lord-icon
-                  src="https://cdn.lordicon.com/fozsorqm.json"
-                  trigger="hover"
-                  stroke="bold"
-                  state="hover-up"
-                  colors="primary:#a30f17,secondary:#e88c30"
-                  style="width: 30px; height: 25px">
-                </lord-icon>About</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
+        <header class="header nav-h" data-header>
+          <div class="container">
+            <nav class="navbar">
+              <a href="index.html" class="logo">
+                <img src="./assets/images/final.png" alt="Logo" class="logopic" />
+              </a>
+        
+              <ul class="navbar-list">
+                <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
+                <li class="navbar-item"><a href="./assets/html/about.html" class="navbar-link">About Us</a></li>
+                <li class="navbar-item"><a href="index.html#benefits" class="navbar-link">Benefits</a></li>
+                <li class="navbar-item"><a href="index.html#genre" class="navbar-link">Genre</a></li>
+                <li class="navbar-item"><a href="audiobook.html" class="navbar-link">Audio Books</a></li>
+                <li class="navbar-item"><a href="index.html#contact" class="navbar-link">Contact</a></li>
+                <li class="navbar-item"><a href="./assets/html/login.html" class="navbar-link">Login/Signup</a></li>
+                <li class="navbar-item"><a href="comsp.html" class="navbar-link">Community</a></li>
+                <li class="navbar-item"><a href="./assets/html/event.html" class="navbar-link">Events</a></li>
+              </ul>
+        
+              <div class="switch-container">
+                <input type="checkbox" id="switch" class="switch-checkbox" />
+                <label for="switch" class="switch-label">
+                  <div class="switch-button">
+                    <span class="material-icons sun-icon">wb_sunny</span>
+                    <span class="material-icons moon-icon">brightness_2</span>
+                  </div>
+                </label>
+              </div>
+            </nav>
+          </div>
+        </header>
+        
     <section>
       <h1>Audiobook Haven: Listen Anytime, Anywhere"</h1>
       <p>Expand Your Mind with Every Listen</p>
