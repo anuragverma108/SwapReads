@@ -307,7 +307,6 @@ dbConnect().then(() => {
     });
 });
 
-app.use("/api" ,  fetchBookController);
 app.post('/rate', submitRating);
 
   const PORT = process.env.PORT || 4000;
