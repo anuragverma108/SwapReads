@@ -66,6 +66,7 @@
 ├── Mystical-fantaies.html
 ├── README.md
 ├── assets/
+│   ├── GSSoC-Ext.png
 │   ├── JSON/
 │   │   ├── package-lock.json
 │   │   └── package.json
@@ -411,6 +412,7 @@
 ├── email.html
 ├── environmental-impact.html
 ├── exchangeHub.css
+├── fantasy.html
 ├── footer1.css
 ├── footer1.html
 ├── help.html
@@ -441,8 +443,10 @@
 ├── refundpolicy.html
 ├── repo_structure.txt
 ├── revitalize.html
+├── romance.html
 ├── romantic-esc.html
 ├── sc.jpg
+├── science-fiction.html
 ├── scifi.html
 ├── script.js
 ├── scrollbar.css
@@ -454,6 +458,7 @@
 ├── stackbit.config.ts
 ├── stay_connect.css
 ├── subscribe.html
+├── suspense-thriller.html
 ├── terms&cond.html
 ├── thrilling-adventures.html
 ├── translate.html
