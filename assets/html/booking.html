@@ -1,237 +1,1076 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon_package_v0.16/favicon-16x16.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/test-style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon_package_v0.16/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon_package_v0.16/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon_package_v0.16/favicon-16x16.png">
+  <link rel="manifest" href="../favicon_package_v0.16/site.webmanifest">
+  <link rel="mask-icon" href="../favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- <link rel="stylesheet" href="../css/login.css" /> -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <title>Book Your Ticket</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #f4f4f9;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+  <link rel="stylesheet" href="./scrollbar.css">
+
+  <link rel="stylesheet" href="../css/aboutus.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/MenuClick.css">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="../js/script.js" defer></script>
+  <script src="../js/scroll-reveal.js"></script>
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+    <title>Book Your Ticket</title>
+    <style>
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffb2a8; /* Main background color */
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpath fill='%23ffb9b0' d='M486 705.8c-109.3-21.8-223.4-32.2-335.3-19.4C99.5 692.1 49 703 0 719.8V800h843.8c-115.9-33.2-230.8-68.1-347.6-92.2C492.8 707.1 489.4 706.5 486 705.8z'/%3E%3Cpath fill='%23ffc1b7' d='M1600 0H0v719.8c49-16.8 99.5-27.8 150.7-33.5c111.9-12.7 226-2.4 335.3 19.4c3.4 0.7 6.8 1.4 10.2 2c116.8 24 231.7 59 347.6 92.2H1600V0z'/%3E%3Cpath fill='%23ffc8bf' d='M478.4 581c3.2 0.8 6.4 1.7 9.5 2.5c196.2 52.5 388.7 133.5 593.5 176.6c174.2 36.6 349.5 29.2 518.6-10.2V0H0v574.9c52.3-17.6 106.5-27.7 161.1-30.9C268.4 537.4 375.7 554.2 478.4 581z'/%3E%3Cpath fill='%23ffcfc6' d='M0 0v429.4c55.6-18.4 113.5-27.3 171.4-27.7c102.8-0.8 203.2 22.7 299.3 54.5c3 1 5.9 2 8.9 3c183.6 62 365.7 146.1 562.4 192.1c186.7 43.7 376.3 34.4 557.9-12.6V0H0z'/%3E%3Cpath fill='%23FFD6CE' d='M181.8 259.4c98.2 6 191.9 35.2 281.3 72.1c2.8 1.1 5.5 2.3 8.3 3.4c171 71.6 342.7 158.5 531.3 207.7c198.8 51.8 403.4 40.8 597.3-14.8V0H0v283.2C59 263.6 120.6 255.7 181.8 259.4z'/%3E%3Cpath fill='%23ffdcd4' d='M1600 0H0v136.3c62.3-20.9 127.7-27.5 192.2-19.2c93.6 12.1 180.5 47.7 263.3 89.6c2.6 1.3 5.1 2.6 7.7 3.9c158.4 81.1 319.7 170.9 500.3 223.2c210.5 61 430.8 49 636.6-16.6V0z'/%3E%3Cpath fill='%23ffe1d9' d='M454.9 86.3C600.7 177 751.6 269.3 924.1 325c208.6 67.4 431.3 60.8 637.9-5.3c12.8-4.1 25.4-8.4 38.1-12.9V0H288.1c56 21.3 108.7 50.6 159.7 82C450.2 83.4 452.5 84.9 454.9 86.3z'/%3E%3Cpath fill='%23ffe6df' d='M1600 0H498c118.1 85.8 243.5 164.5 386.8 216.2c191.8 69.2 400 74.7 595 21.1c40.8-11.2 81.1-25.2 120.3-41.7V0z'/%3E%3Cpath fill='%23ffebe4' d='M1397.5 154.8c47.2-10.6 93.6-25.3 138.6-43.8c21.7-8.9 43-18.8 63.9-29.5V0H643.4c62.9 41.7 129.7 78.2 202.1 107.4C1020.4 178.1 1214.2 196.1 1397.5 154.8z'/%3E%3Cpath fill='%23FFF0EA' d='M1315.3 72.4c75.3-12.6 148.9-37.1 216.8-72.4h-723C966.8 71 1144.7 101 1315.3 72.4z'/%3E%3C/g%3E%3C/svg%3E");
+        font-size: 1.55rem;
+        line-height: 1.8;
+        background-attachment: fixed;
+        background-size: cover;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+      header {
+        width: 100%;
+        background-color: #e63aaf;
+        color: white;
+        padding: 1em 0;
+        text-align: center;
+      }
+      header {
+        position: absolute;
+        width: 100%;
+        top: 10px;
+        z-index: 1000;
+        transition: top 0.3s;
+      }
+      
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      nav ul li {
+        display: inline;
+        margin: 0 1em;
+      }
+
+      nav ul li a {
+        color: black;
+        text-decoration: none;
+      }
+
+      main {
+        padding: 1em;
+        width: 100%;
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .booking-container {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 2em;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        margin-top: 200px;
+      }
+
+      h2 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .flinks {
+        margin: 0px;
+      }
+
+      .SwapReads .logo {
+        margin: 0px;
+      }
+
+      .bed-selection {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+        justify-content: center;
+      }
+
+      .bed {
+        width: 60px;
+        height: 60px;
+        background-color: #21ce49;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s;
+        position: relative;
+      }
+
+      .bed:hover {
+        background-color: #0056b3;
+        transform: scale(1.1);
+      }
+
+      .bed.selected {
+        background-color: red;
+        /* Change the color to red when selected */
+      }
+
+      .bed i {
+        position: absolute;
+        font-size: 24px;
+        color: white;
+      }
+      
+      .navbar-list {
+        color: black;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .confirmation {
+        margin-top: 20px;
+        display: none;
+      }
+
+      .footer {
+        position: absolute;
+        left: 0%;
+        width: 100%;
+        background: #e63aaf;
+        padding: 30px 0;
+        text-align: center;
+        font-size: 0.8em;
+        color: gray;
+      }
+
+      .socialmediaicons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin-top: 120px;;
+    width: 40px;
+    height: 150px;
+  
+}#quicklinks {
+  display: flex;
+  justify-content: space-between; /* Ensures columns are evenly spaced */
+}
+
+#quicklinks .col-md-6 ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#quicklinks .foot-quick {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Adjust spacing between list items */
+}
+
+#quicklinks .foot-quick a {
+  text-decoration: none;
+  color: rgb(83, 74, 74); /* Adjust link color as needed */
+  display: flex;
+  align-items: center;
+}
+
+#quicklinks .foot-quick a i {
+  margin-right: 5px; /* Adjust spacing between icon and text */
+}
+.dark-mode .fas{
+  color:white;
+}
+
+.dark-mode .flinks{
+  
+  color: #80ddf4;
+
+}
+
+.dark-mode .finput{
+      color: white;
+      background-color: transparent; 
+      padding: 10px; 
+      border: 1px solid white;
+      
+}
+.dark-mode .finput::placeholder {
+      color: rgba(255, 255, 255, 0.6); 
+    }
+.socialmediaicons a {
+    display: inline;
+    text-align: center;
+    padding: 5px;
+    transition: all 0.3s ease;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+  }
+
+  .socialmediaicons .fa-instagram {
+  display: inline-block;
+  width: 30px; 
+  height: 30px; 
+  text-align: center;
+  line-height: 30px; 
+  border-radius: 10px;
+  background: transparent;
+  color: #000000;
+  transition: background 0.3s, transform 0.3s; 
+}
+
+.socialmediaicons .fa-instagram:hover {
+  background: radial-gradient(circle at 30% 110%, 
+                               #ffdb8b 0%, 
+                               #ee653d 25%, 
+                               #d42e81 50%, 
+                               #a237b6 75%, 
+                               #3e57bc 100%);
+  background-clip: padding-box;
+  border-radius: 10px; 
+  color: white; 
+  transform: scale(1.1); 
+  
+}  
+.socialmediaicons .fa-facebook:hover{
+  color: blue;
+}   
+.socialmediaicons .fa-youtube:hover{
+  color: red;
+}
+
+
+.dark-mode .socialmediaicons a {
+  color: white;
+}
+
+
+.dark-mode .socialmediaicons .fa-facebook:hover {
+  color: #425d9b
+}
+.dark-mode .socialmediaicons .fa-youtube:hover {
+  color: #f70000;
+}
+
+  .instagram {
+    
+    margin: 5px;
+    
+  }
+
+
+  .facebook {
+    
+    margin: 5px;
+  }
+  
+  .youtube {
+   
+    margin: 5px;
+  }
+
+  .input-box {
+    position: relative;
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+    padding-right: 40px; /* Space for the eye icon */
+}
+
+#eyeicon-register {
+    position: absolute;
+    top: 70%;
+    right: 10px; /* Adjust as needed */
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 35px; /* Adjust the size of the icon */
+    height: 30px;
+}
+.but{
+  font-size: x-large;
+}
+
+.navbar-item {
+  list-style: none;
+}
+
+.navbar-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar-link lord-icon {
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+      .blinking {
+        color: red;
+        font-weight: bold;
+        animation: blink 1s infinite;
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+    <style>
+        
+    </style>
+  </head>
+
+  <body>
+    <header class="header header-anim nav-h" data-header="">
+
+        <div class="container mobile-container-styles">
+    
+          <nav class="navbar nav_activated" data-navbar="">
+    
+    
+            <ul class="navbar-list nav">
+              <a class="logo" href="/" onclick="lenis.scrollTo(\" index.html\');'="" style="display:flex;">
+                <img src="../images/final.png" class="logopic" style=" width: 150px;">
+              </a>
+              <li class="navbar-item">
+                <a class="navbar-link" data-nav-link="" href="/" onclick="lenis.scrollTo(\" #home\')'="">
+                  <lord-icon src="https://cdn.lordicon.com/qeltvbrs.json" trigger="hover" colors="primary:#e88c30,secondary:#a30f17" style="width:25px;height:25px">
+                </lord-icon> Home</a>
+              </li>
+             
+              <li class="navbar-item">
+                <a class="navbar-link" data-nav-link="" href="/#benefits" onclick="lenis.scrollTo(\" #benefits\')'=""><lord-icon src="https://cdn.lordicon.com/jibxifeu.json" trigger="hover" state="hover-up" colors="primary:#a30f17,secondary:#e88c30" style="width:25px;height:25px">
+              </lord-icon>Benefits</a>
+              </li>
+    
+              <li class="navbar-item">
+                <a class="navbar-link" data-nav-link="" href="/#genre" onclick="lenis.scrollTo(\" #genre\')'="">
+                  <lord-icon src="https://cdn.lordicon.com/bhmovrlt.json" trigger="hover" state="morph-open" colors="primary:#a30f17,secondary:#e88c30" style="width:25px;height:25px">
+              </lord-icon>   Genre</a>
+              </li>
+            
+            <li class="navbar-item">
+              <a class="navbar-link" href="/#rateus" onclick="openRateUsModal(); return false;"> <lord-icon src="https://cdn.lordicon.com/jxjfjyri.json" trigger="morph" stroke="bold" state="morph-select" colors="primary:#eeaa66,secondary:#e88c30" style="width:25px;height:25px">
+            </lord-icon> Rate Us</a>
+            </li>
+    
+              <li class="navbar-item">
+                <a class="navbar-link" data-nav-link="" href="/#contact" onclick="lenis.scrollTo(\" #contact\')'=""><i class="ri-customer-service-2-fill"></i><img src="../images/telephone.png" height="25px" width="25px"> Contact</a>
+              </li>
+              
+              <li class="navbar-item">
+                <a class="navbar-link" data-nav-link="" href="/#faq" onclick="lenis.scrollTo(\" #faqq\')'="">
+                  <lord-icon src="https://cdn.lordicon.com/motnbmtz.json" trigger="hover" stroke="bold" colors="primary:#a30f17,secondary:#e88c30" style="width:25px;height:25px">
+              </lord-icon> FAQ
+                </a>
+                </li>
+             
+    
+              <li class="navbar-item">
+                <a class="navbar-link" data-nav-link="" href="/assets/html/about">
+                  <lord-icon src="https://cdn.lordicon.com/fozsorqm.json" trigger="hover" stroke="bold" state="hover-up" colors="primary:#a30f17,secondary:#e88c30" style="width:30px;height:30px"></lord-icon> About Us </a>
+              </li>
+    
+            
+    
+              <li class="navbar-item" id="login-signup-link">
+                <a class="navbar-link" href="/assets/html/login"> <lord-icon src="https://cdn.lordicon.com/xfzuyvam.json" trigger="morph" state="morph-group" colors="primary:#a30f17,secondary:#e88c30" style="width:25px;height:25px">
+              </lord-icon>Login/Signup</a>
+              </li>
+    
+    
+              <li class="navbar-item dropdown" id="more-dropdown">
+                <a href="#" class="navbar-link" id="more-link">More
+                  <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+                    <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z"></path>
+                  </svg></a>
+                <div class="dropdown-menu" id="dropdown-menu">
+    
+                  <ul class="dropdown-menu-list">
+                    <li class="dropdown-menu-item">
+                      <a class="navbar-link" href="/chat" style="font-family: sans-serif;  margin-bottom: 5px;">
+                        Community chat
+                      </a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a href="tips.html" class="navbar-link"
+                        style="font-family: sans-serif;  margin-bottom: 5px;">
+                       Tips
+                      </a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a href="author.html" class="navbar-link"
+                        style="font-family: sans-serif;  margin-bottom: 5px;">
+                        Authors
+                      </a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="navbar-link" href="/assets/html/bookpref" style="font-family: sans-serif;  margin-bottom: 5px;">
+                        Book Prefer Quiz
+                      </a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="navbar-link" data-nav-link="" href="/assets/html/pricing" onclick="lenis.scrollTo(\" #pricing\')'=""><i class="ri-price-tag-3-fill"></i> Pricing</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="navbar-link" href="/assets/html/booklistswap">Booklist for Swapping</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="navbar-link" data-nav-link="" href="/assets/html/book_recommend">
+                        <i class="ri-customer-service-2-fill"></i> Book Recommendation
+                      </a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="navbar-link" data-nav-link="" href="/assets/html/freebooks" onclick="lenis.scrollTo(\" #e-books\')'=""><i class="ri-price-tag-3-fill"></i>Free E-books</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="navbar-link" data-nav-link="" href="/assets/html/read_later"><i class="ri-price-tag-3-fill"></i>Read Later</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="navbar-link" data-nav-link="" href="/assets/html/connreader"><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="navbar-link" href="/assets/html/about">About</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <div class="action">
+                  
+                  <!-- <div class="menu">
+                    <h3>XYZ<br /><span>Book Lover</span></h3>
+                    <ul>
+                      <li>
+                        <img src="../images/user.jpg" /><a href="../../profile.html">My profile</a>
+                      </li>
+                      <li>
+                        <img src="../images/edit profile.jpg" /><a href="../html/profileedit.html">Edit profile</a>
+                      </li>
+                      <li>
+                        <img src="../images/inbox.png" /><a href="#">Inbox</a>
+                      </li>
+                      <li>
+                        <img src="../images/settings.png" /><a href="#">Settings</a>
+                      </li>
+                      <li><img src="../images/help.png" /><a href="#">Help</a></li>
+                      <li>
+                        <img src="../images/logout.png" /><a href="#">Logout</a>
+                      </li>
+                    </ul>
+                  </div> -->
+              </div></li>
+        </ul></nav></div>
+        
+        
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const savedAvatar = localStorage.getItem("selectedAvatar");
+            if (savedAvatar) {
+              document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
             }
-
-            header {
-                width: 100%;
-                background-color: #f06d87;
-                color: white;
-                padding: 1em 0;
-                text-align: center;
+          });
+    
+    
+          function menuToggle() {
+            const toggleMenu = document.querySelector(".menu");
+            toggleMenu.classList.toggle("active");
+          }
+        </script>
+        <!-- Google Translate Element -->
+        <!-- <li class="navbar-item">
+                <div id="google_element"></div>
+              </li> -->
+        
+        <!-- <div class="hamburger">
+              <div class="line"></div>
+              <div class="line"></div>
+              <div class="line"></div>
+            </div> -->
+        
+        <div id="mobile_View_Menu">
+          <span id="menu_lines"></span>
+        </div>
+        <script>
+          let menu = document.getElementById('mobile_View_Menu')
+          let navbar_con = document.querySelector('.navbar')
+          menu.addEventListener('click', () => {
+            if (menu.classList.contains('open_menu')) {
+              menu.classList.remove('open_menu')
+              navbar_con.classList.add('nav_activated')
             }
-
-            nav ul {
-                list-style-type: none;
-                padding: 0;
-                margin: 0;
+            else {
+              menu.classList.add('open_menu')
+              navbar_con.classList.remove('nav_activated')
             }
-
-            nav ul li {
-                display: inline;
-                margin: 0 1em;
-            }
-
-            nav ul li a {
-                color: white;
-                text-decoration: none;
-            }
-
-            main {
-                padding: 1em;
-                width: 100%;
-                max-width: 800px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .booking-container {
-                background: rgba(255, 255, 255, 0.9);
-                padding: 2em;
-                border-radius: 10px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-                width: 100%;
-            }
-
-            .bed-selection {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-                margin-bottom: 20px;
-                justify-content: center;
-            }
-
-            .bed {
-                width: 60px;
-                height: 60px;
-                background-color: #28a745;
-                border-radius: 8px;
-                cursor: pointer;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                transition: background-color 0.3s;
-                position: relative;
-            }
-
-            .bed:hover {
-                background-color: #0056b3;
-                transform: scale(1.1);
-            }
-
-            .bed.selected {
-                background-color: red;
-                /* Change the color to red when selected */
-            }
-
-            .bed i {
-                position: absolute;
-                font-size: 24px;
-                color: white;
-            }
-
-            button {
-                background-color: #007bff;
-                color: #fff;
-                border: none;
-                padding: 10px;
-                width: 100%;
-                border-radius: 4px;
-                cursor: pointer;
-                font-size: 16px;
-            }
-
-            button:hover {
-                background-color: #0056b3;
-            }
-
-            .confirmation {
-                margin-top: 20px;
-                display: none;
-            }
-
-            .footer {
-                position: absolute;
-                left: 0%;
-                width: 100%;
-                background: pink;
-                padding: 30px 0;
-                text-align: center;
-                font-size: 0.8em;
-                color: gray;
-            }
-
-            .blinking {
-                color: red;
-                font-weight: bold;
-                animation: blink 1s infinite;
-            }
-
-            @keyframes blink {
-                0% {
-                    opacity: 1;
-                }
-
-                50% {
-                    opacity: 0;
-                }
-
-                100% {
-                    opacity: 1;
-                }
-            }
-        </style>
-    </head>
-
-    <body>
-        <header>
-            <h1 style="color: black;">SwapReads</h1>
-            <nav>
-                <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="./about.html">About Us</a></li>
-                    <li><a href="../../index.html#contact">Contact</a></li>
-                    <li><a href="#authors">Authors</a></li>
-                    <li><a href="../../comsp.html">Community</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <div class="booking-container">
-                <h2>Book Your Ticket</h2>
-                <h3 id="event-title"></h3>
-                <p id="available-chairs">Available Chairs: <span id="available-count" class="blinking">50</span></p>
-                <div class="bed-selection">
-                    <!-- Loop for 50 chairs with chair numbers -->
-                    <script>
-                        for (let i = 1; i <= 50; i++) {
-                            document.write(`
+          })
+        </script>
+        <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+        <script>
+          function loadGoogleTranslate() {
+            new google.translate.TranslateElement({
+              pageLanguage: 'en'
+            }, 'google_element');
+          }
+        </script>
+        <script>
+          // const hamburger=document.querySelector('.hamburger');
+          // const head=document.querySelector('.header');
+          // const nav=document.querySelector('.nav');
+          // hamburger.addEventListener('click',()=>{
+          //   head.classList.toggle('nav-h');
+          //   nav.classList.toggle('vis-h');
+          // })
+          // let lastScrollTop = 0;
+          // function onScroll() {
+          //     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+          //     const header = document.querySelector('.header');
+    
+          //     if (currentScroll > lastScrollTop) {
+          //         header.classList.add('hidden');
+          //     } else {
+          //         header.classList.remove('hidden');
+          //     }
+          //     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+          // }
+          window.addEventListener("scroll", onScroll);
+        </script>
+    
+    
+    
+    
+        <!-- <div class="switch-toggle-container">
+    
+    
+          window.addEventListener("scroll", onScroll);
+        </script>
+        <div class="switch-toggle-container">
+    
+          <div class="switch-container switch-container-mobile">
+            <input type="checkbox" id="switch" class="switch-checkbox">
+            <label for="switch" class="switch-label">
+              <div class="switch-button">
+                <span class="material-icons sun-icon">wb_sunny</span>
+                <span class="material-icons moon-icon">brightness_2</span>
+              </div>
+            </label>
+          </div> -->
+    
+        <!-- <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler id="nav-toggle-button">
+            <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
+    
+            <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
+          </button> -->
+         <!-- <div class="switch-container" style="top: 25px;">
+          <input type="checkbox" id="switch" class="switch-checkbox">
+          <label for="switch" class="switch-label">
+            <div class="switch-button">
+              <span class="material-icons sun-icon">wb_sunny</span>
+              <span class="material-icons moon-icon">brightness_2</span>
+            </div>
+          </label>
+        </div> -->
+        
+    
+    
+    
+        
+      </header>
+    <main>
+      <div class="booking-container">
+        <h2>Book Your Ticket</h2>
+        <h3 id="event-title"></h3>
+        <p id="available-chairs">
+          Available Chairs:
+          <span id="available-count" class="blinking">50</span>
+        </p>
+        <div class="bed-selection">
+          <!-- Loop for 50 chairs with chair numbers -->
+          <script>
+            for (let i = 1; i <= 50; i++) {
+              document.write(`
                             <div class="bed" data-bed="${i}">
                                 <i class="fas fa-chair"></i>
                                 <span>${i}</span>
                             </div>
                         `);
-                        }
-                    </script>
-                </div>
-                <button id="book-btn">Book Selected Chair</button>
-                <div class="confirmation" id="confirmation">
-                    <h3>Booking Confirmation</h3>
-                    <p id="confirmation-message"></p>
-                </div>
+            }
+          </script>
+        </div>
+        <button id="book-btn">Book Selected Chair</button>
+        <div class="confirmation" id="confirmation">
+          <h3>Booking Confirmation</h3>
+          <p id="confirmation-message"></p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="ff">
+        <div class="foot-top">
+          <div class="foot-left">
+      
+            <div class="desc">
+      <!--google translate-->
+              <div id="google_translate_element"></div>
+      
+              <script type="text/javascript">
+                  function googleTranslateElementInit() {
+                      new google.translate.TranslateElement(
+                          {pageLanguage: 'en'},
+                          'google_translate_element'
+                      );
+                  }
+              </script>
+      
+              <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?
+          cb=googleTranslateElementInit">
+              </script>
+              <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
+              <div>
+                <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
+                  lovers
+                  seeking to swap and
+      
+                  discover new literary gems.
+                  Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
+                  the
+                  world of literature—all on one convenient platform. Join us and dive into a universe of endless
+                  possibilities!
+                </p>
+              </div>
+      
             </div>
-        </main>
-
-        <footer>
-            <div class="footer">
-                SwapReads Copyright © 2024 SwapReads - All rights reserved || Designed By: pranjal
+          </div>
+          <div class="foot-middle">
+            <h2>Quick Links</h2>
+            <div id="quicklinks" class="row">
+              <div class="col-md-6">
+                <ul>
+                  <li class="foot-quick" style="color: white;"><a href="/#home" onclick="lenis.scrollTo(\" #home\')'=""><i class="fas fa-home"></i><p class="flinks">Home</p></a></li>
+                  <li class="foot-quick"><a href="/#benefits" onclick="lenis.scrollTo(\" #benefits\')'=""><i class="fas fa-book"></i> <p class="flinks">Benefits</p></a></li>
+                  <li class="foot-quick"><a href="/#chapters" onclick="lenis.scrollTo(\" #chapters\')'=""><i class="fas fa-globe"></i> <p class="flinks">Literary</p></a></li>
+                  <li class="foot-quick"><a href="/#pricing" onclick="lenis.scrollTo(\" #pricing\')'=""><i class="fas fa-dollar-sign"></i><p class="flinks">Pricing</p> </a></li>
+                  <li class="foot-quick"><a href="./assets/html/bookrecommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><p class="flinks">Recommend</p></a></li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul>
+                  <li class="foot-quick"><a href="/assets/html/booklistswap" onclick="lenis.scrollTo(\" #contact\')'=""><i class="fas fa-exchange-alt"></i><p class="flinks">Swap</p> </a></li>
+                  <li class="foot-quick"><a href="/assets/html/freebooks" onclick="lenis.scrollTo(\" #contact\')'=""><i class="fas fa-file-pdf"></i> <p class="flinks">E-Book</p></a></li>
+                  <li class="foot-quick"><a href="/assets/html/about" onclick="lenis.scrollTo(\" #contact\')'=""><i class="fas fa-info-circle"></i> <p class="flinks">About</p></a></li>
+                  <li class="foot-quick"><a href="/#contact" onclick="lenis.scrollTo(\" #contact\')'=""><i class="fas fa-envelope"></i><p class="flinks">Contact</p> </a></li>
+                  <li class="foot-quick"><a href="/#faqq" onclick="lenis.scrollTo(\" #faqq\')'=""><i class="fas fa-question-circle"></i> <p class="flinks">FAQ</p></a></li>
+                </ul>
+              </div>
             </div>
-        </footer>
-
-        <script>
-            const params = new URLSearchParams(window.location.search);
-            const eventTitle = params.get('event');
-            document.getElementById('event-title').innerText = eventTitle;
-
-            // Variables to track the selected chair and available count
-            let selectedBed = null;
-            let availableCount = 50;
-
-            document.querySelectorAll('.bed').forEach(bed => {
-                bed.addEventListener('click', function () {
-                    // Deselect previously selected bed
-                    if (selectedBed) {
-                        selectedBed.classList.remove('selected');
-                    }
-
-                    // Select the new bed
-                    this.classList.add('selected');
-                    selectedBed = this;
-                });
-            });
-
-            document.getElementById('book-btn').addEventListener('click', function () {
-                if (selectedBed) {
-                    const bedNumber = selectedBed.getAttribute('data-bed');
-                    selectedBed.classList.add('selected');
-                    selectedBed.style.pointerEvents = 'none'; // Disable further clicks on this chair
-                    availableCount--;
-                    document.getElementById('available-count').innerText = availableCount;
-                    document.getElementById('confirmation').style.display = 'block';
-                    document.getElementById('confirmation-message').innerText = `You have successfully booked Chair ${bedNumber} for ${eventTitle}.`;
-
-                    // Clear selection
-                    selectedBed = null;
-                } else {
-                    alert('Please select a chair to book.');
+          </div>
+          
+      
+            <style>
+              .social-icons input[type="email"] 
+              {
+                  border: 2px solid #ccc; /* Gray border */
+                  border-radius: 4px; /* Rounded corners */
+                  padding: 10px; /* Inner padding */
+                  font-size: 16px; /* Font size */
+              }
+              #confirmationMessage
+              {
+                margin-left: 50px;
+                font-size: 23px;
+                color: green;
+      
+              }
+             /* for small screen */
+              @media (max-width: 768px) 
+              {
+                #confirmationMessage 
+                {
+                    margin-left: 0;
+                    text-align: center;
+                    font-size: 18px;
                 }
-            });
-        </script>
-    </body>
+            }
+            </style>
+            <style>
+              #confirmationmessage {
+        position: fixed;
+        top: 42rem;
+        right: 10px;
+        background-color: green;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        display: none;
+      }
+      
+            </style>
+      
+         <form id="newsform" onsubmit="return showConfirmationMessage();">
+          <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
+          <div class="row-flex display-flex">
+              <input class="finput" type="email" id="new-email" name="email" placeholder="Email address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$" title="Please enter a valid email address that ends with '.com'" required="">
+              <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
+          </div>
+      </form>
+      <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
+        
+      <script>
+      function showConfirmationMessage() {
+      
+      const form = document.getElementById('newsform');
+      const confirmationMessage = document.getElementById('confirmationmessage');
+      
+      
+      confirmationMessage.style.display = 'block';
+      setTimeout(function() {
+        location.reload(); 
+      }, 3000);
+      
+      
+      
+      }
+      
+      
+      
+      </script>
+      <style>
+      
+      .subscribe {
+      background-color: #A30F17;
+      color: white; 
+      border: none; 
+      padding: 10px 20px; 
+      font-size: 16px; 
+      font-family: Arial, sans-serif;
+      border-radius: 5px; 
+      cursor: pointer; 
+      transition: background-color 0.3s, transform 0.2s;
+      }
+      
+      .subscribe:hover {
+      background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+      transform: scale(1.1);
+      }
+      
+      .subscribe:active {
+      transform: scale(0.98); 
+      }
+      
+      .subscribe:focus {
+      outline: none; 
+      }
+      
 
+      
+      
+      </style>
+      
+      <!-- <script>
+      function showConfirmationMessage() 
+      {
+        // Show confirmation message
+        const confirmationMessage = document.getElementById('confirmationMessage');
+        confirmationMessage.innerHTML = "Thank you for subscribing!";
+        confirmationMessage.style.display = 'block';
+      
+        // Reset the form after 3 seconds
+        setTimeout(function() 
+        {
+            document.getElementById('newsletterForm').reset();
+            confirmationMessage.style.display = 'none';
+            
+        }, 3000);
+      
+        return false; 
+      }
+      </script>-->
+            <div class="icons">
+              <a href="https://www.discord.com/" target="_blank">
+                <div class="icon">
+                  <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
+                </div>
+               </a>
+      
+              <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
+                <div class="icon">
+                  <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
+                </div>
+              </a>
+      
+              <a href="https://www.facebook.com/" target="_blank">
+                <div class="icon">
+                  <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
+                </div>
+              </a>
+      
+              <a href="https://x.com/anuragverma_108" target="_blank">
+                <div class="icon">
+                  <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
+                </div>
+              </a>
+      
+              <a href="https://www.instagram.com/">
+                <div class="icon" id="insta-icon">
+                  <i class="fab fa-instagram" title="Instagram" style="cursor: pointer;"></i>
+                </div>
+              </a>
+      
+      
+              <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
+                <div class="icon">
+                  <i class="fab fa-youtube" style="cursor: pointer;"></i>
+                </div>
+              </a>
+      
+      
+      
+              <a href="https://github.com/anuragverma108">
+                <div class="icon">
+                  <i class="fab fa-github" title="Github"></i>
+                </div>
+              </a>
+             
+      
+            </div>
+           </div>
+           <div>
+            <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right" style="display: block;">
+              <button class="Btn">
+                <svg height="1.2em" class="arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path></svg>
+              <p class="text">Back to Top</p>
+              </button>
+            </div>
+            <div>
+              <button id="translateButton">Translate</button>
+            </div>
+          </div>
+      
+          
+        
+      
+      
+      
+      
+        <!-- adding privacy policy and copyright popup-->
+        <div class="footer-f" style="text-align: center; align-items: center;">
+          <p style="text-align: center">
+            ©
+            <script>document.write(new Date().getFullYear())</script>2024 All Rights Reserved. Made with ❤ by Guardian Hackers.
+          </p>
+          <div class="row-copy">
+      
+      
+          <a href="/copyrightpolicy" id="copyrightPolicyLink">Copyright Policy</a> |
+          <a href="/privacynotice" id="privacyNoticeLink">Privacy Notice</a> |
+          <a href="/our-vision" id="ourvisionLink">Our Vision</a>
+        </div>
+        </div>
+        <style>
+          #copyrightPolicyLink:hover{
+            color: rgb(126, 0, 21);
+            transition: 0.5s ease;
+            text-decoration: none;
+          }
+          #privacyNoticeLink:hover{
+            color: rgb(126, 0, 21);
+            transition: 0.5s ease;
+            text-decoration: none;
+          }
+          #ourvisionLink:hover{
+            color: rgb(126, 0, 21);
+            transition: 0.5s ease;
+            text-decoration: none;
+          }
+        </style>
+      
+        <!-- Copyright Policy Modal -->
+        <div id="copyrightPolicyModal" class="modal">
+          <div class="modal-content">
+            <span class="close" id="closeCopyright">×</span>
+            <h1>Copyright Policy</h1>
+            <p>Welcome to SwapReads. Here is our copyright policy:</p>
+            <ul>
+              <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
+              <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
+              <li>Users may download and print content for personal use only.</li>
+              <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
+              <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
+            </ul>
+          </div>
+        </div> 
+      
+        <!-- Privacy Notice Modal -->
+        <div id="privacyNoticeModal" class="modal">
+          <div class="modal-content">
+            <span class="close" id="closePrivacy">×</span>
+            <h1>Privacy Notice</h1>
+            <p>Welcome to SwapReads. Here is our privacy notice:</p>
+            <ul>
+              <li>We collect personal information when you register, buy, or sell books.</li>
+              <li>We use this information to provide and improve our services.</li>
+              <li>We do not share your personal information with third parties without your consent.</li>
+              <li>We take reasonable measures to protect your data from unauthorized access.</li>
+              <li>You can contact us to update or delete your personal information.</li>
+              <li>By using our site, you consent to our privacy practices.</li>
+            </ul>
+          </div>
+        </div> 
+      
+        <script>
+          // Get the modal elements
+          var copyrightModal = document.getElementById("copyrightPolicyModal");
+          var privacyModal = document.getElementById("privacyNoticeModal");
+      
+          // Get the link elements
+          var copyrightLink = document.getElementById("copyrightPolicyLink");
+          var privacyLink = document.getElementById("privacyNoticeLink");
+      
+          // Get the <span> elements that close the modals
+          var closeCopyright = document.getElementById("closeCopyright");
+          var closePrivacy = document.getElementById("closePrivacy");
+      
+          // When the user clicks the link, open the modal
+          copyrightLink.onclick = function() {
+            copyrightModal.style.display = "block";
+          }
+          privacyLink.onclick = function() {
+            privacyModal.style.display = "block";
+          }
+      
+          // When the user clicks on <span> (x), close the modal
+          closeCopyright.onclick = function() {
+            copyrightModal.style.display = "none";
+          }
+          closePrivacy.onclick = function() {
+            privacyModal.style.display = "none";
+          }
+      
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == copyrightModal) {
+              copyrightModal.style.display = "none";
+            }
+            if (event.target == privacyModal) {
+              privacyModal.style.display = "none";
+            }
+          }
+        </script>
+        
+      </footer>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const eventTitle = params.get("event");
+      document.getElementById("event-title").innerText = eventTitle;
+
+      // Variables to track the selected chair and available count
+      let selectedBed = null;
+      let availableCount = 50;
+
+      document.querySelectorAll(".bed").forEach((bed) => {
+        bed.addEventListener("click", function () {
+          // Deselect previously selected bed
+          if (selectedBed) {
+            selectedBed.classList.remove("selected");
+          }
+
+          // Select the new bed
+          this.classList.add("selected");
+          selectedBed = this;
+        });
+      });
+
+      document
+        .getElementById("book-btn")
+        .addEventListener("click", function () {
+          if (selectedBed) {
+            const bedNumber = selectedBed.getAttribute("data-bed");
+            selectedBed.classList.add("selected");
+            selectedBed.style.pointerEvents = "none"; // Disable further clicks on this chair
+            availableCount--;
+            document.getElementById("available-count").innerText =
+              availableCount;
+            document.getElementById("confirmation").style.display = "block";
+            document.getElementById(
+              "confirmation-message"
+            ).innerText = `You have successfully booked Chair ${bedNumber} for ${eventTitle}.`;
+
+            // Clear selection
+            selectedBed = null;
+          } else {
+            alert("Please select a chair to book.");
+          }
+        });
+    </script>
+  </body>
 </html>
