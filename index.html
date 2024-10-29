@@ -278,9 +278,7 @@
 }
 
   .instagram {
-    
-    margin: 0.5rem;
-    
+    margin: 0.5rem; 
   }
 
 
@@ -2890,6 +2888,47 @@ body > .skiptranslate {
     display: none !important;
 }
 
+.navbar-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.icon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: rgb(4, 4, 4);
+  background: none;
+  border: none;
+  margin-left: auto; /* Push it to the right */
+}
+
+@media (max-width: 768px) {
+  .navbar-list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #000000;
+    position: absolute;
+    top: 60px; /* Adjust based on header height */
+    left: 0;
+    border-radius: 0;
+  }
+
+  .navbar-list.active {
+    display: flex;
+  }
+
+  .icon {
+    display: block;
+  }
+
+  .navbar-item {
+    text-align: center;
+    margin: 10px 0;
+  }
+}
+
 .dropdown{
   margin-right: 3rem;
 }
@@ -3196,7 +3235,21 @@ iframe {
                   <i class="ri-questionnaire-fill"></i> FAQ
               </a>
           </li>
+          <!-- hamburger icon -->
+          <li>
+            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+              <i class="fas fa-bars"></i>
+            </a>    
+            </li>
 
+            <script>
+              function toggleMenu() {
+                     const navbarList = document.querySelector('.navbar-list');
+                     navbarList.classList.toggle('active');
+                    }
+            </script>
+
+            
           <li class="navbar-item">
             <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
             <li class="navbar-item" id="login-signup-link">
@@ -3214,6 +3267,9 @@ iframe {
                   <i class="ri-bar-chart-fill"></i> Audio<br> Books
               </a>
           </li>
+          
+            
+          
             
           <li>
           <div class="action">
