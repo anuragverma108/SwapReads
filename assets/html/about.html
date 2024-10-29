@@ -98,6 +98,7 @@
      <div class="circle"></div>
      <div class="circle"></div>
   <style>
+    
     .action {
       position: fixed;
       top: 20px;
@@ -330,6 +331,9 @@
     }
 
     @media only screen and (max-width:1063px) {
+      .switch-container {
+        right: 7rem !important;
+      }
       .nav {
         flex-direction: column;
       }
@@ -595,86 +599,46 @@
           </a>
           <li class="navbar-item">
             <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link>
-              <lord-icon
-              src="https://cdn.lordicon.com/qeltvbrs.json"
-              trigger="hover"
-              colors="primary:#e88c30,secondary:#a30f17"
-              style="width:25px;height:25px">
-            </lord-icon> Home</a>
+               Home</a>
           </li>
          
           <li class="navbar-item">
             <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link"
-              data-nav-link><lord-icon
-              src="https://cdn.lordicon.com/jibxifeu.json"
-              trigger="hover"
-              state="hover-up"
-              colors="primary:#a30f17,secondary:#e88c30"
-              style="width:25px;height:25px">
-          </lord-icon>Benefits</a>
+              data-nav-link>Benefits</a>
           </li>
 
           <li class="navbar-item">
             <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link>
-              <lord-icon
-              src="https://cdn.lordicon.com/bhmovrlt.json"
-              trigger="hover"
-              state="morph-open"
-              colors="primary:#a30f17,secondary:#e88c30"
-              style="width:25px;height:25px">
-          </lord-icon>   Genre</a>
+             Genre</a>
           </li>
         </li>
         <li class="navbar-item">
-          <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link"> <lord-icon
-            src="https://cdn.lordicon.com/jxjfjyri.json"
-            trigger="morph"
-            stroke="bold"
-            state="morph-select"
-            colors="primary:#eeaa66,secondary:#e88c30"
-            style="width:25px;height:25px">
-        </lord-icon> Rate Us</a>
+          <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link"> 
+           Rate Us</a>
         </li>
 
           <li class="navbar-item">
             <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-                class="ri-customer-service-2-fill"></i><img src="../images/telephone.png" height="25px" width="25px"/> Contact</a>
+                class="ri-customer-service-2-fill"></i>Contact</a>
           </li>
           
           <li class="navbar-item">
             <a href="../../index.html#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
-              <lord-icon
-              src="https://cdn.lordicon.com/motnbmtz.json"
-              trigger="hover"
-              stroke="bold"     
-              colors="primary:#a30f17,secondary:#e88c30"
-              style="width:25px;height:25px">
-          </lord-icon> FAQ
+              FAQ
             </a>
             </li>
          
 
           <li class="navbar-item">
             <a href="../html/about.html" class="navbar-link" data-nav-link>
-              <lord-icon
-              src="https://cdn.lordicon.com/fozsorqm.json"
-              trigger="hover"
-              stroke="bold"
-              state="hover-up"
-              colors="primary:#a30f17,secondary:#e88c30"
-              style="width:30px;height:30px"></lord-icon> About Us </a>
+              About Us </a>
           </li>
 
         
+          
 
           <li class="navbar-item" id="login-signup-link">
-            <a href="../html/login.html" class="navbar-link"> <lord-icon
-              src="https://cdn.lordicon.com/xfzuyvam.json"
-              trigger="morph"
-              state="morph-group"
-              colors="primary:#a30f17,secondary:#e88c30"
-              style="width:25px;height:25px">
-          </lord-icon>Login/Signup</a>
+            <a href="../html/login.html" class="navbar-link">Login/Signup</a>
           </li>
 
 
@@ -741,6 +705,17 @@
               </ul>
             </div>
           </li>
+         
+          </style>
+          <div class="switch-container">
+            <input type="checkbox" id="switch" class="switch-checkbox" />
+            <label for="switch" class="switch-label">
+              <div class="switch-button">
+                <span class="material-icons sun-icon">wb_sunny</span>
+                <span class="material-icons moon-icon">brightness_2</span>
+              </div>
+            </label>
+          </div>
           <li>
             <div class="action">
               
@@ -773,7 +748,26 @@
       document.addEventListener("DOMContentLoaded", () => {
         const savedAvatar = localStorage.getItem("selectedAvatar");
         if (savedAvatar) {
-          document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+          document.get<style>
+            .switch-container {
+      position: absolute;
+      right: 10rem;
+      /* Adjust this value to move the button more to the right */
+      top: 1.5rem;
+      /* Adjust this value to move the button vertically */
+    }
+    /* Position the toggle button to the right */
+    .switch-container {
+      position: absolute;
+      /* Adjust this value to move the button more to the right */
+      top: 1.5rem;
+      /* Adjust this value to move the button vertically */
+    }
+
+    /* For responsiveness */
+    @media (max-width: 99rem) {
+      .switch-container {
+        right: 9ElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
         }
       });
 

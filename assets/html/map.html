@@ -517,12 +517,7 @@
 }
 
 .socialmediaicons .fa-instagram:hover {
-  background: radial-gradient(circle at 30% 110%, 
-                               #ffdb8b 0%, 
-                               #ee653d 25%, 
-                               #d42e81 50%, 
-                               #a237b6 75%, 
-                               #3e57bc 100%);
+  background: black;
   background-clip: padding-box;
   border-radius: 10px; 
   color: white; 
@@ -539,6 +534,7 @@
 
 .dark-mode .socialmediaicons a {
   color: white;
+  background-color: #000000;
 }
 
 
@@ -618,7 +614,7 @@
       <nav class="navbar nav_activated" data-navbar>
 
 
-        <ul class="navbar-list nav">
+        <ul class="navbar-list nav ">
           <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
             <img src="../images/final.png" class="logopic" style=" width: 150px;">
           </a>
@@ -628,7 +624,9 @@
               src="https://cdn.lordicon.com/qeltvbrs.json"
               trigger="hover"
               colors="primary:#e88c30,secondary:#a30f17"
+              
               style="width:25px;height:25px">
+              
             </lord-icon> Home</a>
           </li>
          
@@ -703,9 +701,16 @@
               state="morph-group"
               colors="primary:#a30f17,secondary:#e88c30"
               style="width:25px;height:25px">
-          </lord-icon>Login/Signup</a>
+          </lord-icon>Login/Signup  </a>
           </li>
-
+          
+          <li>
+            <div class="action" style="right: 5px;top:2px; padding-bottom: 0px;">
+              <div class="profile" onclick="menuToggle();">
+                <img id="darkModeToggle"  src="../images/avatar1.jpg" />
+              </div>
+            </div>
+          </li>
 
         
           <li>
@@ -754,12 +759,14 @@
     <!-- <li class="navbar-item">
             <div id="google_element"></div>
           </li> -->
+         
     </ul>
     <!-- <div class="hamburger">
           <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
         </div> -->
+       
     </nav>
     <div id="mobile_View_Menu">
       <span id="menu_lines"></span>
@@ -882,47 +889,63 @@
 
 
 <body>
-  <h1 id="maphead">Map Pointing Book readers in India</h1>
-    <div id="map"></div>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-        // Function to go back to the home page
-        function goToHomePage() {
-            window.location.href = '../../index.html'; // Change this to your home page URL
-        }
-
-        // Initialize the map centered on India
-        const map = L.map('map', {
-            center: [20.5937, 78.9629], // Centered in India
-            zoom: 5,
-            maxZoom: 18
-        });
-
-        // Add OpenStreetMap tile layer
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 18,
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
-
-        // Add custom image overlay
-        const imageUrl = 'https://nict.co.in/assets/img/contact-map.png'; // Image URL
-        const imageBounds = [[6.4626, 68.1766], [37.0841, 97.4026]]; // Adjusted bounds for the image
-
-        L.imageOverlay(imageUrl, imageBounds).addTo(map);
-
-        // Set the map view to the bounds of the image
-        map.fitBounds(imageBounds);
-
-        // Color settings for each readership level
-        const readershipLevels = {
-            low: { color: "red", radius: 4 },   // Reduced size
-            medium: { color: "orange", radius: 6 }, // Reduced size
-            high: { color: "green", radius: 8 } // Reduced size
-        };
-
-        // List of states with coordinates and readership levels
-        const states = [
-            { name: 'Andhra Pradesh', coords: [15.9129, 79.7400], level: 'medium' },
+  <h1 id="maphead">Map Pointing Book Readers in India</h1>
+  <div id="map"></div>
+  
+  <!-- Include Leaflet and Dark Mode Styles -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+      /* Dark mode CSS */
+      body.dark-mode {
+          background-color: #121212;
+          color: #f1f1f1;
+      }
+      .navbar.dark-mode, .navbar-link.dark-mode {
+          background-color: #333;
+          color: #f1f1f1;
+      }
+      #maphead.dark-mode {
+          color: #f1f1f1;
+      }
+  </style>
+  
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+      // Initialize the map centered on India
+      const map = L.map('map', {
+          center: [20.5937, 78.9629],
+          zoom: 5,
+          maxZoom: 18
+      });
+  
+      // Base layer for light mode (OpenStreetMap)
+      const lightLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+  
+      // Base layer for dark mode
+      const darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+          maxZoom: 18,
+          attribution: '© OpenStreetMap contributors, © CartoDB'
+      });
+  
+      // Custom image overlay
+      const imageUrl = 'https://nict.co.in/assets/img/contact-map.png';
+      const imageBounds = [[6.4626, 68.1766], [37.0841, 97.4026]];
+      L.imageOverlay(imageUrl, imageBounds).addTo(map);
+  
+      map.fitBounds(imageBounds);
+  
+      // Readership levels and states data
+      const readershipLevels = {
+          low: { color: "red", radius: 4 },
+          medium: { color: "orange", radius: 6 },
+          high: { color: "green", radius: 8 }
+      };
+  
+      const states = [
+      { name: 'Andhra Pradesh', coords: [15.9129, 79.7400], level: 'medium' },
             { name: 'Arunachal Pradesh', coords: [28.2180, 94.7278], level: 'low' },
             { name: 'Assam', coords: [26.2006, 92.9376], level: 'high' },
             { name: 'Bihar', coords: [25.0961, 85.3131], level: 'low' },
@@ -951,22 +974,46 @@
             { name: 'Uttarakhand', coords: [30.0668, 79.0193], level: 'medium' },
             { name: 'West Bengal', coords: [22.9868, 87.8550], level: 'low' },
             { name: 'Jammu and Kashmir', coords: [34.0837, 74.7973], level: 'medium' }
-        ];
-
-        // Add circles for each state based on readership level
-        states.forEach(state => {
-            const { color, radius } = readershipLevels[state.level];
-
-            // Create and add a circle marker for each state
-            L.circleMarker(state.coords, {
-                color: color,
-                radius: radius,
-                fillOpacity: 0.6
-            })
-            .addTo(map)
-            .bindPopup(`<b>${state.name}</b><br>Readership Level: ${state.level.charAt(0).toUpperCase() + state.level.slice(1)}`);
-        });
-    </script>
+       
+      ];
+  
+      // Add circles for each state
+      states.forEach(state => {
+          const { color, radius } = readershipLevels[state.level];
+          L.circleMarker(state.coords, {
+              color: color,
+              radius: radius,
+              fillOpacity: 0.6
+          })
+          .addTo(map)
+          .bindPopup(`<b>${state.name}</b><br>Readership Level: ${state.level.charAt(0).toUpperCase() + state.level.slice(1)}`);
+      });
+  
+      // Dark Mode Toggle
+      const toggleButton = document.getElementById('darkModeToggle');
+      let isDarkMode = false;
+  
+      toggleButton.addEventListener('click', () => {
+          document.body.classList.toggle('dark-mode');
+          toggleButton.textContent = isDarkMode ? '🌙' : '🌞';
+  
+          // Switch map layers
+          if (isDarkMode) {
+              map.removeLayer(darkLayer);
+              lightLayer.addTo(map);
+          } else {
+              map.removeLayer(lightLayer);
+              darkLayer.addTo(map);
+          }
+  
+          // Apply dark mode styles to navbar items and map title
+          document.querySelectorAll('.navbar, .navbar-link, #maphead').forEach(el => {
+              el.classList.toggle('dark-mode');
+          });
+  
+          isDarkMode = !isDarkMode;
+      });
+  </script>
     
 <footer class="ff">
   <div class="foot-top">
@@ -1346,6 +1393,16 @@ function showConfirmationMessage()
   </script>
   
 </footer>
+
+<style>
+  .navbar-link.dark-mode{
+    background-color: #000000;
+  }
+  .navbar.dark-mode{
+    background-color: #000000;
+  }
+</style>
+
 
 <div>
   <button id="translateButton">Translate</button>
