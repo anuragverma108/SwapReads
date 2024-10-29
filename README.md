@@ -175,7 +175,6 @@
 │   │   ├── mood.html
 │   │   ├── mylogin.html
 │   │   ├── ngo.html
-│   │   ├── pricing.html
 │   │   ├── profileedit.html
 │   │   ├── quiz.html
 │   │   ├── rate.html
