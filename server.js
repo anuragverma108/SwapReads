@@ -156,13 +156,18 @@ import nodemailer from 'nodemailer';
 import { RegisterSchema } from './assets/validation/zodschema.js';
 import validate from './assets/validation/validate.schema.js';
 import cors from 'cors';
+import { sendEmail } from './controller/subscribe.js';
+import fetchBookController from "./controller/fetchBookController.js";
+import submitRating from './controller/Rating.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
-
+app.use(express.static('public'));
 // Add a root route
 app.get('/', (req, res) => {
     res.send('Welcome to the SwapReads API! Use the endpoints for signup, login, etc.');
@@ -289,12 +294,20 @@ dbConnect().then(() => {
     }
   });
 
-  // Subscribe endpoint
+ 
   app.post('/subscribe', (req, res) => {
-    let email = req.body.email;
-    console.log(email);
-    res.json({ success: true, message: "Subscribed successfully" });
-  });
+    const { name, email } = req.body;
+
+    // Call the function to send the email
+    sendEmail(name, email, (err, info) => {
+        if (err) {
+            return res.status(500).send('Error sending email');
+        }
+        res.status(200).send('Success');
+    });
+});
+
+app.post('/rate', submitRating);
 
   const PORT = process.env.PORT || 4000;
   app.listen(PORT, () => {

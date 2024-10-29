@@ -1,14 +1,12 @@
-
 /* COPY INPUT VALUES TO CARD */
 const bounds = document.querySelectorAll('[data-bound]');
 
-for(let i = 0; i < bounds.length; i++) {
+for (let i = 0; i < bounds.length; i++) {
   const targetId = bounds[i].getAttribute('data-bound');
   const defValue = bounds[i].getAttribute('data-def');
   const targetEl = document.getElementById(targetId);
-  bounds[i].addEventListener('keyup', () => targetEl.innerText = bounds[i].value || defValue );
+  bounds[i].addEventListener('keyup', () => targetEl.innerText = bounds[i].value || defValue);
 }
-
 
 /* TOGGLE CVC DISPLAY MODE */
 const cvc_toggler = document.getElementById('cvc_toggler');
@@ -18,8 +16,6 @@ cvc_toggler.addEventListener('click', () => {
   const el = document.getElementById(target);
   el.setAttribute('type', el.type === 'text' ? 'password' : 'text');
 });
-
-
 
 const timer = document.querySelector('[data-id=timer]');
 let timeLeft = 5 * 60;
@@ -42,6 +38,25 @@ const tick = () => {
     clearInterval(interval); // Stop the timer when time is up
   }
 }
+
+function showNotification(message) {
+  Swal.fire({
+    icon: 'success',
+    title: message,
+    showConfirmButton: false,
+    timer: 3000
+  });
+
+  // Redirect to the homepage after notification
+  setTimeout(() => {
+    window.location.href = '/'; // Update this with the actual home page URL
+  }, 2000); // Matches the timer duration of the notification
+}
+
+document.getElementById('paymentForm').addEventListener('submit', function (event) {
+  event.preventDefault(); // Prevent form submission
+  showNotification('Payment confirmed! Your order is being processed.');
+});
 
 const interval = setInterval(tick, 1000);
 tick();

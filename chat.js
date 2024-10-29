@@ -26,9 +26,23 @@ const userInputDiv = document.getElementById('user-input');
 const chatBoxDiv = document.getElementById('chat-box');
 const messagesDiv = document.getElementById('messages');
 const backButton = document.getElementById('backbutton');
+const navbarToggleBtn = document.querySelector('.navbar-toggle');
+const navbarMenu = document.getElementById('navbarMenu');
 
-// Start Chat Button Event
-startChatBtn.addEventListener('click', () => {
+// Event Listeners
+startChatBtn.addEventListener('click', startChat);
+sendMessageBtn.addEventListener('click', sendMessage);
+messageInput.addEventListener('keypress', handleEnterPress);
+backButton.addEventListener('click', handleBack);
+navbarToggleBtn.addEventListener('click', toggleNav);
+document.addEventListener('click', handleOutsideClick);
+
+document.querySelectorAll('.navbar-link').forEach(link => {
+    link.addEventListener('click', closeNavMenu);
+});
+
+// Functions
+function startChat() {
     const username = usernameInput.value.trim();
     if (username) {
         localStorage.setItem('username', username);
@@ -38,25 +52,21 @@ startChatBtn.addEventListener('click', () => {
     } else {
         alert('Please enter a username');
     }
-});
+}
 
-// Send Message Button Event
-sendMessageBtn.addEventListener('click', sendMessage);
-messageInput.addEventListener('keypress', (e) => {
+function handleEnterPress(e) {
     if (e.key === 'Enter') {
         sendMessage();
     }
-});
+}
 
-// Back Button Event
-backButton.addEventListener('click', (e) => {
-    e.preventDefault(); // Prevent default link behavior
+function handleBack(e) {
+    e.preventDefault();
     chatBoxDiv.style.display = 'none';
     userInputDiv.style.display = 'block';
-    localStorage.removeItem('username'); // Optionally, clear the stored username
-});
+    localStorage.removeItem('username');
+}
 
-// Function to send a message to Firestore
 async function sendMessage() {
     const messageText = messageInput.value.trim();
     if (messageText) {
@@ -64,32 +74,28 @@ async function sendMessage() {
         const timestamp = new Date().toISOString();
 
         try {
-            // Add message to Firestore
             await addDoc(collection(db, 'messages'), {
-                username: username,
-                messageText: messageText,
-                timestamp: timestamp
+                username,
+                messageText,
+                timestamp
             });
-            messageInput.value = ''; // Clear the input field after sending
+            messageInput.value = '';
         } catch (error) {
             console.error("Error adding message: ", error);
         }
     }
 }
 
-// Function to load and display messages from Firestore
 function loadMessages() {
     const q = query(collection(db, 'messages'), orderBy('timestamp', 'asc'));
     onSnapshot(q, (querySnapshot) => {
-        messagesDiv.innerHTML = ''; // Clear current messages
+        messagesDiv.innerHTML = '';
         querySnapshot.forEach((doc) => {
-            const message = doc.data();
-            displayMessage(message);
+            displayMessage(doc.data());
         });
     });
 }
 
-// Function to display a message
 function displayMessage({ username, messageText, timestamp }) {
     const messageDiv = document.createElement('div');
     messageDiv.className = 'message';
@@ -99,36 +105,19 @@ function displayMessage({ username, messageText, timestamp }) {
         <span class="timestamp">(${new Date(timestamp).toLocaleString()})</span>
     `;
     messagesDiv.appendChild(messageDiv);
-    messagesDiv.scrollTop = messagesDiv.scrollHeight; // Auto-scroll to the latest message
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
-// Function to toggle the navbar menu visibility
 function toggleNav() {
-    const navbarMenu = document.getElementById('navbarMenu');
     navbarMenu.classList.toggle('active');
 }
 
-// Adding event listener to the toggle button
-const navbarToggleBtn = document.querySelector('.navbar-toggle');
-navbarToggleBtn.addEventListener('click', toggleNav);
+function closeNavMenu() {
+    navbarMenu.classList.remove('active');
+}
 
-// Adding event listeners to navbar links to close the menu on click
-const navbarLinks = document.querySelectorAll('.navbar-link');
-navbarLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        const navbarMenu = document.getElementById('navbarMenu');
-        if (navbarMenu.classList.contains('active')) {
-            navbarMenu.classList.remove('active');
-        }
-    });
-});
-
-// Adding event listener to the document to close the menu when clicking outside
-document.addEventListener('click', (event) => {
-    const navbarMenu = document.getElementById('navbarMenu');
-    const toggleBtn = document.querySelector('.navbar-toggle');
-    if (!navbarMenu.contains(event.target) && !toggleBtn.contains(event.target)) {
+function handleOutsideClick(event) {
+    if (!navbarMenu.contains(event.target) && !navbarToggleBtn.contains(event.target)) {
         navbarMenu.classList.remove('active');
     }
-});
-
+}

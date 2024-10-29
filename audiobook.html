@@ -2,117 +2,212 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="./assets/favicon_package_v0.16/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./assets/favicon_package_v0.16/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="./assets/favicon_package_v0.16/favicon-16x16.png"
-    />
-    <link
-      rel="manifest"
-      href="./assets/favicon_package_v0.16/site.webmanifest"
-    />
-    <link
-      rel="mask-icon"
-      href="./assets/favicon_package_v0.16/safari-pinned-tab.svg"
-      color="#5bbad5"
-    />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#ffffff" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Notice - SwapReads</title>
+    <link rel="stylesheet" href="./assets/css/playNow.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" href="./assets/css/MenuClick.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="preload" as="image" href="./assets/images/hero-banner.png" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
     <title>Audio Books</title>
     <style>
+       .switch-container {
+      position: absolute;
+      right: 2rem;
+      /* Adjust this value to move the button more to the right */
+      top: 0.4rem;
+      /* Adjust this value to move the button vertically */
+    }
+
+      
+.header {
+  width: 90%; /* Set a width to make it look like a centered rectangle */
+  max-width: 1200px;
+  background-color: #ffffff; /* White background */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center header */
+  padding: 10px 0; /* Reduce padding for a thinner look */
+  z-index: 10;
+  border-radius: 10px;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #000000; /* Black text color */
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Reduced spacing for a thinner look */
+}
+
+.navbar-list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar-item {
+  position: relative;
+}
+
+.navbar-link {
+  color: #000000; /* Black text */
+  text-decoration: none;
+  font-size: 0.95rem; /* Slightly smaller font */
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: normal; /* Remove bold font */
+}
+
+.navbar-link:hover {
+  color: #d72672; /* Dark pink on hover */
+}
+
+.navbar-link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #d76b9d, #ff9aa2, #ffd9b3); /* Subtle gradient */
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+}
+
+.navbar-link:hover::after {
+  width: 100%; /* Expand underline on hover */
+}
+
+.action {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden initially */
+  width: 200px;
+  z-index: 100;
+  padding: 10px;
+}
+
+
+    </style>
+    <style>
       /* Header Styles */
-      .header {
-        background-color: #f3a5a5;
-        padding: 0 40px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
+      /* General Reset for Consistency */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-      /* Flex container for header */
-      .container {
-        display: flex;
-        justify-content: space-between; /* Align logo on left and nav links on right */
-        align-items: center;
-        width: 100%;
-      }
+/* Header styling */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  background-color: white;
+}
 
-      /* Logo Styling */
-      .logo img {
-        width: 150px; /* Adjust width as per your logo size */
-        height: auto;
-      }
+/* Navbar container styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
 
-      /* Navbar Styling */
-      .navbar {
-        flex-grow: 1;
-        text-align: right; /* Align links to the right */
-      }
+/* Logo adjustments */
+.logo img {
+  width: 8rem;
+  height: auto;
+  margin-right: 20px;
+}
 
-      /* Navbar list */
-      .navbar-list {
-        display: flex;
-        justify-content: flex-end;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        gap: 3rem;
-      }
+/* Navbar list styling */
+.navbar-list {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  list-style: none;
+}
 
-      /* Navbar items */
-      .navbar-item {
-        margin-left: 32px; /* Space between links */
-      }
+/* Navbar item links */
+.navbar-item a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  transition: color 0.3s ease;
+  font-family: 'Poppins';
+}
+
+.navbar-item a:hover {
+  color: #555;
+}
+
+/* Switch container adjustments */
+.switch-container {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+/* Adjust spacing and height of the navbar */
+.nav-h {
+  height: 90px;
+}
+
+/* Reduce the switch button padding and adjust icon size */
+.switch-label {
+  width: 40px;
+  height: 20px;
+}
+
+.switch-button {
+  padding: 0 4px;
+}
+
+.sun-icon,
+.moon-icon {
+  font-size: 14px;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .navbar-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .switch-container {
+    margin-top: 10px;
+  }
+}
 
       /* Navbar links */
       .navbar-link {
@@ -127,21 +222,21 @@
       }
 
       /* Responsive Design for Mobile */
-      @media (max-width: 768px) {
-        .container {
-          flex-direction: column; /* Stack logo and navbar vertically */
-          align-items: center;
-        }
+      /* @media (max-width: 768px) {
+              .container {
+                flex-direction: column;
+                align-items: center;
+              }
 
-        .navbar-list {
-          flex-direction: column;
-          margin-top: 20px;
-        }
+              .navbar-list {
+                flex-direction: column;
+                margin-top: 20px;
+              }
 
-        .navbar-item {
-          margin: 10px 0;
-        }
-      }
+              .navbar-item {
+                margin: 10px 0;
+              }
+            } */
 
       .action {
         display: flex;
@@ -200,33 +295,29 @@
       }
 
       /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .navbar-list {
+      @media (max-width: 660px) {
+        .container {
           flex-direction: column;
-          align-items: center;
         }
 
-        .navbar-item {
-          margin: 10px 0;
-        }
-
-        .logo img {
-          width: 120px;
+        .header {
+          padding: 0 10px 20px 10px;
         }
       }
 
-      @media (max-width: 425px) {
+      @media (max-width: 500px) {
         .header {
-          flex-direction: column;
-          padding: 10px;
+          padding: 0 10px 20px 10px;
         }
 
-        .navbar {
-          display: none;
+        .navbar-list {
+          gap: 1em;
+          padding: 0 2rem;
+          justify-content: center;
         }
 
-        .logo img {
-          width: 100px;
+        .navbar-item {
+          margin-left: 10px;
         }
       }
 
@@ -235,28 +326,32 @@
         margin: 0;
         padding: 0;
         height: 100vh;
+        background-color: #f6cac2;
       }
 
       section {
-        background-color: #f6cac2;
         padding: 20px;
       }
+
       h1 {
         color: #b44343;
         text-align: center;
         font-size: 30px;
       }
+
       p {
         text-align: center;
         color: #333;
         font-size: 20px;
       }
+
       .spotlight-container {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         margin: 20px;
       }
+
       .spotlight-card {
         background-color: #fff;
         border-radius: 10px;
@@ -267,18 +362,23 @@
         position: relative;
         transition: transform 0.3s ease;
       }
+
       .spotlight-card img {
         border-radius: 15px 15px 0 0;
         width: 100%;
-        height: 250px; /* Fixed height for book image */
+        height: 250px;
+        /* Fixed height for book image */
         object-fit: cover;
       }
+
       .spotlight-card h3,
       .spotlight-card p {
         margin: 10px 0;
       }
+
       .play-pause-btn {
-        background-color: #e84a4b; /* Button color */
+        background-color: #e84a4b;
+        /* Button color */
         color: white;
         border: none;
         border-radius: 5px;
@@ -287,85 +387,101 @@
         margin-bottom: 10px;
         transition: background-color 0.3s ease, transform 0.3s ease;
       }
+
       .play-pause-btn:hover {
-        background-color: #c04848; /* Darker shade on hover */
+        background-color: #c04848;
+        /* Darker shade on hover */
         transform: scale(1.1);
       }
+
       .audio-slider {
         width: 90%;
         margin: 10px auto;
         display: block;
       }
+
       .time-info {
         font-size: 12px;
         color: #666;
         margin-top: -10px;
         margin-bottom: 10px;
       }
+
       .spotlight-card.playing {
-        transform: scale(1.1); /* Zoom effect when playing */
+        transform: scale(1.1);
+        /* Zoom effect when playing */
       }
 
+      .spotlight-card:hover {
+        transform: translateY(-20px);
+        /* Hover lift effect */
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      }
 
-.spotlight-card:hover {
-  transform: translateY(-20px); /* Hover lift effect */
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-}
+      .spotlight-card .content {
+        transition: transform 0.3s ease;
+      }
 
-.spotlight-card .content {
-  transition: transform 0.3s ease;
-}
+      .spotlight-card:hover .content {
+        transform: translateY(20px);
+        /* Ensure content moves up within the card */
+      }
 
-.spotlight-card:hover .content {
-  transform: translateY(20px); /* Ensure content moves up within the card */
-}
+      .spotlight-card .imgBx img {
+        border-radius: 15px 15px 0 0;
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: opacity 0.3s ease;
+      }
 
-.spotlight-card .imgBx img {
-  border-radius: 15px 15px 0 0;
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  transition: opacity 0.3s ease;
-}
+      .spotlight-card:hover .imgBx img {
+        opacity: 0.9;
+      }
 
-.spotlight-card:hover .imgBx img {
-  opacity: 0.9;
-}
-
-.spotlight-card:hover h3,
-.spotlight-card:hover p {
-  color: #ff6347;
-}
+      .spotlight-card:hover h3,
+      .spotlight-card:hover p {
+        color: #ff6347;
+      }
 
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
       body {
         line-height: 1.5;
         font-family: "Poppins", sans-serif;
       }
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
-      .container {
-        max-width: 1170px;
-        margin: auto;
-      }
+
       .row {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: row;
       }
+
       ul {
         list-style: none;
       }
+
       .footer {
         background-color: palevioletred;
-        padding: 70px 0;
+        padding: 70px 100px;
+        margin: 0 auto;
       }
+
       .footer-col {
         width: 25%;
         padding: 0 15px;
       }
+
+      .footer-col .social-links {
+        display: flex;
+        flex-direction: column;
+      }
+
       .footer-col h4 {
         font-size: 18px;
         color: #ffffff;
@@ -374,6 +490,7 @@
         font-weight: 500;
         position: relative;
       }
+
       .footer-col h4::before {
         content: "";
         position: absolute;
@@ -384,9 +501,11 @@
         box-sizing: border-box;
         width: 50px;
       }
+
       .footer-col ul li:not(:last-child) {
         margin-bottom: 10px;
       }
+
       .footer-col ul li a {
         font-size: 16px;
         text-transform: capitalize;
@@ -397,10 +516,12 @@
         display: block;
         transition: all 0.3s ease;
       }
+
       .footer-col ul li a:hover {
         color: black;
         padding-left: 8px;
       }
+
       .footer-col .social-links a {
         display: inline-block;
         height: 40px;
@@ -413,9 +534,20 @@
         color: #ffffff;
         transition: all 0.5s ease;
       }
+
       .footer-col .social-links a:hover {
         color: #24262b;
         background-color: #ffffff;
+      }
+
+      @media (max-width: 900px) {
+        .row {
+          flex-wrap: wrap;
+        }
+
+        .footer {
+          padding: 70px 20px;
+        }
       }
 
       /*responsive*/
@@ -424,46 +556,669 @@
           width: 50%;
           margin-bottom: 30px;
         }
+
+        .footer-col .social-links {
+          display: flex;
+          flex-direction: row;
+        }
       }
+
       @media (max-width: 574px) {
         .footer-col {
           width: 100%;
         }
       }
+
+      /* newsletter */
+      .newsletter {
+        background-color: #ffd1d1;
+        padding: 30px;
+        max-width: 400px;
+        margin: auto;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .newsletter h1 {
+        color: #c62828;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .newsletter p {
+        color: #8c8c8c;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .input-group {
+        position: relative;
+        margin-bottom: 15px;
+      }
+
+      .input-group i {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        color: #c62828;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 12px 40px;
+        border: 2px solid #c62828;
+        border-radius: 5px;
+        font-size: 14px;
+        color: #333;
+        background-color: #ffecec;
+        transition: border-color 0.3s ease;
+      }
+
+      .input-group input:focus {
+        border-color: #ff6f6f;
+        outline: none;
+      }
+
+      .subscribe {
+        width: 100%;
+        background-color: #b71c1c;
+        color: white;
+        border: none;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .subscribe:hover {
+        background-color: #ff6f6f;
+      }
+
+      subscribe:active {
+        transform: scale(0.98);
+      }
+
+      subscribe:focus {
+        outline: none;
+      }
+
+      .newsletter:hover {
+        background: linear-gradient(hwb(357 68% 7%), #d26d6d);
+      }
+
+      .success-message {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #388e3c;
+        display: none;
+      }
+
+      @media (max-width: 500px) {
+        .newsletter {
+          padding: 20px;
+        }
+      }
+      .header {
+  width: 90%; /* Set a width to make it look like a centered rectangle */
+  max-width: 1200px;
+  background-color: #ffffff; /* White background */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center header */
+  z-index: 10;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #000000; /* Black text color */
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px; /* Reduced spacing for a thinner look */
+  max-height: 80px;
+
+}
+
+.navbar-list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar-item {
+  position: relative;
+}
+
+.navbar-link {
+  color: #000000; /* Black text */
+  text-decoration: none;
+  font-size: 17px; /* Slightly smaller font */
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: normal; /* Remove bold font */
+}
+
+.navbar-link {
+  position: relative; /* Ensure the link has a position for the absolute positioning of the pseudo-element */
+}
+
+.navbar-link:hover {
+  color: #a52644; /* Dark pink on hover */
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Adjust this value to create a gap */
+  left: 0px;
+  height: 3px;
+  background-color: #fcb0b480;
+  width: 0;
+  box-shadow: 0 0 10px #f39d127e;
+  transition: all 0.6s;
+  text-decoration: none;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+  text-decoration: none;
+}
+
+/* Base styling for the hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  transition: transform 0.3s ease;
+}
+
+/* Responsive styling */
+@media (max-width: 1000px) {
+  /* Hide the navbar by default on small screens */
+  .navbar {
+    display: none;
+    position: absolute;
+    top: 70px; /* Matches header height for below-header dropdown */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: initial;
+  }
+
+  .header{
+    width: 100%;
+  }
+
+  .navbar.active {
+    display: block;
+  }
+
+  /* Hamburger icon visible only on smaller screens */
+  .hamburger {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Center-align navbar links in mobile view */
+  .navbar ul.navbar-list {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Adjusted theme switcher styling for mobile */
+  .switch-container {
+    margin: 0 0;
+    right:0;
+    top:0;
+    padding-top: 1rem;
+  }
+
+
+}
+
+
+  /* Container for the switch */
+  .switch-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Hide default checkbox */
+  .switch-checkbox {
+    display: none;
+  }
+
+  /* Style the label */
+  .switch-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50px;
+    height: 24px;
+    border-radius: 50px;
+    background-color: #ccc;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+  /* Style the toggle button */
+  .switch-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 5px;
+    position: absolute; /* Fixes the position */
+    left: 0; /* Keeps the button fixed */
+  }
+
+  /* Sun and moon icon styles */
+  .sun-icon,
+  .moon-icon {
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Color the icons */
+  .sun-icon {
+    color: orange; /* Sun icon color */
+  }
+
+  .moon-icon {
+    color: lightblue; /* Moon icon color */
+    opacity: 0; /* Initially hidden */
+  }
+
+  /* Style for checked state */
+  .switch-checkbox:checked + .switch-label {
+    background-color: #333;
+  }
+
+  .switch-checkbox:checked + .switch-label .sun-icon {
+    opacity: 0; /* Hide sun icon in dark mode */
+  }
+
+  .switch-checkbox:checked + .switch-label .moon-icon {
+    opacity: 1; /* Show moon icon in dark mode */
+  }
+
+  body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #ffdcd4;
+      color: black;
+  }
+
+  .finput{
+    padding: 15px;
+    border-radius: 5px;
+  }
+  body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    background-image: url('./assets/images/darkmode_bg.png'); /* Add your dark mode image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+  }
+
+.dark-mode .spotlight-container {
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.dark-mode .spotlight-card {
+  background-color: #333333;
+  border: 1px solid #444444;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode h1, 
+.dark-mode h3 {
+  color: #f1f1f1;
+}
+
+.dark-mode .play-pause-btn {
+  background-color: #555555;
+  color: #f1f1f1;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dark-mode .play-pause-btn:hover {
+  background-color: #777777;
+}
+
+.dark-mode .audio-slider {
+  background-color: #444444;
+  color: #cccccc;
+}
+
+/* Slider customization */
+.audio-slider::-webkit-slider-thumb {
+  background-color: #888888;
+}
+
+.dark-mode .time-info {
+  color: #cccccc;
+}
+
+.dark-mode p{
+  color:#f1f1f1
+}
+
     </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Get the popup
+    var popup = document.getElementById('translatePopup');
+
+    // Get the button that opens the popup
+    var btn = document.getElementById('translateButton');
+
+    // Get the <span> element that closes the popup
+    var span = document.getElementsByClassName('close')[0];
+
+    // When the user clicks the button, open the popup
+    btn.onclick = function () {
+      popup.style.display = 'block';
+    }
+
+    // When the user clicks on <span> (x), close the popup
+    span.onclick = function () {
+      popup.style.display = 'none';
+    }
+
+    // When the user clicks anywhere outside of the popup, close it
+    window.onclick = function (event) {
+      if (event.target == popup) {
+        popup.style.display = 'none';
+      }
+    }
+  });
+</script>
+
+<!-- Popup for Google Translate -->
+<div id="translatePopup" class="popup">
+  <div class="popup-content">
+    <span class="close">&times;</span>
+    <div id="google_translate_element"></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  // script for google translate
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+    }, 'google_translate_element');
+  }
+
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"> </script>
+  <script src="script.js"></script>
+
   </head>
+
   <body>
-    <header class="header">
-      <div class="container">
-        <!-- Left Side: Logo -->
-        <a href="index.html" class="logo">
-          <img src="./assets/images/final.png" class="logopic" alt="Logo" />
-        </a>
 
-        <!-- Right Side: Navigation Links -->
-        <nav class="navbar">
-          <ul class="navbar-list">
-            <li class="navbar-item">
-              <a href="index.html" class="navbar-link">Home</a>
-            </li>
-            <li class="navbar-item">
-              <a href="books.html" class="navbar-link">Books</a>
-            </li>
-            <li class="navbar-item">
-              <a href="../SwapReads/index.html#genre" class="navbar-link"
-                >Genres</a
-              >
-            </li>
-            <li class="navbar-item">
-              <a href="../SwapReads/assets/html/about.html" class="navbar-link"
-                >About</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+  
 
+    <style>
+
+      /* Circle styles */
+      .circle {
+        height: 24px;
+        width: 24px;
+        border-radius: 50%;
+        background-color: black;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 99999999;
+        transition: transform 0.1s ease-out;
+      }
+    </style>
+    </head>
+    
+    
+    <body>
+    
+        <!-- Circles -->
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div> 
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    
+        <header class="header header-anim nav-h" data-header>
+  
+          <div class="container mobile-container-styles">
+            <button class="hamburger" id="hamburger-button" aria-label="Menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <nav class="navbar nav_activated" data-navbar>
+        
+        
+              <ul class="navbar-list nav" style="margin-right: 10px;">
+                <a href="index.html" class="logo" style="display:flex;">
+                  <img src="./assets/images/final.png" class="logopic" style=" width: 10rem; height:100px; margin:0px 0px 15px -10px;">
+                </a>
+        
+                <li class="navbar-item" style="margin-right: 10px;">
+                  <a href="index.html" class="navbar-link" data-nav-link>
+                    <i class="ri-home-fill"></i> Home
+                  </a>
+                </li>
+        
+        
+                <li class="navbar-item" style="margin-right: 10px;">
+                  <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
+                    <i class="ri-information-fill"></i> About Us
+                  </a>
+                </li>
+        
+               <li class="navbar-item" style="margin-right: 10px;">
+                  <a href="index.html#benefits"  class="navbar-link" data-nav-link><i
+                      class="ri-bar-chart-fill"></i> Benefits</a>
+                </li>
+        
+                <li class="navbar-item" style="margin-right: 10px;">
+                  <a href="index.html#genre"  class="navbar-link" data-nav-link><i
+                      class="ri-bar-chart-fill"></i> Genre</a>
+                </li>
+        
+               <li class="navbar-item">
+                    <a href="audiobook.html" class="navbar-link" data-nav-link>
+                        <i class="ri-questionnaire-fill"></i> Audio Books
+                    </a>
+                </li>
+        
+        
+                <li class="navbar-item" style="margin-right: 10px;">
+                  <a href="index.html#contact"  class="navbar-link" data-nav-link>
+                    <i class="ri-contacts-fill"></i> Contact
+                  </a>
+                </li>
+        
+                <li class="navbar-item" id="login-signup-link" style="margin-right: 10px;">
+                  <a href="./assets/html/login.html" class="navbar-link">
+                    <i class="ri-login-box-fill"></i> Login/Signup
+                  </a>
+                </li>
+        
+                <li class="navbar-item" style="margin-right: 10px;">
+                  <a href="comsp.html" class="navbar-link" data-nav-link>
+                    <i class="ri-book-fill"></i> Community
+                  </a>
+                </li>
+                <li class="navbar-item" style="margin-right: 10px;">
+                  <a href="./assets/html/event.html"  class="navbar-link" data-nav-link>
+                    <i class="ri-community-fill"></i> Events
+                  </a>
+                </li>   
+                <div class="switch-container">
+                  <input type="checkbox" id="switch" class="switch-checkbox">
+                  <label for="switch" class="switch-label">
+                    <div class="switch-button">
+                      <span class="material-icons sun-icon">wb_sunny</span>
+                      <span class="material-icons moon-icon">brightness_2</span>
+                    </div>
+                  </label>
+                  </div>
+                    <!-- Theme switcher -->
+
+                    
+                  
+                    <script>
+                        // Theme switcher
+                        document.addEventListener('DOMContentLoaded', function () {
+                          const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
+                          const bodyElement = document.body;
+                    
+                          const currentTheme = localStorage.getItem('theme') || 'light';
+                          if (currentTheme === 'dark') {
+                            bodyElement.classList.add('dark-mode');
+                            toggleSwitch.checked = true;
+                          } else {
+                            bodyElement.classList.add('light-mode');
+                          }
+                    
+                          toggleSwitch.addEventListener('change', function (event) {
+                            if (event.target.checked) {
+                              bodyElement.classList.remove('light-mode');
+                              bodyElement.classList.add('dark-mode');
+                              localStorage.setItem('theme', 'dark');
+                            } else {
+                              bodyElement.classList.remove('dark-mode');
+                              bodyElement.classList.add('light-mode');
+                              localStorage.setItem('theme', 'light');
+                            }
+                          });
+                        });
+                      // Hamburger toggle
+                      document.getElementById('hamburger-button').addEventListener('click', function() {
+                        document.querySelector('.navbar').classList.toggle('active');
+                      });
+    
+                    // Update the coordinates when the mouse moves
+                    window.addEventListener("mousemove", function (e) {
+                      coords.x = e.clientX;
+                    coords.y = e.clientY;
+      });
+    
+                    // Animation function to move the circles
+                    function animateCircles() {
+                      let x = coords.x;
+                    let y = coords.y;
+    
+                    circles.forEach(function (circle, index) {
+                      // Update the position and scale of each circle
+                      circle.style.left = x - 12 + "px";
+                    circle.style.top = y - 12 + "px";
+                    circle.style.scale = (circles.length - index) / circles.length;
+    
+                    circle.x = x;
+                    circle.y = y;
+    
+                    // Get the next circle in the sequence
+                    const nextCircle = circles[index + 1] || circles[0];
+                    x += (nextCircle.x - x) * 0.15;
+                    y += (nextCircle.y - y) * 0.15;
+        });
+    
+                    // Repeat the animation
+                    requestAnimationFrame(animateCircles);
+      }
+    
+                    // Start the animation
+                    animateCircles();
+    
+                    function scrollToGenre(genreId) {
+                      const element = document.getElementById(genreId);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }
+                      </script>
+                    </header>
+      
+        
     <section>
       <h1>Audiobook Haven: Listen Anytime, Anywhere"</h1>
       <p>Expand Your Mind with Every Listen</p>
@@ -587,45 +1342,266 @@
           <div class="footer-col">
             <h4>company</h4>
             <ul>
-              <li><a href="#">about us</a></li>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Benefits</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="./assets/html/about.html">about us</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#benefits">Benefits</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>get help</h4>
             <ul>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Rate us</a></li>
-              <li><a href="#">Events</a></li>
-              <li><a href="#">login</a></li>
-              <li><a href="#">Sign-up</a></li>
+              <li><a href="index.html#faqq">FAQ</a></li>
+              <li><a href="index.html#pricing">pricing</a></li>
+              <li><a href="./assets/html/event.html">Events</a></li>
+              <li><a href="./assets/html/login.html">login</a></li>
+              <li><a href="./assets/html/login.html">Sign-up</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>Explore</h4>
             <ul>
-              <li><a href="#">Genre</a></li>
-              <li><a href="#">Diverse literature adventure</a></li>
+              <li><a href="index.html#genre">Genre</a></li>
+              <li><a href="diverseLiteracy.html">Diverse literature adventure</a></li>
               <li><a href="#">Horror</a></li>
-              <li><a href="#">Romance</a></li>
+              <li><a href="romantic-esc.html">Romance</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>follow us</h4>
             <div class="social-links">
               <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
               <a href="#"><i class="fab fa-instagram"></i></a>
               <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="newsletter">
+            <h1>Subscribe to Our Newsletter</h1>
+            <p>Stay updated with our latest news and offers</p>
+
+            <form id="newsform" onsubmit="return showSuccessMessage();">
+              <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Your Name"
+                  required=""
+                  pattern="[a-zA-Z ]+"
+                  oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')"
+                  oninput="this.setCustomValidity('')"
+                />
+              </div>
+              <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Your Email Address"
+                  required=""
+                />
+              </div>
+              <button type="submit" class="subscribe" id="subs">
+                Subscribe
+              </button>
+            </form>
+            <div
+              id="successmessage"
+              class="success-message"
+              style="display: none"
+            >
+              Thank you for subscribing!
             </div>
           </div>
         </div>
       </div>
     </footer>
+    <div>
+    <button id="translateButton">Translate</button>
+  </div>
+  <style>
+    /* Fixed translate button */
+#translateButton {
+    position: fixed;
+    /* bottom: 20px; */
+    top:-15rem;
+    right: 4.4rem;
+    z-index: 1000;
+    width: 53px;  
+    height: 53px;
+    border-radius: 50%; 
+    border: none; 
+    background:linear-gradient(hwb(357 6% 36%),#d26d6d); 
+    color: white; 
+    text-align: center; 
+    display: inline-block; 
+    font-size: 16px; 
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    transition: transform 0.3s ease;
+    margin-top: 75.8vh;
+    margin-right:opx;
+}
 
+#translateButton:hover {
+    transform: scale(1.2); 
+}
+
+/* The popup modal */
+.popup {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+/* Popup content */
+.popup-content {
+  background:linear-gradient(hwb(357 6% 36%),#d26d6d);
+    margin-top: 600px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 10px;
+    position: relative;
+    margin-left: 1160px;
+    /* margin-right: 0px; */
+}
+
+/* Close button */
+.close {
+    color: #073725;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Hide the default Google Translate widget */
+.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+    display: none !important;
+}
+
+body {
+    top: 0px !important;
+}
+
+/* Hide the "Powered by Google" branding */
+.goog-logo-link {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    height: 28px !important;
+    overflow: hidden;
+}
+
+/* Hide Google Translate notifications */
+.goog-te-spinner-pos,
+.goog-te-spinner,
+.goog-te-balloon-frame,
+.goog-te-banner-frame,
+.goog-te-banner,
+.goog-te-balloon {
+    display: none !important;
+}
+
+/* Custom styles for the Google Translate dropdown */
+#google_translate_element select {
+    background: #ffffff; 
+    border: 1px solid #ccc; 
+    color: #d26d6d; 
+    padding: 5px; 
+    font-size: 14px; 
+    border-radius: 5px; 
+
+}
+
+/* Hide the Google Translate bar */
+body > .skiptranslate {
+    display: none !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+.goog-te-banner-frame {
+    display: none !important;
+}
+.goog-te-banner {
+    display: none !important;
+}
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get the popup
+    var popup = document.getElementById('translatePopup');
+
+    // Get the button that opens the popup
+    var btn = document.getElementById('translateButton');
+
+    // Get the <span> element that closes the popup
+    var span = document.getElementsByClassName('close')[0];
+
+    // When the user clicks the button, open the popup 
+    btn.onclick = function() {
+        popup.style.display = 'block';
+    }
+
+    // When the user clicks on <span> (x), close the popup
+    span.onclick = function() {
+        popup.style.display = 'none';
+    }
+
+    // When the user clicks anywhere outside of the popup, close it
+    window.onclick = function(event) {
+        if (event.target == popup) {
+            popup.style.display = 'none';
+        }
+    }
+});
+  </script>
+
+  <!-- Popup for Google Translate -->
+  <div id="translatePopup" class="popup">
+      <div class="popup-content">
+          <span class="close">&times;</span>
+          <div id="google_translate_element"></div>
+      </div>
+  </div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Your custom JavaScript -->
+<script src="script.js"></script>
     <script>
+      let currentAudio = null; // Keep track of the currently playing audio
+
       function toggleAudio(
         audioId,
         sliderId,
@@ -639,10 +1615,21 @@
         const durationDisplay = document.getElementById(durationId);
         const container = button.closest(".spotlight-card");
 
+        // If there's an audio currently playing and it's not the same as the selected one, pause it
+        if (currentAudio && currentAudio !== audio) {
+          currentAudio.pause();
+          currentAudio.closest(".spotlight-card").classList.remove("playing");
+          document.querySelector(
+            ".play-pause-btn[onclick*='" + currentAudio.id + "']"
+          ).textContent = "Play";
+        }
+
+        // Toggle play/pause for the selected audio
         if (audio.paused) {
           audio.play();
           button.textContent = "Pause";
           container.classList.add("playing");
+          currentAudio = audio; // Set the currently playing audio
           updateSlider(slider, audio, currentTimeDisplay, durationDisplay);
         } else {
           audio.pause();
@@ -677,5 +1664,62 @@
         return minutes + ":" + (secs < 10 ? "0" : "") + secs;
       }
     </script>
+
+<script>
+  
+  // Coordinates for the cursor
+  const coords = { x: 0, y: 0 };
+  const circles = document.querySelectorAll(".circle");
+
+  // Colors for the circles
+  const colors = [
+    "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+    "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+    "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+    "#680060", "#60005f", "#48005f", "#3d005e"
+  ];
+
+  // Assign colors and initial position to each circle
+  circles.forEach(function (circle, index) {
+    circle.x = 0;
+    circle.y = 0;
+    circle.style.backgroundColor = colors[index % colors.length];
+  });
+
+  // Update the coordinates when the mouse moves
+  window.addEventListener("mousemove", function (e) {
+    coords.x = e.clientX;
+    coords.y = e.clientY;
+  });
+
+  // Animation function to move the circles
+  function animateCircles() {
+    let x = coords.x;
+    let y = coords.y;
+
+    circles.forEach(function (circle, index) {
+      // Update the position and scale of each circle
+      circle.style.left = x - 12 + "px";
+      circle.style.top = y - 12 + "px";
+      circle.style.scale = (circles.length - index) / circles.length;
+
+      circle.x = x;
+      circle.y = y;
+
+      // Get the next circle in the sequence
+      const nextCircle = circles[index + 1] || circles[0];
+      x += (nextCircle.x - x) * 0.15;
+      y += (nextCircle.y - y) * 0.15;
+    });
+
+    // Repeat the animation
+    requestAnimationFrame(animateCircles);
+  }
+
+  // Start the animation
+  animateCircles();
+
+</script>
+
   </body>
 </html>

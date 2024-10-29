@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Donate Books to Library</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_package_v0.16/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-32x32.png">
     <style>
       body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWgokZbPhw-4fe9FN9nSWasJFL2uZp5WdHWA&s");
+        font-family:'Times New Roman', Times, serif;
+        margin: 2px auto;
+        background-image: url("../images/images/b.jpg");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -17,13 +20,9 @@
       }
       .form-container {
         max-width: 600px;
-        margin: auto;
-        background-color: rgba(
-          252,
-          216,
-          216,
-          0.6
-        ); /* Semi-transparent background */
+        max-height:900px;
+        margin: 80px auto;
+        background-color: rgba(8, 8, 8, 0.995); /* Semi-transparent background */
         padding: 30px;
         border-radius: 25px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
@@ -32,7 +31,7 @@
 
       .form-container h1 {
         text-align: center;
-        color: black;
+        color: rgb(187, 128, 128);
         font-size: 35px;
       }
 
@@ -45,31 +44,34 @@
         margin-bottom: 10px;
         font-weight: bold;
         font-size: 20px;
+        color: rgb(187, 128, 128);
       }
 
-      .form-group input,
-      .form-group select {
+      .form-group input,.form-group select {
         width: 100%;
         padding: 8px;
         box-sizing: border-box;
         border-radius: 10px;
         margin-bottom: 10px;
+        background-color: rgb(68, 58, 58);
+        color: rgb(187, 128, 128);
       }
 
       .form-group button {
         display: block;
         width: 60%;
         padding: 10px 20px;
-        background-color: #8c031f;
-        color: white;
+        background-color: #5e0213;
+        color: rgb(187, 128, 128);
         border: none;
         cursor: pointer;
         border-radius: 7px;
         text-align: center;
+        margin: auto;
       }
       .form-group button:hover {
-        background-color: #f6bed6;
-        color: black;
+        background-color:rgb(187, 128, 128);
+        color: #5e0213;
         border: 3px solid black;
       }
       .thank-you-message {
@@ -79,6 +81,25 @@
         color: green;
         text-align: center;
         font-size: 30px;
+      }
+      .back-button {
+        display: none;
+        margin-top: 20px;
+        text-align: center;
+      }
+      .back-button button {
+        width: 30%;
+        padding: 10px;
+        background-color: #5e0213;
+        color: rgb(187, 128, 128);
+        border: none;
+        cursor: pointer;
+        border-radius: 7px;
+      }
+      .back-button button:hover {
+        background-color: rgb(187, 128, 128);
+        color: #5e0213;
+        border: 3px solid black;
       }
       @media (max-width: 600px) {
         body {
@@ -100,19 +121,19 @@
       <form id="donationForm" onsubmit="submitForm(event)">
         <div class="form-group">
           <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
+          <input type="text" id="First" name="name" placeholder="Enter your full name here" required />
         </div>
         <div class="form-group">
           <label for="phone">Phone Number:</label>
-          <input type="tel" id="phone" name="phone" required />
+          <input type="tel" id="phone" name="phone" placeholder="Enter phone number here" required />
         </div>
         <div class="form-group">
           <label for="email">Email ID:</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" name="email" placeholder="Enter valid email address here" required />
         </div>
         <div class="form-group">
           <label for="bookName">Book Name:</label>
-          <input type="text" id="bookName" name="bookName" required />
+          <input type="text" id="bookName" name="bookName" placeholder="Enter book name here" required />
         </div>
         <div class="form-group">
           <label for="library">Select Library:</label>
@@ -124,12 +145,14 @@
           </select>
         </div>
         <div class="form-group">
-          <button type="submit" onclick="submitForm()">Submit</button>
+          <button type="submit">Submit</button>
         </div>
       </form>
       <div id="thankYouMessage" class="thank-you-message">
-        Thank you for your contribution! We will contact you for further
-        details.
+        Thank you for your contribution! We will contact you for further details.
+      </div>
+      <div id="backButton" class="back-button">
+        <button onclick="goHome()">Back to Home</button>
       </div>
     </div>
 
@@ -141,6 +164,12 @@
 
         // Show thank you message
         document.getElementById("thankYouMessage").style.display = "block";
+        // Show the home button
+        document.getElementById("backButton").style.display = "block";
+      }
+
+      function goHome() {
+        window.location.href = "/"; // Replace with your home page URL
       }
     </script>
   </body>

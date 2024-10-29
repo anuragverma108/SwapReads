@@ -5,23 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us Form</title>
 </head>
+<style>
+     form {
+            flex: 1;
+            margin-right: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:hover,
+        input:focus,
+        select:hover,
+        select:focus,
+        textarea:hover,
+        textarea:focus {
+            border-color: #d985b9;
+            box-shadow: 0 0 15px rgba(217, 133, 185, 0.5);
+            outline: none; /* Remove default outline */
+        }
+
+        button {
+            background-color: #d985b9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: rgb(156, 5, 116); /* Darker shade on hover */
+        }
+</style>
 <body style="background-color: #fdd7db; font-family: Arial, sans-serif; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh;">
 
     <!-- Contact Form Container -->
-    <div style="display: flex; align-items: center; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 60%; max-width: 800px;">
+    <div style="display: flex; align-items: center; justify-content: center;background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 60%; max-width: 800px;">
 
         <!-- Form Section -->
-        <form id="contactForm" style="flex: 1; margin-right: 20px;">
-            <h2 style="color: #333; margin-bottom: 20px;">Contact Us</h2>
-            
-            <label for="name" style="font-weight: bold; color: #333;">Name</label><br>
-            <input type="text" id="name" name="name" placeholder="Your Name" required style="width: 100%; padding: 10px; margin: 10px 0 20px; border: 1px solid #ccc; border-radius: 5px;">
+        <form id="contactForm" style="align-items: center;justify-content: center;">
+            <h2>Contact Us</h2>
 
-            <label for="email" style="font-weight: bold; color: #333;">Email</label><br>
-            <input type="email" id="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 10px; margin: 10px 0 20px; border: 1px solid #ccc; border-radius: 5px;">
+            <label for="name">Name</label><br>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
             
-            <label for="subject" style="font-weight: bold; color: #333;">Subject</label><br>
-            <select id="subject" name="subject" required style="width: 100%; padding: 10px; margin: 10px 0 20px; border: 1px solid #ccc; border-radius: 5px;">
+            <label for="subject">Subject</label><br>
+            <select id="subject" name="subject" required>
                 <option value="" disabled selected>Select a subject</option>
                 <option value="general">General Inquiry</option>
                 <option value="support">Support Request</option>
@@ -30,10 +88,10 @@
                 <option value="other">Other</option>
             </select>
             
-            <label for="message" style="font-weight: bold; color: #333;">Message</label><br>
-            <textarea id="message" name="message" placeholder="Your Message" required style="width: 100%; padding: 10px; margin: 10px 0 20px; border: 1px solid #ccc; border-radius: 5px;" rows="5"></textarea>
+            <label for="message">Message</label><br>
+            <textarea id="message" name="message" placeholder="Your Message" required rows="5"></textarea>
 
-            <button type="submit" style="background-color: #d985b9; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">Send Message</button>
+            <button type="submit">Send Message</button>
         </form>
         
     </div>
