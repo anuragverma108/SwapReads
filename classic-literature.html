@@ -11,11 +11,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #fff; /* White background */
+        background-color: #ffb2a8; /* White background */
         overflow-y: scroll;
         scrollbar-width: thin;
         scrollbar-color: #888 #f1f1f1;
-        cursor: default; /* Show default cursor */
+        cursor: default;
       }
 
       body::-webkit-scrollbar {
@@ -36,26 +36,12 @@
         background-color: #555;
       }
 
-      .cursor {
-        position: absolute;
-        width: 6px; /* Circle size */
-        height: 6px; /* Circle size */
-        background-color: rgba(255, 165, 0, 0.6); /* Orange color */
-        border-radius: 10%; /* Circular shape */
-        pointer-events: none; /* Prevent interaction */
-        transform: translate(-10%, -10%); /* Center the circle */
-        transition: transform 0.1s ease-out; /* Smooth movement */
-      }
-      :root {
-        --text-color-light: #333; /* Dark text for light mode */
-        --text-color-dark: #fff; /* White text for dark mode */
-      }
-
       .card-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
       }
+      
       .book-card {
         background-color: #fff;
         border-radius: 8px;
@@ -65,15 +51,18 @@
         width: 250px;
         transition: transform 0.3s;
       }
+      
       .book-card:hover {
         transform: translateY(-5px);
       }
+
       .book-title {
         font-size: 18px;
         font-weight: bold;
         margin-bottom: 10px;
         color: #333;
       }
+
       .book-author {
         font-size: 14px;
         color: #777;
@@ -83,55 +72,88 @@
   </head>
   <body>
     <h1>Classic Literature Books</h1>
-    <div class="card-container" id="bookCards"></div>
-
-    <script src="app.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Function to fetch books from the API
-        const fetchBooks = async () => {
-          try {
-            const response = await fetch(
-              "http://localhost:4000/api/books/classic-literature"
-            );
-            const data = await response.json();
-
-            if (data.success) {
-              displayBooks(data.books);
-            } else {
-              console.error("No books found for this genre.");
-            }
-          } catch (error) {
-            console.error("Error fetching books:", error);
-          }
-        };
-
-        const displayBooks = (books) => {
-          const bookCardsContainer = document.getElementById("bookCards");
-
-          bookCardsContainer.innerHTML = "";
-
-          books.forEach((book) => {
-            const card = document.createElement("div");
-            card.classList.add("book-card");
-
-            const title = document.createElement("p");
-            title.classList.add("book-title");
-            title.textContent = book.title;
-
-            const author = document.createElement("p");
-            author.classList.add("book-author");
-            author.textContent = `by ${book.author}`;
-
-            card.appendChild(title);
-            card.appendChild(author);
-
-            bookCardsContainer.appendChild(card);
-          });
-        };
-
-        fetchBooks();
-      });
-    </script>
+    <div class="card-container">
+      <!-- Hardcoded book cards for Classic Literature genre -->
+      <div class="book-card">
+        <p class="book-title">Pride and Prejudice</p>
+        <p class="book-author">by Jane Austen</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">Moby Dick</p>
+        <p class="book-author">by Herman Melville</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">War and Peace</p>
+        <p class="book-author">by Leo Tolstoy</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">1984</p>
+        <p class="book-author">by George Orwell</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">Great Expectations</p>
+        <p class="book-author">by Charles Dickens</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">To Kill a Mockingbird</p>
+        <p class="book-author">by Harper Lee</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">The Great Gatsby</p>
+        <p class="book-author">by F. Scott Fitzgerald</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">Crime and Punishment</p>
+        <p class="book-author">by Fyodor Dostoevsky</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">The Catcher in the Rye</p>
+        <p class="book-author">by J.D. Salinger</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">Jane Eyre</p>
+        <p class="book-author">by Charlotte Brontë</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">The Odyssey</p>
+        <p class="book-author">by Homer</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">The Brothers Karamazov</p>
+        <p class="book-author">by Fyodor Dostoevsky</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">Anna Karenina</p>
+        <p class="book-author">by Leo Tolstoy</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">Frankenstein</p>
+        <p class="book-author">by Mary Shelley</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">Wuthering Heights</p>
+        <p class="book-author">by Emily Brontë</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">The Scarlet Letter</p>
+        <p class="book-author">by Nathaniel Hawthorne</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">Dracula</p>
+        <p class="book-author">by Bram Stoker</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">Les Misérables</p>
+        <p class="book-author">by Victor Hugo</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">Madame Bovary</p>
+        <p class="book-author">by Gustave Flaubert</p>
+      </div>
+      <div class="book-card">
+        <p class="book-title">The Picture of Dorian Gray</p>
+        <p class="book-author">by Oscar Wilde</p>
+      </div>
+    </div>
   </body>
 </html>
