@@ -65,6 +65,7 @@ body.dark-mode {
   /* background-color: #333; */
   color: #fff;
 }
+
 .dark-mode .container button {
   margin-left: none;
 }
@@ -82,6 +83,10 @@ body.dark-mode {
   color: #fff;
 }
 .dark-mode .header {
+  background-color: #151111;
+}
+.dark-mode .navbar {
+  /* background-color: #333; */
   background-color: #151111;
 }
 body.dark-mode .genre-section {
@@ -554,4 +559,138 @@ footer {
   display: flex;
   /* flex-direction: column; */
   overflow: hidden;
+}
+
+/* Central container for navigation buttons */
+.genre-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+/* Button style in light mode */
+.genre-nav button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600; /* Increased font weight */
+  cursor: pointer;
+  background-color: rgb(230, 103, 124); /* Light mode background color */
+  color: rgba(255, 255, 255, 0.909); /* Light mode text color */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+/* Hover animation for buttons in light mode */
+.genre-nav button:hover {
+  background-color: rgb(200, 85, 110); /* Slightly darker shade on hover */
+  transform: scale(1.05); /* Slight zoom-in effect */
+}
+
+/* Dark mode button style */
+body.dark-mode .genre-nav button {
+  background-color: rgb(88, 22, 33); /* Dark mode background color */
+  color: rgba(255, 255, 255, 0.909); /* Dark mode text color */
+}
+
+/* Hover animation for buttons in dark mode */
+body.dark-mode .genre-nav button:hover {
+  background-color: rgb(66, 15, 25); /* Slightly darker shade on hover */
+  transform: scale(1.05); /* Slight zoom-in effect */
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+  .genre-nav button {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
+/*responsiveness*/
+/* Responsive adjustments for medium screens (tablets) */
+@media (max-width: 992px) {
+  .genre-section {
+    flex-direction: column;
+  }
+
+  .hero-banner img {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .genre-content {
+    width: 100%;
+  }
+
+  .genre-title {
+    font-size: 1.8rem;
+  }
+
+  .genre-content span {
+    font-size: 2.5rem;
+  }
+  .book-description {
+    text-align: justify;
+  }
+}
+
+/* Responsive adjustments for small screens (mobile) */
+@media (max-width: 768px) {
+  .genre-section {
+    flex-direction: column;
+  }
+
+  .hero-banner img {
+    width: 100%;
+  }
+
+  .genre-content {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .genre-title {
+    font-size: 1.5rem;
+  }
+
+  .book-author,
+  .book-genre,
+  .book-description {
+    font-size: 1rem;
+  }
+
+  .genre-content span {
+    font-size: 2rem;
+  }
+  .book-description {
+    text-align: justify;
+  }
+}
+
+/* Mobile Styling */
+@media (max-width: 768px) {
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .foot-top {
+    display: block;
+  }
+
+  #quicklinks {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .footer-f p,
+  .footer-f a {
+    font-size: 0.9rem;
+  }
 }

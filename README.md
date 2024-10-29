@@ -40,16 +40,14 @@
 
   ### This project is now OFFICIALLY accepted for
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/329829127-e79eb6de-81b1-4ffb-b6ed-f018bb977e88.png" alt="GSSoC 2024 Extd" width="80%">
-</div>
+## 📋 Participating Programs
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/hacktober.png" alt="Hacktober fest 2024" width="80%">
-</div>
+| Name                  | Logo                                                      | Purpose                                                                                                      |
+|-----------------------|-----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| GSSoC'2024-Extd       | ![GSSoC Logo](assets/GSSoC-Ext.png)             | The coding period is from October 1st to October 30th, during which contributors make contributions and earn points on the platform. |
+| Hacktoberfest 2024    | ![Hacktoberfest Logo](assets/hacktoberfest.png) | Hacktoberfest is a month-long October event welcoming all skill levels to join the open-source community.     |
 
-<br>  
-
+---
 
 ## Project Structure
 
@@ -68,6 +66,7 @@
 ├── Mystical-fantaies.html
 ├── README.md
 ├── assets/
+│   ├── GSSoC-Ext.png
 │   ├── JSON/
 │   │   ├── package-lock.json
 │   │   └── package.json
@@ -154,6 +153,7 @@
 │   │   │   └── css/
 │   │   │       └── event.css
 │   │   ├── audio.html
+│   │   ├── author.html
 │   │   ├── blog.html
 │   │   ├── book_recommend.html
 │   │   ├── booking.html
@@ -168,7 +168,10 @@
 │   │   ├── forgot-pass.html
 │   │   ├── freeBooks.html
 │   │   ├── googlece7a206a6cfbb7ed.html
+│   │   ├── image.png
+│   │   ├── img.png
 │   │   ├── login.html
+│   │   ├── map.html
 │   │   ├── mood.html
 │   │   ├── mylogin.html
 │   │   ├── ngo.html
@@ -179,11 +182,13 @@
 │   │   ├── read.html
 │   │   ├── read_later.html
 │   │   ├── school.html
-│   │   └── social.html
+│   │   ├── social.html
+│   │   └── tips.html
 │   ├── images/
 │   │   ├── FB icon.png
 │   │   ├── LogoPicDark.png
 │   │   ├── LogoPicLight.png
+│   │   ├── Screenshot 2024-10-28 at 12.09.51 AM
 │   │   ├── YT icon.png
 │   │   ├── achievement-1.jpg
 │   │   ├── achievement-2.jpg
@@ -224,8 +229,10 @@
 │   │   ├── close-white.png
 │   │   ├── close.png
 │   │   ├── close1.png
+│   │   ├── comedy.jpg
 │   │   ├── community.png
 │   │   ├── communityhover.png
+│   │   ├── contact.png
 │   │   ├── ctc1.png
 │   │   ├── ctc2.png
 │   │   ├── ctc3.png
@@ -294,6 +301,7 @@
 │   │   ├── new_logo_banner_dark.png
 │   │   ├── new_logo_banner_light.png
 │   │   ├── new_logo_dark.png
+│   │   ├── philopsphy.jpg
 │   │   ├── pic1.jpeg
 │   │   ├── pic2.jpeg
 │   │   ├── pic3.jpeg
@@ -324,6 +332,7 @@
 │   │   ├── trendingbook3.jpg
 │   │   ├── trendingbook4.jpg
 │   │   ├── trendingbook5.jpg
+│   │   ├── true crime.jpg
 │   │   ├── twitter-icon.png
 │   │   ├── twitter.png
 │   │   ├── user.jpg
@@ -339,6 +348,7 @@
 │   │   ├── fire.js
 │   │   ├── forgotPassword.js
 │   │   ├── freeBooks.js
+│   │   ├── loadmore.js
 │   │   ├── login.js
 │   │   ├── menuButton.js
 │   │   ├── preloader.js
@@ -377,6 +387,7 @@
 ├── chat.css
 ├── chat.html
 ├── chat.js
+├── classic-literature.html
 ├── comsp.html
 ├── connectWithsame.html
 ├── contactus1.html
@@ -385,6 +396,8 @@
 │   ├── contributor.html
 │   └── contributor.js
 ├── controller/
+│   ├── Rating.js
+│   ├── fetchBookController.js
 │   └── subscribe.js
 ├── cookiepolicy.html
 ├── cookies.html
@@ -399,6 +412,7 @@
 ├── email.html
 ├── environmental-impact.html
 ├── exchangeHub.css
+├── fantasy.html
 ├── footer1.css
 ├── footer1.html
 ├── help.html
@@ -412,7 +426,8 @@
 ├── mindful-living.html
 ├── modals(privacy policy).css
 ├── models/
-│   └── BookDonation.js
+│   ├── BookDonation.js
+│   └── Rating.js
 ├── mylogin.html
 ├── n.jpg
 ├── our-vision.html
@@ -425,10 +440,13 @@
 ├── privacynotice.html
 ├── profile.css
 ├── profile.html
+├── refundpolicy.html
 ├── repo_structure.txt
 ├── revitalize.html
+├── romance.html
 ├── romantic-esc.html
 ├── sc.jpg
+├── science-fiction.html
 ├── scifi.html
 ├── script.js
 ├── scrollbar.css
@@ -440,9 +458,11 @@
 ├── stackbit.config.ts
 ├── stay_connect.css
 ├── subscribe.html
+├── suspense-thriller.html
 ├── terms&cond.html
 ├── thrilling-adventures.html
 ├── translate.html
+├── up-arrow (1).png
 ├── vanilla-tilt.js
 └── vedio.mp4
 ```

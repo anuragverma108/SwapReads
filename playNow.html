@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
 
     <style>
       /* General Styles */
@@ -127,34 +130,32 @@
           transform: translateY(0);
         }
       }
+/* Genre Section Styling */
+.genre-section {
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  margin: 40px 0;
+  padding: 20px;
+  background-color: #ffe5e5; /* Light pink background */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-      /* Genre Section Styling */
-      .genre-section {
-        font-family: 'Open Sans', sans-serif;
-        display: flex;
-        align-items: center;
-        margin: 40px 0;
-        padding: 20px;
-        background-color: #ffe5e5; /* Light pink background */
-        border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
+.genre-content {
+  width: 55%;
+  padding: 20px;
+  background-color: #fff4e1; /* Cream background for the description box */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-      .genre-content {
-        width: 55%;
-        padding: 20px;
-        background-color: #fff4e1; /* Cream background for the description box */
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      .genre-title {
-        font-family: 'Merriweather', serif;
-        font-size: 2rem;
-        color: #c21807;
-        margin: 10px 0;
-      }
-
+.genre-title {
+  font-family: "Merriweather", serif;
+  font-size: 2rem;
+  color: #c21807;
+  margin: 10px 0;
+}
       .book-author,
       .book-genre {
         font-family: 'Open Sans', sans-serif;
@@ -187,9 +188,9 @@ body {
   background-color: #ffffff; /* White background */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   margin: 0 auto; /* Center header */
-  padding: 10px 0; /* Reduce padding for a thinner look */
   z-index: 10;
   border-radius: 10px;
+  margin-top: 25px;
 }
 
 
@@ -205,7 +206,10 @@ body {
 .navbar {
   display: flex;
   align-items: center;
-  gap: 15px; /* Reduced spacing for a thinner look */
+  justify-content: space-between;
+  gap: 40px; /* Reduced spacing for a thinner look */
+  max-height: 80px;
+
 }
 
 .navbar-list {
@@ -221,32 +225,39 @@ body {
 .navbar-link {
   color: #000000; /* Black text */
   text-decoration: none;
-  font-size: 0.95rem; /* Slightly smaller font */
-  padding: 5px 8px;
+  font-size: 17px; /* Slightly smaller font */
   position: relative;
   transition: color 0.3s ease;
   font-weight: normal; /* Remove bold font */
+  margin: 0 10px; 
+}
+
+.navbar-link {
+  position: relative; /* Ensure the link has a position for the absolute positioning of the pseudo-element */
 }
 
 .navbar-link:hover {
-  color: #d72672; /* Dark pink on hover */
+  color: #a52644; /* Dark pink on hover */
 }
 
 .navbar-link::after {
   content: "";
-  display: block;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(to right, #d76b9d, #ff9aa2, #ffd9b3); /* Subtle gradient */
-  transition: width 0.3s ease;
   position: absolute;
-  bottom: -3px;
-  left: 0;
+  bottom: -5px; /* Adjust this value to create a gap */
+  left: 0px;
+  height: 3px;
+  background-color: #fcb0b480;
+  width: 0;
+  box-shadow: 0 0 10px #f39d127e;
+  transition: all 0.6s;
+  text-decoration: none;
 }
 
 .navbar-link:hover::after {
-  width: 100%; /* Expand underline on hover */
+  width: 100%;
+  text-decoration: none;
 }
+
 
 .action {
   position: relative;
@@ -318,7 +329,6 @@ body {
 .section-title {
   font-family: 'Merriweather', serif;
   font-size: 1.5rem;
-  color: #c21807; /* Dark pink or any accent color */
   font-weight: 700;
   text-align: center;
   display: flex;
@@ -326,6 +336,12 @@ body {
   justify-content: center;
   margin: 30px 0; /* Add spacing above and below */
   gap: 15px; /* Space between the line and text */
+  color: rgb(230, 103, 124); 
+  background-color:  rgba( 255, 255, 255, 0.909 );
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
 
 input, button, textarea {
@@ -335,21 +351,217 @@ input, button, textarea {
     padding: 10px;
     font: inherit;}
 
+/* Base styling for the hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  z-index: 1001;
+}
 
-    </style>
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  transition: transform 0.3s ease;
+}
+
+/* Responsive styling */
+@media (max-width: 1000px) {
+  /* Hide the navbar by default on small screens */
+  .navbar {
+    display: none;
+    position: absolute;
+    top: 70px; /* Matches header height for below-header dropdown */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: initial;
+  }
+
+  .header{
+    width: 100%;
+  }
+
+  .navbar.active {
+    display: block;
+  }
+
+  /* Hamburger icon visible only on smaller screens */
+  .hamburger {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Center-align navbar links in mobile view */
+  .navbar ul.navbar-list {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Adjusted theme switcher styling for mobile */
+  .switch-container {
+    margin: 0 auto;
+    padding-top: 1rem;
+  }
+
+  .genre-content {
+    width: 100% !important;
+  }
+  .book-description{
+    text-align: justify;
+  }
+}
+
+
+  /* Container for the switch */
+  .switch-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Hide default checkbox */
+  .switch-checkbox {
+    display: none;
+  }
+
+  /* Style the label */
+  .switch-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50px;
+    height: 24px;
+    border-radius: 50px;
+    background-color: #ccc;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+  /* Style the toggle button */
+  .switch-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 5px;
+    position: absolute; /* Fixes the position */
+    left: 0; /* Keeps the button fixed */
+  }
+
+  /* Sun and moon icon styles */
+  .sun-icon,
+  .moon-icon {
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Color the icons */
+  .sun-icon {
+    color: orange; /* Sun icon color */
+  }
+
+  .moon-icon {
+    color: lightblue; /* Moon icon color */
+    opacity: 0; /* Initially hidden */
+  }
+
+  /* Style for checked state */
+  .switch-checkbox:checked + .switch-label {
+    background-color: #333;
+  }
+
+  .switch-checkbox:checked + .switch-label .sun-icon {
+    opacity: 0; /* Hide sun icon in dark mode */
+  }
+
+  .switch-checkbox:checked + .switch-label .moon-icon {
+    opacity: 1; /* Show moon icon in dark mode */
+  }
+
+
+</style>
+<style>
+  /* Circle styles */
+  .circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999;
+    transition: transform 0.1s ease-out;
+  }
+  .cursor {
+      position: absolute;
+      width: 6px;
+      /* Circle size */
+      height: 6px;
+      /* Circle size */
+      background-color: rgba(255, 165, 0, 0.6);
+      /* Orange color */
+      border-radius: 10%;
+      /* Circular shape */
+      pointer-events: none;
+      /* Prevent interaction */
+      transform: translate(-10%, -10%);
+      /* Center the circle */
+      transition: transform 0.1s ease-out;
+      /* Smooth movement */
+    }
+</style>
   </head>
 
   <body>
+      <!-- Circles -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
     <header class="header header-anim nav-h" data-header>
 
         <div class="container mobile-container-styles">
-      
+          <button class="hamburger" id="hamburger-button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
           <nav class="navbar nav_activated" data-navbar>
       
       
             <ul class="navbar-list nav" style="margin-right: 10px;">
               <a href="index.html" class="logo" style="display:flex;">
-                <img src="./assets/images/final.png" class="logopic" style=" width: 10rem; height:100px; margin:0px 0px 0px -10px;">
+                <img src="./assets/images/final.png" class="logopic" style=" width: 10rem; height:100px; margin:0px 0px 15px -10px;">
               </a>
       
               <li class="navbar-item" style="margin-right: 10px;">
@@ -441,86 +653,89 @@ input, button, textarea {
                         }
                       });
                     });
+                  // Hamburger toggle
+                  document.getElementById('hamburger-button').addEventListener('click', function() {
+                    document.querySelector('.navbar').classList.toggle('active');
+                  });
+                // Coordinates for the cursor
+                const coords = {x: 0, y: 0 };
+                const circles = document.querySelectorAll(".circle");
+
+                // Colors for the circles
+                const colors = [
+                "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+                "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+                "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+                "#680060", "#60005f", "#48005f", "#3d005e"
+                ];
+
+                // Assign colors and initial position to each circle
+                circles.forEach(function (circle, index) {
+                  circle.x = 0;
+                circle.y = 0;
+                circle.style.backgroundColor = colors[index % colors.length];
+  });
+
+                // Update the coordinates when the mouse moves
+                window.addEventListener("mousemove", function (e) {
+                  coords.x = e.clientX;
+                coords.y = e.clientY;
+  });
+
+                // Animation function to move the circles
+                function animateCircles() {
+                  let x = coords.x;
+                let y = coords.y;
+
+                circles.forEach(function (circle, index) {
+                  // Update the position and scale of each circle
+                  circle.style.left = x - 12 + "px";
+                circle.style.top = y - 12 + "px";
+                circle.style.scale = (circles.length - index) / circles.length;
+
+                circle.x = x;
+                circle.y = y;
+
+                // Get the next circle in the sequence
+                const nextCircle = circles[index + 1] || circles[0];
+                x += (nextCircle.x - x) * 0.15;
+                y += (nextCircle.y - y) * 0.15;
+    });
+
+                // Repeat the animation
+                requestAnimationFrame(animateCircles);
+  }
+
+                // Start the animation
+                animateCircles();
+
+                function scrollToGenre(genreId) {
+                  const element = document.getElementById(genreId);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }
                   </script>
-                
-                <style>
-                  /* Container for the switch */
-                  .switch-container {
-                    display: flex;
-                    align-items: center;
-                    position: relative;
-                  }
-                
-                  /* Hide default checkbox */
-                  .switch-checkbox {
-                    display: none;
-                  }
-                
-                  /* Style the label */
-                  .switch-label {
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    width: 50px;
-                    height: 24px;
-                    border-radius: 50px;
-                    background-color: #ccc;
-                    transition: background-color 0.3s ease;
-                    position: relative;
-                  }
-                
-                  /* Style the toggle button */
-                  .switch-button {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    width: 100%;
-                    padding: 0 5px;
-                    position: absolute; /* Fixes the position */
-                    left: 0; /* Keeps the button fixed */
-                  }
-                
-                  /* Sun and moon icon styles */
-                  .sun-icon,
-                  .moon-icon {
-                    font-size: 16px;
-                    transition: opacity 0.3s ease;
-                  }
-                
-                  /* Color the icons */
-                  .sun-icon {
-                    color: orange; /* Sun icon color */
-                  }
-                
-                  .moon-icon {
-                    color: lightblue; /* Moon icon color */
-                    opacity: 0; /* Initially hidden */
-                  }
-                
-                  /* Style for checked state */
-                  .switch-checkbox:checked + .switch-label {
-                    background-color: #333;
-                  }
-                
-                  .switch-checkbox:checked + .switch-label .sun-icon {
-                    opacity: 0; /* Hide sun icon in dark mode */
-                  }
-                
-                  .switch-checkbox:checked + .switch-label .moon-icon {
-                    opacity: 1; /* Show moon icon in dark mode */
-                  }
-                </style>
-                
                   </header>
 
     <div class="section-title">
     <span>Explore Books Popular Among SwapRead Users in Different Genres</span>
     </div>
                   
+    <div class="genre-nav">
+      <button onclick="scrollToGenre('romance')">Romance</button>
+      <button onclick="scrollToGenre('sci-fi')">Science Fiction</button>
+      <button onclick="scrollToGenre('mystery')">Mystery</button>
+      <button onclick="scrollToGenre('fantasy')">Fantasy</button>
+      <button onclick="scrollToGenre('thriller')">Thriller</button>
+      <button onclick="scrollToGenre('comedy')">Comedy</button>
+      <button onclick="scrollToGenre('true-crime')">True Crime</button>
+      <button onclick="scrollToGenre('philosophy')">Philosophy</button>
+    </div>
+
     <div class="container">
       <!-- Romance Genre Section -->
-      <div class="genre-section">
+      <div class="genre-section" id="romance">
         <div class="hero-banner has-before">
           <img
             src="./assets/images/rom.jpg"
@@ -548,7 +763,7 @@ input, button, textarea {
       </div>
 
       <!-- Science Fiction Genre Section -->
-      <div class="genre-section">
+      <div class="genre-section" id="sci-fi">
         <div class="genre-content">
           <h2 class="genre-title">Neuromancer Trilogy </h2>
           <span style="font-size:5rem;filter: grayscale(100%);float: right;">🚀</span>
@@ -574,7 +789,7 @@ input, button, textarea {
       </div>
 
       <!-- Mystery Genre Section -->
-      <div class="genre-section">
+      <div class="genre-section" id="mystery">
         <div class="hero-banner has-before">
           <img
             src="./assets/images/mystery.jpg"
@@ -601,7 +816,7 @@ input, button, textarea {
       </div>
 
       <!-- Fantasy Genre Section -->
-      <div class="genre-section">
+      <div class="genre-section" id="fantasy">
         <div class="genre-content">
           <h2 class="genre-title">A Court of Thorns and Roses</h2>
           <span style="font-size:5rem;filter: grayscale(100%); float: right;">🔮</span>
@@ -628,7 +843,7 @@ input, button, textarea {
       </div>
 
       <!-- Thriller Genre Section -->
-      <div class="genre-section">
+      <div class="genre-section" id="thriller">
         <div class="hero-banner has-before">
           <img
             src="./assets/images/thriller.jpg"
@@ -653,6 +868,82 @@ input, button, textarea {
           </p>
         </div>
       </div>
+
+      <!-- Comedy Genre Section -->
+      <div class="genre-section" id="comedy">
+        <div class="genre-content">
+          <h2 class="genre-title">Carry On, Jeeves</h2>
+          <span style="font-size:5rem;filter: grayscale(100%); float: right;">🤹</span>
+          <p class="book-author">by P. G. Wodehouse</p>
+          <p class="book-genre">Classic Comedy Book</p>
+          <p class="book-description">
+            "Carry On, Jeeves" is a delightful collection of stories featuring the 
+            effortlessly charming Jeeves and his well-meaning but hapless employer, 
+            Bertie Wooster. With wit and humor, P. G. Wodehouse crafts a world where 
+            Jeeves's quick thinking and clever schemes save Bertie from one humorous 
+            misadventure after another. This book is a masterpiece of British comedy, 
+            filled with laughter, wit, and the classic antics of a beloved duo.
+          </p>
+        </div>
+        <div class="hero-banner has-before">
+          <img
+            src="./assets/images/comedy.jpg"
+            alt="Comedy Book Cover"
+            class="w-100"
+          />
+        </div>
+      </div>
+
+      <!-- True Crime Genre Section -->
+      <div class="genre-section" id="true-crime">
+        <div class="hero-banner has-before">
+          <img
+            src="./assets/images/true crime.jpg"
+            alt="True Crime Book Cover"
+            class="w-100"
+          />
+        </div>
+        <div class="genre-content">
+          <h2 class="genre-title">Who Killed Jane Stanford?</h2>
+          <span style="font-size:5rem;filter: grayscale(100%); float: right;">🕵</span>
+          <p class="book-author">by Richard White</p>
+          <p class="book-genre">Top True Crime Book</p>
+          <p class="book-description">
+            "Who Killed Jane Stanford?" dives deep into the mysterious and still-unsolved 
+            case surrounding the death of Jane Stanford, co-founder of Stanford University. 
+            Richard White meticulously examines the strange events and complex relationships 
+            that preceded her sudden poisoning, revealing a tangled web of suspects, secrets, 
+            and lies. This gripping true-crime narrative explores corruption, power, and 
+            the lengths people will go to protect their own interests.
+          </p>
+        </div>
+      </div>
+
+      <!-- Philosophy Genre Section -->
+      <div class="genre-section" id="philosophy">
+        <div class="genre-content">
+          <h2 class="genre-title">Meditations</h2>
+          <span style="font-size:5rem;filter: grayscale(100%); float: right;">📜</span>
+          <p class="book-author">by Marcus Aurelius</p>
+          <p class="book-genre">Classic Philosophy Book</p>
+          <p class="book-description">
+            "Meditations" by Marcus Aurelius is a profound reflection on life, virtue, and the 
+            nature of existence. Written by the Roman emperor as personal notes, it delves into 
+            stoic philosophy, offering timeless insights into resilience, discipline, and inner 
+            peace. This work serves as a guide for those seeking to live with purpose, align 
+            with natural order, and rise above life's challenges with wisdom and calm.
+          </p>
+        </div>
+        <div class="hero-banner has-before">
+          <img
+            src="./assets/images/philopsphy.jpg"
+            alt="Philosophy Book Cover"
+            class="w-100"
+          />
+        </div>
+      </div>
+
+    
     </div>
   </body>
 </html>

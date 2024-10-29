@@ -132,6 +132,12 @@
                     Community chat
                 </a>
                 </li>
+                <li class="dropdown-menu-item">
+                  <a href="author.html" class="navbar-link"
+                    style="font-family: sans-serif;  margin-bottom: 5px;">
+                    Authors
+                  </a>
+                </li>
                 <li>
                   <a href="bookpref.html" class="navbar-link"
                     style="font-family: sans-serif; color: black; margin-bottom: 5px;">
@@ -436,7 +442,17 @@
         const bookName = document.getElementById('bookName').value;
         const authorName = document.getElementById('authorName').value;
         const bookGenre = document.getElementById('bookGenre').value;
+        const regex = /^(?=.*[A-Za-z])[A-Za-z\s]+$/;
 
+    if (!regex.test(bookName)) {
+        alert("Error: Invalid Book name");
+        return;
+    }
+
+    if (!regex.test(authorName)) {
+        alert("Error: Invalid Author name");
+        return;
+    }
         const note = {
           bookName,
           authorName,

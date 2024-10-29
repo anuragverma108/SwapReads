@@ -6,6 +6,7 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="exchangeHub.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <style>
     body {
       margin: 0;
@@ -58,6 +59,14 @@
       /* Smooth movement */
     }
 
+    .action .menu.active {
+      top: 60px;
+      visibility: visible;
+      opacity: 1;
+      right: 60px;
+      z-index: 1000000;
+    }
+
     :root {
       --text-color-light: #333;
       /* Dark text for light mode */
@@ -90,7 +99,7 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/litrary_realms.css">
   <link rel="stylesheet" href="./assets/font-6/css/all.css">
-  <link rel="stylesheet" href="header.css">
+
   <link rel="stylesheet" href="logout.css">
   <link rel="stylesheet" href="./assets/css/MenuClick.css">
   <link rel="stylesheet" href="https://fontawesome.com/icons/cloudflare?f=brands&s=solid">
@@ -1421,7 +1430,7 @@
     <div class="progress-bar" id="progress-bar"></div>
   </div>
 
-  
+
 
   <script src="script.js"></script>
 
@@ -3056,30 +3065,34 @@
       }
 
       @media screen and (max-width: 768px) {
-        .popup-content-nl {
-          display: flex;
-          flex-direction: column;
-          background-color: white;
-          border-radius: 10px;
-          max-width: 300px;
-          height: 800px;
-          overflow: hidden;
-          position: relative;
-          box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        }
+  .popup-content-nl {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    max-width: 90%; 
+    height: auto; 
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin: 0 auto; 
+    padding: 10px; 
+  }
 
-        .popup-left-nl img {
-          width: 100%;
-          max-height: 400px;
-        }
+  .popup-left-nl img {
+    width: 100%;
+    max-height: 300px; 
+    object-fit: cover; 
+  }
 
-        .popup-right-nl {
-          padding: 15px;
-          width: 100%;
-          max-height: 400px;
-          text-align: center;
-        }
-      }
+  .popup-right-nl {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    max-height: none;
+  }
+}
+
 
 
       .close1-btn-nl {
@@ -3343,6 +3356,30 @@
         /* Smooth transition for arrow */
       }
     </style>
+    <style>
+      .button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.load-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    margin-bottom: 10px;
+    border-color: black;
+    border-radius: 15px;
+    background-color: #fca498;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.load-button:hover {
+    background-color:  #6c2121;
+}
+    </style>
+
     <!--my code-->
 
     <header class="header header-anim nav-h" data-header>
@@ -3369,6 +3406,12 @@
                 <i class="ri-information-fill"></i> AboutUs
               </a>
             </li>
+            <li class="navbar-item" style="margin-right: 10px;">
+              <a href="./assets/html/author.html" class="navbar-link" data-nav-link>
+                <i class="ri-information-fill"></i> Authors
+              </a>
+            </li>
+
 
             <li class="navbar-item" style="margin-right: 10px;">
               <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
@@ -3509,6 +3552,14 @@
                   class="ri-home-fill"></i>About Us</a>
             </li>
             <li class="navbar-item">
+              <a href="./assets/html/author.html" class="navbar-link" style="left: -30px;" data-nav-link><i
+                  class="ri-home-fill"></i>Authors</a>
+            </li>
+            <li class="navbar-item">
+              <a href="./assets/html/tips.html" class="navbar-link" style="left: -30px;" data-nav-link><i
+                  class="ri-home-fill"></i>Tips</a>
+            </li>
+            <li class="navbar-item">
               <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" style="left: -30px;"
                 data-nav-link><i class="ri-bar-chart-fill"></i> Benefits</a>
             </li>
@@ -3516,6 +3567,7 @@
               <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" style="left: -30px;"
                 data-nav-link><i class="ri-bar-chart-fill"></i> Genre</a>
             </li>
+
             <li class="navbar-item">
               <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" style="left: -30px;"
                 data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
@@ -3525,6 +3577,7 @@
                 <i class="ri-questionnaire-fill"></i> FAQ
               </a>
             </li>
+
             <li class="navbar-item">
               <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link"
                 style="left: -30px;">Rate Us</a>
@@ -3533,10 +3586,15 @@
               <a href="./assets/html/event.html" class="navbar-link" style="left: -30px;">Events</a>
             </li>
             <li class="navbar-item" id="login-signup-link">
+              <a href="./assets/html/map.html" class="navbar-link" style="left: -30px;">Map</a>
+            </li>
+            <li class="navbar-item" id="login-signup-link">
               <a href="./assets/html/login.html" class="navbar-link" style="left: -30px;">Login</a>
             </li>
             <li class="navbar-item" id="login-signup-link">
-              <a href="comsp.html" class="navbar-link" style="left: -30px;">Community Spotlight</a>
+
+              <a href="comsp.html" class="navbar-link" style="left: -30px;">Community<br> Spotlight</a>
+
             </li>
             <li class="navbar-item">
               <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" style="left: -30px;"
@@ -3767,6 +3825,9 @@
                     setTimeout(typing, 100);
                   } else {
                     h1Typing.classList.add('blinking-cursor');
+                    setTimeout(() => {
+                      h1Typing.classList.remove('blinking-cursor');
+                    }, 2000); //Timeout the cursor after 2 seconds
                   }
                 }
                 typing();
@@ -3815,7 +3876,7 @@
 
                 <h2 class="h2 section-title" style="text-align: center; margin-top: 7.9rem; padding-top: 2rem">
                   ㅤㅤㅤㅤㅤUnleash the Magic of Book Swapping!</h2>
-                <p class="section-text" style="width:100%;text-align:center;margin-left: 70px;">"SwapReads.com - Where
+                <p class="section-text" style="width:100%;text-align:center;margin-left: 0px;">"SwapReads.com - Where
                   Every Book is a Portal to a New
 
                   Adventure!"</p>
@@ -4554,38 +4615,40 @@
               <span class="span has-before"></span>
             </h2>
 
-            <ul class="grid-list">
-              <li>
+            <ul class="grid-list" id="genre-list" >
+              <li data-aos="slide-right">
+                <a href="classic-literature.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
+                    <p class="card-subtitle">01</p>
+                    <div class="iconrow">
+                      <h3 class="h3 card-title">Classic Literature</h3>
+                      <span style='font-size: 5rem;filter: grayscale(100%);'>&#128395;</span>
+                    </div>
 
-                  <p class="card-subtitle">01</p>
-                  <div class="iconrow">
-                    <h3 class="h3 card-title">Classic Literature</h3>
-                    <span style='font-size: 5rem;filter: grayscale(100%);'>&#128395;</span>
+
+                    <p class="card-text">
+                      The category of classic literature contains literature that is worthy of being read through the
+                      ages.
+                      Classic literature is timeless and well-written. Sophocles,Charles Dickens, Jane Austen and Virgil
+                      are
+                      all writers whose works are considered classical literature.
+                    </p>
+                    <p class="book-recommendation">
+                      Book Recommendations:
+                    </p>
+                    <ul class="book-list">
+                      <li>1. Pride and Prejudice by Jane Austen</li>
+                      <li>2. Moby-Dick by Herman Melville </li>
+                      <li>3. 1984 by George Orwell</li>
+                    </ul>
+
                   </div>
-
-
-                  <p class="card-text">
-                    The category of classic literature contains literature that is worthy of being read through the
-                    ages.
-                    Classic literature is timeless and well-written. Sophocles,Charles Dickens, Jane Austen and Virgil
-                    are
-                    all writers whose works are considered classical literature.
-                  </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Pride and Prejudice by Jane Austen</li>
-                    <li>2. Moby-Dick by Herman Melville </li>
-                    <li>3. 1984 by George Orwell</li>
-                  </ul>
-
-                </div>
+                </a>
               </li>
 
-              <li>
-                <div class="chapter-card">
+              <li data-aos="zoom-in">
+                <a href="romance.html" style="text-decoration: none; color: inherit;">
+                <div class="chapter-card" >
 
                   <p class="card-subtitle" style=" width: 202.48px; height: 13px;">02</p>
                   <div class="iconrow" style=" width: 202.48px; height: 79px;">
@@ -4609,9 +4672,11 @@
                   </ul>
 
                 </div>
+              </a>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
+                <a href="suspense-thriller.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">03</p>
@@ -4636,9 +4701,11 @@
                   </ul>
 
                 </div>
+                </a>
               </li>
 
-              <li>
+              <li data-aos="slide-right">
+                <a href="science-fiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">04</p>
@@ -4663,9 +4730,11 @@
                   </ul>
 
                 </div>
+                </a>
               </li>
 
-              <li>
+              <li data-aos="zoom-in">
+                <a href="fantasy.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">05</p>
@@ -4689,9 +4758,10 @@
                   </ul>
 
                 </div>
+                </a>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">06</p>
@@ -4717,7 +4787,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">07</p>
@@ -4744,7 +4814,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">08</p>
@@ -4769,7 +4839,7 @@
 
                 </div>
               </li>
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">09</p>
@@ -4795,7 +4865,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-right" >
                 <div class="chapter-card">
 
                   <p class="card-subtitle">10</p>
@@ -4823,7 +4893,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">11</p>
@@ -4850,7 +4920,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">12</p>
@@ -4877,7 +4947,7 @@
               </li>
 
               <!-- Added three more genres here-->
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">13</p>
@@ -4902,7 +4972,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">14</p>
@@ -4927,7 +4997,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">15</p>
@@ -4953,7 +5023,7 @@
 
                 </div>
               </li>
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
                   <p class="card-subtitle">16</p>
                   <div class="iconrow">
@@ -4976,7 +5046,7 @@
                   </ul>
                 </div>
               </li>
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
                   <p class="card-subtitle">17</p>
                   <div class="iconrow">
@@ -4999,7 +5069,7 @@
                   </ul>
                 </div>
               </li>
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
                   <p class="card-subtitle">18</p>
                   <div class="iconrow">
@@ -5023,7 +5093,7 @@
                   </ul>
                 </div>
               </li>
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
                   <p class="card-subtitle">19</p>
                   <div class="iconrow">
@@ -5048,7 +5118,7 @@
 
               </li>
 
-              <li>
+              <li data-aos="zoom-int">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">20</p>
@@ -5074,7 +5144,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">21</p>
@@ -5101,7 +5171,7 @@
               </li>
 
 
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">22</p>
@@ -5128,7 +5198,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">23</p>
@@ -5154,7 +5224,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">24</p>
@@ -5180,7 +5250,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
                   <p class="card-subtitle">25</p>
                   <div class="iconrow">
@@ -5205,7 +5275,7 @@
               </li>
 
               </li>
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">26</p>
@@ -5231,7 +5301,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">27</p>
@@ -5255,9 +5325,18 @@
                 </div>
               </li>
             </ul>
-
-          </div>
+            
+            <div class="button-container">
+            <button id="load-more" class="load-button">Load More</button>
+            <button id="load-less" class="load-button" style="display: none;">Load Less</button>
+        </div>
+        </div>
         </section>
+        // <script src="loadmore.js"></script>
+        <script src="./assets/js/loadmore.js" defer></script>
+        <script>
+          
+          </script>
         <!--
         - #CHAPTERS
       -->
@@ -5454,22 +5533,18 @@
             color: #461316;
             letter-spacing: 1px;
             text-transform: uppercase;
-          }
-
-          .donate-books-section h1:hover {
-            text-decoration: underline;
-            transition: ease-in;
+            margin-top: 80px;
           }
 
           .donate-books-section {
             width: 100%;
-            padding: 20px;
+            padding: 10px;
             box-sizing: border-box;
           }
 
           .donate-books-section .container {
             display: grid;
-            margin: 120px;
+            margin: 40px 120px 120px 100px;
             grid-template-columns: repeat(3, 1fr);
             /* 3 columns */
             width: 100%;
@@ -5555,7 +5630,7 @@
 
 
             <!-- Card 1 -->
-            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)" data-aos="slide-right">
               <img src="./assets/images/images/lib.jpg" alt="Library Image" loading="lazy">
               <div class="card-body">
                 <h3 class="card-sty">Library</h3>
@@ -5570,7 +5645,7 @@
 
 
             <!-- Card 2 -->
-            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)" data-aos="zoom-in">
               <img src="./assets/images/images/school.png" alt="School Image" loading="lazy">
               <div class="card-body">
                 <h3 class="card-sty">Schools</h3>
@@ -5584,7 +5659,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)" data-aos="slide-left">
               <img src="./assets/images/images/ngo.jpeg" alt="Organization Image" loading="lazy">
               <div class="card-body">
                 <h3 class="card-sty">Organizations</h3>
@@ -5614,6 +5689,10 @@
         </script>
 
 
+
+
+        <div id="toastMessage" class="toast-message"></div>
+
         <!-- Rate Us Section -->
         <div id="rate-us">
           <div class="heading">
@@ -5642,7 +5721,28 @@
             <center><button id="submit-btn">Submit</button></center>
           </div>
         </div>
+        <script>
+          document.getElementById('submit-btn').addEventListener('click', async () => {
+            const rating = document.querySelector('input[name="rate"]:checked').value;
+            const feedback = document.getElementById('feedback').value;
 
+            // Set the backend URL based on the current environment
+            const backendURL = window.location.hostname === 'localhost'
+              ? 'http://localhost:4000'
+              : 'https://your-production-url.com'; // Replace with your production URL
+
+            const response = await fetch(`${backendURL}/rate`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ rating, feedback })
+            });
+
+            const data = await response.json();
+            alert(data.message);
+          });
+        </script>
         <div id="toastMessage" class="toast-message"></div>
 
         <script>
@@ -5787,14 +5887,12 @@
 
                   <button type="submit">Send Message</button>
                 </form>
-                <!-- Image Fader Section -->
+            
                 <center>
-                  <div class="image-fader">
-                    <img src="./assets/images/ctc1.png" alt="ctc1" loading="lazy">
-                    <img src="./assets/images/ctc5.png" alt="ctc5" loading="lazy">
-                    <img src="./assets/images/ctc3.png" alt="ctc3" loading="lazy">
-                    <img src="./assets/images/ctc4.png" alt="ctc4" loading="lazy">
-                  </div>
+                  <img src="./assets/images/contact.png" style="width: 250px; margin-top: 50px;">
+                    <img src="./assets/images/ctc1.png" style="width: 370px;height: 450px;" alt="ctc1" >
+                
+                
                 </center>
               </div>
             </div>
@@ -6402,7 +6500,7 @@
                             class="fas fa-info-circle"></i>
                           <h4 class="flinks">About</h4>
                         </a></li>
-                      <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
+                      <li class="foot-quick"><a href="./assets/html/book_recommend.html"
                           onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i>
                           <h4 class="flinks">Recommend</h4>
                         </a></li>
@@ -6628,7 +6726,8 @@ function showSuccessMessage() {
           <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
           <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a> |
           <a href="our-vision.html" id="ourvisionlink">Our Vision</a></li> |
-          <a href="./contributors/contributor.html" id="ourvisionlink">Our Contributors </a></li>
+          <a href="./contributors/contributor.html" id="ourvisionlink">Our Contributors </a></li> |
+          <a href="refundpolicy.html">Refund Policy</a>
 
         </div>
       </div>
@@ -6707,6 +6806,7 @@ function showSuccessMessage() {
         }
       }
     </script> -->
+    
 
 
 
@@ -7206,6 +7306,7 @@ open.classList.add('open')
                 // Start the animation
                 animateCircles();
     </script>
+    
 
     <button id="scrollBtn" class="scroll-button">Scroll</button>
     <style>
@@ -7256,6 +7357,13 @@ open.classList.add('open')
         });
       });
     </script>
+    
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 2000
+  });
+</script>
 
 
 
