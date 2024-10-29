@@ -20,6 +20,7 @@
   <!-- <link rel="stylesheet" href="../css/login.css" /> -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tips.css">
 
   <link rel="stylesheet" href="./scrollbar.css">
 
@@ -1036,7 +1037,15 @@
   </header>
 
 
+<div class="random-tip-container">
+  <h2>Random Tip</h2>
+  <div id="tip-display">
+    <p>Click the button to display a random tip!</p>
+  </div>
+  <button onclick="displayRandomTip()">Show Random Tip</button>
+</div>
 
+  .
 <!-- Card Container -->
 <div class="card-container">
   <div class="card" onclick="this.classList.toggle('flip')">
@@ -1431,6 +1440,33 @@ body > .skiptranslate {
     display: none !important;
 }
   </style>
+
+  <script>
+    const tips = [
+  { category: "Fiction", tip: "Dive into character emotions to understand their motives and decisions." },
+  { category: "Non-Fiction", tip: "Identify key arguments and evidence to support or question the author's claims." },
+  { category: "Mystery", tip: "Track subtle hints and character behavior to solve the mystery." },
+  { category: "Fantasy", tip: "Imagine the magical elements and unique lore as they build the story world." },
+  { category: "Historical Fiction", tip: "Study the time period for better insight into characters' decisions and plot dynamics." },
+  { category: "Biographies", tip: "Reflect on lessons from the subject's life and how they apply to your journey." },
+  { category: "Poetry", tip: "Focus on imagery and rhythm for a deeper connection to the poem's message." },
+  { category: "Self-Help", tip: "Turn learnings into actions; practice and assess your growth." },
+  { category: "Science Fiction", tip: "Think about technology's ethical impact and future possibilities." },
+  { category: "Graphic Novels", tip: "Observe how the artwork conveys themes and complements the story." },
+  // Add 40 more tips here, following the same format.
+];
+
+    function displayRandomTip() {
+  const randomIndex = Math.floor(Math.random() * tips.length);
+  const randomTip = tips[randomIndex];
+  document.getElementById("tip-display").innerHTML = `
+    <h3>${randomTip.category}</h3>
+    <p><strong>Tip:</strong> ${randomTip.tip}</p>
+  `;
+}
+
+  </script>
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
     // Get the popup
