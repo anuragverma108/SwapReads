@@ -397,7 +397,6 @@
 │   └── contributor.js
 ├── controller/
 │   ├── Rating.js
-│   ├── fetchBookController.js
 │   └── subscribe.js
 ├── cookiepolicy.html
 ├── cookies.html
