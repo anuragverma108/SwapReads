@@ -146,7 +146,6 @@
 │   ├── html/
 │   │   ├── ConnReader.html
 │   │   ├── Error.html
-│   │   ├── about.html
 │   │   ├── about1.html
 │   │   ├── addremovebook.html
 │   │   ├── assets/
@@ -175,7 +174,6 @@
 │   │   ├── mood.html
 │   │   ├── mylogin.html
 │   │   ├── ngo.html
-│   │   ├── pricing.html
 │   │   ├── profileedit.html
 │   │   ├── quiz.html
 │   │   ├── rate.html
