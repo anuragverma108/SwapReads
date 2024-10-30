@@ -465,6 +465,202 @@ body {
       /* Smooth movement */
     }
 </style>
+
+<style>
+  /* Font and Global Styles */
+  body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #ffdcd4; /* Light background color */
+      color: black; /* Default text color */
+  }
+
+  .main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Shadow effect for main container */
+      border-radius: 8px; /* Rounded corners */
+      padding-bottom: 100px; /* Extra padding at the bottom */
+      margin-top: 200px; /* Top margin */
+  }
+
+  .main h1 {
+      text-align: center;
+      font-size: 30px; /* Header font size */
+      font-weight: 600; /* Header font weight */
+      color: #ff5f4b; /* Header color */
+      margin-bottom: 50px; /* Margin below header */
+      margin-top: 10px; /* Margin above header */
+  }
+
+  /* Unique <p> Tag Styling */
+  .main p {
+      margin: 15px 0; /* Vertical margin */
+      padding: 10px; /* Padding around text */
+      font-size: 19px; /* Font size for paragraphs */
+      font-style: italic; /* Italic style for paragraphs */
+      color: #4a4a4a; /* Soft gray for paragraph text */
+      transition: color 0.3s ease; /* Transition effect for hover */
+  }
+
+  .main p:hover {
+      color: #ff5f4b; /* Color change on hover */
+  }
+
+  /* Unordered List (li) Styling */
+  .un-list {
+      list-style-type: none; /* No bullet points */
+      padding: 0; /* Remove padding */
+  }
+
+  .un-list li {
+      margin: 12px 0; /* Vertical margin for list items */
+      padding: 12px; /* Padding for list items */
+      background-color: #ffe4dc; /* Background color for list items */
+      border-left: 4px solid #ff5f4b; /* Left border for emphasis */
+      border-radius: 5px; /* Slight rounding for list items */
+      font-size: 17px; /* Increased font size for list items */
+      color: #333; /* Darker text for list items */
+      font-weight: bold; /* Bold text for list items */
+      transition: all 0.3s ease; /* Transition effect for hover */
+  }
+
+  .un-list li:hover {
+      background-color: #ffddc5; /* Change background color on hover */
+  }
+
+  .un-list li a {
+      color: #f9a397; /* Link color in list */
+      font-weight: 600; /* Bold link text */
+  }
+
+  .un-list li a:hover {
+      color: #e6482e; /* Darker link color on hover */
+  }
+
+  /* Dark Mode Styles */
+  body.dark-mode {
+      background-image: url(./assets/images/darkmode_bg.png); /* Dark background for dark mode */
+      color: #ffffff; /* Light text for dark mode */
+  }
+
+  body.dark-mode .main {
+      box-shadow: 0 0 20px hsl(0deg 100% 80%); /* Shadow effect for main in dark mode */
+  }
+
+  /* Dark Mode for <p> Tags */
+  body.dark-mode .main p {
+      color: #dddddd; /* Light text color for paragraphs in dark mode */
+  }
+
+  body.dark-mode .main p:hover {
+      color: #2b2a2a; /* Change color on hover in dark mode */
+  }
+       body.dark-mode .box{
+          background-color: #64441c;
+       }
+  /* Dark Mode for <li> Elements */
+  body.dark-mode .un-list li {
+      background-color: #141413; /* Dark background for list items */
+      color: #dddddd; /* Light text color for list items */
+      border-left: 4px solid hsl(357, 37%, 62%); /* Left border in dark mode */
+  }
+
+  body.dark-mode .un-list li:hover {
+      background-color: #694a1d; /* Change background on hover in dark mode */
+  }
+
+  /* Additional Styles */
+  #menu-toggle:checked + #menu {
+      display: block; /* Show menu when toggle is checked */
+  }
+
+  .hover\:grow {
+      transition: all 0.3s; /* Transition for hover effect */
+      transform: scale(1); /* Initial scale */
+  }
+
+  .hover\:grow:hover {
+      transform: scale(1.02); /* Scale on hover */
+  }
+
+  #chaps {
+      margin-top: 150px; /* Margin for chapters section */
+  }
+</style>
+<style>
+ 
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f9f9f9;
+          margin: 0;
+          padding: 20px;
+      }
+      .container {
+          max-width: 1300px;
+          margin: 0 auto;
+      }
+     
+      .box {
+          background-color: #ffd8d8;
+          border-left: 8px solid  #ff5f4b;
+          border-radius: 10px;
+          padding: 20px;
+          margin-bottom: 20px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .box h2 {
+          font-size: 1.2em;
+          margin: 0;
+          color: #0d0d0d;
+      }
+      .box p {
+          margin: 10px 0 0 0;
+          font-size: 1em;
+          color: #333;
+      }
+      .container .box:last-child {
+          margin-bottom: 0;
+      }
+      .box:hover {
+          background-color:  #fab1a7;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      /* Define the keyframes for the bottom-up animation */
+@keyframes slideUp {
+  0% {
+      transform: translateY(20px); /* Start 20px below its original position */
+      opacity: 0; /* Start invisible */
+  }
+  100% {
+      transform: translateY(0); /* End at its original position */
+      opacity: 1; /* Fully visible */
+  }
+}
+
+/* Apply the animation to each box */
+.box {
+  animation: slideUp 0.8s ease forwards; /* Duration and easing function */
+  opacity: 0; /* Start hidden */
+}
+
+/* Delay each box's animation for a staggered effect */
+.box:nth-child(1) { animation-delay: 0s; }
+.box:nth-child(2) { animation-delay: 0.1s; }
+.box:nth-child(3) { animation-delay: 0.4s; }
+.box:nth-child(4) { animation-delay: 0.6s; }
+.box:nth-child(5) { animation-delay: 0.7s; }
+.box:nth-child(6) { animation-delay: 0.9s; }
+.box:nth-child(7) { animation-delay: 0.9s; }
+.box:nth-child(8) { animation-delay: 0.95s; }
+.box:nth-child(9) { animation-delay: 1.0s; }
+
+      
+</style>
+
   </head>
 
   <body>
@@ -567,7 +763,8 @@ body {
                       <span class="material-icons moon-icon">brightness_2</span>
                     </div>
                   </label>
-                </div>
+                </div>
+              </div>
               
                 <script>
                     // Theme switcher
@@ -662,33 +859,76 @@ body {
   
   
                 <main class="main">
-                    <h1>Copyright Policy</h1>
-                    <p>Welcome to SwapReads. SwapReads is the solution to common challenges faced by book enthusiasts in today's digital age.
-                        We've identified key problems and developed a platform that addresses them efficiently and effectively. </p>
-                    <p style ="font-size : 16px; font-weight: 600;">Here is our copyright policy:</p>
-                    <ul class="un-list">
-                        <li>- All content on this website, including text, graphics, logos, and images, is owned by SwapReads unless
-                            otherwise stated.</li>
-                        <li>- You may not reproduce, distribute, or use the content without prior written permission from SwapReads.
-                        </li>
-                        <li>- Users may download and print content from this website for personal and non-commercial use only.</li>
-                        <li>- Unauthorized use of any content may violate copyright, trademark, and other laws and is strictly
-                            prohibited.</li>
-                        <li>If you believe your copyrighted work is being infringed upon, please contact us at <a
-                                href="mailto:copyright@swapreads.com">copyright@swapreads.com</a> with detailed information about
-                            the alleged infringement.</li>
-                            </ul>
-                        <p>We will investigate and address any copyright infringement complaints promptly and take appropriate
-                            action.</p>
-                        <p>SwapReads reserves the right to change, update, or modify this policy at any time without prior notice.
-                        
-                        All trademarks, logos, and service marks displayed on the website are the property of SwapReads or their
-                            respective owners. You are not permitted to use them without the prior written consent of SwapReads or
-                            such third parties who may own the trademarks.</p>
-                        <p>Any unauthorized use of the content or trademarks may result in legal consequences, including but not
-                            limited to civil and criminal penalties.</p>
-                        <p>We respect the intellectual property rights of others and expect our users to do the same.</p>
-                    
+                  <h1>Copyright Policy</h1>
+              
+                  <div class="box">
+                      <h2>Introduction</h2>
+                      <ul class="un-list">
+                          <li>Welcome to SwapReads. SwapReads is the solution to common challenges faced by book enthusiasts in today's digital age. We've identified key problems and developed a platform that addresses them efficiently and effectively.</li>
+                      </ul>
+                  </div>
+              
+                  <div class="box">
+                      <h2>Policy Overview</h2>
+                      <ul class="un-list">
+                          <li style="font-size: 16px; font-weight: 600;">Here is our copyright policy:</li>
+                      </ul>
+                  </div>
+              
+                  <div class="box">
+                      <h2>Ownership of Content</h2>
+                      <ul class="un-list">
+                          <li>All content on this website, including text, graphics, logos, and images, is owned by SwapReads unless otherwise stated.</li>
+                      </ul>
+                  </div>
+              
+                  <div class="box">
+                      <h2>Restrictions on Use</h2>
+                      <ul class="un-list">
+                          <li>You may not reproduce, distribute, or use the content without prior written permission from SwapReads.</li>
+                          <li>Users may download and print content from this website for personal and non-commercial use only.</li>
+                          <li>Unauthorized use of any content may violate copyright, trademark, and other laws and is strictly prohibited.</li>
+                      </ul>
+                  </div>
+              
+                  <div class="box">
+                      <h2>Copyright Infringement</h2>
+                      <ul class="un-list">
+                          <li>If you believe your copyrighted work is being infringed upon, please contact us at 
+                              <a href="mailto:copyright@swapreads.com">copyright@swapreads.com</a> with detailed 
+                              information about the alleged infringement. We will investigate and address any copyright 
+                              infringement complaints promptly and take appropriate actioons.
+                          </li>
+                      </ul>
+                  </div>
+              
+                  <div class="box">
+                      <h2>Policy Updates</h2>
+                      <ul class="un-list">
+                          <li>SwapReads reserves the right to change, update, or modify this policy at any time without prior notice.</li>
+                      </ul>
+                  </div>
+              
+                  <div class="box">
+                      <h2>Trademarks and Logos</h2>
+                      <ul class="un-list">
+                          <li>All trademarks, logos, and service marks displayed on the website are the property of SwapReads or their respective owners. You are not permitted to use them without the prior written consent of SwapReads or such third parties who may own the trademarks.</li>
+                      </ul>
+                  </div>
+              
+                  <div class="box">
+                      <h2>Legal Consequences</h2>
+                      <ul class="un-list">
+                          <li>Any unauthorized use of the content or trademarks may result in legal consequences, including but not limited to civil and criminal penalties.</li>
+                      </ul>
+                  </div>
+              
+                  <div class="box">
+                      <h2>Respect for Intellectual Property</h2>
+                      <ul class="un-list">
+                          <li>We respect the intellectual property rights of others and expect our users to do the same.</li>
+                      </ul>
+                  </div>
                 </main>
   
 </body>  
@@ -1010,6 +1250,84 @@ outline: none;
             pageLanguage: 'en',
         }, 'google_translate_element');
     }
+  </script>
+  <script>
+
+    //   function sendMail(){
+    //         let params={
+    //             name:document.getElementById('name').value,
+    //             email:document.getElementById('email').value,
+    //             subject:document.getElementById('subject').value,
+    //             message:document.getElementById('message').value,
+    //             subscribe:document.getElementById('newsletter-email').value
+    //         }
+    //         EmailJSResponseStatus.send("service_lktb68z","template_w79vd94",params,"o6kveYmOSDrs0l1Mg")
+    //         .then(alert('Email sent successfully'))
+    //       }
+
+
+    // document.querySelector('subscribe-btn').addEventListener('submit', sendMail());
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+      const isDarkMode = isDarkModePreferred();
+      setDarkModePreference(!isDarkMode);
+      applyDarkModePreference();
+    }
+
+    // Function to apply dark mode preference
+    function applyDarkModePreference() {
+      const isDarkMode = isDarkModePreferred();
+      if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
+      } else {
+        document.body.classList.remove('dark-mode');
+        document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentTheme = localStorage.getItem('theme');
+      const switchCheckbox = document.getElementById('switch');
+    
+      if (!switchCheckbox) {
+        console.error("Switch checkbox not found!");
+        return;
+      }
+    
+      const applyDarkModeStyles = () => {
+        document.body.classList.remove('light-mode');
+        document.body.classList.add('dark-mode');
+      };
+    
+      const applyLightModeStyles = () => {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+      };
+    
+      const initializeTheme = () => {
+        if (currentTheme === 'dark-mode') {
+          applyDarkModeStyles();
+          switchCheckbox.checked = true;
+        } else {
+          applyLightModeStyles();
+        }
+      };
+    
+      const handleThemeChange = () => {
+        if (switchCheckbox.checked) {
+          applyDarkModeStyles();
+          localStorage.setItem('theme', 'dark-mode');
+        } else {
+          applyLightModeStyles();
+          localStorage.setItem('theme', 'light-mode');
+        }
+      };
+    
+      initializeTheme();
+      switchCheckbox.addEventListener('change', handleThemeChange);
+    });
+    
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   
