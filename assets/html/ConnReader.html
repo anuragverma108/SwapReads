@@ -12,6 +12,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
 
     <link rel="stylesheet" href="./assets/css/MenuClick.css"> 
     <link rel="stylesheet" href="./../css/style.css">
@@ -382,7 +383,197 @@ body.dark-mode .main{
   margin-top: 10px; /* Increase the top margin of each item */
 }
 
-      </style>
+
+/* Initially hide the dropdown */
+#dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #7c0f1b;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 10px;
+}
+
+/* Show the dropdown when the 'open' class is added */
+#dropdown-menu.open {
+  display: block;
+}
+
+
+/* footer  */
+
+.socialmediaicons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin-top: 120px;;
+    width: 40px;
+    height: 150px;
+  
+}#quicklinks {
+  display: flex;
+  justify-content: space-between; /* Ensures columns are evenly spaced */
+}
+
+#quicklinks .col-md-6 ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#quicklinks .foot-quick {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Adjust spacing between list items */
+}
+
+#quicklinks .foot-quick a {
+  text-decoration: none;
+  color: rgb(83, 74, 74); /* Adjust link color as needed */
+  display: flex;
+  align-items: center;
+}
+
+#quicklinks .foot-quick a i {
+  margin-right: 5px; /* Adjust spacing between icon and text */
+}
+
+
+.dark-mode .fas{
+  color:white;
+}
+
+.dark-mode .flinks{ 
+  color: #80ddf4;
+
+}
+.dark-mode .foot-quick a:hover .fas ,
+.dark-mode .foot-quick a:hover .flinks{
+  color:white;
+
+}
+
+
+.dark-mode .finput{
+      color: white;
+      background-color: transparent; 
+      padding: 10px; 
+      border: 1px solid white;
+      
+}
+.dark-mode .finput::placeholder {
+      color: rgba(255, 255, 255, 0.6); 
+    }
+.socialmediaicons a {
+    display: inline;
+    text-align: center;
+    padding: 5px;
+    transition: all 0.3s ease;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+  }
+
+  .socialmediaicons .fa-instagram {
+  display: inline-block;
+  width: 30px; 
+  height: 30px; 
+  text-align: center;
+  line-height: 30px; 
+  border-radius: 10px;
+  background: transparent;
+  color: #000000;
+  transition: background 0.3s, transform 0.3s; 
+}
+
+.socialmediaicons .fa-instagram:hover {
+  background: radial-gradient(circle at 30% 110%, 
+                               #ffdb8b 0%, 
+                               #ee653d 25%, 
+                               #d42e81 50%, 
+                               #a237b6 75%, 
+                               #3e57bc 100%);
+  background-clip: padding-box;
+  border-radius: 10px; 
+  color: white; 
+  transform: scale(1.1); 
+  
+}  
+.socialmediaicons .fa-facebook:hover{
+  color: blue;
+}   
+.socialmediaicons .fa-youtube:hover{
+  color: red;
+}
+
+
+.dark-mode .socialmediaicons a {
+  color: white;
+}
+
+
+.dark-mode .socialmediaicons .fa-facebook:hover {
+  color: #425d9b
+}
+.dark-mode .socialmediaicons .fa-youtube:hover {
+  color: #f70000;
+}
+
+  .instagram {
+    
+    margin: 5px;
+    
+  }
+
+
+  .facebook {
+    
+    margin: 5px;
+  }
+  
+  .youtube {
+   
+    margin: 5px;
+  }
+
+  .input-box {
+    position: relative;
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+    padding-right: 40px; /* Space for the eye icon */
+}
+
+#eyeicon-register {
+    position: absolute;
+    top: 70%;
+    right: 10px; /* Adjust as needed */
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 35px; /* Adjust the size of the icon */
+    height: 30px;
+}
+.but{
+  font-size: x-large;
+}
+
+#dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #7c0f1b;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 10px;
+}
+
+/* Show the dropdown when the 'open' class is added */
+#dropdown-menu.open {
+  display: block;
+}
+</style>
+
 </head>
 <body>
   <header class="header header-anim nav-h" data-header>
@@ -487,11 +678,16 @@ body.dark-mode .main{
 
               <ul class="dropdown-menu-list">
                 <li>
-                  <a href="chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                  <a href="/chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
                     Community chat
                 </a>
                 </li>
-                
+                <li class="dropdown-menu-item">
+                  <a href="author.html" class="navbar-link"
+                    style="font-family: sans-serif;  margin-bottom: 5px;">
+                    Authors
+                  </a>
+                </li>
                 <li class="dropdown-menu-item">
                   <a href="../html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
                       class="ri-price-tag-3-fill"></i> Pricing</a>
@@ -504,6 +700,12 @@ body.dark-mode .main{
                     <i class="ri-customer-service-2-fill"></i> Book Recommendation
                   </a>
                 </li>
+                <li>
+                  <a href="./bookpref.html" class="navbar-link"
+                    style="font-family: sans-serif; margin-bottom: 5px;">
+                    Book Prefer Quiz
+                  </a>
+                </li>
                 <li class="dropdown-menu-item">
                   <a href="../html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
                     data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
@@ -512,7 +714,7 @@ body.dark-mode .main{
                   <a href="../html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href=".../html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
+                  <a href="../html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
                 </li>
                 <li class="dropdown-menu-item">
                   <a href="../html/about.html" class="navbar-link">About</a>
@@ -555,6 +757,13 @@ body.dark-mode .main{
     if (savedAvatar) {
         document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
     }
+    document.getElementById('more-link').addEventListener('click', function(event) {
+    event.preventDefault(); 
+    const dropdownMenu = document.getElementById('dropdown-menu');
+     dropdownMenu.classList.toggle('open');
+    });
+
+
 });
 
         
@@ -591,14 +800,14 @@ body.dark-mode .main{
           }
         })
       </script>
-    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <!-- <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script>
       function loadGoogleTranslate() {
         new google.translate.TranslateElement({
           pageLanguage: 'en'
         }, 'google_element');
       }
-    </script>
+    </script> -->
     <script>
       // const hamburger=document.querySelector('.hamburger');
       // const head=document.querySelector('.header');
@@ -649,7 +858,7 @@ body.dark-mode .main{
 
         <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
       </button> -->
-      <div class="switch-container" style="top: 15px;">
+      <!-- <div class="switch-container" style="top: 15px;">
         <input type="checkbox" id="switch" class="switch-checkbox">
         <label for="switch" class="switch-label">
           <div class="switch-button">
@@ -657,7 +866,7 @@ body.dark-mode .main{
             <span class="material-icons moon-icon">brightness_2</span>
           </div>
         </label>
-      </div>
+      </div> -->
     </div>
 
 
@@ -717,219 +926,492 @@ body.dark-mode .main{
     <script src="../js/ReaderConn.js"></script>
 
 
-<footer>
-  <div class="foot-top">
-    <div class="foot-left">
-
-      <div class="desc">
-<!--google translate-->
-        <div id="google_translate_element"></div>
-
-        <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement(
-                    {pageLanguage: 'en'},
-                    'google_translate_element'
-                );
-            }
-        </script>
-
-        <script type="text/javascript"
-                src=
-    "https://translate.google.com/translate_a/element.js?
-    cb=googleTranslateElementInit">
-        </script>
-        <div>
-            <a href="#" class="logo">SwapReads</a></div>
-        <div>
-          <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
-            lovers
-            seeking to swap and
-
-            discover new literary gems.
-            Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
-            the
-            world of literature—all on one convenient platform. Join us and dive into a universe of endless
-            possibilities!
-          </p>
+    <footer class="ff">
+      <div class="foot-top">
+        <div class="foot-left">
+  
+          <div class="desc">
+  <!--google translate-->
+            <!-- <div id="google_translate_element"></div>
+  
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement(
+                        {pageLanguage: 'en'},
+                        'google_translate_element'
+                    );
+                }
+            </script>
+  
+            <script type="text/javascript"
+                    src=
+        "https://translate.google.com/translate_a/element.js?
+        cb=googleTranslateElementInit">
+            </script> -->
+            <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
+            <div>
+              <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
+                lovers
+                seeking to swap and
+  
+                discover new literary gems.
+                Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
+                the
+                world of literature—all on one convenient platform. Join us and dive into a universe of endless
+                possibilities!
+              </p>
+            </div>
+  
+          </div>
         </div>
-
-      </div>
-    </div>
-    <div class="foot-middle">
-      <h2>Quick Links</h2>
-      <div id="quicklinks">
-        <div>
-        <ul>
-          <li class="foot-quick"><a href="../../index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
-          <li class="foot-quick"><a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
-          <li class="foot-quick"><a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
-          <li class="foot-quick"><a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
-          <li class="foot-quick"><a href="book_recommend.html"
-            onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
-        </ul>
-      </div>
-      <div>
-        <ul>
-          <li class="foot-quick"><a href="addremovebook.html" onclick="lenis.scrollTo('#contact')">Swap
-              BookList</a></li>
-          <li class="foot-quick"><a href="freeBooks.html"
-              onclick="lenis.scrollTo('#contact')">E-Book</a></li>
-          <li class="foot-quick"><a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
-        </ul>
-      </div>
-      </div>
-    </div>
-    <div class="social-icons">
-      <!-- <h5>Newsletter</h5> -->
-      <!-- <div class="input-newletter">
-        <label for="newsletter"><h5>Newsletter</h5></label>
-        <input placeholder="Enter your email" type="email" ></input>
-        <button class="btn-subs">Subscribe</button>
-      </div> -->
-<style>
-      #confirmationMessage{
-            margin-left: 50px;
-            font-size: 23px;
-            color: rgb(15, 15, 16);
+        <div class="foot-middle">
+          <h2>Quick Links</h2>
+          <div id="quicklinks" class="row">
+            <div class="col-md-6">
+              <ul>
+                <li class="foot-quick" style="color: white;"><a href="/index.html#home" onclick="lenis.scrollTo('#home')"><i class="fas fa-home"></i><p class="flinks">Home</p></a></li>
+                <li class="foot-quick"><a href="/index.html#benefits" onclick="lenis.scrollTo('#benefits')"><i class="fas fa-book"></i> <p class="flinks">Benefits</p></a></li>
+                <li class="foot-quick"><a href="/index.html#chapters" onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i> <p class="flinks">Literary</p></a></li>
+                <li class="foot-quick"><a href="/index.html#pricing" onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i><p class="flinks">Pricing</p> </a></li>
+                <li class="foot-quick"><a href="./assets/html/bookrecommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><p class="flinks">Recommend</p></a></li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li class="foot-quick"><a href="/assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-exchange-alt"></i><p class="flinks">Swap</p> </a></li>
+                <li class="foot-quick"><a href="/assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-file-pdf"></i> <p class="flinks">E-Book</p></a></li>
+                <li class="foot-quick"><a href="/assets/html/about.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-info-circle"></i> <p class="flinks">About</p></a></li>
+                <li class="foot-quick"><a href="/index.html#contact" onclick="lenis.scrollTo('#contact')"><i class="fas fa-envelope"></i><p class="flinks">Contact</p> </a></li>
+                <li class="foot-quick"><a href="/index.html#faqq" onclick="lenis.scrollTo('#faqq')"><i class="fas fa-question-circle"></i> <p class="flinks">FAQ</p></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+  
+          <style>
+            .social-icons input[type="email"] 
+            {
+                border: 2px solid #ccc; /* Gray border */
+                border-radius: 4px; /* Rounded corners */
+                padding: 10px; /* Inner padding */
+                font-size: 16px; /* Font size */
+            }
+            #confirmationMessage
+            {
+              margin-left: 50px;
+              font-size: 23px;
+              color: green;
+  
+            }
+           /* for small screen */
+            @media (max-width: 768px) 
+            {
+              #confirmationMessage 
+              {
+                  margin-left: 0;
+                  text-align: center;
+                  font-size: 18px;
+              }
           }
-      </style>
-      <form type="newsletter" onsubmit="return showConfirmationMessage()">
-        <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
-        <div class="row-flex">
-            <!-- Email input -->
-            <input type="email" id="newsletter-email" name="email" placeholder="Email address"
+          </style>
+          <style>
+            #confirmationmessage {
+      position: fixed;
+      top: 42rem;
+      right: 10px;
+      background-color: green;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      display: none;
+  }
+  
+          </style>
+  
+       <form id="newsform" onsubmit="return showConfirmationMessage();">
+        <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
+        <div class="row-flex display-flex">
+            <input class="finput" type="email" id="new-email" name="email" placeholder="Email address"
                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
                    title="Please enter a valid email address that ends with '.com'" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
+            <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
         </div>
-      </form>
-      <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+    </form>
+    <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
       
+    <script>
+   function showConfirmationMessage() {
+  
+    const form = document.getElementById('newsform');
+    const confirmationMessage = document.getElementById('confirmationmessage');
+  
+    
+    confirmationMessage.style.display = 'block';
+    setTimeout(function() {
+      location.reload(); 
+    }, 3000);
+  }
+  </script>
+  
+  <style>
+    
+  .subscribe {
+    background-color: #A30F17;
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    font-family: Arial, sans-serif;
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .subscribe:hover {
+    background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+    transform: scale(1.1);
+  }
+  
+  .subscribe:active {
+    transform: scale(0.98); 
+  }
+  
+  .subscribe:focus {
+    outline: none; 
+  }
+  
+  </style>
+  
+  <script>
+    function showConfirmationMessage() 
+    {
+      // Show confirmation message
+      const confirmationMessage = document.getElementById('confirmationMessage');
+      confirmationMessage.innerHTML = "Thank you for subscribing!";
+      confirmationMessage.style.display = 'block';
+  
+      // Reset the form after 3 seconds
+      setTimeout(function() 
+      {
+          document.getElementById('newsletterForm').reset();
+          confirmationMessage.style.display = 'none';
+          
+      }, 3000);
+  
+      return false; 
+  }
+  </script>
+          <div class="icons">
+            <a href="https://www.discord.com/" target="_blank">
+              <div class="icon">
+                <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
+              </div>
+             </a>
+  
+            <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
+              <div class="icon">
+                <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
+              </div>
+            </a>
+  
+            <a href="https://www.facebook.com/" target="_blank">
+              <div class="icon">
+                <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
+              </div>
+            </a>
+  
+            <a href="https://x.com/anuragverma_108" target="_blank">
+              <div class="icon">
+                <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
+              </div>
+            </a>
+  
+            <a href="https://www.instagram.com/">
+              <div class="icon" id="insta-icon">
+                <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
+              </div>
+            </a>
+  
+  
+            <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
+              <div class="icon">
+                <i class="fab fa-youtube" style="cursor: pointer;"></i>
+              </div>
+            </a>
+  
+  
+  
+            <a href="https://github.com/anuragverma108">
+              <div class="icon">
+                <i class="fab fa-github" title="Github"></i>
+              </div>
+            </a>
+           
+  
+          </div>
+         </div>
+         <div>
+          <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
+            <button class="Btn">
+              <svg height="1.2em" class="arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path></svg>
+            <p class="text">Back to Top</p>
+            </button>
+          </div>
+          <!-- <div>
+            <button id="translateButton">Translate</button>
+          </div> -->
+
+          <div>
+            <button id="translateButton">Translate</button>
+          </div>
+          <style>
+            /* Fixed translate button */
+          #translateButton {
+            background-color: #A30F17;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-left:63rem;
+            width:16%;
+          }
+          #translateButton:hover {
+            transform: scale(1.2); 
+          }
+          /* The popup modal */
+          .popup {
+            display: none; 
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+          }
+          /* Popup content */
+          .popup-content {
+          background:linear-gradient(hwb(357 6% 36%),#d26d6d);
+            margin-top: 600px;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            border-radius: 10px;
+            position: relative;
+            margin-left: 1160px;
+            /* margin-right: 0px; */
+          }
+          /* Close button */
+          .close {
+            color: #073725;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+          }
+          .close:hover,
+          .close:focus {
+            color: black;
+            text-decoration: none;
+          }
+          /* Hide the default Google Translate widget */
+          .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+            display: none !important;
+          }
+          body {
+            top: 0px !important;
+          }
+          /* Hide the "Powered by Google" branding */
+          .goog-logo-link {
+            display: none !important;
+          }
+          .goog-te-gadget {
+            height: 28px !important;
+            overflow: hidden;
+          }
+          /* Hide Google Translate notifications */
+          .goog-te-spinner-pos,
+          .goog-te-spinner,
+          .goog-te-balloon-frame,
+          .goog-te-banner-frame,
+          .goog-te-banner,
+          .goog-te-balloon {
+            display: none !important;
+          }
+          /* Custom styles for the Google Translate dropdown */
+          #google_translate_element select {
+            background: #ffffff; 
+            border: 1px solid #ccc; 
+            color: #d26d6d; 
+            padding: 5px; 
+            font-size: 14px; 
+            border-radius: 5px; 
+          }
+          /* Hide the Google Translate bar */
+          body > .skiptranslate {
+            display: none !important;
+          }
+          .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+          }
+          .goog-te-banner-frame {
+            display: none !important;
+          }
+          .goog-te-banner {
+            display: none !important;
+          }
+          </style>
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            // Get the popup
+            var popup = document.getElementById('translatePopup');
+            // Get the button that opens the popup
+            var btn = document.getElementById('translateButton');
+            // Get the <span> element that closes the popup
+            var span = document.getElementsByClassName('close')[0];
+            // When the user clicks the button, open the popup 
+            btn.onclick = function() {
+                popup.style.display = 'block';
+            }
+            // When the user clicks on <span> (x), close the popup
+            span.onclick = function() {
+                popup.style.display = 'none';
+            }
+            // When the user clicks anywhere outside of the popup, close it
+            window.onclick = function(event) {
+                if (event.target == popup) {
+                    popup.style.display = 'none';
+                }
+            }
+          });
+          </script>
+          <!-- Popup for Google Translate -->
+          <div id="translatePopup" class="popup">
+              <div class="popup-content">
+                  <span class="close">&times;</span>
+                  <div id="google_translate_element"></div>
+              </div>
+          </div>
+          <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                }, 'google_translate_element');
+            }
+          </script>
+          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+          
+          <!-- Your custom JavaScript -->
+          <script src="script.js"></script>
+
+        </div>
+  
+        </div>
+      </div>
+  
+  
+  
+  
+      <!-- adding privacy policy and copyright popup-->
+      <div class="footer-f" style="text-align: center; align-items: center;">
+        <p style="text-align: center">
+          &copy;
+          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+        </p>
+        <div class="row-copy">
+  
+  
+        <a href="/copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+        <a href="/privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>  
+        <a href="/our-vision.html">Our Vision</a></li>
+      </div>
+      </div>
+  
+      <!-- Copyright Policy Modal -->
+      <div id="copyrightPolicyModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeCopyright">&times;</span>
+          <h1>Copyright Policy</h1>
+          <p>Welcome to SwapReads. Here is our copyright policy:</p>
+          <ul>
+            <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
+            <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
+            <li>Users may download and print content for personal use only.</li>
+            <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
+            <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
+          </ul>
+        </div>
+      </div> 
+  
+      <!-- Privacy Notice Modal -->
+      <div id="privacyNoticeModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closePrivacy">&times;</span>
+          <h1>Privacy Notice</h1>
+          <p>Welcome to SwapReads. Here is our privacy notice:</p>
+          <ul>
+            <li>We collect personal information when you register, buy, or sell books.</li>
+            <li>We use this information to provide and improve our services.</li>
+            <li>We do not share your personal information with third parties without your consent.</li>
+            <li>We take reasonable measures to protect your data from unauthorized access.</li>
+            <li>You can contact us to update or delete your personal information.</li>
+            <li>By using our site, you consent to our privacy practices.</li>
+          </ul>
+        </div>
+      </div> 
+  
       <script>
-      function showConfirmationMessage() {
-        var confirmationMessage = document.getElementById("confirmationMessage");
-        confirmationMessage.style.display = "block";
-      
-        return false;
-      }
-      </script>
-      <style>
-        .icons .icon i {
-          font-size: 24px;
-          /* Set the default font size for icons */
-          transition: all 0.3s ease;
-          /* Add transition for smooth animation */
+        // Get the modal elements
+        var copyrightModal = document.getElementById("copyrightPolicyModal");
+        var privacyModal = document.getElementById("privacyNoticeModal");
+  
+        // Get the link elements
+        var copyrightLink = document.getElementById("copyrightPolicyLink");
+        var privacyLink = document.getElementById("privacyNoticeLink");
+  
+        // Get the <span> elements that close the modals
+        var closeCopyright = document.getElementById("closeCopyright");
+        var closePrivacy = document.getElementById("closePrivacy");
+  
+        // When the user clicks the link, open the modal
+        copyrightLink.onclick = function() {
+          copyrightModal.style.display = "block";
         }
-
-        .icons .icon:hover i {
-          transform: scale(1.2);
-          /* Scale the icon on hover */
+        privacyLink.onclick = function() {
+          privacyModal.style.display = "block";
         }
-
-        .icons .icon:hover .fab.fa-facebook {
-          color: #3B5998;
-          /* Change to Facebook color on hover */
+  
+        // When the user clicks on <span> (x), close the modal
+        closeCopyright.onclick = function() {
+          copyrightModal.style.display = "none";
         }
-
-        .icons .icon:hover .fab.fa-twitter{
-          color: #090e11;
-          /* Change to Twitter color on hover */
+        closePrivacy.onclick = function() {
+          privacyModal.style.display = "none";
         }
-
-        .icons .icon:hover .fab.fa-instagram {
-          background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-          background-clip: text;
-          border-radius: 20%;
-          transform: scale(1.5);
-          color:transparent;
-          /* Change to Instagram color on hover */
+  
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == copyrightModal) {
+            copyrightModal.style.display = "none";
+          }
+          if (event.target == privacyModal) {
+            privacyModal.style.display = "none";
+          }
         }
-
-        .icons .icon:hover .fab.fa-youtube {
-          color: #C31A1E;
-          /* Change to YouTube color on hover */
-        }
-        .icons .icon:hover .fab.fa-github {
-                  color: #333;
-              }
-      </style>
-
-      <div class="icons">
-        <a href="https://www.discord.com/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
-            </div>
-           </a>
-
-       <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
-            </div>
-          </a>
-
-          <a href="#" target="_blank">
-            <div class="icon">
-              <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
-            </div>
-          </a>
-
-          <a href="https://x.com/anuragverma_108" target="_blank">
-            <div class="icon">
-              <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
-            </div>
-          </a>
-
-          <a href="#">
-            <div class="icon">
-              <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
-            </div>
-          </a>
-
-
-          <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
-            <div class="icon">
-              <i class="fab fa-youtube" style="cursor: pointer;"></i>
-            </div>
-          </a>
-          <a href="">
-            <div class="icon">
-              <i class="fab fa-github" title="Github"></i>
-            </div>
-          </a>
-      </div>
-      <!-- <div style="text-align: center; align-items: center;">
-        <p style="text-align: center">
-          &copy;
-          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-          Hackers.
-        </p>
-
-      </div> -->
-
-      <div id="back-to-top-container" onclick="lenis.scrollTo('#home')">
-        <div class="circle1">
-          <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-            class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-            <path
-              d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-          </svg>
-        </div>
-      </div>
-    </div>
-  </div>
-      <div style="text-align: center; align-items: center;">
-        <p style="text-align: center">
-          &copy;
-          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-          Hackers.
-        </p>
-
-      </div>
-
-
-
-</footer>
+      </script> 
+  
+  
+  
+    </footer>
       <!-- Footer ended-->
 
     <script>

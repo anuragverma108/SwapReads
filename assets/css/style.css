@@ -354,7 +354,7 @@ button {
 
   
   cursor: pointer;
-  background-color: #24706b;
+  background-color: #0b9257;
   font-size:  18px;
   color:  white;
   line-height: 25px;
@@ -458,6 +458,7 @@ body {
 .h2 {
   font-size: var(--fs-3);
   margin: 0 10px;
+  margin-left: -150px;
 }
 
 .h3 {
@@ -587,18 +588,9 @@ body {
   object-fit: cover;
 }
 
- 
-.action {
-
-  position:  relative;
-  margin-right:  195px; 
-  margin-top:  23px
-
-}
- 
 .action {
   position: relative;
-  margin-right: 195px; 
+  /* margin-right: 195px;  */
   margin-top: 23px
 }
 .action .profile {
@@ -627,7 +619,7 @@ body {
   display: inline-block;
   padding: 10px 15px;
   text-decoration: none;
-  
+  align-items:center;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -662,17 +654,12 @@ body {
   opacity: 0;
 }
 
-.action .menu.active {
-  top: 80px;
-  visibility: visible;
-  opacity: 1;
-}
 
 .action .menu::before {
   content: "";
   position: absolute;
   top: -5px;
-  right: 28px;
+  right: 20px;
   width: 20px;
   height: 20px;
   background: #fff;
@@ -961,7 +948,7 @@ body.dark-mode .dropdown-menu-item:hover {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 2rem;
-  padding-top: 50px;
+  padding-top: 20px;
 }
 
 .hero-content {
@@ -1014,9 +1001,9 @@ body.dark-mode .dropdown-menu-item:hover {
 
 .container.hero-button {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
+  /* justify-content: center; */
+  align-items: start;
+  /* margin-top: 20px; */
 }
 
 .play-btn {
@@ -1041,7 +1028,9 @@ body.dark-mode .dropdown-menu-item:hover {
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
 
 }
-
+.play-btn:hover h2 {
+  color: black; /* Change text color to black on hover for better visibility */
+}
 play-btn ion-icon {
   font-size: 24px;
 }
@@ -1095,14 +1084,18 @@ play-btn ion-icon {
   align-items: center;
   flex-direction: column;
 }
-
+ 
 #benefits .benefits-canvas-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
 
+  display:  flex;
+  flex-wrap:  wrap;
+  justify-content:  center;
+  align-items:left;
+  
+  margin-left:  -40px;
+
+}
+ 
 #benefits .benefits-canvas-container .canvas {
   margin: 10px;
   width: 300px;
@@ -1172,7 +1165,7 @@ play-btn ion-icon {
 }
 .benefits-card::after {
   width: 70px;
-  height: 70px;
+  height:  70px;
   background-color: var(--chinese-violet_30);
   transform: translateY(65px);
 }
@@ -1229,6 +1222,7 @@ play-btn ion-icon {
 .benefits-card .card-title {
   margin-block: 20px 15px;
   color: brown;
+  text-align: center;
 }
 
 .dark-mode .benefits-card .card-icon {
@@ -1302,55 +1296,86 @@ body.dark-mode .chapter-card:hover {
   width: 100%;
 }  */
 /* Expand line width on hover */
-
+ 
 .chapter-card .card-title {
-  margin-block-end: 15px;
-}
 
+  margin-block-end:  15px;
+
+}
+ 
 .book-recommendation {
-  text-decoration: underline;
+
+  text-decoration:  underline;
+
 }
 
 /*Added Top/Bottom Mrgins*/
 
 #benefits .grid-list {
-  margin-top: 20px;
-  margin-bottom: 20px;
+
+  margin-top:  20px;
+  margin-bottom:  20px;
+
 }
+
 #genre .container {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-top: 20px;
-  padding-bottom: 40px;
+
+  margin-top:  20px;
+  margin-bottom:  20px;
+  padding-top:  20px;
+  padding-bottom:  40px;
+
 }
+
 #genre .section-subtitle {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  margin-top:  20px;
+  margin-bottom:  20px;
+  width:  100%;
+  display:  flex;
+  justify-content:  center;
+  align-items:  center;
+  margin-left:  190px;
+
 }
-#genre .grid-list {
-  margin-top: 30px;
-  margin-bottom: 30px;
+
+#genre .grid-list { 
+
+  margin-top:  30px;
+  margin-bottom:  30px;
+  margin-left:  120px;
+
 }
+
 #section-title1 {
-  margin-top: 20px;
-  margin-bottom: 20px;
+
+  margin-top:  20px;
+  margin-bottom:  20px;
+  margin-left:  200px;
+
 }
+
 #chapters .grid-list {
-  margin-top: 30px;
-  margin-bottom: 30px;
+
+  margin-top:  40px;
+  margin-bottom:  50px;
+
 }
+
 #section-title2 {
-  margin-top: 20px;
+
+  margin-top:  20px;
   margin-bottom: 20px;
+
 }
+
 #chapters .section-subtitle {
-  margin-top: 20px;
-  margin-bottom: 20px;
+
+  margin-top:  20px;
+  margin-bottom:  20px;
+
 }
+ 
 
 /*-----------------------------------*\
   #PREVIEW
@@ -1405,26 +1430,46 @@ body.dark-mode .chapter-card:hover {
 /*-----------------------------------*\
   #PRICING
 \*-----------------------------------*/
-
+ 
 #pricing .container {
   margin-top: 20px;
   margin-bottom: 20px;
   width: 97%;
   padding: 20px 0px;
+  margin-left: 100px;
 }
+
+.pricing-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; 
+  justify-content: space-around;
+  margin-left: -110px;
+}
+@media (max-width: 768px) {
+.pricing-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between the cards */
+  justify-content: space-around;
+
+}
+}
+
 .pricing-card {
   box-shadow: rgba(53, 31, 31, 0.5) 0px 5px 10px 0px inset;
-  padding: 40px 50px;
+  padding: 20px 30px;
   background-color: var(--seashell);
   text-align: center;
   transition: var(--transition-2);
   border-radius: var(--radius-5);
-  /* box-shadow: var(--shadow-2); */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 150px;
-  margin-top: 100px;
+  flex-basis: 30%; /* Adjust width for 3 cards in a row */
+  min-height: 150px; /* Set the minimum height */
+ 
 }
 
 .pricing-card button {
@@ -1476,18 +1521,12 @@ body.dark-mode .pricing-card button {
   color: var(--charcoal);
   font-weight: var(--fw-700);
   margin-block-start: 10px;
+  text-align: center;
 }
+
+
 .pricing-card .price:hover {
   color: rgb(255, 195, 0);
-}
-
-/* .pricing-card-list {
-  margin-block: 20px 40px;
-  flex-grow: 1;
-} */
-
-.pricing-card-list .card-item:not(:last-child) {
-  border-block-end: 1px solid var(--ghost-white);
 }
 
 .pricing-card .card-text {
@@ -1503,7 +1542,7 @@ body.dark-mode .pricing-card button {
   align-self: center;
   margin-top: auto;
 }
-*/ .dark-mode .pricing-card .btn {
+.dark-mode .pricing-card .btn {
   background-color: #8e4949 !important;
   border: none !important;
 }
@@ -1511,6 +1550,25 @@ body.dark-mode .pricing-card button {
   color: white;
   transform: scale(1.1);
 }
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .pricing-card {
+    flex-basis: 45%; /* Adjust for smaller screens */
+    min-height: 100px;
+    max-width: 300px;
+
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-card {
+    flex-basis: 100%; /* Single column layout for small screens */
+    min-height: 180px;
+
+  }
+}
+
 
 /*-----------------------------------*\
   #AUTHOR
@@ -1617,7 +1675,7 @@ body.dark-mode .pricing-card button {
   margin-top: 50px;
   margin-bottom: 50px;
   display: flex;
-  width: 100%;
+  width: 130%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -1626,7 +1684,7 @@ body.dark-mode .pricing-card button {
 
 /* Contact container with improved responsiveness */
 .contact-container {
-  padding-right: 20px;
+  gap: 8rem;
   width: 80% !important;
   display: flex;
   justify-content: center;
@@ -1637,11 +1695,24 @@ body.dark-mode .pricing-card button {
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
   position: relative;
 }
+.map-container {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #ccc; /* Optional styling */
+ margin-left: 20px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove any borders from the iframe */
+}
+
 
 /* Contact form styling */
 .contact-form {
   flex: 1;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .contact-form label {
@@ -1668,19 +1739,18 @@ body.dark-mode .pricing-card button {
 
 /* Submit button styling */
 .contact-form button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  background-color: #d15b83;
+  padding: 0.75rem 1.5rem;
+  background-color: #A30F17;
   color: white;
-  font-size: 16px;
-  cursor: pointer;
-  font-family: Montserrat;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .contact-form button:hover {
   border: 1px solid #c36969;
-  background-color: #f24a8a;
+  background-color: #691304;
 }
 
 /* Image fader styling */
@@ -1688,6 +1758,8 @@ body.dark-mode .pricing-card button {
   width: 300px;
   height: 300px;
   position: relative;
+  margin-top: 150px;
+  margin-right: 50px
 }
 
 .image-fader img {
@@ -1724,14 +1796,32 @@ body.dark-mode .pricing-card button {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+.contact-container {
+  background-color:var(--white);
+  display: flex;
+  justify-content: space-between; /* Ensures the contact details and map are at the left and right ends */
+  align-items: flex-start; /* Aligns the content vertically at the top */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.flex-container {
+  flex: 1; /* Takes up the left side space */
+  margin-right: 10px; /* Adds space between the contact details and map */
+  padding-top:50px;
+  margin-left: 10px;
+  padding-left:40px;
+}
+
 .map-container {
-  width: 100%;
-  max-width: 400px;
-  aspect-ratio: 1;
-  margin: 20px 0;
+  width: 50%;
+  max-width: 400px; /* Keeps the map responsive */
+  aspect-ratio: 1; /* Ensures a square aspect ratio */
+  margin: 20px 18px;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0; /* Prevents shrinking of the map */
+  border:2px solid #c36969;
 }
 
 .map-container iframe {
@@ -1830,11 +1920,6 @@ body.dark-mode .pricing-card button {
   width: 30%;
   height: 70%;
   /* border: 2px solid black; */
-}
-
-.rating_heading {
-  color: white;
-  animation: scale-up 1s ease;
 }
 
 @keyframes scale-up {
@@ -2150,8 +2235,8 @@ footer {
   align-items: flex-start;
   /* Adjusted alignment */
   border-bottom: 1px solid black;
-  padding-bottom: 20px;
   gap: 50px;
+  padding: 20px 50px;
 }
 
 .desc {
@@ -2718,12 +2803,15 @@ footer {
     padding-block-start: calc(var(--section-padding) + 100px);
     text-align: left;
   }
-
+ 
   .hero .container {
-    grid-template-columns: 1fr 0.8fr;
-    align-items: center;
-  }
 
+    grid-template-columns:  1fr 0.8fr;
+    align-items:  center;
+    /* margin-left:  30px; */
+
+  }
+ 
   /**
    * BENEFITS
    */
@@ -3017,16 +3105,17 @@ footer {
   .container,
   .header,
   .navbar {
-    max-width: 1330px;
+    max-width: 1350px;
+    width: 100vw;
     border-radius: 10px;
   }
 
   .navbar-list {
-    gap: 22px;
+    gap: 10px;
     /* Increase gap between navbar items */
-    justify-content: space-evenly;
+    justify-content: start;
     /* Center align navbar items */
-    padding-left: 2rem;
+    /* padding-left: 2rem; */
   }
 
   .benefits .grid-list {
@@ -3141,10 +3230,14 @@ footer {
   color: darkred;
   text-align: center;
   font-family: var(--ff-philosopher);
+  text-decoration:underline;
+  margin-bottom:10px;
+  
 }
 
 #faqq{
   font-size: 31px;
+  padding-top:5px;
 }
 
 .faq-container {
@@ -3173,25 +3266,28 @@ footer {
 }
 
 .answers {
-  color: var(--sonic-silver);
+  color: black;
   line-height: 28px;
   max-height: 0;
   padding: 0 10px;
   overflow: hidden;
   border-radius: 5px;
   transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+  border:2px solid black;
 }
-
+.answers p{
+  color:black;
+}
 .answers.visible {
   max-height: 500px; /* Set a reasonable max-height that can accommodate the content */
   padding: 10px 10px;
 }
 
 .question {
-  color: var(--sonic-silver);
+  color: darkred;
   display: flex;
   align-items: center;
-  font-weight: bold;
+  font-weight: 15;
   justify-content: space-between;
 }
 
@@ -3211,11 +3307,22 @@ footer {
 .dark-mode .faq-container {
   background-color: black;
 }
+.dark-mode .answers{
+  
+  border: 1.5px solid white;
 
+}
+.dark-mode p{
+  
+ color: white;
+
+}
 .dark-mode .faq-container:hover {
   background-color: rgb(56, 54, 54);
 }
-
+.dark-mode .question{
+  color:white;
+}
 @keyframes slideIn {
   0% {
     transform: translateX(-100%);
@@ -3268,14 +3375,17 @@ body.dark-mode {
 .dark-mode .note {
   color: #fff;
 }
-
+ 
 .dark-mode .container .section-text {
-  color: #fff;
-  padding-left: 2rem;
-  padding-right: 1rem;
-  padding-top: 3rem;
-}
 
+  color:  #fff;
+  /* padding-left:  2rem;
+  padding-right: 1rem;
+  padding-top:  3rem;
+  margin-left:  150px; */
+
+}
+ 
 .dark-mode .container button {
   
   margin-left: none;
@@ -3596,7 +3706,7 @@ footer {
 .switch-button {
   position: absolute;
   top: 3px;
-  /* left: 3px; */
+  left: 3px;
   width: 25px;
   height: 25px;
   background-color: #fff;
@@ -4064,7 +4174,7 @@ body.dark-mode .h3 {
 .card-title {
   position: relative;
   display: inline-block;
-  padding: 2px;
+  padding: 3px;
   display: flex;
   align-items: center;
   gap: 2px;
@@ -4226,7 +4336,8 @@ body.dark-mode .h3 {
     max-width: 800px;
   }
   .pricing-card {
-    min-height: 70rem !important;
+    min-height: 55rem !important;
+    max-width: 400px;
   }
   .container01 {
     max-width: 800px;
@@ -4646,4 +4757,157 @@ body.dark-mode .h3 {
   font-size: 3rem;
   position: relative;
   left: 10rem;
+}
+
+
+body {
+  background-color: #ffb2a8; /* Background color for the whole page */
+  color: black;
+  font-size: 1.55rem;
+  line-height: 1.8;
+  text-align: start;
+}
+
+.container1 {
+  margin: 0 auto;
+  width: 100%;
+  text-align: left !important;
+  max-width: 1200px;
+  height: auto;
+  max-height: 1600px;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color:var(--seashell);
+}
+* {
+  box-sizing: border-box;
+}
+
+body, .container1, .form-fields {
+  text-align: left !important;
+}
+
+
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Label for each field */
+.form-label {
+  margin-bottom: 5px; /* Reduced margin */
+  font-weight: bold;
+  margin-top:5px
+}
+
+/* Input field styling */
+.input-field {
+  padding: 8px; /* Reduced padding */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px; /* Adjusted margin */
+  width: 100%; /* Full width */
+  box-sizing: border-box; 
+  margin-top: 5px;/* Include padding in width */
+}
+
+/* Currency container styling */
+.currency-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Adjusted margin */
+}
+
+/* Styling for currency label */
+.currency-label {
+  margin-right: 8px; /* Reduced margin */
+}
+
+/* Button styling */
+.btn {
+  background-color: #ff67a1;
+  color: white;
+  border: none;
+  padding: 10px; /* Reduced padding */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+  /* Style for Predict Price button */
+#predictPriceBtn {
+  background-color:#4CAF50; /* Change to your preferred background color */
+  color: white; /* Text color */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+#predictPriceBtn:hover {
+  background-color:#ad5388; /* Darker shade for hover effect */
+}
+
+/* Active and focus states to prevent white background */
+#predictPriceBtn:active,
+#predictPriceBtn:focus {
+  background-color: #ad5388; /* Keep the original background color */
+  color: white;
+  outline: none;
+}
+
+/* Remove any outline on focus */
+#predictPriceBtn:focus {
+  outline: none;
+}
+
+  
+
+
+
+/* Style for the Connect with a Reader button */
+#connectReaderBtn {
+  background-color: #4CAF50; /* Change this color to your preferred button color */
+  color: white; /* Button text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Button padding */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px; /* Rounded corners */
+  transition: background-color 0.3s ease;
+}
+
+#connectReaderBtn:hover {
+  background-color: #ad5388; /* Darker shade on hover */
+}
+
+
+/* Button hover effect */
+.btn:hover {
+  background-color: #e25591;
+}
+
+/* Error message styling */
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: -8px; /* Reduced margin */
+  margin-bottom: 10px; /* Adjusted margin */
+}
+
+/* New field for book name */
+.book-name-field {
+  margin-bottom: 10px; /* Space between fields */
 }

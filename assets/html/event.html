@@ -1,240 +1,777 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <title>Event Booking Calendar</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #f4f4f9;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="../favicon_package_v0.16/android-chrome-256x256.png" type="image/x-icon">
+    <title>Event Booking Calendar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: rgba(255, 171, 157, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-            header {
-                width: 100%;
-                background-color: #f06d87;
-                color: white;
-                padding: 1em 0;
-                text-align: center;
-            }
+        header {
+            width: 100%;
+            background:white;
+            padding: 0.5em 0;
+            display: flex;
+            align-items: center;
+        }
+       
 
-            nav ul {
-                list-style-type: none;
-                padding: 0;
-                margin: 0;
-            }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-left: 300px;
+            display: flex;
+            align-items: center;
+            gap: 45px;
+            
+        }
 
-            nav ul li {
-                display: inline;
-                margin: 0 1em;
-            }
+        nav ul li {
+            position: relative;
+        }
 
-            nav ul li a {
-                color: white;
-                text-decoration: none;
-            }
+        nav ul li a {
+            text-decoration: none;
+            color: #0a0000;
+            font-size: 18px;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
 
-            main {
-                padding: 1em;
-                width: 100%;
-                max-width: 800px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 3px;
+             background-color: #fcb0b480; 
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.6s ease;
+        }
 
-            section {
-                margin-bottom: 2em;
-                width: 100%;
-            }
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
 
-            h2 {
-                color: #450105;
-            }
+        nav ul li a:hover {
+            color: var(--old-rose);
+            text-shadow: 0 0 1px rgb(126, 0, 21);
+            transition: 0.6s ease;
+        }
 
-            #event-calendar {
-                width: 100%;
-                max-width: 800px;
-                background: #fff;
-                padding: 2em;
-                border-radius: 10px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            }
+        main {
+            padding: 1em;
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-            .calendar-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
+        section {
+            margin-bottom: 2em;
+            width: 100%;
+        }
 
-            .calendar-header button {
-                background: #2980b9;
-                color: #fff;
-                border: none;
-                padding: 0.5em 1em;
-                border-radius: 5px;
-                cursor: pointer;
-            }
+        h2 {
+            color: #450105;
+        }
 
-            .row {
-                display: flex;
-                justify-content: center;
-            }
+        #event-calendar {
+            width: 100%;
+            max-width: 800px;
+            background: #fff;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
 
-            .day {
-                width: 50px;
-                height: 50px;
-                border: 1px solid #ccc;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 2px;
-                transition: background 0.3s;
-                cursor: pointer;
-            }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-            .event {
-                background: green;
-                color: white;
-            }
+        .calendar-header button {
+            background: #2980b9;
+            color: #fff;
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-            .past {
-                color: gray;
-                text-decoration: line-through;
-                opacity: 0.5;
-                /* Make the past dates partially visible */
-            }
+        .row {
+            display: flex;
+            justify-content: center;
+        }
 
-            .footer {
-                position: absolute;
-                left: 0%;
-                width: 100%;
-                background: pink;
-                padding: 30px 0;
-                text-align: center;
-                font-size: 0.8em;
-                color: gray;
-            }
-        </style>
-    </head>
+        .day {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2px;
+            transition: background 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
 
-    <body>
-        <header>
-            <h1 style="color: black;">SwapReads</h1>
-            <nav>
-                <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="./about.html">About Us</a></li>
-                    <li><a href="../../index.html#contact">Contact</a></li>
-                    <li><a href="#authors">Authors</a></li>
-                    <li><a href="../../comsp.html">Community</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <section id="event-calendar">
-                <h2>Upcoming Event Calendar</h2>
-                <div class="calendar-header">
-                    <button id="prevMonth">‹</button>
-                    <h3 id="monthAndYear"></h3>
-                    <button id="nextMonth">›</button>
-                </div>
-                <div id="calendar-days">
-                    <!-- Calendar days will be dynamically generated here -->
-                </div>
-            </section>
-        </main>
+        .event {
+            background: green;
+            color: white;
+        }
 
-        <footer>
-            <div class="footer">
-                SwapReads Copyright © 2024 SwapReads - All rights reserved || Designed By: pranjal
+        .past {
+            color: gray;
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        .footer {
+            position: absolute;
+            left: 0%;
+            width: 100%;
+            background: pink;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.8em;
+            color: gray;
+        }
+
+        .logopic {
+            width: 15rem;
+            margin: 0px 0px 0px 1.8rem;
+            max-height: 100px;
+            height: auto;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .logopic:hover {
+            transform: scale(1.09);
+        }
+
+        /* Tooltip styling */
+        .tooltip {
+            visibility: hidden;
+            width: 150px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -75px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .day:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #000 transparent transparent transparent;
+        }
+        /* Styles for devices with a width of 600px or less */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    header {
+        flex-direction: column;
+        padding: 1em;
+    }
+
+    .logopic {
+        margin-left: 0;
+        width: 10rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-left: 0;
+        gap: 20px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    main {
+        max-width: 100%;
+        padding: 1em;
+    }
+
+    .calendar-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .row {
+        justify-content: space-between;
+    }
+
+    .day {
+        width: 40px;
+        height: 40px;
+    }
+
+    .footer {
+        font-size: 0.7em;
+        padding: 20px;
+    }
+}
+
+/* Styles for tablets and devices up to 1024px */
+@media (max-width: 1024px) {
+    nav ul {
+        gap: 20px;
+        margin-left: 50px;
+    }
+
+    .logopic {
+        width: 12rem;
+    }
+
+    .calendar-header {
+        flex-direction: row;
+    }
+
+    .day {
+        width: 45px;
+        height: 45px;
+    }
+}
+/* Hamburger menu for small screens */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px;
+}
+
+@media (max-width: 600px) {
+    .hamburger {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+}
+/* .logopic {
+    width: 100%;
+    max-width: 15rem; /* Maximum width for larger screens */
+    /* height: auto; */
+ */
+
+
+
+    </style>
+</head>
+
+<body>
+    
+
+
+    <style>
+
+        /* Circle styles */
+        .circle {
+          height: 24px;
+          width: 24px;
+          border-radius: 50%;
+          background-color: black;
+          position: fixed;
+          top: 0;
+          left: 0;
+          pointer-events: none;
+          z-index: 99999999;
+          transition: transform 0.1s ease-out;
+        }
+      </style>
+      </head>
+  
+  
+      <body>
+  
+          <!-- Circles -->
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div> 
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+    <header>
+        <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+            <img src="../images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
+          </a>
+          <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                  <a href="../../index.html" class="navbar-link">
+                    <lord-icon
+                      src="https://cdn.lordicon.com/qeltvbrs.json"
+                      trigger="hover"
+                      colors="primary:#e88c30,secondary:#a30f17"
+                      style="width: 25px; height: 25px">
+                    </lord-icon>Home</a>
+                </li>
+                <li class="navbar-item">
+                  <a href="../../books.html" class="navbar-link">
+                    <lord-icon
+                      src="https://cdn.lordicon.com/bhmovrlt.json"
+                      trigger="hover"
+                      state="morph-open"
+                      colors="primary:#a30f17,secondary:#e88c30"
+                      style="width: 25px; height: 25px">
+                    </lord-icon>Books</a>
+                </li>
+                <li class="navbar-item">
+                  <a href="../.././index.html#genre" class="navbar-link">
+                    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                    <lord-icon
+                      src="https://cdn.lordicon.com/lcvlsnre.json"
+                      trigger="hover"
+                      colors="primary:#a30f17,secondary:#e88c30"
+                      style="width: 25px; height: 25px">
+                    </lord-icon>Genres</a>
+                </li>
+                <li class="navbar-item">
+                  <a href="../.././assets/html/about.html" class="navbar-link">
+                    <lord-icon
+                      src="https://cdn.lordicon.com/fozsorqm.json"
+                      trigger="hover"
+                      stroke="bold"
+                      state="hover-up"
+                      colors="primary:#a30f17,secondary:#e88c30"
+                      style="width: 30px; height: 25px">
+                    </lord-icon>About</a>
+                </li>
+              </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="event-calendar">
+            <h2>Upcoming Event Calendar</h2>
+            <div class="calendar-header">
+                <button id="prevMonth">‹</button>
+                <h3 id="monthAndYear"></h3>
+                <button id="nextMonth">›</button>
             </div>
-        </footer>
+            <div id="calendar-days">
+                <!-- Calendar days will be dynamically generated here -->
+            </div>
+        </section>
+    </main>
 
-        <script>
-            const eventCalendar = {
-                events: [
-                    { date: '2024-10-07', title: 'Book Club Meeting' },
-                    { date: '2024-10-14', title: 'Author Talk: John Doe' },
-                    { date: '2024-10-21', title: 'Children’s Story Hour' },
-                    { date: '2024-10-28', title: 'Poetry Reading' },
-                ],
+    <footer>
+        <div class="footer">
+            SwapReads Copyright © 2024 SwapReads - All rights reserved || Designed By: pranjal
+        </div>
+    </footer>
 
-                monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-                today: new Date(),
-                currentMonth: new Date().getMonth(),
-                currentYear: new Date().getFullYear(),
-            };
+    <div>
+        <button id="translateButton">Translate</button>
+      </div>
+      <style>
+        /* Fixed translate button */
+    #translateButton {
+        position: fixed;
+        /* bottom: 20px; */
+        top:-15rem;
+        right: 4.4rem;
+        z-index: 1000;
+        width: 53px;  
+        height: 53px;
+        border-radius: 50%; 
+        border: none; 
+        background:linear-gradient(hwb(357 6% 36%),#d26d6d); 
+        color: white; 
+        text-align: center; 
+        display: inline-block; 
+        font-size: 16px; 
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        transition: transform 0.3s ease;
+        margin-top: 75.8vh;
+        margin-right:opx;
+    }
+    #translateButton:hover {
+        transform: scale(1.2); 
+    }
+    /* The popup modal */
+    .popup {
+        display: none; 
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4); 
+    }
+    /* Popup content */
+    .popup-content {
+      background:linear-gradient(hwb(357 6% 36%),#d26d6d);
+        margin-top: 600px;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 300px;
+        border-radius: 10px;
+        position: relative;
+        margin-left: 1160px;
+        /* margin-right: 0px; */
+    }
+    /* Close button */
+    .close {
+        color: #073725;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+    }
+    /* Hide the default Google Translate widget */
+    .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+        display: none !important;
+    }
+    body {
+        top: 0px !important;
+    }
+    /* Hide the "Powered by Google" branding */
+    .goog-logo-link {
+        display: none !important;
+    }
+    .goog-te-gadget {
+        height: 28px !important;
+        overflow: hidden;
+    }
+    /* Hide Google Translate notifications */
+    .goog-te-spinner-pos,
+    .goog-te-spinner,
+    .goog-te-balloon-frame,
+    .goog-te-banner-frame,
+    .goog-te-banner,
+    .goog-te-balloon {
+        display: none !important;
+    }
+    /* Custom styles for the Google Translate dropdown */
+    #google_translate_element select {
+        background: #ffffff; 
+        border: 1px solid #ccc; 
+        color: #d26d6d; 
+        padding: 5px; 
+        font-size: 14px; 
+        border-radius: 5px; 
+    }
+    /* Hide the Google Translate bar */
+    body > .skiptranslate {
+        display: none !important;
+    }
+    .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    }
+    .goog-te-banner-frame {
+        display: none !important;
+    }
+    .goog-te-banner {
+        display: none !important;
+    }
+      </style>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // Get the popup
+        var popup = document.getElementById('translatePopup');
+        // Get the button that opens the popup
+        var btn = document.getElementById('translateButton');
+        // Get the <span> element that closes the popup
+        var span = document.getElementsByClassName('close')[0];
+        // When the user clicks the button, open the popup 
+        btn.onclick = function() {
+            popup.style.display = 'block';
+        }
+        // When the user clicks on <span> (x), close the popup
+        span.onclick = function() {
+            popup.style.display = 'none';
+        }
+        // When the user clicks anywhere outside of the popup, close it
+        window.onclick = function(event) {
+            if (event.target == popup) {
+                popup.style.display = 'none';
+            }
+        }
+    });
+      </script>
+      <!-- Popup for Google Translate -->
+      <div id="translatePopup" class="popup">
+          <div class="popup-content">
+              <span class="close">&times;</span>
+              <div id="google_translate_element"></div>
+          </div>
+      </div>
+      <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <!-- Your custom JavaScript -->
+    <script src="script.js"></script>
 
-            function generateCalendar(month, year) {
-                const firstDay = (new Date(year, month)).getDay();
-                const daysInMonth = 32 - new Date(year, month, 32).getDate();
+    <script>
 
-                const calendarDays = document.getElementById('calendar-days');
-                calendarDays.innerHTML = '';
 
-                let date = 1;
-                for (let i = 0; i < 6; i++) {
-                    let row = document.createElement('div');
-                    row.classList.add('row');
+        const eventCalendar = {
+            events: [
+                { date: '2024-10-07', title: 'Book Club Meeting' },
+                { date: '2024-10-14', title: 'Author Talk: John Doe' },
+                { date: '2024-10-21', title: 'Children’s Story Hour' },
+                { date: '2024-10-28', title: 'Poetry Reading' },
+            ],
 
-                    for (let j = 0; j < 7; j++) {
-                        if (i === 0 && j < firstDay) {
-                            let cell = document.createElement('div');
-                            cell.classList.add('day');
-                            row.appendChild(cell);
-                        } else if (date > daysInMonth) {
-                            break;
-                        } else {
-                            let cell = document.createElement('div');
-                            cell.classList.add('day');
-                            cell.textContent = date;
+            monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            today: new Date(),
+            currentMonth: new Date().getMonth(),
+            currentYear: new Date().getFullYear(),
+        };
 
-                            const eventDate = new Date(year, month, date);
-                            let formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
-                            let event = eventCalendar.events.find(event => event.date === formattedDate);
+        function generateCalendar(month, year) {
+            const firstDay = (new Date(year, month)).getDay();
+            const daysInMonth = 32 - new Date(year, month, 32).getDate();
 
-                            // Check if the date is in the past
-                            if (eventDate >= eventCalendar.today) {
-                                if (event) {
-                                    cell.classList.add('event');
-                                    cell.innerHTML = `<a href="booking.html?event=${encodeURIComponent(event.title)}">${date}</a>`;
-                                }
-                            } else {
-                                // Make past dates partially visible
-                                cell.classList.add('past');
+            const calendarDays = document.getElementById('calendar-days');
+            calendarDays.innerHTML = '';
+
+            let date = 1;
+            for (let i = 0; i < 6; i++) {
+                let row = document.createElement('div');
+                row.classList.add('row');
+
+                for (let j = 0; j < 7; j++) {
+                    if (i === 0 && j < firstDay) {
+                        let cell = document.createElement('div');
+                        cell.classList.add('day');
+                        row.appendChild(cell);
+                    } else if (date > daysInMonth) {
+                        break;
+                    } else {
+                        let cell = document.createElement('div');
+                        cell.classList.add('day');
+                        cell.textContent = date;
+
+                        const eventDate = new Date(year, month, date);
+                        let formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+                        let event = eventCalendar.events.find(event => event.date === formattedDate);
+
+                        if (eventDate >= eventCalendar.today) {
+                            if (event) {
+                                cell.classList.add('event');
+                                const googleCalendarUrl = generateGoogleCalendarLink(event.title, eventDate);
+                                cell.innerHTML = `<a href="${googleCalendarUrl}" target="_blank" title="Add to Google Calendar">${date}</a><div class="tooltip">Add to Google Calendar</div>`;
                             }
-
-                            row.appendChild(cell);
-                            date++;
+                        } else {
+                            cell.classList.add('past');
                         }
+
+                        row.appendChild(cell);
+                        date++;
                     }
-                    calendarDays.appendChild(row);
                 }
-                document.getElementById('monthAndYear').innerText = `${eventCalendar.monthNames[month]} ${year}`;
+
+                calendarDays.appendChild(row);
             }
 
-            document.getElementById('prevMonth').addEventListener('click', () => {
-                eventCalendar.currentMonth = (eventCalendar.currentMonth === 0) ? 11 : eventCalendar.currentMonth - 1;
-                eventCalendar.currentYear = (eventCalendar.currentMonth === 11) ? eventCalendar.currentYear - 1 : eventCalendar.currentYear;
-                generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-            });
+            document.getElementById('monthAndYear').textContent = `${eventCalendar.monthNames[month]} ${year}`;
+        }
 
-            document.getElementById('nextMonth').addEventListener('click', () => {
-                eventCalendar.currentMonth = (eventCalendar.currentMonth === 11) ? 0 : eventCalendar.currentMonth + 1;
-                eventCalendar.currentYear = (eventCalendar.currentMonth === 0) ? eventCalendar.currentYear + 1 : eventCalendar.currentYear;
-                generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-            });
+        function generateGoogleCalendarLink(eventTitle, eventDate) {
+            const baseUrl = 'https://www.google.com/calendar/render?action=TEMPLATE';
+            const startDate = eventDate.toISOString().replace(/-|:|\.\d+/g, '');
+            return `${baseUrl}&text=${encodeURIComponent(eventTitle)}&dates=${startDate}/${startDate}`;
+        }
 
+        document.getElementById('prevMonth').addEventListener('click', () => {
+            eventCalendar.currentMonth = (eventCalendar.currentMonth === 0) ? 11 : eventCalendar.currentMonth - 1;
+            eventCalendar.currentYear = (eventCalendar.currentMonth === 11) ? eventCalendar.currentYear - 1 : eventCalendar.currentYear;
             generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-        </script>
-    </body>
+        });
+
+        document.getElementById('nextMonth').addEventListener('click', () => {
+            eventCalendar.currentMonth = (eventCalendar.currentMonth === 11) ? 0 : eventCalendar.currentMonth + 1;
+            eventCalendar.currentYear = (eventCalendar.currentMonth === 0) ? eventCalendar.currentYear + 1 : eventCalendar.currentYear;
+            generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
+        });
+        const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('nav ul');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+        generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
+    </script>
+
+<script>
+
+    // Coordinates for the cursor
+    const coords = { x: 0, y: 0 };
+    const circles = document.querySelectorAll(".circle");
+  
+    // Colors for the circles
+    const colors = [
+      "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+      "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+      "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+      "#680060", "#60005f", "#48005f", "#3d005e"
+    ];
+  
+    // Assign colors and initial position to each circle
+    circles.forEach(function (circle, index) {
+      circle.x = 0;
+      circle.y = 0;
+      circle.style.backgroundColor = colors[index % colors.length];
+    });
+  
+    // Update the coordinates when the mouse moves
+    window.addEventListener("mousemove", function (e) {
+      coords.x = e.clientX;
+      coords.y = e.clientY;
+    });
+  
+    // Animation function to move the circles
+    function animateCircles() {
+      let x = coords.x;
+      let y = coords.y;
+  
+      circles.forEach(function (circle, index) {
+        // Update the position and scale of each circle
+        circle.style.left = x - 12 + "px";
+        circle.style.top = y - 12 + "px";
+        circle.style.scale = (circles.length - index) / circles.length;
+  
+        circle.x = x;
+        circle.y = y;
+  
+        // Get the next circle in the sequence
+        const nextCircle = circles[index + 1] || circles[0];
+        x += (nextCircle.x - x) * 0.15;
+        y += (nextCircle.y - y) * 0.15;
+      });
+  
+      // Repeat the animation
+      requestAnimationFrame(animateCircles);
+    }
+  
+    // Start the animation
+    animateCircles();
+  
+  </script>
+  
+</body>
 
 </html>
