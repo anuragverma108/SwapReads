@@ -190,7 +190,10 @@
 │   │   ├── LogoPicDark.png
 │   │   ├── LogoPicLight.png
 │   │   ├── Screenshot 2024-10-28 at 12.09.51 AM
+│   │   ├── TheGuide.jpg
+│   │   ├── Wings_of_Fire_by_A_P_J_Abdul_Kalam_Book_Cover.jpg
 │   │   ├── YT icon.png
+│   │   ├── a fine balance.jpg
 │   │   ├── achievement-1.jpg
 │   │   ├── achievement-2.jpg
 │   │   ├── achievement-3.jpg
@@ -267,6 +270,7 @@
 │   │   │   ├── auth2.jpg
 │   │   │   ├── auth3.jpg
 │   │   │   └── c1.jpg
+│   │   ├── good of small tjings.jpg
 │   │   ├── google button.jpeg
 │   │   ├── google icon.jpeg
 │   │   ├── gr.jpeg
@@ -284,6 +288,7 @@
 │   │   │   ├── quiz.jpg
 │   │   │   └── school.png
 │   │   ├── inbox.png
+│   │   ├── india after gandhi.jpg
 │   │   ├── insta icon.png
 │   │   ├── ja.jpeg
 │   │   ├── jk.jpeg
@@ -293,6 +298,7 @@
 │   │   ├── logout.png
 │   │   ├── ma.jpg
 │   │   ├── mg.jpeg
+│   │   ├── midnight children.jpg
 │   │   ├── moon.png
 │   │   ├── moon_solid.svg
 │   │   ├── mystery.jpg
@@ -318,6 +324,7 @@
 │   │   ├── rom.jpg
 │   │   ├── sci.jpg
 │   │   ├── settings.png
+│   │   ├── shantaram.jpg
 │   │   ├── sun.png
 │   │   ├── tele.png
 │   │   ├── telephone.png
@@ -327,7 +334,9 @@
 │   │   ├── testimonials-4.jpg
 │   │   ├── testimonials-5.jpg
 │   │   ├── testimonials-6.jpg
+│   │   ├── the inheritance of book.jpg
 │   │   ├── thriller.jpg
+│   │   ├── train to paki.jpg
 │   │   ├── trendingbook1.jpg
 │   │   ├── trendingbook2.jpg
 │   │   ├── trendingbook3.jpg
@@ -337,7 +346,8 @@
 │   │   ├── twitter-icon.png
 │   │   ├── twitter.png
 │   │   ├── user.jpg
-│   │   └── website-ss.png
+│   │   ├── website-ss.png
+│   │   └── white tiger.jpg
 │   ├── js/
 │   │   ├── ReaderConn.js
 │   │   ├── addremove.js
