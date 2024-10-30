@@ -51,6 +51,76 @@
       z-index: 99999999;
       transition: transform 0.1s ease-out;
     }
+    /* Container for the switch */
+  .switch-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Hide default checkbox */
+  .switch-checkbox {
+    display: none;
+  }
+
+  /* Style the label */
+  .switch-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50px;
+    height: 24px;
+    border-radius: 50px;
+    background-color: #ccc;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+    /* Style the toggle button */
+  .switch-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 5px;
+    position: absolute; /* Fixes the position */
+    left: 0; /* Keeps the button fixed */
+  }
+
+  /* Sun and moon icon styles */
+  .sun-icon,
+  .moon-icon {
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Color the icons */
+  .sun-icon {
+    color: orange; /* Sun icon color */
+  }
+
+  .moon-icon {
+    color: lightblue; /* Moon icon color */
+    opacity: 0; /* Initially hidden */
+  }
+
+  /* Style for checked state */
+  .switch-checkbox:checked + .switch-label {
+    background-color: #333;
+  }
+
+  .switch-checkbox:checked + .switch-label .sun-icon {
+    opacity: 0; /* Hide sun icon in dark mode */
+  }
+
+  .switch-checkbox:checked + .switch-label .moon-icon {
+    opacity: 1; /* Show moon icon in dark mode */
+  }
+  .switch-checkbox:checked + .switch-label {
+    left:100px;
+  }
+
   </style>
 </head>
 
@@ -947,6 +1017,14 @@
       margin-right: 8px;
       vertical-align: middle;
     }
+    body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    background-image: url('../images/darkmode_bg.png'); /* Add your dark mode image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+  }
   </style>
   <header class="header header-anim nav-h" data-header>
 
@@ -957,7 +1035,7 @@
 
         <ul class="navbar-list nav">
           <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="../images/final.png" class="logopic" style=" width: 150px;">
+            <img src="../images/final.png" class="logopic" style=" width: 150px; margin-left: 50px;">
           </a>
           <li class="navbar-item">
             <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link>
@@ -1074,6 +1152,16 @@
                 style="width:25px;height:25px">
               </lord-icon>Login/Signup</a>
           </li>
+          <!-- Theme switcher -->
+          <div class="switch-container">
+            <input type="checkbox" id="switch" class="switch-checkbox">
+            <label for="switch" class="switch-label" style="margin-left: 120px;">
+              <div class="switch-button">
+                <span class="material-icons sun-icon">wb_sunny</span>
+                <span class="material-icons moon-icon">brightness_2</span>
+              </div>
+            </label>
+          </div>
 
           <li>
             <div class="action">
@@ -1111,6 +1199,31 @@
         }
       });
 
+        // Theme switcher
+        document.addEventListener('DOMContentLoaded', function () {
+          const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
+          const bodyElement = document.body;
+    
+          const currentTheme = localStorage.getItem('theme') || 'light';
+          if (currentTheme === 'dark') {
+            bodyElement.classList.add('dark-mode');
+            toggleSwitch.checked = true;
+          } else {
+            bodyElement.classList.add('light-mode');
+          }
+    
+          toggleSwitch.addEventListener('change', function (event) {
+            if (event.target.checked) {
+              bodyElement.classList.remove('light-mode');
+              bodyElement.classList.add('dark-mode');
+              localStorage.setItem('theme', 'dark');
+            } else {
+              bodyElement.classList.remove('dark-mode');
+              bodyElement.classList.add('light-mode');
+              localStorage.setItem('theme', 'light');
+            }
+          });
+        });
 
       function menuToggle() {
         const toggleMenu = document.querySelector(".menu");
