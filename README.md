@@ -417,6 +417,7 @@
 ├── footer1.html
 ├── help.html
 ├── historical-chronicals.html
+├── horror.html
 ├── index.html
 ├── intriguing-mysteries.html
 ├── lib.jpg
