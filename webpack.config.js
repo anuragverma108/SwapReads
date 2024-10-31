@@ -2,7 +2,7 @@ import path from 'path'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { requiredFilePaths } from './jsFileEntries.js';
 import TerserPlugin from 'terser-webpack-plugin';
-
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 export default {
     mode: 'production',
     entry: requiredFilePaths,
@@ -11,6 +11,7 @@ export default {
         minimize: true,
         minimizer: [
             new TerserPlugin(),
+            new CssMinimizerPlugin()
         ],
     },
     target: 'web',
