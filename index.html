@@ -1,5 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwapReads</title>
+    <style>
+        /* Style for full-screen video overlay */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #intro-video {
+        width: 100%; /* Maintain aspect ratio */
+        max-height: 100%; /* Ensures it does not overflow the container */
+        object-fit: contain; /* Scale the video to fit the container */
+    }
+        .hidden {
+            display: none;
+        }
+        .content {
+            display: none; /* Hide content initially */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Video overlay container -->
+    <div class="video-overlay" id="video-overlay">
+        <video id="intro-video" autoplay muted playsinline>
+            <source src="/intro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+<div class="content" id="home-content">
 <title>SwapReads</title>
 
 
@@ -82,6 +120,19 @@
       });
     })();
   </script> -->
+  <script>
+    // Hide video overlay when it ends and show the main content
+    const video = document.getElementById('intro-video');
+    const overlay = document.getElementById('video-overlay');
+    const homeContent = document.getElementById('home-content');
+ // Disable scrolling
+    document.body.style.overflow = 'hidden';
+    video.onended = () => {
+        overlay.style.display = 'none';  // Hide video overlay
+        homeContent.style.display = 'block'; 
+        document.body.style.overflow = 'auto'; // Show main content
+    };
+</script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
@@ -1142,7 +1193,7 @@
       background-color: #2980b9;
     }
   </style>
-  <script>
+<script>
     (function () {
       emailjs.init("iBlg6K0pNW81tPXUQ0Pv0");
     })();
@@ -1189,7 +1240,6 @@
 </head>
 
 
-<body>
 
   <!-- Circles -->
   <div class="circle"></div>
@@ -7552,9 +7602,11 @@ body {
 
 }
 
+feedback
 </style>
 
 
+main
   </body>
 
 </html>
