@@ -1,6 +1,6 @@
 // Import Firebase SDK components
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc, query, onSnapshot, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc, query, onSnapshot, orderBy } from "firebase/firestore";
 
 // Your Firebase configuration
 const firebaseConfig = {
