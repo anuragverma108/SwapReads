@@ -440,7 +440,6 @@
 ├── horror.html
 ├── index.html
 ├── intriguing-mysteries.html
-├── intro.mp4
 ├── lib.jpg
 ├── logout.css
 ├── logout.js
