@@ -1,5 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwapReads</title>
+    <style>
+        /* Style for full-screen video overlay */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #intro-video {
+        width: 100%; /* Maintain aspect ratio */
+        max-height: 100%; /* Ensures it does not overflow the container */
+        object-fit: contain; /* Scale the video to fit the container */
+    }
+        .hidden {
+            display: none;
+        }
+        .content {
+            display: none; /* Hide content initially */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Video overlay container -->
+    <div class="video-overlay" id="video-overlay">
+        <video id="intro-video" autoplay muted playsinline>
+            <source src="/intro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+<div class="content" id="home-content">
 <title>SwapReads</title>
 
 
@@ -82,6 +120,19 @@
       });
     })();
   </script> -->
+  <script>
+    // Hide video overlay when it ends and show the main content
+    const video = document.getElementById('intro-video');
+    const overlay = document.getElementById('video-overlay');
+    const homeContent = document.getElementById('home-content');
+ // Disable scrolling
+    document.body.style.overflow = 'hidden';
+    video.onended = () => {
+        overlay.style.display = 'none';  // Hide video overlay
+        homeContent.style.display = 'block'; 
+        document.body.style.overflow = 'auto'; // Show main content
+    };
+</script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
@@ -1142,7 +1193,7 @@
       background-color: #2980b9;
     }
   </style>
-  <script>
+<script>
     (function () {
       emailjs.init("iBlg6K0pNW81tPXUQ0Pv0");
     })();
@@ -1189,7 +1240,6 @@
 </head>
 
 
-<body>
 
   <!-- Circles -->
   <div class="circle"></div>
@@ -2830,6 +2880,7 @@
       /* Close button */
       .close {
         color: #073725;
+        margin-top: 20px;
         float: right;
         font-size: 2.8rem;
         font-weight: bold;
@@ -3018,6 +3069,119 @@
 
     <!-- Newsletter pop-up -->
     <style>
+
+body {
+
+font-family: Arial, sans-serif;
+
+}
+
+/* Polls Popup Styles */
+.popups {
+
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+justify-content: center; /* Center the popup */
+align-items: center; /* Center the popup */
+z-index: 1000; /* Sit on top */
+
+}
+
+.popups-content {
+
+background: linear-gradient(#f7879a, #ffd6de), url(your-image-url.jpg);
+padding: 20px;
+border-radius: 5px;
+max-width: 400px;
+text-align: center;
+
+}
+
+/* Set poll options to stack vertically */
+#pollOptions {
+
+display: flex;
+flex-direction: column; /* Stack buttons vertically */
+align-items: center; /* Center the buttons */
+
+}
+
+.poll-button {
+
+display: block; /* Change to block for full-width */
+margin: 5px 0; /* Add vertical margin */
+padding: 10px 15px;
+border: none;
+border-radius: 5px;
+background-color: rgba(16,22,26,.4); /* Green */
+color: white;
+cursor: pointer;
+transition: background-color 0.3s;
+width: 100%; /* Full width */
+text-align: center;
+font-size: 15px;
+
+}
+
+.poll-button:hover {
+
+background-color: #45a049; /* Darker green */
+
+}
+
+.poll-button.selected {
+
+background-color: #ae242a; /* Blue for selected */
+
+}
+
+/* New Vote Button Styles */
+.vote-button {
+
+display: block; /* Change to block for full-width */
+margin: 5px 0; /* Add vertical margin */
+padding: 10px 15px;
+border: none;
+border-radius: 5px;
+background-color: #f44336; /* Red */
+color: white;
+cursor: pointer;
+transition: background-color 0.3s;
+width: 100%; /* Full width */
+text-align: center;
+
+}
+
+.vote-button:hover {
+
+background-color: #d32f2f; /* Darker red */
+
+}
+
+.uppercase {
+
+text-transform: uppercase;
+font-size: 16px;
+text-align: center;
+color: #ac2127;
+
+}
+
+#result {
+    margin-top: 10px; /* Space above result text */
+    word-wrap: break-word; /* Allow long text to wrap */
+    overflow: hidden; /* Prevent overflow */
+    max-height: 50px; /* Limit height */
+    color: rgb(255, 255, 255); /* Text color */
+    text-align: center; /* Center align the text */
+    color: #ac2127;
+}
+
       .popup-nl {
         display: none;
         position: fixed;
@@ -3236,6 +3400,121 @@
 
 
     <script src="script.js"></script>
+
+
+     <!-- Poll Pop-up -->
+<div class="popups" id="pollPopup">
+  <div class="popups-content">
+
+      <h2 class="uppercase">How do you prefer to read?</h2>
+
+      <div id="pollOptions">
+          <button class="poll-button" data-value="E-books">E-books - I love the convenience of digital</button>
+          <button class="poll-button" data-value="Audiobooks">Audiobooks - I enjoy listening while multitasking</button>
+          <button class="poll-button" data-value="Physical Books">Physical Books - Nothing beats holding a book in my hands</button>
+
+          <!-- Additional buttons (hidden) -->
+          <button class="poll-button hidden" style="display: none;" data-value="Option4">Option4</button>
+          <button class="poll-button hidden" style="display: none;" data-value="Option5">Option5</button>
+
+      </div>
+
+      <button id="voteButton" class="vote-button">Vote</button>
+      <p id="result" style="text-align: center;"></p> <!-- Result display -->
+
+  </div>
+</div>
+
+<script>
+
+  // Show the newsletter popup immediately on page load
+  function displayNewsletterPopup() {
+      document.getElementById('popup-nl').style.display = 'flex'; // Show newsletter
+  }
+  displayNewsletterPopup(); // Call the function
+
+  // Check if the user has already voted in this session
+  const hasVoted = sessionStorage.getItem('hasVoted');
+
+  // Show the poll popup after a delay, only if the user hasn't voted
+  function checkAndDisplayPollPopup() {
+      const newsletterPopup = document.getElementById('popup-nl');
+      if (newsletterPopup.style.display !== 'flex' && !hasVoted) {
+          document.getElementById('pollPopup').style.display = 'flex'; // Show poll
+      }
+  }
+
+  // Set timeout for poll display
+  setTimeout(checkAndDisplayPollPopup, 10000);
+
+  // Manage user selections and votes
+  const pollButtons = document.querySelectorAll('.poll-button[data-value]');
+  let selectedValue = '';
+
+  // Handle clicks on poll buttons
+  pollButtons.forEach(button => {
+      button.addEventListener('click', function() {
+          pollButtons.forEach(btn => btn.classList.remove('selected')); // Clear previous selections
+          button.classList.add('selected'); // Highlight selected button
+          selectedValue = button.getAttribute('data-value'); // Store selected value
+      });
+  });
+
+  // Handle voting process
+  document.getElementById('voteButton').addEventListener('click', function() {
+      if (selectedValue) {
+          document.getElementById('result').innerHTML = `You voted for: ${selectedValue}<br>Thank you!`; // Show result
+          sessionStorage.setItem('hasVoted', 'true'); // Save voting status
+          setTimeout(() => {
+              document.getElementById('pollPopup').style.display = 'none'; // Hide poll
+          }, 2000);
+      } else {
+          alert("Please select an option!"); // Alert if no option is selected
+      }
+  });
+
+  // Close popups function
+  function closePopups() {
+      document.getElementById('popup-nl').style.display = 'none'; // Hide newsletter popup
+  }
+
+  // Attach close event to close buttons
+  document.querySelectorAll('.close-nl').forEach(btn => {
+      btn.addEventListener('click', closePopups);
+  });
+
+  // Function to log the voting action
+  function logVoteAction() {
+      console.log("User has voted for: " + selectedValue); // Log selected value
+  }
+
+  // Event listener for the vote button to log action
+  document.getElementById('voteButton').addEventListener('click', logVoteAction);
+
+  // Function to manage button focus for accessibility
+  function handleFocus(event) {
+      event.target.style.border = '2px solid #0058ff'; // Optional highlight effect
+  }
+
+  // Attach focus event for accessibility improvement
+  pollButtons.forEach(button => {
+      button.addEventListener('focus', handleFocus);
+  });
+
+  // Function to remove focus style
+  function handleBlur(event) {
+      event.target.style.border = ''; // Remove highlight effect
+  }
+
+  // Attach blur event for accessibility improvement
+  pollButtons.forEach(button => {
+      button.addEventListener('blur', handleBlur);
+  });
+
+  // Log when the script has loaded
+  console.log("Poll script initialized and ready!");
+
+</script>
 
     <script>
 
@@ -3549,7 +3828,7 @@
             </li>
             <li class="navbar-item">
               <a href="./assets/html/about.html" class="navbar-link" style="left: -30px;" data-nav-link><i
-                  class="ri-home-fill"></i>About Us</a>
+                  class="ri-home-fill"></i>About<br> Us</a>
             </li>
             <li class="navbar-item">
               <a href="./assets/html/author.html" class="navbar-link" style="left: -30px;" data-nav-link><i
@@ -3580,7 +3859,7 @@
 
             <li class="navbar-item">
               <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link"
-                style="left: -30px;">Rate Us</a>
+                style="left: -30px;">Rate<br>Us</a>
             </li>
             <li class="navbar-item" id="login-signup-link">
               <a href="./assets/html/event.html" class="navbar-link" style="left: -30px;">Events</a>
@@ -3588,9 +3867,13 @@
             <li class="navbar-item" id="login-signup-link">
               <a href="./assets/html/map.html" class="navbar-link" style="left: -30px;">Map</a>
             </li>
+            
+
             <li class="navbar-item" id="login-signup-link">
               <a href="./assets/html/login.html" class="navbar-link" style="left: -30px;">Login</a>
             </li>
+            
+            
             <li class="navbar-item" id="login-signup-link">
 
               <a href="comsp.html" class="navbar-link" style="left: -30px;">Community<br> Spotlight</a>
@@ -3643,22 +3926,7 @@
             }
           });
 
-          // let lastScrollTop = 0;
-          // const header = document.querySelector('.header');
-
-          // window.addEventListener('scroll', function() {
-          //     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-          //     if (scrollTop > lastScrollTop) {
-          //         // Downscroll
-          //         header.style.transform = 'translateY(-120%)';
-          //     } else {
-          //         // Upscroll
-          //         header.style.transform = 'translateY(0)';
-          //     }
-
-          //     lastScrollTop = scrollTop;
-          // });
+        
         </script>
 
         <div id="modal">
@@ -3719,21 +3987,7 @@
           // const head=document.querySelector('.header');
           // const nav=document.querySelector('.nav');
           // hamburger.addEventListener('click',()=>{
-          //   head.classList.toggle('nav-h');
-          //   nav.classList.toggle('vis-h');
-          // })
-          // let lastScrollTop = 0;
-          // function onScroll() {
-          //     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-          //     const header = document.querySelector('.header');
-
-          //     if (currentScroll > lastScrollTop) {
-          //         header.classList.add('hidden');
-          //     } else {
-          //         header.classList.remove('hidden');
-          //     }
-          //     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-          // }
+          
           const sections = document.querySelectorAll("section");
           const navLinks = document.querySelectorAll(".navbar-link");
 
@@ -4053,7 +4307,7 @@
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
                 </a> -->
 
-                    <a href="#" class="cta style-9">
+                    <a href="personalized-reading.html" class="cta style-9">
                       <span>Read More</span>
                       <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                         <path d="M1,5 L11,5"></path>
@@ -4762,6 +5016,7 @@
               </li>
 
               <li data-aos="slide-left">
+                <a href="horror.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">06</p>
@@ -4785,6 +5040,7 @@
                   </ul>
 
                 </div>
+              </a>
               </li>
 
               <li data-aos="slide-right">
@@ -5330,17 +5586,14 @@
             <button id="load-more" class="load-button">Load More</button>
             <button id="load-less" class="load-button" style="display: none;">Load Less</button>
         </div>
-        </div>
-        </section>
+       
         // <script src="loadmore.js"></script>
         <script src="./assets/js/loadmore.js" defer></script>
         <script>
           
           </script>
-        <!--
-        - #CHAPTERS
-      -->
-        <!-- Book Exchange Hub -->
+         <!--- #CHAPTERS-->
+         <!-- Book Exchange Hub -->
         <section class="section preview" aria-label="preview">
           <div class="container1">
             <h2 class="h2 section-title has-underline" style="margin-bottom: 0px;">
@@ -5356,18 +5609,18 @@
             <div class="exchange-form">
               <div class="form-fields">
                 <!-- Book Details -->
-                <label class="form-label" for="bookTitle">Book Title:</label>
+                <label class="form-label" for="bookTitle" style="color: #ff6f91;">Book Title:</label>
                 <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the title of your book" required
                   class="input-field">
                 <span id="bookTitle-error" class="error"></span>
 
-                <label class="form-label" for="bookAuthor">Author:</label>
+                <label class="form-label" for="bookAuthor" style="color: #ff6f91;">Author:</label>
                 <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter the author's name" required
                   class="input-field">
                 <span id="bookAuthor-error" class="error"></span>
 
                 <!-- Genre Selection -->
-                <label class="form-label" for="genre">Genre:</label>
+                <label class="form-label" for="genre"  style="color: #ff6f91;">Genre:</label>
                 <select id="genre" name="genre" class="input-field" required>
                   <option disabled selected value="">Select the genre</option>
                   <option value="fiction">Fiction</option>
@@ -5385,7 +5638,7 @@
                 </select>
 
                 <!-- Condition Selection -->
-                <label class="form-label" for="condition">Condition of the Book:</label>
+                <label class="form-label" for="condition"  style="color: #ff6f91;">Condition of the Book:</label>
                 <select id="condition" name="condition" class="input-field" required>
                   <option disabled selected value="">Select the condition</option>
                   <option value="relatively-new">Relatively New</option>
@@ -5394,12 +5647,12 @@
                 </select>
 
                 <!-- Pricing Information -->
-                <label class="form-label" for="actualPrice">Actual Price:</label>
+                <label class="form-label" for="actualPrice"  style="color: #ff6f91;">Actual Price:</label>
                 <input type="number" min="1" id="actualPrice" name="actualPrice" placeholder="Enter actual price"
                   required class="input-field">
                 <span id="actualPrice-error" class="error"></span>
 
-                <label class="form-label" for="discountRate">Discount Rate (%):</label>
+                <label class="form-label" for="discountRate"  style="color: #ff6f91;">Discount Rate (%):</label>
                 <input type="number" min="0" id="discountRate" name="discountRate" placeholder="Enter discount rate"
                   required class="input-field">
                 <span id="discountRate-error" class="error"></span>
@@ -5411,22 +5664,22 @@
                 <p id="predictedPrice" class="section-text" style="font-weight: bold; margin-top: 10px;">Predicted
                   Price: </p>
 
-                <!-- User Contact Information -->
-                <label class="form-label" for="userName">Your Name:</label>
+                <!-- User Contact Information --> 
+                <label class="form-label" for="userName"  style="color: #ff6f91;">Your Name:</label>
                 <input type="text" id="userName" name="userName" placeholder="Enter your name" required
                   class="input-field">
 
-                <label class="form-label" for="email">Email Address:</label>
+                <label class="form-label" for="email"  style="color: #ff6f91;">Email Address:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email address" required
                   class="input-field">
 
                 <!-- Additional Information -->
-                <label class="form-label" for="additionalInfo">Additional Information:</label>
+                <label class="form-label" for="additionalInfo"  style="color: #ff6f91;">Additional Information:</label>
                 <textarea id="additionalInfo" name="additionalInfo"
                   placeholder="Any additional details about the book..." class="input-field"></textarea>
 
                 <!-- Upload Image -->
-                <label class="form-label" for="bookImage">Upload Book Image:</label>
+                <label class="form-label" for="bookImage"  style="color: #ff6f91;">Upload Book Image:</label>
                 <input type="file" id="bookImage" name="bookImage" accept="image/*" class="input-field">
               </div>
 
@@ -5859,13 +6112,13 @@
 
 
         <!-- --Contact Us -->
-
+      
         <section class="section-contact" id="contact" aria-label="contact">
-          <h1 class="h1 section-title has-underline" style="margin-top: 15px;">
+          <h1 class="h1 section-title has-underline" style="margin-top: 15px; color: black;">
             Contact Us!
             <span class="span has-before"></span>
-          </h1>
-          <p class="p" style="color:#e7a7e8">Have a Question?</p>
+          </h1>        
+          <p class="p" style="color:purple">Have a Question?</p>
           <h3 style="text-align: center; color: #4f1316;">GET IN TOUCH</h3>
           <div class="flexi">
             <div class="contact">
@@ -5884,7 +6137,7 @@
 
                   <label for="message" class="label">Message</label>
                   <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-
+            
                   <button type="submit">Send Message</button>
                 </form>
             
@@ -7364,8 +7617,6 @@ open.classList.add('open')
     duration: 2000
   });
 </script>
-
-
 
 
   </body>
