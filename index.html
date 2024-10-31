@@ -5892,74 +5892,7 @@ color: #ac2127;
         </script>
 
 
-
-
         <div id="toastMessage" class="toast-message"></div>
-
-        <!-- Rate Us Section -->
-        <div id="rate-us">
-          <div class="heading">
-            <h3>Rate Us</h3>
-            <p>Tell us about your experience!</p>
-          </div>
-
-          <div class="stars">
-            <input type="radio" id="star5" name="rate" value="5">
-            <label for="star5" class="emoji-label">😭</label>
-            <input type="radio" id="star4" name="rate" value="4">
-            <label for="star4" class="emoji-label">😢</label>
-            <input type="radio" id="star3" name="rate" value="3">
-            <label for="star3" class="emoji-label">😐</label>
-            <input type="radio" id="star2" name="rate" value="2">
-            <label for="star2" class="emoji-label">😊</label>
-            <input type="radio" id="star1" name="rate" value="1">
-            <label for="star1" class="emoji-label">😍</label>
-          </div>
-
-          <div class="feedback-container">
-            <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
-          </div>
-
-          <div class="button">
-            <center><button id="submit-btn">Submit</button></center>
-          </div>
-        </div>
-        <script>
-          document.getElementById('submit-btn').addEventListener('click', async () => {
-            const rating = document.querySelector('input[name="rate"]:checked').value;
-            const feedback = document.getElementById('feedback').value;
-
-            // Set the backend URL based on the current environment
-            const backendURL = window.location.hostname === 'localhost'
-              ? 'http://localhost:4000'
-              : 'https://your-production-url.com'; // Replace with your production URL
-
-            const response = await fetch(`${backendURL}/rate`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({ rating, feedback })
-            });
-
-            const data = await response.json();
-            alert(data.message);
-          });
-        </script>
-        <div id="toastMessage" class="toast-message"></div>
-
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-
-
-
-            <!-- JavaScript for form submission -->
-            <script>
-              document.addEventListener("DOMContentLoaded", function() {
-
-
-
-      < !--rate us -->
 
 
               <!-- Rate Us Component -->
