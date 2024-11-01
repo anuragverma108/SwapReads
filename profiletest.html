@@ -95,7 +95,7 @@
                     <img src="./assets/images/avatar2.jpg" alt="Profile Image" class="profile-image" id="selectedAvatar">
                     <div class="profile-info">
                         <h3 class="profile-name" id="profileNameDisplay">John Doe</h3>
-                        <p class="profile-bio">A book Worm 😉</p>
+                        <p class="profile-bio" id="profileBioDisplay">A book Worm 😉</p>
                         <p class="profile-email"><i class="fas fa-envelope" id="profileEmailDisplay"></i></p>
                         <p class="profile-phone" id="profilePhoneDisplay"><i class="fas fa-phone"></i> +123 456 7890</p>
                         <p id="last-active"></p>
@@ -231,6 +231,8 @@
         const savedPhone = localStorage.getItem("profilePhone");
         const savedEmail = localStorage.getItem("profileEmail");
         const savedAvatar = localStorage.getItem("selectedAvatar");
+        const savedBio = localStorage.getItem("profileBio");
+
 
         if (savedName) {
             document.getElementById("profileNameDisplay").textContent = `${savedName}`;
@@ -255,6 +257,11 @@
         } else {
             document.getElementById("selectedAvatar").src = "/assets/images/avatar1.jpg";
 
+        }
+        if (savedBio) {
+            document.getElementById("profileBioDisplay").textContent = `${savedBio}`;
+        } else {
+            document.getElementById("profileBioDisplay").textContent = "Bio: Not provided";
         }
 
     });

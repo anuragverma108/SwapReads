@@ -348,6 +348,7 @@
                     oninput="this.setCustomValidity('')">
                 <input type="email" id="emailInput" placeholder="Enter Email" required>
                 <input type="tel" id="phoneInput" placeholder="Enter Phone" required>
+                <input type="text" id="bioInput" placeholder="Add Bio" maxlength = "150" required>
             </div>
             <button class="save-button" onclick="saveProfile()">Save Profile</button>
         </div>
@@ -419,6 +420,7 @@
             const newName = document.getElementById("nameInput").value.trim();
             const newEmail = document.getElementById("emailInput").value.trim();
             const newPhone = document.getElementById("phoneInput").value.trim();
+            const newBio = document.getElementById("bioInput").value.trim();
 
 
             // Check if all fields are valid before proceeding
@@ -427,6 +429,7 @@
                 nameInput.reportValidity();
                 emailInput.reportValidity();
                 phoneInput.reportValidity();
+                bioInput.reportValidity();
                 return;  // Stop function execution if invalid
             }
 
@@ -446,6 +449,9 @@
             }
             if (newPhone) {
                 localStorage.setItem("profilePhone", newPhone);
+            }
+            if (newBio) {
+                localStorage.setItem("profileBio", newBio);
             }
 
             window.location.href = "../../index.html";
@@ -480,6 +486,7 @@
             const savedName = localStorage.getItem("profileName");
             const savedEmail = localStorage.getItem("profileEmail");
             const savedPhone = localStorage.getItem("profilePhone");
+            const savedBio = localStorage.getItem("profileBio");
 
             if (savedName) {
                 document.getElementById("nameInput").value = savedName;
@@ -489,6 +496,9 @@
             }
             if (savedPhone) {
                 document.getElementById("phoneInput").value = savedPhone;
+            }
+            if (savedBio) {
+                document.getElementById("bioInput").value = savedBio;
             }
 
             // a JavaScript function to handle input validation
