@@ -20,12 +20,12 @@
 
         header {
             width: 100%;
-            background: white;
+            background:white;
             padding: 0.5em 0;
             display: flex;
             align-items: center;
         }
-
+       
 
         nav ul {
             list-style: none;
@@ -34,7 +34,7 @@
             display: flex;
             align-items: center;
             gap: 45px;
-
+            
         }
 
         nav ul li {
@@ -59,7 +59,7 @@
             bottom: 0;
             width: 100%;
             height: 3px;
-            background-color: #fcb0b480;
+             background-color: #fcb0b480; 
             transform: scaleX(0);
             transform-origin: right;
             transition: transform 0.6s ease;
@@ -204,613 +204,261 @@
             border-style: solid;
             border-color: #000 transparent transparent transparent;
         }
-
         /* Styles for devices with a width of 600px or less */
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-                flex-direction: column;
-            }
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+        flex-direction: column;
+    }
 
-            header {
-                flex-direction: column;
-                padding: 1em;
-            }
+    header {
+        flex-direction: column;
+        padding: 1em;
+    }
 
-            .logopic {
-                margin-left: 0;
-                width: 10rem;
-            }
+    .logopic {
+        margin-left: 0;
+        width: 10rem;
+    }
 
-            nav ul {
-                flex-direction: column;
-                margin-left: 0;
-                gap: 20px;
-            }
+    nav ul {
+        flex-direction: column;
+        margin-left: 0;
+        gap: 20px;
+    }
 
-            nav ul li a {
-                font-size: 16px;
-                padding-left: 0;
-                padding-right: 0;
-            }
+    nav ul li a {
+        font-size: 16px;
+        padding-left: 0;
+        padding-right: 0;
+    }
 
-            main {
-                max-width: 100%;
-                padding: 1em;
-            }
+    main {
+        max-width: 100%;
+        padding: 1em;
+    }
 
-            .calendar-header {
-                flex-direction: column;
-                gap: 10px;
-            }
+    .calendar-header {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-            .row {
-                justify-content: space-between;
-            }
+    .row {
+        justify-content: space-between;
+    }
 
-            .day {
-                width: 40px;
-                height: 40px;
-            }
+    .day {
+        width: 40px;
+        height: 40px;
+    }
 
-            .footer {
-                font-size: 0.7em;
-                padding: 20px;
-            }
-        }
+    .footer {
+        font-size: 0.7em;
+        padding: 20px;
+    }
+}
 
-        /* Styles for tablets and devices up to 1024px */
-        @media (max-width: 1024px) {
-            nav ul {
-                gap: 20px;
-                margin-left: 50px;
-            }
+/* Styles for tablets and devices up to 1024px */
+@media (max-width: 1024px) {
+    nav ul {
+        gap: 20px;
+        margin-left: 50px;
+    }
 
-            .logopic {
-                width: 12rem;
-            }
+    .logopic {
+        width: 12rem;
+    }
 
-            .calendar-header {
-                flex-direction: row;
-            }
+    .calendar-header {
+        flex-direction: row;
+    }
 
-            .day {
-                width: 45px;
-                height: 45px;
-            }
-        }
+    .day {
+        width: 45px;
+        height: 45px;
+    }
+}
+/* Hamburger menu for small screens */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+}
 
-        /* Hamburger menu for small screens */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            margin-right: 20px;
-        }
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px;
+}
 
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: #000;
-            margin: 5px;
-        }
+@media (max-width: 600px) {
+    .hamburger {
+        display: flex;
+    }
 
-        @media (max-width: 600px) {
-            .hamburger {
-                display: flex;
-            }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
 
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-        }
-
-        /* .logopic {
+    nav ul.active {
+        display: flex;
+    }
+}
+/* .logopic {
     width: 100%;
     max-width: 15rem; /* Maximum width for larger screens */
-        /* height: auto; */
-        */
+    /* height: auto; */
+ */
+
+
+
     </style>
 </head>
 
 <body>
-
+    
 
 
     <style>
+
         /* Circle styles */
         .circle {
-            height: 24px;
-            width: 24px;
-            border-radius: 50%;
-            background-color: black;
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 99999999;
-            transition: transform 0.1s ease-out;
+          height: 24px;
+          width: 24px;
+          border-radius: 50%;
+          background-color: black;
+          position: fixed;
+          top: 0;
+          left: 0;
+          pointer-events: none;
+          z-index: 99999999;
+          transition: transform 0.1s ease-out;
         }
-    </style>
-    </head>
-
-
-    <body>
-
-        <!-- Circles -->
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <header>
-            <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-                <img src="../images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
-            </a>
-            <div class="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <nav>
-                <ul class="navbar-list">
-                    <li class="navbar-item">
-                        <a href="../../index.html" class="navbar-link">
-                            <lord-icon src="https://cdn.lordicon.com/qeltvbrs.json" trigger="hover"
-                                colors="primary:#e88c30,secondary:#a30f17" style="width: 25px; height: 25px">
-                            </lord-icon>Home</a>
-                    </li>
-                    <li class="navbar-item">
-                        <a href="../../books.html" class="navbar-link">
-                            <lord-icon src="https://cdn.lordicon.com/bhmovrlt.json" trigger="hover" state="morph-open"
-                                colors="primary:#a30f17,secondary:#e88c30" style="width: 25px; height: 25px">
-                            </lord-icon>Books</a>
-                    </li>
-                    <li class="navbar-item">
-                        <a href="../.././index.html#genre" class="navbar-link">
-                            <script src="https://cdn.lordicon.com/lordicon.js"></script>
-                            <lord-icon src="https://cdn.lordicon.com/lcvlsnre.json" trigger="hover"
-                                colors="primary:#a30f17,secondary:#e88c30" style="width: 25px; height: 25px">
-                            </lord-icon>Genres
-                        </a>
-                    </li>
-                    <li class="navbar-item">
-                        <a href="../.././assets/html/about.html" class="navbar-link">
-                            <lord-icon src="https://cdn.lordicon.com/fozsorqm.json" trigger="hover" stroke="bold"
-                                state="hover-up" colors="primary:#a30f17,secondary:#e88c30"
-                                style="width: 30px; height: 25px">
-                            </lord-icon>About</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <section id="event-calendar">
-                <h2>Upcoming Event Calendar</h2>
-                <div class="calendar-header">
-                    <button id="prevMonth">‹</button>
-                    <h3 id="monthAndYear"></h3>
-                    <button id="nextMonth">›</button>
-                </div>
-                <div id="calendar-days">
-                    <!-- Calendar days will be dynamically generated here -->
-                </div>
-            </section>
-        </main>
-
-
-        <style>
-            .contactinfo {
-                display: flex;
-                /* Enable Flexbox */
-                justify-content: space-between;
-                /* Evenly space components */
-                align-items: center;
-                /* Center items vertically */
-
-                /* Add padding inside the footer */
-                background-color: #333;
-                /* Footer background color */
-                color: #4E6273;
-                /* Text color */
-                height: 248px;
-            }
-
-            .c1 {
-                flex: 1;
-                /* Each component takes equal space */
-                padding: 10px;
-                /* Padding around the content */
-                text-align: center;
-                /* Center text inside each component */
-                height: 259px;
-                background-color: #FF9B9B;
-
-
-            }
-
-            .SwapReads {
-                margin-top: 22px;
-
-            }
-
-
-            .quick-links {
-                list-style-type: none;
-                /* Remove default list styling */
-                padding: 10px;
-                /* Remove padding */
-                margin: 21;
-                /* Remove margin */
-                color: #4E6273;
-            }
-
-            .quick-links li {
-                margin: 5px 0;
-                /* Spacing between list items */
-                text-align: left;
-            }
-
-            .quick-links a,
-            li {
-                color: rgb(84, 75, 75);
-                /* Link color */
-                text-decoration: none;
-                /* Remove underline from links */
-                transition: color 0.3s;
-                /* Smooth transition for color change */
-            }
-
-            .quick-links a:hover {
-                color: #f0c674;
-                /* Change link color on hover */
-            }
-
-            .newsletter-input {
-                width: 80%;
-                /* Width of the input field */
-                padding: 10px;
-                /* Padding inside the input field */
-                margin: 10px 0;
-                /* Margin above and below the input field */
-                border: none;
-                /* Remove border */
-                border-radius: 5px;
-                /* Rounded corners */
-                font-size: 16px;
-                /* Font size */
-            }
-
-            .subscribe-button {
-                padding: 10px 15px;
-                /* Padding for the button */
-                border: none;
-                /* Remove border */
-                border-radius: 5px;
-                /* Rounded corners */
-                background-color: #da2a16;
-                /* Button background color */
-                color: #e6d8d8;
-                /* Button text color */
-                cursor: pointer;
-                /* Pointer cursor on hover */
-                transition: background-color 0.3s;
-                /* Smooth transition for hover effect */
-                padding: 7px 129px;
-                /* Increase padding for a larger button */
-                font-size: 20px;
-                /* Increase font size */
-                border-radius: 5px;
-                /* Optional: make the corners slightly rounded */
-
-            }
-
-            .subscribe-button:hover {
-                background-color: #e31919;
-                /* Darker shade on hover */
-            }
-
-
-
-
-            .footer {
-                border-top: 1px solid rgb(46, 30, 30) !important
-            }
-        </style>
-
-        <div class="contactinfo">
-            <div class="c1">
-                <div class="SwapReads"><a href="#" class="logo" style="margin: 0px 40px"><b>SwapReads</b></a></div>
-                <div>
-                    <p style="text-align: left; " class="description">
-                    <h4>
-
-                        SwapReads.com is the ultimate destination for
-                        book
-                        lovers
-                        seeking to swap and
-
-                        discover new literary gems.
-                        Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new
-                        adventures in
-                        the
-                        world of literature—all on one convenient platform. Join us and dive into a universe of endless
-                        possibilities!
-                    </h4>
-                    </p>
-                </div>
-            </div>
-            <style>
-                .foot-middle {
-                    color: rgb(217, 10, 10);
-                    padding: 20px;
-                }
-
-                #quicklinks {
-                    display: flex;
-                    justify-content: space-between;
-                }
-
-                .col-md-6 {
-                    flex: 1;
-                    /* Distribute space evenly between columns */
-                    padding: 0px;
-                    margin-top: -19px;
-                }
-
-                ul {
-                    list-style: none;
-                    padding: 0;
-                }
-
-                li {
-                    margin-bottom: 10px;
-                }
-
-                .foot-quick a {
-                    display: flex;
-                    align-items: center;
-                    text-decoration: none;
-                    color: rgb(153, 22, 22);
-                }
-
-                .foot-quick i {
-                    margin-right: 8px;
-                    /* Space between icon and text */
-                }
-
-                .flinks {
-                    margin: 0;
-                }
-
-                .icons {
-                    margin-top: 33px;
-                    margin-left: -210px;
-                }
-
-                .icon {
-                    margin: 10px;
-                    /* Adjust the value as needed for spacing */
-                   
-
-                }
-            </style>
-            <div class="c1">
-                <div class="foot-middle">
-                    <h2>Quick Links</h2>
-                    <div id="quicklinks" class="row">
-                        <div class="col-md-6">
-                            <ul>
-                                <li class="foot-quick" style="color: white;"><a href="/index.html#home"
-                                        onclick="lenis.scrollTo('#home')"><i class="fas fa-home"></i>
-                                        <p class="flinks">Home</p>
-                                    </a></li>
-                                <li class="foot-quick"><a href="/index.html#benefits"
-                                        onclick="lenis.scrollTo('#benefits')"><i class="fas fa-book"></i>
-                                        <p class="flinks">Benefits</p>
-                                    </a></li>
-                                <li class="foot-quick"><a href="/index.html#chapters"
-                                        onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i>
-                                        <p class="flinks">Literary</p>
-                                    </a></li>
-                                <li class="foot-quick"><a href="/index.html#pricing"
-                                        onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i>
-                                        <p class="flinks">Pricing</p>
-                                    </a></li>
-                                <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
-                                        onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i>
-                                        <p class="flinks">Recommend</p>
-                                    </a></li>
-                            </ul>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul>
-                                <li class="foot-quick"><a href="/assets/html/booklistswap.html"
-                                        onclick="lenis.scrollTo('#contact')"><i class="fas fa-exchange-alt"></i>
-                                        <p class="flinks">Swap</p>
-                                    </a></li>
-                                <li class="foot-quick"><a href="/assets/html/freeBooks.html"
-                                        onclick="lenis.scrollTo('#contact')"><i class="fas fa-file-pdf"></i>
-                                        <p class="flinks">E-Book</p>
-                                    </a></li>
-                                <li class="foot-quick"><a href="/assets/html/about.html"
-                                        onclick="lenis.scrollTo('#contact')"><i class="fas fa-info-circle"></i>
-                                        <p class="flinks">About</p>
-                                    </a></li>
-                                <li class="foot-quick"><a href="/index.html#contact"
-                                        onclick="lenis.scrollTo('#contact')"><i class="fas fa-envelope"></i>
-                                        <p class="flinks">Contact</p>
-                                    </a></li>
-                                <li class="foot-quick"><a href="/index.html#faqq" onclick="lenis.scrollTo('#faqq')"><i
-                                            class="fas fa-question-circle"></i>
-                                        <p class="flinks">FAQ</p>
-                                    </a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="c1">
-                <h2>Subscribe to Our Newsletter</h2>
-                <input type="email" placeholder="Enter your email" class="newsletter-input" />
-                <button class="subscribe-button">Subscribe</button>
-            </div>
-            <div class="c1">
-
-                <div class="icons">
-                    <a href="https://www.discord.com/" target="_blank">
-                        <div class="icon">
-                            <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
-                        </div>
-                    </a>
-
-
-
-                    <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
-                        <div class="icon">
-                            <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
-                        </div>
-                    </a>
-
-
-
-                    <a href="https://www.facebook.com/" target="_blank">
-                        <div class="icon">
-                            <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
-                        </div>
-                    </a>
-
-
-
-                    <a href="https://x.com/anuragverma_108" target="_blank">
-                        <div class="icon">
-                            <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
-                        </div>
-                    </a>
-
-
-
-                    <a href="https://www.instagram.com/">
-                        <div class="icon" id="insta-icon">
-                            <i class="fab fa-instagram" title="Instagram" style="cursor: pointer;"></i>
-                        </div>
-                    </a>
-
-
-
-
-                    <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
-                        <div class="icon">
-                            <i class="fab fa-youtube" style="cursor: pointer;"></i>
-                        </div>
-                    </a>
-
-
-
-                    <a href="https://github.com/anuragverma108">
-                        <div class="icon">
-                            <i class="fab fa-github" title="Github"></i>
-                        </div>
-                    </a>
-
-
-                </div>
-            </div>
+      </style>
+      </head>
+  
+  
+      <body>
+  
+          <!-- Circles -->
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div> 
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+    <header>
+        <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+            <img src="../images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
+          </a>
+          <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-
-        </div>
-
-        </div>
-        <footer>
-
-            <div class="footer" style="background-color: #FF9B9B;">
-                SwapReads Copyright © 2024 SwapReads - All rights reserved || Designed By: pranjal
+        <nav>
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                  <a href="../../index.html" class="navbar-link">
+                    <lord-icon
+                      src="https://cdn.lordicon.com/qeltvbrs.json"
+                      trigger="hover"
+                      colors="primary:#e88c30,secondary:#a30f17"
+                      style="width: 25px; height: 25px">
+                    </lord-icon>Home</a>
+                </li>
+                <li class="navbar-item">
+                  <a href="../../books.html" class="navbar-link">
+                    <lord-icon
+                      src="https://cdn.lordicon.com/bhmovrlt.json"
+                      trigger="hover"
+                      state="morph-open"
+                      colors="primary:#a30f17,secondary:#e88c30"
+                      style="width: 25px; height: 25px">
+                    </lord-icon>Books</a>
+                </li>
+                <li class="navbar-item">
+                  <a href="../.././index.html#genre" class="navbar-link">
+                    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                    <lord-icon
+                      src="https://cdn.lordicon.com/lcvlsnre.json"
+                      trigger="hover"
+                      colors="primary:#a30f17,secondary:#e88c30"
+                      style="width: 25px; height: 25px">
+                    </lord-icon>Genres</a>
+                </li>
+                <li class="navbar-item">
+                  <a href="../.././assets/html/about.html" class="navbar-link">
+                    <lord-icon
+                      src="https://cdn.lordicon.com/fozsorqm.json"
+                      trigger="hover"
+                      stroke="bold"
+                      state="hover-up"
+                      colors="primary:#a30f17,secondary:#e88c30"
+                      style="width: 30px; height: 25px">
+                    </lord-icon>About</a>
+                </li>
+              </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="event-calendar">
+            <h2>Upcoming Event Calendar</h2>
+            <div class="calendar-header">
+                <button id="prevMonth">‹</button>
+                <h3 id="monthAndYear"></h3>
+                <button id="nextMonth">›</button>
             </div>
+            <div id="calendar-days">
+                <!-- Calendar days will be dynamically generated here -->
+            </div>
+        </section>
+    </main>
 
-        </footer>
-
-        <script>
-
-
-            const eventCalendar = {
-                events: [
-                    { date: '2024-10-07', title: 'Book Club Meeting' },
-                    { date: '2024-10-14', title: 'Author Talk: John Doe' },
-                    { date: '2024-10-21', title: 'Children’s Story Hour' },
-                    { date: '2024-10-28', title: 'Poetry Reading' },
-                ],
-
-                monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-                today: new Date(),
-                currentMonth: new Date().getMonth(),
-                currentYear: new Date().getFullYear(),
-            };
-
-            function generateCalendar(month, year) {
-                const firstDay = (new Date(year, month)).getDay();
-                const daysInMonth = 32 - new Date(year, month, 32).getDate();
-
-                const calendarDays = document.getElementById('calendar-days');
-                calendarDays.innerHTML = '';
-
-                let date = 1;
-                for (let i = 0; i < 6; i++) {
-                    let row = document.createElement('div');
-                    row.classList.add('row');
-
-                    for (let j = 0; j < 7; j++) {
-                        if (i === 0 && j < firstDay) {
-                            let cell = document.createElement('div');
-                            cell.classList.add('day');
-                            row.appendChild(cell);
-                        } else if (date > daysInMonth) {
-                            break;
-=======
+    <footer>
+        <div class="footer">
+            SwapReads Copyright © 2024 SwapReads - All rights reserved || Designed By: pranjal
+        </div>
     </footer>
 
     <div>
@@ -1029,119 +677,103 @@
                                 const googleCalendarUrl = generateGoogleCalendarLink(event.title, eventDate);
                                 cell.innerHTML = `<a href="${googleCalendarUrl}" target="_blank" title="Add to Google Calendar">${date}</a><div class="tooltip">Add to Google Calendar</div>`;
                             }
-
                         } else {
-                            let cell = document.createElement('div');
-                            cell.classList.add('day');
-                            cell.textContent = date;
-
-                            const eventDate = new Date(year, month, date);
-                            let formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
-                            let event = eventCalendar.events.find(event => event.date === formattedDate);
-
-                            if (eventDate >= eventCalendar.today) {
-                                if (event) {
-                                    cell.classList.add('event');
-                                    const googleCalendarUrl = generateGoogleCalendarLink(event.title, eventDate);
-                                    cell.innerHTML = `<a href="${googleCalendarUrl}" target="_blank" title="Add to Google Calendar">${date}</a><div class="tooltip">Add to Google Calendar</div>`;
-                                }
-                            } else {
-                                cell.classList.add('past');
-                            }
-
-                            row.appendChild(cell);
-                            date++;
+                            cell.classList.add('past');
                         }
-                    }
 
-                    calendarDays.appendChild(row);
+                        row.appendChild(cell);
+                        date++;
+                    }
                 }
 
-                document.getElementById('monthAndYear').textContent = `${eventCalendar.monthNames[month]} ${year}`;
+                calendarDays.appendChild(row);
             }
 
-            function generateGoogleCalendarLink(eventTitle, eventDate) {
-                const baseUrl = 'https://www.google.com/calendar/render?action=TEMPLATE';
-                const startDate = eventDate.toISOString().replace(/-|:|\.\d+/g, '');
-                return `${baseUrl}&text=${encodeURIComponent(eventTitle)}&dates=${startDate}/${startDate}`;
-            }
+            document.getElementById('monthAndYear').textContent = `${eventCalendar.monthNames[month]} ${year}`;
+        }
 
-            document.getElementById('prevMonth').addEventListener('click', () => {
-                eventCalendar.currentMonth = (eventCalendar.currentMonth === 0) ? 11 : eventCalendar.currentMonth - 1;
-                eventCalendar.currentYear = (eventCalendar.currentMonth === 11) ? eventCalendar.currentYear - 1 : eventCalendar.currentYear;
-                generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-            });
+        function generateGoogleCalendarLink(eventTitle, eventDate) {
+            const baseUrl = 'https://www.google.com/calendar/render?action=TEMPLATE';
+            const startDate = eventDate.toISOString().replace(/-|:|\.\d+/g, '');
+            return `${baseUrl}&text=${encodeURIComponent(eventTitle)}&dates=${startDate}/${startDate}`;
+        }
 
-            document.getElementById('nextMonth').addEventListener('click', () => {
-                eventCalendar.currentMonth = (eventCalendar.currentMonth === 11) ? 0 : eventCalendar.currentMonth + 1;
-                eventCalendar.currentYear = (eventCalendar.currentMonth === 0) ? eventCalendar.currentYear + 1 : eventCalendar.currentYear;
-                generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-            });
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('nav ul');
-
-            hamburger.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
+        document.getElementById('prevMonth').addEventListener('click', () => {
+            eventCalendar.currentMonth = (eventCalendar.currentMonth === 0) ? 11 : eventCalendar.currentMonth - 1;
+            eventCalendar.currentYear = (eventCalendar.currentMonth === 11) ? eventCalendar.currentYear - 1 : eventCalendar.currentYear;
             generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-        </script>
+        });
 
-        <script>
+        document.getElementById('nextMonth').addEventListener('click', () => {
+            eventCalendar.currentMonth = (eventCalendar.currentMonth === 11) ? 0 : eventCalendar.currentMonth + 1;
+            eventCalendar.currentYear = (eventCalendar.currentMonth === 0) ? eventCalendar.currentYear + 1 : eventCalendar.currentYear;
+            generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
+        });
+        const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('nav ul');
 
-            // Coordinates for the cursor
-            const coords = { x: 0, y: 0 };
-            const circles = document.querySelectorAll(".circle");
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+        generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
+    </script>
 
-            // Colors for the circles
-            const colors = [
-                "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
-                "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
-                "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
-                "#680060", "#60005f", "#48005f", "#3d005e"
-            ];
+<script>
 
-            // Assign colors and initial position to each circle
-            circles.forEach(function (circle, index) {
-                circle.x = 0;
-                circle.y = 0;
-                circle.style.backgroundColor = colors[index % colors.length];
-            });
-
-            // Update the coordinates when the mouse moves
-            window.addEventListener("mousemove", function (e) {
-                coords.x = e.clientX;
-                coords.y = e.clientY;
-            });
-
-            // Animation function to move the circles
-            function animateCircles() {
-                let x = coords.x;
-                let y = coords.y;
-
-                circles.forEach(function (circle, index) {
-                    // Update the position and scale of each circle
-                    circle.style.left = x - 12 + "px";
-                    circle.style.top = y - 12 + "px";
-                    circle.style.scale = (circles.length - index) / circles.length;
-
-                    circle.x = x;
-                    circle.y = y;
-
-                    // Get the next circle in the sequence
-                    const nextCircle = circles[index + 1] || circles[0];
-                    x += (nextCircle.x - x) * 0.15;
-                    y += (nextCircle.y - y) * 0.15;
-                });
-
-                // Repeat the animation
-                requestAnimationFrame(animateCircles);
-            }
-
-            // Start the animation
-            animateCircles();
-
-        </script>
-
-    </body>
+    // Coordinates for the cursor
+    const coords = { x: 0, y: 0 };
+    const circles = document.querySelectorAll(".circle");
+  
+    // Colors for the circles
+    const colors = [
+      "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+      "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+      "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+      "#680060", "#60005f", "#48005f", "#3d005e"
+    ];
+  
+    // Assign colors and initial position to each circle
+    circles.forEach(function (circle, index) {
+      circle.x = 0;
+      circle.y = 0;
+      circle.style.backgroundColor = colors[index % colors.length];
+    });
+  
+    // Update the coordinates when the mouse moves
+    window.addEventListener("mousemove", function (e) {
+      coords.x = e.clientX;
+      coords.y = e.clientY;
+    });
+  
+    // Animation function to move the circles
+    function animateCircles() {
+      let x = coords.x;
+      let y = coords.y;
+  
+      circles.forEach(function (circle, index) {
+        // Update the position and scale of each circle
+        circle.style.left = x - 12 + "px";
+        circle.style.top = y - 12 + "px";
+        circle.style.scale = (circles.length - index) / circles.length;
+  
+        circle.x = x;
+        circle.y = y;
+  
+        // Get the next circle in the sequence
+        const nextCircle = circles[index + 1] || circles[0];
+        x += (nextCircle.x - x) * 0.15;
+        y += (nextCircle.y - y) * 0.15;
+      });
+  
+      // Repeat the animation
+      requestAnimationFrame(animateCircles);
+    }
+  
+    // Start the animation
+    animateCircles();
+  
+  </script>
+  
+</body>
 
 </html>
