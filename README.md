@@ -65,6 +65,8 @@
 ├── LICENSE
 ├── Mystical-fantaies.html
 ├── README.md
+├── address.css
+├── address.html
 ├── assets/
 │   ├── GSSoC-Ext.png
 │   ├── JSON/
@@ -445,6 +447,7 @@
 ├── logout.css
 ├── logout.js
 ├── lol.html
+├── map.jpg
 ├── mindful-living.html
 ├── modals(privacy policy).css
 ├── models/
