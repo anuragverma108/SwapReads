@@ -10,7 +10,6 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
   <link rel="manifest" href="./assets/favicon_package_v0.16/site.webmanifest">
   <link rel="mask-icon" href="./assets/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,55 +58,412 @@
 
 <!-- Custom CSS -->
 <link rel="stylesheet" href="assets/css/test-style.css">
-<style>
-  .menu {
-    display: none;
-    position: absolute;
-    top: 80px; 
-    right: 0;
-    background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    width: 200px; 
-    z-index: 1000;
-    margin-right:200px;
-  }
-  
-  .menu.active {
-    display: block;
-  }
-  
-  .menu h3 {
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .menu ul {
-    list-style: none;
-    padding: 10px 0;
-  }
-  
-  .menu ul li {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .menu ul li img {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-  }
-  .profile img {
-    width: 50px; 
-    height: 50px; 
-    border-radius: 50%; 
-    object-fit: cover;
-    border: 2px solid #fff; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
-  }
 
-  .book-item {
+<body>
+
+<style>
+  .action {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+}
+
+.action .profile {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.action .profile img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.action .menu {
+  position: absolute;
+  top: 120px;
+  right: -10px;
+  padding: 10px 20px;
+  background: #fff;
+  width: 200px;
+  box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  transition: 0.5s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.action .menu.active {
+  top: 80px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.action .menu::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 28px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.action .menu h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px 0;
+  font-weight: 500;
+  color: #555;
+  line-height: 1.5em;
+}
+
+.action .menu h3 span {
+  font-size: 14px;
+  color: #cecece;
+  font-weight: 300;
+}
+
+.action .menu ul li {
+  list-style: none;
+  padding: 16px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+}
+
+.action .menu ul li img {
+  max-width: 20px;
+  margin-right: 10px;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.action .menu ul li:hover img {
+  opacity: 1;
+}
+
+.action .menu ul li a {
+  display: inline-flex;
+  text-align: center;
+  padding-left: 5%;
+  font-weight: 300;
+  font-size: 19px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.action .menu ul li:hover a {
+  color: #ff5d94;
+  font-size: 21px;
+
+}
+.hamburger{
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 24px;
+    left: 1.5%;
+}
+.line{
+    width: 36px;
+    height: 5px;
+    margin: 4px 4px;
+    background-color: rgb(240, 15, 15);
+}
+@media only screen and (max-width:1063px){
+    .nav{
+        flex-direction: column;
+    }
+    .header{
+        flex-direction: column;
+        height: 53.8rem;
+        transition: 0.55s all ease-out;
+        padding-top: 5px;
+    }
+    .navbar-item{
+        margin-right: 40px;
+    }
+    .navbar-list{
+      position: relative;
+      top: 200px;
+    }
+    .hamburger{
+        display: block;
+    }
+    .nav-h{
+        height: 78px;
+        width: 100vw;
+    }
+    .vis-h{
+        opacity: 0;
+    }
+    .logo img{
+      position: relative;
+      top: 17px;
+      left: 350px;
+    }
+}
+@media only screen and (max-width:990px){
+  .header{
+    height: 0;
+  }
+  .navbar-list{
+    top: 0;
+  }
+  .logo img{
+    top: -9px;
+    left: 50px;
+  }
+}
+.navbar-item {
+  margin-top: 10px; /* Increase the top margin of each item */
+}
+</style>
+<header class="header header-anim nav-h" data-header>
+
+  <div class="container mobile-container-styles" style="padding-left: 0;">
+
+    <nav class="navbar nav_activated" data-navbar>
+
+
+      <ul class="navbar-list nav">
+        <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+          <img src="./assets/images/final.png" class="logopic" style=" width: 150px;">
+        </a>
+        <li class="navbar-item">
+          <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
+              class="ri-home-fill"></i> Home</a>
+        </li>
+       
+            
+        <li class="navbar-item">
+          <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
+              class="ri-bar-chart-fill"></i> Benefits</a>
+        </li>
+
+        <li class="navbar-item">
+          <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+              class="ri-bar-chart-fill"></i> Genre</a>
+        </li>
+        <li class="navbar-item">
+          <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+         
+
+        <li class="navbar-item">
+          <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
+              class="ri-customer-service-2-fill"></i> Contact</a>
+          </li>
+          <li class="navbar-item">
+            <a href="../../index.html#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
+                <i class="ri-questionnaire-fill"></i> FAQ
+            </a>
+        </li>
+        <li class="navbar-item">
+          <a href="../html/about.html"  class="navbar-link" data-nav-link><i
+              class="ri-home-fill"></i> About Us </a>
+        </li>
+
+      
+        <li class="navbar-item" id="login-signup-link">
+          <a href="../html/login.html" class="navbar-link">Login/Signup</a>
+        </li>
+        
+        
+        <li class="navbar-item dropdown" id="more-dropdown">
+          <a href="#" class="navbar-link" id="more-link">More
+            <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
+              viewBox="0 0 24 24">
+              <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
+            </svg></a>
+          <div class="dropdown-menu" id="dropdown-menu">
+
+            <ul class="dropdown-menu-list">
+              <li>
+                <a href="chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                  Community chat
+              </a>
+              </li>
+              
+              <li class="dropdown-menu-item">
+                <a href="../html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
+                    class="ri-price-tag-3-fill"></i> Pricing</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="../html/booklistswap.html" class="navbar-link">Booklist for Swapping</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="../html/book_recommend.html" class="navbar-link" data-nav-link>
+                  <i class="ri-customer-service-2-fill"></i> Book Recommendation
+                </a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="../html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
+                  data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="../html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href=".../html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="../html/about.html" class="navbar-link">About</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+        <div class="action">
+          <div class="profile" style="top:-3.3rem;" onclick="menuToggle();">
+            <img id="profile-avatar" src="assets/images/avatar1.jpg" />
+          </div>
+          <div class="menu">
+            <h3>XYZ<br /><span>Book Lover</span></h3>
+            <ul>
+              <li>
+                <img src="assets/images/user.jpg" /><a href="../../profile.html">My profile</a>
+              </li>
+              <li>
+                <img src="assets/images/edit profile.jpg" /><a href="../html/profileedit.html">Edit profile</a>
+              </li>
+              <li>
+                <img src="assets/images/inbox.png" /><a href="#">Inbox</a>
+              </li>
+              <li>
+                <img src="assets/images/settings.png" /><a href="#">Settings</a>
+              </li>
+              <li><img src="assets/images/help.png" /><a href="#">Help</a></li>
+              <li>
+                <img src="assets/images/logout.png" /><a href="#">Logout</a>
+              </li>
+            </ul>
+          </li>
+            </div>
+          </ul>
+            </div>
+            <script>
+             document.addEventListener("DOMContentLoaded", () => {
+  const savedAvatar = localStorage.getItem("selectedAvatar");
+  if (savedAvatar) {
+      document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+  }
+});
+
+      
+              function menuToggle() {
+                  const toggleMenu = document.querySelector(".menu");
+                  toggleMenu.classList.toggle("active");
+              }
+          </script>
+       
+      </ul>
+     
+    </nav>
+    <div id="mobile_View_Menu">
+      <span id="menu_lines"></span>
+     </div>
+  <script>
+      let menu=document.getElementById('mobile_View_Menu')
+      let navbar_con=document.querySelector('.navbar')
+      menu.addEventListener('click',()=>{
+        if(menu.classList.contains('open_menu')){
+          menu.classList.remove('open_menu')
+          navbar_con.classList.add('nav_activated')
+        }
+        else{
+          menu.classList.add('open_menu')
+          navbar_con.classList.remove('nav_activated')
+        }
+      })
+    </script>
+  <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+  <script>
+    function loadGoogleTranslate() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en'
+      }, 'google_element');
+    }
+  </script>
+  <script>
+    // const hamburger=document.querySelector('.hamburger');
+    // const head=document.querySelector('.header');
+    // const nav=document.querySelector('.nav');
+    // hamburger.addEventListener('click',()=>{
+    //   head.classList.toggle('nav-h');
+    //   nav.classList.toggle('vis-h');
+    // })
+    // let lastScrollTop = 0;
+    // function onScroll() {
+    //     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    //     const header = document.querySelector('.header');
+
+    //     if (currentScroll > lastScrollTop) {
+    //         header.classList.add('hidden');
+    //     } else {
+    //         header.classList.remove('hidden');
+    //     }
+    //     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+    // }
+
+
+window.addEventListener("scroll", onScroll);
+</script>
+
+
+
+    <div class="switch-container" style="top: 15px;">
+      <input type="checkbox" id="switch" class="switch-checkbox">
+      <label for="switch" class="switch-label">
+        <div class="switch-button">
+          <span class="material-icons sun-icon">wb_sunny</span>
+          <span class="material-icons moon-icon">brightness_2</span>
+        </div>
+      </label>
+    </div>
+  </div>
+
+
+
+  </div>
+</header>
+
+
+
+  <main>
+
+
+
+<style>
+    .work-sans {
+        font-family: 'Work Sans', sans-serif;
+    }
+
+    #menu-toggle:checked + #menu {
+        display: block;
+    }
+
+    .hover\:grow {
+        transition: all 0.3s;
+        transform: scale(1);
+    }
+
+    .hover\:grow:hover {
+        transform: scale(1.02);
+    }
+
+    .book-item {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     width: 200px;
@@ -140,216 +496,8 @@
     margin-top: 20px;
     margin-left: auto; 
     margin-right: auto; 
-    display: block; 
+    display: block; /* Ensure the image is centered */
   }
-  
-</style>
-
-<body>
-
-
-  <header class="header header-anim" data-header>
-
-    <div class="container" style="padding-left: 0;">
-
-      <nav class="navbar nav_activated" data-navbar>
-        <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
-          <img src="./assets/images/final.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
-        </a>
-
-        <ul class="navbar-list">
-          <img src="./assets/images/final.png" class="logopic" style=" width: 150px;">
-
-          <li class="navbar-item">
-            <a href="index.html#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
-                class="ri-home-fill"></i> Home</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
-                class="ri-bar-chart-fill"></i> Benefits</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
-                class="ri-bar-chart-fill"></i> Genre</a>
-          </li>
-          <li class="navbar-item"></li>
-            <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-                class="ri-customer-service-2-fill"></i> Contact</a>
-          </li>
-
-          
-          <li class="navbar-item" id="login-signup-link">
-            <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
-          </li>
-
-
-          <li class="navbar-item dropdown" id="more-dropdown">
-            <a href="#" class="navbar-link" id="more-link">More
-              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
-                viewBox="0 0 24 24">
-                <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
-              </svg></a>
-            <div class="dropdown-menu" id="dropdown-menu">
-
-              <ul class="dropdown-menu-list">
-                <li class="dropdown-menu-item">
-                  <a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
-                      class="ri-medal-fill"></i> Literary Realms</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
-                      class="ri-price-tag-3-fill"></i> Pricing</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/addremovebook.html" class="navbar-link">Booklist for Swapping</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/book_recommend.html" class="navbar-link" data-nav-link>
-                    <i class="ri-customer-service-2-fill"></i> Book Recommendation
-                  </a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
-                    data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="././read_later.html" class="navbar-link">Booklist for Swapping</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/about.html" class="navbar-link">About</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <div class="action">
-            <div class="profile" onclick="menuToggle();">
-                <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
-            </div>
-            <div class="menu">
-                <h3>XYZ<br /><span>Book Lover</span></h3>
-                <ul>
-                    <li><img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a></li>
-                    <li><img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit profile</a></li>
-                    <li><img src="./assets/images/inbox.png" /><a href="#">Inbox</a></li>
-                    <li><img src="./assets/images/settings.png" /><a href="#">Settings</a></li>
-                    <li><img src="./assets/images/help.png" /><a href="/help.html">Help</a></li>
-                    <li><img src="./assets/images/logout.png" /><a id="logout-btn">Logout</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        
-              <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                    const savedAvatar = localStorage.getItem("selectedAvatar");
-                    if (savedAvatar) {
-                        document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
-                    }
-                });
-        
-                function menuToggle() {
-                    const toggleMenu = document.querySelector(".menu");
-                    toggleMenu.classList.toggle("active");
-                }
-        
-                document.addEventListener("click", function(event) {
-                    const profile = document.querySelector(".profile");
-                    const menu = document.querySelector(".menu");
-        
-                    if (!profile.contains(event.target) && !menu.contains(event.target)) {
-                        menu.classList.remove("active");
-                    }
-                });
-        
-                let lastScrollTop = 0;
-                const header = document.querySelector('.header');
-        
-                window.addEventListener('scroll', function() {
-                    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-                    if (scrollTop > lastScrollTop) {
-                        // Downscroll
-                        header.style.transform = 'translateY(-120%)';
-                    } else {
-                        // Upscroll
-                        header.style.transform = 'translateY(0)';
-                    }
-        
-                    lastScrollTop = scrollTop;
-                });
-            </script>
-
-
-          <!-- Google Translate Element -->
-          <li class="navbar-item">
-            <div id="google_element"></div>
-          </li>
-        </ul>
-      </nav>
-    </div>
-
-    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-    <script>
-      function loadGoogleTranslate() {
-        new google.translate.TranslateElement({
-          pageLanguage: 'en'
-        }, 'google_element');
-      }
-    </script>
-    <div class="switch-container" style="top: 15px;">
-      <input type="checkbox" id="switch" class="switch-checkbox">
-      <label for="switch" class="switch-label">
-        <div class="switch-button">
-          <span class="material-icons sun-icon">wb_sunny</span>
-          <span class="material-icons moon-icon">brightness_2</span>
-        </div>
-      </label>
-    </div>
-
-    </li>
-    </ul>
-    </nav>
-    <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
-      <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
-
-      <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
-    </button>
-
-    </div>
-  </header>
-
-
-
-
-  <main>
-
-
-
-<style>
-    .work-sans {
-        font-family: 'Work Sans', sans-serif;
-    }
-
-    #menu-toggle:checked + #menu {
-        display: block;
-    }
-
-    .hover\:grow {
-        transition: all 0.3s;
-        transform: scale(1);
-    }
-
-    .hover\:grow:hover {
-        transform: scale(1.02);
-    }
-
-
 
 </style>
 
@@ -376,7 +524,7 @@
 
             <p class="card-subtitle"></p>
 
-            <h3 class="h3 card-title"> "Solve the Unsolvable"</h3>
+            <h3 class="h3 card-title"> "Discover Extraordinary Lives"</h3>
 
             <p class="card-text">
             </p>
@@ -389,7 +537,7 @@
 
               <p class="card-subtitle"></p>
 
-              <h3 class="h3 card-title">"Follow the Clues"</h3>
+              <h3 class="h3 card-title">"Be Inspired by True Legends"</h3>
 
               <p class="card-text">
               </p>
@@ -400,7 +548,7 @@
         <li>
           <div class="chapter-card">
             <p class="card-subtitle"></p>
-            <h3 class="h3 card-title">"Unlock the Mysteries"</h3>
+            <h3 class="h3 card-title">"Unlock Your Potential with Real Stories"</h3>
 
             <p class="card-text">
             </p>
@@ -413,110 +561,73 @@
 
 <!--THE BOOKS-->
 <h2 class="h2 section-title has-underline" data-sr-id="11" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2s cubic-bezier(0.5, 0, 0, 1) 0.1s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0.1s;">
-    Intriguing Mysteries
+    Mindful Living
     <span class="span has-before"></span>
   </h2>
 <div class="book-list">
     
     <div class="book-item">
-        <img src="https://www.gutenberg.org/cache/epub/345/pg345.cover.medium.jpg" alt="Dracula" class="book-cover">
-        <h3 class="book_title">Dracula</h3>
-        <a href="https://www.gutenberg.org/ebooks/345" class="btn btn-secondary">Download</a>
+        <img src="https://www.gutenberg.org/cache/epub/43453/pg43453.cover.medium.jpg" alt="The Jade Story Book" class="book-cover">
+        <h3 class="book_title">A Pickle for the Knowing Ones</h3>
+        <a href="https://gutenberg.org/ebooks/43453" class="btn btn-secondary">Download</a>
         <button onclick="addToReadLater(1)" class="read_later_button">Add to Read Later</button>
     </div>
     <div class="book-item">
-        <img src="https://www.gutenberg.org/cache/epub/1661/pg1661.cover.medium.jpg" alt="The Adventures of Sherlock Holmes" class="book-cover">
-        <h3 class="book_title">The Adventures of Sherlock Holmes</h3>
-        <a href="https://www.gutenberg.org/ebooks/1661" class="btn btn-secondary">Download</a>
+        <img src="https://www.gutenberg.org/cache/epub/245/pg245.cover.medium.jpg" alt="Science from an Easy Chair" class="book-cover">
+        <h3 class="book_title">Life on the Mississippi</h3>
+        <a href="https://gutenberg.org/ebooks/245" class="btn btn-secondary">Download</a>
         <button onclick="addToReadLater(2)" class="read_later_button">Add to Read Later</button>
     </div>
     <div class="book-item">
-        <img src="https://www.gutenberg.org/cache/epub/2852/pg2852.cover.medium.jpg" alt="The Hound of the Baskervilles" class="book-cover">
-        <h3 class="book_title">The Hound of the Baskervilles</h3>
-        <a href="https://www.gutenberg.org/ebooks/2852" class="btn btn-secondary">Download</a>
+        <img src="https://www.gutenberg.org/cache/epub/73706/pg73706.cover.medium.jpg" alt="Diversions of a Naturalist" class="book-cover">
+        <h3 class="book_title">Mysteries of the missing</h3>
+        <a href="https://gutenberg.org/ebooks/73706" class="btn btn-secondary">Download</a>
         <button onclick="addToReadLater(3)" class="read_later_button">Add to Read Later</button>
     </div>
     <div class="book-item">
-        <img src="https://www.gutenberg.org/cache/epub/69087/pg69087.cover.medium.jpg" alt="The murder of Roger Ackroyd" class="book-cover">
-        <h3 class="book_title"> The murder of Roger Ackroyd</h3>
-        <a href="https://www.gutenberg.org/ebooks/69087" class="btn btn-secondary">Download</a>
+        <img src="https://www.gutenberg.org/cache/epub/4367/pg4367.cover.medium.jpg" alt="Miller's Mind training" class="book-cover">
+        <h3 class="book_title"> Personal Memoirs of U. S. Grant</h3>
+        <a href="https://gutenberg.org/ebooks/4367" class="btn btn-secondary">Download</a>
         <button onclick="addToReadLater(4)" class="read_later_button">Add to Read Later</button>
     </div>
     <div class="book-item">
-        <img src="https://www.gutenberg.org/cache/epub/2097/pg2097.cover.medium.jpg" alt="The Sign of the Four" class="book-cover">
-        <h3 class="book_title">The Sign of the Four</h3>
-        <a href="https://www.gutenberg.org/ebooks/2097" class="btn btn-secondary">Download</a>
+        <img src="https://www.gutenberg.org/cache/epub/45631/pg45631.cover.medium.jpg" alt="Anna Karenina" class="book-cover">
+        <h3 class="book_title">Twelve Years a Slave </h3>
+        <a href="https://gutenberg.org/ebooks/45631" class="btn btn-secondary">Download</a>
         <button onclick="addToReadLater(5)" class="read_later_button">Add to Read Later</button>
     </div>
     <div class="book-item">
-        <img src="https://www.gutenberg.org/cache/epub/863/pg863.cover.medium.jpg" alt="The Mysterious Affair at Styles" class="book-cover">
-        <h3 class="book_title">The Mysterious Affair at Styles</h3>
-        <a href="https://www.gutenberg.org/ebooks/863" class="btn btn-secondary">Download</a>
+        <img src="https://www.gutenberg.org/cache/epub/73748/pg73748.cover.medium.jpg" alt="Gargantua and Pantagruel" class="book-cover">
+        <h3 class="book_title">White House gossip</h3>
+        <a href="https://gutenberg.org/ebooks/73748" class="btn btn-secondary">Download</a>
         <button onclick="addToReadLater(6)" class="read_later_button">Add to Read Later</button>
     </div>
     <div class="book-item">
-        <img src="https://www.gutenberg.org/cache/epub/834/pg834.cover.medium.jpg" alt="The Memoirs of Sherlock Holmes" class="book-cover">
-        <h3 class="book_title">The Memoirs of Sherlock Holmes</h3>
-        <a href="https://www.gutenberg.org/ebooks/834" class="btn btn-secondary">Download</a>
+        <img src="https://www.gutenberg.org/cache/epub/52190/pg52190.cover.medium.jpg" alt="The dark mother" class="book-cover">
+        <h3 class="book_title">Ecce Homo</h3>
+        <a href="https://gutenberg.org/ebooks/52190" class="btn btn-secondary">Download</a>
         <button onclick="addToReadLater(7)" class="read_later_button">Add to Read Later</button>
     </div>
     <div class="book-item">
-        <img src="https://www.gutenberg.org/cache/epub/61262/pg61262.cover.medium.jpg" alt="Poirot Investigates" class="book-cover">
-        <h3 class="book_title">Poirot Investigates</h3>
-        <a href="https://www.gutenberg.org/ebooks/61262" class="btn btn-secondary">Download</a>
+        <img src="https://www.gutenberg.org/cache/epub/6081/pg6081.cover.medium.jpg" alt="Folk-Tales of the Khasis" class="book-cover">
+        <h3 class="book_title">Biographia Literaria</h3>
+        <a href="https://gutenberg.org/ebooks/6081" class="btn btn-secondary">Download</a>
         <button onclick="addToReadLater(8)" class="read_later_button">Add to Read Later</button>
     </div>
     <div class="book-item">
-        <img src="https://www.gutenberg.org/cache/epub/73771/pg73771.cover.medium.jpg" alt="The house without a key" class="book-cover">
-        <h3 class="book_title">The house without a key</h3>
-        <a href="https://www.gutenberg.org/ebooks/73771" class="btn btn-secondary">Download</a>
+        <img src="https://www.gutenberg.org/cache/epub/73699/pg73699.cover.medium.jpg" alt="Twenty-Five Ghost Stories" class="book-cover">
+        <h3 class="book_title">Our Hawaii </h3>
+        <a href="https://gutenberg.org/ebooks/73699" class="btn btn-secondary">Download</a>
         <button onclick="addToReadLater(9)" class="read_later_button">Add to Read Later</button>
     </div>
     <div class="book-item">
-        <img src="https://www.gutenberg.org/cache/epub/58866/pg58866.cover.medium.jpg" alt="The Murder on the Links" class="book-cover">
-        <h3 class="book_title">The Murder on the Links</h3>
-        <a href="https://www.gutenberg.org/ebooks/58866" class="btn btn-secondary">Download</a>
+        <img src="https://www.gutenberg.org/cache/epub/58511/pg58511.cover.medium.jpg" alt="Can Such Things Be?" class="book-cover">
+        <h3 class="book_title">The Romantic Composers</h3>
+        <a href="https://gutenberg.org/ebooks/58511" class="btn btn-secondary">Download</a>
         <button onclick="addToReadLater(10)" class="read_later_button">Add to Read Later</button>
     </div>
     
 </div>
-
-
-
-              <!-- <li>
-                <p class="social-list-title h3">Connect SwapReads socials</p>
-
-                <ul class="social-list">
-
-                  <li>
-                    <a href="https://www.facebook.com/" class="social-link">
-                      <ion-icon name="logo-facebook"></ion-icon>
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="https://twitter.com/?lang=en" class="social-link">
-                      <ion-icon name="logo-twitter"></ion-icon>
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="https://www.linkedin.com/" class="social-link">
-                      <ion-icon name="logo-linkedin"></ion-icon>
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="https://www.youtube.com/" class="social-link">
-                      <ion-icon name="logo-youtube"></ion-icon>
-                    </a>
-                  </li> -->
-
-              <!-- <li>
-                    <a href="tel:+1234567890" class="social-link">
-                      <ion-icon name="logo-whatsapp"></ion-icon>
-                    </a>
-                  </li> -->
 
             </ul>
             </li>
@@ -530,7 +641,8 @@
 
     </article>
   </main>
-  <footer>
+
+   <footer>
     <div class="foot-top">
       <div class="foot-left">
 
@@ -575,9 +687,9 @@
           <ul>
             <li class="foot-quick"><a href="index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
             <li class="foot-quick"><a href="index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
-            <li class="foot-quick"><a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+            <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
             <li class="foot-quick"><a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
-            <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
+            <li class="foot-quick"><a href="./assets/html/book_recommend.html"
               onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
           </ul>
         </div>
@@ -589,7 +701,7 @@
                 onclick="lenis.scrollTo('#contact')">E-Book</a></li>
             <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
             </li>
-            <li class="foot-quick"><a href="index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+            <li class="foot-quick"><a href="contactus1.html" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
             <li class="foot-quick"><a href="index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
           </ul>
         </div>
@@ -619,12 +731,11 @@
 
 
         <div class="icons">
-           <a href="https://www.discord.com/" target="_blank">
-            <div class="icon">
-                <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
-             </div>
-           </a>
-
+              <a href="https://www.discord.com/" target="_blank">
+                      <div class="icon">
+                        <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
+                      </div>
+                     </a>
           <a href="https://www.linkedin.com/in/anurag-verma-b91417253/">
             <div class="icon">
               <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
@@ -681,22 +792,7 @@
       <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
     </div>
     </div>
-
-    Copyright Policy Modal
-    <div id="copyrightPolicyModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closeCopyright">&times;</span>
-        <h1>Copyright Policy</h1>
-        <p>Welcome to SwapReads. Here is our copyright policy:</p>
-        <ul>
-          <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
-          <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
-          <li>Users may download and print content for personal use only.</li>
-          <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
-          <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
-        </ul>
-      </div>
-    </div>
+</footer>
 
   <!--Dark Mode-->
 
