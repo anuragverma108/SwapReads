@@ -62,6 +62,21 @@
 <body>
 
 <style>
+    .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+   margin-top: 45px;
+   margin-left: 9rem;
+}
+        .navbar-link {
+  color: black !important;
+}
+
+.dark-mode .navbar-link {
+  color: white !important;
+}
   .action {
   position: fixed;
   top: 20px;
@@ -232,212 +247,158 @@
 }
 </style>
 <header class="header header-anim nav-h" data-header>
-
-  <div class="container mobile-container-styles" style="padding-left: 0;">
-
+  
+  <div class="container mobile-container-styles">
+   
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <nav class="navbar nav_activated" data-navbar>
 
 
-      <ul class="navbar-list nav">
-        <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-          <img src="./assets/images/final.png" class="logopic" style=" width: 150px;">
+      <ul class="navbar-list nav" style="margin-right: 10px;">
+        <a href="index.html" class="logo" style="display:flex;">
+          <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; height:100px; margin:0px 0px 15px -10px;">
         </a>
-        <li class="navbar-item">
-          <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
-              class="ri-home-fill"></i> Home</a>
+
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="index.html" class="navbar-link" data-nav-link>
+            <i class="ri-home-fill"></i> Home
+          </a>
         </li>
-       
-            
-        <li class="navbar-item">
-          <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
+
+
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
+            <i class="ri-information-fill"></i> About Us
+          </a>
+        </li>
+
+       <li class="navbar-item" style="margin-right: 10px;">
+          <a href="index.html#benefits"  class="navbar-link" data-nav-link><i
               class="ri-bar-chart-fill"></i> Benefits</a>
         </li>
 
-        <li class="navbar-item">
-          <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="index.html#genre"  class="navbar-link" data-nav-link><i
               class="ri-bar-chart-fill"></i> Genre</a>
         </li>
-        <li class="navbar-item">
-          <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
-         
 
-        <li class="navbar-item">
-          <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-              class="ri-customer-service-2-fill"></i> Contact</a>
-          </li>
-          <li class="navbar-item">
-            <a href="../../index.html#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
-                <i class="ri-questionnaire-fill"></i> FAQ
+       <li class="navbar-item">
+            <a href="audiobook.html" class="navbar-link" data-nav-link>
+                <i class="ri-questionnaire-fill"></i> Audio Books
             </a>
         </li>
-        <li class="navbar-item">
-          <a href="../html/about.html"  class="navbar-link" data-nav-link><i
-              class="ri-home-fill"></i> About Us </a>
+
+
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="index.html#contact"  class="navbar-link" data-nav-link>
+            <i class="ri-contacts-fill"></i> Contact
+          </a>
         </li>
 
-      
-        <li class="navbar-item" id="login-signup-link">
-          <a href="../html/login.html" class="navbar-link">Login/Signup</a>
+        <li class="navbar-item" id="login-signup-link" style="margin-right: 10px;">
+          <a href="./assets/html/login.html" class="navbar-link">
+            <i class="ri-login-box-fill"></i> Login/Signup
+          </a>
         </li>
-        
-        
-        <li class="navbar-item dropdown" id="more-dropdown">
-          <a href="#" class="navbar-link" id="more-link">More
-            <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
-              viewBox="0 0 24 24">
-              <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
-            </svg></a>
-          <div class="dropdown-menu" id="dropdown-menu">
 
-            <ul class="dropdown-menu-list">
-              <li>
-                <a href="chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
-                  Community chat
-              </a>
-              </li>
-              
-              <li class="dropdown-menu-item">
-                <a href="../html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
-                    class="ri-price-tag-3-fill"></i> Pricing</a>
-              </li>
-              <li class="dropdown-menu-item">
-                <a href="../html/booklistswap.html" class="navbar-link">Booklist for Swapping</a>
-              </li>
-              <li class="dropdown-menu-item">
-                <a href="../html/book_recommend.html" class="navbar-link" data-nav-link>
-                  <i class="ri-customer-service-2-fill"></i> Book Recommendation
-                </a>
-              </li>
-              <li class="dropdown-menu-item">
-                <a href="../html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
-                  data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
-              </li>
-              <li class="dropdown-menu-item">
-                <a href="../html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
-              </li>
-              <li class="dropdown-menu-item">
-                <a href=".../html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
-              </li>
-              <li class="dropdown-menu-item">
-                <a href="../html/about.html" class="navbar-link">About</a>
-              </li>
-            </ul>
-          </div>
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="comsp.html" class="navbar-link" data-nav-link>
+            <i class="ri-book-fill"></i> Community
+          </a>
         </li>
-        <li>
-        <div class="action">
-          <div class="profile" style="top:-3.3rem;" onclick="menuToggle();">
-            <img id="profile-avatar" src="assets/images/avatar1.jpg" />
+        <li class="navbar-item" style="margin-right: 10px;">
+          <a href="./assets/html/event.html"  class="navbar-link" data-nav-link>
+            <i class="ri-community-fill"></i> Events
+          </a>
+        </li>   
+        <div class="switch-container">
+          <input type="checkbox" id="switch" class="switch-checkbox">
+          <label for="switch" class="switch-label">
+            <div class="switch-button">
+              <span class="material-icons sun-icon">wb_sunny</span>
+              <span class="material-icons moon-icon">brightness_2</span>
+            </div>
+          </label>
           </div>
-          <div class="menu">
-            <h3>XYZ<br /><span>Book Lover</span></h3>
-            <ul>
-              <li>
-                <img src="assets/images/user.jpg" /><a href="../../profile.html">My profile</a>
-              </li>
-              <li>
-                <img src="assets/images/edit profile.jpg" /><a href="../html/profileedit.html">Edit profile</a>
-              </li>
-              <li>
-                <img src="assets/images/inbox.png" /><a href="#">Inbox</a>
-              </li>
-              <li>
-                <img src="assets/images/settings.png" /><a href="#">Settings</a>
-              </li>
-              <li><img src="assets/images/help.png" /><a href="#">Help</a></li>
-              <li>
-                <img src="assets/images/logout.png" /><a href="#">Logout</a>
-              </li>
-            </ul>
-          </li>
-            </div>
-          </ul>
-            </div>
+            <!-- Theme switcher -->
+
+            
+          
             <script>
-             document.addEventListener("DOMContentLoaded", () => {
-  const savedAvatar = localStorage.getItem("selectedAvatar");
-  if (savedAvatar) {
-      document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
-  }
+                // Theme switcher
+                document.addEventListener('DOMContentLoaded', function () {
+                  const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
+                  const bodyElement = document.body;
+            
+                  const currentTheme = localStorage.getItem('theme') || 'light';
+                  if (currentTheme === 'dark') {
+                    bodyElement.classList.add('dark-mode');
+                    toggleSwitch.checked = true;
+                  } else {
+                    bodyElement.classList.add('light-mode');
+                  }
+            
+                  toggleSwitch.addEventListener('change', function (event) {
+                    if (event.target.checked) {
+                      bodyElement.classList.remove('light-mode');
+                      bodyElement.classList.add('dark-mode');
+                      localStorage.setItem('theme', 'dark');
+                    } else {
+                      bodyElement.classList.remove('dark-mode');
+                      bodyElement.classList.add('light-mode');
+                      localStorage.setItem('theme', 'light');
+                    }
+                  });
+                });
+              // Hamburger toggle
+              document.getElementById('hamburger-button').addEventListener('click', function() {
+                document.querySelector('.navbar').classList.toggle('active');
+              });
+
+            // Update the coordinates when the mouse moves
+            window.addEventListener("mousemove", function (e) {
+              coords.x = e.clientX;
+            coords.y = e.clientY;
 });
 
-      
-              function menuToggle() {
-                  const toggleMenu = document.querySelector(".menu");
-                  toggleMenu.classList.toggle("active");
+            // Animation function to move the circles
+            function animateCircles() {
+              let x = coords.x;
+            let y = coords.y;
+
+            circles.forEach(function (circle, index) {
+              // Update the position and scale of each circle
+              circle.style.left = x - 12 + "px";
+            circle.style.top = y - 12 + "px";
+            circle.style.scale = (circles.length - index) / circles.length;
+
+            circle.x = x;
+            circle.y = y;
+
+            // Get the next circle in the sequence
+            const nextCircle = circles[index + 1] || circles[0];
+            x += (nextCircle.x - x) * 0.15;
+            y += (nextCircle.y - y) * 0.15;
+});
+
+            // Repeat the animation
+            requestAnimationFrame(animateCircles);
+}
+
+            // Start the animation
+            animateCircles();
+
+            function scrollToGenre(genreId) {
+              const element = document.getElementById(genreId);
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
-          </script>
-       
-      </ul>
-     
-    </nav>
-    <div id="mobile_View_Menu">
-      <span id="menu_lines"></span>
-     </div>
-  <script>
-      let menu=document.getElementById('mobile_View_Menu')
-      let navbar_con=document.querySelector('.navbar')
-      menu.addEventListener('click',()=>{
-        if(menu.classList.contains('open_menu')){
-          menu.classList.remove('open_menu')
-          navbar_con.classList.add('nav_activated')
-        }
-        else{
-          menu.classList.add('open_menu')
-          navbar_con.classList.remove('nav_activated')
-        }
-      })
-    </script>
-  <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-  <script>
-    function loadGoogleTranslate() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en'
-      }, 'google_element');
-    }
-  </script>
-  <script>
-    // const hamburger=document.querySelector('.hamburger');
-    // const head=document.querySelector('.header');
-    // const nav=document.querySelector('.nav');
-    // hamburger.addEventListener('click',()=>{
-    //   head.classList.toggle('nav-h');
-    //   nav.classList.toggle('vis-h');
-    // })
-    // let lastScrollTop = 0;
-    // function onScroll() {
-    //     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    //     const header = document.querySelector('.header');
-
-    //     if (currentScroll > lastScrollTop) {
-    //         header.classList.add('hidden');
-    //     } else {
-    //         header.classList.remove('hidden');
-    //     }
-    //     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-    // }
-
-
-window.addEventListener("scroll", onScroll);
-</script>
-
-
-
-    <div class="switch-container" style="top: 15px;">
-      <input type="checkbox" id="switch" class="switch-checkbox">
-      <label for="switch" class="switch-label">
-        <div class="switch-button">
-          <span class="material-icons sun-icon">wb_sunny</span>
-          <span class="material-icons moon-icon">brightness_2</span>
-        </div>
-      </label>
-    </div>
-  </div>
-
-
-
-  </div>
-</header>
+            }
+              </script>
+            </header>
 
 
 
