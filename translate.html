@@ -4,33 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SwapReads Translate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #ff8c8c; 
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f9;
       margin: 0;
       padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      color: #333;
     }
     .container {
-      background-color: #ff8c8c;
+      background-color: #ffffff;
       padding: 2rem;
       text-align: center;
       border-radius: 10px;
       width: 90%;
       max-width: 600px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     h1 {
       font-size: 2rem;
       font-weight: bold;
-      color: black;
+      color: #333;
     }
     p {
       font-size: 1rem;
-      color: #333;
       line-height: 1.6;
       margin-bottom: 1.5rem;
     }
@@ -43,9 +45,16 @@
       font-size: 1rem;
       cursor: pointer;
       margin-top: 1rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, transform 0.2s;
     }
     button:hover {
-      opacity: 0.9;
+      background-color: #256f6a;
+      transform: translateY(-1px);
+    }
+    button:disabled {
+      background-color: #b0c4c4;
+      cursor: not-allowed;
     }
     #translatedText {
       margin-top: 1rem;
@@ -57,11 +66,11 @@
 </head>
 <body>
 
-  <div class="container">
+  <div class="container" role="main">
     <h1>SwapReads</h1>
     <p id="originalText">SwapReads.com is the ultimate destination for book lovers seeking to swap and discover new literary gems. Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in the world of literature—all on one convenient platform. Join us and dive into a universe of endless possibilities!</p>
-    <button id="translateBtn">Translate</button>
-    <p id="translatedText"></p>
+    <button id="translateBtn" aria-label="Translate text to Hindi">Translate</button>
+    <p id="translatedText" aria-live="polite"></p>
   </div>
 
   <script>
@@ -69,14 +78,39 @@
     const originalText = document.getElementById('originalText').innerText;
     const translatedTextContainer = document.getElementById('translatedText');
 
+    // Show loading indicator when translating
+    function showLoading() {
+      translateBtn.innerText = 'Translating...';
+      translateBtn.disabled = true;
+    }
+
+    // Reset button after translation
+    function resetButton() {
+      translateBtn.innerText = 'Translate';
+      translateBtn.disabled = false;
+    }
+
     // Translation function to Hindi
     function translateText(text) {
       return "SwapReads.com किताब प्रेमियों के लिए अंतिम गंतव्य है जो अपनी पसंदीदा किताबों का आदान-प्रदान करना और नई साहित्यिक रत्नों की खोज करना चाहते हैं। साथी उत्साही पाठकों से जुड़ें, अपनी पसंदीदा किताबों का आदान-प्रदान करें, और साहित्य की दुनिया में रोमांचक नई यात्रा पर निकलें—सभी एक सुविधाजनक मंच पर। हमारे साथ जुड़ें और अंतहीन संभावनाओं के ब्रह्मांड में डूब जाएं!";
     }
 
+    // Error handling in case translation fails
+    function displayError() {
+      translatedTextContainer.innerText = 'Translation failed. Please try again later.';
+    }
+
     translateBtn.addEventListener('click', () => {
-      const translatedText = translateText(originalText);
-      translatedTextContainer.innerText = translatedText;
+      showLoading();
+      try {
+        // Perform translation and display result
+        const translatedText = translateText(originalText);
+        translatedTextContainer.innerText = translatedText;
+      } catch (error) {
+        displayError();
+      } finally {
+        resetButton();
+      }
     });
   </script>
 
