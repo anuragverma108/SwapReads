@@ -92,12 +92,12 @@
             </a>
             <div class="profile-card">
                 <div class="profile-header">
-                    <img src="/assets/images/avatar2.jpg" alt="Profile Image" class="profile-image">
+                    <img src="./assets/images/avatar2.jpg" alt="Profile Image" class="profile-image" id="selectedAvatar">
                     <div class="profile-info">
-                        <h3 class="profile-name">John Doe</h3>
+                        <h3 class="profile-name" id="profileNameDisplay">John Doe</h3>
                         <p class="profile-bio">A book Worm 😉</p>
-                        <p class="profile-email"><i class="fas fa-envelope"></i> email@example.com</p>
-                        <p class="profile-phone"><i class="fas fa-phone"></i> +123 456 7890</p>
+                        <p class="profile-email"><i class="fas fa-envelope" id="profileEmailDisplay"></i></p>
+                        <p class="profile-phone" id="profilePhoneDisplay"><i class="fas fa-phone"></i> +123 456 7890</p>
                         <p id="last-active"></p>
                     </div>
                 </div>
@@ -223,7 +223,43 @@
         // Start the animation
         animateCircles();
     
-      </script>
+
+   // Get the saved profile data and display it on the page
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const savedName = localStorage.getItem("profileName");
+        const savedPhone = localStorage.getItem("profilePhone");
+        const savedEmail = localStorage.getItem("profileEmail");
+        const savedAvatar = localStorage.getItem("selectedAvatar");
+
+        if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
+
+        if (savedPhone) {
+            document.getElementById("profilePhoneDisplay").textContent = `Phone: ${savedPhone}`;
+        } else {
+            document.getElementById("profilePhoneDisplay").textContent = "Phone: Not provided";
+        }
+
+        if (savedEmail) {
+            document.getElementById("profileEmailDisplay").textContent = ` ${savedEmail}`;
+        } else {
+            document.getElementById("profileEmailDisplay").textContent = "Email: Not provided";
+        }
+
+        if (savedAvatar) {
+            document.getElementById("selectedAvatar").src = `./assets/images/${savedAvatar}`;
+        } else {
+            document.getElementById("selectedAvatar").src = "/assets/images/avatar1.jpg";
+
+        }
+
+    });
+</script>
+
 </body>
 
 </html>
