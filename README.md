@@ -412,6 +412,7 @@
 ├── comsp.html
 ├── connectWithsame.html
 ├── contactus1.html
+├── contributing.txt
 ├── contributors/
 │   ├── contributor.css
 │   ├── contributor.html
@@ -611,7 +612,7 @@ Contributions are what make the open-source community such an amazing place to l
 
 Your involvement helps to improve the project and make it better for everyone. Thank you for your contributions!
 
-Kindly go through [CONTRIBUTING.md](CONTRIBUTING.md) to understand everything from setup to contributing guidelines.
+Kindly go through [CONTRIBUTING.md](contributing.txt) to understand everything from setup to contributing guidelines.
 
 If you would like to contribute to the project, please follow our contribution guidelines.
 
