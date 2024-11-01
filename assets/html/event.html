@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="../favicon_package_v0.16/android-chrome-256x256.png" type="image/x-icon">
     <title>Event Booking Calendar</title>
     <style>
         body {
@@ -761,6 +762,7 @@
                 </div>
             </div>
         </div>
+
         </div>
 
         </div>
@@ -808,6 +810,226 @@
                             row.appendChild(cell);
                         } else if (date > daysInMonth) {
                             break;
+=======
+    </footer>
+
+    <div>
+        <button id="translateButton">Translate</button>
+      </div>
+      <style>
+        /* Fixed translate button */
+    #translateButton {
+        position: fixed;
+        /* bottom: 20px; */
+        top:-15rem;
+        right: 4.4rem;
+        z-index: 1000;
+        width: 53px;  
+        height: 53px;
+        border-radius: 50%; 
+        border: none; 
+        background:linear-gradient(hwb(357 6% 36%),#d26d6d); 
+        color: white; 
+        text-align: center; 
+        display: inline-block; 
+        font-size: 16px; 
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        transition: transform 0.3s ease;
+        margin-top: 75.8vh;
+        margin-right:opx;
+    }
+    #translateButton:hover {
+        transform: scale(1.2); 
+    }
+    /* The popup modal */
+    .popup {
+        display: none; 
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4); 
+    }
+    /* Popup content */
+    .popup-content {
+      background:linear-gradient(hwb(357 6% 36%),#d26d6d);
+        margin-top: 600px;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 300px;
+        border-radius: 10px;
+        position: relative;
+        margin-left: 1160px;
+        /* margin-right: 0px; */
+    }
+    /* Close button */
+    .close {
+        color: #073725;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        line-height: 1;
+        opacity: .2;
+    }
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+    }
+    /* Hide the default Google Translate widget */
+    .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+        display: none !important;
+    }
+    body {
+        top: 0px !important;
+    }
+    /* Hide the "Powered by Google" branding */
+    .goog-logo-link {
+        display: none !important;
+    }
+    .goog-te-gadget {
+        height: 28px !important;
+        overflow: hidden;
+    }
+    /* Hide Google Translate notifications */
+    .goog-te-spinner-pos,
+    .goog-te-spinner,
+    .goog-te-balloon-frame,
+    .goog-te-banner-frame,
+    .goog-te-banner,
+    .goog-te-balloon {
+        display: none !important;
+    }
+    /* Custom styles for the Google Translate dropdown */
+    #google_translate_element select {
+        background: #ffffff; 
+        border: 1px solid #ccc; 
+        color: #d26d6d; 
+        padding: 5px; 
+        font-size: 14px; 
+        border-radius: 5px; 
+    }
+    /* Hide the Google Translate bar */
+    body > .skiptranslate {
+        display: none !important;
+    }
+    .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    }
+    .goog-te-banner-frame {
+        display: none !important;
+    }
+    .goog-te-banner {
+        display: none !important;
+    }
+      </style>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // Get the popup
+        var popup = document.getElementById('translatePopup');
+        // Get the button that opens the popup
+        var btn = document.getElementById('translateButton');
+        // Get the <span> element that closes the popup
+        var span = document.getElementsByClassName('close')[0];
+        // When the user clicks the button, open the popup 
+        btn.onclick = function() {
+            popup.style.display = 'block';
+        }
+        // When the user clicks on <span> (x), close the popup
+        span.onclick = function() {
+            popup.style.display = 'none';
+        }
+        // When the user clicks anywhere outside of the popup, close it
+        window.onclick = function(event) {
+            if (event.target == popup) {
+                popup.style.display = 'none';
+            }
+        }
+    });
+      </script>
+      <!-- Popup for Google Translate -->
+      <div id="translatePopup" class="popup">
+          <div class="popup-content">
+              <span class="close">&times;</span>
+              <div id="google_translate_element"></div>
+          </div>
+      </div>
+      <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <!-- Your custom JavaScript -->
+    <script src="script.js"></script>
+
+    <script>
+
+
+        const eventCalendar = {
+            events: [
+                { date: '2024-10-07', title: 'Book Club Meeting' },
+                { date: '2024-10-14', title: 'Author Talk: John Doe' },
+                { date: '2024-10-21', title: 'Children’s Story Hour' },
+                { date: '2024-10-28', title: 'Poetry Reading' },
+            ],
+
+            monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            today: new Date(),
+            currentMonth: new Date().getMonth(),
+            currentYear: new Date().getFullYear(),
+        };
+
+        function generateCalendar(month, year) {
+            const firstDay = (new Date(year, month)).getDay();
+            const daysInMonth = 32 - new Date(year, month, 32).getDate();
+
+            const calendarDays = document.getElementById('calendar-days');
+            calendarDays.innerHTML = '';
+
+            let date = 1;
+            for (let i = 0; i < 6; i++) {
+                let row = document.createElement('div');
+                row.classList.add('row');
+
+                for (let j = 0; j < 7; j++) {
+                    if (i === 0 && j < firstDay) {
+                        let cell = document.createElement('div');
+                        cell.classList.add('day');
+                        row.appendChild(cell);
+                    } else if (date > daysInMonth) {
+                        break;
+                    } else {
+                        let cell = document.createElement('div');
+                        cell.classList.add('day');
+                        cell.textContent = date;
+
+                        const eventDate = new Date(year, month, date);
+                        let formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+                        let event = eventCalendar.events.find(event => event.date === formattedDate);
+
+                        if (eventDate >= eventCalendar.today) {
+                            if (event) {
+                                cell.classList.add('event');
+                                const googleCalendarUrl = generateGoogleCalendarLink(event.title, eventDate);
+                                cell.innerHTML = `<a href="${googleCalendarUrl}" target="_blank" title="Add to Google Calendar">${date}</a><div class="tooltip">Add to Google Calendar</div>`;
+                            }
+
                         } else {
                             let cell = document.createElement('div');
                             cell.classList.add('day');

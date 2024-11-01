@@ -329,7 +329,6 @@ body {
 .section-title {
   font-family: 'Merriweather', serif;
   font-size: 1.5rem;
-  color: #c21807; /* Dark pink or any accent color */
   font-weight: 700;
   text-align: center;
   display: flex;
@@ -337,6 +336,12 @@ body {
   justify-content: center;
   margin: 30px 0; /* Add spacing above and below */
   gap: 15px; /* Space between the line and text */
+  color: rgb(230, 103, 124); 
+  background-color:  rgba( 255, 255, 255, 0.909 );
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
 
 input, button, textarea {
@@ -703,6 +708,13 @@ input, button, textarea {
 
                 // Start the animation
                 animateCircles();
+
+                function scrollToGenre(genreId) {
+                  const element = document.getElementById(genreId);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }
                   </script>
                   </header>
 
@@ -710,9 +722,20 @@ input, button, textarea {
     <span>Explore Books Popular Among SwapRead Users in Different Genres</span>
     </div>
                   
+    <div class="genre-nav">
+      <button onclick="scrollToGenre('romance')">Romance</button>
+      <button onclick="scrollToGenre('sci-fi')">Science Fiction</button>
+      <button onclick="scrollToGenre('mystery')">Mystery</button>
+      <button onclick="scrollToGenre('fantasy')">Fantasy</button>
+      <button onclick="scrollToGenre('thriller')">Thriller</button>
+      <button onclick="scrollToGenre('comedy')">Comedy</button>
+      <button onclick="scrollToGenre('true-crime')">True Crime</button>
+      <button onclick="scrollToGenre('philosophy')">Philosophy</button>
+    </div>
+
     <div class="container">
       <!-- Romance Genre Section -->
-      <div class="genre-section">
+      <div class="genre-section" id="romance">
         <div class="hero-banner has-before">
           <img
             src="./assets/images/rom.jpg"
@@ -740,7 +763,7 @@ input, button, textarea {
       </div>
 
       <!-- Science Fiction Genre Section -->
-      <div class="genre-section">
+      <div class="genre-section" id="sci-fi">
         <div class="genre-content">
           <h2 class="genre-title">Neuromancer Trilogy </h2>
           <span style="font-size:5rem;filter: grayscale(100%);float: right;">🚀</span>
@@ -766,7 +789,7 @@ input, button, textarea {
       </div>
 
       <!-- Mystery Genre Section -->
-      <div class="genre-section">
+      <div class="genre-section" id="mystery">
         <div class="hero-banner has-before">
           <img
             src="./assets/images/mystery.jpg"
@@ -793,7 +816,7 @@ input, button, textarea {
       </div>
 
       <!-- Fantasy Genre Section -->
-      <div class="genre-section">
+      <div class="genre-section" id="fantasy">
         <div class="genre-content">
           <h2 class="genre-title">A Court of Thorns and Roses</h2>
           <span style="font-size:5rem;filter: grayscale(100%); float: right;">🔮</span>
@@ -820,7 +843,7 @@ input, button, textarea {
       </div>
 
       <!-- Thriller Genre Section -->
-      <div class="genre-section">
+      <div class="genre-section" id="thriller">
         <div class="hero-banner has-before">
           <img
             src="./assets/images/thriller.jpg"
@@ -847,7 +870,7 @@ input, button, textarea {
       </div>
 
       <!-- Comedy Genre Section -->
-      <div class="genre-section">
+      <div class="genre-section" id="comedy">
         <div class="genre-content">
           <h2 class="genre-title">Carry On, Jeeves</h2>
           <span style="font-size:5rem;filter: grayscale(100%); float: right;">🤹</span>
@@ -872,7 +895,7 @@ input, button, textarea {
       </div>
 
       <!-- True Crime Genre Section -->
-      <div class="genre-section">
+      <div class="genre-section" id="true-crime">
         <div class="hero-banner has-before">
           <img
             src="./assets/images/true crime.jpg"
@@ -897,7 +920,7 @@ input, button, textarea {
       </div>
 
       <!-- Philosophy Genre Section -->
-      <div class="genre-section">
+      <div class="genre-section" id="philosophy">
         <div class="genre-content">
           <h2 class="genre-title">Meditations</h2>
           <span style="font-size:5rem;filter: grayscale(100%); float: right;">📜</span>

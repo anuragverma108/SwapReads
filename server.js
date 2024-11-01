@@ -157,6 +157,7 @@ import { RegisterSchema } from './assets/validation/zodschema.js';
 import validate from './assets/validation/validate.schema.js';
 import cors from 'cors';
 import { sendEmail } from './controller/subscribe.js';
+import submitRating from './controller/Rating.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -304,6 +305,8 @@ dbConnect().then(() => {
         res.status(200).send('Success');
     });
 });
+
+app.post('/rate', submitRating);
 
   const PORT = process.env.PORT || 4000;
   app.listen(PORT, () => {

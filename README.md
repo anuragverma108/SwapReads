@@ -40,16 +40,14 @@
 
   ### This project is now OFFICIALLY accepted for
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/329829127-e79eb6de-81b1-4ffb-b6ed-f018bb977e88.png" alt="GSSoC 2024 Extd" width="80%">
-</div>
+## 📋 Participating Programs
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/hacktober.png" alt="Hacktober fest 2024" width="80%">
-</div>
+| Name                  | Logo                                                      | Purpose                                                                                                      |
+|-----------------------|-----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| GSSoC'2024-Extd       | ![GSSoC Logo](assets/GSSoC-Ext.png)             | The coding period is from October 1st to October 30th, during which contributors make contributions and earn points on the platform. |
+| Hacktoberfest 2024    | ![Hacktoberfest Logo](assets/hacktoberfest.png) | Hacktoberfest is a month-long October event welcoming all skill levels to join the open-source community.     |
 
-<br>  
-
+---
 
 ## Project Structure
 
@@ -68,6 +66,7 @@
 ├── Mystical-fantaies.html
 ├── README.md
 ├── assets/
+│   ├── GSSoC-Ext.png
 │   ├── JSON/
 │   │   ├── package-lock.json
 │   │   └── package.json
@@ -96,6 +95,7 @@
 │   │   ├── style.css
 │   │   ├── styles.css
 │   │   ├── test-style.css
+│   │   ├── tips.css
 │   │   └── visitors.css
 │   ├── event.css
 │   ├── favicon_package_v0.16/
@@ -169,23 +169,31 @@
 │   │   ├── forgot-pass.html
 │   │   ├── freeBooks.html
 │   │   ├── googlece7a206a6cfbb7ed.html
+│   │   ├── image.png
+│   │   ├── img.png
 │   │   ├── login.html
+│   │   ├── map.html
 │   │   ├── mood.html
 │   │   ├── mylogin.html
 │   │   ├── ngo.html
-│   │   ├── pricing.html
 │   │   ├── profileedit.html
 │   │   ├── quiz.html
 │   │   ├── rate.html
 │   │   ├── read.html
 │   │   ├── read_later.html
 │   │   ├── school.html
-│   │   └── social.html
+│   │   ├── social.html
+│   │   ├── tips.html
+│   │   └── top10.html
 │   ├── images/
 │   │   ├── FB icon.png
 │   │   ├── LogoPicDark.png
 │   │   ├── LogoPicLight.png
+│   │   ├── Screenshot 2024-10-28 at 12.09.51 AM
+│   │   ├── TheGuide.jpg
+│   │   ├── Wings_of_Fire_by_A_P_J_Abdul_Kalam_Book_Cover.jpg
 │   │   ├── YT icon.png
+│   │   ├── a fine balance.jpg
 │   │   ├── achievement-1.jpg
 │   │   ├── achievement-2.jpg
 │   │   ├── achievement-3.jpg
@@ -228,6 +236,7 @@
 │   │   ├── comedy.jpg
 │   │   ├── community.png
 │   │   ├── communityhover.png
+│   │   ├── contact.png
 │   │   ├── ctc1.png
 │   │   ├── ctc2.png
 │   │   ├── ctc3.png
@@ -261,6 +270,7 @@
 │   │   │   ├── auth2.jpg
 │   │   │   ├── auth3.jpg
 │   │   │   └── c1.jpg
+│   │   ├── good of small tjings.jpg
 │   │   ├── google button.jpeg
 │   │   ├── google icon.jpeg
 │   │   ├── gr.jpeg
@@ -278,6 +288,7 @@
 │   │   │   ├── quiz.jpg
 │   │   │   └── school.png
 │   │   ├── inbox.png
+│   │   ├── india after gandhi.jpg
 │   │   ├── insta icon.png
 │   │   ├── ja.jpeg
 │   │   ├── jk.jpeg
@@ -287,6 +298,7 @@
 │   │   ├── logout.png
 │   │   ├── ma.jpg
 │   │   ├── mg.jpeg
+│   │   ├── midnight children.jpg
 │   │   ├── moon.png
 │   │   ├── moon_solid.svg
 │   │   ├── mystery.jpg
@@ -312,6 +324,7 @@
 │   │   ├── rom.jpg
 │   │   ├── sci.jpg
 │   │   ├── settings.png
+│   │   ├── shantaram.jpg
 │   │   ├── sun.png
 │   │   ├── tele.png
 │   │   ├── telephone.png
@@ -321,7 +334,9 @@
 │   │   ├── testimonials-4.jpg
 │   │   ├── testimonials-5.jpg
 │   │   ├── testimonials-6.jpg
+│   │   ├── the inheritance of book.jpg
 │   │   ├── thriller.jpg
+│   │   ├── train to paki.jpg
 │   │   ├── trendingbook1.jpg
 │   │   ├── trendingbook2.jpg
 │   │   ├── trendingbook3.jpg
@@ -331,7 +346,8 @@
 │   │   ├── twitter-icon.png
 │   │   ├── twitter.png
 │   │   ├── user.jpg
-│   │   └── website-ss.png
+│   │   ├── website-ss.png
+│   │   └── white tiger.jpg
 │   ├── js/
 │   │   ├── ReaderConn.js
 │   │   ├── addremove.js
@@ -343,6 +359,7 @@
 │   │   ├── fire.js
 │   │   ├── forgotPassword.js
 │   │   ├── freeBooks.js
+│   │   ├── loadmore.js
 │   │   ├── login.js
 │   │   ├── menuButton.js
 │   │   ├── preloader.js
@@ -366,29 +383,42 @@
 │       ├── validate.schema.js
 │       └── zodschema.js
 ├── audio/
+│   ├── AtTwilight.mp3
 │   ├── Bernice Bobs Her Hair by F. Scott Fitzgerald _ Audiobooks Youtube Free _ Short Stories Youtube [ ezmp3.cc ].mp3
+│   ├── ChristmasSingVillage.mp3
+│   ├── HomelyHeroine.mp3
+│   ├── StoryTeller.mp3
 │   ├── The Landlady - Roald Dahl [ ezmp3.cc ].mp3
 │   ├── The Lottery Ticket by Anton Chekhov Audiobook [ ezmp3.cc ].mp3
 │   ├── The Magic Shop by H. G. Wells Audiobook - FULL [ ezmp3.cc ] (1).mp3
+│   ├── at-twilight.jpg
 │   ├── au1.mp3
 │   ├── bernier bobs her hair.jpg
+│   ├── christmas-sing-in-our-village.jpg
 │   ├── landlady.jpg
 │   ├── lotery ticket.jpeg
-│   └── the-magic-shop-17 (1).jpg
+│   ├── the-homely-heroine.jpg
+│   ├── the-magic-shop-17 (1).jpg
+│   └── the-story-teller-1.jpg
 ├── audiobook.html
+├── bank.jpg
 ├── biographies.html
 ├── books.html
 ├── chat.css
 ├── chat.html
 ├── chat.js
+├── classic-literature.html
+├── cod.jpg
 ├── comsp.html
 ├── connectWithsame.html
 ├── contactus1.html
+├── contributing.txt
 ├── contributors/
 │   ├── contributor.css
 │   ├── contributor.html
 │   └── contributor.js
 ├── controller/
+│   ├── Rating.js
 │   └── subscribe.js
 ├── cookiepolicy.html
 ├── cookies.html
@@ -403,10 +433,12 @@
 ├── email.html
 ├── environmental-impact.html
 ├── exchangeHub.css
+├── fantasy.html
 ├── footer1.css
 ├── footer1.html
 ├── help.html
 ├── historical-chronicals.html
+├── horror.html
 ├── index.html
 ├── intriguing-mysteries.html
 ├── lib.jpg
@@ -416,12 +448,17 @@
 ├── mindful-living.html
 ├── modals(privacy policy).css
 ├── models/
-│   └── BookDonation.js
+│   ├── BookDonation.js
+│   └── Rating.js
 ├── mylogin.html
 ├── n.jpg
 ├── our-vision.html
 ├── package-lock.json
 ├── package.json
+├── payment.html
+├── payment.jpg
+├── payment.js
+├── personalized-reading.html
 ├── playNow.html
 ├── popup.jpg
 ├── popup.js
@@ -429,10 +466,14 @@
 ├── privacynotice.html
 ├── profile.css
 ├── profile.html
+├── profiletest.html
+├── refundpolicy.html
 ├── repo_structure.txt
 ├── revitalize.html
+├── romance.html
 ├── romantic-esc.html
 ├── sc.jpg
+├── science-fiction.html
 ├── scifi.html
 ├── script.js
 ├── scrollbar.css
@@ -444,9 +485,14 @@
 ├── stackbit.config.ts
 ├── stay_connect.css
 ├── subscribe.html
+├── suspense-thriller.html
 ├── terms&cond.html
+├── testp.css
+├── testp.js
 ├── thrilling-adventures.html
 ├── translate.html
+├── up-arrow (1).png
+├── upi.jpg
 ├── vanilla-tilt.js
 └── vedio.mp4
 ```
@@ -566,7 +612,7 @@ Contributions are what make the open-source community such an amazing place to l
 
 Your involvement helps to improve the project and make it better for everyone. Thank you for your contributions!
 
-Kindly go through [CONTRIBUTING.md](CONTRIBUTING.md) to understand everything from setup to contributing guidelines.
+Kindly go through [CONTRIBUTING.md](contributing.txt) to understand everything from setup to contributing guidelines.
 
 If you would like to contribute to the project, please follow our contribution guidelines.
 
