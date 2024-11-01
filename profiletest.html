@@ -124,8 +124,8 @@
                 </div>
                 <div class="profile-detail-card">
                     <h3>Wishlist</h3>
-                    <p>Item 1, Item 2</p>
-                    <a href="#">
+                    <p id="wishlistDisplay">Item 1, Item 2</p>
+                    <a href="/wishlist.html">
                     <button class="edit-profile-btn">View</button></a>
                 </div>
                 <div class="profile-detail-card">
@@ -269,6 +269,24 @@
         } else {
             document.getElementById("addressDisplay").textContent = "Address: Not provided";
         }
+
+
+        // Fetch wishlist books from local storage
+        function renderWishlist() {
+            const wishlistDisplay = document.getElementById('wishlistDisplay');
+            const books = JSON.parse(localStorage.getItem('books')) || [];
+
+            if (books.length > 0) {
+                wishlistDisplay.textContent = books.slice(0, 2).map(book => book.title).join(', ');
+            } else {
+                wishlistDisplay.textContent = "No items in wishlist.";
+            }
+        }
+
+        // Call renderWishlist to populate #wishlistDisplay
+        renderWishlist();
+
+
 
     });
 </script>
