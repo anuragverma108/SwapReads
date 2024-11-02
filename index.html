@@ -2830,6 +2830,7 @@
       /* Close button */
       .close {
         color: #073725;
+        margin-top: 20px;
         float: right;
         font-size: 2.8rem;
         font-weight: bold;
@@ -5535,17 +5536,14 @@ color: #ac2127;
             <button id="load-more" class="load-button">Load More</button>
             <button id="load-less" class="load-button" style="display: none;">Load Less</button>
         </div>
-        </div>
-        </section>
-        // <script src="loadmore.js"></script>
+       
+        
         <script src="./assets/js/loadmore.js" defer></script>
         <script>
           
           </script>
-        <!--
-        - #CHAPTERS
-      -->
-        <!-- Book Exchange Hub -->
+         <!--- #CHAPTERS-->
+         <!-- Book Exchange Hub -->
         <section class="section preview" aria-label="preview">
           <div class="container1">
             <h2 class="h2 section-title has-underline" style="margin-bottom: 0px;">
@@ -5561,18 +5559,18 @@ color: #ac2127;
             <div class="exchange-form">
               <div class="form-fields">
                 <!-- Book Details -->
-                <label class="form-label" for="bookTitle">Book Title:</label>
+                <label class="form-label" for="bookTitle" style="color: #ff6f91;">Book Title:</label>
                 <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the title of your book" required
                   class="input-field">
                 <span id="bookTitle-error" class="error"></span>
 
-                <label class="form-label" for="bookAuthor">Author:</label>
+                <label class="form-label" for="bookAuthor" style="color: #ff6f91;">Author:</label>
                 <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter the author's name" required
                   class="input-field">
                 <span id="bookAuthor-error" class="error"></span>
 
                 <!-- Genre Selection -->
-                <label class="form-label" for="genre">Genre:</label>
+                <label class="form-label" for="genre"  style="color: #ff6f91;">Genre:</label>
                 <select id="genre" name="genre" class="input-field" required>
                   <option disabled selected value="">Select the genre</option>
                   <option value="fiction">Fiction</option>
@@ -5590,7 +5588,7 @@ color: #ac2127;
                 </select>
 
                 <!-- Condition Selection -->
-                <label class="form-label" for="condition">Condition of the Book:</label>
+                <label class="form-label" for="condition"  style="color: #ff6f91;">Condition of the Book:</label>
                 <select id="condition" name="condition" class="input-field" required>
                   <option disabled selected value="">Select the condition</option>
                   <option value="relatively-new">Relatively New</option>
@@ -5599,12 +5597,12 @@ color: #ac2127;
                 </select>
 
                 <!-- Pricing Information -->
-                <label class="form-label" for="actualPrice">Actual Price:</label>
+                <label class="form-label" for="actualPrice"  style="color: #ff6f91;">Actual Price:</label>
                 <input type="number" min="1" id="actualPrice" name="actualPrice" placeholder="Enter actual price"
                   required class="input-field">
                 <span id="actualPrice-error" class="error"></span>
 
-                <label class="form-label" for="discountRate">Discount Rate (%):</label>
+                <label class="form-label" for="discountRate"  style="color: #ff6f91;">Discount Rate (%):</label>
                 <input type="number" min="0" id="discountRate" name="discountRate" placeholder="Enter discount rate"
                   required class="input-field">
                 <span id="discountRate-error" class="error"></span>
@@ -5616,22 +5614,22 @@ color: #ac2127;
                 <p id="predictedPrice" class="section-text" style="font-weight: bold; margin-top: 10px;">Predicted
                   Price: </p>
 
-                <!-- User Contact Information -->
-                <label class="form-label" for="userName">Your Name:</label>
+                <!-- User Contact Information --> 
+                <label class="form-label" for="userName"  style="color: #ff6f91;">Your Name:</label>
                 <input type="text" id="userName" name="userName" placeholder="Enter your name" required
                   class="input-field">
 
-                <label class="form-label" for="email">Email Address:</label>
+                <label class="form-label" for="email"  style="color: #ff6f91;">Email Address:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email address" required
                   class="input-field">
 
                 <!-- Additional Information -->
-                <label class="form-label" for="additionalInfo">Additional Information:</label>
+                <label class="form-label" for="additionalInfo"  style="color: #ff6f91;">Additional Information:</label>
                 <textarea id="additionalInfo" name="additionalInfo"
                   placeholder="Any additional details about the book..." class="input-field"></textarea>
 
                 <!-- Upload Image -->
-                <label class="form-label" for="bookImage">Upload Book Image:</label>
+                <label class="form-label" for="bookImage"  style="color: #ff6f91;">Upload Book Image:</label>
                 <input type="file" id="bookImage" name="bookImage" accept="image/*" class="input-field">
               </div>
 
@@ -5898,169 +5896,148 @@ color: #ac2127;
 
         <div id="toastMessage" class="toast-message"></div>
 
-        <!-- Rate Us Section -->
-        <div id="rate-us">
-          <div class="heading">
-            <h3>Rate Us</h3>
-            <p>Tell us about your experience!</p>
+              <!-- Rate Us Section -->
+          <div id="rate-us">
+            <div class="heading">
+              <h3>Rate Us</h3>
+              <p>Tell us about your experience!</p>
           </div>
-
-          <div class="stars">
-            <input type="radio" id="star5" name="rate" value="5">
+          <form id="feedback-form">
+        <div class="stars">
+            <input type="radio" id="star5" name="rate" value="5" required>
             <label for="star5" class="emoji-label">😭</label>
-            <input type="radio" id="star4" name="rate" value="4">
+            <input type="radio" id="star4" name="rate" value="4" required>
             <label for="star4" class="emoji-label">😢</label>
-            <input type="radio" id="star3" name="rate" value="3">
+            <input type="radio" id="star3" name="rate" value="3" required>
             <label for="star3" class="emoji-label">😐</label>
-            <input type="radio" id="star2" name="rate" value="2">
+            <input type="radio" id="star2" name="rate" value="2" required>
             <label for="star2" class="emoji-label">😊</label>
-            <input type="radio" id="star1" name="rate" value="1">
+            <input type="radio" id="star1" name="rate" value="1" required>
             <label for="star1" class="emoji-label">😍</label>
-          </div>
-
-          <div class="feedback-container">
-            <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
-          </div>
-
-          <div class="button">
-            <center><button id="submit-btn">Submit</button></center>
-          </div>
         </div>
-        <script>
-          document.getElementById('submit-btn').addEventListener('click', async () => {
-            const rating = document.querySelector('input[name="rate"]:checked').value;
-            const feedback = document.getElementById('feedback').value;
 
-            // Set the backend URL based on the current environment
-            const backendURL = window.location.hostname === 'localhost'
-              ? 'http://localhost:4000'
-              : 'https://your-production-url.com'; // Replace with your production URL
+        <div class="feedback-container">
+            <textarea id="feedback" placeholder="Enter your feedback..." rows="4" required></textarea>
+        </div>
 
-            const response = await fetch(`${backendURL}/rate`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({ rating, feedback })
-            });
+           <div class="button">
+            <center><button type="submit">Submit</button></center>
+        </div>
+      </form>
+    </div>
 
-            const data = await response.json();
-            alert(data.message);
-          });
-        </script>
-        <div id="toastMessage" class="toast-message"></div>
+    <!-- Popup -->
+<div id="thank-you-popup" style="display:none;">
+    <div>
+        <h2>🎉 Thank You! 👏</h2>
+        <p>Your feedback has been submitted successfully.</p>
+        <button class="ok-button" onclick="closePopup()">OK</button>
+    </div>
+</div>
+<script>
+    document.getElementById('feedback-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        console.log('Form submitted'); // Debug log
 
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
+        // Show the thank-you popup
+        document.getElementById('thank-you-popup').style.display = 'block';
 
-
-
-            <!-- JavaScript for form submission -->
-            <script>
-              document.addEventListener("DOMContentLoaded", function() {
-
-
-
-      < !--rate us -->
-
-
-              <!-- Rate Us Component -->
-              <div id="rate-us">
-                <div class="heading">
-                  <h3>Rateus</h3>
-                  <p>Tell us about your experience!</p>
-                </div>
-
-                <div class="stars">
-                  <input type="radio" id="star5" name="rate" value="5" />
-                  <label for="star5">😭</label>
-                  <input type="radio" id="star4" name="rate" value="4" />
-                  <label for="star4">😢</label>
-                  <input type="radio" id="star3" name="rate" value="3" />
-                  <label for="star3">😐</label>
-                  <input type="radio" id="star2" name="rate" value="2" />
-                  <label for="star2">😊</label>
-                  <input type="radio" id="star1" name="rate" value="1" />
-                  <label for="star1">😍</label>
-                </div>
-
-                <div class="feedback-container">
-                  <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
-                </div>
-
-                <div class="button">
-
-                  <center><button id="submit-btn">Submit</button></center>
-                </div>
-              </div>
-
-              <div id="toastMessage" class="toast-message"></div>
-              <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                  main
-    const toastMessage = document.getElementById("toastMessage");
-
-                document.getElementById("submit-btn").addEventListener("click", function(event) {
-                  event.preventDefault(); // Prevent default form submission
-
-                let selectedEmoji = document.querySelector('input[name="rate"]:checked');
-                let feedback = document.getElementById("feedback").value.trim();
-
-                if (selectedEmoji && feedback !== "") {
-                  // Show success toast message
-                  toastMessage.textContent = "Feedback submitted successfully!";
-                toastMessage.style.backgroundColor = "green";
-                showToastMessage();
-
-                // Reset form fields
-                document.getElementById("feedback").value = "";
-                let starInputs = document.querySelectorAll('input[name="rate"]');
-        starInputs.forEach(input => input.checked = false);
-      } else {
-                  // Show failure toast message
-                  toastMessage.textContent = "Please select an emoji and give feedback.";
-                toastMessage.style.backgroundColor = "red";
-                showToastMessage();
-      }
+        // Reset the form
+        this.reset();
     });
 
-                function showToastMessage() {
-                  toastMessage.style.display = "block";
-      setTimeout(() => {
-                  toastMessage.style.opacity = "1";
-      }, 100);
-
-                setTimeout(function() {
-                  toastMessage.style.opacity = "0";
-        setTimeout(() => {
-                  toastMessage.style.display = "none";
-        }, 300);
-      }, 3000);
+    function closePopup() {
+        document.getElementById('thank-you-popup').style.display = 'none';
     }
-  });
-        </script>
+</script>
+
+<style>
+
+/* Basic styles for body */
+body {
+  background-color: #0e1722; /* Background color */
+    color: white; /* Text color */
+    font-family: Arial, sans-serif; /* Font style */
+
+}
+
+/* Toast message styles */
+.toast-message {
+
+    position: fixed;
+    top: 20px; /* Position at the top */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+    color: white; /* Text color */
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transitions */
+    z-index: 999; /* Ensure it's above other elements */
+}
 
 
-        <div id="toastMessage"></div>
 
-        <!-- Confirmation Modal -->
-        <div id="confirmationModal" class="modal">
-          <div class="modal-content">
-            <span class="close" onclick="closeConfirmationModal()">&times;</span>
-            <p id="confirmationMessage"></p>
-          </div>
-        </div>
-        </div>
+.toast-message.show {
+  opacity: 1; /* Visible */
+  transform: translateX(-50%) translateY(0); /* Slide in */
+}
 
-        <!-- Confirmation Message Popup -->
-        <div id="confirmationModal" class="modal">
-          <div class="modal-content">
-            <span class="close" onclick="closeConfirmationModal()">&times;</span>
-            <p id="confirmationMessage"></p>
-          </div>
-        </div>
 
-        <script src="/assets/js/rate.js"></script>
+/* Simple styles for the popup */
+#thank-you-popup {
+
+  position: fixed;
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ebb4ad; /* Background color */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 1px 1px 2px black; /* Shadow effect */
+    padding: 20px;
+    z-index: 1000;
+
+}
+
+/* Popup heading color */
+#thank-you-popup h2 {
+  font-size: 26px;
+    color: #c80000; /* Change this to your preferred heading color */
+    text-shadow:  2px 2px 2px black;
+}
+
+/* Popup paragraph color */
+#thank-you-popup p {
+
+  font-size: 18px;
+  color: #ffffff;
+  text-shadow:  2px 2px 2px black;
+  .ok-button {
+
+background-color: #f37777; /* Button background color */
+color: #0e0e0e; /* Text color */
+padding: 12px 20px; /* Padding */
+font-size: 23px; /* Font size */
+font-weight: 600; /* Font weight */
+border: none; /* No border */
+border-radius: 10px; /* Rounded corners */
+cursor: pointer; /* Pointer cursor on hover */
+width: 100%; /* Full width */
+transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+box-shadow: 0 2px 2px rgba(0, 0, 0, 0.763); /* Shadow effect */
+
+}
+
+.ok-button:hover {
+
+background-color: #e76a6a; /* Darker shade on hover */
+box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); /* Slightly larger shadow on hover */
+
+}
+
+</style>
 
 
         <!-- --Contact Us -->
@@ -6070,7 +6047,7 @@ color: #ac2127;
             Contact Us!
             <span class="span has-before"></span>
           </h1>        
-          <p class="p" style="color:#e7a7e8">Have a Question?</p>
+          <p class="p" style="color:purple">Have a Question?</p>
           <h3 style="text-align: center; color: #4f1316;">GET IN TOUCH</h3>
           <div class="flexi">
             <div class="contact">
@@ -7571,7 +7548,65 @@ open.classList.add('open')
 </script>
 
 
+<style>
 
+.popupp {
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+}
+
+.popupp-content {
+
+  background: linear-gradient(135deg, #0e1722, #ebf3ff, #0e1722);
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  position: relative; /* For positioning close button */
+
+}
+
+.popupp-content h2 {
+
+  color: #333; /* Title color */
+
+}
+
+.popupp-content p {
+
+  color: #000000;
+  font-size: 15px;
+
+}
+
+.close {
+
+  cursor: pointer;
+  float: right;
+  font-size: 20px;
+
+}
+
+
+
+/* Additional styles for body */
+body {
+
+  background-color: #0e1722; /* Background color */
+  color: rgb(0, 0, 0); /* Text color */
+  font-family: Arial, sans-serif; /* Font style */
+
+}
+</style>
 
   </body>
 
