@@ -405,6 +405,7 @@
 ├── audiobook.html
 ├── bank.jpg
 ├── biographies.html
+├── book.jpg
 ├── books.html
 ├── chat.css
 ├── chat.html
@@ -497,7 +498,10 @@
 ├── up-arrow (1).png
 ├── upi.jpg
 ├── vanilla-tilt.js
-└── vedio.mp4
+├── vedio.mp4
+├── wishlist.css
+├── wishlist.html
+└── wishlist.js
 ```
 <!-- END_STRUCTURE -->
 
