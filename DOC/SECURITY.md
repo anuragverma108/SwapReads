@@ -1,5 +1,5 @@
 # Security Policy
-Contact: mailto:security@swapreads.com
+Contact: swapreads@gmail.com
 Expires: 2024-12-31T23:59:59.999Z
 Preferred-Languages: en
 Canonical: https://swapreads.com/.well-known/security.txt
