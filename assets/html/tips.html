@@ -398,12 +398,6 @@
     }
 
 
-
-
-
-
-
-
     .card-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -574,7 +568,6 @@
 
 
 
-
     /* footer  */
 
 .socialmediaicons {
@@ -613,6 +606,8 @@
 #quicklinks .foot-quick a i {
   margin-right: 5px; /* Adjust spacing between icon and text */
 }
+
+
 .dark-mode .fas{
   color:white;
 }
@@ -744,10 +739,43 @@
   vertical-align: middle;
 }
 
+body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    background-image: url('../images/darkmode_bg.png'); /* Add your dark mode image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+  }
 
+  .dark-mode .card-front {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+}
 
+.dark-mode .card-front h1 {
+  color: #e0e0e0;
+}
 
+.dark-mode .card-back {
+  background-color: #2e2e2e;
+}
+.dark-mode .card-back p{
+  color:whitesmoke;
+}
 
+.dark-mode .card-image {
+  filter: brightness(0.8);
+}
+.dark-mode .random-tip-container {
+    background-color: #1c1c1e; /* Dark background */
+    color: #e5e5e5; /* Light text color for readability */
+    border-color: #d9555b; /* Slightly lighter border color */
+    box-shadow: 2px 2px 20px #d9555b99; /* Adjusted shadow color */
+}
+.dark-mode h2{
+  color:#e5e5e5
+}
   </style>
   <header class="header header-anim nav-h" data-header>
 
@@ -896,6 +924,17 @@
           </lord-icon>Login/Signup</a>
           </li>
 
+          <div class="switch-container">
+            <input type="checkbox" id="switch" class="switch-checkbox">
+            <label for="switch" class="switch-label" style="margin-left: 120px; left: 200px;
+    margin-top: -30px;">
+              <div class="switch-button">
+                <span class="material-icons sun-icon">wb_sunny</span>
+                <span class="material-icons moon-icon">brightness_2</span>
+              </div>
+            </label>
+          </div>
+
           <li>
             <div class="action">
               
@@ -932,6 +971,31 @@
         }
       });
 
+// Theme switcher
+document.addEventListener('DOMContentLoaded', function () {
+          const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
+          const bodyElement = document.body;
+    
+          const currentTheme = localStorage.getItem('theme') || 'light';
+          if (currentTheme === 'dark') {
+            bodyElement.classList.add('dark-mode');
+            toggleSwitch.checked = true;
+          } else {
+            bodyElement.classList.add('light-mode');
+          }
+    
+          toggleSwitch.addEventListener('change', function (event) {
+            if (event.target.checked) {
+              bodyElement.classList.remove('light-mode');
+              bodyElement.classList.add('dark-mode');
+              localStorage.setItem('theme', 'dark');
+            } else {
+              bodyElement.classList.remove('dark-mode');
+              bodyElement.classList.add('light-mode');
+              localStorage.setItem('theme', 'light');
+            }
+          });
+        });
 
       function menuToggle() {
         const toggleMenu = document.querySelector(".menu");
@@ -1046,8 +1110,6 @@
   </div>
   <button onclick="displayRandomTip()">Show Random Tip</button>
 </div>
-
-  .
 <!-- Card Container -->
 <div class="card-container">
   <div class="card" onclick="this.classList.toggle('flip')">
@@ -1389,6 +1451,8 @@
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    line-height: 1;
+    opacity: .2;
 }
 .close:hover,
 .close:focus {
