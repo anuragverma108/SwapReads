@@ -65,6 +65,8 @@
 ├── LICENSE
 ├── Mystical-fantaies.html
 ├── README.md
+├── address.css
+├── address.html
 ├── assets/
 │   ├── GSSoC-Ext.png
 │   ├── JSON/
@@ -403,6 +405,7 @@
 ├── audiobook.html
 ├── bank.jpg
 ├── biographies.html
+├── book.jpg
 ├── books.html
 ├── chat.css
 ├── chat.html
@@ -445,6 +448,7 @@
 ├── logout.css
 ├── logout.js
 ├── lol.html
+├── map.jpg
 ├── mindful-living.html
 ├── modals(privacy policy).css
 ├── models/
@@ -494,7 +498,10 @@
 ├── up-arrow (1).png
 ├── upi.jpg
 ├── vanilla-tilt.js
-└── vedio.mp4
+├── vedio.mp4
+├── wishlist.css
+├── wishlist.html
+└── wishlist.js
 ```
 <!-- END_STRUCTURE -->
 
