@@ -327,14 +327,6 @@
                     </tbody>
                 </table>
             </div>
-            <div id="event-details">
-                <h3>Event Details</h3>
-                <ul id="event-list">
-                    <!-- Event details will be dynamically generated here -->
-                </ul>
-            </div>
-        </section>
-    </main>
 
 
     <footer>
@@ -557,34 +549,66 @@
                         date++;
                     }
                 }
-
-                calendarBody.appendChild(row);
             }
+        </script>
+        <script type="text/javascript"
+            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-            document.getElementById('monthAndYear').innerText = `${eventCalendar.monthNames[month]} ${year}`;
-        }
+        <!-- Your custom JavaScript -->
+        <script src="script.js"></script>
 
-        function showEventDetails(event) {
-            const eventList = document.getElementById('event-list');
-            eventList.innerHTML = '';
-            let listItem = document.createElement('li');
-            listItem.innerText = event.title;
-            eventList.appendChild(listItem);
-        }
+        <script>
 
-        document.getElementById('prevMonth').addEventListener('click', () => {
-            eventCalendar.currentYear = (eventCalendar.currentMonth === 0) ? eventCalendar.currentYear - 1 : eventCalendar.currentYear;
-            eventCalendar.currentMonth = (eventCalendar.currentMonth === 0) ? 11 : eventCalendar.currentMonth - 1;
-            generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-        });
 
-        document.getElementById('nextMonth').addEventListener('click', () => {
-            eventCalendar.currentYear = (eventCalendar.currentMonth === 11) ? eventCalendar.currentYear + 1 : eventCalendar.currentYear;
-            eventCalendar.currentMonth = (eventCalendar.currentMonth === 11) ? 0 : eventCalendar.currentMonth + 1;
-            generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-        });
+            const eventCalendar = {
+                events: [
+                    { date: '2024-10-07', title: 'Book Club Meeting' },
+                    { date: '2024-10-14', title: 'Author Talk: John Doe' },
+                    { date: '2024-10-21', title: 'Children’s Story Hour' },
+                    { date: '2024-10-28', title: 'Poetry Reading' },
+                ],
 
-        generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-    </script>
-</body>
-</html>
+                monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                today: new Date(),
+                currentMonth: new Date().getMonth(),
+                currentYear: new Date().getFullYear(),
+            };
+
+            function generateCalendar(month, year) {
+                const firstDay = (new Date(year, month)).getDay();
+                const daysInMonth = 32 - new Date(year, month, 32).getDate();
+
+                const calendarDays = document.getElementById('calendar-days');
+                calendarDays.innerHTML = '';
+
+                let date = 1;
+                for (let i = 0; i < 6; i++) {
+                    let row = document.createElement('div');
+                    row.classList.add('row');
+
+                    for (let j = 0; j < 7; j++) {
+                        if (i === 0 && j < firstDay) {
+                            let cell = document.createElement('div');
+                            cell.classList.add('day');
+                            row.appendChild(cell);
+                        } else if (date > daysInMonth) {
+                            break;
+                        } else {
+                            let cell = document.createElement('div');
+                            cell.classList.add('day');
+                            cell.textContent = date;
+
+                            const eventDate = new Date(year, month, date);
+                            let formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+                            let event = eventCalendar.events.find(event => event.date === formattedDate);
+
+                            if (eventDate >= eventCalendar.today) {
+                                if (event) {
+                                    cell.classList.add('event');
+                                    const googleCalendarUrl = generateGoogleCalendarLink(event.title, eventDate);
+                                    cell.innerHTML = `<a href="${googleCalendarUrl}" target="_blank" title="Add to Google Calendar">${date}</a><div class="tooltip">Add to Google Calendar</div>`;
+                                }
+                            } else {
+                                cell.classList.add('past');
+                            }
+
