@@ -121,38 +121,6 @@
     left:100px;
   }
 
-  
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s ease-in-out;
-  transform-style: preserve-3d;
-  transform: perspective(1000px) rotateY(0deg);
-}
-
-.card-inner:hover {
-  transition-delay: 0.1s; 
-  transform: perspective(1000px) rotateY(180deg);
-}
-
-.card-front, .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-.card-front {
-  transform: rotateY(0deg);
-  
-}
-
-.card-back {
-  transform: rotateY(180deg);
-  
-}
-
   </style>
 </head>
 
@@ -503,8 +471,26 @@
 
 
 
+    
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adjust shadow as needed */
+}
+:root {
+  --shadow-color: rgba(0, 0, 0, 0.2); /* For light theme */
+}
 
+/* For dark theme */
+.dark-theme :root {
+  --shadow-color: rgba(255, 255, 255, 0.2);
+}
 
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0px 4px 8px var(--shadow-color);
+}
 
 
     .card-container {
@@ -1368,7 +1354,7 @@
 
   <!-- Card Container -->
   <div class="card-container">
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Rowling">
           <h1>J.K. Rowling</h1>
@@ -1383,7 +1369,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Tagore">
           <h1>Rabindranath Tagore</h1>
@@ -1399,7 +1385,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front sarojini">
           <h1>Sarojini Naidu</h1>
@@ -1414,7 +1400,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front devi">
           <h1>Mahasweta Devi</h1>
@@ -1430,7 +1416,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front rk">
           <h1>R. K. Narayan</h1>
@@ -1446,13 +1432,13 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Nawab">
           <h1>Munshi Premchand</h1>
         </div>
         <div class="card-back">
-          <h3>Pen Name: Nawab Rai</h3>
+          < h3>Pen Name: Nawab Rai</h3>
           <p><strong>Famous Works:</strong> Godaan, Nirmala</p>
           <p><strong>Genres:</strong> Fiction, Social Commentary</p>
           <p><strong>Awards:</strong> None</p>
@@ -1462,7 +1448,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Twain">
           <h1>Mark Twain</h1>
@@ -1477,7 +1463,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Orwell">
           <h1>George Orwell</h1>
@@ -1492,7 +1478,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Christie">
           <h1>Agatha Christie</h1>
@@ -1507,7 +1493,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Seuss">
           <h1>Dr. Seuss</h1>
@@ -1522,7 +1508,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Austen">
           <h1>Jane Austen</h1>
@@ -1537,7 +1523,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class ="card-inner">
         <div class="card-front Dickens">
           <h1>Charles Dickens</h1>
@@ -1552,7 +1538,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Shakespeare">
           <h1>William Shakespeare</h1>
@@ -1567,7 +1553,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Wells">
           <h1>H.G. Wells</h1>
@@ -1582,7 +1568,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Tolstoy">
           <h1>Leo Tolstoy</h1>
@@ -1597,7 +1583,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Dostoevsky">
           <h1>Fyodor Dostoevsky</h1>
@@ -1612,7 +1598,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Woolf">
           <h1>Virginia Woolf</h1>
@@ -1627,7 +1613,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Joyce">
           <h1>James Joyce</h1>
@@ -1642,7 +1628,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Wilde">
           <h1>Oscar Wilde</h1>
@@ -1657,7 +1643,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Hemingway">
           <h1>Ernest Hemingway</h1>
@@ -1672,7 +1658,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Steinbeck">
           <h1>John Steinbeck</h1>
@@ -1687,7 +1673,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Márquez">
           <h1>Gabriel García Márquez</h1>
@@ -1702,7 +1688,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Kafka">
           <h1>Franz Kafka</h1>
@@ -1717,7 +1703,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Homer">
           <h1>Homer</h1>
@@ -1732,7 +1718,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" onclick="this.classList.toggle('flip')">
       <div class="card-inner">
         <div class="card-front Plato">
           <h1>Plato</h1>
