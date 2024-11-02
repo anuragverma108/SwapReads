@@ -65,6 +65,8 @@
 ├── LICENSE
 ├── Mystical-fantaies.html
 ├── README.md
+├── address.css
+├── address.html
 ├── assets/
 │   ├── GSSoC-Ext.png
 │   ├── JSON/
@@ -173,11 +175,13 @@
 │   │   ├── img.png
 │   │   ├── login.html
 │   │   ├── map.html
+│   │   ├── midnight.html
 │   │   ├── mood.html
 │   │   ├── mylogin.html
 │   │   ├── ngo.html
 │   │   ├── profileedit.html
 │   │   ├── quiz.html
+│   │   ├── quizzes.html
 │   │   ├── rate.html
 │   │   ├── read.html
 │   │   ├── read_later.html
@@ -403,6 +407,7 @@
 ├── audiobook.html
 ├── bank.jpg
 ├── biographies.html
+├── book.jpg
 ├── books.html
 ├── chat.css
 ├── chat.html
@@ -412,6 +417,7 @@
 ├── comsp.html
 ├── connectWithsame.html
 ├── contactus1.html
+├── contributing.txt
 ├── contributors/
 │   ├── contributor.css
 │   ├── contributor.html
@@ -444,6 +450,7 @@
 ├── logout.css
 ├── logout.js
 ├── lol.html
+├── map.jpg
 ├── mindful-living.html
 ├── modals(privacy policy).css
 ├── models/
@@ -493,7 +500,10 @@
 ├── up-arrow (1).png
 ├── upi.jpg
 ├── vanilla-tilt.js
-└── vedio.mp4
+├── vedio.mp4
+├── wishlist.css
+├── wishlist.html
+└── wishlist.js
 ```
 <!-- END_STRUCTURE -->
 
@@ -611,7 +621,7 @@ Contributions are what make the open-source community such an amazing place to l
 
 Your involvement helps to improve the project and make it better for everyone. Thank you for your contributions!
 
-Kindly go through [CONTRIBUTING.md](CONTRIBUTING.md) to understand everything from setup to contributing guidelines.
+Kindly go through [CONTRIBUTING.md](contributing.txt) to understand everything from setup to contributing guidelines.
 
 If you would like to contribute to the project, please follow our contribution guidelines.
 
