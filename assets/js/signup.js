@@ -1,12 +1,12 @@
- import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js';
-import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js';
+ import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
 import {
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
-} from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js';
-import {getDatabase,set,ref} from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js'
+} from 'firebase/auth';
+import {getDatabase,set,ref} from 'firebase/database'
 const firebaseConfig = {
   apiKey: "AIzaSyAIDh842xGC_NZj6pMcB9THjNQ1DyUVnZU",
   authDomain: "swapreads-c7d1d.firebaseapp.com",
