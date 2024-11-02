@@ -4,337 +4,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/event.css">
-
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
-   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
-    
-
 <title>Reading Events</title>
 
-<style>
-  
-</style>
-</head>
-<body>
-    <header>
-        <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="../images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
-          </a>
-          <div class="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <nav>
-            <ul class="navbar-list">
-                <li class="navbar-item">
-                  <a href="../../index.html" class="navbar-link">
-                    <lord-icon
-                      src="https://cdn.lordicon.com/qeltvbrs.json"
-                      trigger="hover"
-                      colors="primary:#e88c30,secondary:#a30f17"
-                      style="width: 25px; height: 25px">
-                    </lord-icon>Home</a>
-                </li>
-                <li class="navbar-item">
-                  <a href="../../books.html" class="navbar-link">
-                    <lord-icon
-                      src="https://cdn.lordicon.com/bhmovrlt.json"
-                      trigger="hover"
-                      state="morph-open"
-                      colors="primary:#a30f17,secondary:#e88c30"
-                      style="width: 25px; height: 25px">
-                    </lord-icon>Books</a>
-                </li>
-                <li class="navbar-item">
-                  <a href="../.././index.html#genre" class="navbar-link">
-                    <script src="https://cdn.lordicon.com/lordicon.js"></script>
-                    <lord-icon
-                      src="https://cdn.lordicon.com/lcvlsnre.json"
-                      trigger="hover"
-                      colors="primary:#a30f17,secondary:#e88c30"
-                      style="width: 25px; height: 25px">
-                    </lord-icon>Genres</a>
-                </li>
-                <li class="navbar-item">
-                  <a href="../.././assets/html/about.html" class="navbar-link">
-                    <lord-icon
-                      src="https://cdn.lordicon.com/fozsorqm.json"
-                      trigger="hover"
-                      stroke="bold"
-                      state="hover-up"
-                      colors="primary:#a30f17,secondary:#e88c30"
-                      style="width: 30px; height: 25px">
-                    </lord-icon>About</a>
-                </li>
-              </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="event-calendar">
-            <h2>Reading Event Calendar</h2>
-            <div class="calendar">
-                <div class="calendar-header">
-                    <button id="prevMonth">‹</button>
-                    <h3 id="monthAndYear"></h3>
-                    <button id="nextMonth">›</button>
-                </div>
-                <table id="calendar-body">
-                    <thead>
-                        <tr>
-                            <th>Sun</th>
-                            <th>Mon</th>
-                            <th>Tue</th>
-                            <th>Wed</th>
-                            <th>Thu</th>
-                            <th>Fri</th>
-                            <th>Sat</th>
-                        </tr>
-                    </thead>
-                    <tbody id="calendar-days">
-                        <!-- Calendar days will be dynamically generated here -->
-                    </tbody>
-                </table>
+
             </div>
-            <div id="event-details">
-                <h3>Event Details</h3>
-                <ul id="event-list">
-                    <!-- Event details will be dynamically generated here -->
-                </ul>
-            </div>
-        </section>
-    </main>
 
 
-
-    <footer>
-        <div class="footer">
-        <div class="row">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
-        <a href="#"><i class="fa fa-youtube"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        </div>
-        
-        <div class="row">
-        <ul>
-        <li><a href="#">Contact us</a></li>
-        <li><a href="#">Our Services</a></li>
-        <li><a href="#">Genre</a></li>
-        <li><a href="#">Community Spotlight</a></li>
-        <li><a href="#">FAQ</a></li>
-        </ul>
-        </div>
-        
-        <div class="row">
-        SwapReads Copyright © 2024 SwapReads - All rights reserved || Designed By: pranjal
-        </div>
-        </div>
-        </footer>
-        <div>
-            <button id="translateButton">Translate</button>
-          </div>
-
-
-        }
-        /* Popup content */
-        .popup-content {
-          background:linear-gradient(hwb(357 6% 36%),#d26d6d);
-            margin-top: 600px;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 300px;
-            border-radius: 10px;
-            position: relative;
-            margin-left: 1160px;
-            /* margin-right: 0px; */
-        }
-        /* Close button */
-        .close {
-            color: #073725;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            line-height: 1;
-            opacity: .2;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-        }
-        /* Hide the default Google Translate widget */
-        .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
-            display: none !important;
-        }
-        body {
-            top: 0px !important;
-        }
-        /* Hide the "Powered by Google" branding */
-        .goog-logo-link {
-            display: none !important;
-        }
-        .goog-te-gadget {
-            height: 28px !important;
-            overflow: hidden;
-        }
-        /* Hide Google Translate notifications */
-        .goog-te-spinner-pos,
-        .goog-te-spinner,
-        .goog-te-balloon-frame,
-        .goog-te-banner-frame,
-        .goog-te-banner,
-        .goog-te-balloon {
-            display: none !important;
-        }
-        /* Custom styles for the Google Translate dropdown */
-        #google_translate_element select {
-            background: #ffffff; 
-            border: 1px solid #ccc; 
-            color: #d26d6d; 
-            padding: 5px; 
-            font-size: 14px; 
-            border-radius: 5px; 
-        }
-        /* Hide the Google Translate bar */
-        body > .skiptranslate {
-            display: none !important;
-        }
-        .goog-te-banner-frame.skiptranslate {
-            display: none !important;
-        }
-        .goog-te-banner-frame {
-            display: none !important;
-        }
-        .goog-te-banner {
-            display: none !important;
-        }
-          </style>
-          <script>
-            document.addEventListener('DOMContentLoaded', function() {
-            // Get the popup
-            var popup = document.getElementById('translatePopup');
-            // Get the button that opens the popup
-            var btn = document.getElementById('translateButton');
-            // Get the <span> element that closes the popup
-            var span = document.getElementsByClassName('close')[0];
-            // When the user clicks the button, open the popup 
-            btn.onclick = function() {
-                popup.style.display = 'block';
+            .goog-te-banner {
+                display: none !important;
             }
-            // When the user clicks on <span> (x), close the popup
-            span.onclick = function() {
-                popup.style.display = 'none';
-            }
-            // When the user clicks anywhere outside of the popup, close it
-            window.onclick = function(event) {
-                if (event.target == popup) {
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Get the popup
+                var popup = document.getElementById('translatePopup');
+                // Get the button that opens the popup
+                var btn = document.getElementById('translateButton');
+                // Get the <span> element that closes the popup
+                var span = document.getElementsByClassName('close')[0];
+                // When the user clicks the button, open the popup 
+                btn.onclick = function () {
+                    popup.style.display = 'block';
+                }
+                // When the user clicks on <span> (x), close the popup
+                span.onclick = function () {
                     popup.style.display = 'none';
                 }
-            }
-        });
-          </script>
-          <!-- Popup for Google Translate -->
-          <div id="translatePopup" class="popup">
-              <div class="popup-content">
-                  <span class="close">&times;</span>
-                  <div id="google_translate_element"></div>
-              </div>
-          </div>
-          <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                    pageLanguage: 'en',
-                }, 'google_translate_element');
-            }
-        </script>
-        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        
-        <!-- Your custom JavaScript -->
-    <script>
-        const eventCalendar = {
-            events: [
-                { date: '2024-08-10', title: 'Book Club Meeting' },
-                { date: '2024-08-15', title: 'Author Talk: John Doe' },
-                { date: '2024-08-20', title: 'Children’s Story Hour' },
-                { date: '2024-08-25', title: 'Poetry Reading' },
-                { date: '2024-08-2', title: 'Guest Readers Talk' },
-            ],
-            monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-            today: new Date(),
-            currentMonth: new Date().getMonth(),
-            currentYear: new Date().getFullYear(),
-        };
-
-        function generateCalendar(month, year) {
-            const firstDay = (new Date(year, month)).getDay();
-            const daysInMonth = 32 - new Date(year, month, 32).getDate();
-
-            const calendarBody = document.getElementById('calendar-days');
-            calendarBody.innerHTML = '';
-
-            let date = 1;
-            for (let i = 0; i < 6; i++) {
-                let row = document.createElement('tr');
-
-                for (let j = 0; j < 7; j++) {
-                    if (i === 0 && j < firstDay) {
-                        let cell = document.createElement('td');
-                        let cellText = document.createTextNode('');
-                        cell.appendChild(cellText);
-                        row.appendChild(cell);
-                    } else if (date > daysInMonth) {
-                        break;
-                    } else {
-                        let cell = document.createElement('td');
-                        let cellText = document.createTextNode(date);
-                        cell.appendChild(cellText);
-
-                        let eventDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
-                        let event = eventCalendar.events.find(event => event.date === eventDate);
-
-                        if (event) {
-                            cell.classList.add('event');
-                            cell.addEventListener('click', () => showEventDetails(event));
-                        }
-
-                        row.appendChild(cell);
-                        date++;
+                // When the user clicks anywhere outside of the popup, close it
+                window.onclick = function (event) {
+                    if (event.target == popup) {
+                        popup.style.display = 'none';
                     }
                 }
-
-                calendarBody.appendChild(row);
             }
+        </script>
+        <script type="text/javascript"
+            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-            document.getElementById('monthAndYear').innerText = `${eventCalendar.monthNames[month]} ${year}`;
-        }
+        <!-- Your custom JavaScript -->
+        <script src="script.js"></script>
 
-        function showEventDetails(event) {
-            const eventList = document.getElementById('event-list');
-            eventList.innerHTML = '';
-            let listItem = document.createElement('li');
-            listItem.innerText = event.title;
-            eventList.appendChild(listItem);
-        }
+        <script>
 
-        document.getElementById('prevMonth').addEventListener('click', () => {
-            eventCalendar.currentYear = (eventCalendar.currentMonth === 0) ? eventCalendar.currentYear - 1 : eventCalendar.currentYear;
-            eventCalendar.currentMonth = (eventCalendar.currentMonth === 0) ? 11 : eventCalendar.currentMonth - 1;
-            generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-        });
 
-        document.getElementById('nextMonth').addEventListener('click', () => {
-            eventCalendar.currentYear = (eventCalendar.currentMonth === 11) ? eventCalendar.currentYear + 1 : eventCalendar.currentYear;
-            eventCalendar.currentMonth = (eventCalendar.currentMonth === 11) ? 0 : eventCalendar.currentMonth + 1;
-            generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-        });
+            const eventCalendar = {
+                events: [
+                    { date: '2024-10-07', title: 'Book Club Meeting' },
+                    { date: '2024-10-14', title: 'Author Talk: John Doe' },
+                    { date: '2024-10-21', title: 'Children’s Story Hour' },
+                    { date: '2024-10-28', title: 'Poetry Reading' },
+                ],
 
-        generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-    </script>
-</body>
-</html>
+                monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                today: new Date(),
+                currentMonth: new Date().getMonth(),
+                currentYear: new Date().getFullYear(),
+            };
+
+            function generateCalendar(month, year) {
+                const firstDay = (new Date(year, month)).getDay();
+                const daysInMonth = 32 - new Date(year, month, 32).getDate();
+
+                const calendarDays = document.getElementById('calendar-days');
+                calendarDays.innerHTML = '';
+
+                let date = 1;
+                for (let i = 0; i < 6; i++) {
+                    let row = document.createElement('div');
+                    row.classList.add('row');
+
+                    for (let j = 0; j < 7; j++) {
+                        if (i === 0 && j < firstDay) {
+                            let cell = document.createElement('div');
+                            cell.classList.add('day');
+                            row.appendChild(cell);
+                        } else if (date > daysInMonth) {
+                            break;
+                        } else {
+                            let cell = document.createElement('div');
+                            cell.classList.add('day');
+                            cell.textContent = date;
+
+                            const eventDate = new Date(year, month, date);
+                            let formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+                            let event = eventCalendar.events.find(event => event.date === formattedDate);
+
+                            if (eventDate >= eventCalendar.today) {
+                                if (event) {
+                                    cell.classList.add('event');
+                                    const googleCalendarUrl = generateGoogleCalendarLink(event.title, eventDate);
+                                    cell.innerHTML = `<a href="${googleCalendarUrl}" target="_blank" title="Add to Google Calendar">${date}</a><div class="tooltip">Add to Google Calendar</div>`;
+                                }
+                            } else {
+                                cell.classList.add('past');
+                            }
+
