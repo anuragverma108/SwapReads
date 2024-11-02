@@ -20,12 +20,12 @@
 
         header {
             width: 100%;
-            background:white;
+            background: white;
             padding: 0.5em 0;
             display: flex;
             align-items: center;
         }
-       
+
 
         nav ul {
             list-style: none;
@@ -34,7 +34,7 @@
             display: flex;
             align-items: center;
             gap: 45px;
-            
+
         }
 
         nav ul li {
@@ -59,7 +59,7 @@
             bottom: 0;
             width: 100%;
             height: 3px;
-             background-color: #fcb0b480; 
+            background-color: #fcb0b480;
             transform: scaleX(0);
             transform-origin: right;
             transition: transform 0.6s ease;
@@ -204,576 +204,1177 @@
             border-style: solid;
             border-color: #000 transparent transparent transparent;
         }
+
         /* Styles for devices with a width of 600px or less */
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
-        flex-direction: column;
-    }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+                flex-direction: column;
+            }
 
-    header {
-        flex-direction: column;
-        padding: 1em;
-    }
+            header {
+                flex-direction: column;
+                padding: 1em;
+            }
 
-    .logopic {
-        margin-left: 0;
-        width: 10rem;
-    }
+            .logopic {
+                margin-left: 0;
+                width: 10rem;
+            }
 
-    nav ul {
-        flex-direction: column;
-        margin-left: 0;
-        gap: 20px;
-    }
+            nav ul {
+                flex-direction: column;
+                margin-left: 0;
+                gap: 20px;
+            }
 
-    nav ul li a {
-        font-size: 16px;
-        padding-left: 0;
-        padding-right: 0;
-    }
+            nav ul li a {
+                font-size: 16px;
+                padding-left: 0;
+                padding-right: 0;
+            }
 
-    main {
-        max-width: 100%;
-        padding: 1em;
-    }
+            main {
+                max-width: 100%;
+                padding: 1em;
+            }
 
-    .calendar-header {
-        flex-direction: column;
-        gap: 10px;
-    }
+            .calendar-header {
+                flex-direction: column;
+                gap: 10px;
+            }
 
-    .row {
-        justify-content: space-between;
-    }
+            .row {
+                justify-content: space-between;
+            }
 
-    .day {
-        width: 40px;
-        height: 40px;
-    }
+            .day {
+                width: 40px;
+                height: 40px;
+            }
 
-    .footer {
-        font-size: 0.7em;
-        padding: 20px;
-    }
-}
+            .footer {
+                font-size: 0.7em;
+                padding: 20px;
+            }
+        }
 
-/* Styles for tablets and devices up to 1024px */
-@media (max-width: 1024px) {
-    nav ul {
-        gap: 20px;
-        margin-left: 50px;
-    }
+        /* Styles for tablets and devices up to 1024px */
+        @media (max-width: 1024px) {
+            nav ul {
+                gap: 20px;
+                margin-left: 50px;
+            }
 
-    .logopic {
-        width: 12rem;
-    }
+            .logopic {
+                width: 12rem;
+            }
 
-    .calendar-header {
-        flex-direction: row;
-    }
+            .calendar-header {
+                flex-direction: row;
+            }
 
-    .day {
-        width: 45px;
-        height: 45px;
-    }
-}
-/* Hamburger menu for small screens */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    margin-right: 20px;
-}
+            .day {
+                width: 45px;
+                height: 45px;
+            }
+        }
 
-.hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: #000;
-    margin: 5px;
-}
+        /* Hamburger menu for small screens */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            margin-right: 20px;
+        }
 
-@media (max-width: 600px) {
-    .hamburger {
-        display: flex;
-    }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #000;
+            margin: 5px;
+        }
 
-    nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-    }
+        @media (max-width: 600px) {
+            .hamburger {
+                display: flex;
+            }
 
-    nav ul.active {
-        display: flex;
-    }
-}
-/* .logopic {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+        }
+
+        /* .logopic {
     width: 100%;
     max-width: 15rem; /* Maximum width for larger screens */
-    /* height: auto; */
- */
-
-
-
+        /* height: auto; */
+        */
     </style>
 </head>
 
 <body>
-    
+
 
 
     <style>
-
         /* Circle styles */
         .circle {
-          height: 24px;
-          width: 24px;
-          border-radius: 50%;
-          background-color: black;
-          position: fixed;
-          top: 0;
-          left: 0;
-          pointer-events: none;
-          z-index: 99999999;
-          transition: transform 0.1s ease-out;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 99999999;
+            transition: transform 0.1s ease-out;
         }
-      </style>
-      </head>
-  
-  
-      <body>
-  
-          <!-- Circles -->
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div> 
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-    <header>
-        <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="../images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
-          </a>
-          <div class="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <nav>
-            <ul class="navbar-list">
-                <li class="navbar-item">
-                  <a href="../../index.html" class="navbar-link">
-                    <lord-icon
-                      src="https://cdn.lordicon.com/qeltvbrs.json"
-                      trigger="hover"
-                      colors="primary:#e88c30,secondary:#a30f17"
-                      style="width: 25px; height: 25px">
-                    </lord-icon>Home</a>
-                </li>
-                <li class="navbar-item">
-                  <a href="../../books.html" class="navbar-link">
-                    <lord-icon
-                      src="https://cdn.lordicon.com/bhmovrlt.json"
-                      trigger="hover"
-                      state="morph-open"
-                      colors="primary:#a30f17,secondary:#e88c30"
-                      style="width: 25px; height: 25px">
-                    </lord-icon>Books</a>
-                </li>
-                <li class="navbar-item">
-                  <a href="../.././index.html#genre" class="navbar-link">
-                    <script src="https://cdn.lordicon.com/lordicon.js"></script>
-                    <lord-icon
-                      src="https://cdn.lordicon.com/lcvlsnre.json"
-                      trigger="hover"
-                      colors="primary:#a30f17,secondary:#e88c30"
-                      style="width: 25px; height: 25px">
-                    </lord-icon>Genres</a>
-                </li>
-                <li class="navbar-item">
-                  <a href="../.././assets/html/about.html" class="navbar-link">
-                    <lord-icon
-                      src="https://cdn.lordicon.com/fozsorqm.json"
-                      trigger="hover"
-                      stroke="bold"
-                      state="hover-up"
-                      colors="primary:#a30f17,secondary:#e88c30"
-                      style="width: 30px; height: 25px">
-                    </lord-icon>About</a>
-                </li>
-              </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="event-calendar">
-            <h2>Upcoming Event Calendar</h2>
-            <div class="calendar-header">
-                <button id="prevMonth">‹</button>
-                <h3 id="monthAndYear"></h3>
-                <button id="nextMonth">›</button>
-            </div>
-            <div id="calendar-days">
-                <!-- Calendar days will be dynamically generated here -->
-            </div>
-        </section>
-    </main>
+    </style>
+    </head>
 
-    <footer>
-        <div class="footer">
-            SwapReads Copyright © 2024 SwapReads - All rights reserved || Designed By: pranjal
-        </div>
-    </footer>
 
-    <div>
-        <button id="translateButton">Translate</button>
+    <body>
+
+        <!-- Circles -->
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <header>
+            <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+                <img src="../images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
+            </a>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <nav>
+                <ul class="navbar-list">
+                    <li class="navbar-item">
+                        <a href="../../index.html" class="navbar-link">
+                            <lord-icon src="https://cdn.lordicon.com/qeltvbrs.json" trigger="hover"
+                                colors="primary:#e88c30,secondary:#a30f17" style="width: 25px; height: 25px">
+                            </lord-icon>Home</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="../../books.html" class="navbar-link">
+                            <lord-icon src="https://cdn.lordicon.com/bhmovrlt.json" trigger="hover" state="morph-open"
+                                colors="primary:#a30f17,secondary:#e88c30" style="width: 25px; height: 25px">
+                            </lord-icon>Books</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="../.././index.html#genre" class="navbar-link">
+                            <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                            <lord-icon src="https://cdn.lordicon.com/lcvlsnre.json" trigger="hover"
+                                colors="primary:#a30f17,secondary:#e88c30" style="width: 25px; height: 25px">
+                            </lord-icon>Genres
+                        </a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="../.././assets/html/about.html" class="navbar-link">
+                            <lord-icon src="https://cdn.lordicon.com/fozsorqm.json" trigger="hover" stroke="bold"
+                                state="hover-up" colors="primary:#a30f17,secondary:#e88c30"
+                                style="width: 30px; height: 25px">
+                            </lord-icon>About</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="event-calendar">
+                <h2>Upcoming Event Calendar</h2>
+                <div class="calendar-header">
+                    <button id="prevMonth">‹</button>
+                    <h3 id="monthAndYear"></h3>
+                    <button id="nextMonth">›</button>
+                </div>
+                <div id="calendar-days">
+                    <!-- Calendar days will be dynamically generated here -->
+                </div>
+            </section>
+        </main>
+
+
+        <style>
+            .SwapReads {
+                color: black;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            /* General Footer Styling */
+            footer {
+                background-color: hsl(0deg 100% 80.49%);
+                padding: -2px 30px;
+                width: 100vw;
+            }
+
+            .foot-top {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: flex-start;
+                border-bottom: 1px solid black;
+                gap: 50px;
+                padding: 20px 50px;
+            }
+
+            .foot-left,
+            .foot-middle,
+            .social-icons {
+                flex: 1;
+                margin: 15px;
+            }
+
+            .logo {
+                font-size: 30px;
+                font-weight: bold;
+                color:#000;
+                text-decoration: none;
+            }
+
+            .description {
+                color: hsl(206, 11%, 29%);
+                text-align: justify;
+                max-width: 600px;
+                margin-top:23px;
+            }
+
+            /* Quick Links Styling */
+            .foot-middle ul li,
+            .foot-middle h2 {
+                text-align: center;
+                font-size: 1.5rem;
+                /* Reduced from 1.6rem to 1.2rem */
+                margin-top: 5px;
+                /* Adjusted for tighter spacing */
+                
+            }
+
+            .foot-quick a {
+                font-size: 1rem;
+                /* Reduced text size */
+                color: #374151;
+                text-decoration: none;
+                position: relative;
+                display: inline-block;
+                margin-left: 2px;
+                /* Reduced margin */
+                transition: color 0.3s ease, transform 0.3s ease;
+                font-family: "Poppins", sans-serif;
+            }
+
+            .foot-quick a:hover {
+                color: rgb(204, 12, 12);
+                transform: scale(1.1);
+            }
+
+            #quicklinks ul {
+                list-style: none;
+                padding: 0;
+                /* Optional: Removes default padding */
+                margin: 0;
+                /* Optional: Removes default margin */
+            }
+
+            #quicklinks {
+                display: flex;
+                /* Enables side-by-side layout */
+                justify-content: space-between;
+                /* Adds space between the columns */
+            }
+
+            #quicklinks div {
+                flex: 1;
+                /* Each column takes equal space */
+                padding: 0 10px;
+                /* Adds space inside each column */
+            }
+
+            .foot-quick {
+                font-size: 1.2rem;
+                /* Adjusts font size */
+                margin-bottom: 10px;
+                /* Adds spacing between items */
+            }
+
+            .foot-quick a {
+                color: #db3737;
+                text-decoration: none;
+                transition: color 0.3s ease, transform 0.3s ease;
+            }
+
+            .foot-quick a:hover {
+                color: rgb(204, 12, 12);
+                transform: scale(1.1);
+            }
+
+            #quicklinks {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            #quicklinks div {
+                flex: 1;
+            }
+
+            #quicklinks ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            #quicklinks li {
+                margin-bottom: 10px;
+                /* Add space between items */
+            }
+
+            #quicklinks a {
+                display: flex;
+                align-items: center;
+                /* Aligns the icon and text */
+                text-decoration: none;
+                color: inherit;
+            }
+
+            #quicklinks i {
+                margin-right: 8px;
+                /* Space between icon and text */
+                color: #374151;
+            }
+
+
+
+            /* Newsletter Form Styling */
+            .newsletter-form {
+                font-size: 18px;
+                display: block;
+                margin-bottom: 10px;
+                color: #333;
+            }
+
+            input[type="email"] {
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                margin-right: 5px;
+                transition: border-color 0.3s;
+            }
+
+            input[type="email"]:focus {
+                border: 2px solid #c27a7e;
+            }
+
+            .subscribe-btn {
+                background-color: #0056b3;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                width: 100px;
+            }
+
+            .subscribe-btn:hover {
+                background-color: #00408d;
+            }
+
+            #confirmationMessage {
+                font-size: 20px;
+                color: #28a745;
+                margin-top: 10px;
+            }
+
+            /* Social Icons Styling */
+            .icons {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 20px;
+            }
+
+            .icon {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                background-color: #e9ecef;
+                transition: background-color 0.3s, transform 0.3s;
+            }
+
+            .icon:hover {
+                background-color: #0056b3;
+                transform: scale(1.1);
+            }
+
+            .icon i {
+                color: #333;
+                font-size: 20px;
+                transition: color 0.3s;
+            }
+
+            .icon:hover i {
+                color: #fff;
+            }
+
+            .social-icons form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                max-width: 400px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            .row-flex {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .social-icons input[type="submit"] {
+                width: 100%;
+                max-width: 300px;
+                background: #f16868 !important;
+                color: black;
+                border: 2px solid rgb(167, 95, 107);
+                height: 40px;
+                font-size: 14px;
+                cursor: pointer;
+                transition: all 200ms ease;
+            }
+
+            .social-icons input[type="submit"]:hover {
+                background-color: rgb(167, 95, 107) !important;
+                color: #000;
+            }
+
+            /* Icon Hover Colors */
+            .icons .icon i {
+                font-size: 24px;
+            }
+
+            .icons .icon:hover .fab.fa-facebook-square {
+                color: #1877f2;
+            }
+
+            .icons .icon:hover .fa-brands.fa-square-x-twitter {
+                color: #1da1f3;
+            }
+
+            .icons .icon:hover .fab.fa-instagram-square {
+                color: #c13583;
+            }
+
+            .icons .icon:hover .fab.fa-youtube-square {
+                color: #ff0001;
+            }
+        </style>
+        <footer>
+            <div class="foot-top">
+                <div class="foot-left">
+                    <div class="desc">
+                        <div class="SwapRead">
+                            <a href="#" class="logo">
+                                <center>SwapReads</center>
+                            </a>
+                        </div>
+                        <div>
+                            <p style="text-align: justify ;color: black;" class="description">
+                                SwapReads.com is the ultimate destination for book lovers
+                                seeking to swap and discover new literary gems. Connect with
+                                fellow enthusiasts, exchange your favorite reads, and embark on
+                                exciting new adventures in the world of literature—all on one
+                                convenient platform. Join us and dive into a universe of endless
+                                possibilities!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="foot-middle">
+                    <h2>Quick Links</h2>
+                    <div id="quicklinks">
+                        <div>
+                            <ul>
+                                <li class="foot-quick">
+                                    <a href="index.html" onclick="lenis.scrollTo('#home')"><i
+                                            class="fas fa-home"></i>Home</a>
+                                </li>
+                                <li class="foot-quick">
+                                    <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')"><i
+                                            class="fas fa-book"></i>Benefits</a>
+                                </li>
+                                <li class="foot-quick">
+                                    <a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')"><i
+                                            class="fas fa-globe"></i>Literary Realms</a>
+                                </li>
+                                <li class="foot-quick">
+                                    <a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')"><i
+                                            class="fas fa-dollar-sign"></i>Pricing</a>
+                                </li>
+                                <li class="foot-quick">
+                                    <a href="book_recommend.html" onclick="lenis.scrollTo('#contact')"><i
+                                            class="fas fa-bookmark"></i>Recommended Book</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li class="foot-quick">
+                                    <a href="addremovebook.html"><i class="fas fa-exchange-alt"></i>Swap BookList</a>
+                                </li>
+                                <li class="foot-quick">
+                                    <a href="freeBooks.html" onclick="lenis.scrollTo('#contact')"><i
+                                            class="fas fa-file-pdf"></i>E-Book</a>
+                                </li>
+                                <li class="foot-quick"><a href="about.html"><i class="fas fa-info-circle"></i>About</a>
+                                </li>
+                                <li class="foot-quick">
+                                    <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')"><i
+                                            class="fas fa-envelope"></i>Contact Us</a>
+                                </li>
+                                <li class="foot-quick">
+                                    <a href="../../index.html#faqq" onclick="lenis.scrollTo('#faqq')"><i
+                                            class="fas fa-question-circle"></i>FAQ</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <style>
+                    .social-icons input[type="email"] {
+                        border: 0.2rem solid #ccc;
+                        /* Gray border */
+                        border-radius: 0.4rem;
+                        /* Rounded corners */
+                        padding: 1rem;
+                        /* Inner padding */
+                        font-size: 1.6rem;
+                        /* Font size */
+                    }
+
+                    #confirmationMessage {
+                        margin-left: 5rem;
+                        font-size: 2.3rem;
+                        color: green;
+
+                    }
+
+                    /* for small screen */
+                    @media (max-width: 768px) {
+                        #confirmationMessage {
+                            margin-left: 0;
+                            text-align: center;
+                            font-size: 1.8rem;
+                        }
+                    }
+                </style>
+                <style>
+                    #confirmationmessage {
+                        position: fixed;
+                        top: 42rem;
+                        right: 1rem;
+                        background-color: green;
+                        color: white;
+                        padding: 1rem;
+                        border-radius: 0.5rem;
+                        box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+                        z-index: 1000;
+                        display: none;
+                    }
+                </style>
+
+                <style>
+                    .subscribe {
+                        background-color: #A30F17;
+                        color: white;
+                        border: none;
+                        padding: 0.5rem;
+                        font-size: 1rem;
+                        font-family: Arial, sans-serif;
+                        border-radius: 0.2rem;
+                        width: 340px;
+                        cursor: pointer;
+                        transition: background-color 0.3s, transform 0.2s;
+                    }
+
+                    .subscribe:hover {
+                        background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+                        transform: scale(1.1);
+                    }
+
+                    .subscribe:active {
+                        transform: scale(0.98);
+                    }
+
+                    .subscribe:focus {
+                        outline: none;
+                    }
+
+                    #new-email.finput {
+                        width: 91%;
+                    }
+
+                    .finput {
+                        border: 2px solid #a30f17 !important;
+                        /* Red border */
+                        background-color: transparent;
+                        /* No white background */
+                        color: rgb(233, 222, 222);
+                        /* Red text */
+                        padding: 0.5rem;
+                        /* Add some padding */
+                        border-radius: 5px;
+                        /* Rounded corners */
+                        outline: none;
+                        /* Remove default outline */
+                        width: 340px;
+                    }
+
+                    .icons .icon {
+                        display: inline-block;
+                        background: none;
+                        /* Remove background */
+                        border: none;
+                        /* Remove border */
+                        padding: 1px;
+                        /* Adjust spacing as needed */
+                    }
+
+                    .icons .icon i {
+                        color: gray;
+                        /* Set icon color */
+                        font-size: 24px;
+                        /* Adjust size as needed */
+                        background: none;
+                        /* Ensure no background */
+                    }
+
+                    /* Specific hover colors for each icon */
+                    .icons .fab.fa-discord:hover {
+                        color: #5865F2;
+                        /* Discord blue */
+                    }
+
+                    .icons .fab.fa-linkedin:hover {
+                        color: #0A66C2;
+                        /* LinkedIn blue */
+                    }
+
+                    .icons .fab.fa-facebook:hover {
+                        color: #1877F2;
+                        /* Facebook blue */
+                    }
+
+                    .icons .fab.fa-twitter:hover {
+                        color: #1DA1F2;
+                        /* Twitter blue */
+                    }
+
+                    .icons .fab.fa-instagram:hover {
+                        color: #E1306C;
+                        /* Instagram pink */
+                    }
+
+                    .icons .fab.fa-youtube:hover {
+                        color: #FF0000;
+                        /* YouTube red */
+                    }
+
+                    .icons .fab.fa-github:hover {
+                        color: #333;
+                        /* GitHub black */
+                    }
+                </style>
+
+                <div class="foot-right">
+                    <h2 style="margin-bottom: 2.4rem; margin-top:0.5rem;" id="stayconnected-color">Stay Connected</h2>
+                    <form id="newsform" onsubmit="return showConfirmationMessage();">
+                        <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
+                        <div class="row-flex display-flex">
+                            <input class="finput" type="email" id="new-email" name="email" placeholder="Email address"
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+                                title="Please enter a valid email address that ends with '.com'" required>
+                            <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
+                        </div>
+                    </form>
+                    <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
+                    <div class="icons">
+                        <!-- Discord icon -->
+                        <a href="https://www.discord.com/" target="_blank">
+                            <div class="icon">
+                                <i class="fab fa-discord" title="Discord"></i>
+                            </div>
+                        </a>
+
+                        <!-- LinkedIn icon -->
+                        <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
+                            <div class="icon">
+                                <i class="fab fa-linkedin" title="LinkedIn" style="cursor: pointer;"></i>
+                            </div>
+                        </a>
+
+                        <!-- Facebook icon -->
+                        <a href="https://www.facebook.com/" target="_blank">
+                            <div class="icon">
+                                <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
+                            </div>
+                        </a>
+
+                        <!-- X (formerly Twitter) icon -->
+                        <a href="https://x.com/anuragverma_108" target="_blank">
+                            <div class="icon">
+                                <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
+                            </div>
+                        </a>
+
+                        <!-- Instagram icon -->
+                        <a href="https://www.instagram.com/">
+                            <div class="icon" id="insta-icon">
+                                <i class="fab fa-instagram" title="Instagram" style="cursor: pointer;"></i>
+                            </div>
+                        </a>
+
+                        <!-- YouTube icon -->
+                        <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
+                            <div class="icon">
+                                <i class="fab fa-youtube" style="cursor: pointer;"></i>
+                            </div>
+                        </a>
+
+                        <!-- GitHub icon -->
+                        <a href="https://github.com/anuragverma108">
+                            <div class="icon">
+                                <i class="fab fa-github" title="GitHub"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+            </div>
+
+
+            </div>
+            </div>
+        </footer>
+
+
+        <footer>
+             <!-- adding privacy policy and copyright popup-->
+      <div class="footer-f" style="text-align: center; align-items: center;">
+        <p style="text-align: center">
+          &copy;
+          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+        </p>
+        <div class="row-copy">
+  
+  
+        <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+        <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>  |
+        
+        <a href="our-vision.html" id="ourvisionLink">Our Vision</a></li>
+      </div>
       </div>
       <style>
-        /* Fixed translate button */
-    #translateButton {
-        position: fixed;
-        /* bottom: 20px; */
-        top:-15rem;
-        right: 4.4rem;
-        z-index: 1000;
-        width: 53px;  
-        height: 53px;
-        border-radius: 50%; 
-        border: none; 
-        background:linear-gradient(hwb(357 6% 36%),#d26d6d); 
-        color: white; 
-        text-align: center; 
-        display: inline-block; 
-        font-size: 16px; 
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 12px;
-        line-height: 1;
-        text-align: center;
-        white-space: nowrap;
-        transition: transform 0.3s ease;
-        margin-top: 75.8vh;
-        margin-right:opx;
-    }
-    #translateButton:hover {
-        transform: scale(1.2); 
-    }
-    /* The popup modal */
-    .popup {
-        display: none; 
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0,0,0); 
-        background-color: rgba(0,0,0,0.4); 
-    }
-    /* Popup content */
-    .popup-content {
-      background:linear-gradient(hwb(357 6% 36%),#d26d6d);
-        margin-top: 600px;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 300px;
-        border-radius: 10px;
-        position: relative;
-        margin-left: 1160px;
-        /* margin-right: 0px; */
-    }
-    /* Close button */
-    .close {
-        color: #073725;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-        line-height: 1;
-        opacity: .2;
-    }
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-    }
-    /* Hide the default Google Translate widget */
-    .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
-        display: none !important;
-    }
-    body {
-        top: 0px !important;
-    }
-    /* Hide the "Powered by Google" branding */
-    .goog-logo-link {
-        display: none !important;
-    }
-    .goog-te-gadget {
-        height: 28px !important;
-        overflow: hidden;
-    }
-    /* Hide Google Translate notifications */
-    .goog-te-spinner-pos,
-    .goog-te-spinner,
-    .goog-te-balloon-frame,
-    .goog-te-banner-frame,
-    .goog-te-banner,
-    .goog-te-balloon {
-        display: none !important;
-    }
-    /* Custom styles for the Google Translate dropdown */
-    #google_translate_element select {
-        background: #ffffff; 
-        border: 1px solid #ccc; 
-        color: #d26d6d; 
-        padding: 5px; 
-        font-size: 14px; 
-        border-radius: 5px; 
-    }
-    /* Hide the Google Translate bar */
-    body > .skiptranslate {
-        display: none !important;
-    }
-    .goog-te-banner-frame.skiptranslate {
-        display: none !important;
-    }
-    .goog-te-banner-frame {
-        display: none !important;
-    }
-    .goog-te-banner {
-        display: none !important;
-    }
+        #copyrightPolicyLink:hover{
+          color: rgb(126, 0, 21);
+          transition: 0.5s ease;
+        }
+        #privacyNoticeLink:hover{
+          color: rgb(126, 0, 21);
+          transition: 0.5s ease;
+        }
+        #ourvisionLink:hover{
+          color: rgb(126, 0, 21);
+          transition: 0.5s ease;
+        }
       </style>
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        // Get the popup
-        var popup = document.getElementById('translatePopup');
-        // Get the button that opens the popup
-        var btn = document.getElementById('translateButton');
-        // Get the <span> element that closes the popup
-        var span = document.getElementsByClassName('close')[0];
-        // When the user clicks the button, open the popup 
-        btn.onclick = function() {
-            popup.style.display = 'block';
-        }
-        // When the user clicks on <span> (x), close the popup
-        span.onclick = function() {
-            popup.style.display = 'none';
-        }
-        // When the user clicks anywhere outside of the popup, close it
-        window.onclick = function(event) {
-            if (event.target == popup) {
-                popup.style.display = 'none';
+  
+    </footer>
+        
+
+        <div>
+            <button id="translateButton">Translate</button>
+        </div>
+        <style>
+            /* Fixed translate button */
+            #translateButton {
+                position: fixed;
+                /* bottom: 20px; */
+                top: -15rem;
+                right: 4.4rem;
+                z-index: 1000;
+                width: 53px;
+                height: 53px;
+                border-radius: 50%;
+                border: none;
+                background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+                color: white;
+                text-align: center;
+                display: inline-block;
+                font-size: 16px;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 12px;
+                line-height: 1;
+                text-align: center;
+                white-space: nowrap;
+                transition: transform 0.3s ease;
+                margin-top: 75.8vh;
+                margin-right: opx;
             }
-        }
-    });
-      </script>
-      <!-- Popup for Google Translate -->
-      <div id="translatePopup" class="popup">
-          <div class="popup-content">
-              <span class="close">&times;</span>
-              <div id="google_translate_element"></div>
-          </div>
-      </div>
-      <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
-    <!-- Your custom JavaScript -->
-    <script src="script.js"></script>
 
-    <script>
+            #translateButton:hover {
+                transform: scale(1.2);
+            }
 
+            /* The popup modal */
+            .popup {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgb(0, 0, 0);
+                background-color: rgba(0, 0, 0, 0.4);
+            }
 
-        const eventCalendar = {
-            events: [
-                { date: '2024-10-07', title: 'Book Club Meeting' },
-                { date: '2024-10-14', title: 'Author Talk: John Doe' },
-                { date: '2024-10-21', title: 'Children’s Story Hour' },
-                { date: '2024-10-28', title: 'Poetry Reading' },
-            ],
+            /* Popup content */
+            .popup-content {
+                background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+                margin-top: 600px;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 300px;
+                border-radius: 10px;
+                position: relative;
+                margin-left: 1160px;
+                /* margin-right: 0px; */
+            }
 
-            monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-            today: new Date(),
-            currentMonth: new Date().getMonth(),
-            currentYear: new Date().getFullYear(),
-        };
+            /* Close button */
+            .close {
+                color: #073725;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+                cursor: pointer;
+                line-height: 1;
+                opacity: .2;
+            }
 
-        function generateCalendar(month, year) {
-            const firstDay = (new Date(year, month)).getDay();
-            const daysInMonth = 32 - new Date(year, month, 32).getDate();
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+            }
 
-            const calendarDays = document.getElementById('calendar-days');
-            calendarDays.innerHTML = '';
+            /* Hide the default Google Translate widget */
+            .goog-te-banner-frame.skiptranslate,
+            .goog-te-gadget-icon {
+                display: none !important;
+            }
 
-            let date = 1;
-            for (let i = 0; i < 6; i++) {
-                let row = document.createElement('div');
-                row.classList.add('row');
+            body {
+                top: 0px !important;
+            }
 
-                for (let j = 0; j < 7; j++) {
-                    if (i === 0 && j < firstDay) {
-                        let cell = document.createElement('div');
-                        cell.classList.add('day');
-                        row.appendChild(cell);
-                    } else if (date > daysInMonth) {
-                        break;
-                    } else {
-                        let cell = document.createElement('div');
-                        cell.classList.add('day');
-                        cell.textContent = date;
+            /* Hide the "Powered by Google" branding */
+            .goog-logo-link {
+                display: none !important;
+            }
 
-                        const eventDate = new Date(year, month, date);
-                        let formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
-                        let event = eventCalendar.events.find(event => event.date === formattedDate);
+            .goog-te-gadget {
+                height: 28px !important;
+                overflow: hidden;
+            }
 
-                        if (eventDate >= eventCalendar.today) {
-                            if (event) {
-                                cell.classList.add('event');
-                                const googleCalendarUrl = generateGoogleCalendarLink(event.title, eventDate);
-                                cell.innerHTML = `<a href="${googleCalendarUrl}" target="_blank" title="Add to Google Calendar">${date}</a><div class="tooltip">Add to Google Calendar</div>`;
-                            }
-                        } else {
-                            cell.classList.add('past');
-                        }
+            /* Hide Google Translate notifications */
+            .goog-te-spinner-pos,
+            .goog-te-spinner,
+            .goog-te-balloon-frame,
+            .goog-te-banner-frame,
+            .goog-te-banner,
+            .goog-te-balloon {
+                display: none !important;
+            }
 
-                        row.appendChild(cell);
-                        date++;
+            /* Custom styles for the Google Translate dropdown */
+            #google_translate_element select {
+                background: #ffffff;
+                border: 1px solid #ccc;
+                color: #d26d6d;
+                padding: 5px;
+                font-size: 14px;
+                border-radius: 5px;
+            }
+
+            /* Hide the Google Translate bar */
+            body>.skiptranslate {
+                display: none !important;
+            }
+
+            .goog-te-banner-frame.skiptranslate {
+                display: none !important;
+            }
+
+            .goog-te-banner-frame {
+                display: none !important;
+            }
+
+            .goog-te-banner {
+                display: none !important;
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Get the popup
+                var popup = document.getElementById('translatePopup');
+                // Get the button that opens the popup
+                var btn = document.getElementById('translateButton');
+                // Get the <span> element that closes the popup
+                var span = document.getElementsByClassName('close')[0];
+                // When the user clicks the button, open the popup 
+                btn.onclick = function () {
+                    popup.style.display = 'block';
+                }
+                // When the user clicks on <span> (x), close the popup
+                span.onclick = function () {
+                    popup.style.display = 'none';
+                }
+                // When the user clicks anywhere outside of the popup, close it
+                window.onclick = function (event) {
+                    if (event.target == popup) {
+                        popup.style.display = 'none';
                     }
                 }
+            });
+        </script>
+        <!-- Popup for Google Translate -->
+        <div id="translatePopup" class="popup">
+            <div class="popup-content">
+                <span class="close">&times;</span>
+                <div id="google_translate_element"></div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                }, 'google_translate_element');
+            }
+        </script>
+        <script type="text/javascript"
+            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-                calendarDays.appendChild(row);
+        <!-- Your custom JavaScript -->
+        <script src="script.js"></script>
+
+        <script>
+
+
+            const eventCalendar = {
+                events: [
+                    { date: '2024-10-07', title: 'Book Club Meeting' },
+                    { date: '2024-10-14', title: 'Author Talk: John Doe' },
+                    { date: '2024-10-21', title: 'Children’s Story Hour' },
+                    { date: '2024-10-28', title: 'Poetry Reading' },
+                ],
+
+                monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                today: new Date(),
+                currentMonth: new Date().getMonth(),
+                currentYear: new Date().getFullYear(),
+            };
+
+            function generateCalendar(month, year) {
+                const firstDay = (new Date(year, month)).getDay();
+                const daysInMonth = 32 - new Date(year, month, 32).getDate();
+
+                const calendarDays = document.getElementById('calendar-days');
+                calendarDays.innerHTML = '';
+
+                let date = 1;
+                for (let i = 0; i < 6; i++) {
+                    let row = document.createElement('div');
+                    row.classList.add('row');
+
+                    for (let j = 0; j < 7; j++) {
+                        if (i === 0 && j < firstDay) {
+                            let cell = document.createElement('div');
+                            cell.classList.add('day');
+                            row.appendChild(cell);
+                        } else if (date > daysInMonth) {
+                            break;
+                        } else {
+                            let cell = document.createElement('div');
+                            cell.classList.add('day');
+                            cell.textContent = date;
+
+                            const eventDate = new Date(year, month, date);
+                            let formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+                            let event = eventCalendar.events.find(event => event.date === formattedDate);
+
+                            if (eventDate >= eventCalendar.today) {
+                                if (event) {
+                                    cell.classList.add('event');
+                                    const googleCalendarUrl = generateGoogleCalendarLink(event.title, eventDate);
+                                    cell.innerHTML = `<a href="${googleCalendarUrl}" target="_blank" title="Add to Google Calendar">${date}</a><div class="tooltip">Add to Google Calendar</div>`;
+                                }
+                            } else {
+                                cell.classList.add('past');
+                            }
+
+                            row.appendChild(cell);
+                            date++;
+                        }
+                    }
+
+                    calendarDays.appendChild(row);
+                }
+
+                document.getElementById('monthAndYear').textContent = `${eventCalendar.monthNames[month]} ${year}`;
             }
 
-            document.getElementById('monthAndYear').textContent = `${eventCalendar.monthNames[month]} ${year}`;
-        }
+            function generateGoogleCalendarLink(eventTitle, eventDate) {
+                const baseUrl = 'https://www.google.com/calendar/render?action=TEMPLATE';
+                const startDate = eventDate.toISOString().replace(/-|:|\.\d+/g, '');
+                return `${baseUrl}&text=${encodeURIComponent(eventTitle)}&dates=${startDate}/${startDate}`;
+            }
 
-        function generateGoogleCalendarLink(eventTitle, eventDate) {
-            const baseUrl = 'https://www.google.com/calendar/render?action=TEMPLATE';
-            const startDate = eventDate.toISOString().replace(/-|:|\.\d+/g, '');
-            return `${baseUrl}&text=${encodeURIComponent(eventTitle)}&dates=${startDate}/${startDate}`;
-        }
+            document.getElementById('prevMonth').addEventListener('click', () => {
+                eventCalendar.currentMonth = (eventCalendar.currentMonth === 0) ? 11 : eventCalendar.currentMonth - 1;
+                eventCalendar.currentYear = (eventCalendar.currentMonth === 11) ? eventCalendar.currentYear - 1 : eventCalendar.currentYear;
+                generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
+            });
 
-        document.getElementById('prevMonth').addEventListener('click', () => {
-            eventCalendar.currentMonth = (eventCalendar.currentMonth === 0) ? 11 : eventCalendar.currentMonth - 1;
-            eventCalendar.currentYear = (eventCalendar.currentMonth === 11) ? eventCalendar.currentYear - 1 : eventCalendar.currentYear;
+            document.getElementById('nextMonth').addEventListener('click', () => {
+                eventCalendar.currentMonth = (eventCalendar.currentMonth === 11) ? 0 : eventCalendar.currentMonth + 1;
+                eventCalendar.currentYear = (eventCalendar.currentMonth === 0) ? eventCalendar.currentYear + 1 : eventCalendar.currentYear;
+                generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
+            });
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('nav ul');
+
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
             generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-        });
+        </script>
 
-        document.getElementById('nextMonth').addEventListener('click', () => {
-            eventCalendar.currentMonth = (eventCalendar.currentMonth === 11) ? 0 : eventCalendar.currentMonth + 1;
-            eventCalendar.currentYear = (eventCalendar.currentMonth === 0) ? eventCalendar.currentYear + 1 : eventCalendar.currentYear;
-            generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-        });
-        const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('nav ul');
+        <script>
 
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-        generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-    </script>
+            // Coordinates for the cursor
+            const coords = { x: 0, y: 0 };
+            const circles = document.querySelectorAll(".circle");
 
-<script>
+            // Colors for the circles
+            const colors = [
+                "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+                "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+                "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+                "#680060", "#60005f", "#48005f", "#3d005e"
+            ];
 
-    // Coordinates for the cursor
-    const coords = { x: 0, y: 0 };
-    const circles = document.querySelectorAll(".circle");
-  
-    // Colors for the circles
-    const colors = [
-      "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
-      "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
-      "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
-      "#680060", "#60005f", "#48005f", "#3d005e"
-    ];
-  
-    // Assign colors and initial position to each circle
-    circles.forEach(function (circle, index) {
-      circle.x = 0;
-      circle.y = 0;
-      circle.style.backgroundColor = colors[index % colors.length];
-    });
-  
-    // Update the coordinates when the mouse moves
-    window.addEventListener("mousemove", function (e) {
-      coords.x = e.clientX;
-      coords.y = e.clientY;
-    });
-  
-    // Animation function to move the circles
-    function animateCircles() {
-      let x = coords.x;
-      let y = coords.y;
-  
-      circles.forEach(function (circle, index) {
-        // Update the position and scale of each circle
-        circle.style.left = x - 12 + "px";
-        circle.style.top = y - 12 + "px";
-        circle.style.scale = (circles.length - index) / circles.length;
-  
-        circle.x = x;
-        circle.y = y;
-  
-        // Get the next circle in the sequence
-        const nextCircle = circles[index + 1] || circles[0];
-        x += (nextCircle.x - x) * 0.15;
-        y += (nextCircle.y - y) * 0.15;
-      });
-  
-      // Repeat the animation
-      requestAnimationFrame(animateCircles);
-    }
-  
-    // Start the animation
-    animateCircles();
-  
-  </script>
-  
-</body>
+            // Assign colors and initial position to each circle
+            circles.forEach(function (circle, index) {
+                circle.x = 0;
+                circle.y = 0;
+                circle.style.backgroundColor = colors[index % colors.length];
+            });
+
+            // Update the coordinates when the mouse moves
+            window.addEventListener("mousemove", function (e) {
+                coords.x = e.clientX;
+                coords.y = e.clientY;
+            });
+
+            // Animation function to move the circles
+            function animateCircles() {
+                let x = coords.x;
+                let y = coords.y;
+
+                circles.forEach(function (circle, index) {
+                    // Update the position and scale of each circle
+                    circle.style.left = x - 12 + "px";
+                    circle.style.top = y - 12 + "px";
+                    circle.style.scale = (circles.length - index) / circles.length;
+
+                    circle.x = x;
+                    circle.y = y;
+
+                    // Get the next circle in the sequence
+                    const nextCircle = circles[index + 1] || circles[0];
+                    x += (nextCircle.x - x) * 0.15;
+                    y += (nextCircle.y - y) * 0.15;
+                });
+
+                // Repeat the animation
+                requestAnimationFrame(animateCircles);
+            }
+
+            // Start the animation
+            animateCircles();
+
+        </script>
+
+    </body>
 
 </html>
