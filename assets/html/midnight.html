@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midnight's Children Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffd2d3; /* Changed to pink color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: #b00000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            display: block; /* Make buttons block elements for vertical display */
+            width: 100%; /* Make buttons full width */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        h4 {
+            margin: 10px 0;
+        }
+
+        .option {
+            margin: 5px 0; /* Space between options */
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Midnight's Children Quiz</h1>
+    <div id="quiz-questions">
+        <!-- Questions will be inserted here -->
+    </div>
+    <button id="submit-button" onclick="submitQuiz()">Submit</button>
+    <div id="quiz-result" style="display: none;"></div>
+    <button id="home-button" style="display: none;" onclick="window.location.href='index.html';">Return to Home</button>
+</div>
+
+<script>
+    const quizData = [
+        {
+            question: "What is the main theme of Midnight's Children?",
+            options: ["Magic Realism", "Historical Fiction", "Science Fiction", "Romance"],
+            answer: "Magic Realism"
+        },
+        {
+            question: "Who is the protagonist of Midnight's Children?",
+            options: ["Saleem Sinai", "Aadam Sinai", "Shiva", "Nimmi"],
+            answer: "Saleem Sinai"
+        },
+        {
+            question: "What significant event coincides with Saleem's birth?",
+            options: ["Independence of India", "Partition of India", "World War II", "The Great Depression"],
+            answer: "Independence of India"
+        },
+        {
+            question: "What is the narrative style of Midnight's Children?",
+            options: ["First-person", "Third-person", "Stream of consciousness", "Epistolary"],
+            answer: "First-person"
+        },
+        {
+            question: "Which historical figure appears in Midnight's Children?",
+            options: ["Mahatma Gandhi", "Jawaharlal Nehru", "Indira Gandhi", "All of the above"],
+            answer: "All of the above"
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const questionElement = document.getElementById('quiz-questions');
+        questionElement.innerHTML = '';
+
+        const currentQuestion = quizData[currentQuestionIndex];
+        const questionText = document.createElement('h4');
+        questionText.innerText = currentQuestion.question;
+        questionElement.appendChild(questionText);
+
+        currentQuestion.options.forEach(option => {
+            const optionButton = document.createElement('button');
+            optionButton.classList.add('option');
+            optionButton.innerText = option;
+            optionButton.onclick = () => selectAnswer(option);
+            questionElement.appendChild(optionButton);
+        });
+    }
+
+    function selectAnswer(selectedOption) {
+        const currentQuestion = quizData[currentQuestionIndex];
+        if (selectedOption === currentQuestion.answer) {
+            score++;
+        }
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < quizData.length) {
+            loadQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        const quizContainer = document.querySelector('.quiz-container');
+        quizContainer.innerHTML = `<h2>Your Score: ${score}/${quizData.length}</h2>`;
+        
+        // Create the return home button
+        const homeButton = document.createElement('button');
+        homeButton.onclick = () => window.location.href = 'quizzes.html';
+        homeButton.innerText = 'Return to Quizzes';
+        quizContainer.appendChild(homeButton);
+    }
+
+    function submitQuiz() {
+        if (currentQuestionIndex < quizData.length) {
+            alert("Please answer all questions before submitting!");
+        } else {
+            showResult();
+        }
+    }
+
+    // Load the first question when the page is ready
+    document.addEventListener('DOMContentLoaded', loadQuestion);
+</script>
+
+</body>
+</html>
