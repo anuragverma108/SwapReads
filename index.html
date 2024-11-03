@@ -4,6 +4,50 @@
 
 
 <head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Title and Description -->
+    <title>SwapReads</title>
+    <meta name="description" content="SwapReads is a user-friendly platform that allows book lovers to swap books with others, fostering a community of readers.">
+
+    <!-- Keywords -->
+    <meta name="keywords" content="book swapping, book exchange, SwapReads, community, readers, books, literature, reading, literature exchange">
+
+    <!-- Author -->
+    <meta name="author" content="anurag verma">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="SwapReads - Your Platform for Book Swapping">
+    <meta property="og:description" content="Join SwapReads and exchange your favorite books with fellow readers!">
+    <meta property="og:image" content="./assets/favicon_package_v0.16/favicon-32x32.png">
+    <meta property="og:url" content="https://github.com/anuragverma108/SwapReads">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SwapReads - Your Platform for Book Swapping">
+    <meta name="twitter:description" content="Join SwapReads and exchange your favorite books with fellow readers!">
+    <meta name="twitter:image" content="./assets/favicon_package_v0.16/favicon-32x32.png">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://github.com/anuragverma108/SwapReads">
+
+    <!-- Open Graph Site Name -->
+    <meta property="og:site_name" content="SwapReads">
+
+    <!-- Locale -->
+    <meta property="og:locale" content="en_US">
+
+    <!-- Additional Open Graph Tags -->
+    <meta property="og:image:alt" content="An image representing book swapping">
+    <meta property="og:determiner" content="the">
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="exchangeHub.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -3689,7 +3733,7 @@ color: #ac2127;
             <img id="profile-avatar"  src="./assets/images/avatar1.jpg" />
           </div> -->
                 <div class="menu">
-                  <h3>XYZ<br /><span>Book Lover</span></h3>
+                  <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
                   <ul>
                     <li>
                       <img src="./assets/images/user.jpg" /><a href="/profiletest.html">My profile</a>
@@ -3715,9 +3759,17 @@ color: #ac2127;
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const savedAvatar = localStorage.getItem("selectedAvatar");
+        const savedName = localStorage.getItem("profileName");
         if (savedAvatar) {
           document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
         }
+
+        if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
+
       });
 
       function menuToggle() {
@@ -3857,9 +3909,15 @@ color: #ac2127;
         <script>
           document.addEventListener("DOMContentLoaded", () => {
             const savedAvatar = localStorage.getItem("selectedAvatar");
+            const savedName = localStorage.getItem("profileName");
             if (savedAvatar) {
               document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
             }
+            if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
           });
 
           function menuToggle() {
@@ -5826,7 +5884,7 @@ color: #ac2127;
         </style>
 
         <div class="donate-books-section">
-          <h1>Donate Books</h1>
+          <h1 style="color: #ff6f91;">Donate Books</h1>
           <br>
           <div class="container">
 
@@ -6043,28 +6101,28 @@ box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); /* Slightly larger shadow on hover */
         <!-- --Contact Us -->
       
         <section class="section-contact" id="contact" aria-label="contact">
-          <h1 class="h1 section-title has-underline" style="margin-top: 15px; color: black;">
+          <h1 class="h1 section-title has-underline" style="margin-top: 15px; color:#ff6f91; font-size: 40px;">
             Contact Us!
             <span class="span has-before"></span>
           </h1>        
-          <p class="p" style="color:purple">Have a Question?</p>
-          <h3 style="text-align: center; color: #4f1316;">GET IN TOUCH</h3>
+
+        
           <div class="flexi">
             <div class="contact">
               <div class="contact-container">
                 <form class="contact-form" id="contactForm">
-                  <label for="name" class="label">Name</label>
+                  <label for="name" class="label" style="color: #ff6f91;font-size: 22px;">Name</label>
                   <input type="text" id="name" name="name" placeholder="Your Name" required required
                     pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')"
                     oninput="this.setCustomValidity('')">
 
-                  <label for="email" class="label">Email</label>
+                  <label for="email" class="label" style="color: #ff6f91;font-size: 22px;">Email</label>
                   <input type="email" id="email" name="email" placeholder="your-email@example.com" required>
 
-                  <label for="subject" class="label">Subject</label>
+                  <label for="subject" class="label" style="color: #ff6f91;font-size: 22px;">Subject</label>
                   <input type="text" id="subject" name="subject" placeholder="Subject" required>
 
-                  <label for="message" class="label">Message</label>
+                  <label for="message" class="label" style="color: #ff6f91;font-size: 22px;">Message</label>
                   <textarea id="message" name="message" placeholder="Your Message" required></textarea>
             
                   <button type="submit">Send Message</button>
@@ -6091,7 +6149,7 @@ box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); /* Slightly larger shadow on hover */
                         Address:
                       </p>
                     </div>
-                    <address class="address" style="margin-left: 35px;">
+                    <address class="address" style="margin-left: 35px;color: rgba(70, 146, 208, 0.884);" >
                       12, Nayabad<br>
                       Kolkata, India 700054
                     </address>

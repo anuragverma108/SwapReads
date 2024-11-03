@@ -471,8 +471,26 @@
 
 
 
+    
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adjust shadow as needed */
+}
+:root {
+  --shadow-color: rgba(0, 0, 0, 0.2); /* For light theme */
+}
 
+/* For dark theme */
+.dark-theme :root {
+  --shadow-color: rgba(255, 255, 255, 0.2);
+}
 
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0px 4px 8px var(--shadow-color);
+}
 
 
     .card-container {
@@ -1117,7 +1135,7 @@
                   </a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href="../html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link"
+                  <a href="/#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link"
                     data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
                 </li>
                 <li class="dropdown-menu-item">
