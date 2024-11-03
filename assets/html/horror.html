@@ -20,7 +20,6 @@
   <!-- <link rel="stylesheet" href="../css/login.css" /> -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/tips.css">
 
   <link rel="stylesheet" href="./scrollbar.css">
 
@@ -37,9 +36,14 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <link rel="stylesheet" href="../css/styles.css">
-  <!-- Changed Name of Page to Tips -->
-  <title>Tips</title>
+  <title>Authors</title>
   <style>
+    :root {
+      --charcoal: hsl(203, 30%, 26%);
+
+  --ff-philosopher: "Philosopher", sans-serif;
+
+}
     /* Circle styles */
     .circle {
       height: 24px;
@@ -53,52 +57,134 @@
       z-index: 99999999;
       transition: transform 0.1s ease-out;
     }
+    .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.card {
+  perspective: 1000px;
+  margin: 20px;
+}
+
+.card-inner {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card.flip .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-front {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+}
+
+.card-back {
+  background-color: #4a4a4a;
+  color: white;
+  transform: rotateY(180deg);
+  padding: 10px;
+}
+
+.card-image {
+  width: 75%;
+  height: auto;
+  border-radius: 12px;
+  border-bottom: 1px solid #ccc;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-mode .card-front {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+}
+
+.dark-mode .card-front h1 {
+  background-color: rgb(87, 1, 50);
+  border: 1px solid #333;
+  color: #e0e0e0;
+}
+
+.dark-mode .card-back {
+  background-color: #2e2e2e;
+}
+.dark-mode .card-back p{
+  color:whitesmoke;
+}
+
+.dark-mode .card-image {
+  filter: brightness(0.8);
+}
   </style>
 </head>
 
-<!-- Circles -->
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div> 
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<style>
+<body>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div> 
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <style>
     .action {
       position: fixed;
       top: 20px;
@@ -398,10 +484,16 @@
     }
 
 
+
+
+
+
+
+
     .card-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 70px;
+      gap: 20px;
       /* Increased padding from 30px to 80px to seperate the navbar with the cards */
       padding: 80px;
       margin-top: 70px;
@@ -421,6 +513,8 @@
       height: 100%;
       transition: transform 0.6s;
       transform-style: preserve-3d;
+      
+      justify-content: center;
     }
 
     .card-front, .card-back {
@@ -436,162 +530,32 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
-    /* Changes for card backgrounds */
+    /* Changes required here */
     .card-front {
-      background-color: #f48e9b;
-      /* Changed color of text to match current UI and also make it visible */
-      color: rgb(189, 7, 86);
-      font-size: 1.8em;
-      text-align: center;
-      position: absolute;
-    }
+    background-color: #f59595;
+    color: rgb(189, 7, 86);
+    font-size: 1.8em;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex; /* Use flexbox to center content */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
 
-    /*Added hover to Fiction to enhance the UI*/
-    .card-front.Fiction:hover{
-      transform: scale(1.1);
-      border-radius: 0px;
-    }
+.card-front h1 {
+    background: #e97070;
+    margin: 0; /* Remove default margin */
+}
 
-    /* Added: Image for Fiction Tip */
-    .Fiction{
-      background-image: url("https://snworksceo.imgix.net/asp/0f387215-8a51-4142-adb1-4d05c82a1fc2.sized-1000x1000.jpg?w=1000");
+    
+    /* Added: Image for J.K. Rowling */
+    .children{
+      background-image: url("");
       background-size: cover;           /* Ensures the image covers the div */
       background-position: center;      /* Centers the image */
       background-repeat: no-repeat;     /* Prevents repeating */
-    }
-
-    /* Added: Image for Non-Fiction Tip */
-    .Non-Fiction{
-      background-image: url("https://i.etsystatic.com/9703085/r/il/857486/1591475957/il_570xN.1591475957_8m3w.jpg");
-      background-size: cover;           /* Ensures the image covers the div */
-      background-position: center;      /* Centers the image */
-      background-repeat: no-repeat;     /* Prevents repeating */
-    }
-
-    /*Added hover to Non-Fiction to enhance the UI*/
-    .card-front.Non-Fiction:hover{
-      transform: scale(1.1);
-      border-radius: 0px;
-    }
-
-    /* Added: Image for Mystery Tip */
-    .Mystery{
-      background-image: url("https://celadonbooks.com/wp-content/uploads/2020/03/what-is-a-mystery.jpg");
-      background-size: cover;           /* Ensures the image covers the div */
-      background-position: center;      /* Centers the image */
-      background-repeat: no-repeat;     /* Prevents repeating */
-    }
-
-    /*Added hover to Mystery to enhance the UI*/
-    .card-front.Mystery:hover{
-      transform: scale(1.1);
-      border-radius: 0px;
-    }
-
-    /* Added: Image for Fantasy Tip */
-    .Fantasy{
-      background-image: url("https://miro.medium.com/v2/resize:fit:2000/0*E4bshsFAqqwsyh74");
-      background-size: cover;           /* Ensures the image covers the div */
-      background-position: center;      /* Centers the image */
-      background-repeat: no-repeat;     /* Prevents repeating */
-    }
-
-    /*Added hover to Fantasy to enhance the UI*/
-    .card-front.Fantasy:hover{
-      transform: scale(1.1);
-      border-radius: 0px;
-    }
-
-    /* Added: Image for Historical Fiction Tip */
-    .Historical{
-      background-image: url("https://writerscentremedia.writerscentre.com.au/wp-content/uploads/2020/11/30180747/7-tips-to-writing-authentic-historical-fiction.jpg");
-      background-size: cover;           /* Ensures the image covers the div */
-      background-position: center;      /* Centers the image */
-      background-repeat: no-repeat;     /* Prevents repeating */
-    }
-
-    /*Added hover to Historical to enhance the UI*/
-    .card-front.Historical:hover{
-      transform: scale(1.1);
-      border-radius: 0px;
-    }
-
-    /* Added: Image for Biographies Tip */
-    .Biographies{
-      background-image: url("https://thumbs.dreamstime.com/b/hand-writing-biography-office-desk-laptop-stationery-81053286.jpg");
-      background-size: cover;           /* Ensures the image covers the div */
-      background-position: center;      /* Centers the image */
-      background-repeat: no-repeat;     /* Prevents repeating */
-    }
-
-    /*Added hover to Biographies to enhance the UI*/
-    .card-front.Biographies:hover{
-      transform: scale(1.1);
-      border-radius: 0px;
-    }
-
-    /* Added: Image for Poetry Tip */
-    .Poetry{
-      background-image: url("https://talkstar-assets.s3.amazonaws.com/production/playlists/playlist_697/a96f0391-83e8-45a3-bc6a-f1c571b78239/poetry_by_women_SQ.jpg");
-      background-size: cover;           /* Ensures the image covers the div */
-      background-position: center;      /* Centers the image */
-      background-repeat: no-repeat;     /* Prevents repeating */
-    }
-
-    /*Added hover to Poetry to enhance the UI*/
-    .card-front.Poetry:hover{
-      transform: scale(1.1);
-      border-radius: 0px;
-    }
-
-    /* Added: Image for Self-Help Tip */
-    .Self{
-      background-image: url("https://bravehearts.org.au/wp-content/uploads/2023/05/self-care-happiness-mental-health-e1686194458582.jpg");
-      background-size: cover;           /* Ensures the image covers the div */
-      background-position: center;      /* Centers the image */
-      background-repeat: no-repeat;     /* Prevents repeating */
-    }
-
-    /*Added hover to Self to enhance the UI*/
-    .card-front.Self:hover{
-      transform: scale(1.1);
-      border-radius: 0px;
-    }
-
-    /* Added: Image for Science Fiction Tip */
-    .Science{
-      background-image: url("https://www.sciencefictionideas.com/wp-content/uploads/2023/03/good-science-fiction.jpg");
-      background-size: cover;           /* Ensures the image covers the div */
-      background-position: center;      /* Centers the image */
-      background-repeat: no-repeat;     /* Prevents repeating */
-    }
-
-    /*Added hover to Science to enhance the UI*/
-    .card-front.Science:hover{
-      transform: scale(1.1);
-      border-radius: 0px;
-    }
-
-    /* Added: Image for Graphic Novels Tip */
-    .Graphic{
-      background-image: url("https://whattoreadtoyourkids.com/wp-content/uploads/2023/11/8829cfc1-39f8-43a1-bfa0-bb10ee4e1b32.jpeg?w=1024");
-      background-size: cover;           /* Ensures the image covers the div */
-      background-position: center;      /* Centers the image */
-      background-repeat: no-repeat;     /* Prevents repeating */
-    }
-
-    /*Added hover to Graphic to enhance the UI*/
-    .card-front.Graphic:hover{
-      transform: scale(1.1);
-      border-radius: 0px;
-    }
-
-    .card-front h1{
-      position: relative;
-      bottom: -210px;
-      font-size: 25px;
-      color: black;
-      
     }
 
     .card-back {
@@ -621,6 +585,27 @@
       transform: rotateY(180deg);
     }
 
+#page-title {
+ 
+    visibility: visible;
+    opacity: 1;
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    transition: 0.3s ease-in-out, opacity 2s cubic-bezier(0.5, 0, 0, 1) 0.1s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0.1s;
+    font-family: var(--ff-philosopher);
+    
+
+}
+
+#page-title h3 {
+
+    color: var(--charcoal);
+    font-family: var(--ff-philosopher);
+    line-height: 1.2;
+   
+
+
+
+}
 
 
 
@@ -666,8 +651,6 @@
 #quicklinks .foot-quick a i {
   margin-right: 5px; /* Adjust spacing between icon and text */
 }
-
-
 .dark-mode .fas{
   color:white;
 }
@@ -798,7 +781,6 @@
   margin-right: 8px;
   vertical-align: middle;
 }
-
 body.dark-mode {
       background-color: #121212;
       color: #ffffff;
@@ -808,33 +790,9 @@ body.dark-mode {
     background-repeat: no-repeat; /* Prevents the image from repeating */
   }
 
-  .dark-mode .card-front {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
-}
 
-.dark-mode .card-front h1 {
-  color: #e0e0e0;
-}
-
-.dark-mode .card-back {
-  background-color: #2e2e2e;
-}
-.dark-mode .card-back p{
-  color:whitesmoke;
-}
-
-.dark-mode .card-image {
-  filter: brightness(0.8);
-}
-.dark-mode .random-tip-container {
-    background-color: #1c1c1e; /* Dark background */
-    color: #e5e5e5; /* Light text color for readability */
-    border-color: #d9555b; /* Slightly lighter border color */
-    box-shadow: 2px 2px 20px #d9555b99; /* Adjusted shadow color */
-}
-.dark-mode h2{
-  color:#e5e5e5
+.top10{
+    margin-top: 150px;
 }
   </style>
   <header class="header header-anim nav-h" data-header>
@@ -917,9 +875,12 @@ body.dark-mode {
               stroke="bold"
               state="hover-up"
               colors="primary:#a30f17,secondary:#e88c30"
-              style="width:30px;height:30px"></lord-icon> About Us </a>
+              style="width:30px;height:30px"></lord-icon> About Us   </a>
           </li>
-
+           
+          <li class="navbar-item" id="login-signup-link">
+            <a href="top10.html" class="navbar-link" style="left: -30px;">Top10<br>Books</a>
+          </li>
         
 
 
@@ -939,13 +900,19 @@ body.dark-mode {
                   </a>
                 </li>
                 <li class="dropdown-menu-item">
+                  <a href="tips.html" class="navbar-link"
+                    style="font-family: sans-serif;  margin-bottom: 5px;">
+                   Tips
+                  </a>
+                </li>
+                <li class="dropdown-menu-item">
                   <a href="bookpref.html" class="navbar-link"
                     style="font-family: sans-serif;  margin-bottom: 5px;">
                     Book Prefer Quiz
                   </a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href="/#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link"
+                  <a href="../html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link"
                     data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
                 </li>
                 <li class="dropdown-menu-item">
@@ -983,7 +950,6 @@ body.dark-mode {
               style="width:25px;height:25px">
           </lord-icon>Login/Signup</a>
           </li>
-
           <div class="switch-container">
             <input type="checkbox" id="switch" class="switch-checkbox">
             <label for="switch" class="switch-label" style="margin-left: 120px; left: 200px;
@@ -994,7 +960,6 @@ body.dark-mode {
               </div>
             </label>
           </div>
-
           <li>
             <div class="action">
               
@@ -1030,9 +995,8 @@ body.dark-mode {
           document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
         }
       });
-
 // Theme switcher
-document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function () {
           const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
           const bodyElement = document.body;
     
@@ -1056,6 +1020,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           });
         });
+
 
       function menuToggle() {
         const toggleMenu = document.querySelector(".menu");
@@ -1163,117 +1128,194 @@ document.addEventListener('DOMContentLoaded', function () {
   </header>
 
 
-<div class="random-tip-container">
-  <h2>Random Tip</h2>
-  <div id="tip-display">
-    <p>Click the button to display a random tip!</p>
-  </div>
-  <button onclick="displayRandomTip()">Show Random Tip</button>
-</div>
-<!-- Card Container -->
-<div class="card-container">
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front Fiction"><h1>Fiction Tip</h1></div>
-      <div class="card-back">
-        <h3>Fiction</h3>
-        <p><strong>Tip:</strong> Immerse yourself in the story. Allow yourself to get lost in the characters and their world. Take notes on character development to enhance your understanding.</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front Non-Fiction"><h1>Non-Fiction Tip</h1></div>
-      <div class="card-back">
-        <h3>Non-Fiction</h3>
-        <p><strong>Tip:</strong> Focus on key concepts. Skim through the introduction and conclusion first, then read chapters that pique your interest for deeper understanding.</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front Mystery"><h1>Mystery Tip</h1></div>
-      <div class="card-back">
-        <h3>Mystery</h3>
-        <p><strong>Tip:</strong> Take notes of clues and character motives as you read. Try to solve the mystery before you reach the end to engage your critical thinking.</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front Fantasy"><h1>Fantasy Tip</h1></div>
-      <div class="card-back">
-        <h3>Fantasy</h3>
-        <p><strong>Tip:</strong> Visualize the world-building. Create mental images of settings and characters, and consider how they influence the story’s magic system.</p>
-      </div>
-    </div>
-  </div>
 
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front Historical"><h1>Historical Fiction Tip</h1></div>
-      <div class="card-back">
-        <h3>Historical Fiction</h3>
-        <p><strong>Tip:</strong> Research the historical context. Understanding the time period enhances your appreciation of the plot and character decisions.</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front Biographies"><h1>Biographies Tip</h1></div>
-      <div class="card-back">
-        <h3>Biographies</h3>
-        <p><strong>Tip:</strong> Reflect on the lessons learned from the subject's life. Think about how their experiences relate to your own life and goals.</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front Poetry"><h1>Poetry Tip</h1></div>
-      <div class="card-back">
-        <h3>Poetry</h3>
-        <p><strong>Tip:</strong> Read aloud. Hearing the rhythm and sound enhances your connection to the imagery and emotions conveyed in the poem.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front Self"><h1>Self-Help Tip</h1></div>
-      <div class="card-back">
-        <h3>Self-Help</h3>
-        <p><strong>Tip:</strong> Take actionable notes. Apply the strategies you learn and track your progress for personal development.</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front Science"><h1>Science Fiction Tip</h1></div>
-      <div class="card-back">
-        <h3>Science Fiction</h3>
-        <p><strong>Tip:</strong> Think critically about the technology and ethical dilemmas presented. Consider their implications on society and the future.</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front Graphic"><h1>Graphic Novels Tip</h1></div>
-      <div class="card-back">
-        <h3>Graphic Novels</h3>
-        <p><strong>Tip:</strong> Pay attention to the artwork. Visual elements complement the narrative and can convey emotions and themes effectively.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
+<!-- Changes here -->
  
+<!-- Card Container -->
+<div class="top10">
+  <div id="page-title" >
+  <h1 >HORROR BOOKS</h1>
+</div>
+  <h3>Explore each book further by clicking on the covers!</h3></div>
+  <div class="card-container" style="margin-top: -20px;">
+
+  <div class="card" onclick="this.classList.toggle('flip')">
+    <div class="card-inner">
+      <div class="card-front"><h1>It</h1></div>
+      <div class="card-back">
+        <h3>Author: Stephen King</h3>
+        <p><strong>Summary:</strong> A group of friends confronts a shape-shifting entity that takes the form of their worst fears, especially a monstrous clown.</p>
+        <p><strong>Time Period:</strong> 1986 - Present</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('flip')">
+    <div class="card-inner">
+      <div class="card-front"><h1>The Shining</h1></div>
+      <div class="card-back">
+        <h3>Author: Stephen King</h3>
+        <p><strong>Summary:</strong> A family wintering at an isolated hotel encounters supernatural forces that push them to the edge of sanity.</p>
+        <p><strong>Time Period:</strong> 1977 - Present</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('flip')">
+    <div class="card-inner">
+      <div class="card-front"><h1>Dracula</h1></div>
+      <div class="card-back">
+        <h3>Author: Bram Stoker</h3>
+        <p><strong>Summary:</strong> Count Dracula's attempt to move from Transylvania to England brings terror to the blood of the living.</p>
+        <p><strong>Time Period:</strong> 1897 - Present</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('flip')">
+    <div class="card-inner">
+      <div class="card-front"><h1>Frankenstein</h1></div>
+      <div class="card-back">
+        <h3>Author: Mary Shelley</h3>
+        <p><strong>Summary:</strong> A scientist's creation of life leads to horrific consequences as he battles with his creature and his own guilt.</p>
+        <p><strong>Time Period:</strong> 1818 - Present</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('flip')">
+    <div class="card-inner">
+      <div class="card-front"><h1>The Haunting of Hill House</h1></div>
+      <div class="card-back">
+        <h3>Author: Shirley Jackson</h3>
+        <p><strong>Summary:</strong> A chilling exploration of a haunted mansion where strange occurrences test reality and madness.</p>
+        <p><strong>Time Period:</strong> 1959 - Present</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('flip')">
+    <div class="card-inner">
+      <div class="card-front"><h1>Bird Box</h1></div>
+      <div class="card-back">
+        <h3>Author: Josh Malerman</h3>
+        <p><strong>Summary:</strong> In a world overtaken by unseen creatures that drive people insane on sight, a mother tries to protect her children.</p>
+        <p><strong>Time Period:</strong> 2014 - Present</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('flip')">
+    <div class="card-inner">
+      <div class="card-front"><h1>The Exorcist</h1></div>
+      <div class="card-back">
+        <h3>Author: William Peter Blatty</h3>
+        <p><strong>Summary:</strong> The harrowing tale of a young girl possessed by a demon, and her mother's desperate fight for her daughter's salvation.</p>
+        <p><strong>Time Period:</strong> 1971 - Present</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('flip')">
+    <div class="card-inner">
+      <div class="card-front"><h1>Pet Sematary</h1></div>
+      <div class="card-back">
+        <h3>Author: Stephen King</h3>
+        <p><strong>Summary:</strong> A family discovers the terrifying power of a pet cemetery that brings dead animals back to life.</p>
+        <p><strong>Time Period:</strong> 1983 - Present</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('flip')">
+    <div class="card-inner">
+      <div class="card-front"><h1>The Silence of the Lambs</h1></div>
+      <div class="card-back">
+        <h3>Author: Thomas Harris</h3>
+        <p><strong>Summary:</strong> An FBI trainee seeks help from an incarcerated serial killer to catch another killer.</p>
+        <p><strong>Time Period:</strong> 1988 - Present</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('flip')">
+    <div class="card-inner">
+      <div class="card-front"><h1>House of Leaves</h1></div>
+      <div class="card-back">
+        <h3>Author: Mark Z. Danielewski</h3>
+        <p><strong>Summary:</strong> A family discovers that their house contains seemingly infinite spaces, leading to unsettling consequences.</p>
+        <p><strong>Time Period:</strong> 2000 - Present</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('flip')">
+    <div class="card-inner">
+      <div class="card-front"><h1>Coraline</h1></div>
+      <div class="card-back">
+        <h3>Author: Neil Gaiman</h3>
+        <p><strong>Summary:</strong> A young girl finds an eerie alternate version of her home, with sinister secrets waiting within.</p>
+        <p><strong>Time Period:</strong> 2002 - Present</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('flip')">
+    <div class="card-inner">
+      <div class="card-front"><h1>The Girl with All the Gifts</h1></div>
+      <div class="card-back">
+        <h3>Author: M.R. Carey</h3>
+        <p><strong>Summary:</strong> In a post-apocalyptic world, a young girl holds the key to humanity's survival amidst a zombie-like plague.</p>
+        <p><strong>Time Period:</strong> 2014 - Present</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('flip')">
+    <div class="card-inner">
+      <div class="card-front"><h1>World War Z</h1></div>
+      <div class="card-back">
+        <h3>Author: Max Brooks</h3>
+        <p><strong>Summary:</strong> An oral history of the global struggle to survive a zombie pandemic.</p>
+        <p><strong>Time Period:</strong> 2006 - Present</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('flip')">
+    <div class="card-inner">
+      <div class="card-front"><h1>The Cabin at the End of the World</h1></div>
+      <div class="card-back">
+        <h3>Author: Paul Tremblay</h3>
+        <p><strong>Summary:</strong> A family vacation at a remote cabin is interrupted by strangers with an ominous message.</p>
+        <p><strong>Time Period:</strong> 2018 - Present</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('flip')">
+    <div class="card-inner">
+      <div class="card-front"><h1>The Institute</h1></div>
+      <div class="card-back">
+        <h3>Author: Stephen King</h3>
+        <p><strong>Summary:</strong> Children with special abilities are abducted and held captive by a sinister institution.</p>
+        <p><strong>Time Period:</strong> 2019 - Present</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card" onclick="this.classList.toggle('flip')">
+    <div class="card-inner">
+      <div class="card-front"><h1>Ghost Story</h1></div>
+      <div class="card-back">
+        <h3>Author: Peter Straub</h3>
+        <p><strong>Summary:</strong> Four friends are haunted by a supernatural event from their past, with terrifying consequences.</p>
+        <p><strong>Time Period:</strong> 1979 - Present</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer>
     <div class="foot-top">
@@ -1443,54 +1485,10 @@ document.addEventListener('DOMContentLoaded', function () {
   
       </div>
   </footer>
-
   <div>
     <button id="translateButton">Translate</button>
   </div>
-
   <style>
-    
-    .card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 70px;
-  padding: 80px;
-  margin-top: 70px;
-  max-width: 1200px;
-}
-
-.card {
-  width: 100%;
-  height: 350px;
-  perspective: 1200px;
-  cursor: pointer;
-}
-
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.card-front, .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.card:hover .card-inner {
-  transform: rotateY(180deg);
-}
-
     /* Fixed translate button */
 #translateButton {
     position: fixed;
@@ -1511,7 +1509,7 @@ document.addEventListener('DOMContentLoaded', function () {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1;
     text-align: center;
     white-space: nowrap;
@@ -1554,8 +1552,6 @@ document.addEventListener('DOMContentLoaded', function () {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-    line-height: 1;
-    opacity: .2;
 }
 .close:hover,
 .close:focus {
@@ -1609,33 +1605,6 @@ body > .skiptranslate {
     display: none !important;
 }
   </style>
-
-  <script>
-    const tips = [
-  { category: "Fiction", tip: "Dive into character emotions to understand their motives and decisions." },
-  { category: "Non-Fiction", tip: "Identify key arguments and evidence to support or question the author's claims." },
-  { category: "Mystery", tip: "Track subtle hints and character behavior to solve the mystery." },
-  { category: "Fantasy", tip: "Imagine the magical elements and unique lore as they build the story world." },
-  { category: "Historical Fiction", tip: "Study the time period for better insight into characters' decisions and plot dynamics." },
-  { category: "Biographies", tip: "Reflect on lessons from the subject's life and how they apply to your journey." },
-  { category: "Poetry", tip: "Focus on imagery and rhythm for a deeper connection to the poem's message." },
-  { category: "Self-Help", tip: "Turn learnings into actions; practice and assess your growth." },
-  { category: "Science Fiction", tip: "Think about technology's ethical impact and future possibilities." },
-  { category: "Graphic Novels", tip: "Observe how the artwork conveys themes and complements the story." },
-  // Add 40 more tips here, following the same format.
-];
-
-    function displayRandomTip() {
-  const randomIndex = Math.floor(Math.random() * tips.length);
-  const randomTip = tips[randomIndex];
-  document.getElementById("tip-display").innerHTML = `
-    <h3>${randomTip.category}</h3>
-    <p><strong>Tip:</strong> ${randomTip.tip}</p>
-  `;
-}
-
-  </script>
-
   <script>
     document.addEventListener('DOMContentLoaded', function() {
     // Get the popup
@@ -1678,32 +1647,11 @@ body > .skiptranslate {
 
 <!-- Your custom JavaScript -->
 <script src="script.js"></script>
+
   
 
   <script>
 
-const cards = document.querySelectorAll('.card');
-
-cards.forEach(card => {
-  card.addEventListener('mouseenter', () => {
-    // Close any currently open card
-    cards.forEach(otherCard => {
-      if (otherCard !== card && otherCard.classList.contains('flipped')) {
-        otherCard.classList.remove('flipped');
-      }
-    });
-
-    // Flip the current card
-    card.classList.add('flipped');
-  });
-
-  card.addEventListener('mouseleave', () => {
-    // Close the card after a short delay
-    setTimeout(() => {
-      card.classList.remove('flipped');
-    }, 200); // Adjust the delay as needed
-  });
-});
     // Coordinates for the cursor
     const coords = { x: 0, y: 0 };
     const circles = document.querySelectorAll(".circle");
