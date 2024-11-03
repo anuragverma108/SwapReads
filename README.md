@@ -169,6 +169,7 @@
 │   │   ├── custom.html
 │   │   ├── donate.html
 │   │   ├── event.html
+│   │   ├── fantasy.html
 │   │   ├── forgot-pass.html
 │   │   ├── freeBooks.html
 │   │   ├── god.html
@@ -190,8 +191,11 @@
 │   │   ├── rate.html
 │   │   ├── read.html
 │   │   ├── read_later.html
+│   │   ├── romance.html
 │   │   ├── school.html
+│   │   ├── science-fiction.html
 │   │   ├── social.html
+│   │   ├── suspense-thriller.html
 │   │   ├── tips.html
 │   │   └── top10.html
 │   ├── images/
@@ -444,7 +448,6 @@
 ├── email.html
 ├── environmental-impact.html
 ├── exchangeHub.css
-├── fantasy.html
 ├── footer1.css
 ├── footer1.html
 ├── gulpfile.js
@@ -484,12 +487,10 @@
 ├── refundpolicy.html
 ├── repo_structure.txt
 ├── revitalize.html
-├── romance.html
 ├── romantic-esc.html
 ├── routes/
 │   └── books.js
 ├── sc.jpg
-├── science-fiction.html
 ├── scifi.html
 ├── script.js
 ├── scrollbar.css
@@ -501,7 +502,6 @@
 ├── stackbit.config.ts
 ├── stay_connect.css
 ├── subscribe.html
-├── suspense-thriller.html
 ├── terms&cond.html
 ├── testp.css
 ├── testp.js
