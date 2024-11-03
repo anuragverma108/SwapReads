@@ -112,8 +112,8 @@
             <div class="profile-details">
                 <div class="profile-detail-card" id="profileCard">
                     <h3>Address</h3>
-                    <p id="addressText" contenteditable="false">123 Main St, New York, NY</p>
-                    <a href="#"><button class="edit-profile-btn">Edit</button></a>
+                    <p id="addressDisplay" contenteditable="false">123 Main St, New York, NY</p>
+                    <a href="/address.html"><button class="edit-profile-btn">Edit</button></a>
                 </div>
 
                 <div class="profile-detail-card">
@@ -124,8 +124,8 @@
                 </div>
                 <div class="profile-detail-card">
                     <h3>Wishlist</h3>
-                    <p>Item 1, Item 2</p>
-                    <a href="#">
+                    <p id="wishlistDisplay">Item 1, Item 2</p>
+                    <a href="/wishlist.html">
                     <button class="edit-profile-btn">View</button></a>
                 </div>
                 <div class="profile-detail-card">
@@ -232,6 +232,7 @@
         const savedEmail = localStorage.getItem("profileEmail");
         const savedAvatar = localStorage.getItem("selectedAvatar");
         const savedBio = localStorage.getItem("profileBio");
+        const savedAddress = localStorage.getItem("address");
 
 
         if (savedName) {
@@ -263,6 +264,29 @@
         } else {
             document.getElementById("profileBioDisplay").textContent = "Bio: Not provided";
         }
+        if (savedAddress) {
+            document.getElementById("addressDisplay").textContent = `${savedAddress}`;
+        } else {
+            document.getElementById("addressDisplay").textContent = "Address: Not provided";
+        }
+
+
+        // Fetch wishlist books from local storage
+        function renderWishlist() {
+            const wishlistDisplay = document.getElementById('wishlistDisplay');
+            const books = JSON.parse(localStorage.getItem('books')) || [];
+
+            if (books.length > 0) {
+                wishlistDisplay.textContent = books.slice(0, 2).map(book => book.title).join(', ');
+            } else {
+                wishlistDisplay.textContent = "No items in wishlist.";
+            }
+        }
+
+        // Call renderWishlist to populate #wishlistDisplay
+        renderWishlist();
+
+
 
     });
 </script>

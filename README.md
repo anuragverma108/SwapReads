@@ -44,7 +44,7 @@
 
 | Name                  | Logo                                                      | Purpose                                                                                                      |
 |-----------------------|-----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| GSSoC'2024-Extd       | ![GSSoC Logo](assets/GSSoC-Ext.png)             | The coding period is from October 1st to October 30th, during which contributors make contributions and earn points on the platform. |
+| GSSoC'2024-Extd       | ![GSSoC Logo](assets/GSSoC-Ext.png)             | The coding period is from October 1st to November 10, during which contributors make contributions and earn points on the platform. |
 | Hacktoberfest 2024    | ![Hacktoberfest Logo](assets/hacktoberfest.png) | Hacktoberfest is a month-long October event welcoming all skill levels to join the open-source community.     |
 
 ---
@@ -65,6 +65,9 @@
 ├── LICENSE
 ├── Mystical-fantaies.html
 ├── README.md
+├── SECURITY.md
+├── address.css
+├── address.html
 ├── assets/
 │   ├── GSSoC-Ext.png
 │   ├── JSON/
@@ -168,16 +171,22 @@
 │   │   ├── event.html
 │   │   ├── forgot-pass.html
 │   │   ├── freeBooks.html
+│   │   ├── god.html
 │   │   ├── googlece7a206a6cfbb7ed.html
+│   │   ├── horror.html
 │   │   ├── image.png
 │   │   ├── img.png
 │   │   ├── login.html
+│   │   ├── maha.html
 │   │   ├── map.html
+│   │   ├── midnight.html
 │   │   ├── mood.html
 │   │   ├── mylogin.html
 │   │   ├── ngo.html
 │   │   ├── profileedit.html
 │   │   ├── quiz.html
+│   │   ├── quizzes.html
+│   │   ├── ram.html
 │   │   ├── rate.html
 │   │   ├── read.html
 │   │   ├── read_later.html
@@ -403,6 +412,7 @@
 ├── audiobook.html
 ├── bank.jpg
 ├── biographies.html
+├── book.jpg
 ├── books.html
 ├── chat.css
 ├── chat.html
@@ -412,12 +422,14 @@
 ├── comsp.html
 ├── connectWithsame.html
 ├── contactus1.html
+├── contributing.txt
 ├── contributors/
 │   ├── contributor.css
 │   ├── contributor.html
 │   └── contributor.js
 ├── controller/
 │   ├── Rating.js
+│   ├── book.js
 │   └── subscribe.js
 ├── cookiepolicy.html
 ├── cookies.html
@@ -435,21 +447,23 @@
 ├── fantasy.html
 ├── footer1.css
 ├── footer1.html
+├── gulpfile.js
 ├── help.html
 ├── historical-chronicals.html
-├── horror.html
 ├── index.html
 ├── intriguing-mysteries.html
-├── intro.mp4
+├── jsFileEntries.js
 ├── lib.jpg
 ├── logout.css
 ├── logout.js
 ├── lol.html
+├── map.jpg
 ├── mindful-living.html
 ├── modals(privacy policy).css
 ├── models/
 │   ├── BookDonation.js
-│   └── Rating.js
+│   ├── Rating.js
+│   └── book.js
 ├── mylogin.html
 ├── n.jpg
 ├── our-vision.html
@@ -472,6 +486,8 @@
 ├── revitalize.html
 ├── romance.html
 ├── romantic-esc.html
+├── routes/
+│   └── books.js
 ├── sc.jpg
 ├── science-fiction.html
 ├── scifi.html
@@ -494,7 +510,11 @@
 ├── up-arrow (1).png
 ├── upi.jpg
 ├── vanilla-tilt.js
-└── vedio.mp4
+├── vedio.mp4
+├── webpack.config.js
+├── wishlist.css
+├── wishlist.html
+└── wishlist.js
 ```
 <!-- END_STRUCTURE -->
 
