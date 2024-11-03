@@ -43,42 +43,61 @@
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
-    <div style="background-color: white; padding: 60px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); width: 350px; text-align: center;">
-        <h2 style="color: #b30000; margin-bottom: 20px;">Create Account</h2>
-        
-        <!-- Username Field -->
-        <input type="text" placeholder="Username" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
-        
-        <!-- Email Field -->
-        <input type="email" placeholder="Email" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
-        
-        <!-- Password Field -->
-        <input type="password" placeholder="Password" style="width: 100%; padding: 10px; margin-bottom: 5px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
-        
-        <!-- Password Requirements -->
-        <p style="color: #b30000; font-size: 12px; text-align: left; margin-bottom: 15px; padding-left: 5px;">
-            • Lowercase & Uppercase <br>
-            • Number (0-9) <br>
-            • Special Character (!@#$%^&*) <br>
-            • At least 8 characters
-        </p>
-        
-        <!-- Confirm Password Field -->
-        <input type="password" placeholder="Confirm Password" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
 
-        <!-- Sign in with Google Button -->
-        <button style="background-color: #4285f4; color: white; border: none; padding: 10px; width: 100%; border-radius: 5px; font-size: 16px; cursor: pointer; margin-bottom: 20px;">
-            <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google Icon" style="margin-right: 5px; vertical-align: middle;"> Sign In with Google
-        </button>
 
-        <!-- Register Button -->
-        <button style="background-color: #b30000; color: white; border: none; padding: 10px; width: 100%; border-radius: 5px; font-size: 16px; cursor: pointer;">
-            Register
-        </button>
+    <form action="index.html" class="login-form" id="registerForm">
+        <div style="background-color: white; padding: 60px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); width: 350px; text-align: center;">
+            <h2 style="color: #b30000; margin-bottom: 20px;">Create Account</h2>
 
-        
-    </div>
+            <!-- Username Field -->
+            <input type="text" placeholder="Username" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+
+            <!-- Email Field -->
+            <input type="email" placeholder="Email" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+
+            <!-- Password Field -->
+            <input type="password" placeholder="Password" style="width: 100%; padding: 10px; margin-bottom: 5px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+
+            <!-- Password Requirements -->
+            <p style="color: #b30000; font-size: 12px; text-align: left; margin-bottom: 15px; padding-left: 5px;">
+                • Lowercase & Uppercase <br>
+                • Number (0-9) <br>
+                • Special Character (!@#$%^&*) <br>
+                • At least 8 characters
+            </p>
+
+            <!-- Confirm Password Field -->
+            <input type="password" placeholder="Confirm Password" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+
+            <!-- Sign in with Google Button -->
+            <button type="button" style="background-color: #4285f4; color: white; border: none; padding: 10px; width: 100%; border-radius: 5px; font-size: 16px; cursor: pointer; margin-bottom: 20px;">
+                <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google Icon" style="margin-right: 5px; vertical-align: middle;"> Sign In with Google
+            </button>
+
+            <!-- Register Button -->
+            <button type="submit" style="background-color: #b30000; color: white; border: none; padding: 10px; width: 100%; border-radius: 5px; font-size: 16px; cursor: pointer;">
+                Register
+            </button>
+        </div>
+    </form>
+
     <script>
+        // Get the form element
+        const form = document.getElementById('registerForm');
+
+        // Listen for the form submit event
+        form.addEventListener('submit', function(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Hide the form
+            form.style.display = 'none';
+
+            // Display a success message (optional)
+            alert("Registration submitted successfully!");
+        });
+    </script>
+     <script>
         // Coordinates for the cursor
         const coords = { x: 0, y: 0 };
         const circles = document.querySelectorAll(".circle");

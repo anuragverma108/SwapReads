@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwapReads-Form</title>
+    <style>
+        /* Centering styles for the body */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+            background-color: #ffb2a8 !important;
+        }
+
+        /* Styling for the form container */
+        .login-form {
+            background-color: white;
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        .login-form h2 {
+            color: #b30000;
+            margin-bottom: 20px;
+        }
+
+        .login-form input,
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .login-form button[type="submit"] {
+            background-color: #b30000;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .login-form button[type="button"] {
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="index.html" class="login-form" id="registerForm">
+        <h2>Create Account</h2>
+        <input type="text" placeholder="Username">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <p style="color: #b30000; font-size: 12px; text-align: left; margin-bottom: 15px;">
+            • Lowercase & Uppercase <br>
+            • Number (0-9) <br>
+            • Special Character (!@#$%^&*) <br>
+            • At least 8 characters
+        </p>
+        <input type="password" placeholder="Confirm Password">
+        <button type="button">
+            <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google Icon" style="margin-right: 5px; vertical-align: middle;"> Sign In with Google
+        </button>
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('registerForm');
+        form.addEventListener('submit', function(event) {
+            form.style.display = 'none';
+            setTimeout(function() {
+                window.location.href = "index.html";
+            }, 500);
+        });
+    </script>
+
+</body>
+</html>
