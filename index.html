@@ -667,7 +667,10 @@
     }
 
 
-
+      .price{
+        font-weight: 800;
+        font-size: 20px;
+      }
 
     /* Dark Mode Styles */
     .dark-mode .readmore-anim {
@@ -1234,6 +1237,32 @@
 
 
 <body>
+
+<!--pre-loader-->
+<div class="preloader-theme">
+  <div class="preloader-content">
+    <div class="book" style="width: 160px; height: 100px; max-width: 100%;">
+      <div class="book__pg-shadow"></div>
+      <div class="book__pg"></div>
+      <div class="book__pg book__pg--2"></div>
+      <div class="book__pg book__pg--3"></div>
+      <div class="book__pg book__pg--4"></div>
+      <div class="book__pg book__pg--5"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener("load", function() {
+      setTimeout(function() {
+          const preloader = document.querySelector(".preloader-theme");
+          preloader.classList.add("fade-out");
+          setTimeout(function() {
+              preloader.style.display = "none"; // This hides the preloader
+          }, 500); // Fade-out duration
+      }, 4000); // Time before starting the fade-out
+  });
+</script>
 
   <!-- Circles -->
   <div class="circle"></div>
@@ -4799,43 +4828,55 @@ color: #ac2127;
               <ul class="benefits-canvas-container"
                 style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; list-style: none; padding: 0; margin: 0;">
                 <li class="canvas" style="flex: 1 1 30%; max-width: 30%; box-sizing: border-box;">
-                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box;">
+                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box; height: 450px;">
                     <h3 class="h3 card-title">Fresh Pages - New Releases</h3>
                     <data class="price" value="5">75% Off</data>
                     <p class="card-text">
                       Exchange any recently released or gently used books, less than a year old, at 75% of the original
                       cost (Limited Offer)
                     </p>
-                    <a href="assets/html/checkout.html">
-                      <button class="btn btn-secondary">BUY NOW</button>
+                    <a href="assets/html/checkout.html" class="cta1 style-9">
+                      <span style="position: relative; top: 2.7rem; font-size: 1rem;">Buy Now</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
                     </a>
                   </div>
                 </li>
 
                 <li class="canvas" style="flex: 1 1 30%; max-width: 30%; box-sizing: border-box;">
-                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box;">
+                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box; height: 450px;">
                     <h3 class="h3 card-title">Timeless Classics - Aged Wonders</h3>
                     <data class="price" value="15">50% Off</data>
                     <p class="card-text">
                       Beloved classics or books aged 1 to 5 years at 50% of the original cost, preserving the magic of
                       timeless stories.
                     </p>
-                    <a href="assets/html/checkout.html">
-                      <button class="btn btn-secondary">BUY NOW</button>
+                    <a href="assets/html/checkout.html" class="cta1 style-9">
+                      <span style="position: relative; top: 2.7rem; font-size: 1rem;">Buy Now</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
                     </a>
                   </div>
                 </li>
 
                 <li class="canvas" style="flex: 1 1 30%; max-width: 30%; box-sizing: border-box;">
-                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box;">
+                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box; height: 450px;">
                     <h3 class="h3 card-title">Hidden Treasures - Vintage Editions</h3>
                     <data class="price" value="10">25% Off</data>
                     <p class="card-text">
                       Dive into the past with vintage editions or books over 5 years old, available for exchange at 25%
                       of their original cost.
                     </p>
-                    <a href="assets/html/checkout.html">
-                      <button class="btn btn-secondary">BUY NOW</button>
+                    <a href="assets/html/checkout.html" class="cta1 style-9">
+                      <span style="position: relative; top: 2.7rem; font-size: 1rem;">Buy Now</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
                     </a>
                   </div>
                 </li>
@@ -4879,7 +4920,7 @@ color: #ac2127;
 
             <ul class="grid-list" id="genre-list" >
               <li data-aos="slide-right">
-                <a href="classic-literature.html" style="text-decoration: none; color: inherit;">
+                <a href="./assets/html/classic.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
                     <p class="card-subtitle">01</p>
                     <div class="iconrow">
@@ -5052,6 +5093,7 @@ color: #ac2127;
               </li>
 
               <li data-aos="slide-right">
+                <a href="../assets/html/biography.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">07</p>
@@ -5076,9 +5118,11 @@ color: #ac2127;
                   </ul>
 
                 </div>
+              </a>
               </li>
 
               <li data-aos="zoom-in">
+                <a href="../assets/html/self-help.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">08</p>
@@ -5102,8 +5146,10 @@ color: #ac2127;
                   </ul>
 
                 </div>
+                </a>
               </li>
               <li data-aos="slide-left">
+                <a href="../assets/html/historical-fiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">09</p>
@@ -5127,9 +5173,11 @@ color: #ac2127;
                   </ul>
 
                 </div>
+              </a>
               </li>
 
               <li data-aos="slide-right" >
+                <a href="../assets/html/poetry.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">10</p>
@@ -5155,9 +5203,11 @@ color: #ac2127;
                   </ul>
 
                 </div>
+              </a>
               </li>
 
               <li data-aos="zoom-in">
+                <a href="../assets/html/philosophy.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">11</p>
@@ -5182,10 +5232,13 @@ color: #ac2127;
                   </ul>
 
                 </div>
+              </a>
               </li>
 
               <li data-aos="slide-left">
+                <a href="../assets/html/adventure.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
+                
 
                   <p class="card-subtitle">12</p>
                   <div class="iconrow">
@@ -5208,10 +5261,12 @@ color: #ac2127;
                   </ul>
 
                 </div>
+              </a>
               </li>
 
               <!-- Added three more genres here-->
               <li data-aos="slide-right">
+                <a href="../assets/html/nonfiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">13</p>
@@ -5234,9 +5289,11 @@ color: #ac2127;
                   </ul>
 
                 </div>
+                </a>
               </li>
 
               <li data-aos="zoom-in">
+                <a href="../assets/html/comedy.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">14</p>
@@ -5259,9 +5316,11 @@ color: #ac2127;
                   </ul>
 
                 </div>
+                </a>
               </li>
 
               <li data-aos="slide-left">
+                <a href="../assets/html/detective-fiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">15</p>
@@ -5286,6 +5345,7 @@ color: #ac2127;
                   </ul>
 
                 </div>
+                </a>
               </li>
               <li data-aos="slide-right">
                 <div class="chapter-card">
@@ -7118,7 +7178,7 @@ function showSuccessMessage() {
           <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
           <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a> |
           <a href="our-vision.html" id="ourvisionlink">Our Vision</a></li> |
-          <a href="./contributors/contributor.html" id="ourvisionlink">Our Contributors </a></li> |
+          <li><a href="./contributor/contributorss.html"><i class="fas fa-users"></i> Our Contributors</a></li>
           <a href="refundpolicy.html">Refund Policy</a>
 
         </div>
