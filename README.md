@@ -66,6 +66,9 @@
 ├── Mystical-fantaies.html
 ├── README.md
 ├── SECURITY.md
+├── activity.css
+├── activity.html
+├── activity.js
 ├── address.css
 ├── address.html
 ├── assets/
@@ -167,12 +170,17 @@
 │   │   ├── bookpref.html
 │   │   ├── borrow.html
 │   │   ├── checkout.html
+│   │   ├── classic.html
 │   │   ├── comedy.html
 │   │   ├── comsp.html
 │   │   ├── custom.html
+│   │   ├── cyberpunk.html
 │   │   ├── detective-fiction.html
 │   │   ├── donate.html
+│   │   ├── dystopian.html
 │   │   ├── event.html
+│   │   ├── experimental-fiction.html
+│   │   ├── fairytale.html
 │   │   ├── fantasy.html
 │   │   ├── forgot-pass.html
 │   │   ├── freeBooks.html
@@ -183,16 +191,20 @@
 │   │   ├── image.png
 │   │   ├── img.png
 │   │   ├── login.html
+│   │   ├── magical-realism.html
 │   │   ├── maha.html
 │   │   ├── map.html
 │   │   ├── midnight.html
 │   │   ├── mood.html
 │   │   ├── mylogin.html
+│   │   ├── mythology.html
 │   │   ├── ngo.html
+│   │   ├── noir.html
 │   │   ├── nonfiction.html
 │   │   ├── philosophy.html
 │   │   ├── poetry.html
 │   │   ├── profileedit.html
+│   │   ├── psycological-thriller.html
 │   │   ├── quiz.html
 │   │   ├── quizzes.html
 │   │   ├── ram.html
@@ -200,13 +212,16 @@
 │   │   ├── read.html
 │   │   ├── read_later.html
 │   │   ├── romance.html
+│   │   ├── satire.html
 │   │   ├── school.html
 │   │   ├── science-fiction.html
 │   │   ├── self-help.html
 │   │   ├── social.html
 │   │   ├── suspense-thriller.html
 │   │   ├── tips.html
-│   │   └── top10.html
+│   │   ├── top10.html
+│   │   ├── true-crime.html
+│   │   └── utopian.html
 │   ├── images/
 │   │   ├── 1984.jpg
 │   │   ├── FB icon.png
@@ -285,6 +300,7 @@
 │   │   ├── ctc5.png
 │   │   ├── darkmode_bg.png
 │   │   ├── dracula.webp
+│   │   ├── dune.jpg
 │   │   ├── duno.jpeg
 │   │   ├── duno.jpg
 │   │   ├── edit profile.jpg
@@ -506,7 +522,6 @@
 ├── chat.css
 ├── chat.html
 ├── chat.js
-├── classic-literature.html
 ├── cod.jpg
 ├── comsp.html
 ├── connectWithsame.html
