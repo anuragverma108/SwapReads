@@ -667,7 +667,10 @@
     }
 
 
-
+      .price{
+        font-weight: 800;
+        font-size: 20px;
+      }
 
     /* Dark Mode Styles */
     .dark-mode .readmore-anim {
@@ -1234,6 +1237,32 @@
 
 
 <body>
+
+<!--pre-loader-->
+<div class="preloader-theme">
+  <div class="preloader-content">
+    <div class="book" style="width: 160px; height: 100px; max-width: 100%;">
+      <div class="book__pg-shadow"></div>
+      <div class="book__pg"></div>
+      <div class="book__pg book__pg--2"></div>
+      <div class="book__pg book__pg--3"></div>
+      <div class="book__pg book__pg--4"></div>
+      <div class="book__pg book__pg--5"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener("load", function() {
+      setTimeout(function() {
+          const preloader = document.querySelector(".preloader-theme");
+          preloader.classList.add("fade-out");
+          setTimeout(function() {
+              preloader.style.display = "none"; // This hides the preloader
+          }, 500); // Fade-out duration
+      }, 4000); // Time before starting the fade-out
+  });
+</script>
 
   <!-- Circles -->
   <div class="circle"></div>
@@ -3729,9 +3758,9 @@ color: #ac2127;
 
             <li>
               <div class="action">
-                <!-- <div class="profile" onclick="menuToggle();">
-            <img id="profile-avatar"  src="./assets/images/avatar1.jpg" />
-          </div> -->
+                      <!-- <div class="profile" onclick="menuToggle();">
+                  <img id="profile-avatar"  src="./assets/images/avatar1.jpg" />
+                </div> -->
                 <div class="menu">
                   <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
                   <ul>
@@ -4799,43 +4828,55 @@ color: #ac2127;
               <ul class="benefits-canvas-container"
                 style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; list-style: none; padding: 0; margin: 0;">
                 <li class="canvas" style="flex: 1 1 30%; max-width: 30%; box-sizing: border-box;">
-                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box;">
+                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box; height: 450px;">
                     <h3 class="h3 card-title">Fresh Pages - New Releases</h3>
                     <data class="price" value="5">75% Off</data>
                     <p class="card-text">
                       Exchange any recently released or gently used books, less than a year old, at 75% of the original
                       cost (Limited Offer)
                     </p>
-                    <a href="assets/html/checkout.html">
-                      <button class="btn btn-secondary">BUY NOW</button>
+                    <a href="assets/html/checkout.html" class="cta1 style-9">
+                      <span style="position: relative; top: 2.7rem; font-size: 1rem;">Buy Now</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
                     </a>
                   </div>
                 </li>
 
                 <li class="canvas" style="flex: 1 1 30%; max-width: 30%; box-sizing: border-box;">
-                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box;">
+                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box; height: 450px;">
                     <h3 class="h3 card-title">Timeless Classics - Aged Wonders</h3>
                     <data class="price" value="15">50% Off</data>
                     <p class="card-text">
                       Beloved classics or books aged 1 to 5 years at 50% of the original cost, preserving the magic of
                       timeless stories.
                     </p>
-                    <a href="assets/html/checkout.html">
-                      <button class="btn btn-secondary">BUY NOW</button>
+                    <a href="assets/html/checkout.html" class="cta1 style-9">
+                      <span style="position: relative; top: 2.7rem; font-size: 1rem;">Buy Now</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
                     </a>
                   </div>
                 </li>
 
                 <li class="canvas" style="flex: 1 1 30%; max-width: 30%; box-sizing: border-box;">
-                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box;">
+                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box; height: 450px;">
                     <h3 class="h3 card-title">Hidden Treasures - Vintage Editions</h3>
                     <data class="price" value="10">25% Off</data>
                     <p class="card-text">
                       Dive into the past with vintage editions or books over 5 years old, available for exchange at 25%
                       of their original cost.
                     </p>
-                    <a href="assets/html/checkout.html">
-                      <button class="btn btn-secondary">BUY NOW</button>
+                    <a href="assets/html/checkout.html" class="cta1 style-9">
+                      <span style="position: relative; top: 2.7rem; font-size: 1rem;">Buy Now</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
                     </a>
                   </div>
                 </li>
@@ -4879,7 +4920,7 @@ color: #ac2127;
 
             <ul class="grid-list" id="genre-list" >
               <li data-aos="slide-right">
-                <a href="classic-literature.html" style="text-decoration: none; color: inherit;">
+                <a href="./assets/html/classic.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
                     <p class="card-subtitle">01</p>
                     <div class="iconrow">
@@ -4909,7 +4950,7 @@ color: #ac2127;
               </li>
 
               <li data-aos="zoom-in">
-                <a href="romance.html" style="text-decoration: none; color: inherit;">
+                <a href="./assets/html/romance.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card" >
 
                   <p class="card-subtitle" style=" width: 202.48px; height: 13px;">02</p>
@@ -4938,7 +4979,7 @@ color: #ac2127;
               </li>
 
               <li data-aos="slide-left">
-                <a href="suspense-thriller.html" style="text-decoration: none; color: inherit;">
+                <a href="./assets/html/suspense-thriller.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">03</p>
@@ -4967,7 +5008,7 @@ color: #ac2127;
               </li>
 
               <li data-aos="slide-right">
-                <a href="science-fiction.html" style="text-decoration: none; color: inherit;">
+                <a href="./assets/html/science-fiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">04</p>
@@ -4996,7 +5037,7 @@ color: #ac2127;
               </li>
 
               <li data-aos="zoom-in">
-                <a href="fantasy.html" style="text-decoration: none; color: inherit;">
+                <a href="./assets/html/fantasy.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">05</p>
@@ -5024,7 +5065,7 @@ color: #ac2127;
               </li>
 
               <li data-aos="slide-left">
-                <a href="horror.html" style="text-decoration: none; color: inherit;">
+                <a href="../assets/html/horror.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">06</p>
@@ -5052,6 +5093,7 @@ color: #ac2127;
               </li>
 
               <li data-aos="slide-right">
+                <a href="../assets/html/biography.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">07</p>
@@ -5076,9 +5118,11 @@ color: #ac2127;
                   </ul>
 
                 </div>
+              </a>
               </li>
 
               <li data-aos="zoom-in">
+                <a href="../assets/html/self-help.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">08</p>
@@ -5102,8 +5146,10 @@ color: #ac2127;
                   </ul>
 
                 </div>
+                </a>
               </li>
               <li data-aos="slide-left">
+                <a href="../assets/html/historical-fiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">09</p>
@@ -5127,9 +5173,11 @@ color: #ac2127;
                   </ul>
 
                 </div>
+              </a>
               </li>
 
               <li data-aos="slide-right" >
+                <a href="../assets/html/poetry.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">10</p>
@@ -5155,9 +5203,11 @@ color: #ac2127;
                   </ul>
 
                 </div>
+              </a>
               </li>
 
               <li data-aos="zoom-in">
+                <a href="../assets/html/philosophy.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">11</p>
@@ -5182,10 +5232,13 @@ color: #ac2127;
                   </ul>
 
                 </div>
+              </a>
               </li>
 
               <li data-aos="slide-left">
+                <a href="../assets/html/adventure.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
+                
 
                   <p class="card-subtitle">12</p>
                   <div class="iconrow">
@@ -5208,10 +5261,12 @@ color: #ac2127;
                   </ul>
 
                 </div>
+              </a>
               </li>
 
               <!-- Added three more genres here-->
               <li data-aos="slide-right">
+                <a href="../assets/html/nonfiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">13</p>
@@ -5234,9 +5289,11 @@ color: #ac2127;
                   </ul>
 
                 </div>
+                </a>
               </li>
 
               <li data-aos="zoom-in">
+                <a href="../assets/html/comedy.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">14</p>
@@ -5259,9 +5316,11 @@ color: #ac2127;
                   </ul>
 
                 </div>
+                </a>
               </li>
 
               <li data-aos="slide-left">
+                <a href="../assets/html/detective-fiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">15</p>
@@ -5286,8 +5345,10 @@ color: #ac2127;
                   </ul>
 
                 </div>
+                </a>
               </li>
               <li data-aos="slide-right">
+                <a href="../assets/html/fairytale.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
                   <p class="card-subtitle">16</p>
                   <div class="iconrow">
@@ -5309,8 +5370,10 @@ color: #ac2127;
                     <li>3. The Snow Queen by Hans Christian Andersen</li>
                   </ul>
                 </div>
+                </a>
               </li>
               <li data-aos="zoom-in">
+                <a href="../assets/html/mythology.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
                   <p class="card-subtitle">17</p>
                   <div class="iconrow">
@@ -5332,8 +5395,10 @@ color: #ac2127;
                     <li>3. Norse Mythology by Neil Gaiman</li>
                   </ul>
                 </div>
+                </a>
               </li>
               <li data-aos="slide-left">
+                <a href="../assets/html/noir.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
                   <p class="card-subtitle">18</p>
                   <div class="iconrow">
@@ -5356,8 +5421,10 @@ color: #ac2127;
                     <li>3. The Postman Always Rings Twice by James M. Cain</li>
                   </ul>
                 </div>
+                </a>
               </li>
               <li data-aos="slide-right">
+                <a href="../assets/html/true-crime.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
                   <p class="card-subtitle">19</p>
                   <div class="iconrow">
@@ -5379,10 +5446,11 @@ color: #ac2127;
                     <li>3. I'll Be Gone in the Dark by Michelle McNamara </li>
                   </ul>
                 </div>
-
+                </a>
               </li>
 
               <li data-aos="zoom-int">
+                <a href="../assets/html/dystopian.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">20</p>
@@ -5406,6 +5474,7 @@ color: #ac2127;
                   </ul>
 
                 </div>
+                </a>
               </li>
 
               <li data-aos="slide-left">
@@ -5997,18 +6066,96 @@ color: #ac2127;
         event.preventDefault(); // Prevent the default form submission
         console.log('Form submitted'); // Debug log
 
-        // Show the thank-you popup
-        document.getElementById('thank-you-popup').style.display = 'block';
+<<<<<<< HEAD
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {})
 
-        // Reset the form
-        this.reset();
+
+
+            <!-- JavaScript for form submission -->
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {})
+
+
+
+     
+
+
+              // <!-- Rate Us Component -->
+              <div id="rate-us">
+                <div class="heading">
+                  <h3>Rateus</h3>
+                  <p>Tell us about your experience!</p>
+                </div>
+
+                <div class="stars">
+                  <input type="radio" id="star5" name="rate" value="5" />
+                  <label for="star5">😭</label>
+                  <input type="radio" id="star4" name="rate" value="4" />
+                  <label for="star4">😢</label>
+                  <input type="radio" id="star3" name="rate" value="3" />
+                  <label for="star3">😐</label>
+                  <input type="radio" id="star2" name="rate" value="2" />
+                  <label for="star2">😊</label>
+                  <input type="radio" id="star1" name="rate" value="1" />
+                  <label for="star1">😍</label>
+                </div>
+
+                <div class="feedback-container">
+                  <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
+                </div>
+
+                <div class="button">
+
+                  <center><button id="submit-btn">Submit</button></center>
+                </div>
+              </div>
+
+              <div id="toastMessage" class="toast-message"></div>
+              <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                  main
+    const toastMessage = document.getElementById("toastMessage");
+
+                document.getElementById("submit-btn").addEventListener("click", function(event) {
+                  event.preventDefault(); // Prevent default form submission
+
+                let selectedEmoji = document.querySelector('input[name="rate"]:checked');
+                let feedback = document.getElementById("feedback").value.trim();
+
+                if (selectedEmoji && feedback !== "") {
+                  // Show success toast message
+                  toastMessage.textContent = "Feedback submitted successfully!";
+                toastMessage.style.backgroundColor = "green";
+                showToastMessage();
+
+                // Reset form fields
+                document.getElementById("feedback").value = "";
+                let starInputs = document.querySelectorAll('input[name="rate"]');
+        starInputs.forEach(input => input.checked = false);
+      } else {
+                  // Show failure toast message
+                  toastMessage.textContent = "Please select an emoji and give feedback.";
+                toastMessage.style.backgroundColor = "red";
+                showToastMessage();
+      }
     });
 
-    function closePopup() {
-        document.getElementById('thank-you-popup').style.display = 'none';
-    }
-</script>
+                function showToastMessage() {
+                  toastMessage.style.display = "block",
+      setTimeout(() => {
+                  toastMessage.style.opacity = "1"
+      }, 100);
 
+                setTimeout(function() {
+                  toastMessage.style.opacity = "0",
+        setTimeout(() => {
+                  toastMessage.style.display = "none"
+        }, 300)
+      }, 3000)
+    }
+  })
+        </script>
 <style>
 
 /* Basic styles for body */
@@ -6035,6 +6182,7 @@ body {
     transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transitions */
     z-index: 999; /* Ensure it's above other elements */
 }
+>>>>>>> 5b34637af341bc5ad0fa8d317b0c7a6df312a37f
 
 
 
@@ -6668,7 +6816,7 @@ box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); /* Slightly larger shadow on hover */
                   new google.translate.TranslateElement(
                     { pageLanguage: 'en' },
                     'google_translate_element'
-                  );
+                  )
               }
             </script>
 
@@ -6758,12 +6906,85 @@ box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); /* Slightly larger shadow on hover */
                     </ul>
                   </div>
                 </div>
+
+                <div id="quicklink" class="row">
+                  <div>
+                    <ul>
+                      <li class="foot-quick"><a href="/chat.html"><i class="fa-solid fa-message"></i>
+                          <h4 class="flinks">Community Chat</h4>
+                        </a></li>
+                    </ul>
+                  </div> 
+
+                  <div>
+                    <ul>
+                      <li class="foot-quick"><a href="assets/html/read_later.html"><i class="fa-solid fa-book-open-reader"></i>
+                          <h4 class="flinks">Read Later</h4>
+                        </a></li>
+                    </ul>
+                  </div> 
+
+                  <div>
+                    <ul>
+                      <li class="foot-quick"><a href="assets/html/ConnReader.html"><i class="fa-solid fa-users"></i>
+                          <h4 class="flinks">Reader Connection</h4>
+                        </a></li>
+                    </ul>
+                  </div> 
+                
+                </div>
+
               </div>
             </div>
 
           </div>
         </div>
         <style>
+          #quicklink{
+            display: flex;
+            justify-content: flex-start;
+            gap:20px;
+          }
+
+          #quicklink ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      #quicklink .foot-quick {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0rem;
+        /* Adjust spacing between list items */
+      }
+
+      #quicklink .foot-quick a {
+        display: flex;
+        flex-direction: row;
+        /* Ensure icon and text are in a row */
+        align-items: center;
+        /* Vertically center-align the icon and text */
+        text-decoration: none;
+        color: rgb(83, 74, 74);
+        /* Adjust link color as needed */
+      }
+
+      #quicklink .foot-quick a i {
+        margin-right: 0.5rem;
+        /* Adjust spacing between icon and text */
+      }
+
+      #quicklink .foot-quick a p {
+        margin: 0;
+        /* Remove default margins from <p> */
+      }
+
+      .dark-mode #quicklink .foot-quick h4 {
+        color: #909dc2;
+      }
+
+
+
           #quicklinks:hover {
             text-decoration: none;
           }
@@ -6966,7 +7187,7 @@ function showSuccessMessage() {
           <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
           <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a> |
           <a href="our-vision.html" id="ourvisionlink">Our Vision</a></li> |
-          <a href="./contributors/contributor.html" id="ourvisionlink">Our Contributors </a></li> |
+          <li><a href="./contributor/contributorss.html"><i class="fas fa-users"></i> Our Contributors</a></li>
           <a href="refundpolicy.html">Refund Policy</a>
 
         </div>
@@ -7323,7 +7544,7 @@ function showSuccessMessage() {
                   lenis.raf(time);
                 requestAnimationFrame(raf);
     }
-
+  
                 requestAnimationFrame(raf);
                 // JavaScript function to load more content when user scrolls to bottom
                 function loadMoreContent() {

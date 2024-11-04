@@ -2074,37 +2074,38 @@ body > .skiptranslate {
   }
 
   fetchContributors();
-
-
- // Function to animate counting from 0 to a target number
- function countUp(target, elementId) {
-              let count = 0;
-              const increment = target / 150; // Increment by a fraction of the target number
-    
-              const interval = setInterval(() => {
-                count += increment;
-                document.getElementById(elementId).textContent = Math.round(count) + "+"; // Add the "+" sign
-    
-                // Stop the interval when count reaches or exceeds the target number
-                if (count >= target) {
-                  clearInterval(interval);
-                  document.getElementById(elementId).textContent = target + "+"; // Ensure final value is exact with the "+"
-                  // Start counting animation again after a delay
-                  setTimeout(() => {
-                    countUp(target, elementId);
-                  }, 4000); 
-                }
-              }, 20); 
-            }
-    
-            // Start counting animation for each stat
-            countUp(2500, 'stat1'); 
-            countUp(100, 'stat2'); 
-            countUp(5000, 'stat3'); 
-
-
-  
 </script>
+<script>
+// Function to animate counting from 0 to a target number
+function countUp(target, elementId) {
+             let count = 0;
+             const increment = target / 150; // Increment by a fraction of the target number
+   
+             const interval = setInterval(() => {
+               count += increment;
+               document.getElementById(elementId).textContent = Math.round(count) + "+"; // Add the "+" sign
+   
+               // Stop the interval when count reaches or exceeds the target number
+               if (count >= target) {
+                 clearInterval(interval);
+                 document.getElementById(elementId).textContent = target + "+"; // Ensure final value is exact with the "+"
+                 // Start counting animation again after a delay
+                 setTimeout(() => {
+                   countUp(target, elementId);
+                 }, 4000); 
+               }
+             }, 20); 
+           }
+   
+           // Start counting animation for each stat
+           countUp(2500, 'stat1'); 
+           countUp(100, 'stat2'); 
+           countUp(5000, 'stat3'); 
+
+
+ 
+</script>
+
 
 </body>
 </html>

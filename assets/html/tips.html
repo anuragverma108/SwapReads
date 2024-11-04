@@ -999,7 +999,7 @@ body.dark-mode {
             <div class="action">
               
               <!-- <div class="menu">
-                <h3>XYZ<br /><span>Book Lover</span></h3>
+                <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
                 <ul>
                   <li>
                     <img src="../images/user.jpg" /><a href="../../profile.html">My profile</a>
@@ -1026,8 +1026,14 @@ body.dark-mode {
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const savedAvatar = localStorage.getItem("selectedAvatar");
+        const savedName = localStorage.getItem("profileName");
         if (savedAvatar) {
           document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+        }
+        if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
         }
       });
 
@@ -1447,7 +1453,50 @@ document.addEventListener('DOMContentLoaded', function () {
   <div>
     <button id="translateButton">Translate</button>
   </div>
+
   <style>
+    
+    .card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 70px;
+  padding: 80px;
+  margin-top: 70px;
+  max-width: 1200px;
+}
+
+.card {
+  width: 100%;
+  height: 350px;
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
     /* Fixed translate button */
 #translateButton {
     position: fixed;
@@ -1639,6 +1688,28 @@ body > .skiptranslate {
 
   <script>
 
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    // Close any currently open card
+    cards.forEach(otherCard => {
+      if (otherCard !== card && otherCard.classList.contains('flipped')) {
+        otherCard.classList.remove('flipped');
+      }
+    });
+
+    // Flip the current card
+    card.classList.add('flipped');
+  });
+
+  card.addEventListener('mouseleave', () => {
+    // Close the card after a short delay
+    setTimeout(() => {
+      card.classList.remove('flipped');
+    }, 200); // Adjust the delay as needed
+  });
+});
     // Coordinates for the cursor
     const coords = { x: 0, y: 0 };
     const circles = document.querySelectorAll(".circle");

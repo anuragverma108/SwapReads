@@ -1022,7 +1022,7 @@ body.dark-mode {
             <div class="action">
               
               <!-- <div class="menu">
-                <h3>XYZ<br /><span>Book Lover</span></h3>
+                <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
                 <ul>
                   <li>
                     <img src="../images/user.jpg" /><a href="../../profile.html">My profile</a>
@@ -1049,8 +1049,14 @@ body.dark-mode {
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const savedAvatar = localStorage.getItem("selectedAvatar");
+        const savedName = localStorage.getItem("profileName");
         if (savedAvatar) {
           document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+        }
+        if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
         }
       });
 // Theme switcher
