@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writers We Love</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color:  rgba(255, 144, 125, 0.598);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .writers-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .writer-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            width: 300px;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .writer-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .writer-card img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 4px solid #f1969688;
+        }
+
+        .writer-card h2 {
+            font-size: 1.6rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .writer-card p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .writer-card .quote {
+            font-style: italic;
+            color: #888;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Writers We Love</h1>
+        <p>Dive into the lives and works of literature's most celebrated authors.</p>
+    </header>
+
+    <div class="writers-container" id="writersContainer">
+        <!-- Cards will be dynamically added here -->
+    </div>
+
+    <script>
+        const writers = [
+            {
+                name: "William Shakespeare",
+                image: "https://example.com/shakespeare.jpg",
+                bio: "An English playwright and poet, widely regarded as the greatest writer in the English language.",
+                quote: "To be, or not to be, that is the question."
+            },
+            {
+                name: "Jane Austen",
+                image: "https://example.com/austen.jpg",
+                bio: "An English novelist known for her keen observation of social manners and insightful character studies.",
+                quote: "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife."
+            },
+            {
+                name: "Mark Twain",
+                image: "https://example.com/twain.jpg",
+                bio: "An American writer, humorist, and lecturer, known for 'The Adventures of Tom Sawyer' and 'Huckleberry Finn'.",
+                quote: "The secret of getting ahead is getting started."
+            },
+            {
+                name: "Leo Tolstoy",
+                image: "https://example.com/tolstoy.jpg",
+                bio: "A Russian writer regarded as one of the greatest authors, best known for 'War and Peace' and 'Anna Karenina'.",
+                quote: "All happy families are alike; each unhappy family is unhappy in its own way."
+            },
+            {
+                name: "Virginia Woolf",
+                image: "https://example.com/woolf.jpg",
+                bio: "An English writer and a key figure in the modernist literary movement, known for 'Mrs Dalloway' and 'To the Lighthouse'.",
+                quote: "A woman must have money and a room of her own if she is to write fiction."
+            },
+            {
+                name: "Gabriel García Márquez",
+                image: "https://example.com/marquez.jpg",
+                bio: "A Colombian novelist and Nobel laureate, famous for 'One Hundred Years of Solitude' and 'Love in the Time of Cholera'.",
+                quote: "What matters in life is not what happens to you but what you remember and how you remember it."
+            },
+            {
+                name: "Fyodor Dostoevsky",
+                image: "https://example.com/dostoevsky.jpg",
+                bio: "A Russian novelist and philosopher, known for exploring psychological depth in works like 'Crime and Punishment'.",
+                quote: "The mystery of human existence lies not in just staying alive, but in finding something to live for."
+            },
+            {
+                name: "Maya Angelou",
+                image: "Maya.jpg",
+                bio: "An American poet, memoirist, and civil rights activist, best known for 'I Know Why the Caged Bird Sings'.",
+                quote: "You will face many defeats in life, but never let yourself be defeated."
+            },
+        ];
+
+        function displayWriters() {
+            const writersContainer = document.getElementById("writersContainer");
+            writers.forEach(writer => {
+                const writerCard = document.createElement("div");
+                writerCard.className = "writer-card";
+
+                writerCard.innerHTML = `
+                    <img src="${writer.image}" alt="${writer.name}">
+                    <h2>${writer.name}</h2>
+                    <p>${writer.bio}</p>
+                    <p class="quote">"${writer.quote}"</p>
+                `;
+
+                writersContainer.appendChild(writerCard);
+            });
+        }
+
+        window.onload = displayWriters;
+    </script>
+</body>
+</html>
