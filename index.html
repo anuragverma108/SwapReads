@@ -4,8 +4,53 @@
 
 
 <head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Title and Description -->
+    <title>SwapReads</title>
+    <meta name="description" content="SwapReads is a user-friendly platform that allows book lovers to swap books with others, fostering a community of readers.">
+
+    <!-- Keywords -->
+    <meta name="keywords" content="book swapping, book exchange, SwapReads, community, readers, books, literature, reading, literature exchange">
+
+    <!-- Author -->
+    <meta name="author" content="anurag verma">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="SwapReads - Your Platform for Book Swapping">
+    <meta property="og:description" content="Join SwapReads and exchange your favorite books with fellow readers!">
+    <meta property="og:image" content="./assets/favicon_package_v0.16/favicon-32x32.png">
+    <meta property="og:url" content="https://github.com/anuragverma108/SwapReads">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SwapReads - Your Platform for Book Swapping">
+    <meta name="twitter:description" content="Join SwapReads and exchange your favorite books with fellow readers!">
+    <meta name="twitter:image" content="./assets/favicon_package_v0.16/favicon-32x32.png">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://github.com/anuragverma108/SwapReads">
+
+    <!-- Open Graph Site Name -->
+    <meta property="og:site_name" content="SwapReads">
+
+    <!-- Locale -->
+    <meta property="og:locale" content="en_US">
+
+    <!-- Additional Open Graph Tags -->
+    <meta property="og:image:alt" content="An image representing book swapping">
+    <meta property="og:determiner" content="the">
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="exchangeHub.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <style>
     body {
       margin: 0;
@@ -58,6 +103,14 @@
       /* Smooth movement */
     }
 
+    .action .menu.active {
+      top: 60px;
+      visibility: visible;
+      opacity: 1;
+      right: 60px;
+      z-index: 1000000;
+    }
+
     :root {
       --text-color-light: #333;
       /* Dark text for light mode */
@@ -90,7 +143,7 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/litrary_realms.css">
   <link rel="stylesheet" href="./assets/font-6/css/all.css">
-  <link rel="stylesheet" href="header.css">
+
   <link rel="stylesheet" href="logout.css">
   <link rel="stylesheet" href="./assets/css/MenuClick.css">
   <link rel="stylesheet" href="https://fontawesome.com/icons/cloudflare?f=brands&s=solid">
@@ -614,7 +667,10 @@
     }
 
 
-
+      .price{
+        font-weight: 800;
+        font-size: 20px;
+      }
 
     /* Dark Mode Styles */
     .dark-mode .readmore-anim {
@@ -1181,6 +1237,32 @@
 
 
 <body>
+
+<!--pre-loader-->
+<div class="preloader-theme">
+  <div class="preloader-content">
+    <div class="book" style="width: 160px; height: 100px; max-width: 100%;">
+      <div class="book__pg-shadow"></div>
+      <div class="book__pg"></div>
+      <div class="book__pg book__pg--2"></div>
+      <div class="book__pg book__pg--3"></div>
+      <div class="book__pg book__pg--4"></div>
+      <div class="book__pg book__pg--5"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener("load", function() {
+      setTimeout(function() {
+          const preloader = document.querySelector(".preloader-theme");
+          preloader.classList.add("fade-out");
+          setTimeout(function() {
+              preloader.style.display = "none"; // This hides the preloader
+          }, 500); // Fade-out duration
+      }, 4000); // Time before starting the fade-out
+  });
+</script>
 
   <!-- Circles -->
   <div class="circle"></div>
@@ -2821,6 +2903,7 @@
       /* Close button */
       .close {
         color: #073725;
+        margin-top: 20px;
         float: right;
         font-size: 2.8rem;
         font-weight: bold;
@@ -3009,6 +3092,119 @@
 
     <!-- Newsletter pop-up -->
     <style>
+
+body {
+
+font-family: Arial, sans-serif;
+
+}
+
+/* Polls Popup Styles */
+.popups {
+
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+justify-content: center; /* Center the popup */
+align-items: center; /* Center the popup */
+z-index: 1000; /* Sit on top */
+
+}
+
+.popups-content {
+
+background: linear-gradient(#f7879a, #ffd6de), url(your-image-url.jpg);
+padding: 20px;
+border-radius: 5px;
+max-width: 400px;
+text-align: center;
+
+}
+
+/* Set poll options to stack vertically */
+#pollOptions {
+
+display: flex;
+flex-direction: column; /* Stack buttons vertically */
+align-items: center; /* Center the buttons */
+
+}
+
+.poll-button {
+
+display: block; /* Change to block for full-width */
+margin: 5px 0; /* Add vertical margin */
+padding: 10px 15px;
+border: none;
+border-radius: 5px;
+background-color: rgba(16,22,26,.4); /* Green */
+color: white;
+cursor: pointer;
+transition: background-color 0.3s;
+width: 100%; /* Full width */
+text-align: center;
+font-size: 15px;
+
+}
+
+.poll-button:hover {
+
+background-color: #45a049; /* Darker green */
+
+}
+
+.poll-button.selected {
+
+background-color: #ae242a; /* Blue for selected */
+
+}
+
+/* New Vote Button Styles */
+.vote-button {
+
+display: block; /* Change to block for full-width */
+margin: 5px 0; /* Add vertical margin */
+padding: 10px 15px;
+border: none;
+border-radius: 5px;
+background-color: #f44336; /* Red */
+color: white;
+cursor: pointer;
+transition: background-color 0.3s;
+width: 100%; /* Full width */
+text-align: center;
+
+}
+
+.vote-button:hover {
+
+background-color: #d32f2f; /* Darker red */
+
+}
+
+.uppercase {
+
+text-transform: uppercase;
+font-size: 16px;
+text-align: center;
+color: #ac2127;
+
+}
+
+#result {
+    margin-top: 10px; /* Space above result text */
+    word-wrap: break-word; /* Allow long text to wrap */
+    overflow: hidden; /* Prevent overflow */
+    max-height: 50px; /* Limit height */
+    color: rgb(255, 255, 255); /* Text color */
+    text-align: center; /* Center align the text */
+    color: #ac2127;
+}
+
       .popup-nl {
         display: none;
         position: fixed;
@@ -3056,30 +3252,34 @@
       }
 
       @media screen and (max-width: 768px) {
-        .popup-content-nl {
-          display: flex;
-          flex-direction: column;
-          background-color: white;
-          border-radius: 10px;
-          max-width: 300px;
-          height: 800px;
-          overflow: hidden;
-          position: relative;
-          box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        }
+  .popup-content-nl {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    max-width: 90%; 
+    height: auto; 
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin: 0 auto; 
+    padding: 10px; 
+  }
 
-        .popup-left-nl img {
-          width: 100%;
-          max-height: 400px;
-        }
+  .popup-left-nl img {
+    width: 100%;
+    max-height: 300px; 
+    object-fit: cover; 
+  }
 
-        .popup-right-nl {
-          padding: 15px;
-          width: 100%;
-          max-height: 400px;
-          text-align: center;
-        }
-      }
+  .popup-right-nl {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    max-height: none;
+  }
+}
+
 
 
       .close1-btn-nl {
@@ -3224,6 +3424,121 @@
 
     <script src="script.js"></script>
 
+
+     <!-- Poll Pop-up -->
+<div class="popups" id="pollPopup">
+  <div class="popups-content">
+
+      <h2 class="uppercase">How do you prefer to read?</h2>
+
+      <div id="pollOptions">
+          <button class="poll-button" data-value="E-books">E-books - I love the convenience of digital</button>
+          <button class="poll-button" data-value="Audiobooks">Audiobooks - I enjoy listening while multitasking</button>
+          <button class="poll-button" data-value="Physical Books">Physical Books - Nothing beats holding a book in my hands</button>
+
+          <!-- Additional buttons (hidden) -->
+          <button class="poll-button hidden" style="display: none;" data-value="Option4">Option4</button>
+          <button class="poll-button hidden" style="display: none;" data-value="Option5">Option5</button>
+
+      </div>
+
+      <button id="voteButton" class="vote-button">Vote</button>
+      <p id="result" style="text-align: center;"></p> <!-- Result display -->
+
+  </div>
+</div>
+
+<script>
+
+  // Show the newsletter popup immediately on page load
+  function displayNewsletterPopup() {
+      document.getElementById('popup-nl').style.display = 'flex'; // Show newsletter
+  }
+  displayNewsletterPopup(); // Call the function
+
+  // Check if the user has already voted in this session
+  const hasVoted = sessionStorage.getItem('hasVoted');
+
+  // Show the poll popup after a delay, only if the user hasn't voted
+  function checkAndDisplayPollPopup() {
+      const newsletterPopup = document.getElementById('popup-nl');
+      if (newsletterPopup.style.display !== 'flex' && !hasVoted) {
+          document.getElementById('pollPopup').style.display = 'flex'; // Show poll
+      }
+  }
+
+  // Set timeout for poll display
+  setTimeout(checkAndDisplayPollPopup, 10000);
+
+  // Manage user selections and votes
+  const pollButtons = document.querySelectorAll('.poll-button[data-value]');
+  let selectedValue = '';
+
+  // Handle clicks on poll buttons
+  pollButtons.forEach(button => {
+      button.addEventListener('click', function() {
+          pollButtons.forEach(btn => btn.classList.remove('selected')); // Clear previous selections
+          button.classList.add('selected'); // Highlight selected button
+          selectedValue = button.getAttribute('data-value'); // Store selected value
+      });
+  });
+
+  // Handle voting process
+  document.getElementById('voteButton').addEventListener('click', function() {
+      if (selectedValue) {
+          document.getElementById('result').innerHTML = `You voted for: ${selectedValue}<br>Thank you!`; // Show result
+          sessionStorage.setItem('hasVoted', 'true'); // Save voting status
+          setTimeout(() => {
+              document.getElementById('pollPopup').style.display = 'none'; // Hide poll
+          }, 2000);
+      } else {
+          alert("Please select an option!"); // Alert if no option is selected
+      }
+  });
+
+  // Close popups function
+  function closePopups() {
+      document.getElementById('popup-nl').style.display = 'none'; // Hide newsletter popup
+  }
+
+  // Attach close event to close buttons
+  document.querySelectorAll('.close-nl').forEach(btn => {
+      btn.addEventListener('click', closePopups);
+  });
+
+  // Function to log the voting action
+  function logVoteAction() {
+      console.log("User has voted for: " + selectedValue); // Log selected value
+  }
+
+  // Event listener for the vote button to log action
+  document.getElementById('voteButton').addEventListener('click', logVoteAction);
+
+  // Function to manage button focus for accessibility
+  function handleFocus(event) {
+      event.target.style.border = '2px solid #0058ff'; // Optional highlight effect
+  }
+
+  // Attach focus event for accessibility improvement
+  pollButtons.forEach(button => {
+      button.addEventListener('focus', handleFocus);
+  });
+
+  // Function to remove focus style
+  function handleBlur(event) {
+      event.target.style.border = ''; // Remove highlight effect
+  }
+
+  // Attach blur event for accessibility improvement
+  pollButtons.forEach(button => {
+      button.addEventListener('blur', handleBlur);
+  });
+
+  // Log when the script has loaded
+  console.log("Poll script initialized and ready!");
+
+</script>
+
     <script>
 
       document.addEventListener('DOMContentLoaded', function () {
@@ -3343,6 +3658,30 @@
         /* Smooth transition for arrow */
       }
     </style>
+    <style>
+      .button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.load-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    margin-bottom: 10px;
+    border-color: black;
+    border-radius: 15px;
+    background-color: #fca498;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.load-button:hover {
+    background-color:  #6c2121;
+}
+    </style>
+
     <!--my code-->
 
     <header class="header header-anim nav-h" data-header>
@@ -3362,8 +3701,8 @@
                 <i class="ri-home-fill"></i> Home
               </a>
             </li>
-           
-            
+
+
             <li class="navbar-item" style="margin-right: 10px;">
               <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
                 <i class="ri-information-fill"></i> AboutUs
@@ -3374,7 +3713,7 @@
                 <i class="ri-information-fill"></i> Authors
               </a>
             </li>
-            
+
 
             <li class="navbar-item" style="margin-right: 10px;">
               <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
@@ -3415,18 +3754,18 @@
                 <i class="ri-community-fill"></i> Community
               </a>
             </li>
-           
+
 
             <li>
               <div class="action">
-                <!-- <div class="profile" onclick="menuToggle();">
-            <img id="profile-avatar"  src="./assets/images/avatar1.jpg" />
-          </div> -->
+                      <!-- <div class="profile" onclick="menuToggle();">
+                  <img id="profile-avatar"  src="./assets/images/avatar1.jpg" />
+                </div> -->
                 <div class="menu">
-                  <h3>XYZ<br /><span>Book Lover</span></h3>
+                  <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
                   <ul>
                     <li>
-                      <img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a>
+                      <img src="./assets/images/user.jpg" /><a href="/profiletest.html">My profile</a>
                     </li>
                     <li>
                       <img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit
@@ -3449,9 +3788,17 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const savedAvatar = localStorage.getItem("selectedAvatar");
+        const savedName = localStorage.getItem("profileName");
         if (savedAvatar) {
           document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
         }
+
+        if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
+
       });
 
       function menuToggle() {
@@ -3512,7 +3859,7 @@
             </li>
             <li class="navbar-item">
               <a href="./assets/html/about.html" class="navbar-link" style="left: -30px;" data-nav-link><i
-                  class="ri-home-fill"></i>About Us</a>
+                  class="ri-home-fill"></i>About<br> Us</a>
             </li>
             <li class="navbar-item">
               <a href="./assets/html/author.html" class="navbar-link" style="left: -30px;" data-nav-link><i
@@ -3530,7 +3877,7 @@
               <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" style="left: -30px;"
                 data-nav-link><i class="ri-bar-chart-fill"></i> Genre</a>
             </li>
-            
+
             <li class="navbar-item">
               <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" style="left: -30px;"
                 data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
@@ -3540,19 +3887,28 @@
                 <i class="ri-questionnaire-fill"></i> FAQ
               </a>
             </li>
-           
+
             <li class="navbar-item">
               <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link"
-                style="left: -30px;">Rate Us</a>
+                style="left: -30px;">Rate<br>Us</a>
             </li>
             <li class="navbar-item" id="login-signup-link">
               <a href="./assets/html/event.html" class="navbar-link" style="left: -30px;">Events</a>
             </li>
             <li class="navbar-item" id="login-signup-link">
+              <a href="./assets/html/map.html" class="navbar-link" style="left: -30px;">Map</a>
+            </li>
+            
+
+            <li class="navbar-item" id="login-signup-link">
               <a href="./assets/html/login.html" class="navbar-link" style="left: -30px;">Login</a>
             </li>
+            
+            
             <li class="navbar-item" id="login-signup-link">
-              <a href="comsp.html" class="navbar-link" style="left: -30px;">Community <br>Spotlight</a>
+
+              <a href="comsp.html" class="navbar-link" style="left: -30px;">Community<br> Spotlight</a>
+
             </li>
             <li class="navbar-item">
               <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" style="left: -30px;"
@@ -3582,9 +3938,15 @@
         <script>
           document.addEventListener("DOMContentLoaded", () => {
             const savedAvatar = localStorage.getItem("selectedAvatar");
+            const savedName = localStorage.getItem("profileName");
             if (savedAvatar) {
               document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
             }
+            if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
           });
 
           function menuToggle() {
@@ -3601,22 +3963,7 @@
             }
           });
 
-          // let lastScrollTop = 0;
-          // const header = document.querySelector('.header');
-
-          // window.addEventListener('scroll', function() {
-          //     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-          //     if (scrollTop > lastScrollTop) {
-          //         // Downscroll
-          //         header.style.transform = 'translateY(-120%)';
-          //     } else {
-          //         // Upscroll
-          //         header.style.transform = 'translateY(0)';
-          //     }
-
-          //     lastScrollTop = scrollTop;
-          // });
+        
         </script>
 
         <div id="modal">
@@ -3677,21 +4024,7 @@
           // const head=document.querySelector('.header');
           // const nav=document.querySelector('.nav');
           // hamburger.addEventListener('click',()=>{
-          //   head.classList.toggle('nav-h');
-          //   nav.classList.toggle('vis-h');
-          // })
-          // let lastScrollTop = 0;
-          // function onScroll() {
-          //     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-          //     const header = document.querySelector('.header');
-
-          //     if (currentScroll > lastScrollTop) {
-          //         header.classList.add('hidden');
-          //     } else {
-          //         header.classList.remove('hidden');
-          //     }
-          //     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-          // }
+          
           const sections = document.querySelectorAll("section");
           const navLinks = document.querySelectorAll(".navbar-link");
 
@@ -4011,7 +4344,7 @@
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
                 </a> -->
 
-                    <a href="#" class="cta style-9">
+                    <a href="personalized-reading.html" class="cta style-9">
                       <span>Read More</span>
                       <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                         <path d="M1,5 L11,5"></path>
@@ -4495,43 +4828,55 @@
               <ul class="benefits-canvas-container"
                 style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; list-style: none; padding: 0; margin: 0;">
                 <li class="canvas" style="flex: 1 1 30%; max-width: 30%; box-sizing: border-box;">
-                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box;">
+                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box; height: 450px;">
                     <h3 class="h3 card-title">Fresh Pages - New Releases</h3>
                     <data class="price" value="5">75% Off</data>
                     <p class="card-text">
                       Exchange any recently released or gently used books, less than a year old, at 75% of the original
                       cost (Limited Offer)
                     </p>
-                    <a href="assets/html/checkout.html">
-                      <button class="btn btn-secondary">BUY NOW</button>
+                    <a href="assets/html/checkout.html" class="cta1 style-9">
+                      <span style="position: relative; top: 2.7rem; font-size: 1rem;">Buy Now</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
                     </a>
                   </div>
                 </li>
 
                 <li class="canvas" style="flex: 1 1 30%; max-width: 30%; box-sizing: border-box;">
-                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box;">
+                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box; height: 450px;">
                     <h3 class="h3 card-title">Timeless Classics - Aged Wonders</h3>
                     <data class="price" value="15">50% Off</data>
                     <p class="card-text">
                       Beloved classics or books aged 1 to 5 years at 50% of the original cost, preserving the magic of
                       timeless stories.
                     </p>
-                    <a href="assets/html/checkout.html">
-                      <button class="btn btn-secondary">BUY NOW</button>
+                    <a href="assets/html/checkout.html" class="cta1 style-9">
+                      <span style="position: relative; top: 2.7rem; font-size: 1rem;">Buy Now</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
                     </a>
                   </div>
                 </li>
 
                 <li class="canvas" style="flex: 1 1 30%; max-width: 30%; box-sizing: border-box;">
-                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box;">
+                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box; height: 450px;">
                     <h3 class="h3 card-title">Hidden Treasures - Vintage Editions</h3>
                     <data class="price" value="10">25% Off</data>
                     <p class="card-text">
                       Dive into the past with vintage editions or books over 5 years old, available for exchange at 25%
                       of their original cost.
                     </p>
-                    <a href="assets/html/checkout.html">
-                      <button class="btn btn-secondary">BUY NOW</button>
+                    <a href="assets/html/checkout.html" class="cta1 style-9">
+                      <span style="position: relative; top: 2.7rem; font-size: 1rem;">Buy Now</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
                     </a>
                   </div>
                 </li>
@@ -4573,40 +4918,40 @@
               <span class="span has-before"></span>
             </h2>
 
-            <ul class="grid-list">
-              <li>
+            <ul class="grid-list" id="genre-list" >
+              <li data-aos="slide-right">
                 <a href="classic-literature.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
+                    <p class="card-subtitle">01</p>
+                    <div class="iconrow">
+                      <h3 class="h3 card-title">Classic Literature</h3>
+                      <span style='font-size: 5rem;filter: grayscale(100%);'>&#128395;</span>
+                    </div>
 
-                  <p class="card-subtitle">01</p>
-                  <div class="iconrow">
-                    <h3 class="h3 card-title">Classic Literature</h3>
-                    <span style='font-size: 5rem;filter: grayscale(100%);'>&#128395;</span>
+
+                    <p class="card-text">
+                      The category of classic literature contains literature that is worthy of being read through the
+                      ages.
+                      Classic literature is timeless and well-written. Sophocles,Charles Dickens, Jane Austen and Virgil
+                      are
+                      all writers whose works are considered classical literature.
+                    </p>
+                    <p class="book-recommendation">
+                      Book Recommendations:
+                    </p>
+                    <ul class="book-list">
+                      <li>1. Pride and Prejudice by Jane Austen</li>
+                      <li>2. Moby-Dick by Herman Melville </li>
+                      <li>3. 1984 by George Orwell</li>
+                    </ul>
+
                   </div>
-
-
-                  <p class="card-text">
-                    The category of classic literature contains literature that is worthy of being read through the
-                    ages.
-                    Classic literature is timeless and well-written. Sophocles,Charles Dickens, Jane Austen and Virgil
-                    are
-                    all writers whose works are considered classical literature.
-                  </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Pride and Prejudice by Jane Austen</li>
-                    <li>2. Moby-Dick by Herman Melville </li>
-                    <li>3. 1984 by George Orwell</li>
-                  </ul>
-
-                </div>
                 </a>
               </li>
 
-              <li>
-                <div class="chapter-card">
+              <li data-aos="zoom-in">
+                <a href="../assets/html/romance.html" style="text-decoration: none; color: inherit;">
+                <div class="chapter-card" >
 
                   <p class="card-subtitle" style=" width: 202.48px; height: 13px;">02</p>
                   <div class="iconrow" style=" width: 202.48px; height: 79px;">
@@ -4630,9 +4975,11 @@
                   </ul>
 
                 </div>
+              </a>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
+                <a href="../assets/html/suspense-thriller.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">03</p>
@@ -4657,9 +5004,11 @@
                   </ul>
 
                 </div>
+                </a>
               </li>
 
-              <li>
+              <li data-aos="slide-right">
+                <a href="../assets/html/science-fiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">04</p>
@@ -4684,9 +5033,11 @@
                   </ul>
 
                 </div>
+                </a>
               </li>
 
-              <li>
+              <li data-aos="zoom-in">
+                <a href="../assets/html/fantasy.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">05</p>
@@ -4710,9 +5061,11 @@
                   </ul>
 
                 </div>
+                </a>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
+                <a href="../assets/html/horror.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">06</p>
@@ -4736,9 +5089,11 @@
                   </ul>
 
                 </div>
+              </a>
               </li>
 
-              <li>
+              <li data-aos="slide-right">
+                <a href="../assets/html/biography.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">07</p>
@@ -4763,9 +5118,11 @@
                   </ul>
 
                 </div>
+              </a>
               </li>
 
-              <li>
+              <li data-aos="zoom-in">
+                <a href="../assets/html/self-help.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">08</p>
@@ -4789,8 +5146,10 @@
                   </ul>
 
                 </div>
+                </a>
               </li>
-              <li>
+              <li data-aos="slide-left">
+                <a href="../assets/html/historical-fiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">09</p>
@@ -4814,9 +5173,11 @@
                   </ul>
 
                 </div>
+              </a>
               </li>
 
-              <li>
+              <li data-aos="slide-right" >
+                <a href="../assets/html/poetry.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">10</p>
@@ -4842,9 +5203,11 @@
                   </ul>
 
                 </div>
+              </a>
               </li>
 
-              <li>
+              <li data-aos="zoom-in">
+                <a href="../assets/html/philosophy.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">11</p>
@@ -4869,10 +5232,13 @@
                   </ul>
 
                 </div>
+              </a>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
+                <a href="../assets/html/adventure.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
+                
 
                   <p class="card-subtitle">12</p>
                   <div class="iconrow">
@@ -4895,10 +5261,12 @@
                   </ul>
 
                 </div>
+              </a>
               </li>
 
               <!-- Added three more genres here-->
-              <li>
+              <li data-aos="slide-right">
+                <a href="../assets/html/nonfiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">13</p>
@@ -4921,9 +5289,11 @@
                   </ul>
 
                 </div>
+                </a>
               </li>
 
-              <li>
+              <li data-aos="zoom-in">
+                <a href="../assets/html/comedy.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">14</p>
@@ -4946,9 +5316,11 @@
                   </ul>
 
                 </div>
+                </a>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
+                <a href="../assets/html/detective-fiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">15</p>
@@ -4973,8 +5345,9 @@
                   </ul>
 
                 </div>
+                </a>
               </li>
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
                   <p class="card-subtitle">16</p>
                   <div class="iconrow">
@@ -4997,7 +5370,7 @@
                   </ul>
                 </div>
               </li>
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
                   <p class="card-subtitle">17</p>
                   <div class="iconrow">
@@ -5020,7 +5393,7 @@
                   </ul>
                 </div>
               </li>
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
                   <p class="card-subtitle">18</p>
                   <div class="iconrow">
@@ -5044,7 +5417,7 @@
                   </ul>
                 </div>
               </li>
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
                   <p class="card-subtitle">19</p>
                   <div class="iconrow">
@@ -5069,7 +5442,7 @@
 
               </li>
 
-              <li>
+              <li data-aos="zoom-int">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">20</p>
@@ -5095,7 +5468,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">21</p>
@@ -5122,7 +5495,7 @@
               </li>
 
 
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">22</p>
@@ -5149,7 +5522,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">23</p>
@@ -5175,7 +5548,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">24</p>
@@ -5201,7 +5574,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-right">
                 <div class="chapter-card">
                   <p class="card-subtitle">25</p>
                   <div class="iconrow">
@@ -5226,7 +5599,7 @@
               </li>
 
               </li>
-              <li>
+              <li data-aos="zoom-in">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">26</p>
@@ -5252,7 +5625,7 @@
                 </div>
               </li>
 
-              <li>
+              <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">27</p>
@@ -5276,13 +5649,19 @@
                 </div>
               </li>
             </ul>
-
-          </div>
-        </section>
-        <!--
-        - #CHAPTERS
-      -->
-        <!-- Book Exchange Hub -->
+            
+            <div class="button-container">
+            <button id="load-more" class="load-button">Load More</button>
+            <button id="load-less" class="load-button" style="display: none;">Load Less</button>
+        </div>
+       
+        
+        <script src="./assets/js/loadmore.js" defer></script>
+        <script>
+          
+          </script>
+         <!--- #CHAPTERS-->
+         <!-- Book Exchange Hub -->
         <section class="section preview" aria-label="preview">
           <div class="container1">
             <h2 class="h2 section-title has-underline" style="margin-bottom: 0px;">
@@ -5298,18 +5677,18 @@
             <div class="exchange-form">
               <div class="form-fields">
                 <!-- Book Details -->
-                <label class="form-label" for="bookTitle">Book Title:</label>
+                <label class="form-label" for="bookTitle" style="color: #ff6f91;">Book Title:</label>
                 <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter the title of your book" required
                   class="input-field">
                 <span id="bookTitle-error" class="error"></span>
 
-                <label class="form-label" for="bookAuthor">Author:</label>
+                <label class="form-label" for="bookAuthor" style="color: #ff6f91;">Author:</label>
                 <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Enter the author's name" required
                   class="input-field">
                 <span id="bookAuthor-error" class="error"></span>
 
                 <!-- Genre Selection -->
-                <label class="form-label" for="genre">Genre:</label>
+                <label class="form-label" for="genre"  style="color: #ff6f91;">Genre:</label>
                 <select id="genre" name="genre" class="input-field" required>
                   <option disabled selected value="">Select the genre</option>
                   <option value="fiction">Fiction</option>
@@ -5327,7 +5706,7 @@
                 </select>
 
                 <!-- Condition Selection -->
-                <label class="form-label" for="condition">Condition of the Book:</label>
+                <label class="form-label" for="condition"  style="color: #ff6f91;">Condition of the Book:</label>
                 <select id="condition" name="condition" class="input-field" required>
                   <option disabled selected value="">Select the condition</option>
                   <option value="relatively-new">Relatively New</option>
@@ -5336,12 +5715,12 @@
                 </select>
 
                 <!-- Pricing Information -->
-                <label class="form-label" for="actualPrice">Actual Price:</label>
+                <label class="form-label" for="actualPrice"  style="color: #ff6f91;">Actual Price:</label>
                 <input type="number" min="1" id="actualPrice" name="actualPrice" placeholder="Enter actual price"
                   required class="input-field">
                 <span id="actualPrice-error" class="error"></span>
 
-                <label class="form-label" for="discountRate">Discount Rate (%):</label>
+                <label class="form-label" for="discountRate"  style="color: #ff6f91;">Discount Rate (%):</label>
                 <input type="number" min="0" id="discountRate" name="discountRate" placeholder="Enter discount rate"
                   required class="input-field">
                 <span id="discountRate-error" class="error"></span>
@@ -5353,22 +5732,22 @@
                 <p id="predictedPrice" class="section-text" style="font-weight: bold; margin-top: 10px;">Predicted
                   Price: </p>
 
-                <!-- User Contact Information -->
-                <label class="form-label" for="userName">Your Name:</label>
+                <!-- User Contact Information --> 
+                <label class="form-label" for="userName"  style="color: #ff6f91;">Your Name:</label>
                 <input type="text" id="userName" name="userName" placeholder="Enter your name" required
                   class="input-field">
 
-                <label class="form-label" for="email">Email Address:</label>
+                <label class="form-label" for="email"  style="color: #ff6f91;">Email Address:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email address" required
                   class="input-field">
 
                 <!-- Additional Information -->
-                <label class="form-label" for="additionalInfo">Additional Information:</label>
+                <label class="form-label" for="additionalInfo"  style="color: #ff6f91;">Additional Information:</label>
                 <textarea id="additionalInfo" name="additionalInfo"
                   placeholder="Any additional details about the book..." class="input-field"></textarea>
 
                 <!-- Upload Image -->
-                <label class="form-label" for="bookImage">Upload Book Image:</label>
+                <label class="form-label" for="bookImage"  style="color: #ff6f91;">Upload Book Image:</label>
                 <input type="file" id="bookImage" name="bookImage" accept="image/*" class="input-field">
               </div>
 
@@ -5475,22 +5854,18 @@
             color: #461316;
             letter-spacing: 1px;
             text-transform: uppercase;
-          }
-
-          .donate-books-section h1:hover {
-            text-decoration: underline;
-            transition: ease-in;
+            margin-top: 80px;
           }
 
           .donate-books-section {
             width: 100%;
-            padding: 20px;
+            padding: 10px;
             box-sizing: border-box;
           }
 
           .donate-books-section .container {
             display: grid;
-            margin: 120px;
+            margin: 40px 120px 120px 100px;
             grid-template-columns: repeat(3, 1fr);
             /* 3 columns */
             width: 100%;
@@ -5569,14 +5944,14 @@
         </style>
 
         <div class="donate-books-section">
-          <h1>Donate Books</h1>
+          <h1 style="color: #ff6f91;">Donate Books</h1>
           <br>
           <div class="container">
 
 
 
             <!-- Card 1 -->
-            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)" data-aos="slide-right">
               <img src="./assets/images/images/lib.jpg" alt="Library Image" loading="lazy">
               <div class="card-body">
                 <h3 class="card-sty">Library</h3>
@@ -5591,7 +5966,7 @@
 
 
             <!-- Card 2 -->
-            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)" data-aos="zoom-in">
               <img src="./assets/images/images/school.png" alt="School Image" loading="lazy">
               <div class="card-body">
                 <h3 class="card-sty">Schools</h3>
@@ -5605,7 +5980,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)">
+            <div class="card" onmouseover="hoverCard(this)" onmouseout="unhoverCard(this)" data-aos="slide-left">
               <img src="./assets/images/images/ngo.jpeg" alt="Organization Image" loading="lazy">
               <div class="card-body">
                 <h3 class="card-sty">Organizations</h3>
@@ -5634,78 +6009,70 @@
           }
         </script>
 
-      
 
 
-<div id="toastMessage" class="toast-message"></div>
 
-        <!-- Rate Us Section -->
-        <div id="rate-us">
-          <div class="heading">
-            <h3>Rate Us</h3>
-            <p>Tell us about your experience!</p>
-          </div>
-
-          <div class="stars">
-            <input type="radio" id="star5" name="rate" value="5">
-            <label for="star5" class="emoji-label">😭</label>
-            <input type="radio" id="star4" name="rate" value="4">
-            <label for="star4" class="emoji-label">😢</label>
-            <input type="radio" id="star3" name="rate" value="3">
-            <label for="star3" class="emoji-label">😐</label>
-            <input type="radio" id="star2" name="rate" value="2">
-            <label for="star2" class="emoji-label">😊</label>
-            <input type="radio" id="star1" name="rate" value="1">
-            <label for="star1" class="emoji-label">😍</label>
-          </div>
-
-          <div class="feedback-container">
-            <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
-          </div>
-
-          <div class="button">
-            <center><button id="submit-btn">Submit</button></center>
-          </div>
-        </div>
-        <script>
-            document.getElementById('submit-btn').addEventListener('click', async () => {
-              const rating = document.querySelector('input[name="rate"]:checked').value;
-              const feedback = document.getElementById('feedback').value;
-
-              // Set the backend URL based on the current environment
-              const backendURL = window.location.hostname === 'localhost'
-                ? 'http://localhost:4000'
-                : 'https://your-production-url.com'; // Replace with your production URL
-
-              const response = await fetch(`${backendURL}/rate`, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ rating, feedback })
-              });
-
-              const data = await response.json();
-              alert(data.message);
-            });
-          </script>
         <div id="toastMessage" class="toast-message"></div>
 
+              <!-- Rate Us Section -->
+          <div id="rate-us">
+            <div class="heading">
+              <h3>Rate Us</h3>
+              <p>Tell us about your experience!</p>
+          </div>
+          <form id="feedback-form">
+        <div class="stars">
+            <input type="radio" id="star5" name="rate" value="5" required>
+            <label for="star5" class="emoji-label">😭</label>
+            <input type="radio" id="star4" name="rate" value="4" required>
+            <label for="star4" class="emoji-label">😢</label>
+            <input type="radio" id="star3" name="rate" value="3" required>
+            <label for="star3" class="emoji-label">😐</label>
+            <input type="radio" id="star2" name="rate" value="2" required>
+            <label for="star2" class="emoji-label">😊</label>
+            <input type="radio" id="star1" name="rate" value="1" required>
+            <label for="star1" class="emoji-label">😍</label>
+        </div>
+
+        <div class="feedback-container">
+            <textarea id="feedback" placeholder="Enter your feedback..." rows="4" required></textarea>
+        </div>
+
+           <div class="button">
+            <center><button type="submit">Submit</button></center>
+        </div>
+      </form>
+    </div>
+
+    <!-- Popup -->
+<div id="thank-you-popup" style="display:none;">
+    <div>
+        <h2>🎉 Thank You! 👏</h2>
+        <p>Your feedback has been submitted successfully.</p>
+        <button class="ok-button" onclick="closePopup()">OK</button>
+    </div>
+</div>
+<script>
+    document.getElementById('feedback-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        console.log('Form submitted'); // Debug log
+
+<<<<<<< HEAD
         <script>
-          document.addEventListener("DOMContentLoaded", function () {
+          document.addEventListener("DOMContentLoaded", function () {})
 
 
 
             <!-- JavaScript for form submission -->
             <script>
-              document.addEventListener("DOMContentLoaded", function() {
+              document.addEventListener("DOMContentLoaded", function() {})
 
 
 
-      < !--rate us -->
+     
 
 
-              <!-- Rate Us Component -->
+              // <!-- Rate Us Component -->
               <div id="rate-us">
                 <div class="heading">
                   <h3>Rateus</h3>
@@ -5766,81 +6133,145 @@
     });
 
                 function showToastMessage() {
-                  toastMessage.style.display = "block";
+                  toastMessage.style.display = "block",
       setTimeout(() => {
-                  toastMessage.style.opacity = "1";
+                  toastMessage.style.opacity = "1"
       }, 100);
 
                 setTimeout(function() {
-                  toastMessage.style.opacity = "0";
+                  toastMessage.style.opacity = "0",
         setTimeout(() => {
-                  toastMessage.style.display = "none";
-        }, 300);
-      }, 3000);
+                  toastMessage.style.display = "none"
+        }, 300)
+      }, 3000)
     }
-  });
+  })
         </script>
+<style>
+
+/* Basic styles for body */
+body {
+  background-color: #0e1722; /* Background color */
+    color: white; /* Text color */
+    font-family: Arial, sans-serif; /* Font style */
+
+}
+
+/* Toast message styles */
+.toast-message {
+
+    position: fixed;
+    top: 20px; /* Position at the top */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+    color: white; /* Text color */
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transitions */
+    z-index: 999; /* Ensure it's above other elements */
+}
+>>>>>>> 5b34637af341bc5ad0fa8d317b0c7a6df312a37f
 
 
-        <div id="toastMessage"></div>
 
-        <!-- Confirmation Modal -->
-        <div id="confirmationModal" class="modal">
-          <div class="modal-content">
-            <span class="close" onclick="closeConfirmationModal()">&times;</span>
-            <p id="confirmationMessage"></p>
-          </div>
-        </div>
-        </div>
+.toast-message.show {
+  opacity: 1; /* Visible */
+  transform: translateX(-50%) translateY(0); /* Slide in */
+}
 
-        <!-- Confirmation Message Popup -->
-        <div id="confirmationModal" class="modal">
-          <div class="modal-content">
-            <span class="close" onclick="closeConfirmationModal()">&times;</span>
-            <p id="confirmationMessage"></p>
-          </div>
-        </div>
 
-        <script src="/assets/js/rate.js"></script>
+/* Simple styles for the popup */
+#thank-you-popup {
+
+  position: fixed;
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ebb4ad; /* Background color */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 1px 1px 2px black; /* Shadow effect */
+    padding: 20px;
+    z-index: 1000;
+
+}
+
+/* Popup heading color */
+#thank-you-popup h2 {
+  font-size: 26px;
+    color: #c80000; /* Change this to your preferred heading color */
+    text-shadow:  2px 2px 2px black;
+}
+
+/* Popup paragraph color */
+#thank-you-popup p {
+
+  font-size: 18px;
+  color: #ffffff;
+  text-shadow:  2px 2px 2px black;
+  .ok-button {
+
+background-color: #f37777; /* Button background color */
+color: #0e0e0e; /* Text color */
+padding: 12px 20px; /* Padding */
+font-size: 23px; /* Font size */
+font-weight: 600; /* Font weight */
+border: none; /* No border */
+border-radius: 10px; /* Rounded corners */
+cursor: pointer; /* Pointer cursor on hover */
+width: 100%; /* Full width */
+transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+box-shadow: 0 2px 2px rgba(0, 0, 0, 0.763); /* Shadow effect */
+
+}
+
+.ok-button:hover {
+
+background-color: #e76a6a; /* Darker shade on hover */
+box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); /* Slightly larger shadow on hover */
+
+}
+
+</style>
 
 
         <!-- --Contact Us -->
-
+      
         <section class="section-contact" id="contact" aria-label="contact">
-          <h1 class="h1 section-title has-underline" style="margin-top: 15px;">
+          <h1 class="h1 section-title has-underline" style="margin-top: 15px; color:#ff6f91; font-size: 40px;">
             Contact Us!
             <span class="span has-before"></span>
-          </h1>
-          <p class="p" style="color:#e7a7e8">Have a Question?</p>
-          <h3 style="text-align: center; color: #4f1316;">GET IN TOUCH</h3>
+          </h1>        
+
+        
           <div class="flexi">
             <div class="contact">
               <div class="contact-container">
                 <form class="contact-form" id="contactForm">
-                  <label for="name" class="label">Name</label>
+                  <label for="name" class="label" style="color: #ff6f91;font-size: 22px;">Name</label>
                   <input type="text" id="name" name="name" placeholder="Your Name" required required
                     pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')"
                     oninput="this.setCustomValidity('')">
 
-                  <label for="email" class="label">Email</label>
+                  <label for="email" class="label" style="color: #ff6f91;font-size: 22px;">Email</label>
                   <input type="email" id="email" name="email" placeholder="your-email@example.com" required>
 
-                  <label for="subject" class="label">Subject</label>
+                  <label for="subject" class="label" style="color: #ff6f91;font-size: 22px;">Subject</label>
                   <input type="text" id="subject" name="subject" placeholder="Subject" required>
 
-                  <label for="message" class="label">Message</label>
+                  <label for="message" class="label" style="color: #ff6f91;font-size: 22px;">Message</label>
                   <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-
+            
                   <button type="submit">Send Message</button>
                 </form>
-                <!-- Image Fader Section -->
+            
                 <center>
-                  <div class="image-fader">
-                    <img src="./assets/images/ctc1.png" alt="ctc1" loading="lazy">
-                    <img src="./assets/images/ctc5.png" alt="ctc5" loading="lazy">
-                    <img src="./assets/images/ctc3.png" alt="ctc3" loading="lazy">
-                    <img src="./assets/images/ctc4.png" alt="ctc4" loading="lazy">
-                  </div>
+                  <img src="./assets/images/contact.png" style="width: 250px; margin-top: 50px;">
+                    <img src="./assets/images/ctc1.png" style="width: 370px;height: 450px;" alt="ctc1" >
+                
+                
                 </center>
               </div>
             </div>
@@ -5857,7 +6288,7 @@
                         Address:
                       </p>
                     </div>
-                    <address class="address" style="margin-left: 35px;">
+                    <address class="address" style="margin-left: 35px;color: rgba(70, 146, 208, 0.884);" >
                       12, Nayabad<br>
                       Kolkata, India 700054
                     </address>
@@ -6376,7 +6807,7 @@
                   new google.translate.TranslateElement(
                     { pageLanguage: 'en' },
                     'google_translate_element'
-                  );
+                  )
               }
             </script>
 
@@ -6448,7 +6879,7 @@
                             class="fas fa-info-circle"></i>
                           <h4 class="flinks">About</h4>
                         </a></li>
-                      <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
+                      <li class="foot-quick"><a href="./assets/html/book_recommend.html"
                           onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i>
                           <h4 class="flinks">Recommend</h4>
                         </a></li>
@@ -6466,12 +6897,85 @@
                     </ul>
                   </div>
                 </div>
+
+                <div id="quicklink" class="row">
+                  <div>
+                    <ul>
+                      <li class="foot-quick"><a href="/chat.html"><i class="fa-solid fa-message"></i>
+                          <h4 class="flinks">Community Chat</h4>
+                        </a></li>
+                    </ul>
+                  </div> 
+
+                  <div>
+                    <ul>
+                      <li class="foot-quick"><a href="assets/html/read_later.html"><i class="fa-solid fa-book-open-reader"></i>
+                          <h4 class="flinks">Read Later</h4>
+                        </a></li>
+                    </ul>
+                  </div> 
+
+                  <div>
+                    <ul>
+                      <li class="foot-quick"><a href="assets/html/ConnReader.html"><i class="fa-solid fa-users"></i>
+                          <h4 class="flinks">Reader Connection</h4>
+                        </a></li>
+                    </ul>
+                  </div> 
+                
+                </div>
+
               </div>
             </div>
 
           </div>
         </div>
         <style>
+          #quicklink{
+            display: flex;
+            justify-content: flex-start;
+            gap:20px;
+          }
+
+          #quicklink ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      #quicklink .foot-quick {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0rem;
+        /* Adjust spacing between list items */
+      }
+
+      #quicklink .foot-quick a {
+        display: flex;
+        flex-direction: row;
+        /* Ensure icon and text are in a row */
+        align-items: center;
+        /* Vertically center-align the icon and text */
+        text-decoration: none;
+        color: rgb(83, 74, 74);
+        /* Adjust link color as needed */
+      }
+
+      #quicklink .foot-quick a i {
+        margin-right: 0.5rem;
+        /* Adjust spacing between icon and text */
+      }
+
+      #quicklink .foot-quick a p {
+        margin: 0;
+        /* Remove default margins from <p> */
+      }
+
+      .dark-mode #quicklink .foot-quick h4 {
+        color: #909dc2;
+      }
+
+
+
           #quicklinks:hover {
             text-decoration: none;
           }
@@ -6674,7 +7178,8 @@ function showSuccessMessage() {
           <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
           <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a> |
           <a href="our-vision.html" id="ourvisionlink">Our Vision</a></li> |
-          <a href="./contributors/contributor.html" id="ourvisionlink">Our Contributors </a></li>
+          <li><a href="./contributor/contributorss.html"><i class="fas fa-users"></i> Our Contributors</a></li>
+          <a href="refundpolicy.html">Refund Policy</a>
 
         </div>
       </div>
@@ -6753,6 +7258,7 @@ function showSuccessMessage() {
         }
       }
     </script> -->
+    
 
 
 
@@ -7029,7 +7535,7 @@ function showSuccessMessage() {
                   lenis.raf(time);
                 requestAnimationFrame(raf);
     }
-
+  
                 requestAnimationFrame(raf);
                 // JavaScript function to load more content when user scrolls to bottom
                 function loadMoreContent() {
@@ -7252,6 +7758,7 @@ open.classList.add('open')
                 // Start the animation
                 animateCircles();
     </script>
+    
 
     <button id="scrollBtn" class="scroll-button">Scroll</button>
     <style>
@@ -7302,9 +7809,74 @@ open.classList.add('open')
         });
       });
     </script>
+    
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 2000
+  });
+</script>
+
+
+<style>
+
+.popupp {
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+}
+
+.popupp-content {
+
+  background: linear-gradient(135deg, #0e1722, #ebf3ff, #0e1722);
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  position: relative; /* For positioning close button */
+
+}
+
+.popupp-content h2 {
+
+  color: #333; /* Title color */
+
+}
+
+.popupp-content p {
+
+  color: #000000;
+  font-size: 15px;
+
+}
+
+.close {
+
+  cursor: pointer;
+  float: right;
+  font-size: 20px;
+
+}
 
 
 
+/* Additional styles for body */
+body {
+
+  background-color: #0e1722; /* Background color */
+  color: rgb(0, 0, 0); /* Text color */
+  font-family: Arial, sans-serif; /* Font style */
+
+}
+</style>
 
   </body>
 

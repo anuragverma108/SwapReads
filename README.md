@@ -40,16 +40,14 @@
 
   ### This project is now OFFICIALLY accepted for
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/329829127-e79eb6de-81b1-4ffb-b6ed-f018bb977e88.png" alt="GSSoC 2024 Extd" width="80%">
-</div>
+## 📋 Participating Programs
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/alo7lika/Research-Nexas/refs/heads/main/Image/hacktober.png" alt="Hacktober fest 2024" width="80%">
-</div>
+| Name                  | Logo                                                      | Purpose                                                                                                      |
+|-----------------------|-----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| GSSoC'2024-Extd       | ![GSSoC Logo](assets/GSSoC-Ext.png)             | The coding period is from October 1st to November 10, during which contributors make contributions and earn points on the platform. |
+| Hacktoberfest 2024    | ![Hacktoberfest Logo](assets/hacktoberfest.png) | Hacktoberfest is a month-long October event welcoming all skill levels to join the open-source community.     |
 
-<br>  
-
+---
 
 ## Project Structure
 
@@ -67,7 +65,11 @@
 ├── LICENSE
 ├── Mystical-fantaies.html
 ├── README.md
+├── SECURITY.md
+├── address.css
+├── address.html
 ├── assets/
+│   ├── GSSoC-Ext.png
 │   ├── JSON/
 │   │   ├── package-lock.json
 │   │   └── package.json
@@ -96,6 +98,7 @@
 │   │   ├── style.css
 │   │   ├── styles.css
 │   │   ├── test-style.css
+│   │   ├── tips.css
 │   │   └── visitors.css
 │   ├── event.css
 │   ├── favicon_package_v0.16/
@@ -150,11 +153,13 @@
 │   │   ├── about.html
 │   │   ├── about1.html
 │   │   ├── addremovebook.html
+│   │   ├── adventure.html
 │   │   ├── assets/
 │   │   │   └── css/
 │   │   │       └── event.css
 │   │   ├── audio.html
 │   │   ├── author.html
+│   │   ├── biography.html
 │   │   ├── blog.html
 │   │   ├── book_recommend.html
 │   │   ├── booking.html
@@ -162,35 +167,66 @@
 │   │   ├── bookpref.html
 │   │   ├── borrow.html
 │   │   ├── checkout.html
+│   │   ├── comedy.html
 │   │   ├── comsp.html
 │   │   ├── custom.html
+│   │   ├── detective-fiction.html
 │   │   ├── donate.html
 │   │   ├── event.html
+│   │   ├── fantasy.html
 │   │   ├── forgot-pass.html
 │   │   ├── freeBooks.html
+│   │   ├── god.html
 │   │   ├── googlece7a206a6cfbb7ed.html
+│   │   ├── historical-fiction.html
+│   │   ├── horror.html
+│   │   ├── image.png
+│   │   ├── img.png
 │   │   ├── login.html
+│   │   ├── maha.html
+│   │   ├── map.html
+│   │   ├── midnight.html
 │   │   ├── mood.html
 │   │   ├── mylogin.html
 │   │   ├── ngo.html
-│   │   ├── pricing.html
+│   │   ├── nonfiction.html
+│   │   ├── philosophy.html
+│   │   ├── poetry.html
 │   │   ├── profileedit.html
 │   │   ├── quiz.html
+│   │   ├── quizzes.html
+│   │   ├── ram.html
 │   │   ├── rate.html
 │   │   ├── read.html
 │   │   ├── read_later.html
+│   │   ├── romance.html
 │   │   ├── school.html
-│   │   └── social.html
+│   │   ├── science-fiction.html
+│   │   ├── self-help.html
+│   │   ├── social.html
+│   │   ├── suspense-thriller.html
+│   │   ├── tips.html
+│   │   └── top10.html
 │   ├── images/
+│   │   ├── 1984.jpg
 │   │   ├── FB icon.png
 │   │   ├── LogoPicDark.png
 │   │   ├── LogoPicLight.png
+│   │   ├── Madame Bovary.webp
+│   │   ├── Screenshot 2024-10-28 at 12.09.51 AM
+│   │   ├── The Picture of Dorian Gray.jpg
+│   │   ├── TheGuide.jpg
+│   │   ├── Wings_of_Fire_by_A_P_J_Abdul_Kalam_Book_Cover.jpg
 │   │   ├── YT icon.png
+│   │   ├── a fine balance.jpg
 │   │   ├── achievement-1.jpg
 │   │   ├── achievement-2.jpg
 │   │   ├── achievement-3.jpg
 │   │   ├── achievement-4.jpg
 │   │   ├── achievement-5.jpg
+│   │   ├── alter.jpeg
+│   │   ├── american.jpg
+│   │   ├── anna_karenina.jpg
 │   │   ├── author-banner.png
 │   │   ├── avatar1.jpg
 │   │   ├── avatar2.jpg
@@ -199,12 +235,17 @@
 │   │   ├── avatar5.jpg
 │   │   ├── award.svg
 │   │   ├── be.jpeg
+│   │   ├── beach.jpg
+│   │   ├── bear.jpg
+│   │   ├── before.jpg
+│   │   ├── behind.jpg
 │   │   ├── benefits-1.svg
 │   │   ├── benefits-2.svg
 │   │   ├── benefits-3.svg
 │   │   ├── benefits-4.svg
 │   │   ├── benefits-5.svg
 │   │   ├── benefits-6.svg
+│   │   ├── big.jpg
 │   │   ├── book/
 │   │   │   ├── Army.jpg
 │   │   │   ├── Economist.jpg
@@ -221,6 +262,11 @@
 │   │   ├── books_swapRead.jpg
 │   │   ├── bookshelf.png
 │   │   ├── bookshelfhover.png
+│   │   ├── brave.jpeg
+│   │   ├── brothers_karamazov.jpg
+│   │   ├── catcher_in_the_rye.jpg
+│   │   ├── chain.jpg
+│   │   ├── city.jpeg
 │   │   ├── cl.jpg
 │   │   ├── close-white.png
 │   │   ├── close.png
@@ -228,12 +274,19 @@
 │   │   ├── comedy.jpg
 │   │   ├── community.png
 │   │   ├── communityhover.png
+│   │   ├── contact.png
+│   │   ├── couple.jpg
+│   │   ├── court.jpg
+│   │   ├── crime_and_punishment.jpg
 │   │   ├── ctc1.png
 │   │   ├── ctc2.png
 │   │   ├── ctc3.png
 │   │   ├── ctc4.png
 │   │   ├── ctc5.png
 │   │   ├── darkmode_bg.png
+│   │   ├── dracula.webp
+│   │   ├── duno.jpeg
+│   │   ├── duno.jpg
 │   │   ├── edit profile.jpg
 │   │   ├── em.jpeg
 │   │   ├── emoji/
@@ -242,10 +295,16 @@
 │   │   │   ├── emoji-3.png
 │   │   │   ├── emoji-4.png
 │   │   │   └── emoji-5.png
+│   │   ├── enders.jpg
 │   │   ├── eye-close.png
 │   │   ├── eye-open.png
+│   │   ├── fahrenheit.jpeg
 │   │   ├── fantasy.jpg
+│   │   ├── fates.jpg
 │   │   ├── final.png
+│   │   ├── foundation.jpeg
+│   │   ├── frankenstein.jpg
+│   │   ├── game.jpg
 │   │   ├── genres/
 │   │   │   ├── 1.jpg
 │   │   │   ├── 10.jpg
@@ -261,12 +320,25 @@
 │   │   │   ├── auth2.jpg
 │   │   │   ├── auth3.jpg
 │   │   │   └── c1.jpg
+│   │   ├── girl.jpg
+│   │   ├── gone.jpg
+│   │   ├── good of small tjings.jpg
 │   │   ├── google button.jpeg
 │   │   ├── google icon.jpeg
 │   │   ├── gr.jpeg
+│   │   ├── great-expectations.jpeg
+│   │   ├── great_gatsby.jpg
+│   │   ├── guest.jpg
+│   │   ├── harry.jpg
+│   │   ├── hating.jpg
 │   │   ├── help.png
 │   │   ├── hero-banner.png
 │   │   ├── hero-section.avif
+│   │   ├── hitcher.jpeg
+│   │   ├── hobbit.jpg
+│   │   ├── hola.jpg
+│   │   ├── honey.jpg
+│   │   ├── hype.jpeg
 │   │   ├── icons8-sun.svg
 │   │   ├── images/
 │   │   │   ├── b.jpg
@@ -278,24 +350,45 @@
 │   │   │   ├── quiz.jpg
 │   │   │   └── school.png
 │   │   ├── inbox.png
+│   │   ├── india after gandhi.jpg
 │   │   ├── insta icon.png
+│   │   ├── itends.jpg
 │   │   ├── ja.jpeg
+│   │   ├── jane_eyre.jpg
 │   │   ├── jk.jpeg
 │   │   ├── jo.jpeg
+│   │   ├── kiss.jpg
+│   │   ├── left.jpeg
+│   │   ├── les.jpg
+│   │   ├── lock.jpg
 │   │   ├── logo_darkbg.png
 │   │   ├── logo_whitebg.png
 │   │   ├── logout.png
 │   │   ├── ma.jpg
+│   │   ├── martian.jpeg
+│   │   ├── mebeforeyou.jpg
 │   │   ├── mg.jpeg
+│   │   ├── midnight children.jpg
+│   │   ├── mist.jpg
+│   │   ├── moby.jpg
 │   │   ├── moon.png
 │   │   ├── moon_solid.svg
 │   │   ├── mystery.jpg
+│   │   ├── name.jpg
+│   │   ├── narnia.jpg
 │   │   ├── ne.jpeg
 │   │   ├── nes.jpeg
+│   │   ├── neuro.jpeg
 │   │   ├── new_logo.png
 │   │   ├── new_logo_banner_dark.png
 │   │   ├── new_logo_banner_light.png
 │   │   ├── new_logo_dark.png
+│   │   ├── night.jpg
+│   │   ├── notebook.jpeg
+│   │   ├── odyssey.jpg
+│   │   ├── oryx.jpeg
+│   │   ├── oryx.jpg
+│   │   ├── outlander.jpg
 │   │   ├── philopsphy.jpg
 │   │   ├── pic1.jpeg
 │   │   ├── pic2.jpeg
@@ -306,12 +399,22 @@
 │   │   ├── preview-3.png
 │   │   ├── preview-4.png
 │   │   ├── preview-5.png
+│   │   ├── pride.jpg
+│   │   ├── priory.jpg
 │   │   ├── re.jpg
 │   │   ├── read.png
 │   │   ├── readhover.png
+│   │   ├── ready.jpeg
+│   │   ├── red.jpg
 │   │   ├── rom.jpg
+│   │   ├── rosie.jpg
+│   │   ├── scarlet.jpg
 │   │   ├── sci.jpg
 │   │   ├── settings.png
+│   │   ├── shantaram.jpg
+│   │   ├── shutter.jpg
+│   │   ├── silent.jpg
+│   │   ├── snow.jpeg
 │   │   ├── sun.png
 │   │   ├── tele.png
 │   │   ├── telephone.png
@@ -321,7 +424,10 @@
 │   │   ├── testimonials-4.jpg
 │   │   ├── testimonials-5.jpg
 │   │   ├── testimonials-6.jpg
+│   │   ├── the inheritance of book.jpg
 │   │   ├── thriller.jpg
+│   │   ├── to_kill_a_mockingbird.png
+│   │   ├── train to paki.jpg
 │   │   ├── trendingbook1.jpg
 │   │   ├── trendingbook2.jpg
 │   │   ├── trendingbook3.jpg
@@ -330,8 +436,16 @@
 │   │   ├── true crime.jpg
 │   │   ├── twitter-icon.png
 │   │   ├── twitter.png
+│   │   ├── uprooted.jpg
 │   │   ├── user.jpg
-│   │   └── website-ss.png
+│   │   ├── war.jpeg
+│   │   ├── website-ss.png
+│   │   ├── wheel.jpg
+│   │   ├── white tiger.jpg
+│   │   ├── wife.jpg
+│   │   ├── wild.jpg
+│   │   ├── woman.jpg
+│   │   └── wuthering_heights.jpg
 │   ├── js/
 │   │   ├── ReaderConn.js
 │   │   ├── addremove.js
@@ -343,6 +457,7 @@
 │   │   ├── fire.js
 │   │   ├── forgotPassword.js
 │   │   ├── freeBooks.js
+│   │   ├── loadmore.js
 │   │   ├── login.js
 │   │   ├── menuButton.js
 │   │   ├── preloader.js
@@ -366,29 +481,44 @@
 │       ├── validate.schema.js
 │       └── zodschema.js
 ├── audio/
+│   ├── AtTwilight.mp3
 │   ├── Bernice Bobs Her Hair by F. Scott Fitzgerald _ Audiobooks Youtube Free _ Short Stories Youtube [ ezmp3.cc ].mp3
+│   ├── ChristmasSingVillage.mp3
+│   ├── HomelyHeroine.mp3
+│   ├── StoryTeller.mp3
 │   ├── The Landlady - Roald Dahl [ ezmp3.cc ].mp3
 │   ├── The Lottery Ticket by Anton Chekhov Audiobook [ ezmp3.cc ].mp3
 │   ├── The Magic Shop by H. G. Wells Audiobook - FULL [ ezmp3.cc ] (1).mp3
+│   ├── at-twilight.jpg
 │   ├── au1.mp3
 │   ├── bernier bobs her hair.jpg
+│   ├── christmas-sing-in-our-village.jpg
 │   ├── landlady.jpg
 │   ├── lotery ticket.jpeg
-│   └── the-magic-shop-17 (1).jpg
+│   ├── the-homely-heroine.jpg
+│   ├── the-magic-shop-17 (1).jpg
+│   └── the-story-teller-1.jpg
 ├── audiobook.html
+├── bank.jpg
 ├── biographies.html
+├── book.jpg
 ├── books.html
 ├── chat.css
 ├── chat.html
 ├── chat.js
+├── classic-literature.html
+├── cod.jpg
 ├── comsp.html
 ├── connectWithsame.html
 ├── contactus1.html
-├── contributors/
-│   ├── contributor.css
-│   ├── contributor.html
-│   └── contributor.js
+├── contributing.txt
+├── contributor/
+│   ├── contributorss.css
+│   ├── contributorss.html
+│   └── contributorss.js
 ├── controller/
+│   ├── Rating.js
+│   ├── book.js
 │   └── subscribe.js
 ├── cookiepolicy.html
 ├── cookies.html
@@ -405,23 +535,32 @@
 ├── exchangeHub.css
 ├── footer1.css
 ├── footer1.html
+├── gulpfile.js
 ├── help.html
 ├── historical-chronicals.html
 ├── index.html
 ├── intriguing-mysteries.html
+├── jsFileEntries.js
 ├── lib.jpg
 ├── logout.css
 ├── logout.js
 ├── lol.html
+├── map.jpg
 ├── mindful-living.html
 ├── modals(privacy policy).css
 ├── models/
-│   └── BookDonation.js
+│   ├── BookDonation.js
+│   ├── Rating.js
+│   └── book.js
 ├── mylogin.html
 ├── n.jpg
 ├── our-vision.html
 ├── package-lock.json
 ├── package.json
+├── payment.html
+├── payment.jpg
+├── payment.js
+├── personalized-reading.html
 ├── playNow.html
 ├── popup.jpg
 ├── popup.js
@@ -429,9 +568,13 @@
 ├── privacynotice.html
 ├── profile.css
 ├── profile.html
+├── profiletest.html
+├── refundpolicy.html
 ├── repo_structure.txt
 ├── revitalize.html
 ├── romantic-esc.html
+├── routes/
+│   └── books.js
 ├── sc.jpg
 ├── scifi.html
 ├── script.js
@@ -445,10 +588,18 @@
 ├── stay_connect.css
 ├── subscribe.html
 ├── terms&cond.html
+├── testp.css
+├── testp.js
 ├── thrilling-adventures.html
 ├── translate.html
+├── up-arrow (1).png
+├── upi.jpg
 ├── vanilla-tilt.js
-└── vedio.mp4
+├── vedio.mp4
+├── webpack.config.js
+├── wishlist.css
+├── wishlist.html
+└── wishlist.js
 ```
 <!-- END_STRUCTURE -->
 
@@ -566,7 +717,7 @@ Contributions are what make the open-source community such an amazing place to l
 
 Your involvement helps to improve the project and make it better for everyone. Thank you for your contributions!
 
-Kindly go through [CONTRIBUTING.md](CONTRIBUTING.md) to understand everything from setup to contributing guidelines.
+Kindly go through [CONTRIBUTING.md](contributing.txt) to understand everything from setup to contributing guidelines.
 
 If you would like to contribute to the project, please follow our contribution guidelines.
 

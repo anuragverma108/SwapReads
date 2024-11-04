@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map</title>
+    <link rel="stylesheet" href="../css/playNow.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_package_v0.16/favicon-16x16.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_package_v0.16/favicon-16x16.png">
+    <link rel="manifest" href="../favicon_package_v0.16/site.webmanifest">
+    <link rel="mask-icon" href="../favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
+    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+
+    <style>
+      /* General Styles */
+      body {
+        background-color: #fff;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centering content */
+      }
+
+      .hero {
+        padding-block-start: calc(var(--section-padding) + 60px);
+        text-align: center;
+        background-color: #ffe5e5; /* Light pink background */
+        width: 100%; /* Full width */
+      }
+
+      .light-mode #maphead{
+      color:maroon
+    }
+      a {
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+}
+
+      /* Import a font from Google Fonts for a stylish look */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.header {
+  width: 90%; /* Set a width to make it look like a centered rectangle */
+  max-width: 1200px;
+  background-color: #ffffff; /* White background */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center header */
+  z-index: 10;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #000000; /* Black text color */
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px; /* Reduced spacing for a thinner look */
+  max-height: 80px;
+
+}
+
+.navbar-list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar-item {
+  position: relative;
+}
+
+.navbar-link {
+  color: #000000; /* Black text */
+  text-decoration: none;
+  font-size: 17px; /* Slightly smaller font */
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: normal; /* Remove bold font */
+  margin: 0 10px; 
+}
+
+.navbar-link {
+  position: relative; /* Ensure the link has a position for the absolute positioning of the pseudo-element */
+}
+
+.navbar-link:hover {
+  color: #a52644; /* Dark pink on hover */
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Adjust this value to create a gap */
+  left: 0px;
+  height: 3px;
+  background-color: #fcb0b480;
+  width: 0;
+  box-shadow: 0 0 10px #f39d127e;
+  transition: all 0.6s;
+  text-decoration: none;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+  text-decoration: none;
+}
+
+body .dark-mode .navbar{
+    border-radius: 20px;
+}
+
+/* Base styling for the hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  transition: transform 0.3s ease;
+}
+
+/* Responsive styling */
+@media (max-width: 1000px) {
+  /* Hide the navbar by default on small screens */
+  .navbar {
+    display: none;
+    top: 70px; /* Matches header height for below-header dropdown */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: initial;
+  }
+
+  .header{
+    width: 100%;
+  }
+
+  .navbar.active {
+    display: block;
+  }
+
+  /* Hamburger icon visible only on smaller screens */
+  .hamburger {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Center-align navbar links in mobile view */
+  .navbar ul.navbar-list {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Adjusted theme switcher styling for mobile */
+  .switch-container {
+    margin: 0 auto;
+    padding-top: 1rem;
+  }
+
+
+}
+
+
+  /* Container for the switch */
+  .switch-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Hide default checkbox */
+  .switch-checkbox {
+    display: none;
+  }
+
+  /* Style the label */
+  .switch-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50px;
+    height: 24px;
+    border-radius: 50px;
+    background-color: #ccc;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+  /* Style the toggle button */
+  .switch-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 5px;
+    position: absolute; /* Fixes the position */
+    left: 0; /* Keeps the button fixed */
+  }
+
+  /* Sun and moon icon styles */
+  .sun-icon,
+  .moon-icon {
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Color the icons */
+  .sun-icon {
+    color: orange; /* Sun icon color */
+  }
+
+  .moon-icon {
+    color: lightblue; /* Moon icon color */
+    opacity: 0; /* Initially hidden */
+  }
+
+  /* Style for checked state */
+  .switch-checkbox:checked + .switch-label {
+    background-color: #333;
+  }
+
+  .switch-checkbox:checked + .switch-label .sun-icon {
+    opacity: 0; /* Hide sun icon in dark mode */
+  }
+
+  .switch-checkbox:checked + .switch-label .moon-icon {
+    opacity: 1; /* Show moon icon in dark mode */
+  }
+
+  .finput{
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  #map {
+            height: 600px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        /* Style for the Back to Home button */
+        .back-home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #007bff; /* Button color */
+            color: white; /* Text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000; /* Make sure it's on top of the map */
+        }
+        .back-home-button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+        body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    background-image: url('../images/darkmode_bg.png'); /* Add your dark mode image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+  }
+  .dark-mode .navbar{
+    border-radius: 20px;
+  }
+</style>
+<style>
+  /* Circle styles */
+  .circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999;
+    transition: transform 0.1s ease-out;
+  }
+  .cursor {
+      position: absolute;
+      width: 6px;
+      /* Circle size */
+      height: 6px;
+      /* Circle size */
+      background-color: rgba(255, 165, 0, 0.6);
+      /* Orange color */
+      border-radius: 10%;
+      /* Circular shape */
+      pointer-events: none;
+      /* Prevent interaction */
+      transform: translate(-10%, -10%);
+      /* Center the circle */
+      transition: transform 0.1s ease-out;
+      /* Smooth movement */
+    }
+</style>
+  </head>
+
+  <body>
+    <!-- Circles -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  
+    <header class="header header-anim nav-h" data-header>
+  
+      <div class="container mobile-container-styles">
+        <button class="hamburger" id="hamburger-button" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="navbar nav_activated" data-navbar>
+    
+    
+          <ul class="navbar-list nav" style="margin-right: 10px;">
+            <a href="index.html" class="logo" style="display:flex;">
+              <img src="../images/final.png" class="logopic" style=" width: 10rem; height:100px; margin:0px 0px 15px -10px;">
+            </a>
+    
+            <li class="navbar-item" style="margin-right: 10px;">
+              <a href="index.html" class="navbar-link" data-nav-link>
+                <lord-icon
+                src="https://cdn.lordicon.com/qeltvbrs.json"
+                trigger="hover"
+                colors="primary:#e88c30,secondary:#a30f17"
+                
+                style="width:25px;height:25px">
+                
+              </lord-icon> Home
+              </a>
+            </li>
+    
+    
+            <li class="navbar-item" style="margin-right: 10px;">
+              <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
+                <lord-icon
+                src="https://cdn.lordicon.com/fozsorqm.json"
+                trigger="hover"
+                stroke="bold"
+                state="hover-up"
+                colors="primary:#a30f17,secondary:#e88c30"
+                style="width:30px;height:30px"></lord-icon> About Us </a>
+            </li>
+    
+           <li class="navbar-item" style="margin-right: 10px;">
+            <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link"
+              data-nav-link><lord-icon
+              src="https://cdn.lordicon.com/jibxifeu.json"
+              trigger="hover"
+              state="hover-up"
+              colors="primary:#a30f17,secondary:#e88c30"
+              style="width:25px;height:25px">
+          </lord-icon>  Benefits</a>
+            </li>
+    
+            <li class="navbar-item" style="margin-right: 10px;">
+                <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link>
+                    <lord-icon
+                    src="https://cdn.lordicon.com/bhmovrlt.json"
+                    trigger="hover"
+                    state="morph-open"
+                    colors="primary:#a30f17,secondary:#e88c30"
+                    style="width:25px;height:25px">
+                </lord-icon>   Genre</a>
+            </li>
+    
+            <li class="navbar-item" style="margin-right: 10px;">
+                <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
+                    class="ri-customer-service-2-fill"></i><img src="../images/telephone.png" height="25px" width="25px"/> Contact</a>
+            </li>
+    
+            <li class="navbar-item" id="login-signup-link" style="margin-right: 10px;">
+                <a href="../html/login.html" class="navbar-link"> <lord-icon
+                    src="https://cdn.lordicon.com/xfzuyvam.json"
+                    trigger="morph"
+                    state="morph-group"
+                    colors="primary:#a30f17,secondary:#e88c30"
+                    style="width:25px;height:25px">
+                </lord-icon>Login/Signup  </a>
+            </li>
+    
+            <li class="navbar-item">
+                <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link"> <lord-icon
+                  src="https://cdn.lordicon.com/jxjfjyri.json"
+                  trigger="morph"
+                  stroke="bold"
+                  state="morph-select"
+                  colors="primary:#eeaa66,secondary:#e88c30"
+                  style="width:25px;height:25px">
+              </lord-icon> Rate Us</a>
+              </li>
+    
+                <!-- Theme switcher -->
+                <div class="switch-container">
+                  <input type="checkbox" id="switch" class="switch-checkbox">
+                  <label for="switch" class="switch-label">
+                    <div class="switch-button">
+                      <span class="material-icons sun-icon">wb_sunny</span>
+                      <span class="material-icons moon-icon">brightness_2</span>
+                    </div>
+                  </label>
+                </div>
+              
+                <script>
+                    // Theme switcher
+                    document.addEventListener('DOMContentLoaded', function () {
+                      const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
+                      const bodyElement = document.body;
+                
+                      const currentTheme = localStorage.getItem('theme') || 'light';
+                      if (currentTheme === 'dark') {
+                        bodyElement.classList.add('dark-mode');
+                        toggleSwitch.checked = true;
+                      } else {
+                        bodyElement.classList.add('light-mode');
+                      }
+                
+                      toggleSwitch.addEventListener('change', function (event) {
+                        if (event.target.checked) {
+                          bodyElement.classList.remove('light-mode');
+                          bodyElement.classList.add('dark-mode');
+                          localStorage.setItem('theme', 'dark');
+                        } else {
+                          bodyElement.classList.remove('dark-mode');
+                          bodyElement.classList.add('light-mode');
+                          localStorage.setItem('theme', 'light');
+                        }
+                      });
+                    });
+                  // Hamburger toggle
+                  document.getElementById('hamburger-button').addEventListener('click', function() {
+                    document.querySelector('.navbar').classList.toggle('active');
+                  });
+                // Coordinates for the cursor
+                const coords = {x: 0, y: 0 };
+                const circles = document.querySelectorAll(".circle");
+
+                // Colors for the circles
+                const colors = [
+                "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+                "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+                "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+                "#680060", "#60005f", "#48005f", "#3d005e"
+                ];
+
+                // Assign colors and initial position to each circle
+                circles.forEach(function (circle, index) {
+                  circle.x = 0;
+                circle.y = 0;
+                circle.style.backgroundColor = colors[index % colors.length];
+  });
+
+                // Update the coordinates when the mouse moves
+                window.addEventListener("mousemove", function (e) {
+                  coords.x = e.clientX;
+                coords.y = e.clientY;
+  });
+
+                // Animation function to move the circles
+                function animateCircles() {
+                  let x = coords.x;
+                let y = coords.y;
+
+                circles.forEach(function (circle, index) {
+                  // Update the position and scale of each circle
+                  circle.style.left = x - 12 + "px";
+                circle.style.top = y - 12 + "px";
+                circle.style.scale = (circles.length - index) / circles.length;
+
+                circle.x = x;
+                circle.y = y;
+
+                // Get the next circle in the sequence
+                const nextCircle = circles[index + 1] || circles[0];
+                x += (nextCircle.x - x) * 0.15;
+                y += (nextCircle.y - y) * 0.15;
+    });
+
+                // Repeat the animation
+                requestAnimationFrame(animateCircles);
+  }
+
+                // Start the animation
+                animateCircles();
+
+                function scrollToGenre(genreId) {
+                  const element = document.getElementById(genreId);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }
+                  </script>
+                </header>
+  
+  
+                <h1 id="maphead">Map Pointing Book Readers in India</h1>
+                <div id="map"></div>
+                
+                <!-- Include Leaflet and Dark Mode Styles -->
+                <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+                <style>
+                    /* Dark mode CSS */
+                    body.dark-mode {
+                        background-color: #121212;
+                        color: #f1f1f1;
+                    }
+                    .navbar.dark-mode, .navbar-link.dark-mode {
+                        background-color: #333;
+                        color: #f1f1f1;
+                    }
+                    #maphead.dark-mode {
+                        color: #f1f1f1;
+                    }
+                </style>
+                
+                <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+                <script>
+                    // Initialize the map centered on India
+                    const map = L.map('map', {
+                        center: [20.5937, 78.9629],
+                        zoom: 5,
+                        maxZoom: 18
+                    });
+                
+                    // Base layer for light mode (OpenStreetMap)
+                    const lightLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 18,
+                        attribution: '© OpenStreetMap contributors'
+                    }).addTo(map);
+                
+                    // Base layer for dark mode
+                    const darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                        maxZoom: 18,
+                        attribution: '© OpenStreetMap contributors, © CartoDB'
+                    });
+                
+                    // Custom image overlay
+                    const imageUrl = 'https://nict.co.in/assets/img/contact-map.png';
+                    const imageBounds = [[6.4626, 68.1766], [37.0841, 97.4026]];
+                    L.imageOverlay(imageUrl, imageBounds).addTo(map);
+                
+                    map.fitBounds(imageBounds);
+                
+                    // Readership levels and states data
+                    const readershipLevels = {
+                        low: { color: "red", radius: 4 },
+                        medium: { color: "orange", radius: 6 },
+                        high: { color: "green", radius: 8 }
+                    };
+                
+                    const states = [
+                    { name: 'Andhra Pradesh', coords: [15.9129, 79.7400], level: 'medium' },
+                          { name: 'Arunachal Pradesh', coords: [28.2180, 94.7278], level: 'low' },
+                          { name: 'Assam', coords: [26.2006, 92.9376], level: 'high' },
+                          { name: 'Bihar', coords: [25.0961, 85.3131], level: 'low' },
+                          { name: 'Chhattisgarh', coords: [21.2787, 81.8661], level: 'low' },
+                          { name: 'Goa', coords: [15.2993, 74.1240], level: 'high' },
+                          { name: 'Gujarat', coords: [22.2587, 71.1924], level: 'low' },
+                          { name: 'Haryana', coords: [29.0588, 76.0856], level: 'medium' },
+                          { name: 'Himachal Pradesh', coords: [31.1048, 77.1734], level: 'medium' },
+                          { name: 'Jharkhand', coords: [23.6102, 85.2799], level: 'low' },
+                          { name: 'Karnataka', coords: [15.3173, 75.7139], level: 'high' },
+                          { name: 'Kerala', coords: [10.8505, 76.2711], level: 'high' },
+                          { name: 'Madhya Pradesh', coords: [22.9734, 78.6569], level: 'low' },
+                          { name: 'Maharashtra', coords: [19.7515, 75.7139], level: 'medium' },
+                          { name: 'Manipur', coords: [24.6637, 93.9063], level: 'low' },
+                          { name: 'Meghalaya', coords: [25.4670, 91.3662], level: 'medium' },
+                          { name: 'Mizoram', coords: [23.1645, 92.9376], level: 'low' },
+                          { name: 'Nagaland', coords: [26.1584, 94.5624], level: 'low' },
+                          { name: 'Odisha', coords: [20.9517, 85.0985], level: 'low' },
+                          { name: 'Punjab', coords: [31.1471, 75.3412], level: 'medium' },
+                          { name: 'Rajasthan', coords: [27.0238, 74.2179], level: 'medium' },
+                          { name: 'Sikkim', coords: [27.5330, 88.5122], level: 'high' },
+                          { name: 'Tamil Nadu', coords: [11.1271, 78.6569], level: 'medium' },
+                          { name: 'Telangana', coords: [18.1124, 79.0193], level: 'high' },
+                          { name: 'Tripura', coords: [23.9408, 91.9882], level: 'low' },
+                          { name: 'Uttar Pradesh', coords: [26.8467, 80.9462], level: 'medium' },
+                          { name: 'Uttarakhand', coords: [30.0668, 79.0193], level: 'medium' },
+                          { name: 'West Bengal', coords: [22.9868, 87.8550], level: 'low' },
+                          { name: 'Jammu and Kashmir', coords: [34.0837, 74.7973], level: 'medium' }
+                     
+                    ];
+                
+                    // Add circles for each state
+                    states.forEach(state => {
+                        const { color, radius } = readershipLevels[state.level];
+                        L.circleMarker(state.coords, {
+                            color: color,
+                            radius: radius,
+                            fillOpacity: 0.6
+                        })
+                        .addTo(map)
+                        .bindPopup(`<b>${state.name}</b><br>Readership Level: ${state.level.charAt(0).toUpperCase() + state.level.slice(1)}`);
+                    });
+                
+                    // Dark Mode Toggle
+                    const toggleButton = document.getElementById('darkModeToggle');
+                    let isDarkMode = false;
+                
+                    toggleButton.addEventListener('click', () => {
+                        document.body.classList.toggle('dark-mode');
+                        toggleButton.textContent = isDarkMode ? '🌙' : '🌞';
+                
+                        // Switch map layers
+                        if (isDarkMode) {
+                            map.removeLayer(darkLayer);
+                            lightLayer.addTo(map);
+                        } else {
+                            map.removeLayer(lightLayer);
+                            darkLayer.addTo(map);
+                        }
+                
+                        // Apply dark mode styles to navbar items and map title
+                        document.querySelectorAll('.navbar, .navbar-link, #maphead').forEach(el => {
+                            el.classList.toggle('dark-mode');
+                        });
+                
+                        isDarkMode = !isDarkMode;
+                    });
+                </script>
+                
+  
+</body>  
+</html>
+<footer class="ff" style="margin-top: 100px;">
+  <div class="foot-top">
+    <div class="foot-left">
+      <div class="desc">
+        <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
+        <div>
+          <p  class="description">
+            SwapReads.com is the ultimate destination for book lovers seeking to swap and discover new literary gems.
+            Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
+            the world of literature—all on one convenient platform. Join us and dive into a universe of endless possibilities!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="foot-middle">
+      <h2 style="margin-left: 2rem; margin-top: 2.75rem;">Quick Links</h2>
+      <div id="quicklinks" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+        <div>
+          <ul style="list-style: none; padding: 0;">
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-home" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./index.html#home" style="color: #374151; text-decoration: none;">Home</a>
+            </li>
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-book" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./index.html#benefits" style="color: #374151; text-decoration: none;">Benefits</a>
+            </li>
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-globe" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./index.html#chapters" style="color: #374151; text-decoration: none;">Literary</a>
+            </li>
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-dollar-sign" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./index.html#pricing" style="color: #374151; text-decoration: none;">Pricing</a>
+            </li>
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-bookmark" style="color: #374151; margin-right: 4px;"></i>
+              <a href="book_recommend.html" style="color: #374151; text-decoration: none;">Recommend</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul style="list-style: none; padding: 0;">
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-exchange-alt" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./assets/html/booklistswap.html" style="color: #374151; text-decoration: none;">Swap</a>
+            </li>
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-file-pdf" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./assets/html/freeBooks.html" style="color: #374151; text-decoration: none;">E-Book</a>
+            </li>
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-info-circle" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./assets/html/about.html" style="color: #374151; text-decoration: none;">About</a>
+            </li>
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-envelope" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./index.html#contact" style="color: #374151; text-decoration: none;">Contact</a>
+            </li>
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-question-circle" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./index.html#faqq" style="color: #374151; text-decoration: none;">FAQ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+<script>
+function showConfirmationMessage() {
+
+const form = document.getElementById('newsform');
+const confirmationMessage = document.getElementById('confirmationmessage');
+
+
+confirmationMessage.style.display = 'block';
+setTimeout(function() {
+  location.reload(); 
+}, 3000);
+}
+</script>
+<style>
+
+.subscribe {
+background-color: #A30F17;
+color: white; 
+border: none; 
+padding: 1rem 2rem; 
+font-size: 1.6rem; 
+font-family: Arial, sans-serif;
+border-radius: 0.5rem; 
+cursor: pointer; 
+transition: background-color 0.3s, transform 0.2s;
+}
+
+.subscribe:hover {
+background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+transform: scale(1.1);
+}
+
+.subscribe:active {
+transform: scale(0.98); 
+}
+
+.subscribe:focus {
+outline: none; 
+}
+
+</style>
+
+      <div class="foot-right">
+      <h2 style="margin-bottom: 2.4rem; margin-top:0.5rem;">Stay Connected</h2>
+      <form id="newsform" onsubmit="return showConfirmationMessage();">
+          <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
+          <div class="row-flex display-flex">
+              <input class="finput" type="email" id="new-email" name="email" placeholder="Email address"
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+                    title="Please enter a valid email address that ends with '.com'" required>
+              <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
+          </div>
+      </form>
+      <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
+    </div>
+
+    </div>
+  </div>
+
+
+
+
+  <!-- adding privacy policy and copyright popup-->
+  <div class="footer-f" style="text-align: center; align-items: center;">
+    <p style="text-align: center">
+      &copy;
+      <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+    </p>
+    <div class="row-copy">
+
+
+    <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+    <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>  |
+    
+    <a href="our-vision.html" id="ourvisionLink">Our Vision</a></li>
+  </div>
+  </div>
+  <style>
+    #copyrightPolicyLink:hover{
+      color: rgb(126, 0, 21);
+      transition: 0.5s ease;
+    }
+    #privacyNoticeLink:hover{
+      color: rgb(126, 0, 21);
+      transition: 0.5s ease;
+    }
+    #ourvisionLink:hover{
+      color: rgb(126, 0, 21);
+      transition: 0.5s ease;
+    }
+  </style>
+
+</footer>
+<div>
+    <button id="translateButton">Translate</button>
+  </div>
+  <style>
+    /* Fixed translate button */
+  #translateButton {
+    position: fixed;
+    /* bottom: 20px; */
+    top:-15rem;
+    right: 4.4rem;
+    z-index: 1000;
+    width: 53px;  
+    height: 53px;
+    border-radius: 50%; 
+    border: none; 
+    background:linear-gradient(hwb(357 6% 36%),#d26d6d); 
+    color: white; 
+    text-align: center; 
+    display: inline-block; 
+    font-size: 16px; 
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    transition: transform 0.3s ease;
+    margin-top: 75.8vh;
+    margin-right:opx;
+  }
+  #translateButton:hover {
+    transform: scale(1.2); 
+  }
+  /* The popup modal */
+  .popup {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+  /* Popup content */
+  .popup-content {
+  background:linear-gradient(hwb(357 6% 36%),#d26d6d);
+    margin-top: 600px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 10px;
+    position: relative;
+    margin-left: 1160px;
+    /* margin-right: 0px; */
+  }
+  /* Close button */
+  .close {
+    color: #073725;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+  }
+  /* Hide the default Google Translate widget */
+  .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+    display: none !important;
+  }
+  body {
+    top: 0px !important;
+  }
+  /* Hide the "Powered by Google" branding */
+  .goog-logo-link {
+    display: none !important;
+  }
+  .goog-te-gadget {
+    height: 28px !important;
+    overflow: hidden;
+  }
+  /* Hide Google Translate notifications */
+  .goog-te-spinner-pos,
+  .goog-te-spinner,
+  .goog-te-balloon-frame,
+  .goog-te-banner-frame,
+  .goog-te-banner,
+  .goog-te-balloon {
+    display: none !important;
+  }
+  /* Custom styles for the Google Translate dropdown */
+  #google_translate_element select {
+    background: #ffffff; 
+    border: 1px solid #ccc; 
+    color: #d26d6d; 
+    padding: 5px; 
+    font-size: 14px; 
+    border-radius: 5px; 
+  }
+  /* Hide the Google Translate bar */
+  body > .skiptranslate {
+    display: none !important;
+  }
+  .goog-te-banner-frame.skiptranslate {
+    display: none !important;
+  }
+  .goog-te-banner-frame {
+    display: none !important;
+  }
+  .goog-te-banner {
+    display: none !important;
+  }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get the popup
+    var popup = document.getElementById('translatePopup');
+    // Get the button that opens the popup
+    var btn = document.getElementById('translateButton');
+    // Get the <span> element that closes the popup
+    var span = document.getElementsByClassName('close')[0];
+    // When the user clicks the button, open the popup 
+    btn.onclick = function() {
+        popup.style.display = 'block';
+    }
+    // When the user clicks on <span> (x), close the popup
+    span.onclick = function() {
+        popup.style.display = 'none';
+    }
+    // When the user clicks anywhere outside of the popup, close it
+    window.onclick = function(event) {
+        if (event.target == popup) {
+            popup.style.display = 'none';
+        }
+    }
+  });
+  </script>
+  <!-- Popup for Google Translate -->
+  <div id="translatePopup" class="popup">
+      <div class="popup-content">
+          <span class="close">&times;</span>
+          <div id="google_translate_element"></div>
+      </div>
+  </div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+        }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
