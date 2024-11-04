@@ -1235,6 +1235,32 @@
 
 <body>
 
+<!--pre-loader-->
+<div class="preloader-theme">
+  <div class="preloader-content">
+    <div class="book" style="width: 160px; height: 100px; max-width: 100%;">
+      <div class="book__pg-shadow"></div>
+      <div class="book__pg"></div>
+      <div class="book__pg book__pg--2"></div>
+      <div class="book__pg book__pg--3"></div>
+      <div class="book__pg book__pg--4"></div>
+      <div class="book__pg book__pg--5"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener("load", function() {
+      setTimeout(function() {
+          const preloader = document.querySelector(".preloader-theme");
+          preloader.classList.add("fade-out");
+          setTimeout(function() {
+              preloader.style.display = "none"; // This hides the preloader
+          }, 500); // Fade-out duration
+      }, 4000); // Time before starting the fade-out
+  });
+</script>
+
   <!-- Circles -->
   <div class="circle"></div>
   <div class="circle"></div>
