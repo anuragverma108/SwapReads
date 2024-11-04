@@ -153,11 +153,13 @@
 │   │   ├── about.html
 │   │   ├── about1.html
 │   │   ├── addremovebook.html
+│   │   ├── adventure.html
 │   │   ├── assets/
 │   │   │   └── css/
 │   │   │       └── event.css
 │   │   ├── audio.html
 │   │   ├── author.html
+│   │   ├── biography.html
 │   │   ├── blog.html
 │   │   ├── book_recommend.html
 │   │   ├── booking.html
@@ -165,8 +167,10 @@
 │   │   ├── bookpref.html
 │   │   ├── borrow.html
 │   │   ├── checkout.html
+│   │   ├── comedy.html
 │   │   ├── comsp.html
 │   │   ├── custom.html
+│   │   ├── detective-fiction.html
 │   │   ├── donate.html
 │   │   ├── event.html
 │   │   ├── fantasy.html
@@ -174,6 +178,7 @@
 │   │   ├── freeBooks.html
 │   │   ├── god.html
 │   │   ├── googlece7a206a6cfbb7ed.html
+│   │   ├── historical-fiction.html
 │   │   ├── horror.html
 │   │   ├── image.png
 │   │   ├── img.png
@@ -184,6 +189,9 @@
 │   │   ├── mood.html
 │   │   ├── mylogin.html
 │   │   ├── ngo.html
+│   │   ├── nonfiction.html
+│   │   ├── philosophy.html
+│   │   ├── poetry.html
 │   │   ├── profileedit.html
 │   │   ├── quiz.html
 │   │   ├── quizzes.html
@@ -194,15 +202,19 @@
 │   │   ├── romance.html
 │   │   ├── school.html
 │   │   ├── science-fiction.html
+│   │   ├── self-help.html
 │   │   ├── social.html
 │   │   ├── suspense-thriller.html
 │   │   ├── tips.html
 │   │   └── top10.html
 │   ├── images/
+│   │   ├── 1984.jpg
 │   │   ├── FB icon.png
 │   │   ├── LogoPicDark.png
 │   │   ├── LogoPicLight.png
+│   │   ├── Madame Bovary.webp
 │   │   ├── Screenshot 2024-10-28 at 12.09.51 AM
+│   │   ├── The Picture of Dorian Gray.jpg
 │   │   ├── TheGuide.jpg
 │   │   ├── Wings_of_Fire_by_A_P_J_Abdul_Kalam_Book_Cover.jpg
 │   │   ├── YT icon.png
@@ -212,6 +224,9 @@
 │   │   ├── achievement-3.jpg
 │   │   ├── achievement-4.jpg
 │   │   ├── achievement-5.jpg
+│   │   ├── alter.jpeg
+│   │   ├── american.jpg
+│   │   ├── anna_karenina.jpg
 │   │   ├── author-banner.png
 │   │   ├── avatar1.jpg
 │   │   ├── avatar2.jpg
@@ -220,12 +235,17 @@
 │   │   ├── avatar5.jpg
 │   │   ├── award.svg
 │   │   ├── be.jpeg
+│   │   ├── beach.jpg
+│   │   ├── bear.jpg
+│   │   ├── before.jpg
+│   │   ├── behind.jpg
 │   │   ├── benefits-1.svg
 │   │   ├── benefits-2.svg
 │   │   ├── benefits-3.svg
 │   │   ├── benefits-4.svg
 │   │   ├── benefits-5.svg
 │   │   ├── benefits-6.svg
+│   │   ├── big.jpg
 │   │   ├── book/
 │   │   │   ├── Army.jpg
 │   │   │   ├── Economist.jpg
@@ -242,6 +262,11 @@
 │   │   ├── books_swapRead.jpg
 │   │   ├── bookshelf.png
 │   │   ├── bookshelfhover.png
+│   │   ├── brave.jpeg
+│   │   ├── brothers_karamazov.jpg
+│   │   ├── catcher_in_the_rye.jpg
+│   │   ├── chain.jpg
+│   │   ├── city.jpeg
 │   │   ├── cl.jpg
 │   │   ├── close-white.png
 │   │   ├── close.png
@@ -250,12 +275,18 @@
 │   │   ├── community.png
 │   │   ├── communityhover.png
 │   │   ├── contact.png
+│   │   ├── couple.jpg
+│   │   ├── court.jpg
+│   │   ├── crime_and_punishment.jpg
 │   │   ├── ctc1.png
 │   │   ├── ctc2.png
 │   │   ├── ctc3.png
 │   │   ├── ctc4.png
 │   │   ├── ctc5.png
 │   │   ├── darkmode_bg.png
+│   │   ├── dracula.webp
+│   │   ├── duno.jpeg
+│   │   ├── duno.jpg
 │   │   ├── edit profile.jpg
 │   │   ├── em.jpeg
 │   │   ├── emoji/
@@ -264,10 +295,16 @@
 │   │   │   ├── emoji-3.png
 │   │   │   ├── emoji-4.png
 │   │   │   └── emoji-5.png
+│   │   ├── enders.jpg
 │   │   ├── eye-close.png
 │   │   ├── eye-open.png
+│   │   ├── fahrenheit.jpeg
 │   │   ├── fantasy.jpg
+│   │   ├── fates.jpg
 │   │   ├── final.png
+│   │   ├── foundation.jpeg
+│   │   ├── frankenstein.jpg
+│   │   ├── game.jpg
 │   │   ├── genres/
 │   │   │   ├── 1.jpg
 │   │   │   ├── 10.jpg
@@ -283,13 +320,25 @@
 │   │   │   ├── auth2.jpg
 │   │   │   ├── auth3.jpg
 │   │   │   └── c1.jpg
+│   │   ├── girl.jpg
+│   │   ├── gone.jpg
 │   │   ├── good of small tjings.jpg
 │   │   ├── google button.jpeg
 │   │   ├── google icon.jpeg
 │   │   ├── gr.jpeg
+│   │   ├── great-expectations.jpeg
+│   │   ├── great_gatsby.jpg
+│   │   ├── guest.jpg
+│   │   ├── harry.jpg
+│   │   ├── hating.jpg
 │   │   ├── help.png
 │   │   ├── hero-banner.png
 │   │   ├── hero-section.avif
+│   │   ├── hitcher.jpeg
+│   │   ├── hobbit.jpg
+│   │   ├── hola.jpg
+│   │   ├── honey.jpg
+│   │   ├── hype.jpeg
 │   │   ├── icons8-sun.svg
 │   │   ├── images/
 │   │   │   ├── b.jpg
@@ -303,24 +352,43 @@
 │   │   ├── inbox.png
 │   │   ├── india after gandhi.jpg
 │   │   ├── insta icon.png
+│   │   ├── itends.jpg
 │   │   ├── ja.jpeg
+│   │   ├── jane_eyre.jpg
 │   │   ├── jk.jpeg
 │   │   ├── jo.jpeg
+│   │   ├── kiss.jpg
+│   │   ├── left.jpeg
+│   │   ├── les.jpg
+│   │   ├── lock.jpg
 │   │   ├── logo_darkbg.png
 │   │   ├── logo_whitebg.png
 │   │   ├── logout.png
 │   │   ├── ma.jpg
+│   │   ├── martian.jpeg
+│   │   ├── mebeforeyou.jpg
 │   │   ├── mg.jpeg
 │   │   ├── midnight children.jpg
+│   │   ├── mist.jpg
+│   │   ├── moby.jpg
 │   │   ├── moon.png
 │   │   ├── moon_solid.svg
 │   │   ├── mystery.jpg
+│   │   ├── name.jpg
+│   │   ├── narnia.jpg
 │   │   ├── ne.jpeg
 │   │   ├── nes.jpeg
+│   │   ├── neuro.jpeg
 │   │   ├── new_logo.png
 │   │   ├── new_logo_banner_dark.png
 │   │   ├── new_logo_banner_light.png
 │   │   ├── new_logo_dark.png
+│   │   ├── night.jpg
+│   │   ├── notebook.jpeg
+│   │   ├── odyssey.jpg
+│   │   ├── oryx.jpeg
+│   │   ├── oryx.jpg
+│   │   ├── outlander.jpg
 │   │   ├── philopsphy.jpg
 │   │   ├── pic1.jpeg
 │   │   ├── pic2.jpeg
@@ -331,13 +399,22 @@
 │   │   ├── preview-3.png
 │   │   ├── preview-4.png
 │   │   ├── preview-5.png
+│   │   ├── pride.jpg
+│   │   ├── priory.jpg
 │   │   ├── re.jpg
 │   │   ├── read.png
 │   │   ├── readhover.png
+│   │   ├── ready.jpeg
+│   │   ├── red.jpg
 │   │   ├── rom.jpg
+│   │   ├── rosie.jpg
+│   │   ├── scarlet.jpg
 │   │   ├── sci.jpg
 │   │   ├── settings.png
 │   │   ├── shantaram.jpg
+│   │   ├── shutter.jpg
+│   │   ├── silent.jpg
+│   │   ├── snow.jpeg
 │   │   ├── sun.png
 │   │   ├── tele.png
 │   │   ├── telephone.png
@@ -349,6 +426,7 @@
 │   │   ├── testimonials-6.jpg
 │   │   ├── the inheritance of book.jpg
 │   │   ├── thriller.jpg
+│   │   ├── to_kill_a_mockingbird.png
 │   │   ├── train to paki.jpg
 │   │   ├── trendingbook1.jpg
 │   │   ├── trendingbook2.jpg
@@ -358,9 +436,16 @@
 │   │   ├── true crime.jpg
 │   │   ├── twitter-icon.png
 │   │   ├── twitter.png
+│   │   ├── uprooted.jpg
 │   │   ├── user.jpg
+│   │   ├── war.jpeg
 │   │   ├── website-ss.png
-│   │   └── white tiger.jpg
+│   │   ├── wheel.jpg
+│   │   ├── white tiger.jpg
+│   │   ├── wife.jpg
+│   │   ├── wild.jpg
+│   │   ├── woman.jpg
+│   │   └── wuthering_heights.jpg
 │   ├── js/
 │   │   ├── ReaderConn.js
 │   │   ├── addremove.js
@@ -427,10 +512,10 @@
 ├── connectWithsame.html
 ├── contactus1.html
 ├── contributing.txt
-├── contributors/
-│   ├── contributor.css
-│   ├── contributor.html
-│   └── contributor.js
+├── contributor/
+│   ├── contributorss.css
+│   ├── contributorss.html
+│   └── contributorss.js
 ├── controller/
 │   ├── Rating.js
 │   ├── book.js
