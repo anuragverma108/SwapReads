@@ -167,17 +167,17 @@
 │   │   ├── bookpref.html
 │   │   ├── borrow.html
 │   │   ├── checkout.html
+│   │   ├── classic.html
 │   │   ├── comedy.html
 │   │   ├── comsp.html
 │   │   ├── custom.html
 │   │   ├── detective-fiction.html
 │   │   ├── donate.html
+│   │   ├── dystopian.html
 │   │   ├── event.html
-
-│   │   ├── fine.html
-
+│   │   ├── fairytale.html
 │   │   ├── fantasy.html
-
+│   │   ├── fine.html
 │   │   ├── forgot-pass.html
 │   │   ├── freeBooks.html
 │   │   ├── god.html
@@ -192,7 +192,9 @@
 │   │   ├── midnight.html
 │   │   ├── mood.html
 │   │   ├── mylogin.html
+│   │   ├── mythology.html
 │   │   ├── ngo.html
+│   │   ├── noir.html
 │   │   ├── nonfiction.html
 │   │   ├── philosophy.html
 │   │   ├── poetry.html
@@ -210,7 +212,8 @@
 │   │   ├── social.html
 │   │   ├── suspense-thriller.html
 │   │   ├── tips.html
-│   │   └── top10.html
+│   │   ├── top10.html
+│   │   └── true-crime.html
 │   ├── images/
 │   │   ├── 1984.jpg
 │   │   ├── FB icon.png
@@ -289,6 +292,7 @@
 │   │   ├── ctc5.png
 │   │   ├── darkmode_bg.png
 │   │   ├── dracula.webp
+│   │   ├── dune.jpg
 │   │   ├── duno.jpeg
 │   │   ├── duno.jpg
 │   │   ├── edit profile.jpg
@@ -510,7 +514,6 @@
 ├── chat.css
 ├── chat.html
 ├── chat.js
-├── classic-literature.html
 ├── cod.jpg
 ├── comsp.html
 ├── connectWithsame.html
