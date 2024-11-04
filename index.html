@@ -3917,229 +3917,165 @@ color: #ac2127;
     <header class="header header-anim nav-h" data-header>
 
       <div class="container mobile-container-styles">
+        <nav class="navbar nav_activated" data-navbar="">
+            <ul style="max-width: 1300px; display: flex; justify-content: space-between; align-items: center; gap: 5px;" class="navbar-list nav">
+                <li class="navbar-item logo-item" style="display:flex;">
+                    <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo">
+                        <img src="./assets/images/final.png" class="logopic" style="width: 15rem;">
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link=""><i class="ri-home-fill"></i> Home</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="./assets/html/about.html" class="navbar-link" data-nav-link=""><i class="ri-information-fill"></i> About Us</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link=""><i class="ri-customer-service-2-fill"></i> Contact</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#faq" onclick="lenis.scrollTo('#faq')" class="navbar-link" data-nav-link=""><i class="ri-questionnaire-fill"></i> FAQ</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="./assets/html/event.html" class="navbar-link" data-nav-link="">Events</a>
+                </li>
+                <li class="navbar-item" id="login-signup-link">
+                    <a href="./assets/html/login.html" class="navbar-link">Login</a>
+                </li>
+                <li class="navbar-item dropdown">
+                    <a href="#" class="navbar-link" onclick="toggleMoreMenu(event)">More 
+                        <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./assets/html/author.html" class="navbar-link">Authors</a></li>
+                        <li><a href="./assets/html/tips.html" class="navbar-link">Tips</a></li>
+                        <li><a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link">Benefits</a></li>
+                        <li><a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link">Genre</a></li>
+                        <li><a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+                        <li><a href="./assets/html/map.html" class="navbar-link">Map</a></li>
+                        <li><a href="comsp.html" class="navbar-link">Community Spotlight</a></li>
+                        <li><a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link">Audio Books</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="action" style="right: 30px; padding-bottom: 20px;">
+                        <div class="profile" onclick="menuToggle();">
+                            <img id="profile-avatar" src="./assets/images/avatar1.jpg">
+                        </div>
+                    </div>
+                </li>
+            </ul>
 
-        <nav class="navbar nav_activated" data-navbar>
-          <ul style="max-width: 1300px; display: flex; justify-content: space-between; align-items: center; gap: 5px;"
-            class="navbar-list nav">
-            <li class="navbar-item logo-item" style="display:flex;">
-              <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo">
-                <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; ">
-              </a>
-            </li>
-            <li class="navbar-item" style="left: -30px;">
-              <a href="#home" onclick="lenis.scrollTo('#home')" style="left: -30px;" class="navbar-link"
-                data-nav-link><i class="ri-home-fill"></i> Home</a>
-            </li>
-            <li class="navbar-item">
-              <a href="./assets/html/about.html" class="navbar-link" style="left: -30px;" data-nav-link><i
-                  class="ri-home-fill"></i>About<br> Us</a>
-            </li>
-            <li class="navbar-item">
-              <a href="./assets/html/author.html" class="navbar-link" style="left: -30px;" data-nav-link><i
-                  class="ri-home-fill"></i>Authors</a>
-            </li>
-            <li class="navbar-item">
-              <a href="./assets/html/tips.html" class="navbar-link" style="left: -30px;" data-nav-link><i
-                  class="ri-home-fill"></i>Tips</a>
-            </li>
-            <li class="navbar-item">
-              <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" style="left: -30px;"
-                data-nav-link><i class="ri-bar-chart-fill"></i> Benefits</a>
-            </li>
-            <li class="navbar-item">
-              <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" style="left: -30px;"
-                data-nav-link><i class="ri-bar-chart-fill"></i> Genre</a>
-            </li>
+            <style>
+                /* Default styling for dropdown menu links */
+                .dropdown-menu {
+                    display: none;
+                    position: absolute;
+                    background-color: white;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    z-index: 1000;
+                }
 
-            <li class="navbar-item">
-              <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" style="left: -30px;"
-                data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
-            </li>
-            <li class="navbar-item">
-              <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" style="left: -30px;" data-nav-link>
-                <i class="ri-questionnaire-fill"></i> FAQ
-              </a>
-            </li>
+                .navbar-item.dropdown:hover .dropdown-menu,
+                .dropdown-menu.active {
+                    display: block;
+                }
 
-            <li class="navbar-item">
-              <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link"
-                style="left: -30px;">Rate<br>Us</a>
-            </li>
-            <li class="navbar-item" id="login-signup-link">
-              <a href="./assets/html/event.html" class="navbar-link" style="left: -30px;">Events</a>
-            </li>
-            <li class="navbar-item" id="login-signup-link">
-              <a href="./assets/html/map.html" class="navbar-link" style="left: -30px;">Map</a>
-            </li>
-            
+                .dropdown-menu li {
+                    padding: 10px;
+                    text-align: left;
+                }
 
-            <li class="navbar-item" id="login-signup-link">
-              <a href="./assets/html/login.html" class="navbar-link" style="left: -30px;">Login</a>
-            </li>
-            
-            
-            <li class="navbar-item" id="login-signup-link">
+                .dropdown-menu li a {
+                    display: block;
+                    color: black; /* Default font color for day mode */
+                    text-decoration: none;
+                }
 
-              <a href="comsp.html" class="navbar-link" style="left: -30px;">Community<br> Spotlight</a>
+                .dropdown-menu li a:hover {
+                    background-color: #f0f0f0;
+                }
 
-            </li>
-            <li class="navbar-item">
-              <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" style="left: -30px;"
-                data-nav-link>
-                <i class="ri-bar-chart-fill"></i> Audio Books
-              </a>
-            </li>
-            <li>
-              <div class="action" style="right: 30px; padding-bottom: 20px;">
-                <div class="profile" onclick="menuToggle();">
-                  <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
-                </div>
-              </div>
-            </li>
-          </ul>
+                .dropdown-arrow {
+                    margin-left: 5px;
+                    vertical-align: middle;
+                }
+
+                /* Dark mode styling for dropdown menu links */
+                .switch-checkbox:checked ~ .container .dropdown-menu li a {
+                    color: white; /* White font color for night mode */
+                }
+
+                /* Default styling for dropdown menu links in day mode */
+                .dropdown-menu li a {
+                    color: black; /* Default font color for day mode */
+                }
+            </style>
+
+            <script>
+                function toggleMoreMenu(event) {
+                    const menu = event.currentTarget.nextElementSibling;
+                    menu.classList.toggle('active');
+                }
+            </script>
         </nav>
 
-
-
-        <script>
-          function toggleDropdown(event) {
-            event.preventDefault();
-            const dropdownMenu = event.currentTarget.nextElementSibling;
-            dropdownMenu.classList.toggle('show');
-          }
-        </script>
-        <script>
-          document.addEventListener("DOMContentLoaded", () => {
-            const savedAvatar = localStorage.getItem("selectedAvatar");
-            const savedName = localStorage.getItem("profileName");
-            if (savedAvatar) {
-              document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
-            }
-            if (savedName) {
-            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
-        } else {
-            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
-        }
-          });
-
-          function menuToggle() {
-            const toggleMenu = document.querySelector(".menu");
-            toggleMenu.classList.toggle("active");
-          }
-
-          document.addEventListener("click", function (event) {
-            const profile = document.querySelector(".profile");
-            const menu = document.querySelector(".menu");
-
-            if (!profile.contains(event.target) && !menu.contains(event.target)) {
-              menu.classList.remove("active");
-            }
-          });
-
-        
-        </script>
-
         <div id="modal">
-          <form class="modal-box">
-            <!-- <img src="https://st2.depositphotos.com/4103319/6625/i/450/depositphotos_66251761-stock-photo-logout-circular-icon-on-white.jpg" class="logout-img"/> -->
-            <h1>Logout Account</h1>
-            <p class="logout-que">Are you sure you want to log out ?</p>
-            <div class="close-logout-btn">
-              <button class="cancel-logout-btn">Cancel</button>
-              <button class="out-logout-btn">Log Out</button>
-            </div>
-          </form>
+            <form class="modal-box">
+                <h1>Logout Account</h1>
+                <p class="logout-que">Are you sure you want to log out?</p>
+                <div class="close-logout-btn">
+                    <button class="cancel-logout-btn">Cancel</button>
+                    <button class="out-logout-btn">Log Out</button>
+                </div>
+            </form>
         </div>
 
         <script src="../../logout.js"></script>
 
-        <!-- Google Translate Element -->
-        <!-- <li class="navbar-item">
-            <div id="google_element"></div>
-          </li> -->
-        </ul>
-        <!-- <div class="hamburger">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div> -->
-
-        </nav>
         <div id="mobile_View_Menu">
-          <span id="menu_lines"></span>
+            <span id="menu_lines"></span>
         </div>
 
         <script>
-          let menu = document.getElementById('mobile_View_Menu');
-          let navbar_con = document.querySelector('.navbar');
+            let menu = document.getElementById('mobile_View_Menu');
+            let navbar_con = document.querySelector('.navbar');
 
-          menu.addEventListener('click', () => {
-            // Toggle 'open_menu' on menu and 'nav_activated' on navbar container
-            menu.classList.toggle('open_menu');
-            navbar_con.classList.toggle('nav_activated');
-          });
-
-        </script>
-
-
-        <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-        <div className="wrapper col-md-3 col-12" style="justify-Content: 'center'; display: 'flex'">
-
-          <div id="google_element"></div>
-          <Script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"
-            strategy="afterInteractive" />
-          <Script id="google-translate" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: ` function
-            loadGoogleTranslate() { new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_element' ); }
-            `, }} />
-        </div>
-        <script>
-          // const hamburger=document.querySelector('.hamburger');
-          // const head=document.querySelector('.header');
-          // const nav=document.querySelector('.nav');
-          // hamburger.addEventListener('click',()=>{
-          
-          const sections = document.querySelectorAll("section");
-          const navLinks = document.querySelectorAll(".navbar-link");
-
-          // Function to update the active nav link
-          function updateActiveLink() {
-            let scrollPosition = window.scrollY + window.innerHeight / 3;
-
-            sections.forEach((section) => {
-              const sectionTop = section.offsetTop;
-              const sectionHeight = section.offsetHeight;
-              const sectionId = section.getAttribute("id");
-
-              // Check if the current scroll position is within the section
-              if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinks.forEach((link) => {
-                  link.classList.remove("active");
-                  if (link.getAttribute("href") === `#${sectionId}`) {
-                    link.classList.add("active");
-                  }
-                });
-              }
+            menu.addEventListener('click', () => {
+                menu.classList.toggle('open_menu');
+                navbar_con.classList.toggle('nav_activated');
             });
-          }
-
-          //Add scroll event listener to window
-          window.addEventListener("scroll", updateActiveLink);
-          updateActiveLink();
-
-
-          window.addEventListener("scroll", onScroll);
         </script>
+
         <div class="switch-container" style="top: 1.5rem;">
-          <input type="checkbox" id="switch" class="switch-checkbox">
-          <label for="switch" class="switch-label">
-            <div class="switch-button">
-              <span class="material-icons sun-icon">wb_sunny </span>
-              <span class="material-icons moon-icon">brightness_2</span>
-            </div>
-          </label>
+            <input type="checkbox" id="switch" class="switch-checkbox">
+            <label for="switch" class="switch-label">
+                <div class="switch-button">
+                    <span class="material-icons sun-icon">wb_sunny</span>
+                    <span class="material-icons moon-icon">brightness_2</span>
+                </div>
+            </label>
         </div>
-      </div>
-      </div>
+
+    </div>
+
+<style>
+
+                    /* Example for specific elements like navbar links */
+                    .light-mode .navbar-link {
+                        color: black; /* Light mode color */
+                    }
+
+                    .dark-mode .navbar-link {
+                        color: white; /* Dark mode color */
+                    }
+
+          </style>
     </header>
     <link rel="stylesheet" href="assets/css/refresher.css">
     <div id="caduceus-container">
