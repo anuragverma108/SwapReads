@@ -556,7 +556,7 @@
         display: block;
         border-radius: 2.8rem;
         background: rgba(255, 171, 157, 0.5);
-        width: 5.6rem;
+        width: 16.6rem;
         height: 5.6rem;
         transition: all 0.3s ease;
       }
@@ -621,7 +621,7 @@
         display: block;
         border-radius: 2.8rem;
         background: rgba(255, 171, 157, 0.5);
-        width: 5.6rem;
+        width: 16.6rem;
         height: 5.6rem;
         transition: all 0.3s ease;
       }
@@ -665,6 +665,79 @@
         }
       }
     }
+    .cta2.style-9 {
+          position: absolute;
+          bottom: 40px; /* Positions the link 20px above the bottom of the card */
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    
+        .cta2 {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          margin: auto;
+          padding: 2rem 2.4rem;
+          color: hsl(357, 37%, 62%);
+          font-family: Avenir, sans-serif;
+          text-decoration: none;
+          transition: all 0.2s ease;
+    
+          &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            border-radius: 2.8rem;
+            background: rgba(255, 171, 157, 0.5);
+            width: 28rem;
+            height: 5.6rem;
+            transition: all 0.3s ease;
+          }
+    
+          span {
+            position: relative;
+            font-size: 0.8rem;
+            line-height: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            vertical-align: middle;
+            color: var(--charcoal);
+          }
+    
+          svg {
+            position: relative;
+            top: 0;
+            margin-left: 0.5rem;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke: hsl(357, 37%, 62%);
+            stroke-width: 2;
+            transform: translateX(-0.5rem);
+            transition: all 0.3s ease;
+          }
+    
+          &:hover {
+            &:before {
+              width: 9%;
+              background: #ffab9d;
+            }
+    
+            svg {
+              transform: translateX(0);
+            }
+    
+            .active {
+              transform: scale(0.96);
+            }
+          }
+        }
 
 
       .price{
@@ -1000,7 +1073,7 @@
 
 
     .chapter-card {
-      height: 60rem;
+      height: 50rem;
       /* Adjust margin as needed */
       box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
       /* Add shadow for depth effect */
@@ -2099,14 +2172,14 @@
           display: block;
           border-radius: 2.8rem;
           background: rgb(255 144 125 / 91%);
-          width: 12.6rem;
+          width: 16.6rem;
           height: 5.6rem;
           transition: all 0.3s ease;
         }
 
         span {
           position: relative;
-          font-size: 0.8rem;
+          font-size: 12px;
           line-height: 1.8rem;
           font-weight: 900;
           letter-spacing: 0.25em;
@@ -2164,14 +2237,14 @@
           display: block;
           border-radius: 2.8rem;
           background: rgb(255 144 125 / 91%);
-          width: 12.6rem;
+          width: 16.6rem;
           height: 5.6rem;
           transition: all 0.3s ease;
         }
 
         span {
           position: relative;
-          font-size: 0.8rem;
+          font-size: 12px;
           line-height: 1.8rem;
           font-weight: 900;
           letter-spacing: 0.25em;
@@ -2542,7 +2615,7 @@
 
 
       .chapter-card {
-        height: 60rem;
+        height: 50rem;
         /* Adjust margin as needed */
         box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
         /* Add shadow for depth effect */
@@ -3844,229 +3917,165 @@ color: #ac2127;
     <header class="header header-anim nav-h" data-header>
 
       <div class="container mobile-container-styles">
+        <nav class="navbar nav_activated" data-navbar="">
+            <ul style="max-width: 1300px; display: flex; justify-content: space-between; align-items: center; gap: 5px;" class="navbar-list nav">
+                <li class="navbar-item logo-item" style="display:flex;">
+                    <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo">
+                        <img src="./assets/images/final.png" class="logopic" style="width: 15rem;">
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link=""><i class="ri-home-fill"></i> Home</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="./assets/html/about.html" class="navbar-link" data-nav-link=""><i class="ri-information-fill"></i> About Us</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link=""><i class="ri-customer-service-2-fill"></i> Contact</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#faq" onclick="lenis.scrollTo('#faq')" class="navbar-link" data-nav-link=""><i class="ri-questionnaire-fill"></i> FAQ</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="./assets/html/event.html" class="navbar-link" data-nav-link="">Events</a>
+                </li>
+                <li class="navbar-item" id="login-signup-link">
+                    <a href="./assets/html/login.html" class="navbar-link">Login</a>
+                </li>
+                <li class="navbar-item dropdown">
+                    <a href="#" class="navbar-link" onclick="toggleMoreMenu(event)">More 
+                        <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./assets/html/author.html" class="navbar-link">Authors</a></li>
+                        <li><a href="./assets/html/tips.html" class="navbar-link">Tips</a></li>
+                        <li><a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link">Benefits</a></li>
+                        <li><a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link">Genre</a></li>
+                        <li><a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+                        <li><a href="./assets/html/map.html" class="navbar-link">Map</a></li>
+                        <li><a href="comsp.html" class="navbar-link">Community Spotlight</a></li>
+                        <li><a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link">Audio Books</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="action" style="right: 30px; padding-bottom: 20px;">
+                        <div class="profile" onclick="menuToggle();">
+                            <img id="profile-avatar" src="./assets/images/avatar1.jpg">
+                        </div>
+                    </div>
+                </li>
+            </ul>
 
-        <nav class="navbar nav_activated" data-navbar>
-          <ul style="max-width: 1300px; display: flex; justify-content: space-between; align-items: center; gap: 5px;"
-            class="navbar-list nav">
-            <li class="navbar-item logo-item" style="display:flex;">
-              <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo">
-                <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; ">
-              </a>
-            </li>
-            <li class="navbar-item" style="left: -30px;">
-              <a href="#home" onclick="lenis.scrollTo('#home')" style="left: -30px;" class="navbar-link"
-                data-nav-link><i class="ri-home-fill"></i> Home</a>
-            </li>
-            <li class="navbar-item">
-              <a href="./assets/html/about.html" class="navbar-link" style="left: -30px;" data-nav-link><i
-                  class="ri-home-fill"></i>About<br> Us</a>
-            </li>
-            <li class="navbar-item">
-              <a href="./assets/html/author.html" class="navbar-link" style="left: -30px;" data-nav-link><i
-                  class="ri-home-fill"></i>Authors</a>
-            </li>
-            <li class="navbar-item">
-              <a href="./assets/html/tips.html" class="navbar-link" style="left: -30px;" data-nav-link><i
-                  class="ri-home-fill"></i>Tips</a>
-            </li>
-            <li class="navbar-item">
-              <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" style="left: -30px;"
-                data-nav-link><i class="ri-bar-chart-fill"></i> Benefits</a>
-            </li>
-            <li class="navbar-item">
-              <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" style="left: -30px;"
-                data-nav-link><i class="ri-bar-chart-fill"></i> Genre</a>
-            </li>
+            <style>
+                /* Default styling for dropdown menu links */
+                .dropdown-menu {
+                    display: none;
+                    position: absolute;
+                    background-color: white;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    z-index: 1000;
+                }
 
-            <li class="navbar-item">
-              <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" style="left: -30px;"
-                data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
-            </li>
-            <li class="navbar-item">
-              <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" style="left: -30px;" data-nav-link>
-                <i class="ri-questionnaire-fill"></i> FAQ
-              </a>
-            </li>
+                .navbar-item.dropdown:hover .dropdown-menu,
+                .dropdown-menu.active {
+                    display: block;
+                }
 
-            <li class="navbar-item">
-              <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link"
-                style="left: -30px;">Rate<br>Us</a>
-            </li>
-            <li class="navbar-item" id="login-signup-link">
-              <a href="./assets/html/event.html" class="navbar-link" style="left: -30px;">Events</a>
-            </li>
-            <li class="navbar-item" id="login-signup-link">
-              <a href="./assets/html/map.html" class="navbar-link" style="left: -30px;">Map</a>
-            </li>
-            
+                .dropdown-menu li {
+                    padding: 10px;
+                    text-align: left;
+                }
 
-            <li class="navbar-item" id="login-signup-link">
-              <a href="./assets/html/login.html" class="navbar-link" style="left: -30px;">Login</a>
-            </li>
-            
-            
-            <li class="navbar-item" id="login-signup-link">
+                .dropdown-menu li a {
+                    display: block;
+                    color: black; /* Default font color for day mode */
+                    text-decoration: none;
+                }
 
-              <a href="comsp.html" class="navbar-link" style="left: -30px;">Community<br> Spotlight</a>
+                .dropdown-menu li a:hover {
+                    background-color: #f0f0f0;
+                }
 
-            </li>
-            <li class="navbar-item">
-              <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" style="left: -30px;"
-                data-nav-link>
-                <i class="ri-bar-chart-fill"></i> Audio Books
-              </a>
-            </li>
-            <li>
-              <div class="action" style="right: 30px; padding-bottom: 20px;">
-                <div class="profile" onclick="menuToggle();">
-                  <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
-                </div>
-              </div>
-            </li>
-          </ul>
+                .dropdown-arrow {
+                    margin-left: 5px;
+                    vertical-align: middle;
+                }
+
+                /* Dark mode styling for dropdown menu links */
+                .switch-checkbox:checked ~ .container .dropdown-menu li a {
+                    color: white; /* White font color for night mode */
+                }
+
+                /* Default styling for dropdown menu links in day mode */
+                .dropdown-menu li a {
+                    color: black; /* Default font color for day mode */
+                }
+            </style>
+
+            <script>
+                function toggleMoreMenu(event) {
+                    const menu = event.currentTarget.nextElementSibling;
+                    menu.classList.toggle('active');
+                }
+            </script>
         </nav>
 
-
-
-        <script>
-          function toggleDropdown(event) {
-            event.preventDefault();
-            const dropdownMenu = event.currentTarget.nextElementSibling;
-            dropdownMenu.classList.toggle('show');
-          }
-        </script>
-        <script>
-          document.addEventListener("DOMContentLoaded", () => {
-            const savedAvatar = localStorage.getItem("selectedAvatar");
-            const savedName = localStorage.getItem("profileName");
-            if (savedAvatar) {
-              document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
-            }
-            if (savedName) {
-            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
-        } else {
-            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
-        }
-          });
-
-          function menuToggle() {
-            const toggleMenu = document.querySelector(".menu");
-            toggleMenu.classList.toggle("active");
-          }
-
-          document.addEventListener("click", function (event) {
-            const profile = document.querySelector(".profile");
-            const menu = document.querySelector(".menu");
-
-            if (!profile.contains(event.target) && !menu.contains(event.target)) {
-              menu.classList.remove("active");
-            }
-          });
-
-        
-        </script>
-
         <div id="modal">
-          <form class="modal-box">
-            <!-- <img src="https://st2.depositphotos.com/4103319/6625/i/450/depositphotos_66251761-stock-photo-logout-circular-icon-on-white.jpg" class="logout-img"/> -->
-            <h1>Logout Account</h1>
-            <p class="logout-que">Are you sure you want to log out ?</p>
-            <div class="close-logout-btn">
-              <button class="cancel-logout-btn">Cancel</button>
-              <button class="out-logout-btn">Log Out</button>
-            </div>
-          </form>
+            <form class="modal-box">
+                <h1>Logout Account</h1>
+                <p class="logout-que">Are you sure you want to log out?</p>
+                <div class="close-logout-btn">
+                    <button class="cancel-logout-btn">Cancel</button>
+                    <button class="out-logout-btn">Log Out</button>
+                </div>
+            </form>
         </div>
 
         <script src="../../logout.js"></script>
 
-        <!-- Google Translate Element -->
-        <!-- <li class="navbar-item">
-            <div id="google_element"></div>
-          </li> -->
-        </ul>
-        <!-- <div class="hamburger">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div> -->
-
-        </nav>
         <div id="mobile_View_Menu">
-          <span id="menu_lines"></span>
+            <span id="menu_lines"></span>
         </div>
 
         <script>
-          let menu = document.getElementById('mobile_View_Menu');
-          let navbar_con = document.querySelector('.navbar');
+            let menu = document.getElementById('mobile_View_Menu');
+            let navbar_con = document.querySelector('.navbar');
 
-          menu.addEventListener('click', () => {
-            // Toggle 'open_menu' on menu and 'nav_activated' on navbar container
-            menu.classList.toggle('open_menu');
-            navbar_con.classList.toggle('nav_activated');
-          });
-
-        </script>
-
-
-        <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-        <div className="wrapper col-md-3 col-12" style="justify-Content: 'center'; display: 'flex'">
-
-          <div id="google_element"></div>
-          <Script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"
-            strategy="afterInteractive" />
-          <Script id="google-translate" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: ` function
-            loadGoogleTranslate() { new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_element' ); }
-            `, }} />
-        </div>
-        <script>
-          // const hamburger=document.querySelector('.hamburger');
-          // const head=document.querySelector('.header');
-          // const nav=document.querySelector('.nav');
-          // hamburger.addEventListener('click',()=>{
-          
-          const sections = document.querySelectorAll("section");
-          const navLinks = document.querySelectorAll(".navbar-link");
-
-          // Function to update the active nav link
-          function updateActiveLink() {
-            let scrollPosition = window.scrollY + window.innerHeight / 3;
-
-            sections.forEach((section) => {
-              const sectionTop = section.offsetTop;
-              const sectionHeight = section.offsetHeight;
-              const sectionId = section.getAttribute("id");
-
-              // Check if the current scroll position is within the section
-              if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinks.forEach((link) => {
-                  link.classList.remove("active");
-                  if (link.getAttribute("href") === `#${sectionId}`) {
-                    link.classList.add("active");
-                  }
-                });
-              }
+            menu.addEventListener('click', () => {
+                menu.classList.toggle('open_menu');
+                navbar_con.classList.toggle('nav_activated');
             });
-          }
-
-          //Add scroll event listener to window
-          window.addEventListener("scroll", updateActiveLink);
-          updateActiveLink();
-
-
-          window.addEventListener("scroll", onScroll);
         </script>
+
         <div class="switch-container" style="top: 1.5rem;">
-          <input type="checkbox" id="switch" class="switch-checkbox">
-          <label for="switch" class="switch-label">
-            <div class="switch-button">
-              <span class="material-icons sun-icon">wb_sunny </span>
-              <span class="material-icons moon-icon">brightness_2</span>
-            </div>
-          </label>
+            <input type="checkbox" id="switch" class="switch-checkbox">
+            <label for="switch" class="switch-label">
+                <div class="switch-button">
+                    <span class="material-icons sun-icon">wb_sunny</span>
+                    <span class="material-icons moon-icon">brightness_2</span>
+                </div>
+            </label>
         </div>
-      </div>
-      </div>
+
+    </div>
+
+<style>
+
+                    /* Example for specific elements like navbar links */
+                    .light-mode .navbar-link {
+                        color: black; /* Light mode color */
+                    }
+
+                    .dark-mode .navbar-link {
+                        color: white; /* Dark mode color */
+                    }
+
+          </style>
     </header>
     <link rel="stylesheet" href="assets/css/refresher.css">
     <div id="caduceus-container">
@@ -4920,7 +4929,6 @@ color: #ac2127;
 
             <ul class="grid-list" id="genre-list" >
               <li data-aos="slide-right">
-                <a href="./assets/html/classic.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
                     <p class="card-subtitle">01</p>
                     <div class="iconrow">
@@ -4936,21 +4944,18 @@ color: #ac2127;
                       are
                       all writers whose works are considered classical literature.
                     </p>
-                    <p class="book-recommendation">
-                      Book Recommendations:
-                    </p>
-                    <ul class="book-list">
-                      <li>1. Pride and Prejudice by Jane Austen</li>
-                      <li>2. Moby-Dick by Herman Melville </li>
-                      <li>3. 1984 by George Orwell</li>
-                    </ul>
 
+                    <a href="../assets/html/classic.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
                   </div>
-                </a>
               </li>
 
               <li data-aos="zoom-in">
-                <a href="./assets/html/romance.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card" >
 
                   <p class="card-subtitle" style=" width: 202.48px; height: 13px;">02</p>
@@ -4965,21 +4970,18 @@ color: #ac2127;
                     the main characters of the story. The biggest defining characteristic of the romance genre is that a
                     happy ending is always guaranteed, perhaps living 'happily ever after.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Pride and Prejudice by Jane Austen</li>
-                    <li>2. The Notebook by Nicholas Sparks</li>
-                    <li>3. Me Before You by Jojo Moyes Lee</li>
-                  </ul>
+                  <a href="../assets/html/romance.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-              </a>
               </li>
 
               <li data-aos="slide-left">
-                <a href="./assets/html/suspense-thriller.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">03</p>
@@ -4994,21 +4996,18 @@ color: #ac2127;
                     with twists and turns, keeping readers guessing until the very last page as protagonists navigate
                     dangerous situations.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Gone Girl by Gillian Flynn</li>
-                    <li>2. The Girl with the Dragon Tattoo by Stieg Larsson</li>
-                    <li>3. The Da Vinci Code by Dan Brown</li>
-                  </ul>
+                  <a href="../assets/html/suspense-thriller.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-                </a>
               </li>
 
               <li data-aos="slide-right">
-                <a href="./assets/html/science-fiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">04</p>
@@ -5023,21 +5022,18 @@ color: #ac2127;
                     fiction books ignite the imagination with visions of advanced civilizations, space exploration, and
                     speculative science.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Dune by Frank Herbert</li>
-                    <li>2. Neuromancer by William Gibson</li>
-                    <li>3. The Hitchhiker's Guide to the Galaxy by Douglas Adams</li>
-                  </ul>
+                  <a href="../assets/html/science-fiction.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-                </a>
               </li>
 
               <li data-aos="zoom-in">
-                <a href="./assets/html/fantasy.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">05</p>
@@ -5051,21 +5047,21 @@ color: #ac2127;
                     anything is possible, weaving tales of epic quests, ancient prophecies, and battles between good and
                     evil.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The Hobbit by J.R.R. Tolkien </li>
-                    <li>2. Harry Potter and the Sorcerer's Stone by J.K. Rowling </li>
-                    <li>3. A Game of Thrones by George R.R. Martin</li>
-                  </ul>
+                  <a href="../assets/html/fantasy.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-                </a>
               </li>
 
               <li data-aos="slide-left">
+
                 <a href="./assets/html/horror.html" style="text-decoration: none; color: inherit;">
+
                 <div class="chapter-card">
 
                   <p class="card-subtitle">06</p>
@@ -5079,21 +5075,18 @@ color: #ac2127;
                     exploring fear, dread, and the unknown through chilling tales of monsters, ghosts, and psychological
                     terror.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Dracula by Bram Stoker </li>
-                    <li>2. The Shining by Stephen King</li>
-                    <li>3. Frankenstein by Mary Shelley </li>
-                  </ul>
+                  <a href="../assets/html/horror.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-              </a>
               </li>
 
               <li data-aos="slide-right">
-                <a href="../assets/html/biography.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">07</p>
@@ -5108,21 +5101,18 @@ color: #ac2127;
                     struggles of notable individuals, offering inspiration and understanding through their personal
                     stories and achievements.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The Diary of a Young Girl by Anne Frank</li>
-                    <li>2. Long Walk to Freedom by Nelson Mandela</li>
-                    <li>3. Steve Jobs by Walter Isaacson</li>
-                  </ul>
+                  <a href="../assets/html/biography.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-              </a>
               </li>
 
               <li data-aos="zoom-in">
-                <a href="../assets/html/self-help.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">08</p>
@@ -5136,20 +5126,18 @@ color: #ac2127;
                     strategies, and insights for personal growth, happiness, and success, covering topics such as
                     relationships, productivity, and mental health.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The 7 Habits of Highly Effective People by Stephen R. Covey </li>
-                    <li>2. The Alchemist by Paulo Coelho</li>
-                    <li>3. Atomic Habits" by James Clear</li>
-                  </ul>
+                  <a href="../assets/html/self-help.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-                </a>
               </li>
+
               <li data-aos="slide-left">
-                <a href="../assets/html/historical-fiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">09</p>
@@ -5163,21 +5151,18 @@ color: #ac2127;
                     narratives, transporting readers to different eras and cultures, bringing history to life through
                     vivid characters and immersive storytelling.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The Book Thief by Markus Zusak </li>
-                    <li>2. All the Light We Cannot See by Anthony Doerr</li>
-                    <li>3. The Nightingal" by Kristin Hannah </li>
-                  </ul>
+                  <a href="../assets/html/historical-fiction.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-              </a>
               </li>
 
               <li data-aos="slide-right" >
-                <a href="../assets/html/poetry.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">10</p>
@@ -5193,21 +5178,18 @@ color: #ac2127;
                     From ancient epics to modern verses, they celebrate the power of words and the timeless beauty of
                     human expression.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The Waste Land by T.S. Eliot</li>
-                    <li>2. Leaves of Grass by Walt Whitman</li>
-                    <li>3. The Sun and Her Flowers by Rupi Kaur </li>
-                  </ul>
+                  <a href="../assets/html/poetry.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-              </a>
               </li>
 
               <li data-aos="zoom-in">
-                <a href="../assets/html/philosophy.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">11</p>
@@ -5222,23 +5204,19 @@ color: #ac2127;
                     and knowledge, they provoke deep thought, challenge assumptions, and offer
                     diverse perspectives, fostering critical thinking and a deeper understanding of the human condition.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Meditations by Marcus Aurelius</li>
-                    <li>2. The Republic by Plato </li>
-                    <li>3. Nicomachean Ethics by Aristotle</li>
-                  </ul>
+                  <a href="../assets/html/philosophy.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-              </a>
               </li>
 
               <li data-aos="slide-left">
-                <a href="../assets/html/adventure.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
-                
 
                   <p class="card-subtitle">12</p>
                   <div class="iconrow">
@@ -5251,22 +5229,19 @@ color: #ac2127;
                     transports readers to exotic locales, ignites the imagination, and offers escapism,
                     excitement, and a sense of discovery and wonder.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Treasure Island by Robert Louis Stevenson</li>
-                    <li>2. The Call of the Wild by Jack London</li>
-                    <li>3. Life of Pi by Yann Martel</li>
-                  </ul>
+                  <a href="../assets/html/adventure.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-              </a>
               </li>
 
               <!-- Added three more genres here-->
               <li data-aos="slide-right">
-                <a href="../assets/html/nonfiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">13</p>
@@ -5279,21 +5254,18 @@ color: #ac2127;
                     Dive into the mysteries and secrets of the world surrounding us, and gain a deeper knowledge and
                     history behind the wisdom of our correspondants and predecessors, through non-fiction.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Sapiens: A Brief History of Humankind by Yuval Noah Harari</li>
-                    <li>2. Educated by Tara Westover</li>
-                    <li>3. The Immortal Life of Henrietta Lacks by Rebecca Skloot</li>
-                  </ul>
+                  <a href="../assets/html/nonfiction.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-                </a>
               </li>
 
               <li data-aos="zoom-in">
-                <a href="../assets/html/comedy.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">14</p>
@@ -5306,21 +5278,18 @@ color: #ac2127;
                     Are you feeling blue and want a good laugh? Well then, Comedy is the right genre for you! Grab a cup
                     of coffee, lean back and dive into a world of humour, smiles and all sun!
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The Hitchhiker's Guide to the Galaxy by Douglas Adams</li>
-                    <li>2. Good Omens by Neil Gaiman and Terry Pratchett</li>
-                    <li>3. Bossypants by Tina Fey</li>
-                  </ul>
+                  <a href="../assets/html/comedy.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-                </a>
               </li>
 
               <li data-aos="slide-left">
-                <a href="../assets/html/detective-fiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">15</p>
@@ -5335,20 +5304,17 @@ color: #ac2127;
                     reach your end-goal with secret agents. Put your investigative and observative skills to the test,
                     in the land of Detective Fiction.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The Hound of the Baskervilles by Arthur Conan Doyle</li>
-                    <li>2. Gone Girl by Gillian Flynn</li>
-                    <li>3. The Big Sleep by Raymond Chandler</li>
-                  </ul>
+                  <a href="../assets/html/detective-fiction.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-                </a>
               </li>
               <li data-aos="slide-right">
-                <a href="../assets/html/fairytale.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
                   <p class="card-subtitle">16</p>
                   <div class="iconrow">
@@ -5361,19 +5327,16 @@ color: #ac2127;
                     vanquished. The essence of fairy tales is their promise of a happy ending, with characters finding
                     their "happily ever after."
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Grimm's Fairy Tales by Jacob and Wilhelm Grimm</li>
-                    <li>2. Cinderella by Charles Perrault</li>
-                    <li>3. The Snow Queen by Hans Christian Andersen</li>
-                  </ul>
+                  <a href="../assets/html/fairytale.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
                 </div>
-                </a>
               </li>
               <li data-aos="zoom-in">
-                <a href="../assets/html/mythology.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
                   <p class="card-subtitle">17</p>
                   <div class="iconrow">
@@ -5386,19 +5349,16 @@ color: #ac2127;
                     generations. These tales often feature gods, heroes, and mythical creatures, exploring themes of
                     creation, morality, and the human condition.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Mythology: Timeless Tales of Gods and Heroes by Edith Hamilton </li>
-                    <li>2. The Iliad by Homer</li>
-                    <li>3. Norse Mythology by Neil Gaiman</li>
-                  </ul>
+                  <a href="../assets/html/mythology.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
                 </div>
-                </a>
               </li>
               <li data-aos="slide-left">
-                <a href="../assets/html/noir.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
                   <p class="card-subtitle">18</p>
                   <div class="iconrow">
@@ -5412,19 +5372,16 @@ color: #ac2127;
                     environments and explore themes of crime, corruption, and existential despair.
                   </p>
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Double Indemnity by James M. Cain</li>
-                    <li>2. The Maltese Falcon by Dashiell Hammett</li>
-                    <li>3. The Postman Always Rings Twice by James M. Cain</li>
-                  </ul>
+                  <a href="../assets/html/noir.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
                 </div>
-                </a>
               </li>
               <li data-aos="slide-right">
-                <a href="../assets/html/true-crime.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
                   <p class="card-subtitle">19</p>
                   <div class="iconrow">
@@ -5437,20 +5394,18 @@ color: #ac2127;
                     justice system through detailed and factual narratives. These stories often provide deep insights
                     into criminal minds and the complex pursuit of justice.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. In Cold Blood by Truman Capote</li>
-                    <li>2. The Devil in the White City by Erik Larson</li>
-                    <li>3. I'll Be Gone in the Dark by Michelle McNamara </li>
-                  </ul>
+                  <a href="../assets/html/true-crime.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
                 </div>
-                </a>
+
               </li>
 
               <li data-aos="zoom-int">
-                <a href="../assets/html/dystopian.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">20</p>
@@ -5464,21 +5419,18 @@ color: #ac2127;
                     oppression, deprivation, and despair. These stories challenge readers to reflect on current social
                     and political issues by presenting exaggerated consequences of modern-day problems.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. 1984 by George Orwell</li>
-                    <li>2. Fahrenheit 451 by Ray Bradbury</li>
-                    <li>3. The Handmaid's Tale by Margaret Atwood</li>
-                  </ul>
+                  <a href="../assets/html/dystopian.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-                </a>
               </li>
 
               <li data-aos="slide-left">
-                <a href="../assets/html/magical-realism.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">21</p>
@@ -5492,22 +5444,19 @@ color: #ac2127;
                     of everyday life. This genre often explores the boundaries between reality and imagination, weaving
                     fantastical occurrences into the fabric of the mundane.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The Chronicles of Narnia by C.S. Lewis</li>
-                    <li>2. Alice's Adventures in Wonderland by Lewis Carroll</li>
-                    <li>3. The Night Circus by Erin Morgenstern</li>
-                  </ul>
+                  <a href="../assets/html/magical-realism.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-              </a>
               </li>
 
 
               <li data-aos="slide-right">
-                <a href="../assets/html/cyberpunk.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">22</p>
@@ -5522,21 +5471,18 @@ color: #ac2127;
                     technology on human life, including issues of cybernetics, artificial intelligence, and corporate
                     control.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Neuromancer by William Gibson</li>
-                    <li>2. Snow Crash by Neal Stephenson</li>
-                    <li>3. Altered Carbon by Richard K. Morgan</li>
-                  </ul>
+                  <a href="../assets/html/cyberpunk.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-                </a>
               </li>
 
               <li data-aos="zoom-in">
-                <a href="../assets/html/utopian.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">23</p>
@@ -5550,21 +5496,18 @@ color: #ac2127;
                     perfect. These stories often explore theoretical models of how human society might function in an
                     ideal state, offering a contrast to real-world issues and inspiring visions of a better future.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Utopia by Thomas More</li>
-                    <li>2. Brave New World by Aldous Huxley</li>
-                    <li>3. The Dispossessed by Ursula K. Le Guin</li>
-                  </ul>
+                  <a href="../assets/html/utopian.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-                </a>
               </li>
 
               <li data-aos="slide-left">
-                <a href="../assets/html/experimental-fiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">24</p>
@@ -5578,21 +5521,18 @@ color: #ac2127;
                     genre is known for its innovative approaches, including fragmented narratives, unconventional
                     formats, and metafictional elements, pushing the boundaries of traditional storytelling.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. House of Leaves by Mark Z. Danielewski</li>
-                    <li>2. Ulysses by James Joyce</li>
-                    <li>3. If on a winter's night a traveler by Italo Calvino</li>
-                  </ul>
+                  <a href="../assets/html/experimental-fiction.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-                </a>
               </li>
 
               <li data-aos="slide-right">
-                <a href="../assets/html/satire.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
                   <p class="card-subtitle">25</p>
                   <div class="iconrow">
@@ -5605,21 +5545,18 @@ color: #ac2127;
                     through verbal ingenuity, swift perception and the human understanding of sarcasm and irony in
                     real-life.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Animal Farm by George Orwell</li>
-                    <li>2. Catch-22 by Joseph Heller</li>
-                    <li>3. The Hitchhiker's Guide to the Galaxy by Douglas Adams</li>
-                  </ul>
+                  <a href="../assets/html/satire.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
                 </div>
-              </a>
               </li>
 
               </li>
               <li data-aos="zoom-in">
-                <a href="../assets/html/psycological-thriller.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">26</p>
@@ -5633,20 +5570,19 @@ color: #ac2127;
                     unreliable narrators. They keep you guessing with twists and explore complex, often dark,
                     motivations.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Gone Girl by Gillian Flynn</li>
-                    <li>2. The Girl on the Train by Paula Hawkins</li>
-                    <li>3. Shutter Island by Dennis Lehane</li>
-                  </ul>
+                  <a href="../assets/html/psycological-thriller.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-                </a>
               </li>
 
               <li data-aos="slide-left">
+                <a href="../assets/html/autobiography.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">27</p>
@@ -5658,16 +5594,15 @@ color: #ac2127;
                     reflection on their experiences.It serves as a means for the author to share their unique narrative,
                     including the challenges they've faced and the lessons they've learned along the way.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The Story of My Life by Helen Keller</li>
-                    <li>2. Becoming by Michelle Obama</li>
-                    <li>3. Educated by Tara Westover</li>
-                  </ul>
-
+                  <a href="../assets/html/biography.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
                 </div>
+              </a>
               </li>
             </ul>
             
@@ -6078,19 +6013,9 @@ color: #ac2127;
         event.preventDefault(); // Prevent the default form submission
         console.log('Form submitted'); // Debug log
 
-<<<<<<< HEAD
+
         <script>
           document.addEventListener("DOMContentLoaded", function () {})
-
-
-
-            <!-- JavaScript for form submission -->
-            <script>
-              document.addEventListener("DOMContentLoaded", function() {})
-
-
-
-     
 
 
               // <!-- Rate Us Component -->
@@ -6194,7 +6119,7 @@ body {
     transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transitions */
     z-index: 999; /* Ensure it's above other elements */
 }
->>>>>>> 5b34637af341bc5ad0fa8d317b0c7a6df312a37f
+
 
 
 
@@ -6922,7 +6847,7 @@ box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); /* Slightly larger shadow on hover */
                 <div id="quicklink" class="row">
                   <div>
                     <ul>
-                      <li class="foot-quick"><a href="/chat.html"><i class="fa-solid fa-message"></i>
+                      <li class="foot-quick"><a href="/chatt.html"><i class="fa-solid fa-message"></i>
                           <h4 class="flinks">Community Chat</h4>
                         </a></li>
                     </ul>

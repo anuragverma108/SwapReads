@@ -642,62 +642,70 @@ tbody td.event-date:hover {
       
       
             <ul class="navbar-list nav">
+              <style>
+                .navbar-item {
+                  margin-right: 15px; /* Add spacing between items */
+                }
+            
+                .navbar-link {
+                  font-size: 0.9rem; /* Decrease the font size */
+                }
+              </style>
+              
               <a href="index.html" class="logo" style="display:flex;">
                 <img src="../images/final.png" class="logopic" style=" width: 10rem; height:100px; margin:0px 0px 15px -10px;">
               </a>
-      
+            
               <li class="navbar-item">
-                <a href="index.html" class="navbar-link" data-nav-link>
+                <a href="index.html" class="navbar-link" data-nav-link="">
                   <i class="ri-home-fill"></i> Home
                 </a>
               </li>
-      
-      
+            
               <li class="navbar-item">
-                <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
+                <a href="./assets/html/about.html" class="navbar-link" data-nav-link="">
                   <i class="ri-information-fill"></i> About Us
                 </a>
               </li>
-      
-             <li class="navbar-item">
-                <a href="index.html#benefits"  class="navbar-link" data-nav-link><i
-                    class="ri-bar-chart-fill"></i> Benefits</a>
-              </li>
-      
+            
               <li class="navbar-item">
-                <a href="index.html#genre"  class="navbar-link" data-nav-link><i
-                    class="ri-bar-chart-fill"></i> Genre</a>
+                <a href="index.html#benefits" class="navbar-link" data-nav-link=""><i class="ri-bar-chart-fill"></i> Benefits</a>
               </li>
-      
-             <li class="navbar-item">
-                  <a href="audiobook.html" class="navbar-link" data-nav-link>
-                      <i class="ri-questionnaire-fill"></i> Audio Books
-                  </a>
-              </li>
-      
-      
+            
               <li class="navbar-item">
-                <a href="index.html#contact"  class="navbar-link" data-nav-link>
+                <a href="index.html#genre" class="navbar-link" data-nav-link=""><i class="ri-bar-chart-fill"></i> Genre</a>
+              </li>
+            
+              <li class="navbar-item">
+                <a href="audiobook.html" class="navbar-link" data-nav-link="">
+                  <i class="ri-questionnaire-fill"></i> Audio Books
+                </a>
+              </li>
+            
+              <li class="navbar-item">
+                <a href="index.html#contact" class="navbar-link" data-nav-link="">
                   <i class="ri-contacts-fill"></i> Contact
                 </a>
               </li>
-      
+            
               <li class="navbar-item" id="login-signup-link">
                 <a href="./assets/html/login.html" class="navbar-link">
                   <i class="ri-login-box-fill"></i> Login/Signup
                 </a>
               </li>
-      
+            
               <li class="navbar-item">
-                <a href="comsp.html" class="navbar-link" data-nav-link>
+                <a href="comsp.html" class="navbar-link" data-nav-link="">
                   <i class="ri-book-fill"></i> Community
                 </a>
               </li>
+              
               <li class="navbar-item">
-                <a href="./assets/html/event.html"  class="navbar-link" data-nav-link>
+                <a href="./assets/html/event.html" class="navbar-link" data-nav-link="">
                   <i class="ri-community-fill"></i> Events
                 </a>
               </li>     
+              
               <li class="navbar-item"> 
                 <!-- Theme switcher -->
                 <div class="switch-container">
@@ -710,46 +718,47 @@ tbody td.event-date:hover {
                   </label>
                 </div>
               </li>     
-
-                
-                  <script>
-                      // Theme switcher
-                      document.addEventListener('DOMContentLoaded', function () {
-                        const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
-                        const bodyElement = document.body;
-                  
-                        const currentTheme = localStorage.getItem('theme') || 'light';
-                        if (currentTheme === 'dark') {
-                          bodyElement.classList.add('dark-mode');
-                          toggleSwitch.checked = true;
-                        } else {
-                          bodyElement.classList.add('light-mode');
-                        }
-                  
-                        toggleSwitch.addEventListener('change', function (event) {
-                          if (event.target.checked) {
-                            bodyElement.classList.remove('light-mode');
-                            bodyElement.classList.add('dark-mode');
-                            localStorage.setItem('theme', 'dark');
-                          } else {
-                            bodyElement.classList.remove('dark-mode');
-                            bodyElement.classList.add('light-mode');
-                            localStorage.setItem('theme', 'light');
-                          }
-                        });
-                      });
-                    // Hamburger toggle
-                    document.getElementById('hamburger-button').addEventListener('click', function() {
-                      document.querySelector('.navbar').classList.toggle('active');
-                    });
-                  
-                  function scrollToGenre(genreId) {
-                    const element = document.getElementById(genreId);
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
+            
+              <script>
+                // Theme switcher
+                document.addEventListener('DOMContentLoaded', function () {
+                  const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
+                  const bodyElement = document.body;
+            
+                  const currentTheme = localStorage.getItem('theme') || 'light';
+                  if (currentTheme === 'dark') {
+                    bodyElement.classList.add('dark-mode');
+                    toggleSwitch.checked = true;
+                  } else {
+                    bodyElement.classList.add('light-mode');
                   }
-                    </script>
+            
+                  toggleSwitch.addEventListener('change', function (event) {
+                    if (event.target.checked) {
+                      bodyElement.classList.remove('light-mode');
+                      bodyElement.classList.add('dark-mode');
+                      localStorage.setItem('theme', 'dark');
+                    } else {
+                      bodyElement.classList.remove('dark-mode');
+                      bodyElement.classList.add('light-mode');
+                      localStorage.setItem('theme', 'light');
+                    }
+                  });
+                });
+            
+                // Hamburger toggle
+                document.getElementById('hamburger-button').addEventListener('click', function() {
+                  document.querySelector('.navbar').classList.toggle('active');
+                });
+            
+                function scrollToGenre(genreId) {
+                  const element = document.getElementById(genreId);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }
+              </script>
+            </ul>
                   </header>
      
    <script>
