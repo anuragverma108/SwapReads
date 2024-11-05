@@ -47,6 +47,22 @@
 
   <script src="./assets/js/rateUsModal.js" defer></script>
 <style>
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+   margin-top: 45px;
+   margin-left: 9rem;
+}
+        .navbar-link {
+  color: black !important;
+}
+
+.dark-mode .navbar-link {
+  color: white !important;
+}
   /* Circle styles */
   .circle {
     height: 24px;
@@ -181,182 +197,159 @@
   <div class="circle"></div>
   <div class="circle"></div>
 
-  <header class="header header-anim" data-header>
-
-    <div class="container" style="padding-left: 0;">
-
+  <header class="header header-anim nav-h" data-header>
+  
+    <div class="container mobile-container-styles">
+     
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav class="navbar nav_activated" data-navbar>
-        <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
-          <img src="./assets/images/final.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
-        </a>
-
-        <ul class="navbar-list">
-          <img src="./assets/images/final.png" class="logopic" style=" width: 150px;">
-
-          <li class="navbar-item">
-            <a href="index.html#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
-                class="ri-home-fill"></i> Home</a>
+  
+  
+        <ul class="navbar-list nav" style="margin-right: 10px;">
+          <a href="index.html" class="logo" style="display:flex;">
+            <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; height:100px; margin:0px 0px 15px -10px;">
+          </a>
+  
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="index.html" class="navbar-link" data-nav-link>
+              <i class="ri-home-fill"></i> Home
+            </a>
           </li>
-
-          <li class="navbar-item">
-            <a href="index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
+  
+  
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
+              <i class="ri-information-fill"></i> About Us
+            </a>
+          </li>
+  
+         <li class="navbar-item" style="margin-right: 10px;">
+            <a href="index.html#benefits"  class="navbar-link" data-nav-link><i
                 class="ri-bar-chart-fill"></i> Benefits</a>
           </li>
-
-          <li class="navbar-item">
-            <a href="index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+  
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="index.html#genre"  class="navbar-link" data-nav-link><i
                 class="ri-bar-chart-fill"></i> Genre</a>
           </li>
-          
-          <li class="navbar-item">
-            <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+  
+         <li class="navbar-item">
+              <a href="audiobook.html" class="navbar-link" data-nav-link>
+                  <i class="ri-questionnaire-fill"></i> Audio Books
+              </a>
           </li>
-
-          <li class="navbar-item">
-            <a href="index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-                class="ri-customer-service-2-fill"></i> Contact</a>
+  
+  
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="index.html#contact"  class="navbar-link" data-nav-link>
+              <i class="ri-contacts-fill"></i> Contact
+            </a>
           </li>
-
-          <li class="navbar-item" id="login-signup-link">
-            <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
+  
+          <li class="navbar-item" id="login-signup-link" style="margin-right: 10px;">
+            <a href="./assets/html/login.html" class="navbar-link">
+              <i class="ri-login-box-fill"></i> Login/Signup
+            </a>
           </li>
-
-
-          <li class="navbar-item dropdown" id="more-dropdown">
-            <a href="#" class="navbar-link" id="more-link">More
-              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
-                viewBox="0 0 24 24">
-                <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
-              </svg></a>
-            <div class="dropdown-menu" id="dropdown-menu">
-
-              <ul class="dropdown-menu-list">
-                <li class="dropdown-menu-item">
-                  <a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
-                      class="ri-medal-fill"></i> Literary Realms</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
-                      class="ri-price-tag-3-fill"></i> Pricing</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/addremovebook.html" class="navbar-link">Booklist for Swapping</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/book_recommend.html" class="navbar-link" data-nav-link>
-                    <i class="ri-customer-service-2-fill"></i> Book Recommendation
-                  </a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
-                    data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="././read_later.html" class="navbar-link">Booklist for Swapping</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/about.html" class="navbar-link">About</a>
-                </li>
-              </ul>
+  
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="comsp.html" class="navbar-link" data-nav-link>
+              <i class="ri-book-fill"></i> Community
+            </a>
+          </li>
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="./assets/html/event.html"  class="navbar-link" data-nav-link>
+              <i class="ri-community-fill"></i> Events
+            </a>
+          </li>   
+          <div class="switch-container">
+            <input type="checkbox" id="switch" class="switch-checkbox">
+            <label for="switch" class="switch-label">
+              <div class="switch-button">
+                <span class="material-icons sun-icon">wb_sunny</span>
+                <span class="material-icons moon-icon">brightness_2</span>
+              </div>
+            </label>
             </div>
-          </li>
-          <div class="action">
-            <div class="profile" onclick="menuToggle();">
-                <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
-            </div>
-            <div class="menu">
-                <h3>XYZ<br /><span>Book Lover</span></h3>
-                <ul>
-                    <li><img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a></li>
-                    <li><img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit profile</a></li>
-                    <li><img src="./assets/images/inbox.png" /><a href="#">Inbox</a></li>
-                    <li><img src="./assets/images/settings.png" /><a href="#">Settings</a></li>
-                    <li><img src="./assets/images/help.png" /><a href="/help.html">Help</a></li>
-                    <li><img src="./assets/images/logout.png" /><a id="logout-btn">Logout</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        
+              <!-- Theme switcher -->
+
+              
+            
               <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                    const savedAvatar = localStorage.getItem("selectedAvatar");
-                    if (savedAvatar) {
-                        document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
-                    }
-                });
-        
-                function menuToggle() {
-                    const toggleMenu = document.querySelector(".menu");
-                    toggleMenu.classList.toggle("active");
-                }
-        
-                document.addEventListener("click", function(event) {
-                    const profile = document.querySelector(".profile");
-                    const menu = document.querySelector(".menu");
-        
-                    if (!profile.contains(event.target) && !menu.contains(event.target)) {
-                        menu.classList.remove("active");
-                    }
-                });
-        
-                let lastScrollTop = 0;
-                const header = document.querySelector('.header');
-        
-                window.addEventListener('scroll', function() {
-                    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-                    if (scrollTop > lastScrollTop) {
-                        // Downscroll
-                        header.style.transform = 'translateY(-120%)';
+                  // Theme switcher
+                  document.addEventListener('DOMContentLoaded', function () {
+                    const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
+                    const bodyElement = document.body;
+              
+                    const currentTheme = localStorage.getItem('theme') || 'light';
+                    if (currentTheme === 'dark') {
+                      bodyElement.classList.add('dark-mode');
+                      toggleSwitch.checked = true;
                     } else {
-                        // Upscroll
-                        header.style.transform = 'translateY(0)';
+                      bodyElement.classList.add('light-mode');
                     }
-        
-                    lastScrollTop = scrollTop;
+              
+                    toggleSwitch.addEventListener('change', function (event) {
+                      if (event.target.checked) {
+                        bodyElement.classList.remove('light-mode');
+                        bodyElement.classList.add('dark-mode');
+                        localStorage.setItem('theme', 'dark');
+                      } else {
+                        bodyElement.classList.remove('dark-mode');
+                        bodyElement.classList.add('light-mode');
+                        localStorage.setItem('theme', 'light');
+                      }
+                    });
+                  });
+                // Hamburger toggle
+                document.getElementById('hamburger-button').addEventListener('click', function() {
+                  document.querySelector('.navbar').classList.toggle('active');
                 });
-            </script>
 
+              // Update the coordinates when the mouse moves
+              window.addEventListener("mousemove", function (e) {
+                coords.x = e.clientX;
+              coords.y = e.clientY;
+});
 
-          <!-- Google Translate Element -->
-          <li class="navbar-item">
-            <div id="google_element"></div>
-          </li>
-        </ul>
-      </nav>
-    </div>
+              // Animation function to move the circles
+              function animateCircles() {
+                let x = coords.x;
+              let y = coords.y;
 
-    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-    <script>
-      function loadGoogleTranslate() {
-        new google.translate.TranslateElement({
-          pageLanguage: 'en'
-        }, 'google_element');
-      }
-    </script>
-    <div class="switch-container" style="top: 15px;">
-      <input type="checkbox" id="switch" class="switch-checkbox">
-      <label for="switch" class="switch-label">
-        <div class="switch-button">
-          <span class="material-icons sun-icon">wb_sunny</span>
-          <span class="material-icons moon-icon">brightness_2</span>
-        </div>
-      </label>
-    </div>
+              circles.forEach(function (circle, index) {
+                // Update the position and scale of each circle
+                circle.style.left = x - 12 + "px";
+              circle.style.top = y - 12 + "px";
+              circle.style.scale = (circles.length - index) / circles.length;
 
-    </li>
-    </ul>
-    </nav>
-    <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
-      <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
+              circle.x = x;
+              circle.y = y;
 
-      <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
-    </button>
+              // Get the next circle in the sequence
+              const nextCircle = circles[index + 1] || circles[0];
+              x += (nextCircle.x - x) * 0.15;
+              y += (nextCircle.y - y) * 0.15;
+  });
 
-    </div>
-  </header>
+              // Repeat the animation
+              requestAnimationFrame(animateCircles);
+}
 
+              // Start the animation
+              animateCircles();
+
+              function scrollToGenre(genreId) {
+                const element = document.getElementById(genreId);
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }
+                </script>
+              </header>
 
 
 

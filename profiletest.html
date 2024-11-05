@@ -21,9 +21,68 @@
     <script src="testp.js" defer></script>
 
     <title>Profile Page</title>
+
+    <style>
+        /* Circle styles */
+        .circle {
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 99999999;
+            transition: transform 0.1s ease-out;
+        }
+    </style>
 </head>
 
 <body>
+    
+    <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div> 
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+ 
     <div class="profile-container">
 
         <div class="content-section">
@@ -33,12 +92,12 @@
             </a>
             <div class="profile-card">
                 <div class="profile-header">
-                    <img src="/assets/images/avatar2.jpg" alt="Profile Image" class="profile-image">
+                    <img src="./assets/images/avatar2.jpg" alt="Profile Image" class="profile-image" id="selectedAvatar">
                     <div class="profile-info">
-                        <h3 class="profile-name">John Doe</h3>
-                        <p class="profile-bio">A book Worm 😉</p>
-                        <p class="profile-email"><i class="fas fa-envelope"></i> email@example.com</p>
-                        <p class="profile-phone"><i class="fas fa-phone"></i> +123 456 7890</p>
+                        <h3 class="profile-name" id="profileNameDisplay">John Doe</h3>
+                        <p class="profile-bio" id="profileBioDisplay">A book Worm 😉</p>
+                        <p class="profile-email"><i class="fas fa-envelope" id="profileEmailDisplay"></i></p>
+                        <p class="profile-phone" id="profilePhoneDisplay"><i class="fas fa-phone"></i> +123 456 7890</p>
                         <p id="last-active"></p>
                     </div>
                 </div>
@@ -53,26 +112,26 @@
             <div class="profile-details">
                 <div class="profile-detail-card" id="profileCard">
                     <h3>Address</h3>
-                    <p id="addressText" contenteditable="false">123 Main St, New York, NY</p>
-                    <a href="#"><button class="edit-profile-btn">Edit</button></a>
+                    <p id="addressDisplay" contenteditable="false">123 Main St, New York, NY</p>
+                    <a href="/address.html"><button class="edit-profile-btn">Edit</button></a>
                 </div>
 
                 <div class="profile-detail-card">
                     <h3>Payment Methods</h3>
                     <p>**** **** **** 1234</p>
-                    <a href="#">
+                    <a href="/payment.html">
                     <button class="edit-profile-btn">Edit</button></a>
                 </div>
                 <div class="profile-detail-card">
                     <h3>Wishlist</h3>
-                    <p>Item 1, Item 2</p>
-                    <a href="#">
+                    <p id="wishlistDisplay">Item 1, Item 2</p>
+                    <a href="/wishlist.html">
                     <button class="edit-profile-btn">View</button></a>
                 </div>
                 <div class="profile-detail-card">
                     <h3>Recent Activity</h3>
-                    <p>Order #1234, Order #5678</p>
-                    <a href="#">
+                    <p>Order #1234, New Msg from Ritu</p>
+                    <a href="/activity.html">
                     <button class="edit-profile-btn">View</button></a>
                 </div>
             </div>
@@ -105,6 +164,133 @@
             <p>&copy; 2023 Swap Reads. All rights reserved.</p>
         </footer>
     </div>
+
+
+
+
+
+    <script>
+
+        // Coordinates for the cursor
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+    
+        // Colors for the circles
+        const colors = [
+          "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+          "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+          "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+          "#680060", "#60005f", "#48005f", "#3d005e"
+        ];
+    
+        // Assign colors and initial position to each circle
+        circles.forEach(function (circle, index) {
+          circle.x = 0;
+          circle.y = 0;
+          circle.style.backgroundColor = colors[index % colors.length];
+        });
+    
+        // Update the coordinates when the mouse moves
+        window.addEventListener("mousemove", function (e) {
+          coords.x = e.clientX;
+          coords.y = e.clientY;
+        });
+    
+        // Animation function to move the circles
+        function animateCircles() {
+          let x = coords.x;
+          let y = coords.y;
+    
+          circles.forEach(function (circle, index) {
+            // Update the position and scale of each circle
+            circle.style.left = x - 12 + "px";
+            circle.style.top = y - 12 + "px";
+            circle.style.scale = (circles.length - index) / circles.length;
+    
+            circle.x = x;
+            circle.y = y;
+    
+            // Get the next circle in the sequence
+            const nextCircle = circles[index + 1] || circles[0];
+            x += (nextCircle.x - x) * 0.15;
+            y += (nextCircle.y - y) * 0.15;
+          });
+    
+          // Repeat the animation
+          requestAnimationFrame(animateCircles);
+        }
+    
+        // Start the animation
+        animateCircles();
+    
+
+   // Get the saved profile data and display it on the page
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const savedName = localStorage.getItem("profileName");
+        const savedPhone = localStorage.getItem("profilePhone");
+        const savedEmail = localStorage.getItem("profileEmail");
+        const savedAvatar = localStorage.getItem("selectedAvatar");
+        const savedBio = localStorage.getItem("profileBio");
+        const savedAddress = localStorage.getItem("address");
+
+
+        if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
+
+        if (savedPhone) {
+            document.getElementById("profilePhoneDisplay").textContent = `Phone: ${savedPhone}`;
+        } else {
+            document.getElementById("profilePhoneDisplay").textContent = "Phone: Not provided";
+        }
+
+        if (savedEmail) {
+            document.getElementById("profileEmailDisplay").textContent = ` ${savedEmail}`;
+        } else {
+            document.getElementById("profileEmailDisplay").textContent = "Email: Not provided";
+        }
+
+        if (savedAvatar) {
+            document.getElementById("selectedAvatar").src = `./assets/images/${savedAvatar}`;
+        } else {
+            document.getElementById("selectedAvatar").src = "/assets/images/avatar1.jpg";
+
+        }
+        if (savedBio) {
+            document.getElementById("profileBioDisplay").textContent = `${savedBio}`;
+        } else {
+            document.getElementById("profileBioDisplay").textContent = "Bio: Not provided";
+        }
+        if (savedAddress) {
+            document.getElementById("addressDisplay").textContent = `${savedAddress}`;
+        } else {
+            document.getElementById("addressDisplay").textContent = "Address: Not provided";
+        }
+
+
+        // Fetch wishlist books from local storage
+        function renderWishlist() {
+            const wishlistDisplay = document.getElementById('wishlistDisplay');
+            const books = JSON.parse(localStorage.getItem('books')) || [];
+
+            if (books.length > 0) {
+                wishlistDisplay.textContent = books.slice(0, 2).map(book => book.title).join(', ');
+            } else {
+                wishlistDisplay.textContent = "No items in wishlist.";
+            }
+        }
+
+        // Call renderWishlist to populate #wishlistDisplay
+        renderWishlist();
+
+
+
+    });
+</script>
+
 </body>
 
 </html>

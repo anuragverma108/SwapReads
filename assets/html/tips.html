@@ -398,16 +398,10 @@
     }
 
 
-
-
-
-
-
-
     .card-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      gap: 70px;
       /* Increased padding from 30px to 80px to seperate the navbar with the cards */
       padding: 80px;
       margin-top: 70px;
@@ -452,6 +446,12 @@
       position: absolute;
     }
 
+    /*Added hover to Fiction to enhance the UI*/
+    .card-front.Fiction:hover{
+      transform: scale(1.1);
+      border-radius: 0px;
+    }
+
     /* Added: Image for Fiction Tip */
     .Fiction{
       background-image: url("https://snworksceo.imgix.net/asp/0f387215-8a51-4142-adb1-4d05c82a1fc2.sized-1000x1000.jpg?w=1000");
@@ -468,12 +468,24 @@
       background-repeat: no-repeat;     /* Prevents repeating */
     }
 
+    /*Added hover to Non-Fiction to enhance the UI*/
+    .card-front.Non-Fiction:hover{
+      transform: scale(1.1);
+      border-radius: 0px;
+    }
+
     /* Added: Image for Mystery Tip */
     .Mystery{
       background-image: url("https://celadonbooks.com/wp-content/uploads/2020/03/what-is-a-mystery.jpg");
       background-size: cover;           /* Ensures the image covers the div */
       background-position: center;      /* Centers the image */
       background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /*Added hover to Mystery to enhance the UI*/
+    .card-front.Mystery:hover{
+      transform: scale(1.1);
+      border-radius: 0px;
     }
 
     /* Added: Image for Fantasy Tip */
@@ -484,12 +496,24 @@
       background-repeat: no-repeat;     /* Prevents repeating */
     }
 
+    /*Added hover to Fantasy to enhance the UI*/
+    .card-front.Fantasy:hover{
+      transform: scale(1.1);
+      border-radius: 0px;
+    }
+
     /* Added: Image for Historical Fiction Tip */
     .Historical{
       background-image: url("https://writerscentremedia.writerscentre.com.au/wp-content/uploads/2020/11/30180747/7-tips-to-writing-authentic-historical-fiction.jpg");
       background-size: cover;           /* Ensures the image covers the div */
       background-position: center;      /* Centers the image */
       background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /*Added hover to Historical to enhance the UI*/
+    .card-front.Historical:hover{
+      transform: scale(1.1);
+      border-radius: 0px;
     }
 
     /* Added: Image for Biographies Tip */
@@ -500,12 +524,24 @@
       background-repeat: no-repeat;     /* Prevents repeating */
     }
 
+    /*Added hover to Biographies to enhance the UI*/
+    .card-front.Biographies:hover{
+      transform: scale(1.1);
+      border-radius: 0px;
+    }
+
     /* Added: Image for Poetry Tip */
     .Poetry{
       background-image: url("https://talkstar-assets.s3.amazonaws.com/production/playlists/playlist_697/a96f0391-83e8-45a3-bc6a-f1c571b78239/poetry_by_women_SQ.jpg");
       background-size: cover;           /* Ensures the image covers the div */
       background-position: center;      /* Centers the image */
       background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /*Added hover to Poetry to enhance the UI*/
+    .card-front.Poetry:hover{
+      transform: scale(1.1);
+      border-radius: 0px;
     }
 
     /* Added: Image for Self-Help Tip */
@@ -516,12 +552,24 @@
       background-repeat: no-repeat;     /* Prevents repeating */
     }
 
+    /*Added hover to Self to enhance the UI*/
+    .card-front.Self:hover{
+      transform: scale(1.1);
+      border-radius: 0px;
+    }
+
     /* Added: Image for Science Fiction Tip */
     .Science{
       background-image: url("https://www.sciencefictionideas.com/wp-content/uploads/2023/03/good-science-fiction.jpg");
       background-size: cover;           /* Ensures the image covers the div */
       background-position: center;      /* Centers the image */
       background-repeat: no-repeat;     /* Prevents repeating */
+    }
+
+    /*Added hover to Science to enhance the UI*/
+    .card-front.Science:hover{
+      transform: scale(1.1);
+      border-radius: 0px;
     }
 
     /* Added: Image for Graphic Novels Tip */
@@ -532,10 +580,18 @@
       background-repeat: no-repeat;     /* Prevents repeating */
     }
 
+    /*Added hover to Graphic to enhance the UI*/
+    .card-front.Graphic:hover{
+      transform: scale(1.1);
+      border-radius: 0px;
+    }
+
     .card-front h1{
       position: relative;
-      bottom: -120px;
-      background: #e97070;
+      bottom: -210px;
+      font-size: 25px;
+      color: black;
+      
     }
 
     .card-back {
@@ -564,7 +620,6 @@
     .flip .card-inner {
       transform: rotateY(180deg);
     }
-
 
 
 
@@ -611,6 +666,8 @@
 #quicklinks .foot-quick a i {
   margin-right: 5px; /* Adjust spacing between icon and text */
 }
+
+
 .dark-mode .fas{
   color:white;
 }
@@ -742,10 +799,43 @@
   vertical-align: middle;
 }
 
+body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    background-image: url('../images/darkmode_bg.png'); /* Add your dark mode image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+  }
 
+  .dark-mode .card-front {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+}
 
+.dark-mode .card-front h1 {
+  color: #e0e0e0;
+}
 
+.dark-mode .card-back {
+  background-color: #2e2e2e;
+}
+.dark-mode .card-back p{
+  color:whitesmoke;
+}
 
+.dark-mode .card-image {
+  filter: brightness(0.8);
+}
+.dark-mode .random-tip-container {
+    background-color: #1c1c1e; /* Dark background */
+    color: #e5e5e5; /* Light text color for readability */
+    border-color: #d9555b; /* Slightly lighter border color */
+    box-shadow: 2px 2px 20px #d9555b99; /* Adjusted shadow color */
+}
+.dark-mode h2{
+  color:#e5e5e5
+}
   </style>
   <header class="header header-anim nav-h" data-header>
 
@@ -843,7 +933,7 @@
 
               <ul class="dropdown-menu-list">
                 <li class="dropdown-menu-item">
-                  <a href="../../chat.html" class="navbar-link"
+                  <a href="../../chatt.html" class="navbar-link"
                     style="font-family: sans-serif;  margin-bottom: 5px;">
                     Community chat
                   </a>
@@ -855,7 +945,7 @@
                   </a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href="../html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link"
+                  <a href="/#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link"
                     data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
                 </li>
                 <li class="dropdown-menu-item">
@@ -894,11 +984,22 @@
           </lord-icon>Login/Signup</a>
           </li>
 
+          <div class="switch-container">
+            <input type="checkbox" id="switch" class="switch-checkbox">
+            <label for="switch" class="switch-label" style="margin-left: 120px; left: 200px;
+    margin-top: -30px;">
+              <div class="switch-button">
+                <span class="material-icons sun-icon">wb_sunny</span>
+                <span class="material-icons moon-icon">brightness_2</span>
+              </div>
+            </label>
+          </div>
+
           <li>
             <div class="action">
               
               <!-- <div class="menu">
-                <h3>XYZ<br /><span>Book Lover</span></h3>
+                <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
                 <ul>
                   <li>
                     <img src="../images/user.jpg" /><a href="../../profile.html">My profile</a>
@@ -925,11 +1026,42 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const savedAvatar = localStorage.getItem("selectedAvatar");
+        const savedName = localStorage.getItem("profileName");
         if (savedAvatar) {
           document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
         }
+        if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
       });
 
+// Theme switcher
+document.addEventListener('DOMContentLoaded', function () {
+          const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
+          const bodyElement = document.body;
+    
+          const currentTheme = localStorage.getItem('theme') || 'light';
+          if (currentTheme === 'dark') {
+            bodyElement.classList.add('dark-mode');
+            toggleSwitch.checked = true;
+          } else {
+            bodyElement.classList.add('light-mode');
+          }
+    
+          toggleSwitch.addEventListener('change', function (event) {
+            if (event.target.checked) {
+              bodyElement.classList.remove('light-mode');
+              bodyElement.classList.add('dark-mode');
+              localStorage.setItem('theme', 'dark');
+            } else {
+              bodyElement.classList.remove('dark-mode');
+              bodyElement.classList.add('light-mode');
+              localStorage.setItem('theme', 'light');
+            }
+          });
+        });
 
       function menuToggle() {
         const toggleMenu = document.querySelector(".menu");
@@ -1044,8 +1176,6 @@
   </div>
   <button onclick="displayRandomTip()">Show Random Tip</button>
 </div>
-
-  .
 <!-- Card Container -->
 <div class="card-container">
   <div class="card" onclick="this.classList.toggle('flip')">
@@ -1323,7 +1453,50 @@
   <div>
     <button id="translateButton">Translate</button>
   </div>
+
   <style>
+    
+    .card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 70px;
+  padding: 80px;
+  margin-top: 70px;
+  max-width: 1200px;
+}
+
+.card {
+  width: 100%;
+  height: 350px;
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
     /* Fixed translate button */
 #translateButton {
     position: fixed;
@@ -1344,7 +1517,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 1;
     text-align: center;
     white-space: nowrap;
@@ -1387,6 +1560,8 @@
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    line-height: 1;
+    opacity: .2;
 }
 .close:hover,
 .close:focus {
@@ -1513,6 +1688,28 @@ body > .skiptranslate {
 
   <script>
 
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    // Close any currently open card
+    cards.forEach(otherCard => {
+      if (otherCard !== card && otherCard.classList.contains('flipped')) {
+        otherCard.classList.remove('flipped');
+      }
+    });
+
+    // Flip the current card
+    card.classList.add('flipped');
+  });
+
+  card.addEventListener('mouseleave', () => {
+    // Close the card after a short delay
+    setTimeout(() => {
+      card.classList.remove('flipped');
+    }, 200); // Adjust the delay as needed
+  });
+});
     // Coordinates for the cursor
     const coords = { x: 0, y: 0 };
     const circles = document.querySelectorAll(".circle");

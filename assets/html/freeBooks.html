@@ -637,7 +637,7 @@
 
                 <ul class="dropdown-menu-list">
                   <li>
-                    <a href="/chat.html" class="navbar-link"
+                    <a href="/chatt.html" class="navbar-link"
                       style="font-family: sans-serif; color: black; margin-bottom: 5px;">
                       Community chat
                     </a>
@@ -690,7 +690,7 @@
                   <img id="profile-avatar" src="../images/avatar1.jpg" />
                 </div>
                 <div class="menu">
-                  <h3>XYZ<br /><span>Book Lover</span></h3>
+                  <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
                   <ul>
                     <li>
                       <img src="../images/user.jpg" /><a href="../../profile.html">My profile</a>
@@ -716,9 +716,19 @@
       <script>
         document.addEventListener("DOMContentLoaded", () => {
           const savedAvatar = localStorage.getItem("selectedAvatar");
+          const savedName = localStorage.getItem("profileName");
           if (savedAvatar) {
-            document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+            document.getElementById("profile-avatar").src = `../images/${savedAvatar}`;
           }
+
+          if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
+
+
+
         });
         document.getElementById('more-link').addEventListener('click', function(event) {
         event.preventDefault(); 

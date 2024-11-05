@@ -935,7 +935,7 @@ body {
             </li>
             <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
               <i class="fas fa-bookmark" style="color: #374151; margin-right: 4px;"></i>
-              <a href="./assets/html/bookrecommend.html" style="color: #374151; text-decoration: none;">Recommend</a>
+              <a href="./assets/html/book_recommend.html" style="color: #374151; text-decoration: none;">Recommend</a>
             </li>
           </ul>
         </div>
@@ -1058,3 +1058,188 @@ outline: none;
   </style>
 
 </footer>
+
+<div>
+  <button id="translateButton">Translate</button>
+</div>
+<style>
+  /* Fixed translate button */
+#translateButton {
+  position: fixed;
+  /* bottom: 20px; */
+  top:-15rem;
+  right: 4.4rem;
+  z-index: 1000;
+  width: 53px;  
+  height: 53px;
+  border-radius: 50%; 
+  border: none; 
+  background:linear-gradient(hwb(357 6% 36%),#d26d6d); 
+  color: white; 
+  text-align: center; 
+  display: inline-block; 
+  font-size: 16px; 
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  transition: transform 0.3s ease;
+  margin-top: 75.8vh;
+  margin-right:opx;
+}
+
+#translateButton:hover {
+  transform: scale(1.2); 
+}
+
+/* The popup modal */
+.popup {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+/* Popup content */
+.popup-content {
+background:linear-gradient(hwb(357 6% 36%),#d26d6d);
+  margin-top: 600px;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  border-radius: 10px;
+  position: relative;
+  margin-left: 1160px;
+  /* margin-right: 0px; */
+}
+
+/* Close button */
+.close {
+  color: #073725;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  opacity: .2;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+/* Hide the default Google Translate widget */
+.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+  display: none !important;
+}
+
+body {
+  top: 0px !important;
+}
+
+/* Hide the "Powered by Google" branding */
+.goog-logo-link {
+  display: none !important;
+}
+
+.goog-te-gadget {
+  height: 28px !important;
+  overflow: hidden;
+}
+
+/* Hide Google Translate notifications */
+.goog-te-spinner-pos,
+.goog-te-spinner,
+.goog-te-balloon-frame,
+.goog-te-banner-frame,
+.goog-te-banner,
+.goog-te-balloon {
+  display: none !important;
+}
+
+/* Custom styles for the Google Translate dropdown */
+#google_translate_element select {
+  background: #ffffff; 
+  border: 1px solid #ccc; 
+  color: #d26d6d; 
+  padding: 5px; 
+  font-size: 14px; 
+  border-radius: 5px; 
+
+}
+
+/* Hide the Google Translate bar */
+body > .skiptranslate {
+  display: none !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+.goog-te-banner-frame {
+  display: none !important;
+}
+.goog-te-banner {
+  display: none !important;
+}
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  // Get the popup
+  var popup = document.getElementById('translatePopup');
+
+  // Get the button that opens the popup
+  var btn = document.getElementById('translateButton');
+
+  // Get the <span> element that closes the popup
+  var span = document.getElementsByClassName('close')[0];
+
+  // When the user clicks the button, open the popup 
+  btn.onclick = function() {
+      popup.style.display = 'block';
+  }
+
+  // When the user clicks on <span> (x), close the popup
+  span.onclick = function() {
+      popup.style.display = 'none';
+  }
+
+  // When the user clicks anywhere outside of the popup, close it
+  window.onclick = function(event) {
+      if (event.target == popup) {
+          popup.style.display = 'none';
+      }
+  }
+});
+</script>
+
+<!-- Popup for Google Translate -->
+<div id="translatePopup" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <div id="google_translate_element"></div>
+    </div>
+</div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+          pageLanguage: 'en',
+      }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Your custom JavaScript -->
+<script src="script.js"></script>

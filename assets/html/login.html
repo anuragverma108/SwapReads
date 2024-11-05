@@ -100,15 +100,18 @@ button img {
 }
 
 /* Header */
-.header {
-  position: relative;
-  width: 100%;
-/*  top: 10; */
-  z-index: 1000;
-  transition: top 0.3s;
-  padding :none;
-  left : -50px;
-}
+.header{
+      width: 100vw; /* Full viewport width */
+    max-width: 100%; /* Ensure it doesn't go beyond viewport width */
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    transition: top 0.3s;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    
+     }
 
 /* Action */
 .action {
@@ -654,21 +657,18 @@ button img {
                 viewBox="0 0 24 24">
                 <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
               </svg></a>
-              <div class="profile" onclick="menuToggle();">
-              <img id="profile-avatar" src="../images/avatar1.jpg" />
-            </div>
             <div class="dropdown-menu" id="dropdown-menu">
               
 
               <ul class="dropdown-menu-list">
                 <li>
-                  <a href="../../chat.html" class="navbar-link" style="font-family: sans-serif; color: white; margin-bottom: 5px;">
+                  <a href="../../chatt.html" class="navbar-link" style="font-family: sans-serif; color: white; margin-bottom: 5px;">
                     Community chat
                 </a>
                 </li>
 
                 <li class="dropdown-menu-item">
-                  <a href="../html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
+                  <a href="/#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
                       class="ri-price-tag-3-fill"></i> Pricing</a>
                 </li>
                 <li class="dropdown-menu-item">
@@ -800,7 +800,7 @@ button img {
           <div class="action">
             
             <div class="menu">
-              <h3>XYZ<br /><span>Book Lover</span></h3>
+              <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
               <ul>
                 <li>
                   <img src="../images/user.jpg" /><a href="../../profile.html">My profile</a>
@@ -838,9 +838,15 @@ button img {
 
                document.addEventListener("DOMContentLoaded", () => {
     const savedAvatar = localStorage.getItem("selectedAvatar");
+    const savedName = localStorage.getItem("profileName");
     if (savedAvatar) {
         document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
     }
+    if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
 });
 
 
@@ -1094,7 +1100,7 @@ button img {
               <li class="foot-quick"><a href="/index.html#benefits" onclick="lenis.scrollTo('#benefits')"><i class="fas fa-book"></i> <p class="flinks">Benefits</p></a></li>
               <li class="foot-quick"><a href="/index.html#chapters" onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i> <p class="flinks">Literary</p></a></li>
               <li class="foot-quick"><a href="/index.html#pricing" onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i><p class="flinks">Pricing</p> </a></li>
-              <li class="foot-quick"><a href="./assets/html/bookrecommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><p class="flinks">Recommend</p></a></li>
+              <li class="foot-quick"><a href="book_recommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><p class="flinks">Recommend</p></a></li>
             </ul>
           </div>
           <div class="col-md-6">
@@ -1429,6 +1435,8 @@ button img {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    line-height: 1;
+    opacity: .2;
 }
 .close:hover,
 .close:focus {
