@@ -1531,9 +1531,10 @@ play-btn ion-icon {
 /*-----------------------------------*\
   #CHAPTERS
 \*-----------------------------------*/
+/* by rohit */
 .chapter-card {
-  height: 700px;
-  width: 400px;
+  height: 30vh;
+  width: 30vw;
   background-color: var(--white);
   padding: 25px;
   border-radius: var(--radius-5);
@@ -1545,6 +1546,10 @@ play-btn ion-icon {
   cursor: pointer;
   /* add cursor for good for viewer*/
   overflow: hidden;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+ justify-content: center;
 }
 
 .chapter-card::before {
@@ -1555,14 +1560,19 @@ play-btn ion-icon {
   transform: translateX(-50%);
   width: 0%;
   height: 10px;
-  background-color: pink;
+  background-color: rgba(255, 202, 211, 0.67);
   /* Pink line color */
   transition: width 0.3s ease;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
   /* Transition width property */
 }
 
 .chapter-card:hover {
+  background-color:rgba(255, 192, 203, 0.603);
   box-shadow: var(--shadow-3);
+  transform: translateY(-5px);
+  transform: scale(1.05);
+  
   /* Add shadow effect on hover */
 }
 
@@ -2544,9 +2554,9 @@ footer {
   font-size: 1.6rem;
   text-align: center;
 }
-.quicklinks {
+#quicklinks {
   font-size: 1.6rem;
-  text-align: center;
+  text-align: right;
   margin: 3rem;
 }
 .quicklinks .col-md-6 {
@@ -2563,6 +2573,7 @@ footer {
   display: inline-block;
   margin-left: 4px;
   transition: color 0.3s ease, transform 0.3s ease;
+
 }
 
 .foot-quick a {
@@ -2984,13 +2995,6 @@ footer {
     --fs-7: 2rem;
   }
 
-  /**
-   * HEADER
-   */
-
-  .header {
-    /* top: 30px; */
-  }
 
   .header.active {
     max-width: unset;
