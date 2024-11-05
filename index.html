@@ -5059,6 +5059,9 @@ color: #ac2127;
               </li>
 
               <li data-aos="slide-left">
+
+                <a href="./assets/html/horror.html" style="text-decoration: none; color: inherit;">
+
                 <div class="chapter-card">
 
                   <p class="card-subtitle">06</p>
@@ -5084,6 +5087,8 @@ color: #ac2127;
               </li>
 
               <li data-aos="slide-right">
+                <a href="./assets/html/biography.html" style="text-decoration: none; color: inherit;">
+
                 <div class="chapter-card">
 
                   <p class="card-subtitle">07</p>
@@ -6010,7 +6015,6 @@ color: #ac2127;
         event.preventDefault(); // Prevent the default form submission
         console.log('Form submitted'); // Debug log
 
-
         <script>
           document.addEventListener("DOMContentLoaded", function () {})
 
@@ -6021,10 +6025,6 @@ color: #ac2127;
               document.addEventListener("DOMContentLoaded", function() {})
 
 
-
-     
-
-
               // <!-- Rate Us Component -->
               <div id="rate-us">
                 <div class="heading">
@@ -6032,101 +6032,98 @@ color: #ac2127;
                   <p>Tell us about your experience!</p>
                 </div>
 
-                <div class="stars">
-                  <input type="radio" id="star5" name="rate" value="5" />
-                  <label for="star5">😭</label>
-                  <input type="radio" id="star4" name="rate" value="4" />
-                  <label for="star4">😢</label>
-                  <input type="radio" id="star3" name="rate" value="3" />
-                  <label for="star3">😐</label>
-                  <input type="radio" id="star2" name="rate" value="2" />
-                  <label for="star2">😊</label>
-                  <input type="radio" id="star1" name="rate" value="1" />
-                  <label for="star1">😍</label>
-                </div>
 
-                <div class="feedback-container">
-                  <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
-                </div>
+  <div class="stars">
+    <input type="radio" id="star5" name="rate" value="5" />
+    <label for="star5">😭</label>
+    <input type="radio" id="star4" name="rate" value="4" />
+    <label for="star4">😢</label>
+    <input type="radio" id="star3" name="rate" value="3" />
+    <label for="star3">😐</label>
+    <input type="radio" id="star2" name="rate" value="2" />
+    <label for="star2">😊</label>
+    <input type="radio" id="star1" name="rate" value="1" />
+    <label for="star1">😍</label>
+  </div>
 
-                <div class="button">
+  <div class="feedback-container">
+    <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
+  </div>
 
-                  <center><button id="submit-btn">Submit</button></center>
-                </div>
-              </div>
+  <div class="button">
+    <center><button id="submit-btn">Submit</button></center>
+  </div>
+</div>
 
-              <div id="toastMessage" class="toast-message"></div>
-              <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                  main
+<div id="toastMessage" class="toast-message"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
     const toastMessage = document.getElementById("toastMessage");
 
-                document.getElementById("submit-btn").addEventListener("click", function(event) {
-                  event.preventDefault(); // Prevent default form submission
+    document.getElementById("submit-btn").addEventListener("click", function(event) {
+      event.preventDefault(); // Prevent default form submission
 
-                let selectedEmoji = document.querySelector('input[name="rate"]:checked');
-                let feedback = document.getElementById("feedback").value.trim();
+      let selectedEmoji = document.querySelector('input[name="rate"]:checked');
+      let feedback = document.getElementById("feedback").value.trim();
 
-                if (selectedEmoji && feedback !== "") {
-                  // Show success toast message
-                  toastMessage.textContent = "Feedback submitted successfully!";
-                toastMessage.style.backgroundColor = "green";
-                showToastMessage();
+      if (selectedEmoji && feedback !== "") {
+        // Show success toast message
+        toastMessage.textContent = "Feedback submitted successfully!";
+        toastMessage.style.backgroundColor = "green";
+        showToastMessage();
 
-                // Reset form fields
-                document.getElementById("feedback").value = "";
-                let starInputs = document.querySelectorAll('input[name="rate"]');
+        // Reset form fields
+        document.getElementById("feedback").value = "";
+        let starInputs = document.querySelectorAll('input[name="rate"]');
         starInputs.forEach(input => input.checked = false);
       } else {
-                  // Show failure toast message
-                  toastMessage.textContent = "Please select an emoji and give feedback.";
-                toastMessage.style.backgroundColor = "red";
-                showToastMessage();
+        // Show failure toast message
+        toastMessage.textContent = "Please select an emoji and give feedback.";
+        toastMessage.style.backgroundColor = "red";
+        showToastMessage();
       }
     });
 
-                function showToastMessage() {
-                  toastMessage.style.display = "block",
+    function showToastMessage() {
+      toastMessage.style.display = "block";
       setTimeout(() => {
-                  toastMessage.style.opacity = "1"
+        toastMessage.style.opacity = "1";
       }, 100);
 
-                setTimeout(function() {
-                  toastMessage.style.opacity = "0",
+      setTimeout(function() {
+        toastMessage.style.opacity = "0";
         setTimeout(() => {
-                  toastMessage.style.display = "none"
-        }, 300)
-      }, 3000)
+          toastMessage.style.display = "none";
+        }, 300);
+      }, 3000);
     }
-  })
-        </script>
-<style>
+  });
+</script>
 
+<style>
 /* Basic styles for body */
 body {
   background-color: #0e1722; /* Background color */
-    color: white; /* Text color */
-    font-family: Arial, sans-serif; /* Font style */
-
+  color: white; /* Text color */
+  font-family: Arial, sans-serif; /* Font style */
 }
 
 /* Toast message styles */
 .toast-message {
-
-    position: fixed;
-    top: 20px; /* Position at the top */
-    left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
-    color: white; /* Text color */
-    padding: 15px 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transitions */
-    z-index: 999; /* Ensure it's above other elements */
+  position: fixed;
+  top: 20px; /* Position at the top */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+  color: white; /* Text color */
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transitions */
+  z-index: 999; /* Ensure it's above other elements */
 }
-
 
 
 
