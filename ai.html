@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Book Recommendation System</title>
+</head>
+<body>
+  <div class="recommendation-container">
+    <h1>Discover Your Next Read 📚</h1>
+    <form id="bookForm">
+      <div class="form-group">
+        <label for="genre">Choose your favorite genre:</label>
+        <select id="genre">
+          <option value="fantasy">Fantasy</option>
+          <option value="mystery">Mystery</option>
+          <option value="science fiction">Science Fiction</option>
+          <option value="romance">Romance</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="mood">What's your current mood?</label>
+        <select id="mood">
+          <option value="excited">Excited</option>
+          <option value="relaxed">Relaxed</option>
+          <option value="inspired">Inspired</option>
+          <option value="curious">Curious</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="frequency">How often do you read?</label>
+        <select id="frequency">
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+        </select>
+      </div>
+
+      <button type="button" onclick="recommendBook()">Get Recommendation</button>
+    </form>
+
+    <div id="recommendationOutput" class="output"></div>
+  </div>
+  <style>
+    /* Enhanced Styling */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f0f4f8;
+}
+
+.recommendation-container {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  max-width: 420px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.recommendation-container:hover {
+  transform: translateY(-5px);
+}
+
+h1 {
+  font-size: 26px;
+  color: #333333;
+  margin-bottom: 25px;
+  position: relative;
+  font-weight: bold;
+}
+
+.form-group {
+  margin: 15px 0;
+  text-align: left;
+}
+
+label {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 5px;
+  display: block;
+}
+
+select, button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+select {
+  background-color: #f9f9f9;
+  color: #333;
+  transition: border 0.3s ease;
+}
+
+select:focus {
+  border-color: #6c63ff;
+}
+
+button {
+  background-color: #6c63ff;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #5a54d0;
+}
+
+.output {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  display: inline-block;
+  min-height: 40px;
+}
+  </style>
+  <script>
+    function recommendBook() {
+  const genre = document.getElementById("genre").value;
+  const mood = document.getElementById("mood").value;
+  const frequency = document.getElementById("frequency").value;
+
+  let recommendation;
+
+  if (genre === "fantasy" && mood === "excited") {
+    recommendation = "📖 You might love 'The Hobbit' by J.R.R. Tolkien!";
+  } else if (genre === "mystery" && mood === "curious") {
+    recommendation = "🔍 Try 'Gone Girl' by Gillian Flynn.";
+  } else if (genre === "science fiction" && frequency === "daily") {
+    recommendation = "🚀 How about 'Dune' by Frank Herbert?";
+  } else if (genre === "romance" && mood === "relaxed") {
+    recommendation = "💖 You may enjoy 'Pride and Prejudice' by Jane Austen.";
+  } else {
+    recommendation = "📚 We suggest exploring 'The Book Thief' by Markus Zusak.";
+  }
+
+  document.getElementById("recommendationOutput").innerText = recommendation;
+}
+  </script>
+</body>
+</html>
