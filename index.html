@@ -4556,6 +4556,31 @@ color: #ac2127;
               cardPerView = updateCardPerView();
               carousel.scrollLeft = carousel.offsetWidth * cardPerView;
             });
+
+//Literary Realms carousel autoplaying logic
+
+            let scrollInterval;
+
+const startAutoplay = () => {
+    scrollInterval = setInterval(() => {
+        const scrollAmount = (firstCardWidth) * 1; // Adjust the scroll amount as needed
+        carousel.scrollLeft += scrollAmount;
+    }, 3000); // Change the interval time (3000ms = 3 seconds) as needed
+};
+
+const stopAutoplay = () => {
+    clearInterval(scrollInterval);
+};
+
+// Start autoplay when the page loads
+startAutoplay();
+
+// Optionally, you can stop autoplay when the user interacts with the carousel
+carousel.addEventListener("mouseenter", stopAutoplay);
+carousel.addEventListener("mouseleave", startAutoplay);
+
+
+
           });
         </script>
         <style>
