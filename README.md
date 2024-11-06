@@ -66,6 +66,7 @@
 ├── Mystical-fantaies.html
 ├── README.md
 ├── SECURITY.md
+├── achievements.html
 ├── activity.css
 ├── activity.html
 ├── activity.js
@@ -154,7 +155,6 @@
 │   │   ├── ConnReader.html
 │   │   ├── Error.html
 │   │   ├── about.html
-│   │   ├── about1.html
 │   │   ├── addremovebook.html
 │   │   ├── adventure.html
 │   │   ├── assets/
@@ -173,7 +173,6 @@
 │   │   ├── checkout.html
 │   │   ├── classic.html
 │   │   ├── comedy.html
-│   │   ├── comsp.html
 │   │   ├── custom.html
 │   │   ├── cyberpunk.html
 │   │   ├── detective-fiction.html
@@ -224,7 +223,10 @@
 │   │   ├── true-crime.html
 │   │   └── utopian.html
 │   ├── images/
+│   │   ├── 10-books-30-days.png
 │   │   ├── 1984.jpg
+│   │   ├── 20.jpg
+│   │   ├── 7.png
 │   │   ├── FB icon.png
 │   │   ├── LogoPicDark.png
 │   │   ├── LogoPicLight.png
@@ -240,21 +242,33 @@
 │   │   ├── achievement-3.jpg
 │   │   ├── achievement-4.jpg
 │   │   ├── achievement-5.jpg
+│   │   ├── adv.jpg
+│   │   ├── air.jpg
+│   │   ├── alice.jpg
+│   │   ├── alone.jpg
 │   │   ├── alter.jpeg
 │   │   ├── american.jpg
 │   │   ├── anna_karenina.jpg
+│   │   ├── ariel.webp
+│   │   ├── atomic.jpeg
 │   │   ├── author-banner.png
+│   │   ├── auto.jpg
 │   │   ├── avatar1.jpg
 │   │   ├── avatar2.jpg
 │   │   ├── avatar3.jpg
 │   │   ├── avatar4.jpg
 │   │   ├── avatar5.jpg
 │   │   ├── award.svg
+│   │   ├── bad.jpg
 │   │   ├── be.jpeg
 │   │   ├── beach.jpg
 │   │   ├── bear.jpg
+│   │   ├── become.jpg
+│   │   ├── becoming.jpg
 │   │   ├── before.jpg
 │   │   ├── behind.jpg
+│   │   ├── being.jpg
+│   │   ├── beingand.jpg
 │   │   ├── benefits-1.svg
 │   │   ├── benefits-2.svg
 │   │   ├── benefits-3.svg
@@ -262,6 +276,7 @@
 │   │   ├── benefits-5.svg
 │   │   ├── benefits-6.svg
 │   │   ├── big.jpg
+│   │   ├── birdbox.jpg
 │   │   ├── book/
 │   │   │   ├── Army.jpg
 │   │   │   ├── Economist.jpg
@@ -278,10 +293,19 @@
 │   │   ├── books_swapRead.jpg
 │   │   ├── bookshelf.png
 │   │   ├── bookshelfhover.png
+│   │   ├── born (1).jpg
+│   │   ├── born.jpg
+│   │   ├── boss.jpg
 │   │   ├── brave.jpeg
+│   │   ├── bro.jpg
 │   │   ├── brothers_karamazov.jpg
+│   │   ├── cabinet.jpg
+│   │   ├── call.jpg
+│   │   ├── catch.jpg
 │   │   ├── catcher_in_the_rye.jpg
 │   │   ├── chain.jpg
+│   │   ├── circe.jpg
+│   │   ├── citi.jpg
 │   │   ├── city.jpeg
 │   │   ├── cl.jpg
 │   │   ├── close-white.png
@@ -290,21 +314,28 @@
 │   │   ├── comedy.jpg
 │   │   ├── community.png
 │   │   ├── communityhover.png
+│   │   ├── confe.jpg
 │   │   ├── contact.png
+│   │   ├── coraline.jpg
 │   │   ├── couple.jpg
 │   │   ├── court.jpg
+│   │   ├── crime.jpg
 │   │   ├── crime_and_punishment.jpg
+│   │   ├── critique.jpg
 │   │   ├── ctc1.png
 │   │   ├── ctc2.png
 │   │   ├── ctc3.png
 │   │   ├── ctc4.png
 │   │   ├── ctc5.png
 │   │   ├── darkmode_bg.png
+│   │   ├── diary.webp
+│   │   ├── dracula.jpeg
 │   │   ├── dracula.webp
 │   │   ├── dune.jpg
 │   │   ├── duno.jpeg
 │   │   ├── duno.jpg
 │   │   ├── edit profile.jpg
+│   │   ├── edu.webp
 │   │   ├── em.jpeg
 │   │   ├── emoji/
 │   │   │   ├── emoji-1.png
@@ -313,12 +344,15 @@
 │   │   │   ├── emoji-4.png
 │   │   │   └── emoji-5.png
 │   │   ├── enders.jpg
+│   │   ├── exorcist.jpg
 │   │   ├── eye-close.png
 │   │   ├── eye-open.png
 │   │   ├── fahrenheit.jpeg
 │   │   ├── fantasy.jpg
 │   │   ├── fates.jpg
+│   │   ├── felon.jpg
 │   │   ├── final.png
+│   │   ├── first-5-read.png
 │   │   ├── foundation.jpeg
 │   │   ├── frankenstein.jpg
 │   │   ├── game.jpg
@@ -337,24 +371,35 @@
 │   │   │   ├── auth2.jpg
 │   │   │   ├── auth3.jpg
 │   │   │   └── c1.jpg
+│   │   ├── ghost.jpg
 │   │   ├── girl.jpg
+│   │   ├── girlstop.jpg
+│   │   ├── girlwith.jpg
 │   │   ├── gone.jpg
 │   │   ├── good of small tjings.jpg
+│   │   ├── good.jpg
 │   │   ├── google button.jpeg
 │   │   ├── google icon.jpeg
 │   │   ├── gr.jpeg
 │   │   ├── great-expectations.jpeg
 │   │   ├── great_gatsby.jpg
+│   │   ├── grit.jpg
 │   │   ├── guest.jpg
+│   │   ├── habit.jpg
+│   │   ├── hang.jpg
 │   │   ├── harry.jpg
 │   │   ├── hating.jpg
+│   │   ├── haunting.jpeg
 │   │   ├── help.png
 │   │   ├── hero-banner.png
 │   │   ├── hero-section.avif
+│   │   ├── hitch.jpg
 │   │   ├── hitcher.jpeg
 │   │   ├── hobbit.jpg
 │   │   ├── hola.jpg
+│   │   ├── home.jpg
 │   │   ├── honey.jpg
+│   │   ├── houses.jpg
 │   │   ├── hype.jpeg
 │   │   ├── icons8-sun.svg
 │   │   ├── images/
@@ -366,30 +411,45 @@
 │   │   │   ├── ngo.jpeg
 │   │   │   ├── quiz.jpg
 │   │   │   └── school.png
+│   │   ├── imm.jpg
 │   │   ├── inbox.png
 │   │   ├── india after gandhi.jpg
 │   │   ├── insta icon.png
+│   │   ├── institute.jpg
+│   │   ├── it.jpeg
 │   │   ├── itends.jpg
 │   │   ├── ja.jpeg
 │   │   ├── jane_eyre.jpg
 │   │   ├── jk.jpeg
 │   │   ├── jo.jpeg
+│   │   ├── journey.jpg
+│   │   ├── king.jpg
 │   │   ├── kiss.jpg
+│   │   ├── leaves.jpg
 │   │   ├── left.jpeg
 │   │   ├── les.jpg
+│   │   ├── light.jpg
 │   │   ├── lock.jpg
 │   │   ├── logo_darkbg.png
 │   │   ├── logo_whitebg.png
 │   │   ├── logout.png
+│   │   ├── long.jpg
+│   │   ├── love.jpg
 │   │   ├── ma.jpg
+│   │   ├── malala.jpg
 │   │   ├── martian.jpeg
 │   │   ├── mebeforeyou.jpg
+│   │   ├── mee.jpg
 │   │   ├── mg.jpeg
 │   │   ├── midnight children.jpg
+│   │   ├── milk.jpg
+│   │   ├── mindset.jpg
 │   │   ├── mist.jpg
 │   │   ├── moby.jpg
+│   │   ├── mobydick.jpg
 │   │   ├── moon.png
 │   │   ├── moon_solid.svg
+│   │   ├── my.jpg
 │   │   ├── mystery.jpg
 │   │   ├── name.jpg
 │   │   ├── narnia.jpg
@@ -400,17 +460,23 @@
 │   │   ├── new_logo_banner_dark.png
 │   │   ├── new_logo_banner_light.png
 │   │   ├── new_logo_dark.png
+│   │   ├── nick.jpg
 │   │   ├── night.jpg
+│   │   ├── nightingale.jpg
 │   │   ├── notebook.jpeg
 │   │   ├── odyssey.jpg
 │   │   ├── oryx.jpeg
 │   │   ├── oryx.jpg
+│   │   ├── out.jpg
 │   │   ├── outlander.jpg
+│   │   ├── part-of-our-community.png
+│   │   ├── petsematory.jpeg
 │   │   ├── philopsphy.jpg
 │   │   ├── pic1.jpeg
 │   │   ├── pic2.jpeg
 │   │   ├── pic3.jpeg
 │   │   ├── pic4.jpeg
+│   │   ├── power.jpeg
 │   │   ├── preview-1.png
 │   │   ├── preview-2.png
 │   │   ├── preview-3.png
@@ -423,16 +489,32 @@
 │   │   ├── readhover.png
 │   │   ├── ready.jpeg
 │   │   ├── red.jpg
+│   │   ├── republic.jpeg
+│   │   ├── robin.jpg
 │   │   ├── rom.jpg
 │   │   ├── rosie.jpg
+│   │   ├── rumi.webp
+│   │   ├── sap.jpg
 │   │   ├── scarlet.jpg
 │   │   ├── sci.jpg
+│   │   ├── science.jpg
 │   │   ├── settings.png
 │   │   ├── shantaram.jpg
+│   │   ├── share-books.png
+│   │   ├── shining.jpg
 │   │   ├── shutter.jpg
+│   │   ├── side.jpg
+│   │   ├── silence.jpg
 │   │   ├── silent.jpg
+│   │   ├── sim.jpg
 │   │   ├── snow.jpeg
+│   │   ├── spirit.jpg
+│   │   ├── steve.jpg
+│   │   ├── subtle.jpg
 │   │   ├── sun.png
+│   │   ├── sunf.jpg
+│   │   ├── swap-read-mega-1.png
+│   │   ├── tatoo.jpg
 │   │   ├── tele.png
 │   │   ├── telephone.png
 │   │   ├── testimonials-1.jpg
@@ -442,9 +524,14 @@
 │   │   ├── testimonials-5.jpg
 │   │   ├── testimonials-6.jpg
 │   │   ├── the inheritance of book.jpg
+│   │   ├── thief.jpg
+│   │   ├── think.jpg
+│   │   ├── three.jpg
 │   │   ├── thriller.jpg
+│   │   ├── thus.jpeg
 │   │   ├── to_kill_a_mockingbird.png
 │   │   ├── train to paki.jpg
+│   │   ├── tree.avif
 │   │   ├── trendingbook1.jpg
 │   │   ├── trendingbook2.jpg
 │   │   ├── trendingbook3.jpg
@@ -456,13 +543,18 @@
 │   │   ├── uprooted.jpg
 │   │   ├── user.jpg
 │   │   ├── war.jpeg
+│   │   ├── website-login.png
 │   │   ├── website-ss.png
 │   │   ├── wheel.jpg
 │   │   ├── white tiger.jpg
 │   │   ├── wife.jpg
 │   │   ├── wild.jpg
+│   │   ├── win.jpg
 │   │   ├── woman.jpg
-│   │   └── wuthering_heights.jpg
+│   │   ├── wuthering_heights.jpg
+│   │   ├── wwz.jpg
+│   │   ├── yes.jpg
+│   │   └── your-first-read.png
 │   ├── js/
 │   │   ├── ReaderConn.js
 │   │   ├── addremove.js
@@ -520,9 +612,6 @@
 ├── biographies.html
 ├── book.jpg
 ├── books.html
-├── chat.css
-├── chat.html
-├── chat.js
 ├── chatt.css
 ├── chatt.html
 ├── chatt.js
@@ -586,8 +675,6 @@
 ├── popup.js
 ├── pricing.html
 ├── privacynotice.html
-├── profile.css
-├── profile.html
 ├── profiletest.html
 ├── refundpolicy.html
 ├── repo_structure.txt
