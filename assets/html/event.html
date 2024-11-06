@@ -1,286 +1,1543 @@
 <!DOCTYPE html>
 <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <title>Events - SwapReads</title>
+       <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
+       <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
+       <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
+       <link rel="manifest" href="./assets/favicon_package_v0.16/site.webmanifest">
+       <link rel="mask-icon" href="./assets/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+       <meta name="msapplication-TileColor" content="#da532c">
+       <meta name="theme-color" content="#ffffff">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+       <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+       <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <title>Event Booking Calendar</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background: rgba(255, 171, 157, 0.5);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            
-
-            header {
-                width: 100%;
-    background-color: #fff;
-    padding: 1em 0;
-    display: flex;
-    /* This ensures the logo and nav are spaced properly */
-    align-items: center;
-            }
-
-            nav ul {
-                list-style: none;
-    padding: 0;
-    margin-left: 300px;
-    display: flex;
-    align-items: center;
-    gap: 45px; /* Spacing between nav items */
-            }
-
-            nav ul li {
-                position: relative;
-            }
-
-            nav ul li a {
-                text-decoration: none;
-    color: #0a0000;
-    font-size: 18px;
-    padding-bottom: 5px;
-    padding-left: 10px; /* Adjust padding */
-    padding-right: 10px; /* Adjust padding */
-    transition: color 0.3s ease;
-    cursor: pointer;
-            }
-            nav ul li a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 3px;
-            
-            background-color: #fcb0b480;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.6s ease;
-}
-
-nav ul li a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-nav ul li a:hover {
-  color:var(--old-rose);
-  text-shadow: 0 0 1px rgb(126,0,21);
-  transition: 0.6s ease;
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link
+         href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+         rel="stylesheet">
+     
+       <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+         crossorigin="anonymous" referrerpolicy="no-referrer" />
+       <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+         crossorigin="anonymous" referrerpolicy="no-referrer" />
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     
+       <script src="./assets/js/rateUsModal.js" defer></script>
+       <script src="https://unpkg.com/scrollreveal"></script>
+       <script src="./assets/js/faq.js"></script>
+       <script src="./assets/js/tilt.js"></script>
+       <script src="./assets/js/scroll.js"></script>
+       <link rel="stylesheet" href="./scrollbar.css">
+       <script src="https://cdn.lordicon.com/lordicon.js"></script>
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
   
+     
+       <!-- Preloader CSS-->
+       <link rel="stylesheet" href="assets/css/preloader.css">
+       <script src="https://cdn.lordicon.com/lordicon.js"></script>
+       <script src="./assets/js/preloader.js" defer></script>
+       <script src="./script.js"></script>
+       <link rel="stylesheet" href="../css/playNow.css">
+       
+       <style>
+         swiper-container {
+           width: 100%;
+           height: 75%;
+         }
+
+
+      section {
+          margin-bottom: 2em;
+      }
+    
+
+      .close-button:hover,
+      .close-button:focus {
+          color: black;
+          text-decoration: none;
+          cursor: pointer;
+      }
+      .ul{
+          text-decoration: black;
+      }
+         
+      main {
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+     
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
 }
 
-            main {
-                padding: 1em;
-                width: 100%;
-                max-width: 800px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
+.header {
+  width: 90%; /* Set a width to make it look like a centered rectangle */
+  max-width: 1200px;
+  background-color: #ffffff; /* White background */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center header */
+  z-index: 10;
+  border-radius: 10px;
+  margin-top: 15px;
+}
 
-            section {
-                margin-bottom: 2em;
-                width: 100%;
-            }
 
-            h2 {
-                color: #450105;
-            }
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #000000; /* Black text color */
+  font-weight: bold;
+  margin-top: 30px;
+}
 
-            #event-calendar {
-                width: 100%;
-                max-width: 800px;
-                background: #fff;
-                padding: 2em;
-                border-radius: 10px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            }
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px; /* Reduced spacing for a thinner look */
+  max-height: 80px;
 
-            .calendar-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
+}
 
-            .calendar-header button {
-                background: #2980b9;
-                color: #fff;
-                border: none;
-                padding: 0.5em 1em;
-                border-radius: 5px;
-                cursor: pointer;
-            }
+.navbar-list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
 
-            .row {
-                display: flex;
-                justify-content: center;
-            }
+.navbar-item {
+  position: relative;
+}
 
-            .day {
-                width: 50px;
-                height: 50px;
-                border: 1px solid #ccc;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 2px;
-                transition: background 0.3s;
-                cursor: pointer;
-            }
+.navbar-link {
+  color: #000000; /* Black text */
+  text-decoration: none;
+  font-size: 17px; /* Slightly smaller font */
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: normal; /* Remove bold font */
+  margin: 0 10px; 
+}
 
-            .event {
-                background: green;
-                color: white;
-            }
+.navbar-link {
+  position: relative; /* Ensure the link has a position for the absolute positioning of the pseudo-element */
+}
 
-            .past {
-                color: gray;
-                text-decoration: line-through;
-                opacity: 0.5;
-                /* Make the past dates partially visible */
-            }
+.navbar-link:hover {
+  color: #a52644; /* Dark pink on hover */
+}
 
-            .footer {
-                position: absolute;
-                left: 0%;
-                width: 100%;
-                background: pink;
-                padding: 30px 0;
-                text-align: center;
-                font-size: 0.8em;
-                color: gray;
-            }
-            .logopic{
-                width: 15rem;
-                margin: 0px 0px 0px 1.8rem;
-                max-height: 100px;
-                height: auto;
-                transition: all 0.3s ease;
-                display: block;
-            }
-            .logopic:hover{
-                transform: scale(1.09);
-            }
-        </style>
-    </head>
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Adjust this value to create a gap */
+  left: 0px;
+  height: 3px;
+  background-color: #fcb0b480;
+  width: 0;
+  box-shadow: 0 0 10px #f39d127e;
+  transition: all 0.6s;
+  text-decoration: none;
+}
 
-    <body>
-        <header>
-           <a href="../../index.html"><img src="http://127.0.0.1:56445/SwapReads/assets/images/final.png" class="logopic"></a>
-            <nav>
-                <ul>
-                    <li><a href="../../index.html"><i class="fas fa-home" ></i>Home</a></li>
-                    <li><a href="./about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
-                    <li><a href="../../index.html#contact"><i class="fas fa-envelope"></i>Contact</a></li>
-                    <li><a href="#authors"><i class="fas fa-user"></i>Authors</a></li>
-                    <li><a href="../../comsp.html"><i class="fas fa-users"></i> Community</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <section id="event-calendar">
-                <h2>Upcoming Event Calendar</h2>
-                <div class="calendar-header">
-                    <button id="prevMonth">‹</button>
-                    <h3 id="monthAndYear"></h3>
-                    <button id="nextMonth">›</button>
-                </div>
-                <div id="calendar-days">
-                    <!-- Calendar days will be dynamically generated here -->
-                </div>
-            </section>
-        </main>
+.navbar-link:hover::after {
+  width: 100%;
+  text-decoration: none;
+}
 
-        <footer>
-            <div class="footer">
-                SwapReads Copyright © 2024 SwapReads - All rights reserved || Designed By: pranjal
-            </div>
-        </footer>
+/* Base styling for the hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  z-index: 1001;
+}
 
-        <script>
-            const eventCalendar = {
-                events: [
-                    { date: '2024-10-07', title: 'Book Club Meeting' },
-                    { date: '2024-10-14', title: 'Author Talk: John Doe' },
-                    { date: '2024-10-21', title: 'Children’s Story Hour' },
-                    { date: '2024-10-28', title: 'Poetry Reading' },
-                ],
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  transition: transform 0.3s ease;
+}
 
-                monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-                today: new Date(),
-                currentMonth: new Date().getMonth(),
-                currentYear: new Date().getFullYear(),
-            };
+/* Responsive styling */
+@media (max-width: 1000px) {
+  /* Hide the navbar by default on small screens */
+  .navbar {
+    display: none;
+    position: absolute;
+    top: 70px; /* Matches header height for below-header dropdown */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: initial;
+  }
 
-            function generateCalendar(month, year) {
-                const firstDay = (new Date(year, month)).getDay();
-                const daysInMonth = 32 - new Date(year, month, 32).getDate();
+  .header{
+    width: 100%;
+  }
 
-                const calendarDays = document.getElementById('calendar-days');
-                calendarDays.innerHTML = '';
+  .navbar.active {
+    display: block;
+  }
 
-                let date = 1;
-                for (let i = 0; i < 6; i++) {
-                    let row = document.createElement('div');
-                    row.classList.add('row');
+  /* Hamburger icon visible only on smaller screens */
+  .hamburger {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 
-                    for (let j = 0; j < 7; j++) {
-                        if (i === 0 && j < firstDay) {
-                            let cell = document.createElement('div');
-                            cell.classList.add('day');
-                            row.appendChild(cell);
-                        } else if (date > daysInMonth) {
-                            break;
-                        } else {
-                            let cell = document.createElement('div');
-                            cell.classList.add('day');
-                            cell.textContent = date;
+  /* Center-align navbar links in mobile view */
+  .navbar ul.navbar-list {
+    flex-direction: column;
+    text-align: center;
+  }
 
-                            const eventDate = new Date(year, month, date);
-                            let formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
-                            let event = eventCalendar.events.find(event => event.date === formattedDate);
+  /* Adjusted theme switcher styling for mobile */
+  .switch-container {
+    margin: 0 auto;
+    padding-top: 1rem;
+  }
 
-                            // Check if the date is in the past
-                            if (eventDate >= eventCalendar.today) {
-                                if (event) {
-                                    cell.classList.add('event');
-                                    cell.innerHTML = `<a href="booking.html?event=${encodeURIComponent(event.title)}">${date}</a>`;
-                                }
-                            } else {
-                                // Make past dates partially visible
-                                cell.classList.add('past');
-                            }
 
-                            row.appendChild(cell);
-                            date++;
-                        }
-                    }
-                    calendarDays.appendChild(row);
+}
+
+
+  /* Container for the switch */
+  .switch-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Hide default checkbox */
+  .switch-checkbox {
+    display: none;
+  }
+
+  /* Style the label */
+  .switch-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50px;
+    height: 24px;
+    border-radius: 50px;
+    background-color: #ccc;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+  /* Style the toggle button */
+  .switch-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 5px;
+    position: absolute; /* Fixes the position */
+    left: 0; /* Keeps the button fixed */
+  }
+
+  /* Sun and moon icon styles */
+  .sun-icon,
+  .moon-icon {
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Color the icons */
+  .sun-icon {
+    color: orange; /* Sun icon color */
+  }
+
+  .moon-icon {
+    color: lightblue; /* Moon icon color */
+    opacity: 0; /* Initially hidden */
+  }
+
+  /* Style for checked state */
+  .switch-checkbox:checked + .switch-label {
+    background-color: #333;
+  }
+
+  .switch-checkbox:checked + .switch-label .sun-icon {
+    opacity: 0; /* Hide sun icon in dark mode */
+  }
+
+  .switch-checkbox:checked + .switch-label .moon-icon {
+    opacity: 1; /* Show moon icon in dark mode */
+  }
+
+  body {
+      font-family: poppins, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #ffdcd4;
+      color: black;
+  }
+
+  .finput{
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+
+  .notice {
+      padding: 2rem;
+      max-width: 800px;
+      color: black;
+      margin: 2rem auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      padding-bottom: 100px;
+      margin-top: 40px;
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.086);
+      position: relative;
+  }
+
+
+  .notice::before,
+  .notice::after {
+      content: "";
+      position: absolute;
+      inset: -0.1rem;
+      z-index: 2;
+      background: conic-gradient(
+          from var(--gradient-angle),
+          hsl(340, 94%, 40%),
+          hsl(344, 69%, 53%),
+          hsl(0, 88%, 86%),
+          hsl(344, 64%, 52%),
+          hsl(340, 94%, 43%)
+      );
+      border-radius: inherit;
+      animation: moving 3s linear infinite;
+
+      mask: linear-gradient(
+              to right,
+              black 0.4%,
+              transparent 0%,
+              transparent 99.6%,
+              black 90%
+          ),
+          linear-gradient(
+              to bottom,
+              black 0.5%,
+              transparent 0%,
+              transparent 99.5%,
+              black 90%
+          );
+  }
+
+  @keyframes moving {
+      0% {
+          --gradient-angle: 0deg;
+      }
+      100% {
+          --gradient-angle: 360deg;
+      }
+  }
+
+  body.dark-mode {
+      color: #ffffff;
+    background-image: url('../images/darkmode_bg.png'); /* Add your dark mode image */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+  }
+  .logoo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: maroon; 
+  font-weight: bold;
+  margin-top: 30px;
+  text-decoration: none;
+}
+.finput{
+    border: 1px solid #a30f17;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 5px;
+
+    background: none;
+    border-radius: 10px; 
+    padding: 10px;
+font: inherit;
+
+  }
+  #event-calendar {
+    width: 100%;
+    max-width: 800px;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4, #fad0c4);
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calendar-header button {
+    /* background:     #fad0c4; */
+   background:  #450105;
+   box-sizing: border-box;
+   
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.calendar-header h3 {
+    margin: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+
+thead th {
+    background:  #450105;
+    color: #fff;
+    padding: 0.5em 0;
+}
+
+tbody td {
+    padding: 1em;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+tbody td:hover {
+    background-color: #fce3f1;
+    border-radius: 4px;
+    transform: scale(1.05);
+}
+
+/* Style for dates with events */
+tbody td.event-date {
+    background-color: #ff9a9e;
+}
+
+tbody td.event-date:hover {
+    background-color: #ff7a7a;
+    border-radius: 4px;
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.event {
+    background: #f39c12;
+    color: #fff;
+    border-radius: 50%;
+    padding: 0.3em;
+}
+
+#event-details {
+    margin-top: 2em;
+    width: 100%;
+}
+
+#event-list {
+    list-style: none;
+    padding: 0;
+}
+
+#event-list li {
+    background: #f39c12;
+    color: #fff;
+    margin: 0.5em 0;
+    padding: 1em;
+    border-radius: 5px;
+}
+
+/* Dark mode styling */
+.dark-mode #event-calendar {
+    background: linear-gradient(to right, #2a1d1e, #3c2c2e, #3c2c2e);
+    color: #f0e6e6;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.dark-mode .calendar-header button {
+    background: #7a1b1b;
+    color: #f0e6e6;
+}
+
+.dark-mode .calendar-header h3 {
+    color: #f0e6e6;
+}
+
+.dark-mode table {
+    background: #3c2c2e;
+    color: #f0e6e6;
+}
+
+.dark-mode thead th {
+    background: #7a1b1b;
+    color: #f0e6e6;
+}
+
+.dark-mode tbody td {
+    color: #f0e6e6;
+}
+
+.dark-mode tbody td:hover {
+    background-color: #4e3638;
+    border-radius: 4px;
+    transform: scale(1.05);
+}
+
+.dark-mode tbody td.event-date {
+    background-color: #b63a3a;
+}
+
+.dark-mode tbody td.event-date:hover {
+    background-color: #8e2e2e;
+    border-radius: 4px;
+    transform: scale(1.05);
+}
+
+.dark-mode .event {
+    background: #c96d12;
+    color: #f0e6e6;
+}
+
+.dark-mode #event-details {
+    color: #f0e6e6;
+}
+
+.dark-mode #event-list li {
+    background: #8e2e2e;
+    color: #f0e6e6;
+}
+
+
+       </style>
+     </head>
+<body> 
+
+
+  <style>
+
+    /* Circle styles */
+    .circle {
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      background-color: black;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 99999999;
+      transition: transform 0.1s ease-out;
+    }
+  </style>
+  </head>
+  
+  
+  <body>
+  
+      <!-- Circles -->
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div> 
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+  
+      <header class="header header-anim nav-h" data-header>
+  
+        <div class="container mobile-container-styles">
+          <button class="hamburger" id="hamburger-button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <nav class="navbar nav_activated" data-navbar>
+      
+      
+            <ul class="navbar-list nav">
+              <style>
+                .navbar-item {
+                  margin-right: 15px; /* Add spacing between items */
                 }
-                document.getElementById('monthAndYear').innerText = `${eventCalendar.monthNames[month]} ${year}`;
+            
+                .navbar-link {
+                  font-size: 0.9rem; /* Decrease the font size */
+                }
+              </style>
+              
+              <a href="/./index.html" class="logo" style="display:flex;">
+                <img src="../images/final.png" class="logopic" style=" width: 10rem; height:100px; margin:0px 0px 15px -10px;">
+              </a>
+            
+              <li class="navbar-item">
+                <a href="/./index.html" class="navbar-link" data-nav-link="">
+                  <i class="ri-home-fill"></i> Home
+                </a>
+              </li>
+            
+              <li class="navbar-item">
+                <a href="./about.html" class="navbar-link" data-nav-link="">
+                  <i class="ri-information-fill"></i> About Us
+                </a>
+              </li>
+            
+              <li class="navbar-item">
+                <a href="/./index.html#benefits" class="navbar-link" data-nav-link=""><i class="ri-bar-chart-fill"></i> Benefits</a>
+              </li>
+            
+              <li class="navbar-item">
+                <a href="/./index.html#genre" class="navbar-link" data-nav-link=""><i class="ri-bar-chart-fill"></i> Genre</a>
+              </li>
+            
+              <li class="navbar-item">
+                <a href="/./audiobook.html" class="navbar-link" data-nav-link="">
+                  <i class="ri-questionnaire-fill"></i> Audio Books
+                </a>
+              </li>
+            
+              <li class="navbar-item">
+                <a href="/./index.html#contact" class="navbar-link" data-nav-link="">
+                  <i class="ri-contacts-fill"></i> Contact
+                </a>
+              </li>
+            
+              <li class="navbar-item" id="login-signup-link">
+                <a href="./login.html" class="navbar-link">
+                  <i class="ri-login-box-fill"></i> Login/Signup
+                </a>
+              </li>
+            
+              <li class="navbar-item">
+                <a href="/./comsp.html" class="navbar-link" data-nav-link="">
+                  <i class="ri-book-fill"></i> Community
+                </a>
+              </li>
+              
+              <li class="navbar-item">
+                <a href="./event.html" class="navbar-link" data-nav-link="">
+                  <i class="ri-community-fill"></i> Events
+                </a>
+              </li>     
+              
+              <li class="navbar-item"> 
+                <!-- Theme switcher -->
+                <div class="switch-container">
+                  <input type="checkbox" id="switch" class="switch-checkbox">
+                  <label for="switch" class="switch-label">
+                    <div class="switch-button">
+                      <span class="material-icons sun-icon">wb_sunny</span>
+                      <span class="material-icons moon-icon">brightness_2</span>
+                    </div>
+                  </label>
+                </div>
+              </li>     
+            
+              <script>
+                // Theme switcher
+                document.addEventListener('DOMContentLoaded', function () {
+                  const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
+                  const bodyElement = document.body;
+            
+                  const currentTheme = localStorage.getItem('theme') || 'light';
+                  if (currentTheme === 'dark') {
+                    bodyElement.classList.add('dark-mode');
+                    toggleSwitch.checked = true;
+                  } else {
+                    bodyElement.classList.add('light-mode');
+                  }
+            
+                  toggleSwitch.addEventListener('change', function (event) {
+                    if (event.target.checked) {
+                      bodyElement.classList.remove('light-mode');
+                      bodyElement.classList.add('dark-mode');
+                      localStorage.setItem('theme', 'dark');
+                    } else {
+                      bodyElement.classList.remove('dark-mode');
+                      bodyElement.classList.add('light-mode');
+                      localStorage.setItem('theme', 'light');
+                    }
+                  });
+                });
+            
+                // Hamburger toggle
+                document.getElementById('hamburger-button').addEventListener('click', function() {
+                  document.querySelector('.navbar').classList.toggle('active');
+                });
+            
+                function scrollToGenre(genreId) {
+                  const element = document.getElementById(genreId);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }
+              </script>
+            </ul>
+                  </header>
+     
+   <script>
+   
+     document.addEventListener('DOMContentLoaded', function() {
+     const cookieConsent = document.getElementById('cookie-consent');
+     const acceptButton = document.querySelector('.accept-cookies');
+     const rejectButton = document.querySelector('.reject-cookies');
+     const learnMoreLink = document.getElementById('learn-more-link');
+     const learnMoreContent = document.getElementById('learn-more-content');
+   
+     // Hide preloader after page load
+     window.addEventListener('load', function() {
+       const preloader = document.getElementById('preloader');
+       if (preloader) {
+         preloader.style.display = 'none';
+       }
+       cookieConsent.style.display = 'block';
+     });
+   
+     // Check if localStorage is available
+     function localStorageAvailable() {
+       try {
+         const test = '__localStorage_test__';
+         localStorage.setItem(test, test);
+         localStorage.removeItem(test);
+         return true;
+       } catch (e) {
+         return false;
+       }
+     }
+   
+     if (localStorageAvailable()) {
+       // Check if the user has already made a choice
+       if (localStorage.getItem('cookieConsent')) {
+         cookieConsent.style.display = 'none';
+       }
+   
+       // Function to handle cookie consent choice
+       function handleConsent(choice) {
+         localStorage.setItem('cookieConsent', choice);
+         cookieConsent.style.display = 'none';
+       }
+   
+       // Add event listeners to buttons
+       acceptButton.addEventListener('click', function() {
+         handleConsent('accepted');
+       });
+   
+       rejectButton.addEventListener('click', function() {
+         handleConsent('rejected');
+       });
+     } else {
+       // Hide consent if localStorage is not available
+       cookieConsent.style.display = 'none';
+     }
+   
+     // Add event listener to "Learn More" link
+     learnMoreLink.addEventListener('click', function(event) {
+       event.preventDefault();
+       learnMoreContent.style.display = 'block';
+       learnMoreLink.style.display = 'none';
+     });
+   });
+   </script>
+  
+  
+  <main>
+    <section id="event-calendar" style="margin-top: 100px ; margin-bottom: 100px ;">
+        <h2 style="text-align: center;">Reading Event Calendar</h2>
+        <div class="calendar">
+            <div class="calendar-header">
+                <button id="prevMonth">‹</button>
+                <h3 id="monthAndYear"></h3>
+                <button id="nextMonth">›</button>
+            </div>
+            <table id="calendar-body">
+                <thead>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-days">
+                    <!-- Calendar days will be dynamically generated here -->
+                </tbody>
+            </table>
+        </div>
+        <div id="event-details">
+            <h3 style="text-align: center;">Event Details</h3>
+            <ul id="event-list">
+                <!-- Event details will be dynamically generated here -->
+            </ul>
+        </div>
+    </section>
+</main>
+
+    <footer class="ff" style="font-size: 18px;">
+      <div class="foot-top">
+        <div class="foot-left">
+    
+          <div class="desc">
+            <div class="SwapReads"><a href="#" class="logoo">SwapReads</a></div>
+            <div>
+              <p style="text-align: justify; color: black; font-size: 16px;" class="description">
+                SwapReads.com is the ultimate destination for book lovers seeking to swap and discover new literary gems.
+                Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
+                the world of literature—all on one convenient platform. Join us and dive into a universe of endless possibilities!
+              </p>
+              <style>
+                .dark-mode .logo{
+                  color: maroon !important;
+                }
+                .dark-mode .description{
+                  color: white !important;
+                }
+              </style>
+            </div>
+            
+    
+          </div>
+        </div>
+        <div class="foot-middle">
+          <h2 style="margin-left: 2rem; margin-top: 2.75rem; font-size: 28px; font-weight: 700;" id="quicklinks-color">Quick Links</h2>
+          <style>
+            .dark-mode #quicklinks-color{
+              color: maroon !important;
+            }
+            .dark-mode #quicklinks ul li a{
+              color: white !important;
+            }
+          </style>
+          <div id="quicklinks" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem; ">
+            <div class="linkscolor">
+              <ul style="list-style: none; padding: 0;">
+                <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem; ">
+                  <i class="fas fa-home" style="color: #374151; margin-right: 4px;"></i>
+                  <a href="/./index.html" style="color: #374151; text-decoration: none;">Home</a>
+                </li>
+                <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                  <i class="fas fa-book" style="color: #374151; margin-right: 4px;"></i>
+                  <a href="/./index.html#benefits" style="color: #374151; text-decoration: none;">Benefits</a>
+                </li>
+                <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                  <i class="fas fa-globe" style="color: #374151; margin-right: 4px;"></i>
+                  <a href="/./index.html#chapters" style="color: #374151; text-decoration: none;">Literary</a>
+                </li>
+                <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                  <i class="fas fa-dollar-sign" style="color: #374151; margin-right: 4px;"></i>
+                  <a href="/./index.html#pricing" style="color: #374151; text-decoration: none;">Pricing</a>
+                </li>
+                <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                  <i class="fas fa-bookmark" style="color: #374151; margin-right: 4px;"></i>
+                  <a href="./book_recommend.html" style="color: #374151; text-decoration: none;">Recommend</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <ul style="list-style: none; padding: 0;">
+                <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                  <i class="fas fa-exchange-alt" style="color: #374151; margin-right: 4px;"></i>
+                  <a href="./booklistswap.html" style="color: #374151; text-decoration: none;">Swap</a>
+                </li>
+                <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                  <i class="fas fa-file-pdf" style="color: #374151; margin-right: 4px;"></i>
+                  <a href="./freeBooks.html" style="color: #374151; text-decoration: none;">E-Book</a>
+                </li>
+                <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                  <i class="fas fa-info-circle" style="color: #374151; margin-right: 4px;"></i>
+                  <a href="./about.html" style="color: #374151; text-decoration: none;">About</a>
+                </li>
+                <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                  <i class="fas fa-envelope" style="color: #374151; margin-right: 4px;"></i>
+                  <a href="/./index.html#contact" style="color: #374151; text-decoration: none;">Contact</a>
+                </li>
+                <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                  <i class="fas fa-question-circle" style="color: #374151; margin-right: 4px;"></i>
+                  <a href="/./index.html#faqq" style="color: #374151; text-decoration: none;">FAQ</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+          <style>
+            .social-icons input[type="email"] 
+            {
+                border: 0.2rem solid #ccc; /* Gray border */
+                border-radius: 0.4rem; /* Rounded corners */
+                padding: 1rem; /* Inner padding */
+                font-size: 1.6rem; /* Font size */
+            }
+            #confirmationMessage
+            {
+              margin-left: 5rem;
+              font-size: 2.3rem;
+              color: green;
+    
+            }
+           /* for small screen */
+            @media (max-width: 768px) 
+            {
+              #confirmationMessage 
+              {
+                  margin-left: 0;
+                  text-align: center;
+                  font-size: 1.8rem;
+              }
+          }
+          </style>
+                <style>
+                  #confirmationmessage {
+            position: fixed;
+            top: 42rem;
+            right: 1rem;
+            background-color: green;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+          }
+    
+                </style>
+    
+    
+    
+    
+            
+          <script>
+          function showConfirmationMessage() {
+    
+          const form = document.getElementById('newsform');
+          const confirmationMessage = document.getElementById('confirmationmessage');
+    
+    
+          confirmationMessage.style.display = 'block';
+          setTimeout(function() {
+            location.reload(); 
+          }, 3000);
+    
+    
+    
+          }
+    
+          </script>
+          <style>
+    
+          .subscribe {
+          background-color: #A30F17;
+          color: white; 
+          border: none; 
+          padding: 1rem 2rem; 
+          font-size: 1.4rem; 
+          font-family: Arial, sans-serif;
+          border-radius: 0.5rem; 
+          cursor: pointer; 
+          transition: background-color 0.3s, transform 0.2s;
+          width: 100%;
+          }
+    
+          .subscribe:hover {
+          background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+          transform: scale(1.1);
+          }
+    
+          .subscribe:active {
+          transform: scale(0.98); 
+          }
+    
+          .subscribe:focus {
+          outline: none; 
+          }
+    
+          </style>
+    
+          <div class="foot-right">
+          <h2 style="margin-bottom: 2.4rem; margin-top:0.5rem; font-size: 28px; font-weight: 700;" id="stayconnected-color">Stay Connected</h2>
+          <style>
+            .dark-mode #stayconnected-color{
+              color:maroon !important;
+            }
+          </style>
+          <form id="newsform" onsubmit="return showConfirmationMessage();">
+              <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
+              <div class="row-flex display-flex">
+                  <input class="finput" type="email" id="new-email" name="email" placeholder="Email address"
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+                        title="Please enter a valid email address that ends with '.com'" required>
+                  <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
+              </div>
+          </form>
+          <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
+          <div class="icons">
+    <!-- Discord icon -->
+    <a href="https://www.discord.com/" target="_blank">
+      <div class="icon">
+        <i class="fab fa-discord" title="Discord" style="cursor: pointer; color: #374151; margin-right: 4px;"></i>
+      </div>
+    </a>
+    
+    <!-- LinkedIn icon -->
+    <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
+      <div class="icon">
+        <i class="fab fa-linkedin" title="LinkedIn" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+      </div>
+    </a>
+    
+    <!-- Facebook icon -->
+    <a href="https://www.facebook.com/" target="_blank">
+      <div class="icon">
+        <i class="fab fa-facebook" title="Facebook" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+      </div>
+    </a>
+    
+    <!-- X (formerly Twitter) icon -->
+    <a href="https://x.com/anuragverma_108" target="_blank">
+      <div class="icon">
+        <i class="fab fa-twitter" title="X" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+      </div>
+    </a>
+    
+    <!-- Instagram icon -->
+    <a href="https://www.instagram.com/">
+      <div class="icon" id="insta-icon">
+        <i class="fab fa-instagram" title="Instagram" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+      </div>
+    </a>
+    
+    <!-- YouTube icon -->
+    <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
+      <div class="icon">
+        <i class="fab fa-youtube" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+      </div>
+    </a>
+    
+    <!-- GitHub icon -->
+    <a href="https://github.com/anuragverma108">
+      <div class="icon">
+        <i class="fab fa-github" title="GitHub" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+      </div>
+    </a>
+    
+    <style>
+      /* Dark mode hover to display original icon colors */
+    .fab.fa-discord:hover {
+        color: #5865F2 !important; /* Discord original color */
+      }
+    .fab.fa-linkedin:hover {
+        color: #0077B5 !important; /* LinkedIn original color */
+      }
+    .fab.fa-facebook:hover {
+        color: #1877F2 !important; /* Facebook original color */
+      }
+    .fab.fa-twitter:hover {
+        color: #1DA1F2 !important; /* Twitter original color */
+      }
+    .fab.fa-instagram:hover {
+        color: #E4405F !important; /* Instagram original color */
+      }
+    .fab.fa-youtube:hover {
+        color: #FF0000 !important; /* YouTube original color */
+      }
+    .fab.fa-github:hover {
+        color: #171515 !important; /* GitHub original color */
+      }
+    </style>
+    
+          </div>
+         </div>
+        </div>
+    
+        </div>
+      </div>
+    
+    
+      <!-- adding privacy policy and copyright popup-->
+      <div class="footer-f" style="text-align: center; align-items: center;    ">
+        <p style="text-align: center">
+          &copy;
+          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+        </p>
+        <div class="row-copy">
+    
+    
+        <a href="/copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+        <a href="/privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>  |
+        
+        <a href="/our-vision.html" id="ourvisionLink">Our Vision</a></li>
+      </div>
+      </div>
+        <style>
+          #copyrightPolicyLink:hover{
+            color: rgb(126, 0, 21);
+            transition: 0.5s ease;
+          }
+          #privacyNoticeLink:hover{
+            color: rgb(126, 0, 21);
+            transition: 0.5s ease;
+          }
+          #ourvisionLink:hover{
+            color: rgb(126, 0, 21);
+            transition: 0.5s ease;
+          }
+        </style>
+    </footer>
+
+    <div>
+      <button id="translateButton">Translate</button>
+    </div>
+    <style>
+      /* Fixed translate button */
+  #translateButton {
+      position: fixed;
+      /* bottom: 20px; */
+      top:-15rem;
+      right: 4.4rem;
+      z-index: 1000;
+      width: 53px;  
+      height: 53px;
+      border-radius: 50%; 
+      border: none; 
+      background:linear-gradient(hwb(357 6% 36%),#d26d6d); 
+      color: white; 
+      text-align: center; 
+      display: inline-block; 
+      font-size: 16px; 
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      transition: transform 0.3s ease;
+      margin-top: 75.8vh;
+      margin-right:opx;
+  }
+  #translateButton:hover {
+      transform: scale(1.2); 
+  }
+  /* The popup modal */
+  .popup {
+      display: none; 
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0); 
+      background-color: rgba(0,0,0,0.4); 
+  }
+  /* Popup content */
+  .popup-content {
+    background:linear-gradient(hwb(357 6% 36%),#d26d6d);
+      margin-top: 600px;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 300px;
+      border-radius: 10px;
+      position: relative;
+      margin-left: 1160px;
+      /* margin-right: 0px; */
+  }
+  /* Close button */
+  .close {
+    top:auto;
+      color: #073725;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      line-height: 1;
+      opacity: .2;
+  }
+  .close:hover,
+  .close:focus {
+      color: black;
+      text-decoration: none;
+  }
+  /* Hide the default Google Translate widget */
+  .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+      display: none !important;
+  }
+  body {
+      top: 0px !important;
+  }
+  /* Hide the "Powered by Google" branding */
+  .goog-logo-link {
+      display: none !important;
+  }
+  .goog-te-gadget {
+      height: 28px !important;
+      overflow: hidden;
+  }
+  /* Hide Google Translate notifications */
+  .goog-te-spinner-pos,
+  .goog-te-spinner,
+  .goog-te-balloon-frame,
+  .goog-te-banner-frame,
+  .goog-te-banner,
+  .goog-te-balloon {
+      display: none !important;
+  }
+  /* Custom styles for the Google Translate dropdown */
+  #google_translate_element select {
+      background: #ffffff; 
+      border: 1px solid #ccc; 
+      color: #d26d6d; 
+      padding: 5px; 
+      font-size: 14px; 
+      border-radius: 5px; 
+  }
+  /* Hide the Google Translate bar */
+  body > .skiptranslate {
+      display: none !important;
+  }
+  .goog-te-banner-frame.skiptranslate {
+      display: none !important;
+  }
+  .goog-te-banner-frame {
+      display: none !important;
+  }
+  .goog-te-banner {
+      display: none !important;
+  }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      // Get the popup
+      var popup = document.getElementById('translatePopup');
+      // Get the button that opens the popup
+      var btn = document.getElementById('translateButton');
+      // Get the <span> element that closes the popup
+      var span = document.getElementsByClassName('close')[0];
+      // When the user clicks the button, open the popup 
+      btn.onclick = function() {
+          popup.style.display = 'block';
+      }
+      // When the user clicks on <span> (x), close the popup
+      span.onclick = function() {
+          popup.style.display = 'none';
+      }
+      // When the user clicks anywhere outside of the popup, close it
+      window.onclick = function(event) {
+          if (event.target == popup) {
+              popup.style.display = 'none';
+          }
+      }
+  });
+    </script>
+    <!-- Popup for Google Translate -->
+    <div id="translatePopup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <div id="google_translate_element"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+              pageLanguage: 'en',
+          }, 'google_translate_element');
+      }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
+  <!-- Your custom JavaScript -->
+  <script src="script.js"></script>
+
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const buttons = document.querySelectorAll(".author button");
+            const modal = document.getElementById("content-modal");
+            const modalBody = document.getElementById("modal-body");
+            const closeButton = document.querySelector(".close-button");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function() {
+                    const author = this.getAttribute("data-author");
+                    const action = this.getAttribute("data-action");
+                    let content = '';
+
+                    switch(action) {
+                        case 'interview':
+                            content = `<h2>Interview with ${author.replace(/-/g, ' ')}</h2>
+                                       <p>${author.replace(/-/g, ' ')} shares insights into their writing process, latest work, and experiences as an author.</p>`;
+                            break;
+                        case 'articles':
+                            content = `<h2>Articles by ${author.replace(/-/g, ' ')}</h2>
+                                       <ul>
+                                           <li><a href="#">The Craft of Writing</a></li>
+                                           <li><a href="#">Understanding Narrative Structures</a></li>
+                                       </ul>`;
+                            break;
+                        case 'recommendations':
+                            content = `<h2>Reading Recommendations by ${author.replace(/-/g, ' ')}</h2>
+                                       <ul>
+                                           <li><a href="#">Book Title 1</a> by Author 1</li>
+                                           <li><a href="#">Book Title 2</a> by Author 2</li>
+                                       </ul>`;
+                            break;
+                        default:
+                            content = '<p>No content available.</p>';
+                    }
+
+                    modalBody.innerHTML = content;
+                    modal.style.display = "block";
+                });
+            });
+
+            closeButton.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+
+            window.addEventListener("click", function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+        var swiper = new Swiper('.swiper-container', {
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true
+    },
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + '</span>';
+        },
+    },
+});
+
+
+
+    </script>
+    <script>
+      // Coordinates for the cursor
+      const coords = { x: 0, y: 0 };
+      const circles = document.querySelectorAll(".circle");
+    
+      // Colors for the circles
+      const colors = [
+        "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+        "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+        "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+        "#680060", "#60005f", "#48005f", "#3d005e"
+      ];
+    
+      // Assign colors and initial position to each circle
+      circles.forEach(function (circle, index) {
+        circle.x = 0;
+        circle.y = 0;
+        circle.style.backgroundColor = colors[index % colors.length];
+      });
+    
+      // Update the coordinates when the mouse moves
+      window.addEventListener("mousemove", function (e) {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+      });
+    
+      // Animation function to move the circles
+      function animateCircles() {
+        let x = coords.x;
+        let y = coords.y;
+    
+        circles.forEach(function (circle, index) {
+          // Update the position and scale of each circle
+          circle.style.left = x - 12 + "px";
+          circle.style.top = y - 12 + "px";
+          circle.style.scale = (circles.length - index) / circles.length;
+    
+          circle.x = x;
+          circle.y = y;
+    
+          // Get the next circle in the sequence
+          const nextCircle = circles[index + 1] || circles[0];
+          x += (nextCircle.x - x) * 0.15;
+          y += (nextCircle.y - y) * 0.15;
+        });
+    
+        // Repeat the animation
+        requestAnimationFrame(animateCircles);
+      }
+    
+      // Start the animation
+      animateCircles();
+
+    </script>
+    <script>
+        const eventCalendar = {
+            events: [
+                { date: '2024-08-10', title: 'Book Club Meeting' },
+                { date: '2024-08-15', title: 'Author Talk: John Doe' },
+                { date: '2024-08-20', title: 'Children’s Story Hour' },
+                { date: '2024-08-25', title: 'Poetry Reading' },
+                { date: '2024-08-2', title: 'Guest Readers Talk' },
+            ],
+            monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            today: new Date(),
+            currentMonth: new Date().getMonth(),
+            currentYear: new Date().getFullYear(),
+        };
+
+        function generateCalendar(month, year) {
+            const firstDay = (new Date(year, month)).getDay();
+            const daysInMonth = 32 - new Date(year, month, 32).getDate();
+
+            const calendarBody = document.getElementById('calendar-days');
+            calendarBody.innerHTML = '';
+
+            let date = 1;
+            for (let i = 0; i < 6; i++) {
+                let row = document.createElement('tr');
+
+                for (let j = 0; j < 7; j++) {
+                    if (i === 0 && j < firstDay) {
+                        let cell = document.createElement('td');
+                        let cellText = document.createTextNode('');
+                        cell.appendChild(cellText);
+                        row.appendChild(cell);
+                    } else if (date > daysInMonth) {
+                        break;
+                    } else {
+                        let cell = document.createElement('td');
+                        let cellText = document.createTextNode(date);
+                        cell.appendChild(cellText);
+
+                        let eventDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+                        let event = eventCalendar.events.find(event => event.date === eventDate);
+
+                        if (event) {
+                            cell.classList.add('event');
+                            cell.addEventListener('click', () => showEventDetails(event));
+                        }
+
+                        row.appendChild(cell);
+                        date++;
+                    }
+                }
+
+                calendarBody.appendChild(row);
             }
 
-            document.getElementById('prevMonth').addEventListener('click', () => {
-                eventCalendar.currentMonth = (eventCalendar.currentMonth === 0) ? 11 : eventCalendar.currentMonth - 1;
-                eventCalendar.currentYear = (eventCalendar.currentMonth === 11) ? eventCalendar.currentYear - 1 : eventCalendar.currentYear;
-                generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-            });
+            document.getElementById('monthAndYear').innerText = `${eventCalendar.monthNames[month]} ${year}`;
+        }
 
-            document.getElementById('nextMonth').addEventListener('click', () => {
-                eventCalendar.currentMonth = (eventCalendar.currentMonth === 11) ? 0 : eventCalendar.currentMonth + 1;
-                eventCalendar.currentYear = (eventCalendar.currentMonth === 0) ? eventCalendar.currentYear + 1 : eventCalendar.currentYear;
-                generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-            });
+        function showEventDetails(event) {
+            const eventList = document.getElementById('event-list');
+            eventList.innerHTML = '';
+            let listItem = document.createElement('li');
+            listItem.innerText = event.title;
+            eventList.appendChild(listItem);
+        }
 
+        document.getElementById('prevMonth').addEventListener('click', () => {
+            eventCalendar.currentYear = (eventCalendar.currentMonth === 0) ? eventCalendar.currentYear - 1 : eventCalendar.currentYear;
+            eventCalendar.currentMonth = (eventCalendar.currentMonth === 0) ? 11 : eventCalendar.currentMonth - 1;
             generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
-        </script>
-    </body>
+        });
 
+        document.getElementById('nextMonth').addEventListener('click', () => {
+            eventCalendar.currentYear = (eventCalendar.currentMonth === 11) ? eventCalendar.currentYear + 1 : eventCalendar.currentYear;
+            eventCalendar.currentMonth = (eventCalendar.currentMonth === 11) ? 0 : eventCalendar.currentMonth + 1;
+            generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
+        });
+
+        generateCalendar(eventCalendar.currentMonth, eventCalendar.currentYear);
+    </script>
+</body>
 </html>

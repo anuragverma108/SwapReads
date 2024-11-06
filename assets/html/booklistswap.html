@@ -328,6 +328,20 @@
       box-sizing: border-box;
     }
 
+    select{
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid var(--light-gray);
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+
+    select option{
+      font-size: 15px;
+      
+    }
+    
     h2 {
       color: var(--charcoal);
       font-size: 20px;
@@ -523,10 +537,66 @@
 .but{
   font-size: x-large;
 }
+#dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #7c0f1b;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 10px;
+}
+
+/* Show the dropdown when the 'open' class is added */
+#dropdown-menu.open {
+  display: block;
+}
   </style>
 </head>
 
 <body>
+
+  <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
   <header class="header header-anim nav-h" data-header>
 
     <div class="container mobile-container-styles" style="padding-left: 0;">
@@ -630,12 +700,23 @@
 
               <ul class="dropdown-menu-list">
                 <li>
-                  <a href="chat.html" class="navbar-link"
+                  <a href="/chatt.html" class="navbar-link"
                     style="font-family: sans-serif; color: black; margin-bottom: 5px;">
                     Community chat
                   </a>
                 </li>
-
+                <li class="dropdown-menu-item">
+                  <a href="tips.html" class="navbar-link"
+                    style="font-family: sans-serif;  margin-bottom: 5px;">
+                   Tips
+                  </a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="author.html" class="navbar-link"
+                    style="font-family: sans-serif;  margin-bottom: 5px;">
+                    Authors
+                  </a>
+                </li>
                 <li class="dropdown-menu-item">
                   <a href="../html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link"
                     data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
@@ -648,6 +729,12 @@
                     <i class="ri-customer-service-2-fill"></i> Book Recommendation
                   </a>
                 </li>
+                <li>
+                  <a href="./bookpref.html" class="navbar-link"
+                    style="font-family: sans-serif; margin-bottom: 5px;">
+                    Book Prefer Quiz
+                  </a>
+                </li>
                 <li class="dropdown-menu-item">
                   <a href="../html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
                     data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
@@ -657,7 +744,7 @@
                       class="ri-price-tag-3-fill"></i>Read Later</a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href=".../html/ConnReader.html" class="navbar-link" data-nav-link><i
+                  <a href="../html/ConnReader.html" class="navbar-link" data-nav-link><i
                       class="ri-price-tag-3-fill"></i>Reader Connection</a>
                 </li>
                 <li class="dropdown-menu-item">
@@ -674,7 +761,7 @@
                 <img id="profile-avatar" src="../images/avatar1.jpg" />
               </div>
               <div class="menu">
-                <h3>XYZ<br /><span>Book Lover</span></h3>
+                <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
                 <ul>
                   <li>
                     <img src="../images/user.jpg" /><a href="../../profile.html">My profile</a>
@@ -700,24 +787,88 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const savedAvatar = localStorage.getItem("selectedAvatar");
+        const savedName = localStorage.getItem("profileName");
         if (savedAvatar) {
-          document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+          document.getElementById("profile-avatar").src = `../images/${savedAvatar}`;
+        }
+
+        if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
         }
       });
 
       document.getElementById('more-link').addEventListener('click', function(event) {
-  event.preventDefault(); // Prevent the default action of the anchor tag
-
-  // Toggle the 'open' class for the dropdown menu
-  const dropdownMenu = document.getElementById('dropdown-menu');
-  dropdownMenu.classList.toggle('open');
+      event.preventDefault(); 
+  
+       const dropdownMenu = document.getElementById('dropdown-menu');
+       dropdownMenu.classList.toggle('open');
 });
+
 
 
       function menuToggle() {
         const toggleMenu = document.querySelector(".menu");
         toggleMenu.classList.toggle("active");
       }
+
+
+// Coordinates for the cursor
+const coords = { x: 0, y: 0 };
+const circles = document.querySelectorAll(".circle");
+
+// Colors for the circles
+const colors = [
+  "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+  "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+  "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+  "#680060", "#60005f", "#48005f", "#3d005e"
+];
+
+// Assign colors and initial position to each circle
+circles.forEach(function (circle, index) {
+  circle.x = 0;
+  circle.y = 0;
+  circle.style.backgroundColor = colors[index % colors.length];
+});
+
+// Update the coordinates when the mouse moves
+window.addEventListener("mousemove", function (e) {
+  coords.x = e.clientX;
+  coords.y = e.clientY;
+});
+
+// Animation function to move the circles
+function animateCircles() {
+  let x = coords.x;
+  let y = coords.y;
+
+  circles.forEach(function (circle, index) {
+    // Update the position and scale of each circle
+    circle.style.left = x - 12 + "px";
+    circle.style.top = y - 12 + "px";
+    circle.style.scale = (circles.length - index) / circles.length;
+
+    circle.x = x;
+    circle.y = y;
+
+    // Get the next circle in the sequence
+    const nextCircle = circles[index + 1] || circles[0];
+    x += (nextCircle.x - x) * 0.15;
+    y += (nextCircle.y - y) * 0.15;
+  });
+
+  // Repeat the animation
+  requestAnimationFrame(animateCircles);
+}
+
+// Start the animation
+animateCircles();
+
+
+
+
     </script>
     <!-- Google Translate Element -->
     <!-- <li class="navbar-item">
@@ -747,14 +898,14 @@
         }
       })
     </script>
-    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <!-- <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script>
       function loadGoogleTranslate() {
         new google.translate.TranslateElement({
           pageLanguage: 'en'
         }, 'google_element');
       }
-    </script>
+    </script> -->
     <script>
       // const hamburger=document.querySelector('.hamburger');
       // const head=document.querySelector('.header');
@@ -827,6 +978,21 @@
       color: white;
       text-shadow: 3px 3px 20px #d1c4c4;
     }
+
+    .circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999;
+    transition: transform 0.1s ease-out;
+}
+
+
   </style>
   <section>
     <header class="navbar5">
@@ -837,7 +1003,35 @@
       <form id="book-form">
         <input type="text" id="book-title" placeholder="Book Title" required>
         <input type="text" id="book-author" placeholder="Author" required>
-        <input type="text" id="book-genre" placeholder="Genre" required>
+        <select id="book-genre" required>
+          <option value="" disabled selected>Genre</option>
+            <option value="classical literature">Classical Literature</option>
+            <option value="romance">Romance</option>
+            <option value="suspense thriller">Suspense Thriller</option>
+            <option value="science fiction">Science Fiction</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="horror">Horror</option>
+            <option value="historical fiction">Historical Fiction</option>
+            <option value="adventure">Adventure</option>
+            <option value="comedy">Comedy</option>
+            <option value="detective fiction">Detective Fiction</option>
+            <option value="fairy tales">Fairy Tales</option>
+            <option value="mythology">Mythology</option>
+            <option value="noir">Noir</option>
+            <option value="dystopian">Dystopian</option>
+            <option value="magical realism">Magical Realism</option>
+            <option value="cyber punk">Cyber Punk</option>
+            <option value="utopian">Utopian</option>
+            <option value="satire">Satire</option>
+            <option value="psychological thriller">Psychological Thriller</option>
+            <option value="biography">Biography</option>
+            <option value="self help">Self Help</option>
+            <option value="non fiction">Non Fiction</option>
+            <option value="philosophy">Philosophy</option>
+            <option value="poetry">Poetry</option>
+            <option value="true crime">True Crime</option>
+            <option value="autobiography">Autobiography</option>
+        </select>
         <button type="submit" id="a">Add to List</button>
       </form>
       <h2>Ready-to-Swap Reads</h2>
@@ -853,7 +1047,7 @@
 
         <div class="desc">
 <!--google translate-->
-          <div id="google_translate_element"></div>
+          <!-- <div id="google_translate_element"></div>
 
           <script type="text/javascript">
               function googleTranslateElementInit() {
@@ -868,7 +1062,7 @@
                   src=
       "https://translate.google.com/translate_a/element.js?
       cb=googleTranslateElementInit">
-          </script>
+          </script> -->
           <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
           <div>
             <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
@@ -892,7 +1086,7 @@
               <li class="foot-quick"><a href="/index.html#benefits" onclick="lenis.scrollTo('#benefits')"><i class="fas fa-book"></i> <p class="flinks">Benefits</p></a></li>
               <li class="foot-quick"><a href="/index.html#chapters" onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i> <p class="flinks">Literary</p></a></li>
               <li class="foot-quick"><a href="/index.html#pricing" onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i><p class="flinks">Pricing</p> </a></li>
-              <li class="foot-quick"><a href="./assets/html/bookrecommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><p class="flinks">Recommend</p></a></li>
+              <li class="foot-quick"><a href="book_recommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><p class="flinks">Recommend</p></a></li>
             </ul>
           </div>
           <div class="col-md-6">
@@ -1079,9 +1273,9 @@
         <p class="text">Back to Top</p>
         </button>
       </div>
-      <div>
+      <!-- <div>
         <button id="translateButton">Translate</button>
-      </div>
+      </div> -->
       
     </div>
 
@@ -1181,6 +1375,169 @@
   </footer>
   
   <!-- Footer ended-->
+
+  <div>
+    <button id="translateButton">Translate</button>
+  </div>
+  <style>
+    /* Fixed translate button */
+  #translateButton {
+    position: fixed;
+    /* bottom: 20px; */
+    top:-15rem;
+    right: 4.4rem;
+    z-index: 1000;
+    width: 53px;  
+    height: 53px;
+    border-radius: 50%; 
+    border: none; 
+    background:linear-gradient(hwb(357 6% 36%),#d26d6d); 
+    color: white; 
+    text-align: center; 
+    display: inline-block; 
+    font-size: 16px; 
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    transition: transform 0.3s ease;
+    margin-top: 75.8vh;
+    margin-right:opx;
+  }
+  #translateButton:hover {
+    transform: scale(1.2); 
+  }
+  /* The popup modal */
+  .popup {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+  /* Popup content */
+  .popup-content {
+  background:linear-gradient(hwb(357 6% 36%),#d26d6d);
+    margin-top: 600px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 10px;
+    position: relative;
+    margin-left: 1160px;
+    /* margin-right: 0px; */
+  }
+  /* Close button */
+  .closes {
+    color: #073725;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .closes:hover,
+  .closes:focus {
+    color: black;
+    text-decoration: none;
+  }
+  /* Hide the default Google Translate widget */
+  .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+    display: none !important;
+  }
+  body {
+    top: 0px !important;
+  }
+  /* Hide the "Powered by Google" branding */
+  .goog-logo-link {
+    display: none !important;
+  }
+  .goog-te-gadget {
+    height: 28px !important;
+    overflow: hidden;
+  }
+  /* Hide Google Translate notifications */
+  .goog-te-spinner-pos,
+  .goog-te-spinner,
+  .goog-te-balloon-frame,
+  .goog-te-banner-frame,
+  .goog-te-banner,
+  .goog-te-balloon {
+    display: none !important;
+  }
+  /* Custom styles for the Google Translate dropdown */
+  #google_translate_element select {
+    background: #ffffff; 
+    border: 1px solid #ccc; 
+    color: #d26d6d; 
+    padding: 5px; 
+    font-size: 14px; 
+    border-radius: 5px; 
+  }
+  /* Hide the Google Translate bar */
+  body > .skiptranslate {
+    display: none !important;
+  }
+  .goog-te-banner-frame.skiptranslate {
+    display: none !important;
+  }
+  .goog-te-banner-frame {
+    display: none !important;
+  }
+  .goog-te-banner {
+    display: none !important;
+  }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get the popup
+    var popup = document.getElementById('translatePopup');
+    // Get the button that opens the popup
+    var btn = document.getElementById('translateButton');
+    // Get the <span> element that closes the popup
+    var span = document.getElementsByClassName('closes')[0];
+    // When the user clicks the button, open the popup 
+    btn.onclick = function() {
+        popup.style.display = 'block';
+    }
+    // When the user clicks on <span> (x), close the popup
+    span.onclick = function() {
+        popup.style.display = 'none';
+    }
+    // When the user clicks anywhere outside of the popup, close it
+    window.onclick = function(event) {
+        if (event.target == popup) {
+            popup.style.display = 'none';
+        }
+    }
+  });
+  </script>
+  <!-- Popup for Google Translate -->
+  <div id="translatePopup" class="popup">
+      <div class="popup-content">
+          <span class="closes">&times;</span>
+          <div id="google_translate_element"></div>
+      </div>
+  </div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+        }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
+  <!-- Your custom JavaScript -->
+  <script src="script.js"></script>
 
   <script>
     document.getElementById('book-form').addEventListener('submit', function (event) {
