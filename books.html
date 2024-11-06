@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <title>SwapReads</title>
@@ -49,6 +47,21 @@
   <script src="./assets/js/rateUsModal.js" defer></script>
   <script src="https://cdn.lordicon.com/lordicon.js"></script>
   <style>
+
+    /* Circle styles */
+    .circle {
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      background-color: black;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 99999999;
+      transition: transform 0.1s ease-out;
+    }
+    
     .nav-toggle-btn {
       position: absolute;
       left: 0;
@@ -118,6 +131,8 @@
     .action .profile {
       position: relative;
       width: 60px;
+      top: -40px;
+      right: 180px;
       height: 60px;
       border-radius: 50%;
       overflow: hidden;
@@ -248,7 +263,6 @@
       }
 
       .navbar-list {
-        position: relative;
         top: 200px;
       }
 
@@ -298,24 +312,178 @@
       margin-top: 10px;
       /* Increase the top margin of each item */
     }
+    /* For large screens (desktops) */
+@media (min-width: 1024px) {
+  .navbar-list {
+    justify-content: center;
+  }
+
+  .logopic {
+    width: 12rem; /* Decrease the logo size */
+    margin: 0 1.2rem;
+  }
+
+  .navbar-item {
+    margin: 0 0.5rem;
+  }
+}
+
+/* For tablets and medium screens */
+@media (max-width: 1024px) {
+  .navbar-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logopic {
+    width: 10rem; /* Adjust the logo size for smaller screens */
+    margin: 0 1rem;
+  }
+
+  .navbar-item {
+    margin: 0 0.8rem; /* Adjust the margin for tablet size */
+    font-size: 0.9rem;
+  }
+
+  .header {
+    height: 70px;
+    margin-top: 6vh;
+  }
+}
+
+/* For small screens (mobiles) */
+@media (max-width: 768px) {
+  .header {
+    position: relative; /* Change from absolute to relative */
+    left: 0; /* Remove the left offset */
+    transform: none; /* Remove the translate */
+    margin-top: 0; /* Adjust margin to fit better */
+    height: 60px; /* Adjust height for smaller screens */
+  }
+
+  .navbar-list {
+    flex-direction: column; /* Stack the navbar items vertically */
+    align-items: center;
+    padding: 10px;
+  }
+
+  .logopic {
+    width: 8rem; /* Reduce logo size for mobile */
+    margin: 0;
+  }
+
+  .navbar-item {
+    margin: 5px 0; /* Reduce margin between items */
+    font-size: 0.8rem; /* Smaller font size for mobile */
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .header {
+    position: relative; /* Ensure proper positioning */
+    left: 0;
+    transform: none;
+    margin-top: 0; /* Remove vertical margin */
+    height: 50px; /* Adjust height */
+  }
+
+  .navbar-list {
+    flex-direction: column; /* Keep items stacked */
+    align-items: center;
+  }
+
+  .logopic {
+    width: 6rem;
+  }
+
+  .navbar-item {
+    margin: 5px 0;
+    font-size: 0.75rem;
+  }
+}
+
+body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    background-image: url('./assets/images/darkmode_bg.png'); /* Add your dark mode image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+  }
+
+  .logoo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: maroon; /* Black text color */
+  font-weight: bold;
+  margin-top: 30px;
+  text-decoration: none;
+}
+
   </style>
 
-   <header class="header header-anim" data-header>
+   <header class="header header-anim" data-header style="height: 80px; margin-top: 8vh; position: absolute;  left: 50%; transform: translate(-50%, -50%); width: 100%; z-index: 1000;">
 
-    <div class="container" style="padding-left: 0; width: 100%;">
+           <!-- Circles -->
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div> 
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+     
+    <div class="container" style="padding-left: 0; width: 100%; text-align: center;">
         <div style="width: 100%;">
         <nav class="navbar nav_activated" data-navbar style="width: 100%;">
-            <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex">
+            <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex; justify-content: center;">
                 <img src="./assets/images/final.png" alt="" class="logopic"
-                    style=" width:0.1px;opacity: 0;" />
+                    style="width:0.1px;opacity: 0;" />
             </a>
 
-            <ul class="navbar-list" style="width: 100%;">
-              <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-                <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px 1.8rem;">
+            <ul class="navbar-list" style="width: 100%; display: flex; justify-content: center;">
+              <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex; justify-content: center;">
+                <img src="./assets/images/final.png" class="logopic" style="width: 15rem; margin:0px 0px 0px 1.8rem;">
               </a>
 
-                <li class="navbar-item">
+                <li class="navbar-item" style="list-style: none; margin: 0 1rem;">
                     <a href="index.html#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link>
                     <lord-icon
                   src="https://cdn.lordicon.com/qeltvbrs.json"
@@ -325,7 +493,7 @@
                 </lord-icon> Home</a>
                 </li>
 
-                <li class="navbar-item">
+                <li class="navbar-item" style="list-style: none; margin: 0 1rem;">
                     <a href="index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link"
                         data-nav-link><lord-icon
                         src="https://cdn.lordicon.com/jibxifeu.json"
@@ -336,7 +504,7 @@
                     </lord-icon>Benefits</a>
                 </li>
 
-                <li class="navbar-item">
+                <li class="navbar-item" style="list-style: none; margin: 0 1rem;">
                     <a href="index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link"
                         data-nav-link> <lord-icon
                         src="https://cdn.lordicon.com/bhmovrlt.json"
@@ -348,7 +516,7 @@
                 </li>
 
                 
-                <li class="navbar-item">
+                <li class="navbar-item" style="list-style: none; margin: 0 1rem;">
                   <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link"> <lord-icon
                     src="https://cdn.lordicon.com/jxjfjyri.json"
                     trigger="morph"
@@ -358,12 +526,13 @@
                     style="width:25px;height:25px">
                 </lord-icon>Rate Us</a>
               </li>
-                <li class="navbar-item">
+
+                <li class="navbar-item" style="list-style: none; margin: 0 1rem;">
                     <a href="index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link"
-                        data-nav-link><i class="ri-customer-service-2-fill"></i> <img src="/assets/images/telephone.png" height="25px" width="25px"/> Contact</a>
+                        data-nav-link><i class="ri-customer-service-2-fill"></i> <img src="./assets/images/telephone.png" height="25px" width="25px"/> Contact</a>
                 </li>
 
-                <li class="navbar-item" id="login-signup-link">
+                <li class="navbar-item" id="login-signup-link" style="list-style: none; margin: 0 1rem;">
                     <a href="./assets/html/login.html" class="navbar-link"> <lord-icon
                       src="https://cdn.lordicon.com/xfzuyvam.json"
                       trigger="morph"
@@ -373,117 +542,21 @@
                   </lord-icon>Login/Signup</a>
                 </li>
 
-                <li class="navbar-item dropdown" id="more-dropdown">
-                    <a href="#" class="navbar-link" id="more-link">More
-                        <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
-                            viewBox="0 0 24 24">
-                            <path fill="currentcolor"
-                                d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
-                        </svg></a>
-                    <div class="dropdown-menu" id="dropdown-menu">
-
-                        <ul class="dropdown-menu-list">
-                            <li class="dropdown-menu-item">
-                                <a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')"
-                                    class="navbar-link" data-nav-link><i class="ri-medal-fill"></i> Literary
-                                    Realms</a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')"
-                                    class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>
-                                    Pricing</a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="./assets/html/addremovebook.html" class="navbar-link">Booklist for
-                                    Swapping</a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="./assets/html/book_recommend.html" class="navbar-link" data-nav-link>
-                                    <i class="ri-customer-service-2-fill"></i> Book Recommendation
-                                </a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#E-books')"
-                                    class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Free
-                                    E-books</a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="././read_later.html" class="navbar-link">Booklist for Swapping</a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="./assets/html/about.html" class="navbar-link">About</a>
-                            </li>
-                        </ul>
+                <div class="switch-container">
+                  <input type="checkbox" id="switch" class="switch-checkbox">
+                  <label for="switch" class="switch-label">
+                    <div class="switch-button">
+                      <span class="material-icons sun-icon">wb_sunny</span>
+                      <span class="material-icons moon-icon">brightness_2</span>
                     </div>
-                </li>
-                
-                <div class="action">
-                  <div class="profile" onclick="menuToggle();">
-                      <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
-                  </div>
-                  <div class="menu">
-                      <h3>XYZ<br /><span>Book Lover</span></h3>
-                      <ul>
-                          <li><img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a></li>
-                          <li><img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit profile</a></li>
-                          <li><img src="./assets/images/inbox.png" /><a href="#">Inbox</a></li>
-                          <li><img src="./assets/images/settings.png" /><a href="#">Settings</a></li>
-                          <li><img src="./assets/images/help.png" /><a href="/help.html">Help</a></li>
-                          <li><img src="./assets/images/logout.png" /><a id="logout-btn">Logout</a></li>
-                      </ul>
-                  </div>
+                  </label>    
               </div>
-
-  
-
-              
-              
-                    <script>
-                      document.addEventListener("DOMContentLoaded", () => {
-                          const savedAvatar = localStorage.getItem("selectedAvatar");
-                          if (savedAvatar) {
-                              document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
-                          }
-                      });
-              
-                      function menuToggle() {
-                          const toggleMenu = document.querySelector(".menu");
-                          toggleMenu.classList.toggle("active");
-                      }
-              
-                      document.addEventListener("click", function(event) {
-                          const profile = document.querySelector(".profile");
-                          const menu = document.querySelector(".menu");
-              
-                          if (!profile.contains(event.target) && !menu.contains(event.target)) {
-                              menu.classList.remove("active");
-                          }
-                      });
-              
-                      let lastScrollTop = 0;
-                      const header = document.querySelector('.header');
-              
-                      window.addEventListener('scroll', function() {
-                          let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-              
-                          if (scrollTop > lastScrollTop) {
-                              // Downscroll
-                              header.style.transform = 'translateY(-120%)';
-                          } else {
-                              // Upscroll
-                              header.style.transform = 'translateY(0)';
-                          }
-              
-                          lastScrollTop = scrollTop;
-                      });
-                  </script>
-      
-
-               
             </ul>
         </nav>
         
     </div>
+</header>
+
 
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script>
@@ -494,31 +567,15 @@
 });
 
               </script>
-    <script>
+    <!-- <script>
         function loadGoogleTranslate() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en'
             }, 'google_element');
         }
-    </script>
-
-    <div class="switch-container">
-        <input type="checkbox" id="switch" class="switch-checkbox">
-        <label for="switch" class="switch-label">
-          <div class="switch-button">
-            <span class="material-icons sun-icon">wb_sunny</span>
-            <span class="material-icons moon-icon">brightness_2</span>
-          </div>
-        </label>
+    </script> -->
 
 
-    <!-- <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler id="nav-toggle-button">
-        <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
-
-        <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
-      </button> -->
-    
-    </div>
 
 
 
@@ -817,43 +874,6 @@
 
     </div>
 
-
-
-    <!-- <li>
-                <p class="social-list-title h3">Connect SwapReads socials</p>
-
-                <ul class="social-list">
-
-                  <li>
-                    <a href="https://www.facebook.com/" class="social-link">
-                      <ion-icon name="logo-facebook"></ion-icon>
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="https://twitter.com/?lang=en" class="social-link">
-                      <ion-icon name="logo-twitter"></ion-icon>
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="https://www.linkedin.com/" class="social-link">
-                      <ion-icon name="logo-linkedin"></ion-icon>
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="https://www.youtube.com/" class="social-link">
-                      <ion-icon name="logo-youtube"></ion-icon>
-                    </a>
-                  </li> -->
-
-    <!-- <li>
-                    <a href="tel:+1234567890" class="social-link">
-                      <ion-icon name="logo-whatsapp"></ion-icon>
-                    </a>
-                  </li> -->
-
     </ul>
     </li>
 
@@ -867,557 +887,479 @@
     </article>
   </main>
 
-  <!-- --Testimonials -->
-
-  <h2 class="h2 section-title has-underline" style="margin-top: 15px;">
-    Acclaimed Authors
-    <span class="span has-before"></span>
-  </h2>
-  <p class="section-subtitle">The Incredible Voices of Today</p>
-
-  <div class="slide-container swiper" style="margin-bottom: 15px;">
-    <div class="slide-content">
-      <div class="card-wrapper swiper-wrapper">
-        <div class="card swiper-slide">
-          <div class="fronts"
-            style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-
-            <div class="image-content">
-
-
-              <div class="card-image">
-                <img src="assets\images\genres\auth1.jpg" alt="" class="card-img">
-              </div>
-              <h2 style="font-size: 20px;">Nicholas Sparks</h2>
-            </div>
-
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
-          <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">
-
-            SwapReads has completely transformed my reading experience! Not only have I discovered new books I never
-            would have picked up otherwise, but I've also connected with fellow book lovers who share my passion. It's
-            like having a personalized library with endless possibilities. Highly recommend! </div>
-
-        </div>
-        <div class="card swiper-slide">
-          <div class="fronts"
-            style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-
-            <div class="image-content">
-              <div class="card-image">
-                <img src="assets\images\genres\auth2.jpg" alt="" class="card-img">
-              </div>
-              <h2 style="font-size: 20px;">John Green</h2>
-            </div>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
-          <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">
-            SwapReads has transformed my reading habits. Beyond swapping books, it's about fostering a community of
-            passionate readers. I've made friends, broadened my literary horizons, and unearthed hidden gems. Thank you,
-            SwapReads! </div>
-        </div>
-        <div class="card swiper-slide">
-          <div class="fronts"
-            style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-            <div class="image-content">
-              <div class="card-image">
-                <img src="assets\images\genres\auth3.jpg" alt="" class="card-img">
-              </div>
-              <h2 style="font-size: 20px;">Rainbow Rowell</h2>
-            </div>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
-          <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">
-            SwapReads is a bookworm's paradise! With its user-friendly interface, welcoming community, and vast variety
-            of books for swapping, I've embarked on countless new literary adventures. It's like an ever-active book
-            club where I've connected with fellow literature lovers. I'm completely hooked!</div>
-        </div>
-        <div class="card swiper-slide">
-          <div class="fronts"
-            style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-            <div class="image-content">
-              <div class="card-image">
-                <img src="assets/images/testimonials-4.jpg" alt="" class="card-img">
-              </div>
-              <h2 style="font-size: 20px;">Sonal K</h2>
-            </div>
-            <div class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
-          <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">
-            SwapReads revolutionized my reading life! I've decluttered my shelf, discovered hidden gems, and connected
-            with a passionate community. Thank you, SwapReads, for stealing my heart! </div>
-        </div>
-      </div>
-    </div>
-    <div class="swiper-button-next swiper-navBtn"></div>
-    <div class="swiper-button-prev swiper-navBtn"></div>
-    <div class="swiper-pagination"></div>
-  </div>
-
   </br>
 
-
-  <!-- Testimonials -->
-
-
-  <div class="faq-section">
-    <h1 class="faq" id="faqq">Some Frequently Asked Questions</h1>
-    </br>
-    <div class="faq-container">
-      <div class="question">
-        <h4>How does SwapReads work ?</h4>
-        <i class="icon fa-solid fa-caret-down"></i>
-      </div>
-      <div class="answers">
-        <p>SwapReads is a global book exchange platform where users can create profiles,
-          list the books they're willing to swap, and can find other users collections.
-          When you find a book you're interested in, you can find suitable offers and can read that book. It's that
-          easy!</p>
-      </div>
-    </div>
-
-    <div class="faq-container">
-      <div class="question">
-        <h4>How does SwapReads contribute to sustainability?</h4>
-        <i class="icon fa-solid fa-caret-down"></i>
-      </div>
-      <div class="answers">
-        <p>
-          By facilitating book swaps, SwapReads promotes a more sustainable reading culture by
-          reducing the demand for new book production. This helps minimize the environmental impact
-          associated with book manufacturing, including paper usage and carbon emissions.
-        </p>
-      </div>
-    </div>
-
-    <div class="faq-container">
-      <div class="question">
-        <h4>How do I join the SwapReads community?</h4>
-        <i class="icon fa-solid fa-caret-down"></i>
-      </div>
-      <div class="answers">
-        <p>Signing up for SwapReads is quick and easy. Simply visit our website, create a profile, and start listing the
-          books you're eager to swap. You'll be joining a vibrant community of passionate readers in no time!</p>
-      </div>
-    </div>
-
-    <div class="faq-container">
-      <div class="question">
-        <h4>How do I ensure the safety and security of my personal information on SwapReads</h4>
-        <i class="icon fa-solid fa-caret-down"></i>
-      </div>
-      <div class="answers">
-        <p>We take user privacy and security seriously. Your personal information is encrypted and stored securely on
-          our servers. </p>
-      </div>
-    </div>
-  </div>
-  <br /><br />
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const faqContainers = document.querySelectorAll('.faq-container');
-
-      faqContainers.forEach(faq => {
-        const question = faq.querySelector('.question');
-
-        question.addEventListener('click', () => {
-          const answers = faq.querySelector('.answers');
-
-          answers.classList.toggle('visible');
-
-          const icon = faq.querySelector('.icon');
-          icon.classList.toggle('fa-rotate-180');
-        });
-
-
-        const observerOptions = {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, observerOptions);
-
-        observer.observe(faq);
-      });
-    });
-
-
-  </script>
-
-  <!--
-    - #FOOTER
-  -->
-
-  <!-- <footer>
+  <footer class="ff" style="font-size: 18px;">
     <div class="foot-top">
       <div class="foot-left">
+  
         <div class="desc">
-          <a href="#" class="logo">SwapReads</a>
-          <p style="text-align: justify;">SwapReads.com is the ultimate destination for book lovers seeking to swap and
-            discover new literary gems.
-            Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in the
-            world of literature—all on one convenient platform. Join us and dive into a universe of endless
-            possibilities!
-          </p>
-        </div>
-      </div> 
-      <div class="foot-middle">
-        <h2>Quick Links</h2>
-        <ul>
-          <li class="foot-quick"><a href="#home">Home</a></li>
-          <li class="foot-quick"><a href="#benefits">Benefits</a></li>
-          <li class="foot-quick"><a href="#chapters">Literary Realms</a></li>
-          <li class="foot-quick"><a href="#pricing">Pricing</a></li>
-          <li class="foot-quick"><a href="#contact">Contact Us</a></li>
-          <li class="foot-quick"><a href="#faqq">Faq</a></li>
-        </ul>
-      </div>
-      <div class="social-icons">
-        <h5>SUBSCRIBE TO OUR NEWSLETTER</h5>
-        <div class="input-newletter">
-          <input placeholder="EMAIL ADDRESS" type="email" class="in-css"></input> <br>
-          <button class="btn-signup">Subscribe</button> <br>
-        </div>
-        <div class="icons">
-          <a href=""><img class="icon-set" src="./assets/images/FB icon.png" alt=""></a>
-          <a href=""><img class="icon-set" src="./assets/images/insta icon.png" alt=""></a>
-          <a href=""><i class="fa-brands fa-x-twitter fa-2xl" style="color: #deb887;"></i></a>
-          <a href=""><img class="icon-set" src="./assets/images/YT icon.png" alt=""></a>
-        </div>
-      </div>
-
-    </div>
-    <div class="footer-bottom">
-      <p class="copyright" style="text-align: center">
-        &copy;
-        <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
-      </p>
-    </div>
-  </footer> -->
-  <!-- Footer ended-->
-  <footer>
-    <div class="foot-top">
-      <div class="foot-left">
-
-        <div class="desc">
-          <!--google translate-->
-          <div id="google_translate_element"></div>
-
-          <script type="text/javascript">
-            function googleTranslateElementInit() {
-              new google.translate.TranslateElement(
-                { pageLanguage: 'en' },
-                'google_translate_element'
-              );
-            }
-          </script>
-
-          <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?
-      cb=googleTranslateElementInit">
-      </script>
-          <div><a href="#" class="logo">SwapReads</a></div>
+          <div class="SwapReads"><a href="#" class="logoo">SwapReads</a></div>
           <div>
-            <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
-              lovers
-              seeking to swap and
-
-              discover new literary gems.
+            <p style="text-align: justify; color: black; font-size: 16px;" class="description">
+              SwapReads.com is the ultimate destination for book lovers seeking to swap and discover new literary gems.
               Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
-              the
-              world of literature—all on one convenient platform. Join us and dive into a universe of endless
-              possibilities!
+              the world of literature—all on one convenient platform. Join us and dive into a universe of endless possibilities!
             </p>
+            <style>
+              .dark-mode .logo{
+                color: maroon !important;
+              }
+              .dark-mode .description{
+                color: white !important;
+              }
+            </style>
           </div>
-
+          
+  
         </div>
       </div>
       <div class="foot-middle">
-        <h2>Quick Links</h2>
-        <div id="quicklinks">
-          <div>
-            <ul>
-              <li class="foot-quick"><a href="./index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
-              <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
-              <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
-              <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
-              <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
-                  onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
-            </ul>
-          </div>
-          <div>
-            <ul>
-              <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')">Swap
-                  BookList</a></li>
-              <li class="foot-quick"><a href="./assets/html/freeBooks.html"
-                  onclick="lenis.scrollTo('#contact')">E-Book</a></li>
-              <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
-              </li>
-              <li class="foot-quick"><a href="./terms&cond.html" onclick="lenis.scrollTo('#terms&cond')">terms and
-                  conditions</a>
-              </li>
-              <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
-              <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="social-icons">
-
+        <h2 style="margin-left: 2rem; margin-top: 2.75rem; font-size: 28px; font-weight: 700;" id="quicklinks-color">Quick Links</h2>
         <style>
-          input[type="email"] {
-            border: 2px solid #ccc;
-            /* Gray border */
-            border-radius: 4px;
-            /* Rounded corners */
-            padding: 10px;
-            /* Inner padding */
-            font-size: 16px;
-            /* Font size */
+          .dark-mode #quicklinks-color{
+            color: maroon !important;
+          }
+          .dark-mode #quicklinks ul li a{
+            color: white !important;
           }
         </style>
-
-        <form type="newsletter">
-          <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
-          <div class="row-flex">
-            <!-- Email input -->
-            <input type="email" id="newsletter-email" name="email" placeholder="E mail address"
-              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
-              title="Please enter a valid email address that ends with '.com'" required>
-            <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
+        <div id="quicklinks" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem; ">
+          <div class="linkscolor">
+            <ul style="list-style: none; padding: 0;">
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem; ">
+                <i class="fas fa-home" style="color: #374151; margin-right: 4px;"></i>
+                <a href="./index.html#home" style="color: #374151; text-decoration: none;">Home</a>
+              </li>
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-book" style="color: #374151; margin-right: 4px;"></i>
+                <a href="./index.html#benefits" style="color: #374151; text-decoration: none;">Benefits</a>
+              </li>
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-globe" style="color: #374151; margin-right: 4px;"></i>
+                <a href="./index.html#chapters" style="color: #374151; text-decoration: none;">Literary</a>
+              </li>
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-dollar-sign" style="color: #374151; margin-right: 4px;"></i>
+                <a href="./index.html#pricing" style="color: #374151; text-decoration: none;">Pricing</a>
+              </li>
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-bookmark" style="color: #374151; margin-right: 4px;"></i>
+                <a href="./assets/html/book_recommend.html" style="color: #374151; text-decoration: none;">Recommend</a>
+              </li>
+            </ul>
           </div>
-        </form>
-        <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
-
-
-        <div class="icons">
-          <a href="https://www.discord.com/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
-            </div>
-          </a>
-          <a href="https://www.linkedin.com/in/anurag-verma-b91417253/">
-            <div class="icon">
-              <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
-            </div>
-          </a>
-
-          <a href="https://x.com/anuragverma_108">
-            <div class="icon">
-              <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
-            </div>
-          </a>
-
-          <a href="#">
-            <div class="icon">
-              <i class="fab fa-instagram" title="Instagram" style="cursor: pointer;"></i>
-            </div>
-          </a>
-
-
-          <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
-            <div class="icon">
-              <i class="fab fa-youtube" style="cursor: pointer;"></i>
-            </div>
-          </a>
-
-        </div>
-
-        <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
-          <div class="circle1">
-            <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-              class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-              <path
-                d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-            </svg>
+          <div>
+            <ul style="list-style: none; padding: 0;">
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-exchange-alt" style="color: #374151; margin-right: 4px;"></i>
+                <a href="./assets/html/booklistswap.html" style="color: #374151; text-decoration: none;">Swap</a>
+              </li>
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-file-pdf" style="color: #374151; margin-right: 4px;"></i>
+                <a href="./assets/html/freeBooks.html" style="color: #374151; text-decoration: none;">E-Book</a>
+              </li>
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-info-circle" style="color: #374151; margin-right: 4px;"></i>
+                <a href="./assets/html/about.html" style="color: #374151; text-decoration: none;">About</a>
+              </li>
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-envelope" style="color: #374151; margin-right: 4px;"></i>
+                <a href="./index.html#contact" style="color: #374151; text-decoration: none;">Contact</a>
+              </li>
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-question-circle" style="color: #374151; margin-right: 4px;"></i>
+                <a href="./index.html#faqq" style="color: #374151; text-decoration: none;">FAQ</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
+        <style>
+          .social-icons input[type="email"] 
+          {
+              border: 0.2rem solid #ccc; /* Gray border */
+              border-radius: 0.4rem; /* Rounded corners */
+              padding: 1rem; /* Inner padding */
+              font-size: 1.6rem; /* Font size */
+          }
+          #confirmationMessage
+          {
+            margin-left: 5rem;
+            font-size: 2.3rem;
+            color: green;
+  
+          }
+         /* for small screen */
+          @media (max-width: 768px) 
+          {
+            #confirmationMessage 
+            {
+                margin-left: 0;
+                text-align: center;
+                font-size: 1.8rem;
+            }
+        }
+        </style>
+              <style>
+                #confirmationmessage {
+          position: fixed;
+          top: 42rem;
+          right: 1rem;
+          background-color: green;
+          color: white;
+          padding: 1rem;
+          border-radius: 0.5rem;
+          box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+          z-index: 1000;
+          display: none;
+        }
+  
+              </style>
+  
+  
+  
+  
+          
+        <script>
+        function showConfirmationMessage() {
+  
+        const form = document.getElementById('newsform');
+        const confirmationMessage = document.getElementById('confirmationmessage');
+  
+  
+        confirmationMessage.style.display = 'block';
+        setTimeout(function() {
+          location.reload(); 
+        }, 3000);
+  
+  
+  
+        }
+  
+        </script>
+        <style>
+  
+        .subscribe {
+        background-color: #A30F17;
+        color: white; 
+        border: none; 
+        padding: 1rem 2rem; 
+        font-size: 1.4rem; 
+        font-family: Arial, sans-serif;
+        border-radius: 0.5rem; 
+        cursor: pointer; 
+        transition: background-color 0.3s, transform 0.2s;
+        width: 100%;
+        }
+  
+        .subscribe:hover {
+        background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+        transform: scale(1.1);
+        }
+  
+        .subscribe:active {
+        transform: scale(0.98); 
+        }
+  
+        .subscribe:focus {
+        outline: none; 
+        }
+  
+        </style>
+  
+        <div class="foot-right">
+        <h2 style="margin-bottom: 2.4rem; margin-top:0.5rem; font-size: 28px; font-weight: 700;" id="stayconnected-color">Stay Connected</h2>
+        <style>
+          .dark-mode #stayconnected-color{
+            color:maroon !important;
+          }
+        </style>
+        <form id="newsform" onsubmit="return showConfirmationMessage();">
+            <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
+            <div class="row-flex display-flex">
+                <input class="finput" type="email" id="new-email" name="email" placeholder="Email address"
+                      pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+                      title="Please enter a valid email address that ends with '.com'" required>
+                <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
+            </div>
+        </form>
+        <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
+        <div class="icons">
+  <!-- Discord icon -->
+  <a href="https://www.discord.com/" target="_blank">
+    <div class="icon">
+      <i class="fab fa-discord" title="Discord" style="cursor: pointer; color: #374151; margin-right: 4px;"></i>
     </div>
-
-    <div style="text-align: center; align-items: center;">
+  </a>
+  
+  <!-- LinkedIn icon -->
+  <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
+    <div class="icon">
+      <i class="fab fa-linkedin" title="LinkedIn" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+    </div>
+  </a>
+  
+  <!-- Facebook icon -->
+  <a href="https://www.facebook.com/" target="_blank">
+    <div class="icon">
+      <i class="fab fa-facebook" title="Facebook" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+    </div>
+  </a>
+  
+  <!-- X (formerly Twitter) icon -->
+  <a href="https://x.com/anuragverma_108" target="_blank">
+    <div class="icon">
+      <i class="fab fa-twitter" title="X" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+    </div>
+  </a>
+  
+  <!-- Instagram icon -->
+  <a href="https://www.instagram.com/">
+    <div class="icon" id="insta-icon">
+      <i class="fab fa-instagram" title="Instagram" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+    </div>
+  </a>
+  
+  <!-- YouTube icon -->
+  <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
+    <div class="icon">
+      <i class="fab fa-youtube" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+    </div>
+  </a>
+  
+  <!-- GitHub icon -->
+  <a href="https://github.com/anuragverma108">
+    <div class="icon">
+      <i class="fab fa-github" title="GitHub" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+    </div>
+  </a>
+  
+  <style>
+    /* Dark mode hover to display original icon colors */
+  .fab.fa-discord:hover {
+      color: #5865F2 !important; /* Discord original color */
+    }
+  .fab.fa-linkedin:hover {
+      color: #0077B5 !important; /* LinkedIn original color */
+    }
+  .fab.fa-facebook:hover {
+      color: #1877F2 !important; /* Facebook original color */
+    }
+  .fab.fa-twitter:hover {
+      color: #1DA1F2 !important; /* Twitter original color */
+    }
+  .fab.fa-instagram:hover {
+      color: #E4405F !important; /* Instagram original color */
+    }
+  .fab.fa-youtube:hover {
+      color: #FF0000 !important; /* YouTube original color */
+    }
+  .fab.fa-github:hover {
+      color: #171515 !important; /* GitHub original color */
+    }
+  </style>
+  
+        </div>
+       </div>
+      </div>
+  
+      </div>
+    </div>
+  
+  
+    <!-- adding privacy policy and copyright popup-->
+    <div class="footer-f" style="text-align: center; align-items: center;    ">
       <p style="text-align: center">
         &copy;
         <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
       </p>
       <div class="row-copy">
-
-
-        <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
-        <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
-      </div>
+  
+  
+      <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+      <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>  |
+      
+      <a href="our-vision.html" id="ourvisionLink">Our Vision</a></li>
     </div>
-
-    <!-- Copyright Policy Modal
-    <div id="copyrightPolicyModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closeCopyright">&times;</span>
-        <h1>Copyright Policy</h1>
-        <p>Welcome to SwapReads. Here is our copyright policy:</p>
-        <ul>
-          <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
-          <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
-          <li>Users may download and print content for personal use only.</li>
-          <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
-          <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
-        </ul>
-      </div>
     </div>
-
-    Privacy Notice Modal
-    <div id="privacyNoticeModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closePrivacy">&times;</span>
-        <h1>Privacy Notice</h1>
-        <p>Welcome to SwapReads. Here is our privacy notice:</p>
-        <ul>
-          <li>We collect personal information when you register, buy, or sell books.</li>
-          <li>We use this information to provide and improve our services.</li>
-          <li>We do not share your personal information with third parties without your consent.</li>
-          <li>We take reasonable measures to protect your data from unauthorized access.</li>
-          <li>You can contact us to update or delete your personal information.</li>
-          <li>By using our site, you consent to our privacy practices.</li>
-        </ul>
-      </div>
-    </div>
-
-    <script>
-      // Get the modal elements
-      var copyrightModal = document.getElementById("copyrightPolicyModal");
-      var privacyModal = document.getElementById("privacyNoticeModal");
-
-      // Get the link elements
-      var copyrightLink = document.getElementById("copyrightPolicyLink");
-      var privacyLink = document.getElementById("privacyNoticeLink");
-
-      // Get the <span> elements that close the modals
-      var closeCopyright = document.getElementById("closeCopyright");
-      var closePrivacy = document.getElementById("closePrivacy");
-
-      // When the user clicks the link, open the modal 
-      copyrightLink.onclick = function() {
-        copyrightModal.style.display = "block";
-      }
-      privacyLink.onclick = function() {
-        privacyModal.style.display = "block";
-      }
-
-      // When the user clicks on <span> (x), close the modal
-      closeCopyright.onclick = function() {
-        copyrightModal.style.display = "none";
-      }
-      closePrivacy.onclick = function() {
-        privacyModal.style.display = "none";
-      }
-
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == copyrightModal) {
-          copyrightModal.style.display = "none";
+      <style>
+        #copyrightPolicyLink:hover{
+          color: rgb(126, 0, 21);
+          transition: 0.5s ease;
         }
-        if (event.target == privacyModal) {
-          privacyModal.style.display = "none";
+        #privacyNoticeLink:hover{
+          color: rgb(126, 0, 21);
+          transition: 0.5s ease;
         }
-      }
-      document.getElementById('back-to-top-container').onclick = function () {// logic for scroll to top
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      };
-      window.onscroll = function () {
-    const backToTopButton = document.getElementById('back-to-top-container'); // for scroll to top button visibility
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-      backToTopButton.style.display = 'block';
-    } else {
-      backToTopButton.style.display = 'none';
-    }
-  };
-    </script> -->
-
-
-
+        #ourvisionLink:hover{
+          color: rgb(126, 0, 21);
+          transition: 0.5s ease;
+        }
+      </style>
   </footer>
-
-  <!-- <footer class="footer">
-    <div class="container">
-
-      <div class="footer-top">
-
-        <a href="#" class="logo">SwapReads</a>
-
-        <ul class="footer-list">
-
-          <li>
-            <a href="#home" class="footer-link">Home</a>
-          </li>
-
-          <li>
-            <a href="#benefits" class="footer-link">Benefits</a>
-          </li>
-
-          <li>
-            <a href="#chapters" class="footer-link">Literary Realms</a>
-          </li>
-
-          <li>
-            <a href="#pricing" class="footer-link">Pricing</a>
-          </li>
-
-
-          <li>
-            <a href="#reviews" class="footer-link">Reviews</a>
-          </li>
-
-          <li>
-            <a href="#contact" class="footer-link">Contact</a>
-          </li>
-
-        </ul>
-
+  <div>
+    <button id="translateButton">Translate</button>
+  </div>
+  <style>
+    /* Fixed translate button */
+  #translateButton {
+    position: fixed;
+    /* bottom: 20px; */
+    top:-15rem;
+    right: 4.4rem;
+    z-index: 1000;
+    width: 53px;  
+    height: 53px;
+    border-radius: 50%; 
+    border: none; 
+    background:linear-gradient(hwb(357 6% 36%),#d26d6d); 
+    color: white; 
+    text-align: center; 
+    display: inline-block; 
+    font-size: 16px; 
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    transition: transform 0.3s ease;
+    margin-top: 75.8vh;
+    margin-right:opx;
+  }
+  #translateButton:hover {
+    transform: scale(1.2); 
+  }
+  /* The popup modal */
+  .popup {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+  /* Popup content */
+  .popup-content {
+  background:linear-gradient(hwb(357 6% 36%),#d26d6d);
+    margin-top: 600px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 10px;
+    position: relative;
+    margin-left: 1160px;
+    /* margin-right: 0px; */
+  }
+  /* Close button */
+  .close {
+    color: #073725;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+  }
+  /* Hide the default Google Translate widget */
+  .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+    display: none !important;
+  }
+  body {
+    top: 0px !important;
+  }
+  /* Hide the "Powered by Google" branding */
+  .goog-logo-link {
+    display: none !important;
+  }
+  .goog-te-gadget {
+    height: 28px !important;
+    overflow: hidden;
+  }
+  /* Hide Google Translate notifications */
+  .goog-te-spinner-pos,
+  .goog-te-spinner,
+  .goog-te-balloon-frame,
+  .goog-te-banner-frame,
+  .goog-te-banner,
+  .goog-te-balloon {
+    display: none !important;
+  }
+  /* Custom styles for the Google Translate dropdown */
+  #google_translate_element select {
+    background: #ffffff; 
+    border: 1px solid #ccc; 
+    color: #d26d6d; 
+    padding: 5px; 
+    font-size: 14px; 
+    border-radius: 5px; 
+  }
+  /* Hide the Google Translate bar */
+  body > .skiptranslate {
+    display: none !important;
+  }
+  .goog-te-banner-frame.skiptranslate {
+    display: none !important;
+  }
+  .goog-te-banner-frame {
+    display: none !important;
+  }
+  .goog-te-banner {
+    display: none !important;
+  }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get the popup
+    var popup = document.getElementById('translatePopup');
+    // Get the button that opens the popup
+    var btn = document.getElementById('translateButton');
+    // Get the <span> element that closes the popup
+    var span = document.getElementsByClassName('close')[0];
+    // When the user clicks the button, open the popup 
+    btn.onclick = function() {
+        popup.style.display = 'block';
+    }
+    // When the user clicks on <span> (x), close the popup
+    span.onclick = function() {
+        popup.style.display = 'none';
+    }
+    // When the user clicks anywhere outside of the popup, close it
+    window.onclick = function(event) {
+        if (event.target == popup) {
+            popup.style.display = 'none';
+        }
+    }
+  });
+  </script>
+  <!-- Popup for Google Translate -->
+  <div id="translatePopup" class="popup">
+      <div class="popup-content">
+          <span class="close">&times;</span>
+          <div id="google_translate_element"></div>
       </div>
-
-      <div class="footer-bottom">
-        <p class="copyright">
-          &copy; 2024 All rights reserved. Made with ❤ by Guardian Hackers.
-        </p>
-      </div>
-
-    </div>
-  </footer> -->
-
+  </div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+        }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
+  <!-- Your custom JavaScript -->
+  <script src="script.js"></script>
 
   <!--Dark Mode-->
 
@@ -1683,6 +1625,63 @@
       }
     })
   </script>
-</body>
 
+  <script>
+
+  // Coordinates for the cursor
+  const coords = { x: 0, y: 0 };
+  const circles = document.querySelectorAll(".circle");
+
+  // Colors for the circles
+  const colors = [
+    "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+    "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+    "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+    "#680060", "#60005f", "#48005f", "#3d005e"
+  ];
+
+  // Assign colors and initial position to each circle
+  circles.forEach(function (circle, index) {
+    circle.x = 0;
+    circle.y = 0;
+    circle.style.backgroundColor = colors[index % colors.length];
+  });
+
+  // Update the coordinates when the mouse moves
+  window.addEventListener("mousemove", function (e) {
+    coords.x = e.clientX;
+    coords.y = e.clientY;
+  });
+
+  // Animation function to move the circles
+  function animateCircles() {
+    let x = coords.x;
+    let y = coords.y;
+
+    circles.forEach(function (circle, index) {
+      // Update the position and scale of each circle
+      circle.style.left = x - 12 + "px";
+      circle.style.top = y - 12 + "px";
+      circle.style.scale = (circles.length - index) / circles.length;
+
+      circle.x = x;
+      circle.y = y;
+
+      // Get the next circle in the sequence
+      const nextCircle = circles[index + 1] || circles[0];
+      x += (nextCircle.x - x) * 0.15;
+      y += (nextCircle.y - y) * 0.15;
+    });
+
+    // Repeat the animation
+    requestAnimationFrame(animateCircles);
+  }
+
+  // Start the animation
+  animateCircles();
+
+</script>
+  
+</body>
+  
 </html>

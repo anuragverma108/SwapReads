@@ -55,14 +55,36 @@ body {
   position: relative;
 }
 
- 
+.navbar-item.dropdown {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.profile {
+  position: relative;
+  width: 90px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  margin-left: 10px; /* Spacing between "More" link and profile image */
+  display: inline-block;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 p {
 
   font-size:  15px;
   color:  #6231ff;
 
 }
- 
+
 .navbar {
   width: 100%;
   background-color: #000000;
@@ -71,7 +93,7 @@ p {
 .navbar-link {
   text-decoration: none;
   background-color: none;
-  
+
 }
 .navbar-list a{
   width: 100%;
@@ -80,7 +102,7 @@ p {
   position: relative;
   font-size: 1.55rem;
   color: var(--charcoal);
-  padding: 8px 12px;
+  padding: 8px 6px;
   line-height: 2;
   transition: var(--transition-1);
 }
@@ -153,7 +175,7 @@ p {
 .message {
     color: red;
 } */
- 
+
 .form {
 
 	display:  flex;
@@ -162,9 +184,9 @@ p {
   padding:  35px;
   padding-bottom: 0px;
   margin-top:  -16px;
-   
+
 }
- 
+
 #login-form{
   display: flex;
   flex-direction: column;
@@ -177,7 +199,7 @@ p {
   font-family: var(--ff-philosopher);
   margin-bottom: 1.5rem;
   position: relative;
-  top: 40px;
+  top: 120px;
 }
 
 .note h1 {
@@ -186,9 +208,9 @@ p {
   text-align: center;
   font-family: var(--ff-philosopher);
 }
- 
+
 .note h2 {
-   
+
   font-size: 2rem;
  /* font-weight: bold;*/
   color: #67a5eb;
@@ -198,7 +220,7 @@ p {
   margin-bottom:  15px;
 
 }
- 
+
 .note div {
   padding-top: 0.1rem;
   font-size: 2.5rem;
@@ -209,12 +231,13 @@ p {
   position: relative;
   display: flex;
   flex-direction: column;
-  /*top: 140px;*/
+  top: 120px;
   left: 50%;
   transform: translateX(-50%);
   /* background-color: #240046; */
   background-color: var(--light-pink);
-  max-height: 50.8rem;
+  max-height: 63rem;
+
   width: 100%;
   max-width: 50rem;
   overflow: hidden;
@@ -256,7 +279,7 @@ p {
 .light-mode label{
   color: black;
 }
- 
+
 label {
 
   color:  white;
@@ -269,7 +292,7 @@ label {
   text-align:  center;
 
 }
- 
+
 input[type="password"]::-webkit-textfield-decoration-container {
   display: none;
 }
@@ -359,7 +382,7 @@ input[type="password"]::-ms-reveal {
   margin-left: 120px;
   /* margin-left: 132px; */
   z-index: 1;
-  
+
   overflow: hidden;
 }
 
@@ -384,7 +407,7 @@ input[type="password"]::-ms-reveal {
 
 #google-sign-in::before,
 #google-sign-in::after {
-  
+
 	content: "";
 	position: absolute;
 	z-index: -1;
@@ -442,7 +465,7 @@ input[type="password"]::-ms-reveal {
   background-color: var(--old-rose);
 }
 
- 
+
 .register label {
 
   color:  #3434cc;
@@ -451,13 +474,13 @@ input[type="password"]::-ms-reveal {
   margin-top:  -1px;
 
 }
- 
+
 .register label:hover {
 
   color:  #000000;
 
 }
- 
+
 #chk:checked ~ .register {
   transform: translateY(-60%);
 }
@@ -657,7 +680,7 @@ input[type="password"]::-ms-reveal {
   width:  25px;
 
 }
- 
+
 .progress {
     height: 3px !important;
 }
@@ -730,18 +753,18 @@ input[type="password"]::-ms-reveal {
   z-index: 1000;
   transition: top 0.3s;
   }
-  
+
   /* Hide the navbar */
   .header.hidden {
   top: -93px; /* Adjust according to your header height */
   }
-  
+
   /* Navbar styling when scrolled */
   .header.scrolled {
   background-color: #222; /* Change to a darker color when scrolled */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
   }
-  
+
 
 /**
 * Dark Mode
@@ -821,7 +844,7 @@ body.dark-mode {
   color:  rgb(208, 153, 160);
 
 }
- 
+
 .light-mode .input{
   background: #e6e6e6;
   color: rgb(143, 55, 84);
@@ -882,7 +905,7 @@ body.dark-mode {
 .form button
 {
 
-  color:  #fbf7f7;   
+  color:  #fbf7f7;
   background:  rgb(103 165 235);
   box-shadow:  0 0 10px rgba(143, 55, 84, 0.5);
 
@@ -1104,7 +1127,7 @@ background: transparent !important;
   color: rgb(201, 168, 168);
 
 }
-  
+
 .foot-middle ul {
   padding: 0;
   margin: 0;
@@ -1131,7 +1154,7 @@ background: transparent !important;
 
 .nav-links ul li {
   margin-bottom: 10px;
-  
+
   /* Add some spacing between list items */
 }
 
@@ -1236,7 +1259,7 @@ input[type="news"] {
 input[type="news"]:focus {
   border: 2px solid #c27a7e;
 }
- 
+
 input[type="submit"] {
 
   width: 100%;
@@ -1257,7 +1280,7 @@ input[type="submit"] {
   cursor: pointer;
 
 }
- 
+
 input[type="submit"]:hover {
   background: linear-gradient(to right, #000 50%, #36363b 50%);
   background-size: 200% 100%;
@@ -1396,7 +1419,7 @@ input[type="submit"]:hover {
   color:grey;
   margin-bottom: 10px;
   text-align: center; /* center the text */
-  width: 100%; 
+  width: 100%;
   display: inline-block;
   font-weight: bold;
   font-family: var(--ff-philosopher)
@@ -1454,7 +1477,7 @@ input[type="submit"]:hover {
   .navbar-item{
       /* margin-right: 40px; */
       left: auto;
-      
+
   }
   .navbar-list{
     position: relative;

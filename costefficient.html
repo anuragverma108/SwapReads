@@ -655,6 +655,15 @@
         width: 30vw;
         height: 400px;
      }
+
+     .chapter-card {
+       transition: transform 0.3s ease, box-shadow 0.3s ease; 
+     }
+
+.chapter-card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+}
      .genre{
         margin-top: 200px;
      }
@@ -850,7 +859,7 @@ color: #d26d6d;
                       <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
                   </div>
                   <div class="menu">
-                      <h3>XYZ<br /><span>Book Lover</span></h3>
+                      <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
                       <ul>
                           <li><img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a></li>
                           <li><img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit profile</a></li>
@@ -866,9 +875,17 @@ color: #d26d6d;
                     <script>
                       document.addEventListener("DOMContentLoaded", () => {
                           const savedAvatar = localStorage.getItem("selectedAvatar");
+                          const savedName = localStorage.getItem("profileName");
+
                           if (savedAvatar) {
                               document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
                           }
+
+                          if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
                       });
               
                       function menuToggle() {
@@ -1058,207 +1075,7 @@ color: #d26d6d;
            </ul>
          </div>
      </section>
-     <h2 class="h2 section-title has-underline" style="margin-top: 15px;">
-       Testimonials
-       <span class="span has-before"></span>
-     </h2>
-     <p class="section-subtitle" style="text-align: center;">Know what our customers say</p>
-   
-     <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="40"
-       loop="true" >
-       <swiper-slide>
-         <div class="flip-card">
-           <div class="flip-card-inner">
-             <div class="flip-card-front fronts dark-mode">
-               <div class="">
-   
-                 <div class="image-content">
-   
-   
-                   <div class="card-image">
-                     <img src="./assets/images/testimonials-4.jpg" alt="" class="card-img">
-                   </div>
-                   <h2 style="font-size: 20px;">Sonal K</h2>
-                 </div>
-   
-                 <div class="rating">
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                 </div>
-               </div>
-             </div>
-             <div class="flip-card-back backs">
-               SwapReads has completely transformed my reading experience! Not only have I discovered new books I never
-               would have picked up otherwise, but I've also connected with fellow book lovers who share my passion. It's
-               like having a personalized library with endless possibilities. Highly recommend!
-             </div>
-           </div>
-         </div>
-       </swiper-slide>
-       <swiper-slide>
-         <div class="flip-card">
-           <div class="flip-card-inner">
-             <div class="flip-card-front fronts dark-mode">
-               <div class="">
-   
-                 <div class="image-content">
-   
-   
-                   <div class="card-image">
-                     <img src="./assets/images/testimonials-2.jpg" alt="" class="card-img">
-                   </div>
-                   <h2 style="font-size: 20px;">Prem Sampath</h2>
-                 </div>
-   
-                 <div class="rating">
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                 </div>
-               </div>
-             </div>
-             <div class="flip-card-back backs">
-               SwapReads has transformed my reading habits. Beyond swapping books, it's about fostering a community of
-               passionate readers. I've made friends, broadened my literary horizons, and unearthed hidden gems. Thank you,
-             </div>
-           </div>
-         </div>
-       </swiper-slide>
-       <swiper-slide>
-         <div class="flip-card">
-           <div class="flip-card-inner">
-             <div class="flip-card-front fronts dark-mode">
-               <div class="">
-   
-                 <div class="image-content">
-   
-   
-                   <div class="card-image">
-                     <img src="./assets/images/testimonials-3.jpg" alt="" class="card-img">
-                   </div>
-                   <h2 style="font-size: 20px;">Aron Loes</h2>
-                 </div>
-   
-                 <div class="rating">
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                 </div>
-               </div>
-             </div>
-             <div class="flip-card-back backs">
-               SwapReads is a bookworm's paradise! With its user-friendly interface, welcoming community, and vast variety
-               of books for swapping, I've embarked on countless new literary adventures. It's like an ever-active book
-               club where I've connected with fellow literature lovers. I'm completely hooked!
-             </div>
-           </div>
-         </div>
-       </swiper-slide>
-       <swiper-slide>
-         <div class="flip-card">
-           <div class="flip-card-inner">
-             <div class="flip-card-front fronts dark-mode">
-               <div class="">
-   
-                 <div class="image-content">
-   
-   
-                   <div class="card-image">
-                     <img src="./assets/images/testimonials-1.jpg" alt="" class="card-img">
-                   </div>
-                   <h2 style="font-size: 20px;">B.Sharmila</h2>
-                 </div>
-   
-                 <div class="rating">
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                 </div>
-               </div>
-             </div>
-             <div class="flip-card-back backs">
-               SwapReads revolutionized my reading life! I've decluttered my shelf, discovered hidden gems, and connected
-               with a passionate community. Thank you, SwapReads, for stealing my heart!
-             </div>
-           </div>
-         </div>
-       </swiper-slide>
-       <swiper-slide>
-         <div class="flip-card">
-           <div class="flip-card-inner">
-             <div class="flip-card-front fronts dark-mode">
-               <div class="">
-   
-                 <div class="image-content">
-   
-   
-                   <div class="card-image">
-                     <img src="./assets/images/testimonials-5.jpg" alt="" class="card-img">
-                   </div>
-                   <h2 style="font-size: 20px;">Jane Doe</h2>
-                 </div>
-   
-                 <div class="rating">
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                 </div>
-               </div>
-             </div>
-             <div class="flip-card-back backs">
-               I love SwapReads! It's a fantastic way to keep my reading list dynamic and engaging. The platform is
-               easy to use, and the community is incredibly supportive and passionate about books. SwapReads has
-               definitely enriched my reading experience.
-             </div>
-           </div>
-         </div>
-       </swiper-slide>
-       <swiper-slide>
-         <div class="flip-card">
-           <div class="flip-card-inner">
-             <div class="flip-card-front fronts dark-mode">
-               <div class="">
-   
-                 <div class="image-content">
-   
-   
-                   <div class="card-image">
-                     <img src="./assets/images/testimonials-6.jpg" alt="" class="card-img">
-                   </div>
-                   <h2 style="font-size: 20px;">Maya Verma</h2>
-                 </div>
-   
-                 <div class="rating">
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                 </div>
-               </div>
-             </div>
-             <div class="flip-card-back backs">
-               SwapReads has completely changed the way I read and discover books. The swapping system is seamless,
-               and I've found so many new favorites. Plus, the community is amazing – it's like having a book club at
-               my fingertips!
-             </div>
-           </div>
-         </div>
-       </swiper-slide>
-     </swiper-container>
-   </br>
- <script src="./assets/js/swiper-bundle.min.js"></script>
+     
  <script>
    document.addEventListener("DOMContentLoaded", function () {
 const carousel = document.querySelector(".carousell"); 
@@ -1366,10 +1183,10 @@ carousel.addEventListener("scroll", infiniteScroll);
            <div id="quicklinks">
              <div>
              <ul>
-               <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')">Home</a></li>
-               <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
-               <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
-               <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
+               <li class="foot-quick"><a href="index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
+               <li class="foot-quick"><a href="index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
+               <li class="foot-quick"><a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+               <li class="foot-quick"><a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
                <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
                  onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
              </ul>
@@ -1382,8 +1199,8 @@ carousel.addEventListener("scroll", infiniteScroll);
                    onclick="lenis.scrollTo('#contact')">E-Book</a></li>
                <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
                </li>
-               <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
-               <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
+               <li class="foot-quick"><a href="index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+               <li class="foot-quick"><a href="index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
              </ul>
            </div>
            </div>
@@ -1523,86 +1340,8 @@ carousel.addEventListener("scroll", infiniteScroll);
          <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
        </div>
        </div>
-   
-       <!-- Copyright Policy Modal -->
-       <!-- <div id="copyrightPolicyModal" class="modal">
-         <div class="modal-content">
-           <span class="close" id="closeCopyright">&times;</span>
-           <h1>Copyright Policy</h1>
-           <p>Welcome to SwapReads. Here is our copyright policy:</p>
-           <ul>
-             <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
-             <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
-             <li>Users may download and print content for personal use only.</li>
-             <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
-             <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
-           </ul>
-         </div>
-       </div> -->
-   
-       <!-- Privacy Notice Modal -->
-       <!-- <div id="privacyNoticeModal" class="modal">
-         <div class="modal-content">
-           <span class="close" id="closePrivacy">&times;</span>
-           <h1>Privacy Notice</h1>
-           <p>Welcome to SwapReads. Here is our privacy notice:</p>
-           <ul>
-             <li>We collect personal information when you register, buy, or sell books.</li>
-             <li>We use this information to provide and improve our services.</li>
-             <li>We do not share your personal information with third parties without your consent.</li>
-             <li>We take reasonable measures to protect your data from unauthorized access.</li>
-             <li>You can contact us to update or delete your personal information.</li>
-             <li>By using our site, you consent to our privacy practices.</li>
-           </ul>
-         </div>
-       </div> -->
-   
-       <!-- <script>
-         // Get the modal elements
-         var copyrightModal = document.getElementById("copyrightPolicyModal");
-         var privacyModal = document.getElementById("privacyNoticeModal");
-   
-         // Get the link elements
-         var copyrightLink = document.getElementById("copyrightPolicyLink");
-         var privacyLink = document.getElementById("privacyNoticeLink");
-   
-         // Get the <span> elements that close the modals
-         var closeCopyright = document.getElementById("closeCopyright");
-         var closePrivacy = document.getElementById("closePrivacy");
-   
-         // When the user clicks the link, open the modal
-         copyrightLink.onclick = function() {
-           copyrightModal.style.display = "block";
-         }
-         privacyLink.onclick = function() {
-           privacyModal.style.display = "block";
-         }
-   
-         // When the user clicks on <span> (x), close the modal
-         closeCopyright.onclick = function() {
-           copyrightModal.style.display = "none";
-         }
-         closePrivacy.onclick = function() {
-           privacyModal.style.display = "none";
-         }
-   
-         // When the user clicks anywhere outside of the modal, close it
-         window.onclick = function(event) {
-           if (event.target == copyrightModal) {
-             copyrightModal.style.display = "none";
-           }
-           if (event.target == privacyModal) {
-             privacyModal.style.display = "none";
-           }
-         }
-       </script> -->
-   
-   
-   
      </footer>
      <script>
-
-        //   function sendMail(){
         //         let params={
         //             name:document.getElementById('name').value,
         //             email:document.getElementById('email').value,

@@ -1,9 +1,9 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js';
-import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js';
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
 import {
   getAuth,
   sendPasswordResetEmail
-} from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js';
+} from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAIDh842xGC_NZj6pMcB9THjNQ1DyUVnZU",

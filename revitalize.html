@@ -3,7 +3,7 @@
    <head>
        <meta charset="UTF-8">
        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <title>Cost Efficient - SwapReads</title>
+       <title>Revitalize - SwapReads</title>
        <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
@@ -64,7 +64,21 @@
            height: 75%;
          }
      
-     
+         .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+   margin-top: 45px;
+   margin-left: 9rem;
+}
+        .navbar-link {
+  color: black !important;
+}
+
+.dark-mode .navbar-link {
+  color: white !important;
+}
          
        
          /* Theme Change Button Style */
@@ -655,9 +669,17 @@
      }
      .chapter-card{
         width: 30vw;
-        height: 400px;
-        
+        height: 400px; 
      }
+
+     .chapter-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease; 
+      }
+
+.chapter-card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+}
      .genre{
         margin-top: 200px;
      }
@@ -702,175 +724,159 @@ color: #d26d6d;
    });
    </script>
   
-  <header class="header header-anim" data-header>
-
-    <div class="container" style="padding-left: 0;">
-        <div>
-        <nav class="navbar nav_activated" data-navbar>
-            <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
-                <img src="./assets/images/new_logo_banner_dark.png" alt="" class="logopic"
-                    style=" width:0.1px;opacity: 0;" />
+  <header class="header header-anim nav-h" data-header>
+  
+    <div class="container mobile-container-styles">
+      <button class="hamburger" id="hamburger-button" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="navbar nav_activated" data-navbar>
+  
+  
+        <ul class="navbar-list nav" style="margin-right: 10px;">
+          <a href="index.html" class="logo" style="display:flex;">
+            <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; height:100px; margin:0px 0px 15px -10px;">
+          </a>
+  
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="index.html" class="navbar-link" data-nav-link>
+              <i class="ri-home-fill"></i> Home
             </a>
-
-            <ul class="navbar-list">
-                <img src="./assets/images/new_logo_banner_dark.png" class="logopic" style=" width: 200px;">
-
-                <li class="navbar-item">
-                    <a href="index.html#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
-                            class="ri-home-fill"></i> Home</a>
-                </li>
-
-                <li class="navbar-item">
-                    <a href="index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link"
-                        data-nav-link><i class="ri-bar-chart-fill"></i> Benefits</a>
-                </li>
-
-                <li class="navbar-item">
-                    <a href="index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link"
-                        data-nav-link><i class="ri-bar-chart-fill"></i> Genre</a>
-                </li>
-                <li class="navbar-item">
-                  <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
-              </li>
-
-                <li class="navbar-item">
-                    <a href="index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link"
-                        data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
-                </li>
-
-               
-                <li class="navbar-item" id="login-signup-link">
-                    <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
-                </li>
-
-                <li class="navbar-item dropdown" id="more-dropdown">
-                    <a href="#" class="navbar-link" id="more-link">More
-                        <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
-                            viewBox="0 0 24 24">
-                            <path fill="currentcolor"
-                                d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
-                        </svg></a>
-                    <div class="dropdown-menu" id="dropdown-menu">
-
-                        <ul class="dropdown-menu-list">
-                            <li class="dropdown-menu-item">
-                                <a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')"
-                                    class="navbar-link" data-nav-link><i class="ri-medal-fill"></i> Literary
-                                    Realms</a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')"
-                                    class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>
-                                    Pricing</a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="./assets/html/addremovebook.html" class="navbar-link">Booklist for
-                                    Swapping</a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="./assets/html/book_recommend.html" class="navbar-link" data-nav-link>
-                                    <i class="ri-customer-service-2-fill"></i> Book Recommendation
-                                </a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#E-books')"
-                                    class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Free
-                                    E-books</a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="././read_later.html" class="navbar-link">Booklist for Swapping</a>
-                            </li>
-                            <li class="dropdown-menu-item">
-                                <a href="./assets/html/about.html" class="navbar-link">About</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <div class="action">
-                  <div class="profile" onclick="menuToggle();">
-                      <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
-                  </div>
-                  <div class="menu">
-                      <h3>XYZ<br /><span>Book Lover</span></h3>
-                      <ul>
-                          <li><img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a></li>
-                          <li><img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit profile</a></li>
-                          <li><img src="./assets/images/inbox.png" /><a href="#">Inbox</a></li>
-                          <li><img src="./assets/images/settings.png" /><a href="#">Settings</a></li>
-                          <li><img src="./assets/images/help.png" /><a href="/help.html">Help</a></li>
-                          <li><img src="./assets/images/logout.png" /><a id="logout-btn">Logout</a></li>
-                      </ul>
-                  </div>
+          </li>
+  
+  
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
+              <i class="ri-information-fill"></i> About Us
+            </a>
+          </li>
+  
+         <li class="navbar-item" style="margin-right: 10px;">
+            <a href="index.html#benefits"  class="navbar-link" data-nav-link><i
+                class="ri-bar-chart-fill"></i> Benefits</a>
+          </li>
+  
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="index.html#genre"  class="navbar-link" data-nav-link><i
+                class="ri-bar-chart-fill"></i> Genre</a>
+          </li>
+  
+         <li class="navbar-item">
+              <a href="audiobook.html" class="navbar-link" data-nav-link>
+                  <i class="ri-questionnaire-fill"></i> Audio Books
+              </a>
+          </li>
+  
+  
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="index.html#contact"  class="navbar-link" data-nav-link>
+              <i class="ri-contacts-fill"></i> Contact
+            </a>
+          </li>
+  
+          <li class="navbar-item" id="login-signup-link" style="margin-right: 10px;">
+            <a href="./assets/html/login.html" class="navbar-link">
+              <i class="ri-login-box-fill"></i> Login/Signup
+            </a>
+          </li>
+  
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="comsp.html" class="navbar-link" data-nav-link>
+              <i class="ri-book-fill"></i> Community
+            </a>
+          </li>
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="./assets/html/event.html"  class="navbar-link" data-nav-link>
+              <i class="ri-community-fill"></i> Events
+            </a>
+          </li>   
+          <div class="switch-container">
+            <input type="checkbox" id="switch" class="switch-checkbox">
+            <label for="switch" class="switch-label">
+              <div class="switch-button">
+                <span class="material-icons sun-icon">wb_sunny</span>
+                <span class="material-icons moon-icon">brightness_2</span>
               </div>
+            </label>
+            </div>
+              <!-- Theme switcher -->
+
               
+            
+              <script>
+                  // Theme switcher
+                  document.addEventListener('DOMContentLoaded', function () {
+                    const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
+                    const bodyElement = document.body;
               
-                    <script>
-                      document.addEventListener("DOMContentLoaded", () => {
-                          const savedAvatar = localStorage.getItem("selectedAvatar");
-                          if (savedAvatar) {
-                              document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
-                          }
-                      });
+                    const currentTheme = localStorage.getItem('theme') || 'light';
+                    if (currentTheme === 'dark') {
+                      bodyElement.classList.add('dark-mode');
+                      toggleSwitch.checked = true;
+                    } else {
+                      bodyElement.classList.add('light-mode');
+                    }
               
-                      function menuToggle() {
-                          const toggleMenu = document.querySelector(".menu");
-                          toggleMenu.classList.toggle("active");
+                    toggleSwitch.addEventListener('change', function (event) {
+                      if (event.target.checked) {
+                        bodyElement.classList.remove('light-mode');
+                        bodyElement.classList.add('dark-mode');
+                        localStorage.setItem('theme', 'dark');
+                      } else {
+                        bodyElement.classList.remove('dark-mode');
+                        bodyElement.classList.add('light-mode');
+                        localStorage.setItem('theme', 'light');
                       }
-              
-                      document.addEventListener("click", function(event) {
-                          const profile = document.querySelector(".profile");
-                          const menu = document.querySelector(".menu");
-              
-                          if (!profile.contains(event.target) && !menu.contains(event.target)) {
-                              menu.classList.remove("active");
-                          }
-                      });
-              
-                      let lastScrollTop = 0;
-                      const header = document.querySelector('.header');
-              
-                      window.addEventListener('scroll', function() {
-                          let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-              
-                          if (scrollTop > lastScrollTop) {
-                              // Downscroll
-                              header.style.transform = 'translateY(-120%)';
-                          } else {
-                              // Upscroll
-                              header.style.transform = 'translateY(0)';
-                          }
-              
-                          lastScrollTop = scrollTop;
-                      });
-                  </script>
-      
+                    });
+                  });
+                // Hamburger toggle
+                document.getElementById('hamburger-button').addEventListener('click', function() {
+                  document.querySelector('.navbar').classList.toggle('active');
+                });
 
-               
-            </ul>
-        </nav>
-        
-    </div>
+              // Update the coordinates when the mouse moves
+              window.addEventListener("mousemove", function (e) {
+                coords.x = e.clientX;
+              coords.y = e.clientY;
+});
 
-    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-    <script>
-        function loadGoogleTranslate() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en'
-            }, 'google_element');
-        }
-    </script>
+              // Animation function to move the circles
+              function animateCircles() {
+                let x = coords.x;
+              let y = coords.y;
 
-    <div class="switch-container">
-        <input type="checkbox" id="switch" class="switch-checkbox">
-        <label for="switch" class="switch-label">
-          <div class="switch-button">
-            <span class="material-icons sun-icon">wb_sunny</span>
-            <span class="material-icons moon-icon">brightness_2</span>
-          </div>
-        </label>
-      </div>
-    </div>
-</header>
+              circles.forEach(function (circle, index) {
+                // Update the position and scale of each circle
+                circle.style.left = x - 12 + "px";
+              circle.style.top = y - 12 + "px";
+              circle.style.scale = (circles.length - index) / circles.length;
+
+              circle.x = x;
+              circle.y = y;
+
+              // Get the next circle in the sequence
+              const nextCircle = circles[index + 1] || circles[0];
+              x += (nextCircle.x - x) * 0.15;
+              y += (nextCircle.y - y) * 0.15;
+  });
+
+              // Repeat the animation
+              requestAnimationFrame(animateCircles);
+}
+
+              // Start the animation
+              animateCircles();
+
+              function scrollToGenre(genreId) {
+                const element = document.getElementById(genreId);
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }
+                </script>
+              </header>
 
    
    
@@ -999,206 +1005,7 @@ color: #d26d6d;
            </ul>
          </div>
      </section>
-     <h2 class="h2 section-title has-underline" style="margin-top: 15px;">
-       Testimonials
-       <span class="span has-before"></span>
-     </h2>
-     <p class="section-subtitle" style="text-align: center;">Know what our customers say</p>
-   
-     <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="40"
-       loop="true" >
-       <swiper-slide>
-         <div class="flip-card">
-           <div class="flip-card-inner">
-             <div class="flip-card-front fronts dark-mode">
-               <div class="">
-   
-                 <div class="image-content">
-   
-   
-                   <div class="card-image">
-                     <img src="./assets/images/testimonials-4.jpg" alt="" class="card-img">
-                   </div>
-                   <h2 style="font-size: 20px;">Sonal K</h2>
-                 </div>
-   
-                 <div class="rating">
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                 </div>
-               </div>
-             </div>
-             <div class="flip-card-back backs">
-               SwapReads has completely transformed my reading experience! Not only have I discovered new books I never
-               would have picked up otherwise, but I've also connected with fellow book lovers who share my passion. It's
-               like having a personalized library with endless possibilities. Highly recommend!
-             </div>
-           </div>
-         </div>
-       </swiper-slide>
-       <swiper-slide>
-         <div class="flip-card">
-           <div class="flip-card-inner">
-             <div class="flip-card-front fronts dark-mode">
-               <div class="">
-   
-                 <div class="image-content">
-   
-   
-                   <div class="card-image">
-                     <img src="./assets/images/testimonials-2.jpg" alt="" class="card-img">
-                   </div>
-                   <h2 style="font-size: 20px;">Prem Sampath</h2>
-                 </div>
-   
-                 <div class="rating">
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                 </div>
-               </div>
-             </div>
-             <div class="flip-card-back backs">
-               SwapReads has transformed my reading habits. Beyond swapping books, it's about fostering a community of
-               passionate readers. I've made friends, broadened my literary horizons, and unearthed hidden gems. Thank you,
-             </div>
-           </div>
-         </div>
-       </swiper-slide>
-       <swiper-slide>
-         <div class="flip-card">
-           <div class="flip-card-inner">
-             <div class="flip-card-front fronts dark-mode">
-               <div class="">
-   
-                 <div class="image-content">
-   
-   
-                   <div class="card-image">
-                     <img src="./assets/images/testimonials-3.jpg" alt="" class="card-img">
-                   </div>
-                   <h2 style="font-size: 20px;">Aron Loes</h2>
-                 </div>
-   
-                 <div class="rating">
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                 </div>
-               </div>
-             </div>
-             <div class="flip-card-back backs">
-               SwapReads is a bookworm's paradise! With its user-friendly interface, welcoming community, and vast variety
-               of books for swapping, I've embarked on countless new literary adventures. It's like an ever-active book
-               club where I've connected with fellow literature lovers. I'm completely hooked!
-             </div>
-           </div>
-         </div>
-       </swiper-slide>
-       <swiper-slide>
-         <div class="flip-card">
-           <div class="flip-card-inner">
-             <div class="flip-card-front fronts dark-mode">
-               <div class="">
-   
-                 <div class="image-content">
-   
-   
-                   <div class="card-image">
-                     <img src="./assets/images/testimonials-1.jpg" alt="" class="card-img">
-                   </div>
-                   <h2 style="font-size: 20px;">B.Sharmila</h2>
-                 </div>
-   
-                 <div class="rating">
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                 </div>
-               </div>
-             </div>
-             <div class="flip-card-back backs">
-               SwapReads revolutionized my reading life! I've decluttered my shelf, discovered hidden gems, and connected
-               with a passionate community. Thank you, SwapReads, for stealing my heart!
-             </div>
-           </div>
-         </div>
-       </swiper-slide>
-       <swiper-slide>
-         <div class="flip-card">
-           <div class="flip-card-inner">
-             <div class="flip-card-front fronts dark-mode">
-               <div class="">
-   
-                 <div class="image-content">
-   
-   
-                   <div class="card-image">
-                     <img src="./assets/images/testimonials-5.jpg" alt="" class="card-img">
-                   </div>
-                   <h2 style="font-size: 20px;">Jane Doe</h2>
-                 </div>
-   
-                 <div class="rating">
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                 </div>
-               </div>
-             </div>
-             <div class="flip-card-back backs">
-               I love SwapReads! It's a fantastic way to keep my reading list dynamic and engaging. The platform is
-               easy to use, and the community is incredibly supportive and passionate about books. SwapReads has
-               definitely enriched my reading experience.
-             </div>
-           </div>
-         </div>
-       </swiper-slide>
-       <swiper-slide>
-         <div class="flip-card">
-           <div class="flip-card-inner">
-             <div class="flip-card-front fronts dark-mode">
-               <div class="">
-   
-                 <div class="image-content">
-   
-   
-                   <div class="card-image">
-                     <img src="./assets/images/testimonials-6.jpg" alt="" class="card-img">
-                   </div>
-                   <h2 style="font-size: 20px;">Maya Verma</h2>
-                 </div>
-   
-                 <div class="rating">
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                   <i class="fas fa-star"></i>
-                 </div>
-               </div>
-             </div>
-             <div class="flip-card-back backs">
-               SwapReads has completely changed the way I read and discover books. The swapping system is seamless,
-               and I've found so many new favorites. Plus, the community is amazing – it's like having a book club at
-               my fingertips!
-             </div>
-           </div>
-         </div>
-       </swiper-slide>
-     </swiper-container>
-   </br>
+     
  <script src="./assets/js/swiper-bundle.min.js"></script>
  <script>
    document.addEventListener("DOMContentLoaded", function () {
@@ -1307,10 +1114,10 @@ carousel.addEventListener("scroll", infiniteScroll);
            <div id="quicklinks">
              <div>
              <ul>
-               <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')">Home</a></li>
-               <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
-               <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
-               <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
+               <li class="foot-quick"><a href="index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
+               <li class="foot-quick"><a href="index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
+               <li class="foot-quick"><a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+               <li class="foot-quick"><a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
                <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
                  onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
              </ul>
@@ -1323,8 +1130,8 @@ carousel.addEventListener("scroll", infiniteScroll);
                    onclick="lenis.scrollTo('#contact')">E-Book</a></li>
                <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
                </li>
-               <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
-               <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
+               <li class="foot-quick"><a href="index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+               <li class="foot-quick"><a href="index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
              </ul>
            </div>
            </div>
