@@ -404,7 +404,7 @@
 
             <ul class="dropdown-menu-list">
               <li>
-                <a href="chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                <a href="chatt.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
                   Community chat
               </a>
               </li>
@@ -443,7 +443,7 @@
             <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
           </div>
           <div class="menu">
-            <h3>XYZ<br /><span>Book Lover</span></h3>
+            <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
             <ul>
               <li>
                 <img src="./assets/images/user.jpg" /><a href="../../profile.html">My profile</a>
@@ -469,9 +469,16 @@
             <script>
              document.addEventListener("DOMContentLoaded", () => {
   const savedAvatar = localStorage.getItem("selectedAvatar");
+  const savedName = localStorage.getItem("profileName");
   if (savedAvatar) {
       document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
   }
+
+  if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
 });
 document.addEventListener('DOMContentLoaded', function () {
     const moreLink = document.getElementById('more-link');
@@ -497,16 +504,9 @@ document.addEventListener('DOMContentLoaded', function () {
                   toggleMenu.classList.toggle("active");
               }
           </script>
-        <!-- Google Translate Element -->
-        <!-- <li class="navbar-item">
-          <div id="google_element"></div>
-        </li> -->
+       
       </ul>
-      <!-- <div class="hamburger">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </div> -->
+   
     </nav>
     <div id="mobile_View_Menu">
       <span id="menu_lines"></span>
@@ -525,34 +525,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       })
     </script>
-  <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+  <!-- <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
   <script>
     function loadGoogleTranslate() {
       new google.translate.TranslateElement({
         pageLanguage: 'en'
       }, 'google_element');
     }
-  </script>
+  </script> -->
   <script>
-    // const hamburger=document.querySelector('.hamburger');
-    // const head=document.querySelector('.header');
-    // const nav=document.querySelector('.nav');
-    // hamburger.addEventListener('click',()=>{
-    //   head.classList.toggle('nav-h');
-    //   nav.classList.toggle('vis-h');
-    // })
-    // let lastScrollTop = 0;
-    // function onScroll() {
-    //     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    //     const header = document.querySelector('.header');
 
-    //     if (currentScroll > lastScrollTop) {
-    //         header.classList.add('hidden');
-    //     } else {
-    //         header.classList.remove('hidden');
-    //     }
-    //     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-    // }
 
 
 window.addEventListener("scroll", onScroll);
@@ -560,29 +542,6 @@ window.addEventListener("scroll", onScroll);
 
 
 
-  
-  <!-- <div class="switch-toggle-container">
-
-
-    window.addEventListener("scroll", onScroll);
-  </script>
-  <div class="switch-toggle-container">
-
-    <div class="switch-container switch-container-mobile">
-      <input type="checkbox" id="switch" class="switch-checkbox">
-      <label for="switch" class="switch-label">
-        <div class="switch-button">
-          <span class="material-icons sun-icon">wb_sunny</span>
-          <span class="material-icons moon-icon">brightness_2</span>
-        </div>
-      </label>
-    </div> -->
-
-    <!-- <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler id="nav-toggle-button">
-      <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
-
-      <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
-    </button> -->
     <div class="switch-container" style="top: 15px;">
       <input type="checkbox" id="switch" class="switch-checkbox">
       <label for="switch" class="switch-label">
@@ -633,7 +592,7 @@ window.addEventListener("scroll", onScroll);
 
             <div class="desc">
                 <!--google translate-->
-                <div id="google_translate_element"></div>
+                <!-- <div id="google_translate_element"></div>
 
                 <script type="text/javascript">
                     function googleTranslateElementInit() {
@@ -646,7 +605,7 @@ window.addEventListener("scroll", onScroll);
 
                 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?
       cb=googleTranslateElementInit">
-    </script>
+    </script> -->
                 <div><a href="#" class="logo">SwapReads</a></div>
                 <div>
                     <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination
@@ -671,14 +630,14 @@ window.addEventListener("scroll", onScroll);
             <div id="quicklinks">
                 <div>
                     <ul>
-                        <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')">Home</a></li>
-                        <li class="foot-quick"><a href="#benefits"
+                        <li class="foot-quick"><a href="index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
+                        <li class="foot-quick"><a href="index.html#benefits"
                                 onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
                         <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary
                                 Realms</a></li>
-                        <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a>
+                        <li class="foot-quick"><a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a>
                         </li>
-                        <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
+                        <li class="foot-quick"><a href="./assets/html/book_recommend.html"
                                 onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
                     </ul>
                 </div>
@@ -692,9 +651,9 @@ window.addEventListener("scroll", onScroll);
                         <li class="foot-quick"><a href="./assets/html/about.html"
                                 onclick="lenis.scrollTo('#contact')">About</a>
                         </li>
-                        <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact
+                        <li class="foot-quick"><a href="index.html#contact" onclick="lenis.scrollTo('#contact')">Contact
                                 Us</a></li>
-                        <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
+                        <li class="foot-quick"><a href="index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
                     </ul>
                 </div>
             </div>
@@ -797,6 +756,169 @@ window.addEventListener("scroll", onScroll);
             <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
         </div>
     </div>
+
+    <div>
+      <button id="translateButton">Translate</button>
+    </div>
+    <style>
+      /* Fixed translate button */
+    #translateButton {
+      position: fixed;
+      /* bottom: 20px; */
+      top:-15rem;
+      right: 4.4rem;
+      z-index: 1000;
+      width: 53px;  
+      height: 53px;
+      border-radius: 50%; 
+      border: none; 
+      background:#ff9b9b; 
+      color: white; 
+      text-align: center; 
+      display: inline-block; 
+      font-size: 16px; 
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      transition: transform 0.3s ease;
+      margin-top: 75.8vh;
+      margin-right:opx;
+    }
+    #translateButton:hover {
+      transform: scale(1.2); 
+    }
+    /* The popup modal */
+    .popup {
+      display: none; 
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0); 
+      background-color: rgba(0,0,0,0.4); 
+    }
+    /* Popup content */
+    .popup-content {
+    background:#ff9b9b;
+      margin-top: 600px;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 300px;
+      border-radius: 10px;
+      position: relative;
+      margin-left: 1160px;
+      /* margin-right: 0px; */
+    }
+    /* Close button */
+    .close {
+      color: #073725;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+    }
+    /* Hide the default Google Translate widget */
+    .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+      display: none !important;
+    }
+    body {
+      top: 0px !important;
+    }
+    /* Hide the "Powered by Google" branding */
+    .goog-logo-link {
+      display: none !important;
+    }
+    .goog-te-gadget {
+      height: 28px !important;
+      overflow: hidden;
+    }
+    /* Hide Google Translate notifications */
+    .goog-te-spinner-pos,
+    .goog-te-spinner,
+    .goog-te-balloon-frame,
+    .goog-te-banner-frame,
+    .goog-te-banner,
+    .goog-te-balloon {
+      display: none !important;
+    }
+    /* Custom styles for the Google Translate dropdown */
+    #google_translate_element select {
+      background: #ffffff; 
+      border: 1px solid #ccc; 
+      color: #d26d6d; 
+      padding: 5px; 
+      font-size: 14px; 
+      border-radius: 5px; 
+    }
+    /* Hide the Google Translate bar */
+    body > .skiptranslate {
+      display: none !important;
+    }
+    .goog-te-banner-frame.skiptranslate {
+      display: none !important;
+    }
+    .goog-te-banner-frame {
+      display: none !important;
+    }
+    .goog-te-banner {
+      display: none !important;
+    }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      // Get the popup
+      var popup = document.getElementById('translatePopup');
+      // Get the button that opens the popup
+      var btn = document.getElementById('translateButton');
+      // Get the <span> element that closes the popup
+      var span = document.getElementsByClassName('close')[0];
+      // When the user clicks the button, open the popup 
+      btn.onclick = function() {
+          popup.style.display = 'block';
+      }
+      // When the user clicks on <span> (x), close the popup
+      span.onclick = function() {
+          popup.style.display = 'none';
+      }
+      // When the user clicks anywhere outside of the popup, close it
+      window.onclick = function(event) {
+          if (event.target == popup) {
+              popup.style.display = 'none';
+          }
+      }
+    });
+    </script>
+    <!-- Popup for Google Translate -->
+    <div id="translatePopup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <div id="google_translate_element"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+              pageLanguage: 'en',
+          }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <!-- Your custom JavaScript -->
+    <script src="script.js"></script>
 
 
     <!--

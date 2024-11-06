@@ -24,6 +24,49 @@
 </head>
 
 <body>
+
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
   <header class="header header-anim nav-h" data-header style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: top 0.3s ease 0s, opacity 2s cubic-bezier(0.5, 0, 0, 1) 0.3s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0.3s;">
 
     <div class="container mobile-container-styles" style="padding-left: 0;">
@@ -128,9 +171,15 @@
 
               <ul class="dropdown-menu-list">
                 <li>
-                  <a href="chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                  <a href="chatt.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
                     Community chat
                 </a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="author.html" class="navbar-link"
+                    style="font-family: sans-serif;  margin-bottom: 5px;">
+                    Authors
+                  </a>
                 </li>
                 <li>
                   <a href="bookpref.html" class="navbar-link"
@@ -194,14 +243,14 @@
           }
         })
       </script>
-    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <!-- <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script>
       function loadGoogleTranslate() {
         new google.translate.TranslateElement({
           pageLanguage: 'en'
         }, 'google_element');
       }
-    </script>
+    </script> -->
     <script>
       // const hamburger=document.querySelector('.hamburger');
       // const head=document.querySelector('.header');
@@ -225,6 +274,63 @@
 
 
   window.addEventListener("scroll", onScroll);
+
+
+// Coordinates for the cursor
+const coords = { x: 0, y: 0 };
+const circles = document.querySelectorAll(".circle");
+
+// Colors for the circles
+const colors = [
+  "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+  "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+  "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+  "#680060", "#60005f", "#48005f", "#3d005e"
+];
+
+// Assign colors and initial position to each circle
+circles.forEach(function (circle, index) {
+  circle.x = 0;
+  circle.y = 0;
+  circle.style.backgroundColor = colors[index % colors.length];
+});
+
+// Update the coordinates when the mouse moves
+window.addEventListener("mousemove", function (e) {
+  coords.x = e.clientX;
+  coords.y = e.clientY;
+});
+
+// Animation function to move the circles
+function animateCircles() {
+  let x = coords.x;
+  let y = coords.y;
+
+  circles.forEach(function (circle, index) {
+    // Update the position and scale of each circle
+    circle.style.left = x - 12 + "px";
+    circle.style.top = y - 12 + "px";
+    circle.style.scale = (circles.length - index) / circles.length;
+
+    circle.x = x;
+    circle.y = y;
+
+    // Get the next circle in the sequence
+    const nextCircle = circles[index + 1] || circles[0];
+    x += (nextCircle.x - x) * 0.15;
+    y += (nextCircle.y - y) * 0.15;
+  });
+
+  // Repeat the animation
+  requestAnimationFrame(animateCircles);
+}
+
+// Start the animation
+animateCircles();
+
+
+
+
 </script>
 
 
@@ -396,6 +502,21 @@
     .delete-button:hover {
       background-color: #c82333;
     }
+
+    .circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999;
+    transition: transform 0.1s ease-out;
+}
+
+
   </style>
   </head>
 
@@ -436,7 +557,17 @@
         const bookName = document.getElementById('bookName').value;
         const authorName = document.getElementById('authorName').value;
         const bookGenre = document.getElementById('bookGenre').value;
+        const regex = /^(?=.*[A-Za-z])[A-Za-z\s]+$/;
 
+    if (!regex.test(bookName)) {
+        alert("Error: Invalid Book name");
+        return;
+    }
+
+    if (!regex.test(authorName)) {
+        alert("Error: Invalid Author name");
+        return;
+    }
         const note = {
           bookName,
           authorName,
@@ -498,7 +629,7 @@
 
           <div class="desc">
             <!--google translate-->
-            <div id="google_translate_element"></div>
+            <!-- <div id="google_translate_element"></div>
 
             <script type="text/javascript">
               function googleTranslateElementInit() {
@@ -511,7 +642,7 @@
 
             <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?
         cb=googleTranslateElementInit">
-        </script>
+        </script> -->
             <div><a href="#" class="logo">SwapReads</a></div>
             <div>
               <p style="text-align: center; " class="description">SwapReads.com is the ultimate destination for book
@@ -708,84 +839,172 @@
           <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
         </div>
       </div>
-
-      <!-- Copyright Policy Modal -->
-      <!-- <div id="copyrightPolicyModal" class="modal">
-        <div class="modal-content">
-          <span class="close" id="closeCopyright">&times;</span>
-          <h1>Copyright Policy</h1>
-          <p>Welcome to SwapReads. Here is our copyright policy:</p>
-          <ul>
-            <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
-            <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
-            <li>Users may download and print content for personal use only.</li>
-            <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
-            <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
-          </ul>
-        </div>
-      </div> -->
-
-      <!-- Privacy Notice Modal -->
-      <!-- <div id="privacyNoticeModal" class="modal">
-        <div class="modal-content">
-          <span class="close" id="closePrivacy">&times;</span>
-          <h1>Privacy Notice</h1>
-          <p>Welcome to SwapReads. Here is our privacy notice:</p>
-          <ul>
-            <li>We collect personal information when you register, buy, or sell books.</li>
-            <li>We use this information to provide and improve our services.</li>
-            <li>We do not share your personal information with third parties without your consent.</li>
-            <li>We take reasonable measures to protect your data from unauthorized access.</li>
-            <li>You can contact us to update or delete your personal information.</li>
-            <li>By using our site, you consent to our privacy practices.</li>
-          </ul>
-        </div>
-      </div>
-      
-      <script>
-        // Get the modal elements
-        var copyrightModal = document.getElementById("copyrightPolicyModal");
-        var privacyModal = document.getElementById("privacyNoticeModal");
-      
-        // Get the link elements
-        var copyrightLink = document.getElementById("copyrightPolicyLink");
-        var privacyLink = document.getElementById("privacyNoticeLink");
-      
-        // Get the <span> elements that close the modals
-        var closeCopyright = document.getElementById("closeCopyright");
-        var closePrivacy = document.getElementById("closePrivacy");
-      
-        // When the user clicks the link, open the modal 
-        copyrightLink.onclick = function() {
-          copyrightModal.style.display = "block";
-        }
-        privacyLink.onclick = function() {
-          privacyModal.style.display = "block";
-        }
-      
-        // When the user clicks on <span> (x), close the modal
-        closeCopyright.onclick = function() {
-          copyrightModal.style.display = "none";
-        }
-        closePrivacy.onclick = function() {
-          privacyModal.style.display = "none";
-        }
-      
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == copyrightModal) {
-            copyrightModal.style.display = "none";
-          }
-          if (event.target == privacyModal) {
-            privacyModal.style.display = "none";
-          }
-        }
-      </script> -->
-
-
-
     </footer>
     <!-- Footer ended-->
+
+    <div>
+      <button id="translateButton">Translate</button>
+    </div>
+    <style>
+      /* Fixed translate button */
+    #translateButton {
+      position: fixed;
+      /* bottom: 20px; */
+      top:-15rem;
+      right: 4.4rem;
+      z-index: 1000;
+      width: 53px;  
+      height: 53px;
+      border-radius: 50%; 
+      border: none; 
+      background:linear-gradient(hwb(357 6% 36%),#d26d6d); 
+      color: white; 
+      text-align: center; 
+      display: inline-block; 
+      font-size: 16px; 
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      transition: transform 0.3s ease;
+      margin-top: 75.8vh;
+      margin-right:opx;
+    }
+    #translateButton:hover {
+      transform: scale(1.2); 
+    }
+    /* The popup modal */
+    .popup {
+      display: none; 
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0); 
+      background-color: rgba(0,0,0,0.4); 
+    }
+    /* Popup content */
+    .popup-content {
+    background:linear-gradient(hwb(357 6% 36%),#d26d6d);
+      margin-top: 600px;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 300px;
+      border-radius: 10px;
+      position: relative;
+      margin-left: 1160px;
+      /* margin-right: 0px; */
+    }
+    /* Close button */
+    .closes {
+      color: #073725;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .closes:hover,
+    .closes:focus {
+      color: black;
+      text-decoration: none;
+    }
+    /* Hide the default Google Translate widget */
+    .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+      display: none !important;
+    }
+    body {
+      top: 0px !important;
+    }
+    /* Hide the "Powered by Google" branding */
+    .goog-logo-link {
+      display: none !important;
+    }
+    .goog-te-gadget {
+      height: 28px !important;
+      overflow: hidden;
+    }
+    /* Hide Google Translate notifications */
+    .goog-te-spinner-pos,
+    .goog-te-spinner,
+    .goog-te-balloon-frame,
+    .goog-te-banner-frame,
+    .goog-te-banner,
+    .goog-te-balloon {
+      display: none !important;
+    }
+    /* Custom styles for the Google Translate dropdown */
+    #google_translate_element select {
+      background: #ffffff; 
+      border: 1px solid #ccc; 
+      color: #d26d6d; 
+      padding: 5px; 
+      font-size: 14px; 
+      border-radius: 5px;
+      width:85%;
+    }
+    /* Hide the Google Translate bar */
+    body > .skiptranslate {
+      display: none !important;
+    }
+    .goog-te-banner-frame.skiptranslate {
+      display: none !important;
+    }
+    .goog-te-banner-frame {
+      display: none !important;
+    }
+    .goog-te-banner {
+      display: none !important;
+    }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      // Get the popup
+      var popup = document.getElementById('translatePopup');
+      // Get the button that opens the popup
+      var btn = document.getElementById('translateButton');
+      // Get the <span> element that closes the popup
+      var span = document.getElementsByClassName('closes')[0];
+      // When the user clicks the button, open the popup 
+      btn.onclick = function() {
+          popup.style.display = 'block';
+      }
+      // When the user clicks on <span> (x), close the popup
+      span.onclick = function() {
+          popup.style.display = 'none';
+      }
+      // When the user clicks anywhere outside of the popup, close it
+      window.onclick = function(event) {
+          if (event.target == popup) {
+              popup.style.display = 'none';
+          }
+      }
+    });
+    </script>
+    <!-- Popup for Google Translate -->
+    <div id="translatePopup" class="popup">
+        <div class="popup-content">
+            <span class="closes">&times;</span>
+            <div id="google_translate_element"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+              pageLanguage: 'en',
+          }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <!-- Your custom JavaScript -->
+    <script src="script.js"></script>
 
     <!--Go to top button-->
     <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">

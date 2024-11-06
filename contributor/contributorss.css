@@ -1,0 +1,382 @@
+* {
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+  }
+  
+  body {
+
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f2988b;
+
+  }
+  
+  .contributor-container {
+
+    margin: 0 auto;
+
+  }
+  
+  /* Hero Section */
+  .contributor-hero {
+
+    background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2850&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+
+  }
+  
+  .contributor-hero::before {
+
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+
+  }
+  
+  .contributor-hero-content {
+
+    position: relative;
+    z-index: 1;
+    color: #fff;
+
+  }
+  
+  .contributor-hero h1 {
+
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+
+  }
+  
+  .contributor-hero p {
+
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+
+  }
+  
+  /* Buttons */
+  .contributor-btn {
+
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+  }
+  
+  .contributor-btn-primary {
+
+    background-color: #fff;
+    color: #333;
+
+  }
+  
+  .contributor-btn-primary:hover {
+
+    background-color: #f0f0f0;
+
+  }
+  
+  .contributor-btn-secondary {
+    
+    background-color: #f2988b;
+    color: #fff;
+
+  }
+  
+  .contributor-btn-secondary:hover {
+
+    background-color: #444;
+
+  }
+  
+  /* Stats Section */
+  .contributor-stats {
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 0;
+    text-align: center;
+    background: #f2988b;
+
+  }
+  
+  .contributor-stats h2 {
+
+    font-size: 2rem;
+    margin-bottom: 2rem;
+
+  }
+  
+  .contributor-stats-grid {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+
+  }
+  
+  .contributor-stat-card {
+
+    background-color: #ffd4cd;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+
+  }
+  
+  .contributor-stat-card .contributor-icon {
+
+    font-size: 2rem;
+    margin-bottom: 1rem;
+
+  }
+  
+  .contributor-stat-card h3 {
+
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+
+  }
+  
+  .contributor-stat-card p {
+
+    color: #666;
+
+  }
+  
+  /* Contributors Section */
+  .contributor-contributors {
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 0;
+    text-align: center;
+    background: #f2988b;
+
+  }
+  
+  .contributor-contributors h2 {
+
+    font-size: 2rem;
+    margin-bottom: 2rem;
+
+  }
+  
+  .contributor-contributors-grid {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+
+  }
+  
+  .contributor-contributor-card {
+
+    background-color: #ffd4cd;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  }
+  
+  .contributor-contributor-card:hover {
+
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+  }
+  
+  .contributor-contributor-card img {
+
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 1.5rem auto;
+    display: block;
+    border: 4px solid #ffb6bc;
+
+  }
+  
+  .contributor-contributor-card h3 {
+
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+
+  }
+  
+  .contributor-contributor-card p {
+
+    color: #666;
+    margin-bottom: 1rem;
+
+  }
+  
+  .contributor-contributor-card .contributor-contributions {
+
+    background-color: #ffb6bc;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 1rem;
+
+  }
+  
+  .contributor-contributor-card .contributor-footer {
+
+    background-color: #f87f85;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+  
+  .contributor-contributor-card .contributor-footer a {
+
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+
+  }
+  
+  .contributor-contributor-card .contributor-footer svg {
+
+    margin-right: 0.5rem;
+
+  }
+  
+  /* Loading Spinner */
+  .contributor-loading {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+
+  }
+  
+  .contributor-spinner {
+
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #333;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: contributor-spin 1s linear infinite;
+
+  }
+  
+  @keyframes contributor-spin {
+
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+
+  }
+  
+  /* Call to Action Section */
+  .contributor-cta {
+
+    background-color: #f2988b;
+    color: #fff;
+    padding: 4rem 0;
+    text-align: center;
+
+  }
+  
+  .contributor-cta h2 {
+
+    font-size: 2rem;
+    margin-bottom: 1rem;
+
+  }
+  
+  .contributor-cta p {
+
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+
+  }
+  
+  .contributor-cta form {
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+  }
+  
+  .contributor-cta input[type="email"] {
+
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+
+  }
+  
+
+  .contributor-notification {
+
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+
+  }
+  
+  .contributor-hidden {
+
+    display: none;
+
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    
+    .contributor-hero h1 {
+        font-size: 2.5rem;
+    }
+  
+    .contributor-hero p {
+        font-size: 1.2rem;
+    }
+  
+    .contributor-cta form {
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    .contributor-cta input[type="email"] {
+        width: 100%;
+        max-width: 300px;
+    }
+
+  }
+
+  

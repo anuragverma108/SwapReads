@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "build-prod": "npx webpack --mode production --config webpack.config.js && gulp default"
   },
   "repository": {
     "type": "git",
@@ -14,19 +15,26 @@
   },
   "private": true,
   "devDependencies": {
-    "express": "^4.19.2"
+    "express": "^4.21.1",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
-    "body-parser": "^1.20.2",
+    "body-parser": "^1.20.3",
     "cors": "^2.8.5",
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.0",
     "dotenv": "^16.4.5",
     "firebase": "^10.12.4",
+    "gulp": "^5.0.0",
+    "gulp-clean": "^0.4.0",
+    "mini-css-extract-plugin": "^2.9.1",
     "mongoose": "^8.3.5",
-    "nodemailer": "^6.9.14",
+    "nodemailer": "^6.9.15",
     "nodemon": "^3.1.1",
     "swapreads": "file:",
     "validator": "^13.12.0",
+    "webpack": "^5.95.0",
     "zod": "^3.23.8"
   },
   "keywords": [],

@@ -558,10 +558,66 @@ body.dark-mode .main{
 .but{
   font-size: x-large;
 }
+
+#dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #7c0f1b;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 10px;
+}
+
+/* Show the dropdown when the 'open' class is added */
+#dropdown-menu.open {
+  display: block;
+}
 </style>
 
 </head>
 <body>
+
+  <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
   <header class="header header-anim nav-h" data-header>
 
     <div class="container mobile-container-styles" style="padding-left: 0;">
@@ -664,11 +720,16 @@ body.dark-mode .main{
 
               <ul class="dropdown-menu-list">
                 <li>
-                  <a href="chat.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
+                  <a href="/chatt.html" class="navbar-link" style="font-family: sans-serif; color: black; margin-bottom: 5px;">
                     Community chat
                 </a>
                 </li>
-                
+                <li class="dropdown-menu-item">
+                  <a href="author.html" class="navbar-link"
+                    style="font-family: sans-serif;  margin-bottom: 5px;">
+                    Authors
+                  </a>
+                </li>
                 <li class="dropdown-menu-item">
                   <a href="../html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
                       class="ri-price-tag-3-fill"></i> Pricing</a>
@@ -681,6 +742,12 @@ body.dark-mode .main{
                     <i class="ri-customer-service-2-fill"></i> Book Recommendation
                   </a>
                 </li>
+                <li>
+                  <a href="./bookpref.html" class="navbar-link"
+                    style="font-family: sans-serif; margin-bottom: 5px;">
+                    Book Prefer Quiz
+                  </a>
+                </li>
                 <li class="dropdown-menu-item">
                   <a href="../html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
                     data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
@@ -689,7 +756,7 @@ body.dark-mode .main{
                   <a href="../html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href=".../html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
+                  <a href="../html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
                 </li>
                 <li class="dropdown-menu-item">
                   <a href="../html/about.html" class="navbar-link">About</a>
@@ -703,7 +770,7 @@ body.dark-mode .main{
               <img id="profile-avatar" src="../images/avatar1.jpg" />
             </div>
             <div class="menu">
-              <h3>XYZ<br /><span>Book Lover</span></h3>
+              <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
               <ul>
                 <li>
                   <img src="../images/user.jpg" /><a href="../../profile.html">My profile</a>
@@ -729,17 +796,22 @@ body.dark-mode .main{
               <script>
                document.addEventListener("DOMContentLoaded", () => {
     const savedAvatar = localStorage.getItem("selectedAvatar");
+    const savedName = localStorage.getItem("profileName");
     if (savedAvatar) {
-        document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+        document.getElementById("profile-avatar").src = `../images/${savedAvatar}`;
     }
-
+    if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
+        
     document.getElementById('more-link').addEventListener('click', function(event) {
-  event.preventDefault(); // Prevent the default action of the anchor tag
+    event.preventDefault(); 
+    const dropdownMenu = document.getElementById('dropdown-menu');
+     dropdownMenu.classList.toggle('open');
+    });
 
-  // Toggle the 'open' class for the dropdown menu
-  const dropdownMenu = document.getElementById('dropdown-menu');
-  dropdownMenu.classList.toggle('open');
-});
 
 });
 
@@ -748,6 +820,64 @@ body.dark-mode .main{
                     const toggleMenu = document.querySelector(".menu");
                     toggleMenu.classList.toggle("active");
                 }
+
+
+// Coordinates for the cursor
+const coords = { x: 0, y: 0 };
+const circles = document.querySelectorAll(".circle");
+
+// Colors for the circles
+const colors = [
+  "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+  "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+  "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+  "#680060", "#60005f", "#48005f", "#3d005e"
+];
+
+// Assign colors and initial position to each circle
+circles.forEach(function (circle, index) {
+  circle.x = 0;
+  circle.y = 0;
+  circle.style.backgroundColor = colors[index % colors.length];
+});
+
+// Update the coordinates when the mouse moves
+window.addEventListener("mousemove", function (e) {
+  coords.x = e.clientX;
+  coords.y = e.clientY;
+});
+
+// Animation function to move the circles
+function animateCircles() {
+  let x = coords.x;
+  let y = coords.y;
+
+  circles.forEach(function (circle, index) {
+    // Update the position and scale of each circle
+    circle.style.left = x - 12 + "px";
+    circle.style.top = y - 12 + "px";
+    circle.style.scale = (circles.length - index) / circles.length;
+
+    circle.x = x;
+    circle.y = y;
+
+    // Get the next circle in the sequence
+    const nextCircle = circles[index + 1] || circles[0];
+    x += (nextCircle.x - x) * 0.15;
+    y += (nextCircle.y - y) * 0.15;
+  });
+
+  // Repeat the animation
+  requestAnimationFrame(animateCircles);
+}
+
+// Start the animation
+animateCircles();
+
+
+
+
+
             </script>
           <!-- Google Translate Element -->
           <!-- <li class="navbar-item">
@@ -777,14 +907,14 @@ body.dark-mode .main{
           }
         })
       </script>
-    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <!-- <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script>
       function loadGoogleTranslate() {
         new google.translate.TranslateElement({
           pageLanguage: 'en'
         }, 'google_element');
       }
-    </script>
+    </script> -->
     <script>
       // const hamburger=document.querySelector('.hamburger');
       // const head=document.querySelector('.header');
@@ -909,7 +1039,7 @@ body.dark-mode .main{
   
           <div class="desc">
   <!--google translate-->
-            <div id="google_translate_element"></div>
+            <!-- <div id="google_translate_element"></div>
   
             <script type="text/javascript">
                 function googleTranslateElementInit() {
@@ -924,7 +1054,7 @@ body.dark-mode .main{
                     src=
         "https://translate.google.com/translate_a/element.js?
         cb=googleTranslateElementInit">
-            </script>
+            </script> -->
             <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
             <div>
               <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
@@ -991,6 +1121,22 @@ body.dark-mode .main{
                   font-size: 18px;
               }
           }
+
+          .circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999;
+    transition: transform 0.1s ease-out;
+}
+
+
+
           </style>
           <style>
             #confirmationmessage {
@@ -1137,9 +1283,159 @@ body.dark-mode .main{
             <p class="text">Back to Top</p>
             </button>
           </div>
+          <!-- <div>
+            <button id="translateButton">Translate</button>
+          </div> -->
+
           <div>
             <button id="translateButton">Translate</button>
           </div>
+          <style>
+            /* Fixed translate button */
+          #translateButton {
+            background-color: #A30F17;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-left:63rem;
+            width:16%;
+          }
+          #translateButton:hover {
+            transform: scale(1.2); 
+          }
+          /* The popup modal */
+          .popup {
+            display: none; 
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+          }
+          /* Popup content */
+          .popup-content {
+          background:linear-gradient(hwb(357 6% 36%),#d26d6d);
+            margin-top: 600px;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            border-radius: 10px;
+            position: relative;
+            margin-left: 1160px;
+            /* margin-right: 0px; */
+          }
+          /* Close button */
+          .close {
+            color: #073725;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+          }
+          .close:hover,
+          .close:focus {
+            color: black;
+            text-decoration: none;
+          }
+          /* Hide the default Google Translate widget */
+          .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+            display: none !important;
+          }
+          body {
+            top: 0px !important;
+          }
+          /* Hide the "Powered by Google" branding */
+          .goog-logo-link {
+            display: none !important;
+          }
+          .goog-te-gadget {
+            height: 28px !important;
+            overflow: hidden;
+          }
+          /* Hide Google Translate notifications */
+          .goog-te-spinner-pos,
+          .goog-te-spinner,
+          .goog-te-balloon-frame,
+          .goog-te-banner-frame,
+          .goog-te-banner,
+          .goog-te-balloon {
+            display: none !important;
+          }
+          /* Custom styles for the Google Translate dropdown */
+          #google_translate_element select {
+            background: #ffffff; 
+            border: 1px solid #ccc; 
+            color: #d26d6d; 
+            padding: 5px; 
+            font-size: 14px; 
+            border-radius: 5px; 
+          }
+          /* Hide the Google Translate bar */
+          body > .skiptranslate {
+            display: none !important;
+          }
+          .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+          }
+          .goog-te-banner-frame {
+            display: none !important;
+          }
+          .goog-te-banner {
+            display: none !important;
+          }
+          </style>
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            // Get the popup
+            var popup = document.getElementById('translatePopup');
+            // Get the button that opens the popup
+            var btn = document.getElementById('translateButton');
+            // Get the <span> element that closes the popup
+            var span = document.getElementsByClassName('close')[0];
+            // When the user clicks the button, open the popup 
+            btn.onclick = function() {
+                popup.style.display = 'block';
+            }
+            // When the user clicks on <span> (x), close the popup
+            span.onclick = function() {
+                popup.style.display = 'none';
+            }
+            // When the user clicks anywhere outside of the popup, close it
+            window.onclick = function(event) {
+                if (event.target == popup) {
+                    popup.style.display = 'none';
+                }
+            }
+          });
+          </script>
+          <!-- Popup for Google Translate -->
+          <div id="translatePopup" class="popup">
+              <div class="popup-content">
+                  <span class="close">&times;</span>
+                  <div id="google_translate_element"></div>
+              </div>
+          </div>
+          <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                }, 'google_translate_element');
+            }
+          </script>
+          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+          
+          <!-- Your custom JavaScript -->
+          <script src="script.js"></script>
+
         </div>
   
         </div>
