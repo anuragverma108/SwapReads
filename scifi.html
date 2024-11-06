@@ -47,6 +47,21 @@
 
   <script src="./assets/js/rateUsModal.js" defer></script>
 <style>
+      .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+   margin-top: 45px;
+   margin-left: 9rem;
+}
+        .navbar-link {
+  color: black !important;
+}
+
+.dark-mode .navbar-link {
+  color: white !important;
+}
   /* Circle styles */
   .circle {
     height: 24px;
@@ -180,180 +195,159 @@
   <div class="circle"></div>
   <div class="circle"></div>
 
-  <header class="header header-anim" data-header>
-
-    <div class="container" style="padding-left: 0;">
-
+  <header class="header header-anim nav-h" data-header>
+  
+    <div class="container mobile-container-styles">
+     
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav class="navbar nav_activated" data-navbar>
-        <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
-          <img src="./assets/images/final.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
-        </a>
-
-        <ul class="navbar-list">
-          <img src="./assets/images/final.png" class="logopic" style=" width: 150px;">
-
-          <li class="navbar-item">
-            <a href="index.html#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
-                class="ri-home-fill"></i> Home</a>
+  
+  
+        <ul class="navbar-list nav" style="margin-right: 10px;">
+          <a href="index.html" class="logo" style="display:flex;">
+            <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; height:100px; margin:0px 0px 15px -10px;">
+          </a>
+  
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="index.html" class="navbar-link" data-nav-link>
+              <i class="ri-home-fill"></i> Home
+            </a>
           </li>
-
-          <li class="navbar-item">
-            <a href="index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
+  
+  
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
+              <i class="ri-information-fill"></i> About Us
+            </a>
+          </li>
+  
+         <li class="navbar-item" style="margin-right: 10px;">
+            <a href="index.html#benefits"  class="navbar-link" data-nav-link><i
                 class="ri-bar-chart-fill"></i> Benefits</a>
           </li>
-
-          <li class="navbar-item">
-            <a href="index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+  
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="index.html#genre"  class="navbar-link" data-nav-link><i
                 class="ri-bar-chart-fill"></i> Genre</a>
           </li>
-
-          <li class="navbar-item">
-            <a href="index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
-                class="ri-customer-service-2-fill"></i> Contact</a>
+  
+         <li class="navbar-item">
+              <a href="audiobook.html" class="navbar-link" data-nav-link>
+                  <i class="ri-questionnaire-fill"></i> Audio Books
+              </a>
           </li>
-
-          <li class="navbar-item">
-            <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+  
+  
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="index.html#contact"  class="navbar-link" data-nav-link>
+              <i class="ri-contacts-fill"></i> Contact
+            </a>
           </li>
-          <li class="navbar-item" id="login-signup-link">
-            <a href="./assets/html/login.html" class="navbar-link">Login/Signup</a>
+  
+          <li class="navbar-item" id="login-signup-link" style="margin-right: 10px;">
+            <a href="./assets/html/login.html" class="navbar-link">
+              <i class="ri-login-box-fill"></i> Login/Signup
+            </a>
           </li>
-
-
-          <li class="navbar-item dropdown" id="more-dropdown">
-            <a href="#" class="navbar-link" id="more-link">More
-              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
-                viewBox="0 0 24 24">
-                <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
-              </svg></a>
-            <div class="dropdown-menu" id="dropdown-menu">
-
-              <ul class="dropdown-menu-list">
-                <li class="dropdown-menu-item">
-                  <a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
-                      class="ri-medal-fill"></i> Literary Realms</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
-                      class="ri-price-tag-3-fill"></i> Pricing</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/addremovebook.html" class="navbar-link">Booklist for Swapping</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/book_recommend.html" class="navbar-link" data-nav-link>
-                    <i class="ri-customer-service-2-fill"></i> Book Recommendation
-                  </a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
-                    data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="././read_later.html" class="navbar-link">Booklist for Swapping</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="./assets/html/about.html" class="navbar-link">About</a>
-                </li>
-              </ul>
+  
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="comsp.html" class="navbar-link" data-nav-link>
+              <i class="ri-book-fill"></i> Community
+            </a>
+          </li>
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="./assets/html/event.html"  class="navbar-link" data-nav-link>
+              <i class="ri-community-fill"></i> Events
+            </a>
+          </li>   
+          <div class="switch-container">
+            <input type="checkbox" id="switch" class="switch-checkbox">
+            <label for="switch" class="switch-label">
+              <div class="switch-button">
+                <span class="material-icons sun-icon">wb_sunny</span>
+                <span class="material-icons moon-icon">brightness_2</span>
+              </div>
+            </label>
             </div>
-          </li>
-          <div class="action">
-            <div class="profile" onclick="menuToggle();">
-                <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
-            </div>
-            <div class="menu">
-                <h3>XYZ<br /><span>Book Lover</span></h3>
-                <ul>
-                    <li><img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a></li>
-                    <li><img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit profile</a></li>
-                    <li><img src="./assets/images/inbox.png" /><a href="#">Inbox</a></li>
-                    <li><img src="./assets/images/settings.png" /><a href="#">Settings</a></li>
-                    <li><img src="./assets/images/help.png" /><a href="/help.html">Help</a></li>
-                    <li><img src="./assets/images/logout.png" /><a id="logout-btn">Logout</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        
+              <!-- Theme switcher -->
+
+              
+            
               <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                    const savedAvatar = localStorage.getItem("selectedAvatar");
-                    if (savedAvatar) {
-                        document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
-                    }
-                });
-        
-                function menuToggle() {
-                    const toggleMenu = document.querySelector(".menu");
-                    toggleMenu.classList.toggle("active");
-                }
-        
-                document.addEventListener("click", function(event) {
-                    const profile = document.querySelector(".profile");
-                    const menu = document.querySelector(".menu");
-        
-                    if (!profile.contains(event.target) && !menu.contains(event.target)) {
-                        menu.classList.remove("active");
-                    }
-                });
-        
-                let lastScrollTop = 0;
-                const header = document.querySelector('.header');
-        
-                window.addEventListener('scroll', function() {
-                    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-                    if (scrollTop > lastScrollTop) {
-                        // Downscroll
-                        header.style.transform = 'translateY(-120%)';
+                  // Theme switcher
+                  document.addEventListener('DOMContentLoaded', function () {
+                    const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
+                    const bodyElement = document.body;
+              
+                    const currentTheme = localStorage.getItem('theme') || 'light';
+                    if (currentTheme === 'dark') {
+                      bodyElement.classList.add('dark-mode');
+                      toggleSwitch.checked = true;
                     } else {
-                        // Upscroll
-                        header.style.transform = 'translateY(0)';
+                      bodyElement.classList.add('light-mode');
                     }
-        
-                    lastScrollTop = scrollTop;
+              
+                    toggleSwitch.addEventListener('change', function (event) {
+                      if (event.target.checked) {
+                        bodyElement.classList.remove('light-mode');
+                        bodyElement.classList.add('dark-mode');
+                        localStorage.setItem('theme', 'dark');
+                      } else {
+                        bodyElement.classList.remove('dark-mode');
+                        bodyElement.classList.add('light-mode');
+                        localStorage.setItem('theme', 'light');
+                      }
+                    });
+                  });
+                // Hamburger toggle
+                document.getElementById('hamburger-button').addEventListener('click', function() {
+                  document.querySelector('.navbar').classList.toggle('active');
                 });
-            </script>
 
+              // Update the coordinates when the mouse moves
+              window.addEventListener("mousemove", function (e) {
+                coords.x = e.clientX;
+              coords.y = e.clientY;
+});
 
-          <!-- Google Translate Element -->
-          <li class="navbar-item">
-            <div id="google_element"></div>
-          </li>
-        </ul>
-      </nav>
-    </div>
+              // Animation function to move the circles
+              function animateCircles() {
+                let x = coords.x;
+              let y = coords.y;
 
-    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-    <script>
-      function loadGoogleTranslate() {
-        new google.translate.TranslateElement({
-          pageLanguage: 'en'
-        }, 'google_element');
-      }
-    </script>
-    <div class="switch-container" style="top: 15px;">
-      <input type="checkbox" id="switch" class="switch-checkbox">
-      <label for="switch" class="switch-label">
-        <div class="switch-button">
-          <span class="material-icons sun-icon">wb_sunny</span>
-          <span class="material-icons moon-icon">brightness_2</span>
-        </div>
-      </label>
-    </div>
+              circles.forEach(function (circle, index) {
+                // Update the position and scale of each circle
+                circle.style.left = x - 12 + "px";
+              circle.style.top = y - 12 + "px";
+              circle.style.scale = (circles.length - index) / circles.length;
 
-    </li>
-    </ul>
-    </nav>
-    <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
-      <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
+              circle.x = x;
+              circle.y = y;
 
-      <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
-    </button>
+              // Get the next circle in the sequence
+              const nextCircle = circles[index + 1] || circles[0];
+              x += (nextCircle.x - x) * 0.15;
+              y += (nextCircle.y - y) * 0.15;
+  });
 
-    </div>
-  </header>
+              // Repeat the animation
+              requestAnimationFrame(animateCircles);
+}
+
+              // Start the animation
+              animateCircles();
+
+              function scrollToGenre(genreId) {
+                const element = document.getElementById(genreId);
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }
+                </script>
+              </header>
 
 
 
@@ -665,200 +659,10 @@
 
 <!-- Testimonials -->
 
-
-  <div class="faqsection">
-    <h1 class="faqheading" id="faqh1">Some Frequently Asked Questions</h1>
-  </br>
-    <div class="faqcontainer">
-      <div class="questions">
-        <h4>How does SwapReads work ?</h4>
-        <i class="icon fa-solid fa-caret-down"></i>
-      </div>
-      <div class="answer">
-        <p>SwapReads is a global book exchange platform where users can create profiles,
-          list the books they're willing to swap, and can find other users collections.
-          When you find a book you're interested in, you can find suitable offers and can read that book. It's that
-          easy!</p>
-      </div>
-    </div>
-
-    <div class="faqcontainer">
-      <div class="questions">
-        <h4>How does SwapReads contribute to sustainability?</h4>
-        <i class="icon fa-solid fa-caret-down"></i>
-      </div>
-      <div class="answer">
-        <p>
-          By facilitating book swaps, SwapReads promotes a more sustainable reading culture by
-          reducing the demand for new book production. This helps minimize the environmental impact
-          associated with book manufacturing, including paper usage and carbon emissions.
-        </p>
-      </div>
-    </div>
-
-    <div class="faqcontainer">
-      <div class="questions">
-        <h4>How do I join the SwapReads community?</h4>
-        <i class="icon fa-solid fa-caret-down"></i>
-      </div>
-      <div class="answer">
-        <p>Signing up for SwapReads is quick and easy. Simply visit our website, create a profile, and start listing the
-          books you're eager to swap. You'll be joining a vibrant community of passionate readers in no time!</p>
-      </div>
-    </div>
-
-    <div class="faqcontainer">
-      <div class="questions">
-        <h4>How do I ensure the safety and security of my personal information on SwapReads</h4>
-        <i class="icon fa-solid fa-caret-down"></i>
-      </div>
-      <div class="answer">
-        <p>We take user privacy and security seriously. Your personal information is encrypted and stored securely on
-          our servers. </p>
-      </div>
-    </div>
-    <div class="faqcontainer">
-      <div class="questions">
-        <h4>Can I read the books online without downloading them?</h4>
-        <i class="icon fa-solid fa-caret-down"></i>
-      </div>
-      <div class="answer">
-        <p> Yes, many of the free books available on our website can be read online</p>
-      </div>
-    </div>
-    <div class="faqcontainer">
-      <div class="questions">
-        <h4>How can I download a free  book?</h4>
-        <i class="icon fa-solid fa-caret-down"></i>
-      </div>
-      <div class="answer">
-        <p>  To download a free book, simply click on the "Download" button next to the book you are interested in. You may need to sign up or log in to access the download link.</p>
-      </div>
-    </div>
-  </div>
-  <style>
-    .faqcontainer {
-      width: 80%;
-      max-width: 600px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      margin-left:450px;
-      margin-bottom: 20px;
-    }
-
-   .faqheading{
-    color:darkred;;
-    margin-left:525px;
-    font-family: var(--ff-philosopher);
-    font-size:30px;
-   }
-
-    .questions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      padding: 10px;
-      background-color: hsl(0deg 100% 80.49%);
-      color: #fff;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-      color: var(--sonic-silver);
-      font-weight: bold;
-      justify-content: space-between;
-    }
-
-    .questions:hover {
-      background-color:#FFB2A8;
-    }
-
-    .questions h4 {
-      margin: 0;
-    }
-
-    .answer {
-      display: none;
-      padding: 10px;
-      background-color:#FFB2A8;
-      border-left: 3px solid darkred;
-      border-radius: 5px;
-      margin-top: 5px;
-      color:var(--sonic-silver);
-    }
-    .answer:hover{
-      background-color:#FFB2A8;
-    }
-  </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const faqContainers = document.querySelectorAll('.faqcontainer');
-
-      faqContainers.forEach(container => {
-        const question = container.querySelector('.questions');
-        const answer = container.querySelector('.answer');
-        const icon = container.querySelector('.icon');
-
-        question.addEventListener('click', () => {
-          answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-          icon.classList.toggle('fa-caret-down');
-          icon.classList.toggle('fa-caret-up');
-        });
-      });
-    });
-  </script>
-  <br /><br />
-
   <!--
     - #FOOTER
   -->
 
-  <!-- <footer>
-    <div class="foot-top">
-      <div class="foot-left">
-        <div class="desc">
-          <a href="#" class="logo">SwapReads</a>
-          <p style="text-align: justify;">SwapReads.com is the ultimate destination for book lovers seeking to swap and
-            discover new literary gems.
-            Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in the
-            world of literature—all on one convenient platform. Join us and dive into a universe of endless
-            possibilities!
-          </p>
-        </div>
-      </div>
-      <div class="foot-middle">
-        <h2>Quick Links</h2>
-        <ul>
-          <li class="foot-quick"><a href="#home">Home</a></li>
-          <li class="foot-quick"><a href="#benefits">Benefits</a></li>
-          <li class="foot-quick"><a href="#chapters">Literary Realms</a></li>
-          <li class="foot-quick"><a href="#pricing">Pricing</a></li>
-          <li class="foot-quick"><a href="#contact">Contact Us</a></li>
-          <li class="foot-quick"><a href="#faqq">Faq</a></li>
-        </ul>
-      </div>
-      <div class="social-icons">
-        <h5>SUBSCRIBE TO OUR NEWSLETTER</h5>
-        <div class="input-newletter">
-          <input placeholder="EMAIL ADDRESS" type="email" class="in-css"></input> <br>
-          <button class="btn-signup">Subscribe</button> <br>
-        </div>
-        <div class="icons">
-          <a href=""><img class="icon-set" src="./assets/images/FB icon.png" alt=""></a>
-          <a href=""><img class="icon-set" src="./assets/images/insta icon.png" alt=""></a>
-          <a href=""><i class="fa-brands fa-x-twitter fa-2xl" style="color: #deb887;"></i></a>
-          <a href=""><img class="icon-set" src="./assets/images/YT icon.png" alt=""></a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p class="copyright" style="text-align: center">
-        &copy;
-        <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
-      </p>
-    </div>
-  </footer> -->
-  <!-- Footer ended-->
    <footer>
     <div class="foot-top">
       <div class="foot-left">
@@ -902,10 +706,10 @@
         <div id="quicklinks">
           <div>
           <ul>
-            <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')">Home</a></li>
-            <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
-            <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
-            <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
+            <li class="foot-quick"><a href="index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
+            <li class="foot-quick"><a href="index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
+            <li class="foot-quick"><a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+            <li class="foot-quick"><a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
             <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
               onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
           </ul>
@@ -918,8 +722,8 @@
                 onclick="lenis.scrollTo('#contact')">E-Book</a></li>
             <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
             </li>
-            <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
-            <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
+            <li class="foot-quick"><a href="index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+            <li class="foot-quick"><a href="index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
           </ul>
         </div>
         </div>
@@ -1005,117 +809,7 @@
       <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
     </div>
     </div>
-
-    <!-- Copyright Policy Modal -->
-    <!-- <div id="copyrightPolicyModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closeCopyright">&times;</span>
-        <h1>Copyright Policy</h1>
-        <p>Welcome to SwapReads. Here is our copyright policy:</p>
-        <ul>
-          <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
-          <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
-          <li>Users may download and print content for personal use only.</li>
-          <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
-          <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
-        </ul>
-      </div>
-    </div> -->
-
-    <!-- Privacy Notice Modal -->
-    <!-- <div id="privacyNoticeModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closePrivacy">&times;</span>
-        <h1>Privacy Notice</h1>
-        <p>Welcome to SwapReads. Here is our privacy notice:</p>
-        <ul>
-          <li>We collect personal information when you register, buy, or sell books.</li>
-          <li>We use this information to provide and improve our services.</li>
-          <li>We do not share your personal information with third parties without your consent.</li>
-          <li>We take reasonable measures to protect your data from unauthorized access.</li>
-          <li>You can contact us to update or delete your personal information.</li>
-          <li>By using our site, you consent to our privacy practices.</li>
-        </ul>
-      </div>
-    </div>
-
-    <script>
-      // Get the modal elements
-      var copyrightModal = document.getElementById("copyrightPolicyModal");
-      var privacyModal = document.getElementById("privacyNoticeModal");
-
-      // Get the link elements
-      var copyrightLink = document.getElementById("copyrightPolicyLink");
-      var privacyLink = document.getElementById("privacyNoticeLink");
-
-      // Get the <span> elements that close the modals
-      var closeCopyright = document.getElementById("closeCopyright");
-      var closePrivacy = document.getElementById("closePrivacy");
-
-      // When the user clicks the link, open the modal 
-      copyrightLink.onclick = function() {
-        copyrightModal.style.display = "block";
-      }
-      privacyLink.onclick = function() {
-        privacyModal.style.display = "block";
-      }
-
-      // When the user clicks on <span> (x), close the modal
-      closeCopyright.onclick = function() {
-        copyrightModal.style.display = "none";
-      }
-      closePrivacy.onclick = function() {
-        privacyModal.style.display = "none";
-      }
-
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == copyrightModal) {
-          copyrightModal.style.display = "none";
-        }
-        if (event.target == privacyModal) {
-          privacyModal.style.display = "none";
-        }
-      }
-    </script> -->
-
-
-
 </footer>
-
-  <!-- <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
-        <a href="#" class="logo">SwapReads</a>
-        <ul class="footer-list">
-          <li>
-            <a href="#home" class="footer-link">Home</a>
-          </li>
-          <li>
-            <a href="#benefits" class="footer-link">Benefits</a>
-          </li>
-          <li>
-            <a href="#chapters" class="footer-link">Literary Realms</a>
-          </li>
-          <li>
-            <a href="#pricing" class="footer-link">Pricing</a>
-          </li>
-          <li>
-            <a href="#reviews" class="footer-link">Reviews</a>
-          </li>
-          <li>
-            <a href="#contact" class="footer-link">Contact</a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-bottom">
-        <p class="copyright">
-          &copy; 2024 All rights reserved. Made with ❤ by Guardian Hackers.
-        </p>
-      </div>
-    </div>
-  </footer> -->
-
 
   <!--Dark Mode-->
 

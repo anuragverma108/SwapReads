@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <title>SwapReads</title>
+
 
 <head>
   <meta charset="UTF-8">
@@ -73,6 +75,20 @@
     margin-right:200px;
   }
   
+
+  .circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999;
+    transition: transform 0.1s ease-out;
+}
+
   .menu.active {
     display: block;
   }
@@ -147,6 +163,47 @@
 
 <body>
 
+  <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
 
   <header class="header header-anim" data-header>
 
@@ -232,7 +289,7 @@
                 <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
             </div>
             <div class="menu">
-                <h3>XYZ<br /><span>Book Lover</span></h3>
+                <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
                 <ul>
                     <li><img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a></li>
                     <li><img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit profile</a></li>
@@ -248,9 +305,15 @@
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
                     const savedAvatar = localStorage.getItem("selectedAvatar");
+                    const savedName = localStorage.getItem("profileName");
                     if (savedAvatar) {
                         document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
                     }
+                    if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
                 });
         
                 function menuToggle() {
@@ -283,6 +346,64 @@
         
                     lastScrollTop = scrollTop;
                 });
+
+
+
+// Coordinates for the cursor
+const coords = { x: 0, y: 0 };
+const circles = document.querySelectorAll(".circle");
+
+// Colors for the circles
+const colors = [
+  "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+  "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+  "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+  "#680060", "#60005f", "#48005f", "#3d005e"
+];
+
+// Assign colors and initial position to each circle
+circles.forEach(function (circle, index) {
+  circle.x = 0;
+  circle.y = 0;
+  circle.style.backgroundColor = colors[index % colors.length];
+});
+
+// Update the coordinates when the mouse moves
+window.addEventListener("mousemove", function (e) {
+  coords.x = e.clientX;
+  coords.y = e.clientY;
+});
+
+// Animation function to move the circles
+function animateCircles() {
+  let x = coords.x;
+  let y = coords.y;
+
+  circles.forEach(function (circle, index) {
+    // Update the position and scale of each circle
+    circle.style.left = x - 12 + "px";
+    circle.style.top = y - 12 + "px";
+    circle.style.scale = (circles.length - index) / circles.length;
+
+    circle.x = x;
+    circle.y = y;
+
+    // Get the next circle in the sequence
+    const nextCircle = circles[index + 1] || circles[0];
+    x += (nextCircle.x - x) * 0.15;
+    y += (nextCircle.y - y) * 0.15;
+  });
+
+  // Repeat the animation
+  requestAnimationFrame(animateCircles);
+}
+
+// Start the animation
+animateCircles();
+
+
+
+
             </script>
 
 
@@ -530,306 +651,7 @@
 
     </article>
   </main>
-
-  <!-- --Testimonials -->
-
-  <h2 class="h2 section-title has-underline" style="margin-top: 15px;">
-    Acclaimed Authors
-    <span class="span has-before"></span>
-  </h2>
-  <p class="section-subtitle">The Incredible Voices of Today</p>
-
-<div class="slide-container swiper" style="margin-bottom: 15px;">
-<div class="slide-content">
-<div class="card-wrapper swiper-wrapper">
-    <div class="card swiper-slide">
-        <div class="fronts" style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-
-        <div class="image-content" >
-
-
-            <div class="card-image">
-                <img src="assets\images\genres\auth1.jpg" alt="" class="card-img">
-            </div>
-            <h2 style="font-size: 20px;">Nicholas Sparks</h2>
-        </div>
-
-        <div class="rating" >
-            <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-        </div>
-        </div>
-        <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">
-
-          SwapReads has completely transformed my reading experience! Not only have I discovered new books I never would have picked up otherwise, but I've also connected with fellow book lovers who share my passion. It's like having a personalized library with endless possibilities. Highly recommend! </div>
-
-    </div>
-    <div class="card swiper-slide">
-        <div class="fronts" style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-
-          <div class="image-content" >
-                <div class="card-image">
-                    <img src="assets\images\genres\auth2.jpg" alt="" class="card-img">
-                </div>
-                <h2 style="font-size: 20px;">John Green</h2>
-            </div>
-            <div class="rating" >
-                <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-            </div>
-            </div>
-            <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">SwapReads has transformed my reading habits. Beyond swapping books, it's about fostering a community of passionate readers. I've made friends, broadened my literary horizons, and unearthed hidden gems. Thank you, SwapReads! </div>
-    </div>
-    <div class="card swiper-slide">
-        <div class="fronts" style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-            <div class="image-content" >
-                <div class="card-image">
-                    <img src="assets\images\genres\auth3.jpg" alt="" class="card-img">
-                </div>
-                <h2 style="font-size: 20px;">Rainbow Rowell</h2>
-            </div>
-            <div class="rating" >
-                <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-            </div>
-            </div>
-            <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">SwapReads is a bookworm's paradise! With its user-friendly interface, welcoming community, and vast variety of books for swapping, I've embarked on countless new literary adventures. It's like an ever-active book club where I've connected with fellow literature lovers. I'm completely hooked!</div>
-    </div>
-    <div class="card swiper-slide">
-        <div class="fronts" style="align-items: center; justify-content: center; display: flex; flex-direction: column; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-            <div class="image-content" >
-                <div class="card-image">
-                    <img src="assets/images/testimonials-4.jpg" alt="" class="card-img">
-                </div>
-                <h2 style="font-size: 20px;">Sonal K</h2>
-            </div>
-            <div class="rating" >
-                <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-            </div>
-            </div>
-            <div class="backs" style="align-items: center;justify-content: center;display: flex;padding: 10px 10px  ;">SwapReads revolutionized my reading life! I've decluttered my shelf, discovered hidden gems, and connected with a passionate community. Thank you, SwapReads, for stealing my heart! </div>
-    </div>
-</div>
-</div>
-<div class="swiper-button-next swiper-navBtn"></div>
-<div class="swiper-button-prev swiper-navBtn"></div>
-<div class="swiper-pagination"></div>
-</div>
-
-</br>
-
-
-<!-- Testimonials -->
-
-
-  <div class="faqsection">
-    <h1 class="faqheading" id="faqh1">Some Frequently Asked Questions</h1>
-  </br>
-    <div class="faqcontainer">
-      <div class="questions">
-        <h4>How does SwapReads work ?</h4>
-        <i class="icon fa-solid fa-caret-down"></i>
-      </div>
-      <div class="answer">
-        <p>SwapReads is a global book exchange platform where users can create profiles,
-          list the books they're willing to swap, and can find other users collections.
-          When you find a book you're interested in, you can find suitable offers and can read that book. It's that
-          easy!</p>
-      </div>
-    </div>
-
-    <div class="faqcontainer">
-      <div class="questions">
-        <h4>How does SwapReads contribute to sustainability?</h4>
-        <i class="icon fa-solid fa-caret-down"></i>
-      </div>
-      <div class="answer">
-        <p>
-          By facilitating book swaps, SwapReads promotes a more sustainable reading culture by
-          reducing the demand for new book production. This helps minimize the environmental impact
-          associated with book manufacturing, including paper usage and carbon emissions.
-        </p>
-      </div>
-    </div>
-
-    <div class="faqcontainer">
-      <div class="questions">
-        <h4>How do I join the SwapReads community?</h4>
-        <i class="icon fa-solid fa-caret-down"></i>
-      </div>
-      <div class="answer">
-        <p>Signing up for SwapReads is quick and easy. Simply visit our website, create a profile, and start listing the
-          books you're eager to swap. You'll be joining a vibrant community of passionate readers in no time!</p>
-      </div>
-    </div>
-    <div class="faqcontainer">
-      <div class="questions">
-        <h4>Can I read the books online without downloading them?</h4>
-        <i class="icon fa-solid fa-caret-down"></i>
-      </div>
-      <div class="answer">
-        <p> Yes, many of the free books available on our website can be read online</p>
-      </div>
-    </div>
-    <div class="faqcontainer">
-      <div class="questions">
-        <h4>How can I download a free  book?</h4>
-        <i class="icon fa-solid fa-caret-down"></i>
-      </div>
-      <div class="answer">
-        <p>  To download a free book, simply click on the "Download" button next to the book you are interested in. You may need to sign up or log in to access the download link.</p>
-      </div>
-    </div>
-    <div class="faqcontainer">
-      <div class="questions">
-        <h4>How do I ensure the safety and security of my personal information on SwapReads</h4>
-        <i class="icon fa-solid fa-caret-down"></i>
-      </div>
-      <div class="answer">
-        <p>We take user privacy and security seriously. Your personal information is encrypted and stored securely on
-          our servers. </p>
-      </div>
-    </div>
-  </div>
-  <style>
-    .faqcontainer {
-      width: 80%;
-      max-width: 600px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      margin-left:450px;
-      margin-bottom: 20px;
-    }
-
-   .faqheading{
-    color:darkred;;
-    margin-left:525px;
-    font-family: var(--ff-philosopher);
-    font-size:30px;
-   }
-
-    .questions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      padding: 10px;
-      background-color: hsl(0deg 100% 80.49%);
-      color: #fff;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-      color: var(--sonic-silver);
-      font-weight: bold;
-      justify-content: space-between;
-    }
-
-    .questions:hover {
-      background-color:#FFB2A8;
-    }
-
-    .questions h4 {
-      margin: 0;
-    }
-
-    .answer {
-      display: none;
-      padding: 10px;
-      background-color:#FFB2A8;
-      border-left: 3px solid darkred;
-      border-radius: 5px;
-      margin-top: 5px;
-      color:var(--sonic-silver);
-    }
-    .answer:hover{
-      background-color:#FFB2A8;
-    }
-  </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const faqContainers = document.querySelectorAll('.faqcontainer');
-  
-      faqContainers.forEach(container => {
-        const question = container.querySelector('.questions');
-        const answer = container.querySelector('.answer');
-        const icon = container.querySelector('.icon');
-  
-        question.addEventListener('click', () => {
-          answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-          icon.classList.toggle('fa-caret-down');
-          icon.classList.toggle('fa-caret-up');
-        });
-      });
-    });
-  </script>
-  
-  <br /><br />
-
-  <!--
-    - #FOOTER
-  -->
-
-  <!-- <footer>
-    <div class="foot-top">
-      <div class="foot-left">
-        <div class="desc">
-          <a href="#" class="logo">SwapReads</a>
-          <p style="text-align: justify;">SwapReads.com is the ultimate destination for book lovers seeking to swap and
-            discover new literary gems.
-            Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in the
-            world of literature—all on one convenient platform. Join us and dive into a universe of endless
-            possibilities!
-          </p>
-        </div>
-      </div>
-      <div class="foot-middle">
-        <h2>Quick Links</h2>
-        <ul>
-          <li class="foot-quick"><a href="#home">Home</a></li>
-          <li class="foot-quick"><a href="#benefits">Benefits</a></li>
-          <li class="foot-quick"><a href="#chapters">Literary Realms</a></li>
-          <li class="foot-quick"><a href="#pricing">Pricing</a></li>
-          <li class="foot-quick"><a href="#contact">Contact Us</a></li>
-          <li class="foot-quick"><a href="#faqq">Faq</a></li>
-        </ul>
-      </div>
-      <div class="social-icons">
-        <h5>SUBSCRIBE TO OUR NEWSLETTER</h5>
-        <div class="input-newletter">
-          <input placeholder="EMAIL ADDRESS" type="email" class="in-css"></input> <br>
-          <button class="btn-signup">Subscribe</button> <br>
-        </div>
-        <div class="icons">
-          <a href=""><img class="icon-set" src="./assets/images/FB icon.png" alt=""></a>
-          <a href=""><img class="icon-set" src="./assets/images/insta icon.png" alt=""></a>
-          <a href=""><i class="fa-brands fa-x-twitter fa-2xl" style="color: #deb887;"></i></a>
-          <a href=""><img class="icon-set" src="./assets/images/YT icon.png" alt=""></a>
-        </div>
-      </div>
-
-    </div>
-    <div class="footer-bottom">
-      <p class="copyright" style="text-align: center">
-        &copy;
-        <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
-      </p>
-    </div>
-  </footer> -->
-  <!-- Footer ended-->
-   <footer>
+  <footer>
     <div class="foot-top">
       <div class="foot-left">
 
@@ -872,10 +694,10 @@
         <div id="quicklinks">
           <div>
           <ul>
-            <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')">Home</a></li>
-            <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
-            <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
-            <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
+            <li class="foot-quick"><a href="index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
+            <li class="foot-quick"><a href="index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
+            <li class="foot-quick"><a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+            <li class="foot-quick"><a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
             <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
               onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
           </ul>
@@ -888,8 +710,8 @@
                 onclick="lenis.scrollTo('#contact')">E-Book</a></li>
             <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
             </li>
-            <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
-            <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
+            <li class="foot-quick"><a href="index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+            <li class="foot-quick"><a href="index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
           </ul>
         </div>
         </div>
@@ -996,115 +818,6 @@
         </ul>
       </div>
     </div>
-
-    <!-- Privacy Notice Modal -->
-    <!-- <div id="privacyNoticeModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closePrivacy">&times;</span>
-        <h1>Privacy Notice</h1>
-        <p>Welcome to SwapReads. Here is our privacy notice:</p>
-        <ul>
-          <li>We collect personal information when you register, buy, or sell books.</li>
-          <li>We use this information to provide and improve our services.</li>
-          <li>We do not share your personal information with third parties without your consent.</li>
-          <li>We take reasonable measures to protect your data from unauthorized access.</li>
-          <li>You can contact us to update or delete your personal information.</li>
-          <li>By using our site, you consent to our privacy practices.</li>
-        </ul>
-      </div>
-    </div>
-
-    <script>
-      // Get the modal elements
-      var copyrightModal = document.getElementById("copyrightPolicyModal");
-      var privacyModal = document.getElementById("privacyNoticeModal");
-
-      // Get the link elements
-      var copyrightLink = document.getElementById("copyrightPolicyLink");
-      var privacyLink = document.getElementById("privacyNoticeLink");
-
-      // Get the <span> elements that close the modals
-      var closeCopyright = document.getElementById("closeCopyright");
-      var closePrivacy = document.getElementById("closePrivacy");
-
-      // When the user clicks the link, open the modal 
-      copyrightLink.onclick = function() {
-        copyrightModal.style.display = "block";
-      }
-      privacyLink.onclick = function() {
-        privacyModal.style.display = "block";
-      }
-
-      // When the user clicks on <span> (x), close the modal
-      closeCopyright.onclick = function() {
-        copyrightModal.style.display = "none";
-      }
-      closePrivacy.onclick = function() {
-        privacyModal.style.display = "none";
-      }
-
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == copyrightModal) {
-          copyrightModal.style.display = "none";
-        }
-        if (event.target == privacyModal) {
-          privacyModal.style.display = "none";
-        }
-      }
-    </script> -->
-
-
-
-</footer>
-
-  <!-- <footer class="footer">
-    <div class="container">
-
-      <div class="footer-top">
-
-        <a href="#" class="logo">SwapReads</a>
-
-        <ul class="footer-list">
-
-          <li>
-            <a href="#home" class="footer-link">Home</a>
-          </li>
-
-          <li>
-            <a href="#benefits" class="footer-link">Benefits</a>
-          </li>
-
-          <li>
-            <a href="#chapters" class="footer-link">Literary Realms</a>
-          </li>
-
-          <li>
-            <a href="#pricing" class="footer-link">Pricing</a>
-          </li>
-
-
-          <li>
-            <a href="#reviews" class="footer-link">Reviews</a>
-          </li>
-
-          <li>
-            <a href="#contact" class="footer-link">Contact</a>
-          </li>
-
-        </ul>
-
-      </div>
-
-      <div class="footer-bottom">
-        <p class="copyright">
-          &copy; 2024 All rights reserved. Made with ❤ by Guardian Hackers.
-        </p>
-      </div>
-
-    </div>
-  </footer> -->
-
 
   <!--Dark Mode-->
 
@@ -1365,5 +1078,4 @@ count=0
 })
 </script>
 </body>
-
 </html>

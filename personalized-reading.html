@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <title>Personalized Reading - SwapReads</title>
+       <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
+       <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
+       <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
+       <link rel="manifest" href="./assets/favicon_package_v0.16/site.webmanifest">
+       <link rel="mask-icon" href="./assets/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+       <meta name="msapplication-TileColor" content="#da532c">
+       <meta name="theme-color" content="#ffffff">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+       <link rel="stylesheet" href="./assets/css/style.css">
+       <link rel="stylesheet" href="./assets/css/litrary_realms.css">
+       <link rel="stylesheet" href="./assets/font-6/css/all.css">
+       <link rel="stylesheet" href="header.css">
+       <link rel="stylesheet" href="./assets/css/MenuClick.css">
+     
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link
+         href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+         rel="stylesheet">
+     
+       <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+         crossorigin="anonymous" referrerpolicy="no-referrer" />
+       <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+         crossorigin="anonymous" referrerpolicy="no-referrer" />
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     
+       <script src="./assets/js/rateUsModal.js" defer></script>
+       <script src="https://unpkg.com/scrollreveal"></script>
+       <script src="./assets/js/faq.js"></script>
+       <script src="./assets/js/tilt.js"></script>
+       <script src="./assets/js/scroll.js"></script>
+       <link rel="stylesheet" href="./scrollbar.css">
+     
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+       <link rel="stylesheet" href="modals(privacy policy).css">
+     
+       <!-- Swiper CSS -->
+       <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+     
+       <!-- Custom CSS -->
+       <link rel="stylesheet" href="assets/css/test-style.css">
+     
+       <!-- Preloader CSS-->
+       <link rel="stylesheet" href="assets/css/preloader.css">
+       <script src="https://cdn.lordicon.com/lordicon.js"></script>
+       <script src="./assets/js/preloader.js" defer></script>
+       <script src="./script.js"></script>
+       
+       <style>
+       @media (max-width: 575px) {
+           .switch-container {
+             margin-top: 2.4rem;
+             margin-right: -0.5rem;
+           }
+           /* Navbar Toggle Button placed in center */
+           .nav-toggle-btn{
+             margin-top: -2rem;
+             margin-left: 2.2rem;
+           }
+         }     
+         /* Light mode styles */
+         .light-mode .readmore-anim {
+           font-size: 18px;
+           letter-spacing: 0;
+           color: hsl(357, 37%, 62%);
+         }
+     
+         .light-mode .readmore-anim:hover {
+           color: red;
+           letter-spacing: 1px;
+           transition: ease-in-out;
+         }
+         .cta1{
+       position: relative;
+       display: flex;
+       align-items: center;
+       justify-content: flex-start;
+       margin: auto;
+       padding: 20px 24px;
+       color:  hsl(357, 37%, 62%);
+       font-family: Avenir, sans-serif;
+       text-decoration: none;
+       transition: all 0.2s ease;
+       &:before {
+         content: "";
+         position: absolute;
+         top: 27px;
+         left: 0;
+         display: block;
+         border-radius: 28px;
+         background: rgba(255, 171, 157, 0.5);
+         width: 56px;
+         height: 56px;
+         transition: all 0.3s ease;
+       }
+       span {
+         position: relative;
+         font-size: 8px;
+         line-height: 18px;
+         font-weight: 900;
+         letter-spacing: 0.25em;
+         text-transform: uppercase;
+         vertical-align: middle;
+         color: var(--charcoal);
+       }
+       svg {
+         position: relative;
+         top: 27px;
+         margin-left: 5px;
+         fill: none;
+         stroke-linecap: round;
+         stroke-linejoin: round;
+         stroke: hsl(357, 37%, 62%);
+         stroke-width: 2;
+         transform: translateX(-5px);
+         transition: all 0.3s ease;
+       }
+       &:hover {
+         &:before {
+           width: 9%;
+           background: #ffab9d;
+         }
+         svg {
+           transform: translateX(0);
+         }
+         .active {
+           transform: scale(0.96);
+         }
+       }
+     }
+     
+     .cta {
+       position: relative;
+       display: flex;
+       align-items: center;
+       justify-content: flex-start;
+       margin: auto;
+       padding: 20px 24px;
+       color:  hsl(357, 37%, 62%);
+       font-family: Avenir, sans-serif;
+       text-decoration: none;
+       transition: all 0.2s ease;
+       &:before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         display: block;
+         border-radius: 28px;
+         background: rgba(255, 171, 157, 0.5);
+         width: 56px;
+         height: 56px;
+         transition: all 0.3s ease;
+       }
+       span {
+         position: relative;
+         font-size: 8px;
+         line-height: 18px;
+         font-weight: 900;
+         letter-spacing: 0.25em;
+         text-transform: uppercase;
+         vertical-align: middle;
+         color: var(--charcoal);
+       }
+       svg {
+         position: relative;
+         top: 0;
+         margin-left: 5px;
+         fill: none;
+         stroke-linecap: round;
+         stroke-linejoin: round;
+         stroke: hsl(357, 37%, 62%);
+         stroke-width: 2;
+         transform: translateX(-5px);
+         transition: all 0.3s ease;
+       }
+       &:hover {
+         &:before {
+           width: 9%;
+           background: #ffab9d;
+         }
+         svg {
+           transform: translateX(0);
+         }
+         .active {
+           transform: scale(0.96);
+         }
+       }
+     }
+     
+     
+     
+         /* Dark Mode Styles */
+         .dark-mode .readmore-anim {
+           font-size: 18px;
+           letter-spacing: 0;
+           color: hsl(357, 37%, 62%);
+         }
+     
+         .readmore-anim .icon:hover {
+           color: red;
+         }
+     
+         .dark-mode .readmore-anim:hover {
+           color: red;
+           letter-spacing: 1px;
+           transition: ease-in-out;
+         }
+     
+         .dark-mode .header.scrolled {
+           background-color: #232222; /* Change to a darker color when scrolled */
+           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+         }
+         
+.action .menu.active {
+  top: 60px;
+  visibility: visible;
+  opacity: 1;
+  left: 90%;
+  right: -10px;
+  z-index: 1000000;
+}
+     
+         #cookie-consent {
+       position: fixed;
+       bottom: 10px;
+       left: 10px;
+       background-color: #f1f1f1;
+       padding: 20px;
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+       align-items: center;
+       width: 300px;
+       height: fit-content;
+       z-index: 100;
+       border-radius: 10px;
+       margin-bottom: 5px;
+       margin: 20px;
+       border-right: 4px solid transparent;
+       border-bottom: 4px solid transparent;
+       transition: border-color 0.3s;
+     }
+     
+     #cookie-consent:hover {
+       border-right-color: #A30F17;
+       border-bottom-color: #A30F17;
+     }
+     
+     #cookie-consent p {
+       color: black;  /* Make the text black for better visibility */
+       text-align: center;  /* Center align the text */
+     }
+     
+     .accept-cookies,
+     .reject-cookies {
+       width: 260px;  /* Decrease the button width */
+       height: 35px;  /* Decrease the button height */
+       color: white;
+       background-color: #A30F17;
+       border: none;
+       border-radius: 5px;  /* Add rounded corners */
+       cursor: pointer;
+       transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;  /* Smooth transition for effects */
+     }
+     
+     .reject-cookies {
+       margin-top: 10px;
+     }
+     
+     .accept-cookies:hover,
+     .reject-cookies:hover {
+       transform: scale(0.95);
+       box-shadow: 0 0 15px rgb(249, 212, 212);  /* Reduce the shadow size */
+     }
+     
+     .accept-cookies:hover {
+       background-color: rgb(245, 202, 202);
+       color: #A30F17;
+     }
+     
+     .reject-cookies:hover {
+       background-color: rgb(250, 192, 192);
+       color: #A30F17;
+     }
+     
+      .menu {
+        display: none;
+        position: absolute;
+        top: 80px; 
+        right: 0;
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        width: 200px; 
+        z-index: 1000;
+        margin-right:10px;
+      }
+      
+      .menu.active {
+        display: block;
+      }
+      
+      .menu h3 {
+        padding: 10px;
+        text-align: center;
+      }
+      
+      .menu ul {
+        list-style: none;
+        padding: 10px 0;
+      }
+      
+      .menu ul li {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+      }
+      
+      .menu ul li img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+      .profile img {
+        width: 50px; 
+        height: 50px; 
+        border-radius: 50%; 
+        object-fit: cover;
+        border: 2px solid #fff; 
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+      }
+    
+     #learn-more-link,
+     #show-less-link {
+       color: #A30F17;  
+       text-decoration: none;
+       cursor: pointer;
+       font-size: 20px;
+     }
+     
+     #learn-more-link:hover,
+     #show-less-link:hover {
+       text-decoration: underline;
+     }
+     
+     #cookie-content {
+       display: none;
+       margin-top: 10px;
+     }
+     
+     
+     #back-to-top-container {
+       position: fixed;
+     }
+     
+     
+      /* Basic navbar styling */
+      .header {
+      position: fixed;
+      width: 100%;
+      height: 90px;
+      top: 1rem;
+      /* Assuming you meant 1rem for the top */
+      z-index: 1000;
+      transition: top 0.3s, transform 0.3s ease;
+      margin-left: 9rem;
+      /* Add a negative margin to shift left */
+    }
+
+    .navbar-link {
+      font-size: 1.5rem;
+    }
+
+    .navbar-link.active {
+      color: #af574c;
+      /* Highlight color */
+      font-weight: bold;
+    }
+
+    /* Hide the navbar */
+    .header.hidden {
+      top: -9.3rem;
+      /* Adjust according to your header height */
+    }
+
+    /* Navbar styling when scrolled */
+    .header.scrolled {
+      position: sticky !important;
+      background-color: #efefef;
+      /* Change to a darker color when scrolled */
+      box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+      /* Add shadow for better visibility */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+    }
+
+
+    @media only screen and (max-width:106.3rem) {
+      .nav {
+        flex-direction: row;
+      }
+
+      .header {
+
+        flex-direction: column;
+        height: 53.8rem;
+        transition: 0.2s all ease-out;
+        padding-top: 0rem;
+
+      }
+
+      .navbar-item {
+
+        margin: 0
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .nav-h {
+        height: 7.8rem;
+        width: 100vw;
+      }
+
+      .vis-h {
+        opacity: 0;
+      }
+
+      .switch-container {
+        right: 7rem !important;
+      }
+    }
+
+    @media only screen and (max-width:990px) {
+      .header {
+        height: 0;
+      }
+
+      .navbar-list {
+        top: 0;
+      }
+
+      .logo img {
+        top: -0.9rem;
+        left: 5rem;
+      }
+    }
+
+    /* Removed empty ruleset for .navbar-item */
+
+    .navbar-item {
+      margin-top: 1rem;
+      /* Increase the top margin of each item */
+
+    }
+     .grid-list {
+    grid-template-columns: repeat(2, 1fr);
+}
+     
+     .chapter-card{
+        width: 30vw;
+        height: 400px;
+     }
+
+     .chapter-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.chapter-card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+}
+     .genre{
+        margin-top: 200px;
+     }
+     .light-mode .switch-container {
+    right: 140px;
+    top: 10px;
+}
+.switch-checkbox:checked + .switch-label .switch-button {
+    transform: translateX(13px);
+    /* background-color: #34495e; */
+}
+.ben {
+    color: var(--sonic-silver);
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.chapter-card:hover .ben{
+color: #d26d6d;
+}
+       </style>
+      <style>
+        /* Circle styles */
+        .circle {
+          height: 24px;
+          width: 24px;
+          border-radius: 50%;
+          background-color: black;
+          position: fixed;
+          top: 0;
+          left: 0;
+          pointer-events: none;
+          z-index: 99999999;
+          transition: transform 0.1s ease-out;
+        }
+      </style>
+     </head>
+<body> 
+    <!-- Circles -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+     <div id="cookie-consent">
+       <button class="close-btn" id="closeBtn">&times;</button>
+       <p>
+           We use cookies to improve your experience. By using our website, you consent to all cookies in accordance with our Cookie Policy.
+           <a href="#" id="learn-more-link">Learn More</a>
+   
+       </p>
+       <div id="learn-more-content" style="display: none;">
+           <p>Cookies are small text files that can be used by websites to make a user's experience more efficient. The law states that we can store cookies on your device if they are strictly necessary for the operation of this site. For all other types of cookies we need your permission.</p>
+           <p>This site uses different types of cookies. Some cookies are placed by third party services that appear on our pages.</p>
+       </div>
+   
+       <a href="#" id="show-less-link" style="display: none;">Show Less</a>
+       <button class="accept-cookies">Accept</button>
+       <button class="reject-cookies">Reject</button>
+     </div>
+   
+     <script src="script.js"></script>
+   <script>
+   
+     document.addEventListener('DOMContentLoaded', function() {
+     const cookieConsent = document.getElementById('cookie-consent');
+     const acceptButton = document.querySelector('.accept-cookies');
+     const rejectButton = document.querySelector('.reject-cookies');
+     const learnMoreLink = document.getElementById('learn-more-link');
+     const learnMoreContent = document.getElementById('learn-more-content');
+   
+     // Hide preloader after page load
+     window.addEventListener('load', function() {
+       const preloader = document.getElementById('preloader');
+       if (preloader) {
+         preloader.style.display = 'none';
+       }
+       cookieConsent.style.display = 'block';
+     });
+   
+     // Check if localStorage is available
+     function localStorageAvailable() {
+       try {
+         const test = '__localStorage_test__';
+         localStorage.setItem(test, test);
+         localStorage.removeItem(test);
+         return true;
+       } catch (e) {
+         return false;
+       }
+     }
+   
+     if (localStorageAvailable()) {
+       // Check if the user has already made a choice
+       if (localStorage.getItem('cookieConsent')) {
+         cookieConsent.style.display = 'none';
+       }
+   
+       // Function to handle cookie consent choice
+       function handleConsent(choice) {
+         localStorage.setItem('cookieConsent', choice);
+         cookieConsent.style.display = 'none';
+       }
+   
+       // Add event listeners to buttons
+       acceptButton.addEventListener('click', function() {
+         handleConsent('accepted');
+       });
+   
+       rejectButton.addEventListener('click', function() {
+         handleConsent('rejected');
+       });
+     } else {
+       // Hide consent if localStorage is not available
+       cookieConsent.style.display = 'none';
+     }
+   
+     // Add event listener to "Learn More" link
+     learnMoreLink.addEventListener('click', function(event) {
+       event.preventDefault();
+       learnMoreContent.style.display = 'block';
+       learnMoreLink.style.display = 'none';
+     });
+   });
+   </script>
+  
+  <header class="header header-anim nav-h" data-header>
+
+    <div class="container mobile-container-styles">
+
+      <nav class="navbar nav_activated" data-navbar>
+
+
+        <ul class="navbar-list nav" style="margin-right: 10px;">
+          <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
+            <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
+          </a>
+
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link>
+              <i class="ri-home-fill"></i> Home
+            </a>
+          </li>
+         
+          
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
+              <i class="ri-information-fill"></i> AboutUs
+            </a>
+          </li>
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="./assets/html/author.html" class="navbar-link" data-nav-link>
+              <i class="ri-information-fill"></i> Authors
+            </a>
+          </li>
+          
+
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
+                class="ri-bar-chart-fill"></i> Benefits</a>
+          </li>
+
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+                class="ri-bar-chart-fill"></i> Genre</a>
+          </li>
+
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
+              <i class="ri-questionnaire-fill"></i> FAQ
+            </a>
+          </li>
+
+
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link>
+              <i class="ri-contacts-fill"></i> Contact
+            </a>
+          </li>
+
+          <li class="navbar-item" id="login-signup-link" style="margin-right: 10px;">
+            <a href="login-signup.html" class="navbar-link">
+              <i class="ri-login-box-fill"></i> Login/Signup
+            </a>
+          </li>
+
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="#about-books" onclick="lenis.scrollTo('#about-books')" class="navbar-link" data-nav-link>
+              <i class="ri-book-fill"></i> AboutBooks
+            </a>
+          </li>
+          <li class="navbar-item" style="margin-right: 10px;">
+            <a href="#community" onclick="lenis.scrollTo('#community')" class="navbar-link" data-nav-link>
+              <i class="ri-community-fill"></i> Community
+            </a>
+          </li>
+         
+
+          <li>
+            <div class="action">
+              <!-- <div class="profile" onclick="menuToggle();">
+          <img id="profile-avatar"  src="./assets/images/avatar1.jpg" />
+        </div> -->
+              <div class="menu">
+                <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
+                <ul>
+                  <li>
+                    <img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a>
+                  </li>
+                  <li>
+                    <img src="./assets/images/edit profile.jpg" /><a href="./assets/html/profileedit.html">Edit
+                      profile</a>
+                  </li>
+                  <li>
+                    <img src="./assets/images/inbox.png" /><a href="#">Inbox</a>
+                  </li>
+                  <li>
+                    <img src="./assets/images/settings.png" /><a href="#">Settings</a>
+                  </li>
+                  <li><img src="./assets/images/help.png" /><a href="/help.html">Help</a></li>
+                  <li>
+                    <img src="./assets/images/logout.png" /><a id="logout-btn">Logout</a>
+                  </li>
+                </ul>
+              </div>
+  </header>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedAvatar = localStorage.getItem("selectedAvatar");
+      if (savedAvatar) {
+        document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+      }
+    });
+
+    function menuToggle() {
+      const toggleMenu = document.querySelector(".menu");
+      toggleMenu.classList.toggle("active");
+    }
+
+    document.addEventListener("click", function (event) {
+      const profile = document.querySelector(".profile");
+      const menu = document.querySelector(".menu");
+
+      if (!profile.contains(event.target) && !menu.contains(event.target)) {
+        menu.classList.remove("active");
+      }
+    });
+
+    // let lastScrollTop = 0;
+    // const header = document.querySelector('.header');
+
+    // window.addEventListener('scroll', function() {
+    //     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    //     if (scrollTop > lastScrollTop) {
+    //         // Downscroll
+    //         header.style.transform = 'translateY(-120%)';
+    //     } else {
+    //         // Upscroll
+    //         header.style.transform = 'translateY(0)';
+    //     }
+
+    //     lastScrollTop = scrollTop;
+    // });
+  </script>
+
+  </div>
+  <style>
+    .dropdown:hover .arrow {
+      transform: rotate(180deg);
+      /* Rotate arrow on hover */
+    }
+  </style>
+
+  <header class="header header-anim nav-h" data-header>
+
+    <div class="container mobile-container-styles">
+
+      <nav class="navbar nav_activated" data-navbar>
+        <ul style="max-width: 1300px; display: flex; justify-content: space-between; align-items: center; gap: 5px;"
+          class="navbar-list nav">
+          <li class="navbar-item logo-item" style="display:flex;">
+            <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo">
+              <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; ">
+            </a>
+          </li>
+          <li class="navbar-item" style="left: -30px;">
+            <a href="#home" onclick="lenis.scrollTo('#home')" style="left: -30px;" class="navbar-link"
+              data-nav-link><i class="ri-home-fill"></i> Home</a>
+          </li>
+          <li class="navbar-item">
+            <a href="./assets/html/about.html" class="navbar-link" style="left: -30px;" data-nav-link><i
+                class="ri-home-fill"></i>About Us</a>
+          </li>
+          <li class="navbar-item">
+            <a href="./assets/html/author.html" class="navbar-link" style="left: -30px;" data-nav-link><i
+                class="ri-home-fill"></i>Authors</a>
+          </li>
+          <li class="navbar-item">
+            <a href="./assets/html/tips.html" class="navbar-link" style="left: -30px;" data-nav-link><i
+                class="ri-home-fill"></i>Tips</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" style="left: -30px;"
+              data-nav-link><i class="ri-bar-chart-fill"></i> Benefits</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" style="left: -30px;"
+              data-nav-link><i class="ri-bar-chart-fill"></i> Genre</a>
+          </li>
+          
+          <li class="navbar-item">
+            <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" style="left: -30px;"
+              data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" style="left: -30px;" data-nav-link>
+              <i class="ri-questionnaire-fill"></i> FAQ
+            </a>
+          </li>
+         
+          <li class="navbar-item">
+            <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link"
+              style="left: -30px;">Rate Us</a>
+          </li>
+          <li class="navbar-item" id="login-signup-link">
+            <a href="./assets/html/event.html" class="navbar-link" style="left: -30px;">Events</a>
+          </li>
+          <li class="navbar-item" id="login-signup-link">
+            <a href="./assets/html/login.html" class="navbar-link" style="left: -30px;">Login</a>
+          </li>
+          <li class="navbar-item" id="login-signup-link">
+            <a href="comsp.html" class="navbar-link" style="left: -30px;">Community <br>Spotlight</a>
+          </li>
+          <li class="navbar-item">
+            <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" style="left: -30px;"
+              data-nav-link>
+              <i class="ri-bar-chart-fill"></i> Audio Books
+            </a>
+          </li>
+          <li>
+            <div class="action" style="right: 30px; padding-bottom: 20px;">
+              <div class="profile" onclick="menuToggle();">
+                <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+
+
+      <script>
+        function toggleDropdown(event) {
+          event.preventDefault();
+          const dropdownMenu = event.currentTarget.nextElementSibling;
+          dropdownMenu.classList.toggle('show');
+        }
+      </script>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const savedAvatar = localStorage.getItem("selectedAvatar");
+          const savedName = localStorage.getItem("profileName");
+          if (savedAvatar) {
+            document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+          }
+
+          if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
+        });
+
+        function menuToggle() {
+          const toggleMenu = document.querySelector(".menu");
+          toggleMenu.classList.toggle("active");
+        }
+
+        document.addEventListener("click", function (event) {
+          const profile = document.querySelector(".profile");
+          const menu = document.querySelector(".menu");
+
+          if (!profile.contains(event.target) && !menu.contains(event.target)) {
+            menu.classList.remove("active");
+          }
+        });
+
+        // let lastScrollTop = 0;
+        // const header = document.querySelector('.header');
+
+        // window.addEventListener('scroll', function() {
+        //     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        //     if (scrollTop > lastScrollTop) {
+        //         // Downscroll
+        //         header.style.transform = 'translateY(-120%)';
+        //     } else {
+        //         // Upscroll
+        //         header.style.transform = 'translateY(0)';
+        //     }
+
+        //     lastScrollTop = scrollTop;
+        // });
+      </script>
+
+    
+
+      <script src="../../logout.js"></script>
+
+      <!-- Google Translate Element -->
+      <!-- <li class="navbar-item">
+          <div id="google_element"></div>
+        </li> -->
+      </ul>
+      <!-- <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div> -->
+
+      </nav>
+      <div id="mobile_View_Menu">
+        <span id="menu_lines"></span>
+      </div>
+
+      <script>
+        let menu = document.getElementById('mobile_View_Menu');
+        let navbar_con = document.querySelector('.navbar');
+
+        menu.addEventListener('click', () => {
+          // Toggle 'open_menu' on menu and 'nav_activated' on navbar container
+          menu.classList.toggle('open_menu');
+          navbar_con.classList.toggle('nav_activated');
+        });
+
+      </script>
+
+
+      <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+      <div className="wrapper col-md-3 col-12" style="justify-Content: 'center'; display: 'flex'">
+
+        <div id="google_element"></div>
+        <Script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"
+          strategy="afterInteractive" />
+        <Script id="google-translate" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: ` function
+          loadGoogleTranslate() { new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_element' ); }
+          `, }} />
+      </div>
+      <script>
+        // const hamburger=document.querySelector('.hamburger');
+        // const head=document.querySelector('.header');
+        // const nav=document.querySelector('.nav');
+        // hamburger.addEventListener('click',()=>{
+        //   head.classList.toggle('nav-h');
+        //   nav.classList.toggle('vis-h');
+        // })
+        // let lastScrollTop = 0;
+        // function onScroll() {
+        //     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        //     const header = document.querySelector('.header');
+
+        //     if (currentScroll > lastScrollTop) {
+        //         header.classList.add('hidden');
+        //     } else {
+        //         header.classList.remove('hidden');
+        //     }
+        //     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+        // }
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".navbar-link");
+
+        // Function to update the active nav link
+        function updateActiveLink() {
+          let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute("id");
+
+            // Check if the current scroll position is within the section
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+              navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === `#${sectionId}`) {
+                  link.classList.add("active");
+                }
+              });
+            }
+          });
+        }
+
+        //Add scroll event listener to window
+        window.addEventListener("scroll", updateActiveLink);
+        updateActiveLink();
+
+
+        window.addEventListener("scroll", onScroll);
+      </script>
+      <div class="switch-container" style="top: 1.5rem;">
+        <input type="checkbox" id="switch" class="switch-checkbox">
+        <label for="switch" class="switch-label">
+          <div class="switch-button">
+            <span class="material-icons sun-icon">wb_sunny </span>
+            <span class="material-icons moon-icon">brightness_2</span>
+          </div>
+        </label>
+      </div>
+    </div>
+    </div>
+  </header>
+   
+  <section class="genre" id="genre">
+    <h2 class="h2 section-title has-underline" style="margin-top: 15px;">
+        Personalized Reading Experience
+        <span class="span has-before"></span>
+    </h2>
+    <div class="container">
+        <h2 class="h2 section-title has-underline" id="section-title1">
+            Introduction to Personalized Reading
+            <span class="span has-before"></span>
+        </h2>
+
+        <ul class="grid-list">
+            <li>
+                <div class="chapter-card">
+                    <p class="card-subtitle"></p>
+                    <p class="card-text">
+                        <div class="ben">Tailored Book Suggestions for Every Reader</div>
+                        Personalized reading experiences offer curated book recommendations based on users' preferences, reading history, and interests. This approach helps readers discover new genres and authors they may not have considered, enhancing their reading journey.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="chapter-card">
+                    <p class="card-subtitle"></p>
+                    <p class="card-text">
+                        <div class="ben">Creating a Unique Reading Journey</div>
+                        By analyzing user behavior and preferences, platforms can provide a unique reading journey for each individual. This customization encourages engagement and fosters a deeper connection between the reader and the content.
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2 class="h2 section-title has-underline" id="section-title1">
+            Benefits of Personalized Reading
+            <span class="span has-before"></span>
+        </h2>
+
+        <ul class="grid-list">
+            <li>
+                <div class="chapter-card">
+                    <p class="card-subtitle"></p>
+                    <p class="card-text">
+                        <div class="ben">Enhanced Discovery</div>
+                        Personalized recommendations make it easier for readers to find books that match their tastes, expanding their reading horizons and leading to new favorites.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="chapter-card">
+                    <p class="card-subtitle"></p>
+                    <p class="card-text">
+                        <div class="ben">Increased Reading Engagement</div>
+                        When readers receive tailored suggestions, they are more likely to engage with the material, leading to a more fulfilling reading experience and a greater likelihood of continued reading.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="chapter-card">
+                    <p class="card-subtitle"></p>
+                    <p class="card-text">
+                        <div class="ben">Fostering a Reading Habit</div>
+                        By continually providing content that resonates with readers, personalized reading experiences encourage the development of a consistent reading habit, which can lead to lifelong learning and enjoyment.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="chapter-card">
+                    <p class="card-subtitle"></p>
+                    <p class="card-text">
+                        <div class="ben">Community Building</div>
+                        Personalized reading experiences often include community features, allowing readers to connect over shared interests, participate in discussions, and recommend books to one another, fostering a sense of belonging.
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2 class="h2 section-title has-underline" id="section-title1">
+            How to Enhance Your Personalized Reading Experience
+            <span class="span has-before"></span>
+        </h2>
+
+        <ul class="grid-list">
+            <li>
+                <div class="chapter-card">
+                    <p class="card-subtitle"></p>
+                    <p class="card-text">
+                        <div class="ben">Utilize Recommendation Algorithms</div>
+                        Take advantage of platforms that employ advanced recommendation algorithms to suggest books based on your reading history, ratings, and preferences.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="chapter-card">
+                    <p class="card-subtitle"></p>
+                    <p class="card-text">
+                        <div class="ben">Join Personalized Book Clubs</div>
+                        Engage in book clubs that focus on personalized reading experiences. These clubs often provide tailored reading lists and foster discussions tailored to individual tastes.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="chapter-card">
+                    <p class="card-subtitle"></p>
+                    <p class="card-text">
+                        <div class="ben">Provide Feedback on Recommendations</div>
+                        Actively participate by giving feedback on book recommendations. This helps improve the algorithm's accuracy in suggesting titles that align with your evolving tastes.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="chapter-card">
+                    <p class="card-subtitle"></p>
+                    <p class="card-text">
+                        <div class="ben">Explore User-Generated Lists</div>
+                        Discover reading lists created by other users with similar interests. These lists can offer a fresh perspective and introduce you to books you might have overlooked.
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+     
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <footer>
+       <div class="foot-top">
+         <div class="foot-left">
+   
+           <div class="desc">
+   <!--google translate-->
+             <div id="google_translate_element"></div>
+   
+             <script type="text/javascript">
+                 function googleTranslateElementInit() {
+                     new google.translate.TranslateElement(
+                         {pageLanguage: 'en'},
+                         'google_translate_element'
+                     );
+                 }
+             </script>
+   
+             <script type="text/javascript"
+                     src=
+         "https://translate.google.com/translate_a/element.js?
+         cb=googleTranslateElementInit">
+             </script>
+             <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
+             <div>
+               <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
+                 lovers
+                 seeking to swap and
+   
+                 discover new literary gems.
+                 Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
+                 the
+                 world of literature—all on one convenient platform. Join us and dive into a universe of endless
+                 possibilities!
+               </p>
+             </div>
+   
+           </div>
+         </div>
+         <div class="foot-middle">
+           <h2>Quick Links</h2>
+           <div id="quicklinks">
+             <div>
+             <ul>
+               <li class="foot-quick"><a href="index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
+               <li class="foot-quick"><a href="index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
+               <li class="foot-quick"><a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+               <li class="foot-quick"><a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
+               <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
+                 onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
+             </ul>
+           </div>
+           <div>
+             <ul>
+               <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')">Swap
+                   BookList</a></li>
+               <li class="foot-quick"><a href="./assets/html/freeBooks.html"
+                   onclick="lenis.scrollTo('#contact')">E-Book</a></li>
+               <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
+               </li>
+               <li class="foot-quick"><a href="index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+               <li class="foot-quick"><a href="index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
+             </ul>
+           </div>
+           </div>
+         </div>
+         <div class="social-icons">
+   
+           <style>
+             .social-icons input[type="email"]
+             {
+                 border: 2px solid #ccc; /* Gray border */
+                 border-radius: 4px; /* Rounded corners */
+                 padding: 10px; /* Inner padding */
+                 font-size: 16px; /* Font size */
+             }
+             #confirmationMessage
+             {
+               margin-left: 50px;
+               font-size: 23px;
+               color: green;
+   
+             }
+            /* for small screen */
+             @media (max-width: 768px)
+             {
+               #confirmationMessage
+               {
+                   margin-left: 0;
+                   text-align: center;
+                   font-size: 18px;
+               }
+           }
+           </style>
+   
+           <form id="newsletterForm" type="newsletter" onsubmit="return showConfirmationMessage()">
+             <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
+             <div class="row-flex">
+                 <!-- Email input -->
+                 <input type="email" id="newsletter-email" name="email" placeholder="Email address"
+                         pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+                         title="Please enter a valid email address that ends with '.com'" required>
+                 <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="subs_btn">
+             </div>
+         </form>
+        <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+   
+   <script>
+     function showConfirmationMessage()
+     {
+       // Show confirmation message
+       const confirmationMessage = document.getElementById('confirmationMessage');
+       confirmationMessage.innerHTML = "Thank you for subscribing!";
+       confirmationMessage.style.display = 'block';
+   
+       // Reset the form after 3 seconds
+       setTimeout(function()
+       {
+           document.getElementById('newsletterForm').reset();
+           confirmationMessage.style.display = 'none';
+           
+       }, 3000);
+   
+       return false;
+   }
+   </script>
+   
+   
+   
+           <div class="icons">
+             <a href="https://www.discord.com/" target="_blank">
+               <div class="icon">
+                  <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
+                </div>
+             </a>
+             <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
+               <div class="icon">
+                 <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
+               </div>
+             </a>
+   
+             <a href="https://x.com/anuragverma_108" target="_blank">
+               <div class="icon">
+                 <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
+               </div>
+             </a>
+   
+             <a href="#">
+               <div class="icon">
+                 <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
+               </div>
+             </a>
+   
+   
+             <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
+               <div class="icon">
+                 <i class="fab fa-youtube" style="cursor: pointer;"></i>
+               </div>
+             </a>
+   
+   
+   
+             <a href="">
+               <div class="icon">
+                 <i class="fab fa-github" title="Github"></i>
+               </div>
+             </a>
+           
+   
+           </div>
+   
+   
+           <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
+             <div class="circle1">
+               <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                 class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                 <path
+                   d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+               </svg>
+             </div>
+           </div>
+   
+         </div>
+       </div>
+   
+   
+   
+   
+       <!-- adding privacy policy and copyright popup-->
+       <div style="text-align: center; align-items: center;">
+         <p style="text-align: center">
+           &copy;
+           <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+         </p>
+         <div class="row-copy">
+   
+   
+         <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+         <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
+       </div>
+       </div>   
+     </footer>
+     <script>
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+          const isDarkMode = isDarkModePreferred();
+          setDarkModePreference(!isDarkMode);
+          applyDarkModePreference();
+        }
+    
+        // Function to apply dark mode preference
+        function applyDarkModePreference() {
+          const isDarkMode = isDarkModePreferred();
+          if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
+          } else {
+            document.body.classList.remove('dark-mode');
+            document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
+          }
+        }
+    
+        document.addEventListener('DOMContentLoaded', () => {
+          const currentTheme = localStorage.getItem('theme');
+          const switchCheckbox = document.getElementById('switch');
+        
+          if (!switchCheckbox) {
+            console.error("Switch checkbox not found!");
+            return;
+          }
+        
+          const applyDarkModeStyles = () => {
+            document.body.classList.remove('light-mode');
+            document.body.classList.add('dark-mode');
+          };
+        
+          const applyLightModeStyles = () => {
+            document.body.classList.remove('dark-mode');
+            document.body.classList.add('light-mode');
+          };
+        
+          const initializeTheme = () => {
+            if (currentTheme === 'dark-mode') {
+              applyDarkModeStyles();
+              switchCheckbox.checked = true;
+            } else {
+              applyLightModeStyles();
+            }
+          };
+        
+          const handleThemeChange = () => {
+            if (switchCheckbox.checked) {
+              applyDarkModeStyles();
+              localStorage.setItem('theme', 'dark-mode');
+            } else {
+              applyLightModeStyles();
+              localStorage.setItem('theme', 'light-mode');
+            }
+          };
+        
+          initializeTheme();
+          switchCheckbox.addEventListener('change', handleThemeChange);
+        });
+        
+      </script>
+       <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const backToTopButton = document.getElementById('back-to-top-container');
+    
+          function checkButtonVisibility() {
+            if (window.innerWidth > 100 && window.scrollY > 100) {
+              backToTopButton.style.display = 'block';
+            } else {
+              backToTopButton.style.display = 'none';
+            }
+          }
+    
+          window.addEventListener('scroll', checkButtonVisibility);
+          window.addEventListener('resize', checkButtonVisibility);
+    
+          backToTopButton.addEventListener('click', function () {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          });
+    
+          checkButtonVisibility();
+        });
+    
+      </script>
+      
+  <script>
+// Function to toggle dark mode
+    function toggleDarkMode() {
+      const isDarkMode = isDarkModePreferred();
+      setDarkModePreference(!isDarkMode);
+      applyDarkModePreference();
+    }
+
+    // Function to apply dark mode preference
+    function applyDarkModePreference() {
+      const isDarkMode = isDarkModePreferred();
+      if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
+      } else {
+        document.body.classList.remove('dark-mode');
+        document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentTheme = localStorage.getItem('theme');
+      const switchCheckbox = document.getElementById('switch');
+    
+      if (!switchCheckbox) {
+        console.error("Switch checkbox not found!");
+        return;
+      }
+    
+      const applyDarkModeStyles = () => {
+        document.body.classList.remove('light-mode');
+        document.body.classList.add('dark-mode');
+      };
+    
+      const applyLightModeStyles = () => {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+      };
+    
+      const initializeTheme = () => {
+        if (currentTheme === 'dark-mode') {
+          applyDarkModeStyles();
+          switchCheckbox.checked = true;
+        } else {
+          applyLightModeStyles();
+        }
+      };
+    
+      const handleThemeChange = () => {
+        if (switchCheckbox.checked) {
+          applyDarkModeStyles();
+          localStorage.setItem('theme', 'dark-mode');
+        } else {
+          applyLightModeStyles();
+          localStorage.setItem('theme', 'light-mode');
+        }
+      };
+    
+      initializeTheme();
+      switchCheckbox.addEventListener('change', handleThemeChange);
+    });
+    
+  </script>
+      <script>
+        // Coordinates for the cursor
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+
+        // Colors for the circles
+        const colors = [
+          "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+          "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+          "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+          "#680060", "#60005f", "#48005f", "#3d005e"
+        ];
+
+        // Assign colors and initial position to each circle
+        circles.forEach(function (circle, index) {
+          circle.x = 0;
+          circle.y = 0;
+          circle.style.backgroundColor = colors[index % colors.length];
+        });
+
+        // Update the coordinates when the mouse moves
+        window.addEventListener("mousemove", function (e) {
+          coords.x = e.clientX;
+          coords.y = e.clientY;
+        });
+
+        // Animation function to move the circles
+        function animateCircles() {
+          let x = coords.x;
+          let y = coords.y;
+
+          circles.forEach(function (circle, index) {
+            // Update the position and scale of each circle
+            circle.style.left = x - 12 + "px";
+            circle.style.top = y - 12 + "px";
+            circle.style.scale = (circles.length - index) / circles.length;
+
+            circle.x = x;
+            circle.y = y;
+
+            // Get the next circle in the sequence
+            const nextCircle = circles[index + 1] || circles[0];
+            x += (nextCircle.x - x) * 0.3;
+            y += (nextCircle.y - y) * 0.3;
+          });
+
+          // Repeat the animation
+          requestAnimationFrame(animateCircles);
+        }
+
+        // Start the animation
+        animateCircles();
+      </script>
+</body>
+</html>
+
+
