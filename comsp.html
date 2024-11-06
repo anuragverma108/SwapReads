@@ -3,7 +3,7 @@
    <head>
        <meta charset="UTF-8">
        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <title>Environmental Impact - SwapReads</title>
+       <title>Community - SwapReads</title>
        <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
@@ -13,11 +13,6 @@
        <meta name="theme-color" content="#ffffff">
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
      
-       <link rel="stylesheet" href="./assets/css/style.css">
-       <link rel="stylesheet" href="./assets/css/litrary_realms.css">
-       <link rel="stylesheet" href="./assets/font-6/css/all.css">
-       <link rel="stylesheet" href="header.css">
-       <link rel="stylesheet" href="./assets/css/MenuClick.css">
        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
@@ -48,20 +43,17 @@
        <link rel="preconnect" href="https://fonts.googleapis.com">
        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
        <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-       <link rel="stylesheet" href="modals(privacy policy).css">
      
        <!-- Swiper CSS -->
        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
      
-       <!-- Custom CSS -->
-       <link rel="stylesheet" href="assets/css/test-style.css">
      
        <!-- Preloader CSS-->
        <link rel="stylesheet" href="assets/css/preloader.css">
        <script src="https://cdn.lordicon.com/lordicon.js"></script>
        <script src="./assets/js/preloader.js" defer></script>
        <script src="./script.js"></script>
+       <link rel="stylesheet" href="./assets/css/playNow.css">
        
        <style>
          swiper-container {
@@ -95,13 +87,13 @@
       
 
       .section__container {
-          max-width: 800px;
+          max-width: 1000px;
           margin: 0 auto;
           padding: 0 1em;
       }
 
       .section__title {
-          font-size: 3em;
+          font-size: 2em;
           margin-bottom: 0.5em;
           font-family: "Arvo", serif;
           font-weight: 700;
@@ -109,7 +101,7 @@
       }
 
       .section__subtitle {
-          font-size: 1.6em;
+          font-size: 1.2em;
           color: #666;
           margin-bottom: 2em;
           text-align: center;
@@ -136,7 +128,6 @@
 
         .spotlight__card img {
             width: 200px;
-            height: 200px;
             object-fit: cover;
         }
 
@@ -250,13 +241,36 @@
 }
 
 
+.dark-mode .spotlight__details {
+    background-color: #2b2b2b; /* Dark background color */
+    color: #e0e0e0; /* Light text for dark mode */
+}
+
+.dark-mode .spotlight__details h4 {
+    color: #ffcccb; /* Light maroon or pastel red for better visibility */
+    border-bottom: 2px solid #ffcccb;
+}
+
+.dark-mode .spotlight__details p {
+    color: #cccccc; /* Light gray for paragraphs */
+}
+
+.dark-mode .spotlight__book {
+    color: #999; /* Lighter gray for book details */
+}
 
         
-
+.dark-mode .spotlight__card {
+  background-color: #2b2b2b;
+}
 
        
          /* Theme Change Button Style */
          @media (max-width: 768px) {
+        
+          .container {
+        height: 50px;
+    }
     .spotlight__card {
         width: 90%;
         margin: 0 auto;
@@ -494,228 +508,8 @@
      
      
      
-         /* Basic navbar styling */
-     .dark-mode .header {
-      width: 100vw; /* Full viewport width */
-    max-width: 100%; /* Ensure it doesn't go beyond viewport width */
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    transition: top 0.3s;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    background-color: #000;
-     }
-     .header{
-      width: 100vw; /* Full viewport width */
-    max-width: 100%; /* Ensure it doesn't go beyond viewport width */
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    transition: top 0.3s;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    
-     }
-     /* Hide the navbar */
-     .header.hidden {
-       top: -93px; /* Adjust according to your header height */
-     }
-     
-     /* Navbar styling when scrolled */
-     .header.scrolled {
-       background-color: #efefef; /* Change to a darker color when scrolled */
-       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
-     }
-     * {
-       margin: 0;
-       padding: 0;
-       font-family: "Poppins", sans-serif;
-     }
-     
-     body {
-       background: #ffccbc;
-     }
-     
-     .action {
-       /* position: fixed */
-       top: -12px;
-       right: -1px;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-     }
-     
-     
-     .action .profile {
-       position: relative;
-       width: 60px;
-       height: 60px;
-       border-radius: 50%;
-       overflow: hidden;
-       cursor: pointer;
-     }
-     
-     .action .profile img {
-      
-       position: absolute;
-       top: 0;
-       left: 0;
-       width: 100%;
-       height: 100%;
-       object-fit: cover;
-     }
-     
-     .action .menu {
-       position: absolute;
-       top: 120px;
-       right: -10px;
-       padding: 10px 20px;
-       background: #fff;
-       width: 200px;
-       box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
-       border-radius: 15px;
-       transition: 0.5s;
-       visibility: hidden;
-       opacity: 0;
-     }
-     
-     .action .menu.active {
-       top: 80px;
-       visibility: visible;
-       opacity: 1;
-     }
-     
-     .action .menu::before {
-       content: "";
-       position: absolute;
-       top: -5px;
-       right: 28px;
-       width: 20px;
-       height: 20px;
-       background: #fff;
-       transform: rotate(45deg);
-     }
-     
-     .action .menu h3 {
-       width: 100%;
-       text-align: center;
-       font-size: 18px;
-       padding: 20px 0;
-       font-weight: 500;
-       color: #555;
-       line-height: 1.5em;
-     }
-     
-     .action .menu h3 span {
-       font-size: 14px;
-       color: #cecece;
-       font-weight: 300;
-     }
-     
-     .action .menu ul li {
-       list-style: none;
-       padding: 16px 0;
-       border-top: 1px solid rgba(0, 0, 0, 0.05);
-       display: flex;
-       align-items: center;
-     }
-     
-     .action .menu ul li img {
-       max-width: 20px;
-       margin-right: 10px;
-       opacity: 0.5;
-       transition: 0.5s;
-     }
-     
-     .action .menu ul li:hover img {
-       opacity: 1;
-     }
-     
-     .action .menu ul li a {
-       display: inline-flex;
-       text-align: center;
-       padding-left: 5%;
-       font-weight: 300;
-       font-size: 19px;
-       text-decoration: none;
-       color: #555;
-       font-weight: 500;
-       transition: 0.5s;
-     }
-     
-     .action .menu ul li:hover a {
-       color: #ff5d94;
-       font-size: 21px;
-     
-     }
-     .hamburger{
-         display: none;
-         cursor: pointer;
-         position: absolute;
-         top: 24px;
-         left: 1.5%;
-     }
-     .line{
-         width: 36px;
-         height: 5px;
-         margin: 4px 4px;
-         background-color: rgb(240, 15, 15);
-     }
+         
 
-     @media only screen and (max-width:1063px){
-         .nav{
-             flex-direction: column;
-         }
-         .header{
-             flex-direction: column;
-             height: 53.8rem;
-             transition: 0.55s all ease-out;
-             padding-top: 5px;
-         }
-         .navbar-item{
-             margin-right: 40px;
-         }
-         .navbar-list{
-           position: relative;
-           top: 200px;
-         }
-         .hamburger{
-             display: block;
-         }
-         .nav-h{
-             height: 78px;
-             width: 100vw;
-         }
-         .vis-h{
-             opacity: 0;
-         }
-         .logo img{
-           position: relative;
-           top: 17px;
-           left: 350px;
-         }
-     }
-     @media only screen and (max-width:990px){
-       .header{
-         height: 0;
-       }
-       .navbar-list{
-         top: 0;
-       }
-       .logo img{
-         top: -9px;
-         left: 50px;
-       }
-     }
-     @media (min-width: 990px){
-
-     .grid-list {
-    grid-template-columns: repeat(2, 1fr);
-}
-     }
      .chapter-card{
         width: 30vw;
         height: 400px;
@@ -723,14 +517,6 @@
      .genre{
         margin-top: 200px;
      }
-     .light-mode .switch-container {
-    right: 140px;
-    top: 10px;
-}
-.switch-checkbox:checked + .switch-label .switch-button {
-    transform: translateX(13px);
-    /* background-color: #34495e; */
-}
 .ben {
     color: var(--sonic-silver);
     font-size: 24px;
@@ -741,6 +527,334 @@
 .chapter-card:hover .ben{
 color: #d26d6d;
 }
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.header {
+  width: 90%; /* Set a width to make it look like a centered rectangle */
+  max-width: 1200px;
+  background-color: #ffffff; /* White background */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center header */
+  z-index: 10;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #000000; /* Black text color */
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px; /* Reduced spacing for a thinner look */
+  max-height: 80px;
+
+}
+
+.navbar-list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar-item {
+  position: relative;
+}
+
+.navbar-link {
+  color: #000000; /* Black text */
+  text-decoration: none;
+  font-size: 17px; /* Slightly smaller font */
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: normal; /* Remove bold font */
+  margin: 0 10px; 
+}
+
+.navbar-link {
+  position: relative; /* Ensure the link has a position for the absolute positioning of the pseudo-element */
+}
+
+.navbar-link:hover {
+  color: #a52644; /* Dark pink on hover */
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Adjust this value to create a gap */
+  left: 0px;
+  height: 3px;
+  background-color: #fcb0b480;
+  width: 0;
+  box-shadow: 0 0 10px #f39d127e;
+  transition: all 0.6s;
+  text-decoration: none;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+  text-decoration: none;
+}
+
+/* Base styling for the hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  transition: transform 0.3s ease;
+}
+
+/* Responsive styling */
+@media (max-width: 1000px) {
+  /* Hide the navbar by default on small screens */
+  .navbar {
+    display: none;
+    position: absolute;
+    top: 70px; /* Matches header height for below-header dropdown */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: initial;
+  }
+
+  .header{
+    width: 100%;
+  }
+
+  .navbar.active {
+    display: block;
+  }
+
+  /* Hamburger icon visible only on smaller screens */
+  .hamburger {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Center-align navbar links in mobile view */
+  .navbar ul.navbar-list {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Adjusted theme switcher styling for mobile */
+  .switch-container {
+    margin: 0 auto;
+    padding-top: 1rem;
+  }
+
+
+}
+
+
+  /* Container for the switch */
+  .switch-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Hide default checkbox */
+  .switch-checkbox {
+    display: none;
+  }
+
+  /* Style the label */
+  .switch-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50px;
+    height: 24px;
+    border-radius: 50px;
+    background-color: #ccc;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+  /* Style the toggle button */
+  .switch-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 5px;
+    position: absolute; /* Fixes the position */
+    left: 0; /* Keeps the button fixed */
+  }
+
+  /* Sun and moon icon styles */
+  .sun-icon,
+  .moon-icon {
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Color the icons */
+  .sun-icon {
+    color: orange; /* Sun icon color */
+  }
+
+  .moon-icon {
+    color: lightblue; /* Moon icon color */
+    opacity: 0; /* Initially hidden */
+  }
+
+  /* Style for checked state */
+  .switch-checkbox:checked + .switch-label {
+    background-color: #333;
+  }
+
+  .switch-checkbox:checked + .switch-label .sun-icon {
+    opacity: 0; /* Hide sun icon in dark mode */
+  }
+
+  .switch-checkbox:checked + .switch-label .moon-icon {
+    opacity: 1; /* Show moon icon in dark mode */
+  }
+
+  body {
+      font-family: poppins, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #ffdcd4;
+      color: black;
+  }
+
+  .finput{
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+
+  .notice {
+      padding: 2rem;
+      max-width: 800px;
+      color: black;
+      margin: 2rem auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      padding-bottom: 100px;
+      margin-top: 40px;
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.086);
+      position: relative;
+  }
+
+
+  .notice::before,
+  .notice::after {
+      content: "";
+      position: absolute;
+      inset: -0.1rem;
+      z-index: 2;
+      background: conic-gradient(
+          from var(--gradient-angle),
+          hsl(340, 94%, 40%),
+          hsl(344, 69%, 53%),
+          hsl(0, 88%, 86%),
+          hsl(344, 64%, 52%),
+          hsl(340, 94%, 43%)
+      );
+      border-radius: inherit;
+      animation: moving 3s linear infinite;
+
+      mask: linear-gradient(
+              to right,
+              black 0.4%,
+              transparent 0%,
+              transparent 99.6%,
+              black 90%
+          ),
+          linear-gradient(
+              to bottom,
+              black 0.5%,
+              transparent 0%,
+              transparent 99.5%,
+              black 90%
+          );
+  }
+
+  @keyframes moving {
+      0% {
+          --gradient-angle: 0deg;
+      }
+      100% {
+          --gradient-angle: 360deg;
+      }
+  }
+
+  body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    background-image: url('./assets/images/darkmode_bg.png'); /* Add your dark mode image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+  }
+
+  body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    background-image: url('./assets/images/darkmode_bg.png'); /* Add your dark mode image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+  }
+
+  .logoo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: maroon; /* Black text color */
+  font-weight: bold;
+  margin-top: 30px;
+  text-decoration: none;
+}
+.finput{
+    border: 1px solid #a30f17;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 5px;
+
+    background: none;
+    border-radius: 10px; 
+    padding: 10px;
+font: inherit;
+
+  }
+
+
        </style>
      </head>
 <body> 
@@ -810,7 +924,127 @@ color: #d26d6d;
       <div class="circle"></div>
       <div class="circle"></div>
   
+      <header class="header header-anim nav-h" data-header>
+  
+        <div class="container mobile-container-styles">
+          <button class="hamburger" id="hamburger-button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <nav class="navbar nav_activated" data-navbar>
+      
+      
+            <ul class="navbar-list nav">
+              <a href="index.html" class="logo" style="display:flex;">
+                <img src="./assets/images/final.png" class="logopic" style=" width: 10rem; height:100px; margin:0px 0px 15px -10px;">
+              </a>
+      
+              <li class="navbar-item">
+                <a href="index.html" class="navbar-link" data-nav-link>
+                  <i class="ri-home-fill"></i> Home
+                </a>
+              </li>
+      
+      
+              <li class="navbar-item">
+                <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
+                  <i class="ri-information-fill"></i> About Us
+                </a>
+              </li>
+      
+             <li class="navbar-item">
+                <a href="index.html#benefits"  class="navbar-link" data-nav-link><i
+                    class="ri-bar-chart-fill"></i> Benefits</a>
+              </li>
+      
+              <li class="navbar-item">
+                <a href="index.html#genre"  class="navbar-link" data-nav-link><i
+                    class="ri-bar-chart-fill"></i> Genre</a>
+              </li>
+      
+             <li class="navbar-item">
+                  <a href="audiobook.html" class="navbar-link" data-nav-link>
+                      <i class="ri-questionnaire-fill"></i> Audio Books
+                  </a>
+              </li>
+      
+      
+              <li class="navbar-item">
+                <a href="index.html#contact"  class="navbar-link" data-nav-link>
+                  <i class="ri-contacts-fill"></i> Contact
+                </a>
+              </li>
+      
+              <li class="navbar-item" id="login-signup-link">
+                <a href="./assets/html/login.html" class="navbar-link">
+                  <i class="ri-login-box-fill"></i> Login/Signup
+                </a>
+              </li>
+      
+              <li class="navbar-item">
+                <a href="comsp.html" class="navbar-link" data-nav-link>
+                  <i class="ri-book-fill"></i> Community
+                </a>
+              </li>
+              <li class="navbar-item">
+                <a href="./assets/html/event.html"  class="navbar-link" data-nav-link>
+                  <i class="ri-community-fill"></i> Events
+                </a>
+              </li>     
+              <li class="navbar-item"> 
+                <!-- Theme switcher -->
+                <div class="switch-container">
+                  <input type="checkbox" id="switch" class="switch-checkbox">
+                  <label for="switch" class="switch-label">
+                    <div class="switch-button">
+                      <span class="material-icons sun-icon">wb_sunny</span>
+                      <span class="material-icons moon-icon">brightness_2</span>
+                    </div>
+                  </label>
+                </div>
+              </li>     
 
+                
+                  <script>
+                      // Theme switcher
+                      document.addEventListener('DOMContentLoaded', function () {
+                        const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
+                        const bodyElement = document.body;
+                  
+                        const currentTheme = localStorage.getItem('theme') || 'light';
+                        if (currentTheme === 'dark') {
+                          bodyElement.classList.add('dark-mode');
+                          toggleSwitch.checked = true;
+                        } else {
+                          bodyElement.classList.add('light-mode');
+                        }
+                  
+                        toggleSwitch.addEventListener('change', function (event) {
+                          if (event.target.checked) {
+                            bodyElement.classList.remove('light-mode');
+                            bodyElement.classList.add('dark-mode');
+                            localStorage.setItem('theme', 'dark');
+                          } else {
+                            bodyElement.classList.remove('dark-mode');
+                            bodyElement.classList.add('light-mode');
+                            localStorage.setItem('theme', 'light');
+                          }
+                        });
+                      });
+                    // Hamburger toggle
+                    document.getElementById('hamburger-button').addEventListener('click', function() {
+                      document.querySelector('.navbar').classList.toggle('active');
+                    });
+                  
+                  function scrollToGenre(genreId) {
+                    const element = document.getElementById(genreId);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }
+                    </script>
+                  </header>
      
    <script>
    
@@ -876,300 +1110,7 @@ color: #d26d6d;
    });
    </script>
   
-  <header class="header header-anim nav-h" data-header>
-    <div class="container mobile-container-styles">
-        <!-- Mobile menu toggle button -->
-        <button id="mobile_View_Menu" class="mobile-menu-toggle">
-            <i class="ri-menu-fill"></i>
-        </button>
-        <div class="navbar-align">
-        <nav class="navbar nav_activated" data-navbar>
-            <ul class="navbar-list nav">
-                <li class="navbar-item logo-item" style="display:flex;">
-                    <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo">
-                        <img src="./assets/images/final.png" class="logopic" style="width: 15rem; margin: 0px 0px 0px -10px;">
-                    </a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="index.html" onclick="lenis.scrollTo('#home'); event.preventDefault();" class="navbar-link" data-nav-link>
-                        <i class="ri-home-fill"></i> Home
-                    </a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
-                        <i class="ri-home-fill"></i> About Us
-                    </a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="#benefits" onclick="lenis.scrollTo('#benefits'); event.preventDefault();" class="navbar-link" data-nav-link>
-                        <i class="ri-bar-chart-fill"></i> Benefits
-                    </a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="#genre" onclick="lenis.scrollTo('#genre'); event.preventDefault();" class="navbar-link" data-nav-link>
-                        <i class="ri-bar-chart-fill"></i> Genre
-                    </a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="#contact" onclick="lenis.scrollTo('#contact'); event.preventDefault();" class="navbar-link" data-nav-link>
-                        <i class="ri-customer-service-2-fill"></i> Contact
-                    </a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="#faq" onclick="lenis.scrollTo('#faq'); event.preventDefault();" class="navbar-link" data-nav-link>
-                        <i class="ri-questionnaire-fill"></i> FAQ
-                    </a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="./assets/html/event.html" class="navbar-link">Events</a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="./assets/html/login.html" class="navbar-link">Login</a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="comsp.html" class="navbar-link">Community</a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks'); event.preventDefault();" class="navbar-link" data-nav-link>
-                        <i class="ri-bar-chart-fill"></i>Audio<br> Books
-                    </a>
-                </li>
-                <!-- Avatar section added inside navbar -->
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <div class="action">
-                        <div class="profile" onclick="menuToggle();">
-                            <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-        </div>
-        <button class="go-top-btn">
-            <img height="20px" width="20" src="up-arrow (1).png" alt="arrow up">
-        </button>
-        <style>
-          .navbar-align{
-            width: 100%;
-          }
-          .go-top-btn{
-  position:fixed;
-  bottom: 35px;
-  right: 20px;
-  cursor: pointer;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  background:#222325;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  transition:background-color 0.3s, box-shadow 0.3s,transform 0.3s;
-  margin-top: 500px;
- 
-}
-.go-top-btn:hover{
-  box-shadow: 0px 6px 12px rgba(0,0,0 ,0.25);
-  transform: translateY(-2px)
   
-}
-
-
-          
-        </style>
-
-        <script>
-            // Toggle dropdown
-            function toggleDropdown(event) {
-                event.preventDefault();
-                const dropdownMenu = event.currentTarget.nextElementSibling;
-                dropdownMenu.classList.toggle('show');
-            }
-
-            // Load saved avatar
-            document.addEventListener("DOMContentLoaded", () => {
-                const savedAvatar = localStorage.getItem("selectedAvatar");
-                if (savedAvatar) {
-                    document.getElementById("profile-avatar").src = ./assets/images/${savedAvatar};
-                }
-            });
-
-            // Save avatar selection function
-            function saveAvatarSelection(newAvatar) {
-                localStorage.setItem("selectedAvatar", newAvatar);
-                document.getElementById("profile-avatar").src = ./assets/images/${newAvatar};
-            }
-
-            // Toggle menu for avatar
-            function menuToggle() {
-                const toggleMenu = document.querySelector(".menu");
-                toggleMenu.classList.toggle("active");
-            }
-
-            // Close menu when clicking outside of profile
-            document.addEventListener("click", function(event) {
-                const profile = document.querySelector(".profile");
-                const menu = document.querySelector(".menu");
-
-                if (!profile.contains(event.target) && !menu.contains(event.target)) {
-                    menu.classList.remove("active");
-                }
-            });
-
-            // Mobile view menu toggle
-            let menu = document.getElementById('mobile_View_Menu');
-            let navbar_con = document.querySelector('.navbar');
-
-            menu.addEventListener('click', () => {
-                menu.classList.toggle('open_menu');
-                navbar_con.classList.toggle('nav_activated');
-            });
-
-            // Update active link on scroll
-            const sections = document.querySelectorAll("section");
-            const navLinks = document.querySelectorAll(".navbar-link");
-
-            function updateActiveLink() {
-                let scrollPosition = window.scrollY + window.innerHeight / 3;
-
-                sections.forEach((section) => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-                    const sectionId = section.getAttribute("id");
-
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        navLinks.forEach((link) => {
-                            link.classList.remove("active");
-                            if (link.getAttribute("href") === #${sectionId}) {
-                                link.classList.add("active");
-                            }
-                        });
-                    }
-                });
-            }
-
-            window.addEventListener("scroll", updateActiveLink);
-            updateActiveLink();
-        </script>
-
-        <!-- Theme switcher -->
-        <div class="switch-container" style="top: 1.5rem;">
-            <input type="checkbox" id="switch" class="switch-checkbox">
-            <label for="switch" class="switch-label">
-                <div class="switch-button">
-                    <span class="material-icons sun-icon">wb_sunny</span>
-                    <span class="material-icons moon-icon">brightness_2</span>
-                </div>
-            </label>
-        </div>
-
-        <script>
-            // Theme switcher
-            document.addEventListener('DOMContentLoaded', function() {
-                const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
-                const bodyElement = document.body;
-
-                const currentTheme = localStorage.getItem('theme') || 'light';
-                if (currentTheme === 'dark') {
-                    bodyElement.classList.add('dark-mode');
-                    toggleSwitch.checked = true;
-                } else {
-                    bodyElement.classList.add('light-mode');
-                }
-
-                toggleSwitch.addEventListener('change', function(event) {
-                    if (event.target.checked) {
-                        bodyElement.classList.remove('light-mode');
-                        bodyElement.classList.add('dark-mode');
-                        localStorage.setItem('theme', 'dark');
-                    } else {
-                        bodyElement.classList.remove('dark-mode');
-                        bodyElement.classList.add('light-mode');
-                        localStorage.setItem('theme', 'light');
-                    }
-                });
-            });
-
-            // scroll to top button js 
-
-const goTopBtn = document.querySelector('.go-top-btn');
-    window.addEventListener('scroll', checkHeight)
-    function checkHeight() {
-      if (window.scrollY > 200) {
-        goTopBtn.style.display = "flex"
-      } else {
-        goTopBtn.style.display = "none"
-      }
-    }
-    goTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      })
-    })
-        </script>
-
-<style>
-  .dark-mode body {
-background-color: #e0e0e0; /* Light grey background for dark mode (originally white) */
-color: #dbc4c4; /* Dark text color */
-}
-
-.dark-mode .nav {
-background-color: #000000; /* Slightly darker grey for navigation */
-color: #121212; /* Dark text color */
-}
-
-.dark-mode .flip-card-front {
-background-color: #b0b0b0; /* Darker than original white */
-color: #121212; /* Dark text color */
-}
-
-.dark-mode .flip-card-back {
-background-color: #6c5e5e; /* Slightly darker grey for the back */
-color: #121212; /* Dark text color */
-}
-
-.dark-mode #cookie-consent {
-background-color: #c0c0c0; /* Slightly darker grey for cookie consent */
-color: #121212; /* Dark text color */
-}
-
-.dark-mode #cookie-consent p {
-color: #121212; /* Dark text color */
-}
-
-.dark-mode #cookie-container a {
-color: #121212; /* Dark text color */
-}
-
-.dark-mode .socialmediaicons a {
-color: #121212; /* Dark text color for social media links */
-}
-
-.dark-mode .readmore-anim {
-color: hsl(357, 37%, 30%); /* Darker shade of the original color */
-}
-
-.dark-mode .socialmediaicons .fa-instagram:hover,
-.dark-mode .socialmediaicons .fa-facebook:hover,
-.dark-mode .socialmediaicons .fa-youtube:hover,
-.dark-mode .socialmediaicons .fa-github:hover,
-.dark-mode .socialmediaicons .fa-linkedin:hover,
-.dark-mode .socialmediaicons .fa-discord:hover {
-transition: all 0.3s;
-color: #635656; /* Ensure icon hover colors remain visible */
-}
-
- </style>
-
-    </div>
-</header>
     <main>
       <style>
         .dark-mode .section__subtitle{
@@ -1178,7 +1119,7 @@ color: #635656; /* Ensure icon hover colors remain visible */
       </style>
       <section class="community-spotlight">
         <div class="section__container">
-            <h2 class="section__title" style="color: maroon; margin-top:150px;text-align:center">Community Spotlight</h2>
+            <h2 class="section__title" style="color: maroon; text-align:center">Community Spotlight</h2>
             <p class="section__subtitle" style="color: black;text-align:center">Meet our active community members and explore their book recommendations</p>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
@@ -1186,7 +1127,7 @@ color: #635656; /* Ensure icon hover colors remain visible */
                         <div class="spotlight__card">
                             <img src="assets/images/ja.jpeg" alt="Jane Doe">
                             <div class="spotlight__details">
-                                <h4 style="color: maroon;">Jane Doe</h4>
+                                <h4 >Jane Doe</h4>
                                 <p class="spotlight_book">Recommended Book:<strong> "To Kill a Mockingbird" </strong> by Harper Lee</p>
                             </div>
                         </div>
@@ -1195,7 +1136,7 @@ color: #635656; /* Ensure icon hover colors remain visible */
                         <div class="spotlight__card">
                             <img src="assets/images/jo.jpeg" alt="John Smith">
                             <div class="spotlight__details">
-                                <h4 style="color: maroon;">John Smith</h4>
+                                <h4 >John Smith</h4>
                                 <p>Recommended Book:<strong> "1984" </strong>by George Orwell</p>
                             </div>
                         </div>
@@ -1204,7 +1145,7 @@ color: #635656; /* Ensure icon hover colors remain visible */
                         <div class="spotlight__card">
                             <img src="assets/images/em.jpeg" alt="Emily Johnson">
                             <div class="spotlight__details">
-                                <h4 style="color: maroon;">Emily Johnson</h4>
+                                <h4>Emily Johnson</h4>
                                 <p>Recommended Book:<strong> "Pride and Prejudice"</strong> by Jane Austen</p>
                             </div>
                         </div>
@@ -1213,7 +1154,7 @@ color: #635656; /* Ensure icon hover colors remain visible */
                         <div class="spotlight__card">
                             <img src="assets/images/ma.jpg" alt="Mark Brown">
                             <div class="spotlight__details">
-                                <h4 style="color: maroon;">Mark Brown</h4>
+                                <h4>Mark Brown</h4>
                                 <p>Recommended Book:<strong> "The Great Gatsby"</strong> by F. Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -1231,14 +1172,14 @@ color: #635656; /* Ensure icon hover colors remain visible */
 
     </main>
 
-    <footer class="ff">
+    <footer class="ff" style="font-size: 18px;">
       <div class="foot-top">
         <div class="foot-left">
-  
+    
           <div class="desc">
-            <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
+            <div class="SwapReads"><a href="#" class="logoo">SwapReads</a></div>
             <div>
-              <p style="text-align: justify; color: black;" class="description">
+              <p style="text-align: justify; color: black; font-size: 16px;" class="description">
                 SwapReads.com is the ultimate destination for book lovers seeking to swap and discover new literary gems.
                 Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
                 the world of literature—all on one convenient platform. Join us and dive into a universe of endless possibilities!
@@ -1253,11 +1194,11 @@ color: #635656; /* Ensure icon hover colors remain visible */
               </style>
             </div>
             
-  
+    
           </div>
         </div>
         <div class="foot-middle">
-          <h2 style="margin-left: 2rem; margin-top: 2.75rem;" id="quicklinks-color">Quick Links</h2>
+          <h2 style="margin-left: 2rem; margin-top: 2.75rem; font-size: 28px; font-weight: 700;" id="quicklinks-color">Quick Links</h2>
           <style>
             .dark-mode #quicklinks-color{
               color: maroon !important;
@@ -1266,28 +1207,28 @@ color: #635656; /* Ensure icon hover colors remain visible */
               color: white !important;
             }
           </style>
-          <div id="quicklinks" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+          <div id="quicklinks" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem; ">
             <div class="linkscolor">
               <ul style="list-style: none; padding: 0;">
-                <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem; ">
                   <i class="fas fa-home" style="color: #374151; margin-right: 4px;"></i>
-                  <a href="./index.html#home" style="color: #374151; text-decoration: none;">Home</a>
+                  <a href="/./index.html" style="color: #374151; text-decoration: none;">Home</a>
                 </li>
                 <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
                   <i class="fas fa-book" style="color: #374151; margin-right: 4px;"></i>
-                  <a href="./index.html#benefits" style="color: #374151; text-decoration: none;">Benefits</a>
+                  <a href="/./index.html#benefits" style="color: #374151; text-decoration: none;">Benefits</a>
                 </li>
                 <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
                   <i class="fas fa-globe" style="color: #374151; margin-right: 4px;"></i>
-                  <a href="./index.html#chapters" style="color: #374151; text-decoration: none;">Literary</a>
+                  <a href="/./index.html#chapters" style="color: #374151; text-decoration: none;">Literary</a>
                 </li>
                 <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
                   <i class="fas fa-dollar-sign" style="color: #374151; margin-right: 4px;"></i>
-                  <a href="./index.html#pricing" style="color: #374151; text-decoration: none;">Pricing</a>
+                  <a href="/./index.html#pricing" style="color: #374151; text-decoration: none;">Pricing</a>
                 </li>
                 <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
                   <i class="fas fa-bookmark" style="color: #374151; margin-right: 4px;"></i>
-                  <a href="./assets/html/book_recommend.html" style="color: #374151; text-decoration: none;">Recommend</a>
+                  <a href="./book_recommend.html" style="color: #374151; text-decoration: none;">Recommend</a>
                 </li>
               </ul>
             </div>
@@ -1295,34 +1236,28 @@ color: #635656; /* Ensure icon hover colors remain visible */
               <ul style="list-style: none; padding: 0;">
                 <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
                   <i class="fas fa-exchange-alt" style="color: #374151; margin-right: 4px;"></i>
-                  <a href="./assets/html/booklistswap.html" style="color: #374151; text-decoration: none;">Swap</a>
+                  <a href="./booklistswap.html" style="color: #374151; text-decoration: none;">Swap</a>
                 </li>
                 <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
                   <i class="fas fa-file-pdf" style="color: #374151; margin-right: 4px;"></i>
-                  <a href="./assets/html/freeBooks.html" style="color: #374151; text-decoration: none;">E-Book</a>
+                  <a href="./freeBooks.html" style="color: #374151; text-decoration: none;">E-Book</a>
                 </li>
                 <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
                   <i class="fas fa-info-circle" style="color: #374151; margin-right: 4px;"></i>
-                  <a href="./assets/html/about.html" style="color: #374151; text-decoration: none;">About</a>
+                  <a href="./about.html" style="color: #374151; text-decoration: none;">About</a>
                 </li>
                 <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
                   <i class="fas fa-envelope" style="color: #374151; margin-right: 4px;"></i>
-                  <a href="./index.html#contact" style="color: #374151; text-decoration: none;">Contact</a>
+                  <a href="/./index.html#contact" style="color: #374151; text-decoration: none;">Contact</a>
                 </li>
                 <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
                   <i class="fas fa-question-circle" style="color: #374151; margin-right: 4px;"></i>
-                  <a href="./index.html#faqq" style="color: #374151; text-decoration: none;">FAQ</a>
+                  <a href="/./index.html#faqq" style="color: #374151; text-decoration: none;">FAQ</a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        
-        
-        
-        
-        
-  
           <style>
             .social-icons input[type="email"] 
             {
@@ -1336,7 +1271,7 @@ color: #635656; /* Ensure icon hover colors remain visible */
               margin-left: 5rem;
               font-size: 2.3rem;
               color: green;
-  
+    
             }
            /* for small screen */
             @media (max-width: 768px) 
@@ -1349,76 +1284,75 @@ color: #635656; /* Ensure icon hover colors remain visible */
               }
           }
           </style>
+                <style>
+                  #confirmationmessage {
+            position: fixed;
+            top: 42rem;
+            right: 1rem;
+            background-color: green;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+          }
+    
+                </style>
+    
+    
+    
+    
+            
+          <script>
+          function showConfirmationMessage() {
+    
+          const form = document.getElementById('newsform');
+          const confirmationMessage = document.getElementById('confirmationmessage');
+    
+    
+          confirmationMessage.style.display = 'block';
+          setTimeout(function() {
+            location.reload(); 
+          }, 3000);
+    
+    
+    
+          }
+    
+          </script>
           <style>
-            #confirmationmessage {
-      position: fixed;
-      top: 42rem;
-      right: 1rem;
-      background-color: green;
-      color: white;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
-      z-index: 1000;
-      display: none;
-  }
-  
+    
+          .subscribe {
+          background-color: #A30F17;
+          color: white; 
+          border: none; 
+          padding: 1rem 2rem; 
+          font-size: 1.4rem; 
+          font-family: Arial, sans-serif;
+          border-radius: 0.5rem; 
+          cursor: pointer; 
+          transition: background-color 0.3s, transform 0.2s;
+          width: 100%;
+          }
+    
+          .subscribe:hover {
+          background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+          transform: scale(1.1);
+          }
+    
+          .subscribe:active {
+          transform: scale(0.98); 
+          }
+    
+          .subscribe:focus {
+          outline: none; 
+          }
+    
           </style>
-  
-  
-  
-  
-      
-    <script>
-    function showConfirmationMessage() {
-  
-    const form = document.getElementById('newsform');
-    const confirmationMessage = document.getElementById('confirmationmessage');
-  
     
-    confirmationMessage.style.display = 'block';
-    setTimeout(function() {
-      location.reload(); 
-    }, 3000);
-  
-  
-   
-  }
-  
-  
-  
-  </script>
-  <style>
-    
-  .subscribe {
-    background-color: #A30F17;
-    color: white; 
-    border: none; 
-    padding: 1rem 2rem; 
-    font-size: 1.6rem; 
-    font-family: Arial, sans-serif;
-    border-radius: 0.5rem; 
-    cursor: pointer; 
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  .subscribe:hover {
-    background: linear-gradient(hwb(357 6% 36%), #d26d6d);
-    transform: scale(1.1);
-  }
-  
-  .subscribe:active {
-    transform: scale(0.98); 
-  }
-  
-  .subscribe:focus {
-    outline: none; 
-  }
-  
-  </style>
-  
           <div class="foot-right">
-          <h2 style="margin-bottom: 2.4rem; margin-top:0.5rem;" id="stayconnected-color">Stay Connected</h2>
+          <h2 style="margin-bottom: 2.4rem; margin-top:0.5rem; font-size: 28px; font-weight: 700;" id="stayconnected-color">Stay Connected</h2>
           <style>
             .dark-mode #stayconnected-color{
               color:maroon !important;
@@ -1435,109 +1369,117 @@ color: #635656; /* Ensure icon hover colors remain visible */
           </form>
           <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
           <div class="icons">
-            <!-- Discord icon -->
-            <a href="https://www.discord.com/" target="_blank">
-              <div class="icon">
-                <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
-              </div>
-              <style>
-                .dark-mode .fab.fa-discord:hover{
-                  color:#3b5998 !important; 
-                }
-              </style>
-            </a>
-          
-            <!-- LinkedIn icon -->
-            <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
-              <div class="icon">
-                <i class="fab fa-linkedin" title="LinkedIn" style="cursor: pointer;"></i>
-              </div>
-            </a>
-          
-            <!-- Facebook icon -->
-            <a href="https://www.facebook.com/" target="_blank">
-              <div class="icon">
-                <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
-              </div>
-            </a>
-          
-            <!-- X (formerly Twitter) icon -->
-            <a href="https://x.com/anuragverma_108" target="_blank">
-              <div class="icon">
-                <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
-              </div>
-              <style>
-                .dark-mode .fab.fa-twitter:hover{
-                  color: white !important;
-                }
-              </style>
-            </a>
-          
-            <!-- Instagram icon -->
-            <a href="https://www.instagram.com/">
-              <div class="icon" id="insta-icon">
-                <i class="fab fa-instagram" title="Instagram" style="cursor: pointer;"></i>
-              </div>
-            </a>
-          
-            <!-- YouTube icon -->
-            <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
-              <div class="icon">
-                <i class="fab fa-youtube" style="cursor: pointer;"></i>
-              </div>
-            </a>
-          
-            <!-- GitHub icon -->
-            <a href="https://github.com/anuragverma108">
-              <div class="icon">
-                <i class="fab fa-github" title="GitHub"></i>
-              </div>
-              <style>
-                .dark-mode .fab.fa-github:hover{
-                  color: white !important;
-                }
-              </style>
-            </a>
+    <!-- Discord icon -->
+    <a href="https://www.discord.com/" target="_blank">
+      <div class="icon">
+        <i class="fab fa-discord" title="Discord" style="cursor: pointer; color: #374151; margin-right: 4px;"></i>
+      </div>
+    </a>
+    
+    <!-- LinkedIn icon -->
+    <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
+      <div class="icon">
+        <i class="fab fa-linkedin" title="LinkedIn" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+      </div>
+    </a>
+    
+    <!-- Facebook icon -->
+    <a href="https://www.facebook.com/" target="_blank">
+      <div class="icon">
+        <i class="fab fa-facebook" title="Facebook" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+      </div>
+    </a>
+    
+    <!-- X (formerly Twitter) icon -->
+    <a href="https://x.com/anuragverma_108" target="_blank">
+      <div class="icon">
+        <i class="fab fa-twitter" title="X" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+      </div>
+    </a>
+    
+    <!-- Instagram icon -->
+    <a href="https://www.instagram.com/">
+      <div class="icon" id="insta-icon">
+        <i class="fab fa-instagram" title="Instagram" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+      </div>
+    </a>
+    
+    <!-- YouTube icon -->
+    <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
+      <div class="icon">
+        <i class="fab fa-youtube" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+      </div>
+    </a>
+    
+    <!-- GitHub icon -->
+    <a href="https://github.com/anuragverma108">
+      <div class="icon">
+        <i class="fab fa-github" title="GitHub" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+      </div>
+    </a>
+    
+    <style>
+      /* Dark mode hover to display original icon colors */
+    .fab.fa-discord:hover {
+        color: #5865F2 !important; /* Discord original color */
+      }
+    .fab.fa-linkedin:hover {
+        color: #0077B5 !important; /* LinkedIn original color */
+      }
+    .fab.fa-facebook:hover {
+        color: #1877F2 !important; /* Facebook original color */
+      }
+    .fab.fa-twitter:hover {
+        color: #1DA1F2 !important; /* Twitter original color */
+      }
+    .fab.fa-instagram:hover {
+        color: #E4405F !important; /* Instagram original color */
+      }
+    .fab.fa-youtube:hover {
+        color: #FF0000 !important; /* YouTube original color */
+      }
+    .fab.fa-github:hover {
+        color: #171515 !important; /* GitHub original color */
+      }
+    </style>
+    
           </div>
          </div>
         </div>
-  
+    
         </div>
       </div>
-  
-  
-  
-  
+    
+    
       <!-- adding privacy policy and copyright popup-->
-      <div class="footer-f" style="text-align: center; align-items: center;">
+      <div class="footer-f" style="text-align: center; align-items: center;    ">
         <p style="text-align: center">
           &copy;
           <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
         </p>
         <div class="row-copy">
-  
-  
-        <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
-        <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>  |
+    
+    
+        <a href="/copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+        <a href="/privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>  |
         
-        <a href="our-vision.html" id="ourvisionLink">Our Vision</a></li>
+        <a href="/our-vision.html" id="ourvisionLink">Our Vision</a></li>
       </div>
       </div>
-      <style>
-        #copyrightPolicyLink:hover{
-          color: rgb(126, 0, 21);
-          transition: 0.5s ease;
-        }
-        #privacyNoticeLink:hover{
-          color: rgb(126, 0, 21);
-          transition: 0.5s ease;
-        }
-        #ourvisionLink:hover{
-          color: rgb(126, 0, 21);
-          transition: 0.5s ease;
-        }
-      </style>
-  
+        <style>
+          #copyrightPolicyLink:hover{
+            color: rgb(126, 0, 21);
+            transition: 0.5s ease;
+          }
+          #privacyNoticeLink:hover{
+            color: rgb(126, 0, 21);
+            transition: 0.5s ease;
+          }
+          #ourvisionLink:hover{
+            color: rgb(126, 0, 21);
+            transition: 0.5s ease;
+          }
+        </style>
     </footer>
 
     <div>
@@ -1777,6 +1719,10 @@ color: #635656; /* Ensure icon hover colors remain visible */
         renderBullet: function (index, className) {
             return '<span class="' + className + '">' + (index + 1) + '</span>';
         },
+    },
+    autoplay: {
+        delay: 3000, 
+        disableOnInteraction: false,
     },
 });
 

@@ -167,6 +167,78 @@
   <div class="circle"></div>
   <div class="circle"></div>
   <style>
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 100px;
+  padding: 80px;
+  margin-top: 70px;
+  max-width: 1600px;
+}
+
+.card {
+  width: 100%;
+  height: 350px;
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Front Styles */
+.card-front {
+  background-color: #f59595;
+  font-size: 1.8em;
+  text-align: center;
+  position: absolute;
+}
+
+.card-front h1 {
+  position: relative;
+  bottom: -230px;
+  font-size: 25px;
+}
+
+/* Card Back Styles */
+.card-back {
+  background-color: #f59595;
+  color: #fff; /* Change text color for better visibility on light background */
+  transform: rotateY(180deg);
+}
+
+/* Image Styles */
+.Rowling {
+  background-image: url("https://people.com/thmb/aBDa7w2gbRPaNvsn4MEYhRDfXTw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(511x0:513x2)/jk-rowling-1024-f6d4d7c9b7b04c1cb7ae7c92e0a1ccdf.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
     .action {
       position: fixed;
       top: 20px;
@@ -471,8 +543,26 @@
 
 
 
+    
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adjust shadow as needed */
+}
+:root {
+  --shadow-color: rgba(0, 0, 0, 0.2); /* For light theme */
+}
 
+/* For dark theme */
+.dark-theme :root {
+  --shadow-color: rgba(255, 255, 255, 0.2);
+}
 
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0px 4px 8px var(--shadow-color);
+}
 
 
     .card-container {
@@ -1102,7 +1192,7 @@
 
               <ul class="dropdown-menu-list">
                 <li class="dropdown-menu-item">
-                  <a href="../../chat.html" class="navbar-link" style="font-family: sans-serif;  margin-bottom: 5px;">
+                  <a href="../../chatt.html" class="navbar-link" style="font-family: sans-serif;  margin-bottom: 5px;">
                     Community chat
                   </a>
                 </li>
@@ -1117,7 +1207,7 @@
                   </a>
                 </li>
                 <li class="dropdown-menu-item">
-                  <a href="../html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link"
+                  <a href="/#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link"
                     data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
                 </li>
                 <li class="dropdown-menu-item">
@@ -1167,7 +1257,7 @@
             <div class="action">
 
               <!-- <div class="menu">
-                <h3>XYZ<br /><span>Book Lover</span></h3>
+                <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
                 <ul>
                   <li>
                     <img src="../images/user.jpg" /><a href="../../profile.html">My profile</a>
@@ -1194,8 +1284,15 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const savedAvatar = localStorage.getItem("selectedAvatar");
+        const savedName = localStorage.getItem("profileName");
         if (savedAvatar) {
           document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+        }
+
+        if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
         }
       });
 
@@ -1420,7 +1517,7 @@
           <h1>Munshi Premchand</h1>
         </div>
         <div class="card-back">
-          < h3>Pen Name: Nawab Rai</h3>
+          <h3>Pen Name: Nawab Rai</h3>
           <p><strong>Famous Works:</strong> Godaan, Nirmala</p>
           <p><strong>Genres:</strong> Fiction, Social Commentary</p>
           <p><strong>Awards:</strong> None</p>

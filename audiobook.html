@@ -4,15 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Privacy Notice - SwapReads</title>
+
     <link rel="stylesheet" href="./assets/css/playNow.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/MenuClick.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link
     href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
     rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon_package_v0.16/site.webmanifest">
+    <link rel="mask-icon" href="./assets/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <title>Audio Books</title>
     <style>
        .switch-container {
@@ -24,16 +32,287 @@
     }
 
       
+.header {
+  width: 90%; /* Set a width to make it look like a centered rectangle */
+  max-width: 1200px;
+  background-color: #ffffff; /* White background */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center header */
+  padding: 10px 0; /* Reduce padding for a thinner look */
+  z-index: 10;
+  border-radius: 10px;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #000000; /* Black text color */
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Reduced spacing for a thinner look */
+}
+
+.navbar-list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar-item {
+  position: relative;
+}
+
+.navbar-link {
+  color: #000000; /* Black text */
+  text-decoration: none;
+  font-size: 0.95rem; /* Slightly smaller font */
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: normal; /* Remove bold font */
+}
+
+.navbar-link:hover {
+  color: #d72672; /* Dark pink on hover */
+}
+
+.navbar-link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #d76b9d, #ff9aa2, #ffd9b3); /* Subtle gradient */
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+}
+
+.navbar-link:hover::after {
+  width: 100%; /* Expand underline on hover */
+}
+
+.action {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden initially */
+  width: 200px;
+  z-index: 100;
+  padding: 10px;
+}
+
 
     </style>
     <style>
-       * {
-          margin: 0;
-          padding: 0;
-          font-family: "Poppins", sans-serif;
-          }
+      /* Header Styles */
+      /* General Reset for Consistency */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
- 
+/* Header styling */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  background-color: white;
+}
+
+/* Navbar container styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Logo adjustments */
+.logo img {
+  width: 8rem;
+  height: auto;
+  margin-right: 20px;
+}
+
+/* Navbar list styling */
+.navbar-list {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  list-style: none;
+}
+
+/* Navbar item links */
+.navbar-item a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  transition: color 0.3s ease;
+  font-family: 'Poppins';
+}
+
+.navbar-item a:hover {
+  color: #555;
+}
+
+/* Switch container adjustments */
+.switch-container {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+/* Adjust spacing and height of the navbar */
+.nav-h {
+  height: 90px;
+}
+
+/* Reduce the switch button padding and adjust icon size */
+.switch-label {
+  width: 40px;
+  height: 20px;
+}
+
+.switch-button {
+  padding: 0 4px;
+}
+
+.sun-icon,
+.moon-icon {
+  font-size: 14px;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .navbar-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .switch-container {
+    margin-top: 10px;
+  }
+}
+
+      /* Navbar links */
+      .navbar-link {
+        text-decoration: none;
+        font-size: 18px;
+        color: #333;
+        transition: color 0.3s ease;
+      }
+
+      .navbar-link:hover {
+        color: #b44343;
+      }
+
+
+      .action {
+        display: flex;
+        align-items: center;
+      }
+
+      .profile img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #fff;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      .profile:hover + .menu,
+      .menu:hover {
+        display: block;
+      }
+
+      .menu h3 {
+        margin: 0;
+        font-size: 16px;
+        text-align: center;
+      }
+
+      .menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0 0;
+        text-align: center;
+      }
+
+      .menu ul li {
+        margin-bottom: 10px;
+      }
+
+      .menu ul li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        transition: color 0.3s;
+      }
+
+      .menu ul li a:hover {
+        color: #b44343;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 660px) {
+        .container {
+          flex-direction: column;
+        }
+
+        .header {
+          padding: 0 10px 20px 10px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .header {
+          padding: 0 10px 20px 10px;
+        }
+
+        .navbar-list {
+          gap: 1em;
+          padding: 0 2rem;
+          justify-content: center;
+        }
+
+        .navbar-item {
+          margin-left: 10px;
+        }
+      }
 
       body {
         font-family: Arial, sans-serif;
@@ -41,11 +320,6 @@
         padding: 0;
         height: 100vh;
         background-color: #f6cac2;
-      }
-
-      section {
-        padding: 20px;
-        margin-top: 85px;
       }
 
       h1 {
@@ -60,11 +334,18 @@
         font-size: 20px;
       }
 
+      #premium{
+       background-color: grey;
+       } 
+  #premium-card{
+  background-color: rgb(228, 228, 114);
+  }
+
       .spotlight-container {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        margin: 20px;
+        margin-top: 40px;
       }
 
       .spotlight-card {
@@ -73,7 +354,7 @@
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         margin: 10px;
         text-align: center;
-        width: 275px;
+        width: 325px;
         position: relative;
         transition: transform 0.3s ease;
       }
@@ -99,6 +380,7 @@
         border: none;
         border-radius: 5px;
         padding: 10px;
+        font-size: 18px;
         cursor: pointer;
         margin-bottom: 10px;
         transition: background-color 0.3s ease, transform 0.3s ease;
@@ -122,6 +404,12 @@
         margin-top: -10px;
         margin-bottom: 10px;
       }
+
+      span{
+        display: block;
+      }
+      
+
 
       .spotlight-card.playing {
         transform: scale(1.1);
@@ -182,254 +470,323 @@
         list-style: none;
       }
 
-        /* Basic navbar styling */
-        .dark-mode .header {
-      width: 100vw; /* Full viewport width */
-    max-width: 100%; /* Ensure it doesn't go beyond viewport width */
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    transition: top 0.3s;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    background-color: #000;
-     }
-     .header{
-      width: 100vw; /* Full viewport width */
-    max-width: 100%; /* Ensure it doesn't go beyond viewport width */
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    transition: top 0.3s;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
     
-     }
-     /* Hide the navbar */
-     .header.hidden {
-       top: -93px; /* Adjust according to your header height */
-     }
-     
-     /* Navbar styling when scrolled */
-     .header.scrolled {
-       background-color: #efefef; /* Change to a darker color when scrolled */
-       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
-     }
-     * {
-       margin: 0;
-       padding: 0;
-       font-family: "Poppins", sans-serif;
-     }
-     
-     body {
-       background: #ffccbc;
-     }
-     
-     .action {
-       /* position: fixed */
-       top: -12px;
-       right: -1px;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-     }
-     
-     
-     .action .profile {
-       position: relative;
-       width: 60px;
-       height: 60px;
-       border-radius: 50%;
-       overflow: hidden;
-       cursor: pointer;
-     }
-     
-     .action .profile img {
-      
-       position: absolute;
-       top: 0;
-       left: 0;
-       width: 100%;
-       height: 100%;
-       object-fit: cover;
-     }
-     
-     .action .menu {
-       position: absolute;
-       top: 120px;
-       right: -10px;
-       padding: 10px 20px;
-       background: #fff;
-       width: 200px;
-       box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
-       border-radius: 15px;
-       transition: 0.5s;
-       visibility: hidden;
-       opacity: 0;
-     }
-     
-     .action .menu.active {
-       top: 80px;
-       visibility: visible;
-       opacity: 1;
-     }
-     
-     .action .menu::before {
-       content: "";
-       position: absolute;
-       top: -5px;
-       right: 28px;
-       width: 20px;
-       height: 20px;
-       background: #fff;
-       transform: rotate(45deg);
-     }
-     
-     .action .menu h3 {
-       width: 100%;
-       text-align: center;
-       font-size: 18px;
-       padding: 20px 0;
-       font-weight: 500;
-       color: #555;
-       line-height: 1.5em;
-     }
-     
-     .action .menu h3 span {
-       font-size: 14px;
-       color: #cecece;
-       font-weight: 300;
-     }
-     
-     .action .menu ul li {
-       list-style: none;
-       padding: 16px 0;
-       border-top: 1px solid rgba(0, 0, 0, 0.05);
-       display: flex;
-       align-items: center;
-     }
-     
-     .action .menu ul li img {
-       max-width: 20px;
-       margin-right: 10px;
-       opacity: 0.5;
-       transition: 0.5s;
-     }
-     
-     .action .menu ul li:hover img {
-       opacity: 1;
-     }
-     
-     .action .menu ul li a {
-       display: inline-flex;
-       text-align: center;
-       padding-left: 5%;
-       font-weight: 300;
-       font-size: 19px;
-       text-decoration: none;
-       color: #555;
-       font-weight: 500;
-       transition: 0.5s;
-     }
-     
-     .action .menu ul li:hover a {
-       color: #ff5d94;
-       font-size: 21px;
-     
-     }
-     .hamburger{
-         display: none;
-         cursor: pointer;
-         position: absolute;
-         top: 24px;
-         left: 1.5%;
-     }
-     .line{
-         width: 36px;
-         height: 5px;
-         margin: 4px 4px;
-         background-color: rgb(240, 15, 15);
-     }
+      .header {
+  width: 90%; /* Set a width to make it look like a centered rectangle */
+  max-width: 1200px;
+  background-color: #ffffff; /* White background */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center header */
+  z-index: 10;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
 
-     @media only screen and (max-width:1063px){
-         .nav{
-             flex-direction: column;
-         }
-         .header{
-             flex-direction: column;
-             height: 53.8rem;
-             transition: 0.55s all ease-out;
-             padding-top: 5px;
-         }
-         .navbar-item{
-             margin-right: 40px;
-         }
-         .navbar-list{
-           position: relative;
-           top: 200px;
-         }
-         .hamburger{
-             display: block;
-         }
-         .nav-h{
-             height: 78px;
-             width: 100vw;
-         }
-         .vis-h{
-             opacity: 0;
-         }
-         .logo img{
-           position: relative;
-           top: 17px;
-           left: 350px;
-         }
-     }
-     @media only screen and (max-width:990px){
-       .header{
-         height: 0;
-       }
-       .navbar-list{
-         top: 0;
-       }
-       .logo img{
-         top: -9px;
-         left: 50px;
-       }
-     }
-     @media (min-width: 990px){
 
-     .grid-list {
-    grid-template-columns: repeat(2, 1fr);
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #000000; /* Black text color */
+  font-weight: bold;
+  margin-top: 30px;
 }
-     }
-     .chapter-card{
-        width: 30vw;
-        height: 400px;
-     }
-     .genre{
-        margin-top: 200px;
-     }
-     .light-mode .switch-container {
-    right: 140px;
-    top: 10px;
+
+
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px; /* Reduced spacing for a thinner look */
+  max-height: 80px;
+
 }
-.switch-checkbox:checked + .switch-label .switch-button {
-    transform: translateX(13px);
-    /* background-color: #34495e; */
+
+.navbar-list {
+  display: flex;
+  list-style: none;
+  align-items: center;
 }
-.ben {
-    color: var(--sonic-silver);
-    font-size: 24px;
-    font-weight: bold;
+
+.navbar-item {
+  position: relative;
+}
+
+
+.navbar-link {
+  color: #000000; /* Black text */
+  text-decoration: none;
+  font-size: 17px; /* Slightly smaller font */
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: normal; /* Remove bold font */
+}
+
+.navbar-link {
+  position: relative; /* Ensure the link has a position for the absolute positioning of the pseudo-element */
+}
+
+.navbar-link:hover {
+  color: #a52644; /* Dark pink on hover */
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Adjust this value to create a gap */
+  left: 0px;
+  height: 3px;
+  background-color: #fcb0b480;
+  width: 0;
+  box-shadow: 0 0 10px #f39d127e;
+  transition: all 0.6s;
+  text-decoration: none;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+  text-decoration: none;
+}
+
+/* Base styling for the hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  transition: transform 0.3s ease;
+}
+
+/* Responsive styling */
+@media (max-width: 1000px) {
+  /* Hide the navbar by default on small screens */
+  .navbar {
+    display: none;
+    position: absolute;
+    top: 70px; /* Matches header height for below-header dropdown */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: initial;
+  }
+
+  .header{
+    width: 100%;
+  }
+
+  .navbar.active {
+    display: block;
+  }
+
+  /* Hamburger icon visible only on smaller screens */
+  .hamburger {
+    display: flex;
+    margin-top: 20px;
     margin-bottom: 20px;
+  }
+
+  /* Center-align navbar links in mobile view */
+  .navbar ul.navbar-list {
+    flex-direction: column;
     text-align: center;
-}
-.chapter-card:hover .ben{
-color: #d26d6d;
+  }
+
+  /* Adjusted theme switcher styling for mobile */
+  .switch-container {
+    margin: 0 0;
+    right:0;
+    top:0;
+    padding-top: 1rem;
+  }
+
+
 }
 
+
+  /* Container for the switch */
+  .switch-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Hide default checkbox */
+  .switch-checkbox {
+    display: none;
+  }
+
+  /* Style the label */
+  .switch-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50px;
+    height: 24px;
+    border-radius: 50px;
+    background-color: #ccc;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+  /* Style the toggle button */
+  .switch-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 5px;
+    position: absolute; /* Fixes the position */
+    left: 0; /* Keeps the button fixed */
+  }
+
+  /* Sun and moon icon styles */
+  .sun-icon,
+  .moon-icon {
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Color the icons */
+  .sun-icon {
+    color: orange; /* Sun icon color */
+  }
+
+  .moon-icon {
+    color: lightblue; /* Moon icon color */
+    opacity: 0; /* Initially hidden */
+  }
+
+  /* Style for checked state */
+  .switch-checkbox:checked + .switch-label {
+    background-color: #333;
+  }
+
+  .switch-checkbox:checked + .switch-label .sun-icon {
+    opacity: 0; /* Hide sun icon in dark mode */
+  }
+
+  .switch-checkbox:checked + .switch-label .moon-icon {
+    opacity: 1; /* Show moon icon in dark mode */
+  }
+
+  body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #ffdcd4;
+      color: black;
+  }
+
+  .finput{
+    border: 1px solid #a30f17;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 5px;
+
+    background: none;
+    border-radius: 10px; 
+    padding: 10px;
+font: inherit;
+
+  }
+  body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    background-image: url('./assets/images/darkmode_bg.png'); /* Add your dark mode image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+  }
+
+.footer-f{
+    background-color: hsl(0deg 100% 80.49%);
+  }
+
+  .dark-mode .footer-f{
+    background-color: black;
+  }
+.dark-mode .spotlight-container {
+  border-radius: 10px;
+}
+
+.dark-mode .spotlight-card {
+  background-color: #333333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 325px;
+}
+
+.dark-mode #premium-card {
+    background-color: rgb(36, 34, 11);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 325px;
+}
+
+.dark-mode h1, 
+.dark-mode h3 {
+  color: #f1f1f1;
+}
+
+.dark-mode .audio-slider {
+  background-color: #444444;
+  color: #cccccc;
+}
+
+/* Slider customization */
+.audio-slider::-webkit-slider-thumb {
+  background-color: #888888;
+}
+
+.dark-mode .time-info {
+  color: #cccccc;
+}
+
+.dark-mode p{
+  color:#f1f1f1
+}
+
+.logoo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: maroon; /* Black text color */
+  font-weight: bold;
+  margin-top: 30px;
+  text-decoration: none;
+}
+.row-copy {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    gap: 10px;
+    font-size:18px;
+}
+a {
+    color: hsl(211.57deg 66.46% 54.45%);
+    text-decoration: none;
+}
+
+.icons{
+  gap:25px;
+}
     </style>
 
 <script>
@@ -509,710 +866,544 @@ color: #d26d6d;
     
     <body>
     
+        <!-- Circles -->
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div> 
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    
+        <header class="header header-anim nav-h" data-header>
+  
+          <div class="container mobile-container-styles">
+            <button class="hamburger" id="hamburger-button" aria-label="Menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <nav class="navbar nav_activated" data-navbar>
         
-      <!-- Circles -->
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div> 
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-  
-
-     
-   <script>
-   
-     document.addEventListener('DOMContentLoaded', function() {
-     const cookieConsent = document.getElementById('cookie-consent');
-     const acceptButton = document.querySelector('.accept-cookies');
-     const rejectButton = document.querySelector('.reject-cookies');
-     const learnMoreLink = document.getElementById('learn-more-link');
-     const learnMoreContent = document.getElementById('learn-more-content');
-   
-     // Hide preloader after page load
-     window.addEventListener('load', function() {
-       const preloader = document.getElementById('preloader');
-       if (preloader) {
-         preloader.style.display = 'none';
-       }
-       cookieConsent.style.display = 'block';
-     });
-   
-     // Check if localStorage is available
-     function localStorageAvailable() {
-       try {
-         const test = '_localStorage_test_';
-         localStorage.setItem(test, test);
-         localStorage.removeItem(test);
-         return true;
-       } catch (e) {
-         return false;
-       }
-     }
-   
-     if (localStorageAvailable()) {
-       // Check if the user has already made a choice
-       if (localStorage.getItem('cookieConsent')) {
-         cookieConsent.style.display = 'none';
-       }
-   
-       // Function to handle cookie consent choice
-       function handleConsent(choice) {
-         localStorage.setItem('cookieConsent', choice);
-         cookieConsent.style.display = 'none';
-       }
-   
-       // Add event listeners to buttons
-       acceptButton.addEventListener('click', function() {
-         handleConsent('accepted');
-       });
-   
-       rejectButton.addEventListener('click', function() {
-         handleConsent('rejected');
-       });
-     } else {
-       // Hide consent if localStorage is not available
-       cookieConsent.style.display = 'none';
-     }
-   
-     // Add event listener to "Learn More" link
-     learnMoreLink.addEventListener('click', function(event) {
-       event.preventDefault();
-       learnMoreContent.style.display = 'block';
-       learnMoreLink.style.display = 'none';
-     });
-   });
-   </script>
-  
-  <header class="header header-anim nav-h" data-header>
-    <div class="container mobile-container-styles">
-        <!-- Mobile menu toggle button -->
-        <button id="mobile_View_Menu" class="mobile-menu-toggle">
-            <i class="ri-menu-fill"></i>
-        </button>
-        <div class="navbar-align">
-        <nav class="navbar nav_activated" data-navbar>
-            <ul class="navbar-list nav">
-                <li class="navbar-item logo-item" style="display:flex;">
-                    <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo">
-                        <img src="./assets/images/final.png" class="logopic" style="width: 15rem; margin: 0px 0px 0px -10px;">
+        
+              <ul class="navbar-list nav" style="margin-right: 10px;">
+                <a href="index.html" class="logo" style="display:flex;">
+                  <img src="./assets/images/final.png" class="logopic" style=" width: 10rem; height:100px; margin:0px 0px 15px -10px;">
+                </a>
+        
+                <li class="navbar-item" style="margin-right: 10px;">
+                  <a href="index.html" class="navbar-link" data-nav-link>
+                    <i class="ri-home-fill"></i> Home
+                  </a>
+                </li>
+        
+        
+                <li class="navbar-item" style="margin-right: 10px;">
+                  <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
+                    <i class="ri-information-fill"></i> About Us
+                  </a>
+                </li>
+        
+               <li class="navbar-item" style="margin-right: 10px;">
+                  <a href="index.html#benefits"  class="navbar-link" data-nav-link><i
+                      class="ri-bar-chart-fill"></i> Benefits</a>
+                </li>
+        
+                <li class="navbar-item" style="margin-right: 10px;">
+                  <a href="index.html#genre"  class="navbar-link" data-nav-link><i
+                      class="ri-bar-chart-fill"></i> Genre</a>
+                </li>
+        
+               <li class="navbar-item"  style="margin-right: 10px;">
+                    <a href="books.html" class="navbar-link" data-nav-link>
+                        <i class="ri-questionnaire-fill"></i> Books
                     </a>
                 </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="index.html" onclick="lenis.scrollTo('#home'); event.preventDefault();" class="navbar-link" data-nav-link>
-                        <i class="ri-home-fill"></i> Home
-                    </a>
+        
+                <li class="navbar-item" style="margin-right: 10px;">
+                  <a href="index.html#contact"  class="navbar-link" data-nav-link>
+                    <i class="ri-contacts-fill"></i> Contact
+                  </a>
                 </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
-                        <i class="ri-home-fill"></i> About Us
-                    </a>
+        
+                <li class="navbar-item" id="login-signup-link" style="margin-right: 10px;">
+                  <a href="./assets/html/login.html" class="navbar-link">
+                    <i class="ri-login-box-fill"></i> Login/Signup
+                  </a>
                 </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="#benefits" onclick="lenis.scrollTo('#benefits'); event.preventDefault();" class="navbar-link" data-nav-link>
-                        <i class="ri-bar-chart-fill"></i> Benefits
-                    </a>
+        
+                <li class="navbar-item" style="margin-right: 10px;">
+                  <a href="comsp.html" class="navbar-link" data-nav-link>
+                    <i class="ri-book-fill"></i> Community
+                  </a>
                 </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="#genre" onclick="lenis.scrollTo('#genre'); event.preventDefault();" class="navbar-link" data-nav-link>
-                        <i class="ri-bar-chart-fill"></i> Genre
-                    </a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="#contact" onclick="lenis.scrollTo('#contact'); event.preventDefault();" class="navbar-link" data-nav-link>
-                        <i class="ri-customer-service-2-fill"></i> Contact
-                    </a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="#faq" onclick="lenis.scrollTo('#faq'); event.preventDefault();" class="navbar-link" data-nav-link>
-                        <i class="ri-questionnaire-fill"></i> FAQ
-                    </a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="./assets/html/event.html" class="navbar-link">Events</a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="./assets/html/login.html" class="navbar-link">Login</a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="comsp.html" class="navbar-link">Community</a>
-                </li>
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks'); event.preventDefault();" class="navbar-link" data-nav-link>
-                        <i class="ri-bar-chart-fill"></i>Audio<br> Books
-                    </a>
-                </li>
-                <!-- Avatar section added inside navbar -->
-                <li class="navbar-item" style="margin-right: 5px;">
-                    <div class="action">
-                        <div class="profile" onclick="menuToggle();">
-                            <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
-                        </div>
+                <li class="navbar-item" style="margin-right: 10px;">
+                  <a href="./assets/html/event.html"  class="navbar-link" data-nav-link>
+                    <i class="ri-community-fill"></i> Events
+                  </a>
+                </li>   
+                <div class="switch-container">
+                  <input type="checkbox" id="switch" class="switch-checkbox">
+                  <label for="switch" class="switch-label">
+                    <div class="switch-button">
+                      <span class="material-icons sun-icon">wb_sunny</span>
+                      <span class="material-icons moon-icon">brightness_2</span>
                     </div>
-                </li>
-            </ul>
-        </nav>
-        </div>
-        <button class="go-top-btn">
-            <img height="20px" width="20" src="up-arrow (1).png" alt="arrow up">
-        </button>
-        <style>
-          .navbar-align{
-            width: 100%;
-          }
-          .go-top-btn{
-  position:fixed;
-  bottom: 35px;
-  right: 20px;
-  cursor: pointer;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  background:#222325;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  transition:background-color 0.3s, box-shadow 0.3s,transform 0.3s;
-  margin-top: 500px;
- 
-}
-.go-top-btn:hover{
-  box-shadow: 0px 6px 12px rgba(0,0,0 ,0.25);
-  transform: translateY(-2px)
-  
-}
+                  </label>
+                  </div>
+                    <!-- Theme switcher -->
 
-
-          
-        </style>
-
-        <script>
-            // Toggle dropdown
-            function toggleDropdown(event) {
-                event.preventDefault();
-                const dropdownMenu = event.currentTarget.nextElementSibling;
-                dropdownMenu.classList.toggle('show');
-            }
-
-            // Load saved avatar
-            document.addEventListener("DOMContentLoaded", () => {
-                const savedAvatar = localStorage.getItem("selectedAvatar");
-                if (savedAvatar) {
-                    document.getElementById("profile-avatar").src = ./assets/images/${savedAvatar};
-                }
-            });
-
-            // Save avatar selection function
-            function saveAvatarSelection(newAvatar) {
-                localStorage.setItem("selectedAvatar", newAvatar);
-                document.getElementById("profile-avatar").src = ./assets/images/${newAvatar};
-            }
-
-            // Toggle menu for avatar
-            function menuToggle() {
-                const toggleMenu = document.querySelector(".menu");
-                toggleMenu.classList.toggle("active");
-            }
-
-            // Close menu when clicking outside of profile
-            document.addEventListener("click", function(event) {
-                const profile = document.querySelector(".profile");
-                const menu = document.querySelector(".menu");
-
-                if (!profile.contains(event.target) && !menu.contains(event.target)) {
-                    menu.classList.remove("active");
-                }
-            });
-
-            // Mobile view menu toggle
-            let menu = document.getElementById('mobile_View_Menu');
-            let navbar_con = document.querySelector('.navbar');
-
-            menu.addEventListener('click', () => {
-                menu.classList.toggle('open_menu');
-                navbar_con.classList.toggle('nav_activated');
-            });
-
-            // Update active link on scroll
-            const sections = document.querySelectorAll("section");
-            const navLinks = document.querySelectorAll(".navbar-link");
-
-            function updateActiveLink() {
-                let scrollPosition = window.scrollY + window.innerHeight / 3;
-
-                sections.forEach((section) => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-                    const sectionId = section.getAttribute("id");
-
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        navLinks.forEach((link) => {
-                            link.classList.remove("active");
-                            if (link.getAttribute("href") === #${sectionId}) {
-                                link.classList.add("active");
+                    
+                  
+                    <script>
+                        // Theme switcher
+                        document.addEventListener('DOMContentLoaded', function () {
+                          const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
+                          const bodyElement = document.body;
+                    
+                          const currentTheme = localStorage.getItem('theme') || 'light';
+                          if (currentTheme === 'dark') {
+                            bodyElement.classList.add('dark-mode');
+                            toggleSwitch.checked = true;
+                          } else {
+                            bodyElement.classList.add('light-mode');
+                          }
+                    
+                          toggleSwitch.addEventListener('change', function (event) {
+                            if (event.target.checked) {
+                              bodyElement.classList.remove('light-mode');
+                              bodyElement.classList.add('dark-mode');
+                              localStorage.setItem('theme', 'dark');
+                            } else {
+                              bodyElement.classList.remove('dark-mode');
+                              bodyElement.classList.add('light-mode');
+                              localStorage.setItem('theme', 'light');
                             }
+                          });
                         });
-                    }
-                });
-            }
-
-            window.addEventListener("scroll", updateActiveLink);
-            updateActiveLink();
-        </script>
-
-        <!-- Theme switcher -->
-        <div class="switch-container" style="top: 1.5rem;">
-            <input type="checkbox" id="switch" class="switch-checkbox">
-            <label for="switch" class="switch-label">
-                <div class="switch-button">
-                    <span class="material-icons sun-icon">wb_sunny</span>
-                    <span class="material-icons moon-icon">brightness_2</span>
-                </div>
-            </label>
-        </div>
-
-        <script>
-            // Theme switcher
-            document.addEventListener('DOMContentLoaded', function() {
-                const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
-                const bodyElement = document.body;
-
-                const currentTheme = localStorage.getItem('theme') || 'light';
-                if (currentTheme === 'dark') {
-                    bodyElement.classList.add('dark-mode');
-                    toggleSwitch.checked = true;
-                } else {
-                    bodyElement.classList.add('light-mode');
-                }
-
-                toggleSwitch.addEventListener('change', function(event) {
-                    if (event.target.checked) {
-                        bodyElement.classList.remove('light-mode');
-                        bodyElement.classList.add('dark-mode');
-                        localStorage.setItem('theme', 'dark');
-                    } else {
-                        bodyElement.classList.remove('dark-mode');
-                        bodyElement.classList.add('light-mode');
-                        localStorage.setItem('theme', 'light');
-                    }
-                });
-            });
-
-            // scroll to top button js 
-
-const goTopBtn = document.querySelector('.go-top-btn');
-    window.addEventListener('scroll', checkHeight)
-    function checkHeight() {
-      if (window.scrollY > 200) {
-        goTopBtn.style.display = "flex"
-      } else {
-        goTopBtn.style.display = "none"
+                      // Hamburger toggle
+                      document.getElementById('hamburger-button').addEventListener('click', function() {
+                        document.querySelector('.navbar').classList.toggle('active');
+                      });
+    
+                    // Update the coordinates when the mouse moves
+                    window.addEventListener("mousemove", function (e) {
+                      coords.x = e.clientX;
+                    coords.y = e.clientY;
+      });
+    
+                    // Animation function to move the circles
+                    function animateCircles() {
+                      let x = coords.x;
+                    let y = coords.y;
+    
+                    circles.forEach(function (circle, index) {
+                      // Update the position and scale of each circle
+                      circle.style.left = x - 12 + "px";
+                    circle.style.top = y - 12 + "px";
+                    circle.style.scale = (circles.length - index) / circles.length;
+    
+                    circle.x = x;
+                    circle.y = y;
+    
+                    // Get the next circle in the sequence
+                    const nextCircle = circles[index + 1] || circles[0];
+                    x += (nextCircle.x - x) * 0.15;
+                    y += (nextCircle.y - y) * 0.15;
+        });
+    
+                    // Repeat the animation
+                    requestAnimationFrame(animateCircles);
       }
-    }
-    goTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      })
-    })
-        </script>
-
-<style>
-  .dark-mode body {
-background-color: #e0e0e0; /* Light grey background for dark mode (originally white) */
-color: #dbc4c4; /* Dark text color */
-}
-
-.dark-mode .nav {
-background-color: #000000; /* Slightly darker grey for navigation */
-color: #121212; /* Dark text color */
-}
-
-.dark-mode .flip-card-front {
-background-color: #b0b0b0; /* Darker than original white */
-color: #121212; /* Dark text color */
-}
-
-.dark-mode .flip-card-back {
-background-color: #6c5e5e; /* Slightly darker grey for the back */
-color: #121212; /* Dark text color */
-}
-
-.dark-mode #cookie-consent {
-background-color: #c0c0c0; /* Slightly darker grey for cookie consent */
-color: #121212; /* Dark text color */
-}
-
-.dark-mode #cookie-consent p {
-color: #121212; /* Dark text color */
-}
-
-.dark-mode #cookie-container a {
-color: #121212; /* Dark text color */
-}
-
-.dark-mode .socialmediaicons a {
-color: #121212; /* Dark text color for social media links */
-}
-
-.dark-mode .readmore-anim {
-color: hsl(357, 37%, 30%); /* Darker shade of the original color */
-}
-
-.dark-mode .socialmediaicons .fa-instagram:hover,
-.dark-mode .socialmediaicons .fa-facebook:hover,
-.dark-mode .socialmediaicons .fa-youtube:hover,
-.dark-mode .socialmediaicons .fa-github:hover,
-.dark-mode .socialmediaicons .fa-linkedin:hover,
-.dark-mode .socialmediaicons .fa-discord:hover {
-transition: all 0.3s;
-color: #635656; /* Ensure icon hover colors remain visible */
-}
-
- </style>
-
-    </div>
-</header>
+    
+                    // Start the animation
+                    animateCircles();
+    
+                    function scrollToGenre(genreId) {
+                      const element = document.getElementById(genreId);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }
+                      </script>
+                    </header>
       
         
-<section>
-  <h1>Audiobook Haven:"Listen Anytime, Anywhere"</h1>
-  <p>Expand Your Mind with Every Listen</p>
-  <div class="spotlight-container">
-    <div class="spotlight-card">
-      <img src="audio/the-magic-shop-17 (1).jpg" alt="Book Cover 1" />
-      <h3>The Magic Shop</h3>
-      <p>H.G. Wells</p>
-      <audio
-        id="audio1"
-        src="audio/The Magic Shop by H. G. Wells Audiobook - FULL [ ezmp3.cc ] (1).mp3"
-      ></audio>
-      <input
-        type="range"
-        class="audio-slider"
-        id="slider1"
-        min="0"
-        value="0"
-        step="1"
-      />
-      <div class="time-info">
-        <span id="currentTime1">0:00</span> /
-        <span id="duration1">0:00</span>
-      </div>
-      <button
-        class="play-pause-btn"
-        onclick="toggleAudio('audio1', 'slider1', 'currentTime1', 'duration1', this)"
-      >
-        Play
-      </button>
-    </div>
+    <section>
+      <h1>Audiobook Haven: Listen Anytime, Anywhere"</h1>
+      <p>Expand Your Mind with Every Listen</p>
+      <div class="spotlight-container">
+        <div class="spotlight-card">
+          <img src="audio/the-magic-shop-17 (1).jpg" alt="Book Cover 1" />
+          <h3>The Magic Shop</h3>
+          <p>H.G. Wells</p>
+          <audio
+            id="audio1"
+            src="audio/The Magic Shop by H. G. Wells Audiobook - FULL [ ezmp3.cc ] (1).mp3"
+            controls
+          ></audio>
+          <!-- <input
+            type="range"
+            class="audio-slider"
+            id="slider1"
+            min="0"
+            value="0"
+            step="1"
+          />
+          <div class="time-info">
+            <span id="currentTime1">0:00</span> /
+            <span id="duration1">0:00</span>
+          </div>
+          <button
+            class="play-pause-btn"
+            onclick="toggleAudio('audio1', 'slider1', 'currentTime1', 'duration1', this)"
+          >
+            Play
+          </button> -->
+        </div>
 
-    <div class="spotlight-card">
-      <img src="audio/landlady.jpg" alt="Book Cover 2" />
-      <h3>The Landlady</h3>
-      <p>Roald Dahl</p>
-      <audio
-        id="audio2"
-        src="audio/The Landlady - Roald Dahl [ ezmp3.cc ].mp3"
-      ></audio>
-      <input
-        type="range"
-        class="audio-slider"
-        id="slider2"
-        min="0"
-        value="0"
-        step="1"
-      />
-      <div class="time-info">
-        <span id="currentTime2">0:00</span> /
-        <span id="duration2">0:00</span>
-      </div>
-      <button
-        class="play-pause-btn"
-        onclick="toggleAudio('audio2', 'slider2', 'currentTime2', 'duration2', this)"
-      >
-        Play
-      </button>
-    </div>
+        <div class="spotlight-card">
+          <img src="audio/landlady.jpg" alt="Book Cover 2" />
+          <h3>The Landlady</h3>
+          <p>Roald Dahl</p>
+          <audio
+            id="audio2"
+            src="audio/The Landlady - Roald Dahl [ ezmp3.cc ].mp3"
+            controls
+          ></audio>
+          <!-- <input
+            type="range"
+            class="audio-slider"
+            id="slider2"
+            min="0"
+            value="0"
+            step="1"
+          />
+          <div class="time-info">
+            <span id="currentTime2">0:00</span> /
+            <span id="duration2">0:00</span>
+          </div>
+          <button
+            class="play-pause-btn"
+            onclick="toggleAudio('audio2', 'slider2', 'currentTime2', 'duration2', this)"
+          >
+            Play
+          </button> -->
+        </div>
 
-    <div class="spotlight-card">
-      <img src="audio/lotery ticket.jpeg" alt="Book Cover 3" />
-      <h3>The Lottery Ticket</h3>
-      <p>Anton Chekhov</p>
-      <audio
-        id="audio3"
-        src="audio/The Lottery Ticket by Anton Chekhov Audiobook [ ezmp3.cc ].mp3"
-      ></audio>
-      <input
-        type="range"
-        class="audio-slider"
-        id="slider3"
-        min="0"
-        value="0"
-        step="1"
-      />
-      <div class="time-info">
-        <span id="currentTime3">0:00</span> /
-        <span id="duration3">0:00</span>
-      </div>
-      <button
-        class="play-pause-btn"
-        onclick="toggleAudio('audio3', 'slider3', 'currentTime3', 'duration3', this)"
-      >
-        Play
-      </button>
-    </div>
+        <div class="spotlight-card">
+          <img src="audio/lotery ticket.jpeg" alt="Book Cover 3" />
+          <h3>The Lottery Ticket</h3>
+          <p>Anton Chekhov</p>
+          <audio
+            id="audio3"
+            src="audio/The Lottery Ticket by Anton Chekhov Audiobook [ ezmp3.cc ].mp3"
+            controls
+          ></audio>
+          <!-- <input
+            type="range"
+            class="audio-slider"
+            id="slider3"
+            min="0"
+            value="0"
+            step="1"
+          />
+          <div class="time-info">
+            <span id="currentTime3">0:00</span> /
+            <span id="duration3">0:00</span>
+          </div>
+          <button
+            class="play-pause-btn"
+            onclick="toggleAudio('audio3', 'slider3', 'currentTime3', 'duration3', this)"
+          >
+            Play
+          </button> -->
+        </div>
 
-    <div class="spotlight-card">
-      <img src="audio/bernier bobs her hair.jpg" alt="Book Cover 4" />
-      <h3>Bernice Bobs Her Hair</h3>
-      <p>F. Scott Fitzgerald</p>
-      <audio
-        id="audio4"
-        src="audio/Bernice Bobs Her Hair by F. Scott Fitzgerald _ Audiobooks Youtube Free _ Short Stories Youtube [ ezmp3.cc ].mp3"
-      ></audio>
-      <input
-        type="range"
-        class="audio-slider"
-        id="slider4"
-        min="0"
-        value="0"
-        step="1"
-      />
-      <div class="time-info">
-        <span id="currentTime4">0:00</span> /
-        <span id="duration4">0:00</span>
+        <div class="spotlight-card">
+          <img src="audio/bernier bobs her hair.jpg" alt="Book Cover 4" />
+          <h3>Bernice Bobs Her Hair</h3>
+          <p>F. Scott Fitzgerald</p>
+          <audio
+            id="audio4"
+            src="audio/Bernice Bobs Her Hair by F. Scott Fitzgerald _ Audiobooks Youtube Free _ Short Stories Youtube [ ezmp3.cc ].mp3"
+            controls
+          ></audio>
+          <!-- <input
+            type="range"
+            class="audio-slider"
+            id="slider4"
+            min="0"
+            value="0"
+            step="1"
+          />
+          <div class="time-info">
+            <span id="currentTime4">0:00</span> /
+            <span id="duration4">0:00</span>
+          </div>
+          <button
+            class="play-pause-btn"
+            onclick="toggleAudio('audio4', 'slider4', 'currentTime4', 'duration4', this)"
+          >
+            Play
+          </button> -->
+        </div>
       </div>
-      <button
-        class="play-pause-btn"
-        onclick="toggleAudio('audio4', 'slider4', 'currentTime4', 'duration4', this)"
-      >
-        Play
-      </button>
-    </div>
+    </section>
+
+    <!--premium-section-->
+       <section>
+       <h1>Premium Audio-Books</h1>
+       <p>Let's unlock some rich Collections</p>
+       <div class="spotlight-container">
+       <div class="spotlight-card" id="premium-card">
+       <img src="audio/at-twilight.jpg" alt="Book Cover 5" />
+       <h3>At Twiligt</h3>
+       <p>Susan Glaspell</p>
+       <audio
+       id="audio5"
+       src="audio/AtTwilight.mp3"
+       ></audio>
+       <input
+       type="range"
+       class="audio-slider"
+       id="slider1"
+       min="0"
+       value="0"
+       step="1"
+       />
+       <!-- <div class="time-info">
+       <span id="currentTime1">0:00</span> /
+       <span id="duration1">0:00</span>
+       </div> -->
+       <button
+       class="play-pause-btn"
+       id="premium"
+       userIsLoggedIn="false" 
+       onclick="checkAndToggleAudio('audio5', 'slider2', 'currentTime2', 'duration2', this)"
+       >
+       Play
+       </button>
+       </div>
+      
+       <div class="spotlight-card" id="premium-card">
+       <img src="audio/the-story-teller-1.jpg" alt="Book Cover 6" />
+       <h3>The Story Teller</h3>
+       <p>Saki (H. H. Munro)</p>
+       <audio
+       id="audio6"
+       src="audio/StoryTeller.mp3"
+       ></audio>
+       <input
+       type="range"
+       class="audio-slider"
+       id="slider3"
+       min="0"
+       value="0"
+       step="1"
+       />
+       <!-- <div class="time-info">
+       <span id="currentTime3">0:00</span> /
+       <span id="duration3">0:00</span>
+       </div> -->
+       <button
+       class="play-pause-btn"
+       id="premium"
+       userIsLoggedIn="false"  
+       onclick="checkAndToggleAudio('audio6', 'slider2', 'currentTime2', 'duration2', this)"
+       >
+       Play
+       </button>
+       </div>
+      
+       <div class="spotlight-card" id="premium-card">
+       <img src="audio/the-homely-heroine.jpg" alt="Book Cover 7" />
+       <h3>The Homely Heroine</h3>
+       <p>Edna Ferber</p>
+       <audio
+       id="audio7"
+       src="audio/HomelyHeroine.mp3"
+       ></audio>
+       <input
+       type="range"
+       class="audio-slider"
+       id="slider2"
+       min="0"
+      value="0"
+       step="1"
+       />
+       <!-- <div class="time-info">
+       <span id="currentTime2">0:00</span> /
+       <span id="duration2">0:00</span>
+       </div> -->
+       <button
+       class="play-pause-btn"
+       id="premium"
+       userIsLoggedIn="false"  
+       onclick="checkAndToggleAudio('audio7', 'slider2', 'currentTime2', 'duration2', this)"
+       >
+       Play
+       </button>
+       </div>
+      
+       <div class="spotlight-card" id="premium-card">
+       <img src="audio/christmas-sing-in-our-village.jpg" alt="Book Cover 8" />
+       <h3>Christmas Song</h3>
+       <p>Mary Wilkins Freeman</p>
+       <audio
+       id="audio8"
+       src="audio/ChristmasSingVillage.mp3"
+       ></audio>
+       <input
+       type="range"
+       class="audio-slider"
+       id="slider2"
+       min="0"
+       value="0"
+       step="1"
+       />
+       <!-- <div class="time-info">
+       <span id="currentTime2">0:00</span> /
+       <span id="duration2">0:00</span>
+       </div> -->
+       <button
+       class="play-pause-btn"
+       id="premium"
+       userIsLoggedIn="false"  
+       onclick="checkAndToggleAudio('audio8', 'slider2', 'currentTime2', 'duration2', this)"
+       >
+       Play
+       </button>
+       </div>
+       
+      <!-- Add this modal popup HTML at the end of your section -->
+<div id="loginPopup" class="popupOverlay" style="display: none;">
+  <div class="popupContent">
+    <p>Please log in to access premium audio books.</p>
+    <button onclick="redirectToLogin()">Log In</button>
+    <button onclick="closePopup()">Cancel</button>
   </div>
-</section>
+</div>
 
-<!--premium-section-->
+<!-- Update the CSS styles for the modal -->
 <style>
-   #premium{
-   background-color: grey;
-   } 
-   #premium-card{
-   background-color: rgb(228, 228, 114);
-   }
-   </style>
-   <section>
-   <h1>Premium Audio-Books</h1>
-   <p>Let's unlock some rich Collections</p>
-   <div class="spotlight-container">
-   <div class="spotlight-card" id="premium-card">
-   <img src="audio/at-twilight.jpg" alt="Book Cover 5" />
-   <h3>At Twiligt</h3>
-   <p>Susan Glaspell</p>
-   <audio
-   id="audio5"
-   src="audio/AtTwilight.mp3"
-   ></audio>
-   <input
-   type="range"
-   class="audio-slider"
-   id="slider1"
-   min="0"
-   value="0"
-   step="1"
-   />
-   <div class="time-info">
-   <span id="currentTime1">0:00</span> /
-   <span id="duration1">0:00</span>
-   </div>
-   <button
-   class="play-pause-btn"
-   id="premium"
-   userIsLoggedIn="false" 
-   onclick="checkAndToggleAudio('audio5', 'slider2', 'currentTime2', 'duration2', this)"
-   >
-   Play
-   </button>
-   </div>
-  
-   <div class="spotlight-card" id="premium-card">
-   <img src="audio/the-story-teller-1.jpg" alt="Book Cover 6" />
-   <h3>The Story Teller</h3>
-   <p>Saki (H. H. Munro)</p>
-   <audio
-   id="audio6"
-   src="audio/StoryTeller.mp3"
-   ></audio>
-   <input
-   type="range"
-   class="audio-slider"
-   id="slider3"
-   min="0"
-   value="0"
-   step="1"
-   />
-   <div class="time-info">
-   <span id="currentTime3">0:00</span> /
-   <span id="duration3">0:00</span>
-   </div>
-   <button
-   class="play-pause-btn"
-   id="premium"
-   userIsLoggedIn="false"  
-   onclick="checkAndToggleAudio('audio6', 'slider2', 'currentTime2', 'duration2', this)"
-   >
-   Play
-   </button>
-   </div>
-  
-   <div class="spotlight-card" id="premium-card">
-   <img src="audio/the-homely-heroine.jpg" alt="Book Cover 7" />
-   <h3>The Homely Heroine</h3>
-   <p>Edna Ferber</p>
-   <audio
-   id="audio7"
-   src="audio/HomelyHeroine.mp3"
-   ></audio>
-   <input
-   type="range"
-   class="audio-slider"
-   id="slider2"
-   min="0"
-  value="0"
-   step="1"
-   />
-   <div class="time-info">
-   <span id="currentTime2">0:00</span> /
-   <span id="duration2">0:00</span>
-   </div>
-   <button
-   class="play-pause-btn"
-   id="premium"
-   userIsLoggedIn="false"  
-   onclick="checkAndToggleAudio('audio7', 'slider2', 'currentTime2', 'duration2', this)"
-   >
-   Play
-   </button>
-   </div>
-  
-   <div class="spotlight-card" id="premium-card">
-   <img src="audio/christmas-sing-in-our-village.jpg" alt="Book Cover 8" />
-   <h3>Christmas Sing in Our Village</h3>
-   <p>Mary Wilkins Freeman</p>
-   <audio
-   id="audio8"
-   src="audio/ChristmasSingVillage.mp3"
-   ></audio>
-   <input
-   type="range"
-   class="audio-slider"
-   id="slider2"
-   min="0"
-   value="0"
-   step="1"
-   />
-   <div class="time-info">
-   <span id="currentTime2">0:00</span> /
-   <span id="duration2">0:00</span>
-   </div>
-   <button
-   class="play-pause-btn"
-   id="premium"
-   userIsLoggedIn="false"  
-   onclick="checkAndToggleAudio('audio8', 'slider2', 'currentTime2', 'duration2', this)"
-   >
-   Play
-   </button>
-   </div>
-   
-  <script>
-  // Main function to check login status and toggle audio
-  function checkAndToggleAudio(audioId, sliderId, currentTimeId, durationId, button) {
-   const userIsLoggedIn = button.getAttribute("userIsLoggedIn") === "true";
-   const audioElement = document.getElementById(audioId);
-   const slider = document.getElementById(sliderId);
-  
-   if (!userIsLoggedIn) {
-   // If user is not logged in, redirect to the sign-up page
-   window.location.href = "assets/html/login.html"; // Redirect to sign-up page
-   return;
-   }
-  
-   // Toggle play/pause functionality
-   if (audioElement.paused) {
-   audioElement.play();
-   button.textContent = "Pause";
-   } else {
-   audioElement.pause();
-   button.textContent = "Play";
-   }
-  
-   // Update slider and time info as the audio plays
-   audioElement.ontimeupdate = function() {
-   slider.value = audioElement.currentTime;
-   document.getElementById(currentTimeId).textContent = formatTime(audioElement.currentTime);
-   document.getElementById(durationId).textContent = formatTime(audioElement.duration);
-   };
+  .popupOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
   }
-  
+  .popupContent {
+    background:linear-gradient(hwb(357 6% 36%),#d26d6d);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .popupContent p {
+    margin: 0 0 15px;
+  }
+  .popupContent button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+  }
+</style>
+
+<script>
+  // Function to check login status and toggle audio
+  function checkAndToggleAudio(audioId, sliderId, currentTimeId, durationId, button) {
+    const userIsLoggedIn = button.getAttribute("userIsLoggedIn") === "true";
+    const audioElement = document.getElementById(audioId);
+    const slider = document.getElementById(sliderId);
+
+    if (!userIsLoggedIn) {
+      // Show login popup if user is not logged in
+      document.getElementById("loginPopup").style.display = "flex";
+      return;
+    }
+
+    // Toggle play/pause functionality
+    if (audioElement.paused) {
+      audioElement.play();
+      button.textContent = "Pause";
+    } else {
+      audioElement.pause();
+      button.textContent = "Play";
+    }
+
+    // Update slider and time info as the audio plays
+    audioElement.ontimeupdate = function() {
+      slider.value = audioElement.currentTime;
+      document.getElementById(currentTimeId).textContent = formatTime(audioElement.currentTime);
+      document.getElementById(durationId).textContent = formatTime(audioElement.duration);
+    };
+  }
+
+  // Function to redirect to login page
+  function redirectToLogin() {
+    window.location.href = "assets/html/login.html";
+  }
+
+  // Function to close the popup
+  function closePopup() {
+    document.getElementById("loginPopup").style.display = "none";
+  }
+
   // Utility function to format time in minutes:seconds
   function formatTime(time) {
-   const minutes = Math.floor(time / 60);
-   const seconds = Math.floor(time % 60).toString().padStart(2, '0');
-   return `${minutes}:${seconds}`;
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60).toString().padStart(2, '0');
+    return `${minutes}:${seconds}`;
   }
-  
-  </script>
-</div>
-   </section>
+</script>
 
-<footer class="ff">
+
+<footer class="ff" style="font-size: 18px;">
   <div class="foot-top">
     <div class="foot-left">
 
       <div class="desc">
-        <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
+        <div class="SwapReads"><a href="#" class="logoo">SwapReads</a></div>
         <div>
           <p style="text-align: justify; color: black; font-size: 16px;" class="description">
             SwapReads.com is the ultimate destination for book lovers seeking to swap and discover new literary gems.
@@ -1363,11 +1554,12 @@ color: #635656; /* Ensure icon hover colors remain visible */
       color: white; 
       border: none; 
       padding: 1rem 2rem; 
-      font-size: 1.6rem; 
+      font-size: 1.4rem; 
       font-family: Arial, sans-serif;
       border-radius: 0.5rem; 
       cursor: pointer; 
       transition: background-color 0.3s, transform 0.2s;
+      width: 100%;
       }
 
       .subscribe:hover {
@@ -1403,69 +1595,80 @@ color: #635656; /* Ensure icon hover colors remain visible */
       </form>
       <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
       <div class="icons">
-        <!-- Discord icon -->
-        <a href="https://www.discord.com/" target="_blank">
-          <div class="icon">
-            <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
-          </div>
-          <style>
-            .dark-mode .fab.fa-discord:hover{
-              color:#3b5998 !important; 
-            }
-          </style>
-        </a>
-      
-        <!-- LinkedIn icon -->
-        <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
-          <div class="icon">
-            <i class="fab fa-linkedin" title="LinkedIn" style="cursor: pointer;"></i>
-          </div>
-        </a>
-      
-        <!-- Facebook icon -->
-        <a href="https://www.facebook.com/" target="_blank">
-          <div class="icon">
-            <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
-          </div>
-        </a>
-      
-        <!-- X (formerly Twitter) icon -->
-        <a href="https://x.com/anuragverma_108" target="_blank">
-          <div class="icon">
-            <i class="fab fa-twitter" title="X" style="cursor: pointer;"></i>
-          </div>
-          <style>
-            .dark-mode .fab.fa-twitter:hover{
-              color: white !important;
-            }
-          </style>
-        </a>
-      
-        <!-- Instagram icon -->
-        <a href="https://www.instagram.com/">
-          <div class="icon" id="insta-icon">
-            <i class="fab fa-instagram" title="Instagram" style="cursor: pointer;"></i>
-          </div>
-        </a>
-      
-        <!-- YouTube icon -->
-        <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
-          <div class="icon">
-            <i class="fab fa-youtube" style="cursor: pointer;"></i>
-          </div>
-        </a>
-      
-        <!-- GitHub icon -->
-        <a href="https://github.com/anuragverma108">
-          <div class="icon">
-            <i class="fab fa-github" title="GitHub"></i>
-          </div>
-          <style>
-            .dark-mode .fab.fa-github:hover{
-              color: white !important;
-            }
-          </style>
-        </a>
+<!-- Discord icon -->
+<a href="https://www.discord.com/" target="_blank">
+  <div class="icon">
+    <i class="fab fa-discord" title="Discord" style="cursor: pointer; color: #374151; margin-right: 4px;"></i>
+  </div>
+</a>
+
+<!-- LinkedIn icon -->
+<a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
+  <div class="icon">
+    <i class="fab fa-linkedin" title="LinkedIn" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+  </div>
+</a>
+
+<!-- Facebook icon -->
+<a href="https://www.facebook.com/" target="_blank">
+  <div class="icon">
+    <i class="fab fa-facebook" title="Facebook" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+  </div>
+</a>
+
+<!-- X (formerly Twitter) icon -->
+<a href="https://x.com/anuragverma_108" target="_blank">
+  <div class="icon">
+    <i class="fab fa-twitter" title="X" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+  </div>
+</a>
+
+<!-- Instagram icon -->
+<a href="https://www.instagram.com/">
+  <div class="icon" id="insta-icon">
+    <i class="fab fa-instagram" title="Instagram" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+  </div>
+</a>
+
+<!-- YouTube icon -->
+<a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
+  <div class="icon">
+    <i class="fab fa-youtube" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+  </div>
+</a>
+
+<!-- GitHub icon -->
+<a href="https://github.com/anuragverma108">
+  <div class="icon">
+    <i class="fab fa-github" title="GitHub" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+  </div>
+</a>
+
+<style>
+  /* Dark mode hover to display original icon colors */
+.fab.fa-discord:hover {
+    color: #5865F2 !important; /* Discord original color */
+  }
+.fab.fa-linkedin:hover {
+    color: #0077B5 !important; /* LinkedIn original color */
+  }
+.fab.fa-facebook:hover {
+    color: #1877F2 !important; /* Facebook original color */
+  }
+.fab.fa-twitter:hover {
+    color: #1DA1F2 !important; /* Twitter original color */
+  }
+.fab.fa-instagram:hover {
+    color: #E4405F !important; /* Instagram original color */
+  }
+.fab.fa-youtube:hover {
+    color: #FF0000 !important; /* YouTube original color */
+  }
+.fab.fa-github:hover {
+    color: #171515 !important; /* GitHub original color */
+  }
+</style>
+
       </div>
      </div>
     </div>
@@ -1474,10 +1677,8 @@ color: #635656; /* Ensure icon hover colors remain visible */
   </div>
 
 
-
-
   <!-- adding privacy policy and copyright popup-->
-  <div class="footer-f" style="text-align: center; align-items: center;">
+  <div class="footer-f" style="text-align: center; align-items: center;    ">
     <p style="text-align: center">
       &copy;
       <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.

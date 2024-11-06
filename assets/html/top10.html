@@ -490,7 +490,7 @@
       gap: 40px;
       /* Increased padding from 30px to 80px to seperate the navbar with the cards */
       padding: 80px;
-      margin-top: 70px;
+      margin-top: 10px;
       max-width: 1200px;
     }
 
@@ -850,6 +850,12 @@ body.dark-mode {
 .top10{
     margin-top: 150px;
 }
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+  transition: transform 0.6s;
+}
+    
   </style>
   <header class="header header-anim nav-h" data-header>
 
@@ -871,6 +877,7 @@ body.dark-mode {
               style="width:25px;height:25px">
             </lord-icon> Home</a>
           </li>
+        
          
           <li class="navbar-item">
             <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link"
@@ -894,6 +901,7 @@ body.dark-mode {
           </lord-icon>   Genre</a>
           </li>
         </li>
+      
         <li class="navbar-item">
           <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link"> <lord-icon
             src="https://cdn.lordicon.com/jxjfjyri.json"
@@ -950,7 +958,7 @@ body.dark-mode {
 
               <ul class="dropdown-menu-list">
                 <li class="dropdown-menu-item">
-                  <a href="../../chat.html" class="navbar-link"
+                  <a href="../../chatt.html" class="navbar-link"
                     style="font-family: sans-serif;  margin-bottom: 5px;">
                     Community chat
                   </a>
@@ -1020,7 +1028,7 @@ body.dark-mode {
             <div class="action">
               
               <!-- <div class="menu">
-                <h3>XYZ<br /><span>Book Lover</span></h3>
+                <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
                 <ul>
                   <li>
                     <img src="../images/user.jpg" /><a href="../../profile.html">My profile</a>
@@ -1047,8 +1055,14 @@ body.dark-mode {
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const savedAvatar = localStorage.getItem("selectedAvatar");
+        const savedName = localStorage.getItem("profileName");
         if (savedAvatar) {
           document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+        }
+        if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
         }
       });
 // Theme switcher
@@ -1188,7 +1202,25 @@ body.dark-mode {
 <!-- Changes here -->
  
 <!-- Card Container -->
+  
+<style>
+  .butt{
+    margin-top:150px;
+    width:400px;
+    justify-content: center;
+  }
+  a {
+    text-decoration: none; /* Default state */
+}
 
+a:hover {
+    text-decoration: none; /* Remove underline on hover */
+}
+
+</style>
+<a href="quizzes.html" onclick="lenis.scrollTo('#quizzes')" data-nav-link>
+  <button class="butt">Quizzes</button>
+</a>
 <div class="card-container">
   <div class="card" onclick="this.classList.toggle('flip')">
     <div class="card-inner">
@@ -1298,150 +1330,7 @@ body.dark-mode {
         <p><strong>Time Period:</strong> 1916 - Present</p>
 
 <!-- Card Container -->
- <div class="top10"><h1>TOP 10 BOOKS OF INDIA</h1>
-  <h3>Explore each book further by clicking on the covers!</h3></div>
- <div class="card-container">
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front">
-        <img src="../images/Wings_of_Fire_by_A_P_J_Abdul_Kalam_Book_Cover.jpg" alt="Wings of Fire" class="card-image">
-        <h1>1. Wings of Fire</h1>
-      </div>
-      <div class="card-back">
-        <h3>Wings of Fire</h3>
-        <p><strong>Author:</strong> Dr. A.P.J. Abdul Kalam</p>
-        <p>An inspiring autobiography of Dr. A.P.J. Abdul Kalam, India’s former President and “Missile Man.”</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front">
-        <img src="../images/good of small tjings.jpg" alt="The God of Small Things" class="card-image">
-        <h1>2. The God of Small Things</h1>
-      </div>
-      <div class="card-back">
-        <h3>The God of Small Things</h3>
-        <p><strong>Author:</strong> Arundhati Roy</p>
-        <p>A beautifully crafted story about family, love, and societal norms set in Kerala, India.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front">
-        <img src="../images/white tiger.jpg" alt="The White Tiger" class="card-image">
-        <h1>3. The White Tiger</h1>
-      </div>
-      <div class="card-back">
-        <h3>The White Tiger</h3>
-        <p><strong>Author:</strong> Aravind Adiga</p>
-        <p>An exploration of India's social and economic divide through the eyes of an ambitious driver in Delhi.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front">
-        <img src="../images//midnight children.jpg" alt="Midnight's Children" class="card-image">
-        <h1>4. Midnight's Children</h1>
-      </div>
-      <div class="card-back">
-        <h3>Midnight's Children</h3>
-        <p><strong>Author:</strong> Salman Rushdie</p>
-        <p>A magical realist novel intertwining the story of India’s independence with the life of one boy born at midnight.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front">
-        <img src="../images/train to paki.jpg" alt="Train to Pakistan" class="card-image">
-        <h1>5. Train to Pakistan</h1>
-      </div>
-      <div class="card-back">
-        <h3>Train to Pakistan</h3>
-        <p><strong>Author:</strong> Khushwant Singh</p>
-        <p>A gripping tale set during the Partition, capturing human suffering and resilience.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front">
-        <img src="../images/TheGuide.jpg" alt="The Guide" class="card-image">
-        <h1>6. The Guide</h1>
-      </div>
-      <div class="card-back">
-        <h3>The Guide</h3>
-        <p><strong>Author:</strong> R.K. Narayan</p>
-        <p>A transformative journey of a tourist guide who goes from conman to holy man in an unexpected twist.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front">
-        <img src="../images/the inheritance of book.jpg" alt="The Inheritance of Loss" class="card-image">
-        <h1>7. The Inheritance of Loss</h1>
-      </div>
-      <div class="card-back">
-        <h3>The Inheritance of Loss</h3>
-        <p><strong>Author:</strong> Kiran Desai</p>
-        <p>An emotional exploration of cultural identity and the immigrant experience in post-colonial India.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front">
-        <img src="../images/a fine balance.jpg" alt="A Fine Balance" class="card-image">
-        <h1>8. A Fine Balance</h1>
-      </div>
-      <div class="card-back">
-        <h3>A Fine Balance</h3>
-        <p><strong>Author:</strong> Rohinton Mistry</p>
-        <p>A powerful story of four characters in 1975 India, examining survival, hope, and resilience.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front">
-        <img src="../images//shantaram.jpg" alt="Shantaram" class="card-image">
-        <h1>9. Shantaram</h1>
-      </div>
-      <div class="card-back">
-        <h3>Shantaram</h3>
-        <p><strong>Author:</strong> Gregory David Roberts</p>
-        <p>An epic novel based on the author's life as a fugitive in Bombay and his adventures across India.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card" onclick="this.classList.toggle('flip')">
-    <div class="card-inner">
-      <div class="card-front">
-        <img src="../images/india after gandhi.jpg" alt="India After Gandhi" class="card-image">
-        <h1>10. India After Gandhi</h1>
-      </div>
-      <div class="card-back">
-        <h3>India After Gandhi</h3>
-        <p><strong>Author:</strong> Ramachandra Guha</p>
-        <p>A comprehensive history of independent India, offering insights into its political and social evolution.</p>
-
-      </div>
-    </div>
-  </div>
-</div>
+ 
 
 
 <footer>

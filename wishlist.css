@@ -16,7 +16,18 @@ body {
     color: #f57d7d; 
 }
 
-
+.circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999;
+    transition: transform 0.1s ease-out;
+}
 
 h1 {
     text-align: center; 
@@ -31,14 +42,28 @@ h1 {
     border-radius: 50%;
 }
 
-#book-title {
-    width: 50%; 
+#book-title , #author-name {
+    width: 15%; 
     height: 30px;
     font-size: 16px;
     padding: 10px;
     border: 1px solid #ccc;
     display: block; 
     margin: 20px auto; 
+    border-radius: 10px;
+    transition: ease-in-out 500ms;
+    cursor: pointer;
+}
+
+
+#book-title:hover , #author-name:hover {
+width: 50%;
+transition: ease-in-out 500ms;
+}
+
+#book-title:focus , #author-name:focus {
+    width: 50%;
+    transition: ease-in-out 500ms;
 }
 
 #add-book-btn {
@@ -50,12 +75,14 @@ h1 {
     cursor: pointer;
     display: block; 
     margin: 20px auto; 
+    border-radius: 5px;
 
 }
 
 
 #add-book-btn:hover , #back-button:hover{
     background-color: #0663c6;
+
 }
 
 #back-button {
@@ -67,6 +94,7 @@ h1 {
     cursor: pointer;
     display: block; 
     margin: 20px auto; 
+    border-radius: 5px;
 }
 
 #book-list {
@@ -75,6 +103,9 @@ h1 {
     margin: 0;
 }
 
+.author-space {
+    margin-left: 10%; /* Adjust the value as needed */
+}
 .book-item {
     padding: 10px;
     border-bottom: 1px solid #b7b1b1;
