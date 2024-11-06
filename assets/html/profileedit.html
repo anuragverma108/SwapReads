@@ -13,6 +13,29 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <title>Edit Profile</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../scrollbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+
+    <style>
+        /* Circle styles */
+        .circle {
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 99999999;
+            transition: transform 0.1s ease-out;
+        }
+    </style>
+
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -54,7 +77,7 @@
         .home-link {
             display: flex;
             align-items: center;
-            color: white;
+            color: rgb(157, 151, 151);
             font-size: 18px;
             text-decoration: none;
             position: absolute;
@@ -67,7 +90,7 @@
         }
 
         .home-link:hover {
-            color: #ddd;
+            color: #302e2e;
         }
 
         .avatar-selection {
@@ -165,101 +188,490 @@
             list-style: none;
         }
 
-        .footer {
-            position: absolute;
-            top: 100%;
-            width: 100%;
-            background-color: #24262b;
-            padding: 70px 0;
-        }
-
-        .footer-col {
-            width: 25%;
-            padding: 0 15px;
-        }
-
-        .footer-col h4 {
-            font-size: 18px;
-            color: whitesmoke;
-            text-transform: capitalize;
-            margin-bottom: 35px;
-            font-weight: 500;
-            position: relative;
-        }
-
-        .footer-col h4::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -10px;
-            background-color: #e91e63;
-            height: 2px;
-            box-sizing: border-box;
-            width: 50px;
-        }
-
-        .footer-col ul li:not(:last-child) {
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul li a {
-            font-size: 16px;
-            text-transform: capitalize;
-            text-decoration: none;
-            font-weight: 300;
-            color: whitesmoke;
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .footer-col ul li a:hover {
-            color: orangered;
-            padding-left: 8px;
-        }
-
-        .footer-col .social-links a {
-            display: inline-block;
-            height: 40px;
-            width: 40px;
-            background-color: rgba(255, 255, 255, 0.2);
-            margin: 0 10px 10px 0;
-            text-align: center;
-            line-height: 40px;
-            border-radius: 50%;
-            color: #ffffff;
-            transition: all 0.5s ease;
-        }
-
-        .footer-col .social-links a:hover {
-            color: #24262b;
-            background-color: #0081FB;
-        }
-
-        /*responsive*/
-        @media(max-width: 767px) {
-            .footer-col {
-                width: 50%;
-                margin-bottom: 30px;
-            }
-        }
-
-        @media(max-width: 574px) {
-            .footer-col {
-                width: 100%;
-            }
-
-        }
-
-        .copyright {
-            position: absolute;
-            left: 35%;
-        }
+        
     </style>
 </head>
 
 
 
 <body>
+
+     
+    <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div> 
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+  <style>
+    
+    .action {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+    }
+ 
+    .action .profile {
+       
+      position: relative;
+      width:  60px;
+      height:  60px;
+      border-radius:  50%;
+      overflow: hidden;
+      cursor: pointer;
+    }
+  
+    /* profile section*/
+
+    .action .profile img {
+      position: absolute;
+      top: 30000;
+      left: 130;
+      width: 85%;
+      height: 95%;
+      object-fit: cover;
+    }
+
+    .about p {
+      color: var(--purple);
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .stats-box {
+      background-color: var(--seashell);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid red;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+
+    .stats-box h2 {
+      color: var(--sonic-silver);
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .stat {
+
+      text-align: center;
+    }
+
+    .stat h3 {
+      color: var(--sonic-silver);
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .stat p {
+      color: var(--sonic-silver);
+      font-size: 16px;
+    }
+
+    .mission-values {
+      background-color: var(--seashell);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+
+    .mission-values h2 {
+      color: var(--sonic-silver);
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .about-us-heading {
+      text-align: center;
+      margin-bottom: 5rem;
+      margin-top: 160px;
+      /* Adjust this value to position it below the header */
+      color: purple;
+
+    }
+
+
+    .about-us-block {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .about-us-community,
+    .about-us-product,
+    .about-us-event,
+    .about-us-location {
+      background-color: var(--seashell);
+      border: 1px solid rgba(206, 212, 218, 1);
+      border-radius: 8px;
+      padding: 20px;
+      width: 45%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 21px;
+    }
+
+    .about-us-blk-text {
+      color: var(--sonic-silver);
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .about-us-blk-para {
+      color: var(--sonic-silver);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .switch-label {
+      /* right: 0.5rem; */
+      left: 8.0rem;
+      top: 0.5rem;
+      position: relative;
+      width: 40px;
+      height: 30px;
+      background-color: #ccc;
+      border-radius: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.5s ease;
+    }
+
+    .switch-label .sun-icon,
+    .switch-label .moon-icon {
+      font-size: 19spx;
+      position: absolute;
+      cursor: pointer;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: opacity 0.5s ease, color 0.5s ease;
+    }
+
+    .switch-label .sun-icon {
+      color: #f39c12;
+      left: 2px;
+    }
+
+    .switch-label .moon-icon {
+      color: #bdc3c7;
+      opacity: 0;
+      left: 5px;
+    }
+
+    /* Switch Button */
+    .switch-button {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 25px;
+      height: 25px;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      transition: transform 0.5s ease, background-color 0.5s ease;
+    }
+
+    /* Checkbox Checked State */
+    .switch-checkbox:checked+.switch-label {
+      background-color: #34495e;
+    }
+
+    .switch-checkbox:checked+.switch-label .sun-icon {
+      opacity: 0;
+    }
+
+    .switch-checkbox:checked+.switch-label .moon-icon {
+      opacity: 1;
+    }
+
+    .action .menu ul li a {
+      display: inline-flex;
+      text-align: center;
+      padding-left: 5%;
+      font-weight: 300;
+      font-size: 19px;
+      text-decoration: none;
+      color: #555;
+      font-weight: 500;
+      transition: 0.5s;
+    }
+
+    .action .menu ul li:hover a {
+      color: #ff5d94;
+      font-size: 21px;
+
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      position: absolute;
+      top: 24px;
+      left: 1.5%;
+    }
+
+    .line {
+      width: 36px;
+      height: 5px;
+      margin: 4px 4px;
+      background-color: rgb(240, 15, 15);
+    }
+
+    @media only screen and (max-width:1060px) {
+      .switch-container {
+        right: 7rem !important;
+      }
+      .nav {
+        flex-direction: column;
+      }
+
+      .header {
+        flex-direction: column;
+        height: 53.8rem;
+        transition: 0.55s all ease-out;
+        padding-top: 5px;
+      }
+
+      .navbar-item {
+        margin-right: 40px;
+      }
+
+      .navbar-list {
+        position: relative;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .nav-h {
+        height: 78px;
+        width: 90vw;
+        margin: auto;
+      }
+
+      .vis-h {
+        opacity: 0;
+      }
+
+      .logo img {
+        position: relative;
+        top: 17px;
+        left: 350px;
+      }
+    }
+
+    @media only screen and (max-width:990px) {
+      .header {
+        height: 9rem;
+      }
+
+      .logo img {
+        top: -9px;
+        left: 50px;
+      }
+    }
+
+    @media only screen and (max-width: 550px) {
+      .about-us-block {
+        flex-wrap: wrap;
+      }
+
+      .about-us-block .about-us-community, .about-us-product, .about-us-location, .about-us-event {
+        width: 80% !important;
+      }
+    }
+
+    .navbar-item {
+      margin-top: 10px;
+      /* Increase the top margin of each item */
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container Styling */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.edit-profile {
+  position: relative;
+  padding-right: 10px; /* Optional, adds spacing between text and edge */
+}
+
+.home-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #ff6b6b;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.home-link i {
+  font-size: 24px;
+  margin-left: 5px; /* Space between icon and text */
+  transition: color 0.3s;
+}
+
+.home-link:hover {
+  color: #e63946;
+}
+
+
+/* Section Titles */
+h3, h4 {
+  font-size: 20px;
+  color: #333;
+  margin: 0 0 10px;
+}
+
+/* Avatar Selection Styling */
+.avatar-selection {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatars {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.avatars img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.avatars img:hover {
+  transform: scale(1.1);
+  border-color: #ff6b6b;
+}
+
+/* Profile Details Styling */
+.profile-details {
+  margin-bottom: 20px;
+}
+
+.profile-details input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s;
+}
+
+.profile-details input:focus {
+  border-color: #ff6b6b;
+  outline: none;
+}
+
+/* Save Button Styling */
+.save-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.save-button:hover {
+  background-color: #e63946;
+  transform: translateY(-2px);
+}
+
+
+
+
+  </style>
+  
     <div class="container">
         <div class="edit-profile">
             <!-- Home Link -->
@@ -286,59 +698,40 @@
                     oninput="this.setCustomValidity('')">
                 <input type="email" id="emailInput" placeholder="Enter Email" required>
                 <input type="tel" id="phoneInput" placeholder="Enter Phone" required>
+                <input type="text" id="bioInput" placeholder="Add Bio" maxlength = "150" required>
             </div>
             <button class="save-button" onclick="saveProfile()">Save Profile</button>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="container" style="background-color: rgba(255,255,255,0.2) ;">
-            <div class="row">
-                <div class="footer-col">
-                    <h4>company</h4>
-                    <ul>
-                        <li><a href="#">about us</a></li>
-                        <li><a href="#">Rate us</a></li>
-                        <li><a href="#">privacy policy</a></li>
-                        <li><a href="#">Community spotlight</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>get help</h4>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">shipping</a></li>
-                        <li><a href="#">returns</a></li>
-                        <li><a href="#">order status</a></li>
-                        <li><a href="#">payment options</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Explore Genres</h4>
-                    <ul>
-                        <li><a href="#">classical literature</a></li>
-                        <li><a href="#">Romance</a></li>
-                        <li><a href="#">Suspence Thriller</a></li>
-                        <li><a href="#">Horror</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>follow us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class='bx bxl-facebook'></i></a>
-                        <a href="#"><i class='bx bxl-twitter'></i></a>
-                        <a href="#"><i class='bx bxl-instagram'></i></a>
-                        <a href="#"><i class='bx bxl-linkedin'></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br />
-        <h4 style="color: white;" class="copyright"> &#169; 2024 All Rights Reserved. Made By Guardian Hackers.</h4>
-        <br />
-        <h4 style="color: white;" class="copyright"> Copyright policy | Privacy Notice | Our Vision</h4>
-    </footer>
-
+    
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // Get the popup
+        var popup = document.getElementById('translatePopup');
+        // Get the button that opens the popup
+        var btn = document.getElementById('translateButton');
+        // Get the <span> element that closes the popup
+        var span = document.getElementsByClassName('closes')[0];
+        // When the user clicks the button, open the popup 
+        btn.onclick = function() {
+            popup.style.display = 'block';
+        }
+        // When the user clicks on <span> (x), close the popup
+        span.onclick = function() {
+            popup.style.display = 'none';
+        }
+        // When the user clicks anywhere outside of the popup, close it
+        window.onclick = function(event) {
+            if (event.target == popup) {
+                popup.style.display = 'none';
+            }
+        }
+      });
+      </script>
+      
+      <!-- Your custom JavaScript -->
+      <script src="script.js"></script>
 
     <script>
         let selectedAvatar = "";
@@ -357,6 +750,7 @@
             const newName = document.getElementById("nameInput").value.trim();
             const newEmail = document.getElementById("emailInput").value.trim();
             const newPhone = document.getElementById("phoneInput").value.trim();
+            const newBio = document.getElementById("bioInput").value.trim();
 
 
             // Check if all fields are valid before proceeding
@@ -365,6 +759,7 @@
                 nameInput.reportValidity();
                 emailInput.reportValidity();
                 phoneInput.reportValidity();
+                bioInput.reportValidity();
                 return;  // Stop function execution if invalid
             }
 
@@ -384,6 +779,9 @@
             }
             if (newPhone) {
                 localStorage.setItem("profilePhone", newPhone);
+            }
+            if (newBio) {
+                localStorage.setItem("profileBio", newBio);
             }
 
             window.location.href = "../../index.html";
@@ -418,6 +816,7 @@
             const savedName = localStorage.getItem("profileName");
             const savedEmail = localStorage.getItem("profileEmail");
             const savedPhone = localStorage.getItem("profilePhone");
+            const savedBio = localStorage.getItem("profileBio");
 
             if (savedName) {
                 document.getElementById("nameInput").value = savedName;
@@ -428,6 +827,9 @@
             if (savedPhone) {
                 document.getElementById("phoneInput").value = savedPhone;
             }
+            if (savedBio) {
+                document.getElementById("bioInput").value = savedBio;
+            }
 
             // a JavaScript function to handle input validation
 
@@ -437,6 +839,65 @@
             });
         });
     </script>
+
+    
+<script>
+
+    // Coordinates for the cursor
+    const coords = { x: 0, y: 0 };
+    const circles = document.querySelectorAll(".circle");
+
+    // Colors for the circles
+    const colors = [
+      "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+      "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+      "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+      "#680060", "#60005f", "#48005f", "#3d005e"
+    ];
+
+    // Assign colors and initial position to each circle
+    circles.forEach(function (circle, index) {
+      circle.x = 0;
+      circle.y = 0;
+      circle.style.backgroundColor = colors[index % colors.length];
+    });
+
+    // Update the coordinates when the mouse moves
+    window.addEventListener("mousemove", function (e) {
+      coords.x = e.clientX;
+      coords.y = e.clientY;
+    });
+
+    // Animation function to move the circles
+    function animateCircles() {
+      let x = coords.x;
+      let y = coords.y;
+
+      circles.forEach(function (circle, index) {
+        // Update the position and scale of each circle
+        circle.style.left = x - 12 + "px";
+        circle.style.top = y - 12 + "px";
+        circle.style.scale = (circles.length - index) / circles.length;
+
+        circle.x = x;
+        circle.y = y;
+
+        // Get the next circle in the sequence
+        const nextCircle = circles[index + 1] || circles[0];
+        x += (nextCircle.x - x) * 0.15;
+        y += (nextCircle.y - y) * 0.15;
+      });
+
+      // Repeat the animation
+      requestAnimationFrame(animateCircles);
+    }
+
+    // Start the animation
+    animateCircles();
+
+  </script>
+
+
 </body>
 
 </html>
