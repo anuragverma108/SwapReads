@@ -38,29 +38,41 @@
 
 <hr>
 
+  ### This project is now OFFICIALLY accepted for
+
+## 📋 Participating Programs
+
+| Name                  | Logo                                                      | Purpose                                                                                                      |
+|-----------------------|-----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| GSSoC'2024-Extd       | ![GSSoC Logo](assets/GSSoC-Ext.png)             | The coding period is from October 1st to November 10, during which contributors make contributions and earn points on the platform. |
+| Hacktoberfest 2024    | ![Hacktoberfest Logo](assets/hacktoberfest.png) | Hacktoberfest is a month-long October event welcoming all skill levels to join the open-source community.     |
+
+---
+
 ## Project Structure
 
 <!-- START_STRUCTURE -->
 ```
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
+├── Code_of_Conduct.md
 ├── DOTENV
 ├── Information/
 │   ├── CODE_OF_CONDUCT.md
-│   ├── Create Contributing.md
+│   ├── CONTRIBUTING.md
 │   ├── LICENSE
 │   ├── Learn.md
-│   ├── desktop.png
 │   ├── index.txt
 │   └── style-guide.md
 ├── LICENSE
 ├── Mystical-fantaies.html
 ├── README.md
-├── SwapReads/
-│   └── assets/
-│       └── images/
-│           └── ctc2.png
+├── SECURITY.md
+├── activity.css
+├── activity.html
+├── activity.js
+├── address.css
+├── address.html
 ├── assets/
+│   ├── GSSoC-Ext.png
 │   ├── JSON/
 │   │   ├── package-lock.json
 │   │   └── package.json
@@ -79,6 +91,7 @@
 │   │   ├── freeBooks.css
 │   │   ├── litrary_realms.css
 │   │   ├── login.css
+│   │   ├── playNow.css
 │   │   ├── preloader.css
 │   │   ├── rate.css
 │   │   ├── read_later.css
@@ -87,8 +100,8 @@
 │   │   ├── socialmedia.css
 │   │   ├── style.css
 │   │   ├── styles.css
-│   │   ├── swiper-bundle.min.css
 │   │   ├── test-style.css
+│   │   ├── tips.css
 │   │   └── visitors.css
 │   ├── event.css
 │   ├── favicon_package_v0.16/
@@ -143,10 +156,14 @@
 │   │   ├── about.html
 │   │   ├── about1.html
 │   │   ├── addremovebook.html
+│   │   ├── adventure.html
 │   │   ├── assets/
 │   │   │   └── css/
 │   │   │       └── event.css
 │   │   ├── audio.html
+│   │   ├── author.html
+│   │   ├── autobiography.html
+│   │   ├── biography.html
 │   │   ├── blog.html
 │   │   ├── book_recommend.html
 │   │   ├── booking.html
@@ -154,36 +171,78 @@
 │   │   ├── bookpref.html
 │   │   ├── borrow.html
 │   │   ├── checkout.html
+│   │   ├── classic.html
+│   │   ├── comedy.html
 │   │   ├── comsp.html
 │   │   ├── custom.html
+│   │   ├── cyberpunk.html
+│   │   ├── detective-fiction.html
 │   │   ├── donate.html
+│   │   ├── dystopian.html
 │   │   ├── event.html
+│   │   ├── experimental-fiction.html
+│   │   ├── fairytale.html
+│   │   ├── fantasy.html
 │   │   ├── forgot-pass.html
 │   │   ├── freeBooks.html
+│   │   ├── god.html
 │   │   ├── googlece7a206a6cfbb7ed.html
-│   │   ├── index.html
+│   │   ├── historical-fiction.html
+│   │   ├── horror.html
+│   │   ├── image.png
+│   │   ├── img.png
 │   │   ├── login.html
+│   │   ├── magical-realism.html
+│   │   ├── maha.html
+│   │   ├── map.html
+│   │   ├── midnight.html
 │   │   ├── mood.html
 │   │   ├── mylogin.html
+│   │   ├── mythology.html
 │   │   ├── ngo.html
-│   │   ├── pricing.html
+│   │   ├── noir.html
+│   │   ├── nonfiction.html
+│   │   ├── philosophy.html
+│   │   ├── poetry.html
 │   │   ├── profileedit.html
+│   │   ├── psycological-thriller.html
 │   │   ├── quiz.html
+│   │   ├── quizzes.html
+│   │   ├── ram.html
 │   │   ├── rate.html
 │   │   ├── read.html
 │   │   ├── read_later.html
+│   │   ├── romance.html
+│   │   ├── satire.html
 │   │   ├── school.html
-│   │   └── social.html
+│   │   ├── science-fiction.html
+│   │   ├── self-help.html
+│   │   ├── social.html
+│   │   ├── suspense-thriller.html
+│   │   ├── tips.html
+│   │   ├── top10.html
+│   │   ├── true-crime.html
+│   │   └── utopian.html
 │   ├── images/
+│   │   ├── 1984.jpg
 │   │   ├── FB icon.png
 │   │   ├── LogoPicDark.png
 │   │   ├── LogoPicLight.png
+│   │   ├── Madame Bovary.webp
+│   │   ├── Screenshot 2024-10-28 at 12.09.51 AM
+│   │   ├── The Picture of Dorian Gray.jpg
+│   │   ├── TheGuide.jpg
+│   │   ├── Wings_of_Fire_by_A_P_J_Abdul_Kalam_Book_Cover.jpg
 │   │   ├── YT icon.png
+│   │   ├── a fine balance.jpg
 │   │   ├── achievement-1.jpg
 │   │   ├── achievement-2.jpg
 │   │   ├── achievement-3.jpg
 │   │   ├── achievement-4.jpg
 │   │   ├── achievement-5.jpg
+│   │   ├── alter.jpeg
+│   │   ├── american.jpg
+│   │   ├── anna_karenina.jpg
 │   │   ├── author-banner.png
 │   │   ├── avatar1.jpg
 │   │   ├── avatar2.jpg
@@ -192,12 +251,17 @@
 │   │   ├── avatar5.jpg
 │   │   ├── award.svg
 │   │   ├── be.jpeg
+│   │   ├── beach.jpg
+│   │   ├── bear.jpg
+│   │   ├── before.jpg
+│   │   ├── behind.jpg
 │   │   ├── benefits-1.svg
 │   │   ├── benefits-2.svg
 │   │   ├── benefits-3.svg
 │   │   ├── benefits-4.svg
 │   │   ├── benefits-5.svg
 │   │   ├── benefits-6.svg
+│   │   ├── big.jpg
 │   │   ├── book/
 │   │   │   ├── Army.jpg
 │   │   │   ├── Economist.jpg
@@ -214,18 +278,32 @@
 │   │   ├── books_swapRead.jpg
 │   │   ├── bookshelf.png
 │   │   ├── bookshelfhover.png
+│   │   ├── brave.jpeg
+│   │   ├── brothers_karamazov.jpg
+│   │   ├── catcher_in_the_rye.jpg
+│   │   ├── chain.jpg
+│   │   ├── city.jpeg
 │   │   ├── cl.jpg
 │   │   ├── close-white.png
 │   │   ├── close.png
 │   │   ├── close1.png
+│   │   ├── comedy.jpg
 │   │   ├── community.png
 │   │   ├── communityhover.png
+│   │   ├── contact.png
+│   │   ├── couple.jpg
+│   │   ├── court.jpg
+│   │   ├── crime_and_punishment.jpg
 │   │   ├── ctc1.png
 │   │   ├── ctc2.png
 │   │   ├── ctc3.png
 │   │   ├── ctc4.png
 │   │   ├── ctc5.png
 │   │   ├── darkmode_bg.png
+│   │   ├── dracula.webp
+│   │   ├── dune.jpg
+│   │   ├── duno.jpeg
+│   │   ├── duno.jpg
 │   │   ├── edit profile.jpg
 │   │   ├── em.jpeg
 │   │   ├── emoji/
@@ -234,9 +312,16 @@
 │   │   │   ├── emoji-3.png
 │   │   │   ├── emoji-4.png
 │   │   │   └── emoji-5.png
+│   │   ├── enders.jpg
 │   │   ├── eye-close.png
 │   │   ├── eye-open.png
+│   │   ├── fahrenheit.jpeg
+│   │   ├── fantasy.jpg
+│   │   ├── fates.jpg
 │   │   ├── final.png
+│   │   ├── foundation.jpeg
+│   │   ├── frankenstein.jpg
+│   │   ├── game.jpg
 │   │   ├── genres/
 │   │   │   ├── 1.jpg
 │   │   │   ├── 10.jpg
@@ -252,12 +337,25 @@
 │   │   │   ├── auth2.jpg
 │   │   │   ├── auth3.jpg
 │   │   │   └── c1.jpg
+│   │   ├── girl.jpg
+│   │   ├── gone.jpg
+│   │   ├── good of small tjings.jpg
 │   │   ├── google button.jpeg
 │   │   ├── google icon.jpeg
 │   │   ├── gr.jpeg
+│   │   ├── great-expectations.jpeg
+│   │   ├── great_gatsby.jpg
+│   │   ├── guest.jpg
+│   │   ├── harry.jpg
+│   │   ├── hating.jpg
 │   │   ├── help.png
 │   │   ├── hero-banner.png
 │   │   ├── hero-section.avif
+│   │   ├── hitcher.jpeg
+│   │   ├── hobbit.jpg
+│   │   ├── hola.jpg
+│   │   ├── honey.jpg
+│   │   ├── hype.jpeg
 │   │   ├── icons8-sun.svg
 │   │   ├── images/
 │   │   │   ├── b.jpg
@@ -269,23 +367,46 @@
 │   │   │   ├── quiz.jpg
 │   │   │   └── school.png
 │   │   ├── inbox.png
+│   │   ├── india after gandhi.jpg
 │   │   ├── insta icon.png
+│   │   ├── itends.jpg
 │   │   ├── ja.jpeg
+│   │   ├── jane_eyre.jpg
 │   │   ├── jk.jpeg
 │   │   ├── jo.jpeg
+│   │   ├── kiss.jpg
+│   │   ├── left.jpeg
+│   │   ├── les.jpg
+│   │   ├── lock.jpg
 │   │   ├── logo_darkbg.png
 │   │   ├── logo_whitebg.png
 │   │   ├── logout.png
 │   │   ├── ma.jpg
+│   │   ├── martian.jpeg
+│   │   ├── mebeforeyou.jpg
 │   │   ├── mg.jpeg
+│   │   ├── midnight children.jpg
+│   │   ├── mist.jpg
+│   │   ├── moby.jpg
 │   │   ├── moon.png
 │   │   ├── moon_solid.svg
+│   │   ├── mystery.jpg
+│   │   ├── name.jpg
+│   │   ├── narnia.jpg
 │   │   ├── ne.jpeg
 │   │   ├── nes.jpeg
+│   │   ├── neuro.jpeg
 │   │   ├── new_logo.png
 │   │   ├── new_logo_banner_dark.png
 │   │   ├── new_logo_banner_light.png
 │   │   ├── new_logo_dark.png
+│   │   ├── night.jpg
+│   │   ├── notebook.jpeg
+│   │   ├── odyssey.jpg
+│   │   ├── oryx.jpeg
+│   │   ├── oryx.jpg
+│   │   ├── outlander.jpg
+│   │   ├── philopsphy.jpg
 │   │   ├── pic1.jpeg
 │   │   ├── pic2.jpeg
 │   │   ├── pic3.jpeg
@@ -295,10 +416,22 @@
 │   │   ├── preview-3.png
 │   │   ├── preview-4.png
 │   │   ├── preview-5.png
+│   │   ├── pride.jpg
+│   │   ├── priory.jpg
 │   │   ├── re.jpg
 │   │   ├── read.png
 │   │   ├── readhover.png
+│   │   ├── ready.jpeg
+│   │   ├── red.jpg
+│   │   ├── rom.jpg
+│   │   ├── rosie.jpg
+│   │   ├── scarlet.jpg
+│   │   ├── sci.jpg
 │   │   ├── settings.png
+│   │   ├── shantaram.jpg
+│   │   ├── shutter.jpg
+│   │   ├── silent.jpg
+│   │   ├── snow.jpeg
 │   │   ├── sun.png
 │   │   ├── tele.png
 │   │   ├── telephone.png
@@ -308,15 +441,28 @@
 │   │   ├── testimonials-4.jpg
 │   │   ├── testimonials-5.jpg
 │   │   ├── testimonials-6.jpg
+│   │   ├── the inheritance of book.jpg
+│   │   ├── thriller.jpg
+│   │   ├── to_kill_a_mockingbird.png
+│   │   ├── train to paki.jpg
 │   │   ├── trendingbook1.jpg
 │   │   ├── trendingbook2.jpg
 │   │   ├── trendingbook3.jpg
 │   │   ├── trendingbook4.jpg
 │   │   ├── trendingbook5.jpg
+│   │   ├── true crime.jpg
 │   │   ├── twitter-icon.png
 │   │   ├── twitter.png
+│   │   ├── uprooted.jpg
 │   │   ├── user.jpg
-│   │   └── website-ss.png
+│   │   ├── war.jpeg
+│   │   ├── website-ss.png
+│   │   ├── wheel.jpg
+│   │   ├── white tiger.jpg
+│   │   ├── wife.jpg
+│   │   ├── wild.jpg
+│   │   ├── woman.jpg
+│   │   └── wuthering_heights.jpg
 │   ├── js/
 │   │   ├── ReaderConn.js
 │   │   ├── addremove.js
@@ -328,6 +474,7 @@
 │   │   ├── fire.js
 │   │   ├── forgotPassword.js
 │   │   ├── freeBooks.js
+│   │   ├── loadmore.js
 │   │   ├── login.js
 │   │   ├── menuButton.js
 │   │   ├── preloader.js
@@ -340,6 +487,7 @@
 │   │   ├── scroll.js
 │   │   ├── signinGoogle.js
 │   │   ├── signup.js
+│   │   ├── subscribe.js
 │   │   ├── swiper-bundle.min.js
 │   │   ├── test-script.js
 │   │   └── visitors.js
@@ -350,29 +498,47 @@
 │       ├── validate.schema.js
 │       └── zodschema.js
 ├── audio/
+│   ├── AtTwilight.mp3
 │   ├── Bernice Bobs Her Hair by F. Scott Fitzgerald _ Audiobooks Youtube Free _ Short Stories Youtube [ ezmp3.cc ].mp3
+│   ├── ChristmasSingVillage.mp3
+│   ├── HomelyHeroine.mp3
+│   ├── StoryTeller.mp3
 │   ├── The Landlady - Roald Dahl [ ezmp3.cc ].mp3
 │   ├── The Lottery Ticket by Anton Chekhov Audiobook [ ezmp3.cc ].mp3
 │   ├── The Magic Shop by H. G. Wells Audiobook - FULL [ ezmp3.cc ] (1).mp3
+│   ├── at-twilight.jpg
 │   ├── au1.mp3
 │   ├── bernier bobs her hair.jpg
+│   ├── christmas-sing-in-our-village.jpg
 │   ├── landlady.jpg
 │   ├── lotery ticket.jpeg
-│   └── the-magic-shop-17 (1).jpg
+│   ├── the-homely-heroine.jpg
+│   ├── the-magic-shop-17 (1).jpg
+│   └── the-story-teller-1.jpg
 ├── audiobook.html
-├── benefits.png
+├── bank.jpg
 ├── biographies.html
+├── book.jpg
 ├── books.html
 ├── chat.css
 ├── chat.html
 ├── chat.js
+├── chatt.css
+├── chatt.html
+├── chatt.js
+├── cod.jpg
 ├── comsp.html
 ├── connectWithsame.html
 ├── contactus1.html
-├── contributors/
-│   ├── contributor.css
-│   ├── contributor.html
-│   └── contributor.js
+├── contributing.txt
+├── contributor/
+│   ├── contributorss.css
+│   ├── contributorss.html
+│   └── contributorss.js
+├── controller/
+│   ├── Rating.js
+│   ├── book.js
+│   └── subscribe.js
 ├── cookiepolicy.html
 ├── cookies.html
 ├── copyrightpolicy.html
@@ -385,34 +551,50 @@
 ├── email.css
 ├── email.html
 ├── environmental-impact.html
+├── exchangeHub.css
 ├── footer1.css
 ├── footer1.html
-├── genre.png
+├── gulpfile.js
 ├── help.html
 ├── historical-chronicals.html
-├── home.png
 ├── index.html
 ├── intriguing-mysteries.html
+├── jsFileEntries.js
 ├── lib.jpg
 ├── logout.css
 ├── logout.js
 ├── lol.html
+├── map.jpg
 ├── mindful-living.html
 ├── modals(privacy policy).css
 ├── models/
-│   └── BookDonation.js
+│   ├── BookDonation.js
+│   ├── Rating.js
+│   └── book.js
 ├── mylogin.html
 ├── n.jpg
 ├── our-vision.html
 ├── package-lock.json
 ├── package.json
+├── payment.css
+├── payment.html
+├── payment.jpg
+├── payment.js
+├── personalized-reading.html
+├── playNow.html
+├── popup.jpg
+├── popup.js
 ├── pricing.html
 ├── privacynotice.html
 ├── profile.css
 ├── profile.html
+├── profiletest.html
+├── refundpolicy.html
 ├── repo_structure.txt
 ├── revitalize.html
 ├── romantic-esc.html
+├── routes/
+│   └── books.js
 ├── sc.jpg
 ├── scifi.html
 ├── script.js
@@ -421,34 +603,44 @@
 ├── sense-sensibility_01_austen_64kb.mp3
 ├── server.js
 ├── signup1.html
+├── sitemap.html
 ├── stackbit.config.ts
 ├── stay_connect.css
 ├── subscribe.html
 ├── terms&cond.html
+├── testp.css
+├── testp.js
 ├── thrilling-adventures.html
 ├── translate.html
+├── up-arrow (1).png
+├── upi.jpg
 ├── vanilla-tilt.js
-└── vedio.mp4
+├── vedio.mp4
+├── webpack.config.js
+├── wishlist.css
+├── wishlist.html
+└── wishlist.js
 ```
 <!-- END_STRUCTURE -->
 
 <hr>
 
 ## 📚 Table of Contents
-- 📖 [Introduction](#about-us)
-- 📰 [Featured In](#featured-in)
-- ❓ [The Problem](#the-problem)
-- 💡 [How SwapReads.com Solves These Problems](#how-swapreadscom-solves-these-problems)
+- 📖 [Introduction](#-introduction)
+- 📰 [Featured In](#-featured-in)
+- ❓ [The Problem](#-the-problem)
+- 💡 [How SwapReads.com Solves These Problems](#-how-swapreadscom-solves-these-problems)
 - 💻 [Tech Stacks](#-tech-stacks)
-- 🤝 [Contribution](#contribution)
-- 🌍 [Open Innovation Challenge](#open-innovation-challenge)
+- 🤝 [Contribution](#-contribution)
+- 🌍 [Open Innovation Challenge](#-open-innovation-challenge)
 - 📞 [Contact Us](#-contact-us)
-- 📜 [Code of Conduct](#code-of-conduct)
-- 💙 [Support Our Project](#support-our-project)
-- 🎉 [Contributors](#our-contributors)
+- 📜 [Code of Conduct](#-code-of-conduct)
+- 💙 [Support Our Project](#-support-our-project)
+- ⚙️ [Project Setup](#-project-setup)
+- 🎉 [Contributors](#-contributors)
 - 🌐 [Website Preview](#-website-preview)
-- ⭐ [Stargazers](#stargazers)
-- 🍴 [Forkers](#forkers)
+- ⭐ [Stargazers](#-stargazers)
+- 🍴 [Forkers](#-forkers)
 
 
 
@@ -456,7 +648,7 @@ SwapReads.com is the solution to common challenges faced by book enthusiasts in 
 
 <hr>
 
-## About Us
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Open%20Book.png" alt="Open Book" width="25" height="25" /> Introduction<h2>
 
 [SwapReads](https://swapreadsconnect.netlify.app/#) is a vibrant online platform dedicated to connecting book lovers from around the world. Our mission is to make reading more accessible, affordable, and sustainable by enabling readers to exchange books and discover new literary adventures.
 
@@ -466,7 +658,7 @@ We believe in fostering a global community of readers who are passionate about s
 
 Join us today and explore a world where books are exchanged, friendships are formed, and new adventures are just a swap away!
 
-## Featured In
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Newspaper.png" alt="Newspaper" width="25" height="25" /> Featured In</h2>
 
 <table>
 
@@ -490,7 +682,7 @@ Join us today and explore a world where books are exchanged, friendships are for
 
 <hr>
 
-## The Problem:
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Red%20Question%20Mark.png" alt="Red Question Mark" width="25" height="25" /> The Problem</h2>
 
 1. **Limited Book Access:**
    - Many readers struggle to find a variety of books locally.
@@ -507,7 +699,7 @@ Join us today and explore a world where books are exchanged, friendships are for
 5. **Unused Book Collections:**
    - Readers often have books that are read and then set aside, collecting dust.
 
-## How SwapReads.com Solves These Problems:
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Light%20Bulb.png" alt="Light Bulb" width="25" height="25" /> How SwapReads.com Solves These Problems</h2>
 
 1. **Global Book Exchange:**
    - SwapReads.com connects users globally, allowing them to exchange books regardless of location.
@@ -526,20 +718,16 @@ Join us today and explore a world where books are exchanged, friendships are for
   
 <hr>
 
-<div align="center">
-
-### 💻 **Tech Stacks**
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Laptop.png" alt="Laptop" width="25" height="25" /> Tech Stacks</h2>
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
 ![HTML](https://img.shields.io/badge/HTML-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
 
-</div>
-
 <hr>
 
- ## <img src="https://github.com/Meetjain1/wanderlust/assets/133582566/90f3930e-5a12-4a4e-8ac9-0dc7d5396adb" width="35" height="35"> Contribution
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" alt="Handshake" width="25" height="25" /> Contribution</h2>
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -549,20 +737,20 @@ Contributions are what make the open-source community such an amazing place to l
 
 Your involvement helps to improve the project and make it better for everyone. Thank you for your contributions!
 
-Kindly go through [CONTRIBUTING.md](CONTRIBUTING.md) to understand everything from setup to contributing guidelines.
+Kindly go through [CONTRIBUTING.md](contributing.txt) to understand everything from setup to contributing guidelines.
 
 If you would like to contribute to the project, please follow our contribution guidelines.
 
 <hr>
 
-## Open Innovation Challenge
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Globe%20Showing%20Americas.png" alt="Globe Showing Americas" width="25" height="25" /> Open Innovation Challenge</h2>
 
 SwapReads.com actively participates in the Open Innovation Challenge by cultivating a global community of readers. Our platform champions open access to a wide range of books, promotes sustainable reading habits through book swapping, and harnesses user-generated content to offer personalized recommendations. With community-driven discussions and data-driven optimizations, SwapReads.com is committed to advancing the goals of inclusivity, sustainability, and collaborative innovation in the world of literature.
 
 Join SwapReads.com today and embark on a literary journey like never before!
 
 
-##  <h2>🔗 Contact Us</h2>
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Telephone%20Receiver.png" alt="Telephone Receiver" width="25" height="25" /> Contact Us</h2>
 
 <table>
     <tr>
@@ -607,7 +795,7 @@ Join SwapReads.com today and embark on a literary journey like never before!
 
 <!-- Code of conduct -->
 
-## <h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35" height="35"> Code of Conduct</h2>
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Scroll.png" alt="Scroll" width="25" height="25" /> Code of Conduct</h2>
 
 We are committed to fostering a welcoming and inclusive environment for everyone. All contributors and participants are expected to uphold the following values:
 
@@ -620,12 +808,13 @@ If anyone violates these standards, they may be banned from the community.
 
 <hr>
 
-⭐️ Support Our Project
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Blue%20Heart.png" alt="Blue Heart" width="25" height="25" /> Support Our Project</h2>
+
 If you find this project helpful, please consider giving it a star on GitHub! Your support helps to grow the project and reach more contributors.
 
 <hr>
 
-## Project Setup
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png" alt="Gear" width="25" height="25" /> Project Setup</h2>
 
 This section guides you through setting up the project on your local machine. Follow these steps to get started:
 
@@ -681,24 +870,23 @@ https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
     npm install  # Or yarn install, if using yarn
    ```
 
-##  <h2 align = "center"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" width="35" height="35">Our Contributors</h2>
- <h3>Thank you for contributing to our repository</h3>
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Party%20Popper.png" alt="Party Popper" width="25" height="25" /> Contributors</h2>
+<div align='center'>
+   <h3>Thank you for contributing to our repository</h3>
 
-![Contributors](https://contrib.rocks/image?repo=anuragverma108/SwapReads)
+   [![Contributors](https://contrib.rocks/image?repo=anuragverma108/SwapReads)](https://contrib.rocks/image?repo=anuragverma108/SwapReads)
 
-# 📸 Website Preview
+</div>
 
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Globe%20with%20Meridians.png" alt="Globe with Meridians" width="25" height="25" /> Website Preview</h2>
 
 https://github.com/user-attachments/assets/f430e59e-d744-4b60-9884-b7eb4643ba72
 
 
-<img src="./home.png" />
-<img src="./benefits.png" />
-<img src="./genre.png" />
 
 🌐 **Visit our website:** [SwapReads](https://swapreadsconnect.netlify.app/#)
 
-## Stargazers
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Star.png" alt="Star" width="25" height="25" /> Stargazers</h2>
 
 <div align='center'>
 
@@ -706,7 +894,7 @@ https://github.com/user-attachments/assets/f430e59e-d744-4b60-9884-b7eb4643ba72
 
 </div>
 
-## Forkers
+## <h2><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Food/Fork%20and%20Knife.png" alt="Fork and Knife" width="25" height="25" /> Forkers</h2>
 <div align='center'>
 
 [![Forkers repo roster for @anuragverma108/SwapReads](https://reporoster.com/forks/anuragverma108/SwapReads)](https://github.com/anuragverma108/SwapReads/network/members)

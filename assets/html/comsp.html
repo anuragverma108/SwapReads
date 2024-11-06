@@ -679,9 +679,21 @@
 
               <ul class="dropdown-menu-list">
                 <li>
-                  <a href="chat.html" class="navbar-link" style="font-family: sans-serif; margin-bottom: 5px;">
+                  <a href="chatt.html" class="navbar-link" style="font-family: sans-serif; margin-bottom: 5px;">
                     Community chat
                 </a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="tips.html" class="navbar-link"
+                    style="font-family: sans-serif;  margin-bottom: 5px;">
+                   Tips
+                  </a>
+                </li>
+                <li class="dropdown-menu-item">
+                  <a href="author.html" class="navbar-link"
+                    style="font-family: sans-serif;  margin-bottom: 5px;">
+                    Authors
+                  </a>
                 </li>
                 <li class="dropdown-menu-item">
                   <a href="./assets/html/literaryrealms.html" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
@@ -733,7 +745,7 @@
               <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
             </div>
             <div class="menu">
-              <h3>XYZ<br /><span>Book Lover</span></h3>
+              <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
               <ul>
                 <li>
                   <img src="./assets/images/user.jpg" /><a href="/profile.html">My profile</a>
@@ -756,9 +768,15 @@
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
                     const savedAvatar = localStorage.getItem("selectedAvatar");
+                    const savedName = localStorage.getItem("profileName");
                     if (savedAvatar) {
                         document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
                     }
+                    if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
                 });
         
                 function menuToggle() {
@@ -946,9 +964,15 @@
         <script>
           document.addEventListener("DOMContentLoaded", () => {
             const savedAvatar = localStorage.getItem("selectedAvatar");
+            const savedName = localStorage.getItem("profileName");
             if (savedAvatar) {
               document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
             }
+            if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
           });
     
     
@@ -1377,7 +1401,7 @@
         </p>
         <div class="row-copy">
           <a href="/copyrightpolicy.html">Copyright Policy</a> |
-          <a href="/privacynotice.html">Privacy Notice</a>
+          <a href="/privacynotice.html">Privacy Notice</a> 
         </div>
       </div>
 
@@ -1593,43 +1617,10 @@
   
   
             <a href="/copyrightpolicy.html">Copyright Policy</a> |
-            <a href="/privacynotice.html">Privacy Notice</a>
+            <a href="/privacynotice.html">Privacy Notice</a> 
+           
           </div>
         </div>
-  
-        <!-- Copyright Policy Modal -->
-        <!-- <div id="copyrightPolicyModal" class="modal">
-          <div class="modal-content">
-            <span class="close" id="closeCopyright">&times;</span>
-            <h1>Copyright Policy</h1>
-            <p>Welcome to SwapReads. Here is our copyright policy:</p>
-            <ul>
-              <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
-              <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
-              <li>Users may download and print content for personal use only.</li>
-              <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
-              <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed
-                information.</li>
-            </ul>
-          </div>
-        </div> -->
-  
-        <!-- Privacy Notice Modal -->
-        <!-- <div id="privacyNoticeModal" class="modal">
-          <div class="modal-content">
-            <span class="close" id="closePrivacy">&times;</span>
-            <h1>Privacy Notice</h1>
-            <p>Welcome to SwapReads. Here is our privacy notice:</p>
-            <ul>
-              <li>We collect personal information when you register, buy, or sell books.</li>
-              <li>We use this information to provide and improve our services.</li>
-              <li>We do not share your personal information with third parties without your consent.</li>
-              <li>We take reasonable measures to protect your data from unauthorized access.</li>
-              <li>You can contact us to update or delete your personal information.</li>
-              <li>By using our site, you consent to our privacy practices.</li>
-            </ul>
-          </div>
-        </div> -->
   
         <script>
           // Get the modal elements
