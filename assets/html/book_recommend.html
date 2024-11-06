@@ -964,9 +964,99 @@
     </div>
 		</div>
         </div>
+        <div class="book-generator">
+          <h2>AI Book Generator</h2>
+          <p>Get book recommendations based on your interests!</p>
+      
+          <label for="genre">Preferred Genre:</label>
+          <select id="genre">
+              <option value="Science Fiction">Science Fiction</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Mystery">Mystery</option>
+              <option value="Romance">Romance</option>
+              <option value="Non-fiction">Non-fiction</option>
+          </select>
+      
+          <label for="author">Favorite Author:</label>
+          <input type="text" id="author" placeholder="Enter an author name">
+      
+          <label for="keywords">Keywords (e.g., adventure, love, detective):</label>
+          <input type="text" id="keywords" placeholder="Enter keywords">
+      
+          <button onclick="generateRecommendations()">Generate Recommendations</button>
+      
+          <div class="recommendations" id="recommendations"></div>
+      </div>
+      
+      <script>
+          function generateRecommendations() {
+              // Retrieve user input
+              const genre = document.getElementById('genre').value;
+              const author = document.getElementById('author').value;
+              const keywords = document.getElementById('keywords').value;
+      
+              // Clear previous recommendations
+              const recommendationsDiv = document.getElementById('recommendations');
+              recommendationsDiv.innerHTML = '';
+      
+              // Dummy data for recommendations based on user input
+              const recommendations = [
+                  `${genre} novel by ${author || "a famous author"} with themes of ${keywords || "intrigue and drama"}.`,
+                  `${genre} book featuring ${keywords || "unique themes"} and inspired by ${author || "classic writers"}.`,
+                  `${genre} story exploring ${keywords || "deep emotions"} similar to works by ${author || "renowned authors"}.`
+              ];
+      
+              // Display recommendations
+              recommendations.forEach(rec => {
+                  const p = document.createElement('p');
+                  p.textContent = rec;
+                  recommendationsDiv.appendChild(p);
+              });
+          }
+      </script>
+      <style>
+        .book-generator {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 2rem auto;
+            text-align: center;
+            color: #333;
+        }
+        .book-generator h2 {
+            color: #444;
+        }
+        .book-generator label {
+            display: block;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        .book-generator input,
+        .book-generator select,
+        .book-generator button {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .recommendations {
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+        .recommendations p {
+            background-color: #e0e0e0;
+            padding: 0.75rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+        }
+      </style>  
 
 
-
+        
+     
     <script>
         const coords = { x: 0, y: 0 };
         const circles = document.querySelectorAll(".circle");
