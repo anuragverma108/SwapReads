@@ -4556,6 +4556,31 @@ color: #ac2127;
               cardPerView = updateCardPerView();
               carousel.scrollLeft = carousel.offsetWidth * cardPerView;
             });
+
+//Literary Realms carousel autoplaying logic
+
+            let scrollInterval;
+
+const startAutoplay = () => {
+    scrollInterval = setInterval(() => {
+        const scrollAmount = (firstCardWidth) * 1; // Adjust the scroll amount as needed
+        carousel.scrollLeft += scrollAmount;
+    }, 3000); // Change the interval time (3000ms = 3 seconds) as needed
+};
+
+const stopAutoplay = () => {
+    clearInterval(scrollInterval);
+};
+
+// Start autoplay when the page loads
+startAutoplay();
+
+// Optionally, you can stop autoplay when the user interacts with the carousel
+carousel.addEventListener("mouseenter", stopAutoplay);
+carousel.addEventListener("mouseleave", startAutoplay);
+
+
+
           });
         </script>
         <style>
@@ -4933,7 +4958,7 @@ color: #ac2127;
                     <p class="card-subtitle">01</p>
                     <div class="iconrow">
                       <h3 class="h3 card-title">Classic Literature</h3>
-                      <span style='font-size: 5rem;filter: grayscale(100%);'>&#128395;</span>
+                      <span style='font-size: 5rem;color: blue;'>&#128395;</span>
                     </div>
 
 
@@ -4961,7 +4986,7 @@ color: #ac2127;
                   <p class="card-subtitle" style=" width: 202.48px; height: 13px;">02</p>
                   <div class="iconrow" style=" width: 202.48px; height: 79px;">
                     <h3 class="h3 card-title">Romance</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#10084;</span>
+                    <span style='font-size:5rem;color: red;'>&#10084;</span>
                   </div>
 
                   <p class="card-text">
@@ -4987,7 +5012,7 @@ color: #ac2127;
                   <p class="card-subtitle">03</p>
                   <div class="iconrow" style=" width: 202.48px; height: 79px;">
                     <h3 class="h3 card-title">Suspense Thriller</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#128269;</span>
+                    <span style='font-size:5rem;'>&#128269;</span>
                   </div>
 
 
@@ -5013,7 +5038,7 @@ color: #ac2127;
                   <p class="card-subtitle">04</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Science Fiction</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#128640;</span>
+                    <span style='font-size:5rem;'>&#128640;</span>
                   </div>
 
 
@@ -5039,7 +5064,7 @@ color: #ac2127;
                   <p class="card-subtitle">05</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Fantasy</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F52E;</span>
+                    <span style='font-size:5rem;'>&#x1F52E;</span>
                   </div>
 
                   <p class="card-text">
@@ -5064,7 +5089,7 @@ color: #ac2127;
                   <p class="card-subtitle">06</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Horror</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F578;</span>
+                    <span style='font-size:5rem;'>&#x1F578;</span>
                   </div>
 
                   <p class="card-text">
@@ -5089,7 +5114,7 @@ color: #ac2127;
                   <p class="card-subtitle">07</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Biography</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F464;</span>
+                    <span style='font-size:5rem;'>&#x1F464;</span>
                   </div>
 
                   <p class="card-text">
@@ -5115,7 +5140,7 @@ color: #ac2127;
                   <p class="card-subtitle">08</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Self Help</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F9E0;</span>
+                    <span style='font-size:5rem;'>&#x1F9E0;</span>
                   </div>
 
                   <p class="card-text">
@@ -5140,7 +5165,7 @@ color: #ac2127;
                   <p class="card-subtitle">09</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Historical Fiction</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F3DB;</span>
+                    <span style='font-size:5rem;'>&#x1F3DB;</span>
                   </div>
 
                   <p class="card-text">
@@ -5165,7 +5190,7 @@ color: #ac2127;
                   <p class="card-subtitle">10</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Poetry</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x270D;</span>
+                    <span style='font-size:5rem;'>&#x270D;</span>
                   </div>
 
 
@@ -5192,7 +5217,7 @@ color: #ac2127;
                   <p class="card-subtitle">11</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Philosophy</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F4DC;</span>
+                    <span style='font-size:5rem;'>&#x1F4DC;</span>
                   </div>
 
 
@@ -5218,7 +5243,7 @@ color: #ac2127;
                   <p class="card-subtitle">12</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Adventure</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F526;</span>
+                    <span style='font-size:5rem;'>&#x1F526;</span>
                   </div>
 
                   <p class="card-text">
@@ -5244,7 +5269,7 @@ color: #ac2127;
                   <p class="card-subtitle">13</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Non-Fiction</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F4D6;</span>
+                    <span style='font-size:5rem;'>&#x1F4D6;</span>
                   </div>
 
                   <p class="card-text">
@@ -5268,7 +5293,7 @@ color: #ac2127;
                   <p class="card-subtitle">14</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Comedy</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F939;</span>
+                    <span style='font-size:5rem;'>&#x1F939;</span>
                   </div>
 
                   <p class="card-text">
@@ -5292,7 +5317,7 @@ color: #ac2127;
                   <p class="card-subtitle">15</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Detective Fiction</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F5DD;</span>
+                    <span style='font-size:5rem;'>&#x1F5DD;</span>
                   </div>
 
 
@@ -5316,7 +5341,7 @@ color: #ac2127;
                   <p class="card-subtitle">16</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Fairy Tales</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F9DA;</span>
+                    <span style='font-size:5rem;'>&#x1F9DA;</span>
                   </div>
 
                   <p class="card-text">
@@ -5338,7 +5363,7 @@ color: #ac2127;
                   <p class="card-subtitle">17</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Mythology</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'> &#x1F31F;</span>
+                    <span style='font-size:5rem;'> &#x1F31F;</span>
                   </div>
 
                   <p class="card-text">
@@ -5360,7 +5385,7 @@ color: #ac2127;
                   <p class="card-subtitle">18</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Noir</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F312;</span>
+                    <span style='font-size:5rem;'>&#x1F312;</span>
                   </div>
 
                   <p class="card-text">
@@ -5383,7 +5408,7 @@ color: #ac2127;
                   <p class="card-subtitle">19</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">True Crime</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F575; </span>
+                    <span style='font-size:5rem;'>&#x1F575; </span>
                   </div>
 
                   <p class="card-text">
@@ -5408,7 +5433,7 @@ color: #ac2127;
                   <p class="card-subtitle">20</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Dystopian</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#128740;</span>
+                    <span style='font-size:5rem;'>&#128740;</span>
                   </div>
 
                   <p class="card-text">
@@ -5433,7 +5458,7 @@ color: #ac2127;
                   <p class="card-subtitle">21</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Magical Realism</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#129668;</span>
+                    <span style='font-size:5rem;'>&#129668;</span>
                   </div>
 
                   <p class="card-text">
@@ -5459,7 +5484,7 @@ color: #ac2127;
                   <p class="card-subtitle">22</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Cyberpunk</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F310;</span>
+                    <span style='font-size:5rem;'>&#x1F310;</span>
                   </div>
 
                   <p class="card-text">
@@ -5485,7 +5510,7 @@ color: #ac2127;
                   <p class="card-subtitle">23</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Utopian</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F3DD;</span>
+                    <span style='font-size:5rem;'>&#x1F3DD;</span>
                   </div>
 
                   <p class="card-text">
@@ -5510,7 +5535,7 @@ color: #ac2127;
                   <p class="card-subtitle">24</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Experimental Fiction</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F4DA;</span>
+                    <span style='font-size:5rem;'>&#x1F4DA;</span>
                   </div>
 
                   <p class="card-text">
@@ -5534,7 +5559,7 @@ color: #ac2127;
                   <p class="card-subtitle">25</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Satire</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F3AD;</span>
+                    <span style='font-size:5rem;'>&#x1F3AD;</span>
                   </div>
 
                   <p class="card-text">
@@ -5559,7 +5584,7 @@ color: #ac2127;
                   <p class="card-subtitle">26</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Psychological Thriller</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x23F3;</span>
+                    <span style='font-size:5rem;'>&#x23F3;</span>
                   </div>
 
                   <p class="card-text">
@@ -5593,7 +5618,9 @@ color: #ac2127;
                   </p>
 
                   <a href="./assets/html/biography.html" class="cta2 style-9">
+
         <span style="font-size: 1.2rem;">Book Recommendations</span>
+
                       <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -7807,6 +7834,46 @@ open.classList.add('open')
   });
 </script>
 
+
+<button id="achievement" class="achievement-button" onclick="window.location.href='./achievements.html'" title="Achievements">🏅</button>
+
+    <style>
+      .achievement-button {
+        position: fixed;
+        right: 45px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: linear-gradient(hwb(357 6% 30%), #d26d6d);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        /* Make it circular */
+        width: 50px;
+        /* Set width */
+        height: 50px;
+        /* Set height */
+        padding: 0;
+        /* Remove padding */
+        cursor: pointer;
+        z-index: 1005;
+        /* Ensure button is on top */
+        display: flex;
+        /* Center content */
+        justify-content: center;
+        /* Center content horizontally */
+        align-items: center;
+        /* Center content vertically */
+        font-size: 12px;
+        /* Smaller font size */
+        text-align: center;
+        /* Center text */
+        font-size: 23px;
+      }
+
+      .achievement-button:hover {
+        transform: translateY(-50%) scale(1.2);
+      }
+    </style>
 
 <style>
 
