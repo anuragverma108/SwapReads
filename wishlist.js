@@ -32,14 +32,6 @@ function addBook() {
   location.reload();
 }
 
-// Function to reset the input fields
-function resetInputFields() {
-  bookTitleInput.value = "";
-  authorTitleInput.value = "";
-  bookTitleInput.style.width = "15%";
-  authorTitleInput.style.width = "15%";
-}
-
 function renderBookList() {
   bookList.innerHTML = "";
   books.forEach((book, index) => {
