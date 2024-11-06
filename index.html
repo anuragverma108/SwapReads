@@ -4958,6 +4958,11 @@ body > .skiptranslate {
     <p>Tell us about your experience!</p>
   </div>
 
+  <div class="user-info">
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="email" id="email" placeholder="Your Email">
+  </div>
+
   <div class="stars">
     <input type="radio" id="star5" name="rate" value="5">
     <label for="star5" class="emoji-label">😭</label>
@@ -4976,57 +4981,130 @@ body > .skiptranslate {
   </div>
 
   <div class="button">
-    <center><button id="submit-btn">Submit</button></center>
+    <button id="submit-btn">Submit</button>
   </div>
 </div>
+<style>
+  /* Overall container with light gradient and shadow */
+#rate-us {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #f0f4f8, #d0e8f2);
+  color: #333;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
+/* Section title and subtitle */
+.heading h3 {
+  font-size: 1.6em;
+  text-align: center;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.heading p {
+  font-size: 0.9em;
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Name and email fields */
+.user-info input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #333;
+  font-size: 0.9em;
+}
+
+.user-info input::placeholder {
+  color: #aaa;
+}
+
+/* Star rating section */
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.emoji-label {
+  font-size: 1.6em;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.emoji-label:hover {
+  transform: scale(1.1);
+  color: #666;
+}
+
+/* Feedback Container */
+.feedback-container {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 400px;
+}
+
+#feedback {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1em;
+  color: #5e5d5d;
+  background-color: #f9f9f9;
+  resize: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#feedback::placeholder {
+  color: #a9a9a9;
+}
+
+#feedback:focus {
+  border-color: #4b9cd3;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* Submit Button */
+.button {
+  text-align: center;
+  margin-top: 15px;
+}
+
+#submit-btn {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  color: #fff;
+  background: linear-gradient(135deg, #4b9cd3, #6aa6d9);
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#submit-btn:hover {
+  background: linear-gradient(135deg, #6aa6d9, #4b9cd3);
+  transform: translateY(-2px);
+}
+
+#submit-btn:active {
+  transform: translateY(1px);
+}
+</style>
 <div id="toastMessage" class="toast-message"></div>
-
-    <script>
-     document.addEventListener("DOMContentLoaded", function() {
-
-
-
-<!-- JavaScript for form submission -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-
-
-
-      <!-- rate us -->
-
-
-       <!-- Rate Us Component -->
-       <div id="rate-us">
-        <div class="heading">
-            <h3>Rateus</h3>
-            <p>Tell us about your experience!</p>
-        </div>
-    
-        <div class="stars">
-            <input type="radio" id="star5" name="rate" value="5" />
-            <label for="star5">😭</label>
-            <input type="radio" id="star4" name="rate" value="4" />
-            <label for="star4">😢</label>
-            <input type="radio" id="star3" name="rate" value="3" />
-            <label for="star3">😐</label>
-            <input type="radio" id="star2" name="rate" value="2" />
-            <label for="star2">😊</label>
-            <input type="radio" id="star1" name="rate" value="1" />
-            <label for="star1">😍</label>
-        </div>
-    
-        <div class="feedback-container">
-            <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
-        </div>
-    
-        <div class="button">
-          
-            <center><button id="submit-btn">Submit</button></center>
-        </div>
-    </div>
-    
-    <div id="toastMessage" class="toast-message"></div>
     <script>
      document.addEventListener("DOMContentLoaded", function() {
 main
