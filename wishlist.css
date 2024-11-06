@@ -69,14 +69,15 @@ h2 {
 
 /* Top Image Styling */
 #top-right-image {
-  position: absolute;
-  top: 15px;
+  position: absolute; /* Keeps it at the top-right on scroll */
+  top: 20px;
   right: 20px;
   width: 180px;
   height: 180px;
   border-radius: 50%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   border: 5px solid #fff;
+  z-index: 1000; /* Ensures it stays on top of other elements */
 }
 
 /* Input Fields */
@@ -216,13 +217,6 @@ button:hover {
   background-color: #d32f2f;
 }
 
-.button-container {
-  display: flex;
-  justify-content: center; /* Center-aligns the buttons */
-  gap: 20px; /* Adds space between the buttons */
-  margin-top: 20px;
-}
-
 /* Ensure both buttons have consistent styling if needed */
 #add-book-btn,
 #back-button {
@@ -268,5 +262,103 @@ button:hover {
 
   #back-button {
     font-size: 14px;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #book-title,
+  #author-name {
+    width: 85%;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  button,
+  #add-book-btn,
+  #back-button,
+  .delete-btn {
+    width: 50%;
+    font-size: 15px;
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  #book-title,
+  #author-name {
+    width: 90%;
+  }
+
+  button,
+  #add-book-btn,
+  #back-button,
+  .delete-btn {
+    font-size: 14px;
+    width: 50%;
+    padding: 6px 12px;
+  }
+
+  #back-button {
+    margin-top: 15px;
+  }
+}
+/* Button Container */
+.button-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows buttons to wrap onto new lines if needed */
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .button-container {
+    flex-direction: column; /* Stacks buttons vertically */
+    align-items: center; /* Centers each button */
+    gap: 15px; /* Reduces the gap slightly */
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-container {
+    gap: 10px; /* Further reduce the gap */
+    margin-top: 10px;
+  }
+}
+#top-right-image {
+  position: absolute; /* Keeps it only at the top-right without scrolling */
+  top: 15px;
+  right: 20px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 5px solid #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #top-right-image {
+    width: 120px;
+    height: 120px;
+    top: -70px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  #top-right-image {
+    width: 75px;
+    height: 75px;
+    top: -75px;
+    right: 10px;
   }
 }
