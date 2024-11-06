@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popular Books - SwapReads</title>
+    <link rel="stylesheet" href="./assets/css/playNow.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+    <style>
+      /* General Styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centering content */
+      }
+
+      .hero {
+        padding-block-start: calc(var(--section-padding) + 60px);
+        text-align: center;
+        background-color: #ffe5e5; /* Light pink background */
+        width: 100%; /* Full width */
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: flex-start; /* Adjusted for consistent spacing */
+        justify-content: center; /* Centering the content */
+        max-width: 1200px; /* Maximum width for container */
+      }
+
+      .hero-content {
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .hero .hero-title {
+        font-size: 2.5rem;
+        color: #c21807;
+        margin-block: 10px 25px;
+        text-align: start;
+      }
+
+      .hero .section-text {
+        font-size: 1.2rem;
+        color: #a10000;
+        margin-top: 0;
+      }
+
+      .has-before,
+      .has-after {
+        position: relative;
+        z-index: 1;
+      }
+
+      .has-before::before,
+      .has-after::after {
+        content: "";
+        position: absolute;
+      }
+
+      .hero-banner .w-100 {
+        border-radius: 10px;
+        height: 100%;
+      }
+
+      .hero-banner {
+        width: 40%;
+        padding-inline-start: 20px;
+        padding-block-end: 15px;
+        max-width: 400px;
+        margin-top: 2.5rem;
+        position: relative;
+        margin: 5%;
+      }
+
+      .hero-banner::before {
+        top: 30px;
+        right: 30px;
+        bottom: 0;
+        left: 0;
+        background-color: rgb(216, 114, 130);
+        border-radius: 10px;
+        z-index: -1;
+      }
+
+      .hero-banner img {
+        width: 100%;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+        animation: float 1.5s ease-in-out infinite;
+      }
+
+      /* Header Styles */
+      .hero-title {
+        font-size: 2.5rem;
+        color: #c21807;
+        margin-block: 10px 25px;
+      }
+
+      .section-text {
+        font-size: 1.2rem;
+        color: #a10000;
+      }
+
+      /* Float animation */
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+/* Genre Section Styling */
+
+.genre-content {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.genre-content:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+}
+
+     
+.genre-section {
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  margin: 40px 0;
+  padding: 20px;
+  background-color: #ffe5e5; /* Light pink background */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.genre-content {
+  width: 55%;
+  padding: 20px;
+  background-color: #fff4e1; /* Cream background for the description box */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.genre-title {
+  font-family: "Merriweather", serif;
+  font-size: 2rem;
+  color: #c21807;
+  margin: 10px 0;
+}
+      .book-author,
+      .book-genre {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+        color: #c21807;
+      }
+
+      .book-description {
+        font-family: 'Open Sans', sans-serif; /* Keep description easy to read */
+        font-size: 1rem;
+        color: #333;
+      }
+      /* Import a font from Google Fonts for a stylish look */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.header {
+  width: 90%; /* Set a width to make it look like a centered rectangle */
+  max-width: 1200px;
+  background-color: #ffffff; /* White background */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center header */
+  z-index: 10;
+  border-radius: 10px;
+  margin-top: 25px;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #000000; /* Black text color */
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px; /* Reduced spacing for a thinner look */
+  max-height: 80px;
+
+}
+
+.navbar-list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar-item {
+  position: relative;
+}
+
+.navbar-link {
+  color: #000000; /* Black text */
+  text-decoration: none;
+  font-size: 17px; /* Slightly smaller font */
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: normal; /* Remove bold font */
+  margin: 0 10px; 
+}
+
+.navbar-link {
+  position: relative; /* Ensure the link has a position for the absolute positioning of the pseudo-element */
+}
+
+.navbar-link:hover {
+  color: #a52644; /* Dark pink on hover */
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Adjust this value to create a gap */
+  left: 0px;
+  height: 3px;
+  background-color: #fcb0b480;
+  width: 0;
+  box-shadow: 0 0 10px #f39d127e;
+  transition: all 0.6s;
+  text-decoration: none;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+  text-decoration: none;
+}
+
+
+.action {
+  position: relative;
+}
+
+.profile {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+#profile-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #d72672; /* Dark pink border */
+}
+
+.menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden initially */
+  width: 200px;
+  z-index: 100;
+  padding: 10px;
+}
+
+.action:hover .menu {
+  display: block; /* Show menu on hover */
+}
+
+.menu h3 {
+  margin-bottom: 10px;
+  color: #d72672;
+  font-size: 1.1rem;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu ul li {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+}
+
+.menu ul li img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.menu ul li a:hover {
+  color: #d72672; /* Dark pink on hover */
+}
+
+.section-title {
+  font-family: 'Merriweather', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0; /* Add spacing above and below */
+  gap: 15px; /* Space between the line and text */
+  color: rgb(230, 103, 124); 
+  background-color:  rgba( 255, 255, 255, 0.909 );
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+input, button, textarea {
+    background: none;
+    border: 2px solid grey;
+    border-radius: 10px;
+    padding: 10px;
+    font: inherit;}
+
+/* Base styling for the hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  transition: transform 0.3s ease;
+}
+
+/* Responsive styling */
+@media (max-width: 1000px) {
+  /* Hide the navbar by default on small screens */
+  .navbar {
+    display: none;
+    position: absolute;
+    top: 70px; /* Matches header height for below-header dropdown */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: initial;
+  }
+
+  .header{
+    width: 100%;
+  }
+
+  .navbar.active {
+    display: block;
+  }
+
+  /* Hamburger icon visible only on smaller screens */
+  .hamburger {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Center-align navbar links in mobile view */
+  .navbar ul.navbar-list {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Adjusted theme switcher styling for mobile */
+  .switch-container {
+    margin: 0 auto;
+    padding-top: 1rem;
+  }
+
+  .genre-content {
+    width: 100% !important;
+  }
+  .book-description{
+    text-align: justify;
+  }
+}
+
+
+  /* Container for the switch */
+  .switch-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Hide default checkbox */
+  .switch-checkbox {
+    display: none;
+  }
+
+  /* Style the label */
+  .switch-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50px;
+    height: 24px;
+    border-radius: 50px;
+    background-color: #ccc;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+  /* Style the toggle button */
+  .switch-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 5px;
+    position: absolute; /* Fixes the position */
+    left: 0; /* Keeps the button fixed */
+  }
+
+  /* Sun and moon icon styles */
+  .sun-icon,
+  .moon-icon {
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Color the icons */
+  .sun-icon {
+    color: orange; /* Sun icon color */
+  }
+
+  .moon-icon {
+    color: lightblue; /* Moon icon color */
+    opacity: 0; /* Initially hidden */
+  }
+
+  /* Style for checked state */
+  .switch-checkbox:checked + .switch-label {
+    background-color: #333;
+  }
+
+  .switch-checkbox:checked + .switch-label .sun-icon {
+    opacity: 0; /* Hide sun icon in dark mode */
+  }
+
+  .switch-checkbox:checked + .switch-label .moon-icon {
+    opacity: 1; /* Show moon icon in dark mode */
+  }
+
+
+</style>
+<style>
+  /* Circle styles */
+  .circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999;
+    transition: transform 0.1s ease-out;
+  }
+  .cursor {
+      position: absolute;
+      width: 6px;
+      /* Circle size */
+      height: 6px;
+      /* Circle size */
+      background-color: rgba(255, 165, 0, 0.6);
+      /* Orange color */
+      border-radius: 10%;
+      /* Circular shape */
+      pointer-events: none;
+      /* Prevent interaction */
+      transform: translate(-10%, -10%);
+      /* Center the circle */
+      transition: transform 0.1s ease-out;
+      /* Smooth movement */
+    }
+</style>
+  </head>
+
+  <body>
+      <!-- Circles -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+    <header class="header header-anim nav-h" data-header>
+
+        <div class="container mobile-container-styles">
+          <button class="hamburger" id="hamburger-button" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <nav class="navbar nav_activated" data-navbar>
+      
+      
+            <ul class="navbar-list nav" style="margin-right: 10px;">
+              <a href="index.html" class="logo" style="display:flex;">
+                <img src="./assets/images/final.png" class="logopic" style=" width: 10rem; height:100px; margin:0px 0px 15px -10px;">
+              </a>
+      
+              <li class="navbar-item" style="margin-right: 10px;">
+                <a href="index.html" class="navbar-link" data-nav-link>
+                  <i class="ri-home-fill"></i> Home
+                </a>
+              </li>
+      
+      
+              <li class="navbar-item" style="margin-right: 10px;">
+                <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
+                  <i class="ri-information-fill"></i> About Us
+                </a>
+              </li>
+      
+             <li class="navbar-item" style="margin-right: 10px;">
+                <a href="index.html#benefits"  class="navbar-link" data-nav-link><i
+                    class="ri-bar-chart-fill"></i> Benefits</a>
+              </li>
+      
+              <li class="navbar-item" style="margin-right: 10px;">
+                <a href="index.html#genre"  class="navbar-link" data-nav-link><i
+                    class="ri-bar-chart-fill"></i> Genre</a>
+              </li>
+      
+             <li class="navbar-item" style="margin-right: 10px;">
+                  <a href="audiobook.html" class="navbar-link" data-nav-link>
+                      <i class="ri-questionnaire-fill"></i> Audio Books
+                  </a>
+              </li>
+      
+      
+              <li class="navbar-item" style="margin-right: 10px;">
+                <a href="index.html#contact"  class="navbar-link" data-nav-link>
+                  <i class="ri-contacts-fill"></i> Contact
+                </a>
+              </li>
+      
+              <li class="navbar-item" id="login-signup-link" style="margin-right: 10px;">
+                <a href="./assets/html/login.html" class="navbar-link">
+                  <i class="ri-login-box-fill"></i> Login/Signup
+                </a>
+              </li>
+      
+              <li class="navbar-item" style="margin-right: 10px;">
+                <a href="comsp.html" class="navbar-link" data-nav-link>
+                  <i class="ri-book-fill"></i> Community
+                </a>
+              </li>
+              <li class="navbar-item" style="margin-right: 10px;">
+                <a href="./assets/html/event.html"  class="navbar-link" data-nav-link>
+                  <i class="ri-community-fill"></i> Events
+                </a>
+              </li>      
+                  <!-- Theme switcher -->
+                  <div class="switch-container">
+                    <input type="checkbox" id="switch" class="switch-checkbox">
+                    <label for="switch" class="switch-label">
+                      <div class="switch-button">
+                        <span class="material-icons sun-icon">wb_sunny</span>
+                        <span class="material-icons moon-icon">brightness_2</span>
+                      </div>
+                    </label>
+                  </div>
+                
+                  <script>
+                    // Theme switcher
+                    document.addEventListener('DOMContentLoaded', function () {
+                      const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
+                      const bodyElement = document.body;
+                
+                      const currentTheme = localStorage.getItem('theme') || 'light';
+                      if (currentTheme === 'dark') {
+                        bodyElement.classList.add('dark-mode');
+                        toggleSwitch.checked = true;
+                      } else {
+                        bodyElement.classList.add('light-mode');
+                      }
+                
+                      toggleSwitch.addEventListener('change', function (event) {
+                        if (event.target.checked) {
+                          bodyElement.classList.remove('light-mode');
+                          bodyElement.classList.add('dark-mode');
+                          localStorage.setItem('theme', 'dark');
+                        } else {
+                          bodyElement.classList.remove('dark-mode');
+                          bodyElement.classList.add('light-mode');
+                          localStorage.setItem('theme', 'light');
+                        }
+                      });
+                    });
+                  // Hamburger toggle
+                  document.getElementById('hamburger-button').addEventListener('click', function() {
+                    document.querySelector('.navbar').classList.toggle('active');
+                  });
+                // Coordinates for the cursor
+                const coords = {x: 0, y: 0 };
+                const circles = document.querySelectorAll(".circle");
+
+                // Colors for the circles
+                const colors = [
+                "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+                "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+                "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+                "#680060", "#60005f", "#48005f", "#3d005e"
+                ];
+
+                // Assign colors and initial position to each circle
+                circles.forEach(function (circle, index) {
+                  circle.x = 0;
+                circle.y = 0;
+                circle.style.backgroundColor = colors[index % colors.length];
+  });
+
+                // Update the coordinates when the mouse moves
+                window.addEventListener("mousemove", function (e) {
+                  coords.x = e.clientX;
+                coords.y = e.clientY;
+  });
+
+                // Animation function to move the circles
+                function animateCircles() {
+                  let x = coords.x;
+                let y = coords.y;
+
+                circles.forEach(function (circle, index) {
+                  // Update the position and scale of each circle
+                  circle.style.left = x - 12 + "px";
+                circle.style.top = y - 12 + "px";
+                circle.style.scale = (circles.length - index) / circles.length;
+
+                circle.x = x;
+                circle.y = y;
+
+                // Get the next circle in the sequence
+                const nextCircle = circles[index + 1] || circles[0];
+                x += (nextCircle.x - x) * 0.15;
+                y += (nextCircle.y - y) * 0.15;
+    });
+
+                // Repeat the animation
+                requestAnimationFrame(animateCircles);
+  }
+
+                // Start the animation
+                animateCircles();
+
+                function scrollToGenre(genreId) {
+                  const element = document.getElementById(genreId);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }
+                  </script>
+                  </header>
+
+    <div class="section-title">
+    <span>Explore Books Popular Among SwapRead Users in Different Genres</span>
+    </div>
+                  
+    <div class="genre-nav">
+      <button onclick="scrollToGenre('romance')">Romance</button>
+      <button onclick="scrollToGenre('sci-fi')">Science Fiction</button>
+      <button onclick="scrollToGenre('mystery')">Mystery</button>
+      <button onclick="scrollToGenre('fantasy')">Fantasy</button>
+      <button onclick="scrollToGenre('thriller')">Thriller</button>
+      <button onclick="scrollToGenre('comedy')">Comedy</button>
+      <button onclick="scrollToGenre('true-crime')">True Crime</button>
+      <button onclick="scrollToGenre('philosophy')">Philosophy</button>
+    </div>
+
+    <div class="container">
+      <!-- Romance Genre Section -->
+      <div class="genre-section" id="romance">
+        <div class="hero-banner has-before">
+          <img
+            src="./assets/images/rom.jpg"
+            alt="Romance Book Cover"
+            class="w-100"
+          />
+        </div>
+        <div class="genre-content">
+            <div>
+                <h2 class="genre-title">Red, White & Royal Blue</h2>
+                <span style="font-size:5rem; float: right;">❤</span>
+            </div>
+          <p class="book-author">by Casey McQuiston</p>
+          <p class="book-genre">Most Popular Romance Book</p>
+          <p class="book-description">
+            "Red, White & Royal Blue" is a delightful romantic comedy that
+            explores the whirlwind romance between the First Son of the United
+            States and a British prince. Their story unfolds against a backdrop
+            of political intrigue, family expectations, and the journey of
+            self-discovery. This heartwarming tale is filled with witty banter,
+            touching moments, and a celebration of love that transcends
+            boundaries and defies conventions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Science Fiction Genre Section -->
+      <div class="genre-section" id="sci-fi">
+        <div class="genre-content">
+          <h2 class="genre-title">Neuromancer Trilogy </h2>
+          <span style="font-size:5rem;filter: grayscale(100%);float: right;">🚀</span>
+          <p class="book-author">by William Gibson</p>
+          <p class="book-genre">Top Science Fiction Book</p>
+          <p class="book-description">
+            In "Neuromancer Trilogy," readers are thrust into a dystopian future
+            where technology and humanity collide. The narrative follows a
+            washed-up computer hacker hired for one last job: to pull off the
+            ultimate hack. This groundbreaking trilogy explores themes of
+            artificial intelligence, corporate greed, and the blurred lines
+            between reality and virtual existence, crafting a thrilling saga
+            that challenges our understanding of technology and society.
+          </p>
+        </div>
+        <div class="hero-banner has-before">
+          <img
+            src="./assets/images/sci.jpg"
+            alt="Science Fiction Book Cover"
+            class="w-100"
+          />
+        </div>
+      </div>
+
+      <!-- Mystery Genre Section -->
+      <div class="genre-section" id="mystery">
+        <div class="hero-banner has-before">
+          <img
+            src="./assets/images/mystery.jpg"
+            alt="Mystery Book Cover"
+            class="w-100"
+          />
+        </div>
+        <div class="genre-content">
+          <h2 class="genre-title">The Great Adventures of Sherlock Holmes</h2>
+          <span style="font-size:5rem;filter: grayscale(100%); float: right;">🌒</span>
+          <p class="book-author">by Arthur Conan Doyle</p>
+          <p class="book-genre">Favorite Mystery Book</p>
+          <p class="book-description">
+            "The Great Adventures of Sherlock Holmes" is a collection of
+            timeless detective stories featuring the iconic detective Sherlock
+            Holmes and his loyal companion Dr. Watson. From the puzzling case of
+            the "Speckled Band" to the intriguing "Hound of the Baskervilles,"
+            each story delves into the art of deduction, showcasing Holmes's
+            brilliance and the thrilling pursuit of justice. These tales have
+            captivated readers for generations with their clever plots and
+            memorable characters.
+          </p>
+        </div>
+      </div>
+
+      <!-- Fantasy Genre Section -->
+      <div class="genre-section" id="fantasy">
+        <div class="genre-content">
+          <h2 class="genre-title">A Court of Thorns and Roses</h2>
+          <span style="font-size:5rem;filter: grayscale(100%); float: right;">🔮</span>
+          <p class="book-author">by Sarah J. Maas</p>
+          <p class="book-genre">Popular Fantasy Book</p>
+          <p class="book-description">
+            "A Court of Thorns and Roses" is an enchanting tale that weaves a
+            rich tapestry of magic, romance, and adventure. The story follows
+            Feyre, a mortal girl who finds herself entangled in a dangerous
+            faerie realm after killing a wolf in the woods. As she navigates a
+            world filled with powerful fae and intricate politics, Feyre
+            discovers love, betrayal, and her own inner strength. This
+            captivating narrative draws readers into a lush fantasy world where
+            nothing is as it seems and every choice has consequences.
+          </p>
+        </div>
+        <div class="hero-banner has-before">
+          <img
+            src="./assets/images/fantasy.jpg"
+            alt="Fantasy Book Cover"
+            class="w-100"
+          />
+        </div>
+      </div>
+
+      <!-- Thriller Genre Section -->
+      <div class="genre-section" id="thriller">
+        <div class="hero-banner has-before">
+          <img
+            src="./assets/images/thriller.jpg"
+            alt="Thriller Book Cover"
+            class="w-100"
+          />
+        </div>
+        <div class="genre-content">
+          <h2 class="genre-title">The Girl on the Train</h2>
+          <span style="font-size:5rem;filter: grayscale(100%); float: right;">🔍</span>
+          <p class="book-author">by Paula Hawkins</p>
+          <p class="book-genre">Top Thriller Book</p>
+          <p class="book-description">
+            "The Girl on the Train" is a psychological thriller that intricately
+            weaves the lives of three women, each harboring secrets and desires.
+            The story unfolds through the eyes of Rachel, an alcoholic who
+            becomes entangled in a missing persons investigation after
+            witnessing something shocking from her train window. As the
+            narrative progresses, the tension escalates, revealing a web of
+            lies, betrayal, and unexpected connections that will keep readers
+            guessing until the very last page.
+          </p>
+        </div>
+      </div>
+
+      <!-- Comedy Genre Section -->
+      <div class="genre-section" id="comedy">
+        <div class="genre-content">
+          <h2 class="genre-title">Carry On, Jeeves</h2>
+          <span style="font-size:5rem;filter: grayscale(100%); float: right;">🤹</span>
+          <p class="book-author">by P. G. Wodehouse</p>
+          <p class="book-genre">Classic Comedy Book</p>
+          <p class="book-description">
+            "Carry On, Jeeves" is a delightful collection of stories featuring the 
+            effortlessly charming Jeeves and his well-meaning but hapless employer, 
+            Bertie Wooster. With wit and humor, P. G. Wodehouse crafts a world where 
+            Jeeves's quick thinking and clever schemes save Bertie from one humorous 
+            misadventure after another. This book is a masterpiece of British comedy, 
+            filled with laughter, wit, and the classic antics of a beloved duo.
+          </p>
+        </div>
+        <div class="hero-banner has-before">
+          <img
+            src="./assets/images/comedy.jpg"
+            alt="Comedy Book Cover"
+            class="w-100"
+          />
+        </div>
+      </div>
+
+      <!-- True Crime Genre Section -->
+      <div class="genre-section" id="true-crime">
+        <div class="hero-banner has-before">
+          <img
+            src="./assets/images/true crime.jpg"
+            alt="True Crime Book Cover"
+            class="w-100"
+          />
+        </div>
+        <div class="genre-content">
+          <h2 class="genre-title">Who Killed Jane Stanford?</h2>
+          <span style="font-size:5rem;filter: grayscale(100%); float: right;">🕵</span>
+          <p class="book-author">by Richard White</p>
+          <p class="book-genre">Top True Crime Book</p>
+          <p class="book-description">
+            "Who Killed Jane Stanford?" dives deep into the mysterious and still-unsolved 
+            case surrounding the death of Jane Stanford, co-founder of Stanford University. 
+            Richard White meticulously examines the strange events and complex relationships 
+            that preceded her sudden poisoning, revealing a tangled web of suspects, secrets, 
+            and lies. This gripping true-crime narrative explores corruption, power, and 
+            the lengths people will go to protect their own interests.
+          </p>
+        </div>
+      </div>
+
+      <!-- Philosophy Genre Section -->
+      <div class="genre-section" id="philosophy">
+        <div class="genre-content">
+          <h2 class="genre-title">Meditations</h2>
+          <span style="font-size:5rem;filter: grayscale(100%); float: right;">📜</span>
+          <p class="book-author">by Marcus Aurelius</p>
+          <p class="book-genre">Classic Philosophy Book</p>
+          <p class="book-description">
+            "Meditations" by Marcus Aurelius is a profound reflection on life, virtue, and the 
+            nature of existence. Written by the Roman emperor as personal notes, it delves into 
+            stoic philosophy, offering timeless insights into resilience, discipline, and inner 
+            peace. This work serves as a guide for those seeking to live with purpose, align 
+            with natural order, and rise above life's challenges with wisdom and calm.
+          </p>
+        </div>
+        <div class="hero-banner has-before">
+          <img
+            src="./assets/images/philopsphy.jpg"
+            alt="Philosophy Book Cover"
+            class="w-100"
+          />
+        </div>
+      </div>
+
+    
+    </div>
+  </body>
+</html>
+<footer class="ff">
+  <div class="foot-top">
+    <div class="foot-left">
+      <div class="desc">
+        <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
+        <div>
+          <p  class="description">
+            SwapReads.com is the ultimate destination for book lovers seeking to swap and discover new literary gems.
+            Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
+            the world of literature—all on one convenient platform. Join us and dive into a universe of endless possibilities!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="foot-middle">
+      <h2 style="margin-left: 2rem; margin-top: 2.75rem;">Quick Links</h2>
+      <div id="quicklinks" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+        <div>
+          <ul style="list-style: none; padding: 0;">
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-home" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./index.html#home" style="color: #374151; text-decoration: none;">Home</a>
+            </li>
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-book" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./index.html#benefits" style="color: #374151; text-decoration: none;">Benefits</a>
+            </li>
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-globe" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./index.html#chapters" style="color: #374151; text-decoration: none;">Literary</a>
+            </li>
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-dollar-sign" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./index.html#pricing" style="color: #374151; text-decoration: none;">Pricing</a>
+            </li>
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-bookmark" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./assets/html/bookrecommend.html" style="color: #374151; text-decoration: none;">Recommend</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul style="list-style: none; padding: 0;">
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-exchange-alt" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./assets/html/booklistswap.html" style="color: #374151; text-decoration: none;">Swap</a>
+            </li>
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-file-pdf" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./assets/html/freeBooks.html" style="color: #374151; text-decoration: none;">E-Book</a>
+            </li>
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-info-circle" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./assets/html/about.html" style="color: #374151; text-decoration: none;">About</a>
+            </li>
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-envelope" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./index.html#contact" style="color: #374151; text-decoration: none;">Contact</a>
+            </li>
+            <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <i class="fas fa-question-circle" style="color: #374151; margin-right: 4px;"></i>
+              <a href="./index.html#faqq" style="color: #374151; text-decoration: none;">FAQ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+<script>
+function showConfirmationMessage() {
+
+const form = document.getElementById('newsform');
+const confirmationMessage = document.getElementById('confirmationmessage');
+
+
+confirmationMessage.style.display = 'block';
+setTimeout(function() {
+  location.reload(); 
+}, 3000);
+}
+</script>
+<style>
+
+.subscribe {
+background-color: #A30F17;
+color: white; 
+border: none; 
+padding: 1rem 2rem; 
+font-size: 1.6rem; 
+font-family: Arial, sans-serif;
+border-radius: 0.5rem; 
+cursor: pointer; 
+transition: background-color 0.3s, transform 0.2s;
+}
+
+.subscribe:hover {
+background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+transform: scale(1.1);
+}
+
+.subscribe:active {
+transform: scale(0.98); 
+}
+
+.subscribe:focus {
+outline: none; 
+}
+
+</style>
+
+      <div class="foot-right">
+      <h2 style="margin-bottom: 2.4rem; margin-top:0.5rem;">Stay Connected</h2>
+      <form id="newsform" onsubmit="return showConfirmationMessage();">
+          <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
+          <div class="row-flex display-flex">
+              <input class="finput" type="email" id="new-email" name="email" placeholder="Email address"
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+                    title="Please enter a valid email address that ends with '.com'" required>
+              <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
+          </div>
+      </form>
+      <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
+    </div>
+
+    </div>
+  </div>
+
+
+
+
+  <!-- adding privacy policy and copyright popup-->
+  <div class="footer-f" style="text-align: center; align-items: center;">
+    <p style="text-align: center">
+      &copy;
+      <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+    </p>
+    <div class="row-copy">
+
+
+    <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+    <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>  |
+    
+    <a href="our-vision.html" id="ourvisionLink">Our Vision</a></li>
+  </div>
+  </div>
+  <style>
+    #copyrightPolicyLink:hover{
+      color: rgb(126, 0, 21);
+      transition: 0.5s ease;
+    }
+    #privacyNoticeLink:hover{
+      color: rgb(126, 0, 21);
+      transition: 0.5s ease;
+    }
+    #ourvisionLink:hover{
+      color: rgb(126, 0, 21);
+      transition: 0.5s ease;
+    }
+  </style>
+
+</footer>
