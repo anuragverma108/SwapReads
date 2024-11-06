@@ -66,6 +66,7 @@
 ├── Mystical-fantaies.html
 ├── README.md
 ├── SECURITY.md
+├── achievements.html
 ├── activity.css
 ├── activity.html
 ├── activity.js
@@ -154,7 +155,6 @@
 │   │   ├── ConnReader.html
 │   │   ├── Error.html
 │   │   ├── about.html
-│   │   ├── about1.html
 │   │   ├── addremovebook.html
 │   │   ├── adventure.html
 │   │   ├── assets/
@@ -173,7 +173,6 @@
 │   │   ├── checkout.html
 │   │   ├── classic.html
 │   │   ├── comedy.html
-│   │   ├── comsp.html
 │   │   ├── custom.html
 │   │   ├── cyberpunk.html
 │   │   ├── detective-fiction.html
@@ -224,6 +223,7 @@
 │   │   ├── true-crime.html
 │   │   └── utopian.html
 │   ├── images/
+│   │   ├── 10-books-30-days.png
 │   │   ├── 1984.jpg
 │   │   ├── 20.jpg
 │   │   ├── 7.png
@@ -243,6 +243,9 @@
 │   │   ├── achievement-4.jpg
 │   │   ├── achievement-5.jpg
 │   │   ├── adv.jpg
+│   │   ├── air.jpg
+│   │   ├── alice.jpg
+│   │   ├── alone.jpg
 │   │   ├── alter.jpeg
 │   │   ├── american.jpg
 │   │   ├── anna_karenina.jpg
@@ -260,6 +263,7 @@
 │   │   ├── be.jpeg
 │   │   ├── beach.jpg
 │   │   ├── bear.jpg
+│   │   ├── become.jpg
 │   │   ├── becoming.jpg
 │   │   ├── before.jpg
 │   │   ├── behind.jpg
@@ -291,12 +295,16 @@
 │   │   ├── bookshelfhover.png
 │   │   ├── born (1).jpg
 │   │   ├── born.jpg
+│   │   ├── boss.jpg
 │   │   ├── brave.jpeg
+│   │   ├── bro.jpg
 │   │   ├── brothers_karamazov.jpg
 │   │   ├── cabinet.jpg
 │   │   ├── call.jpg
+│   │   ├── catch.jpg
 │   │   ├── catcher_in_the_rye.jpg
 │   │   ├── chain.jpg
+│   │   ├── circe.jpg
 │   │   ├── citi.jpg
 │   │   ├── city.jpeg
 │   │   ├── cl.jpg
@@ -306,6 +314,7 @@
 │   │   ├── comedy.jpg
 │   │   ├── community.png
 │   │   ├── communityhover.png
+│   │   ├── confe.jpg
 │   │   ├── contact.png
 │   │   ├── coraline.jpg
 │   │   ├── couple.jpg
@@ -326,6 +335,7 @@
 │   │   ├── duno.jpeg
 │   │   ├── duno.jpg
 │   │   ├── edit profile.jpg
+│   │   ├── edu.webp
 │   │   ├── em.jpeg
 │   │   ├── emoji/
 │   │   │   ├── emoji-1.png
@@ -342,6 +352,7 @@
 │   │   ├── fates.jpg
 │   │   ├── felon.jpg
 │   │   ├── final.png
+│   │   ├── first-5-read.png
 │   │   ├── foundation.jpeg
 │   │   ├── frankenstein.jpg
 │   │   ├── game.jpg
@@ -366,6 +377,7 @@
 │   │   ├── girlwith.jpg
 │   │   ├── gone.jpg
 │   │   ├── good of small tjings.jpg
+│   │   ├── good.jpg
 │   │   ├── google button.jpeg
 │   │   ├── google icon.jpeg
 │   │   ├── gr.jpeg
@@ -373,15 +385,19 @@
 │   │   ├── great_gatsby.jpg
 │   │   ├── grit.jpg
 │   │   ├── guest.jpg
+│   │   ├── habit.jpg
+│   │   ├── hang.jpg
 │   │   ├── harry.jpg
 │   │   ├── hating.jpg
 │   │   ├── haunting.jpeg
 │   │   ├── help.png
 │   │   ├── hero-banner.png
 │   │   ├── hero-section.avif
+│   │   ├── hitch.jpg
 │   │   ├── hitcher.jpeg
 │   │   ├── hobbit.jpg
 │   │   ├── hola.jpg
+│   │   ├── home.jpg
 │   │   ├── honey.jpg
 │   │   ├── houses.jpg
 │   │   ├── hype.jpeg
@@ -395,6 +411,7 @@
 │   │   │   ├── ngo.jpeg
 │   │   │   ├── quiz.jpg
 │   │   │   └── school.png
+│   │   ├── imm.jpg
 │   │   ├── inbox.png
 │   │   ├── india after gandhi.jpg
 │   │   ├── insta icon.png
@@ -411,6 +428,7 @@
 │   │   ├── leaves.jpg
 │   │   ├── left.jpeg
 │   │   ├── les.jpg
+│   │   ├── light.jpg
 │   │   ├── lock.jpg
 │   │   ├── logo_darkbg.png
 │   │   ├── logo_whitebg.png
@@ -421,6 +439,7 @@
 │   │   ├── malala.jpg
 │   │   ├── martian.jpeg
 │   │   ├── mebeforeyou.jpg
+│   │   ├── mee.jpg
 │   │   ├── mg.jpeg
 │   │   ├── midnight children.jpg
 │   │   ├── milk.jpg
@@ -430,6 +449,7 @@
 │   │   ├── mobydick.jpg
 │   │   ├── moon.png
 │   │   ├── moon_solid.svg
+│   │   ├── my.jpg
 │   │   ├── mystery.jpg
 │   │   ├── name.jpg
 │   │   ├── narnia.jpg
@@ -442,11 +462,14 @@
 │   │   ├── new_logo_dark.png
 │   │   ├── nick.jpg
 │   │   ├── night.jpg
+│   │   ├── nightingale.jpg
 │   │   ├── notebook.jpeg
 │   │   ├── odyssey.jpg
 │   │   ├── oryx.jpeg
 │   │   ├── oryx.jpg
+│   │   ├── out.jpg
 │   │   ├── outlander.jpg
+│   │   ├── part-of-our-community.png
 │   │   ├── petsematory.jpeg
 │   │   ├── philopsphy.jpg
 │   │   ├── pic1.jpeg
@@ -471,11 +494,13 @@
 │   │   ├── rom.jpg
 │   │   ├── rosie.jpg
 │   │   ├── rumi.webp
+│   │   ├── sap.jpg
 │   │   ├── scarlet.jpg
 │   │   ├── sci.jpg
 │   │   ├── science.jpg
 │   │   ├── settings.png
 │   │   ├── shantaram.jpg
+│   │   ├── share-books.png
 │   │   ├── shining.jpg
 │   │   ├── shutter.jpg
 │   │   ├── side.jpg
@@ -488,6 +513,8 @@
 │   │   ├── subtle.jpg
 │   │   ├── sun.png
 │   │   ├── sunf.jpg
+│   │   ├── swap-read-mega-1.png
+│   │   ├── tatoo.jpg
 │   │   ├── tele.png
 │   │   ├── telephone.png
 │   │   ├── testimonials-1.jpg
@@ -497,6 +524,8 @@
 │   │   ├── testimonials-5.jpg
 │   │   ├── testimonials-6.jpg
 │   │   ├── the inheritance of book.jpg
+│   │   ├── thief.jpg
+│   │   ├── think.jpg
 │   │   ├── three.jpg
 │   │   ├── thriller.jpg
 │   │   ├── thus.jpeg
@@ -514,6 +543,7 @@
 │   │   ├── uprooted.jpg
 │   │   ├── user.jpg
 │   │   ├── war.jpeg
+│   │   ├── website-login.png
 │   │   ├── website-ss.png
 │   │   ├── wheel.jpg
 │   │   ├── white tiger.jpg
@@ -522,7 +552,9 @@
 │   │   ├── win.jpg
 │   │   ├── woman.jpg
 │   │   ├── wuthering_heights.jpg
-│   │   └── wwz.jpg
+│   │   ├── wwz.jpg
+│   │   ├── yes.jpg
+│   │   └── your-first-read.png
 │   ├── js/
 │   │   ├── ReaderConn.js
 │   │   ├── addremove.js
@@ -580,9 +612,6 @@
 ├── biographies.html
 ├── book.jpg
 ├── books.html
-├── chat.css
-├── chat.html
-├── chat.js
 ├── chatt.css
 ├── chatt.html
 ├── chatt.js
@@ -646,8 +675,6 @@
 ├── popup.js
 ├── pricing.html
 ├── privacynotice.html
-├── profile.css
-├── profile.html
 ├── profiletest.html
 ├── refundpolicy.html
 ├── repo_structure.txt
