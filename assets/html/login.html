@@ -938,6 +938,8 @@ button img {
                       color: #708090;
                     }
                   </style>
+            </form>
+            <form class="form">
                   <div class="button-container">
                     <button class="p1" id="google-sign-in" style="
 
@@ -994,8 +996,8 @@ button img {
                         Sign In With Facebook
                     </button>
                 </div>
+              </form>
                 </div>
-            </form>
         </div>
         <style>
           #google-sign-in{
@@ -1588,10 +1590,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         });
-    const coords = { x: 0, y: 0 };
-    const circles = document.querySelectorAll(".circle");
+    coords = { x: 0, y: 0 };
+    circles = document.querySelectorAll(".circle");
 
-    const colors = [
+    colors = [
       "#ffb56b",
       "#fdaf69",
       "#f89d63",
@@ -1653,9 +1655,9 @@ document.addEventListener("DOMContentLoaded", () => {
     animateCircles();
 
     let eyeIcon = document.getElementById("eyeicon");
-    let password = document.getElementById("password");
+    let password = document.getElementById("loginPassword");
     let eyeIconLogin = document.getElementById("eyeicon-login");
-    let passwordLogin = document.getElementById("login_password");
+    // let passwordLogin = document.getElementById("login_password");
     let passwordStrength = document.getElementById("password-strength");
     let lowUpperCase = document.querySelector(".low-upper-case i");
     let number = document.querySelector(".one-number i");
@@ -1663,21 +1665,21 @@ document.addEventListener("DOMContentLoaded", () => {
     let eightChar = document.querySelector(".eight-character i");
 
     // Set the password field to type "password" by default
-    password.type = "password";
-    eyeIcon.src = "../images/eye-close.png"; // Set the initial eye icon as closed
+    password.setAttribute("type", "password");
+    eyeIconLogin.setAttribute("src","../images/eye-close.png"); // Set the initial eye icon as closed
 
-    eyeIcon.onclick = function () {
-      if (password.type === "password") {
-        password.type = "text";
-        eyeIcon.src = "../images/eye-open.png";
-      } else {
-        password.type = "password";
-        eyeIcon.src = "../images/eye-close.png";
-      }
-    };
+    // eyeIcon.onclick = function () {
+    //   if (password.type === "password") {
+    //     password.type = "text";
+    //     eyeIcon.src = "../images/eye-open.png";
+    //   } else {
+    //     password.type = "password";
+    //     eyeIcon.src = "../images/eye-close.png";
+    //   }
+    // };
 
-    passwordLogin.type = "password";
-    eyeIconLogin.src = "../images/eye-close.png"; // Set the initial eye icon as closed
+    // passwordLogin.type = "password";
+    // eyeIconLogin.src = "../images/eye-close.png"; // Set the initial eye icon as closed
 
     eyeIconLogin.onclick = function () {
       if (passwordLogin.type === "password") {
@@ -1883,29 +1885,29 @@ document.addEventListener("DOMContentLoaded", () => {
   </script>
 <script>
 const navbar=document.querySelector('.navbar'),
-NavButton=document.querySelector('.nav-toggle-btn'),
+// NavButton=document.querySelector('.nav-toggle-btn'),
 open=document.querySelector('.open'),
 close=document.querySelector('.close');
 let count=0
-NavButton.addEventListener('click',()=>{
+// NavButton.addEventListener('click',()=>{
 
-if(count===0){
-navbar.classList.remove('nav_activated')
-open.classList.add('close')
-close.classList.add('open')
-open.classList.remove('open')
-close.classList.remove('close')
-count++
-}
-else{
-navbar.classList.add('nav_activated')
-open.classList.add('open')
-close.classList.add('close')
-open.classList.remove('close')
-close.classList.remove('open')
-count=0
-}
-})
+// if(count===0){
+// navbar.classList.remove('nav_activated')
+// open.classList.add('close')
+// close.classList.add('open')
+// open.classList.remove('open')
+// close.classList.remove('close')
+// count++
+// }
+// else{
+// navbar.classList.add('nav_activated')
+// open.classList.add('open')
+// close.classList.add('close')
+// open.classList.remove('close')
+// close.classList.remove('open')
+// count=0
+// }
+// })
 </script>
 <script type="module">
   // Import the functions you need from the SDKs you need
@@ -2006,45 +2008,6 @@ count=0
       const errorMessage = error.message;
       showNotificationError(errorMessage);
       // alert(errorMessage);
-      location.reload(); // Reload the page on error
-    }
-  });
-
-  // Facebook sign-in event
-  const facebookSignInBtn = document.getElementById('facebookSignInBtn');
-  facebookSignInBtn.addEventListener('click', async () => {
-    const provider = new FacebookAuthProvider();
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-      // Handle successful sign-in here
-      setTimeout(() => {
-          showNotification('We are happy to have you as a new customer!')
-          window.location.href = '/index.html'; // Redirect to index.html upon successful login
-      }, 5000);
-    } catch (error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // alert(errorMessage);
-      showNotificationError(errorMessage);
-      location.reload(); // Reload the page on error
-    }
-  });
-
-  // Google sign-in event
-  const googleSignInBtn = document.getElementById('googleSignInBtn');
-  googleSignInBtn.addEventListener('click', async () => {
-    const provider = new GoogleAuthProvider();
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-      // Handle successful sign-in here
-      window.location.href = '/index.html'; // Redirect to index.html upon successful login
-    } catch (error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // alert(errorMessage);
-      showNotificationError(errorMessage);
       location.reload(); // Reload the page on error
     }
   });

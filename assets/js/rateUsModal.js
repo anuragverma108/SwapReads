@@ -1,5 +1,5 @@
 const allStars = document.querySelectorAll('.star');
-const submitButton = document.getElementById('submit_rating');
+// const submitButton = document.getElementById('submit_rating');
 const starRating = document.querySelector('.star_rating');
 const ratingHeading = document.querySelector('.rating_heading');
 let current_rating = document.querySelector('.current_rating');
@@ -37,16 +37,16 @@ function updateStars(rating) {
     });
 }
 
-submitButton.onclick = function() {
-    // Hide star rating section
-    starRating.style.display = 'none';
-    // Hide rating heading
-    ratingHeading.style.display = 'none';
-    // Hide submit button
-    submitButton.style.display = 'none';
-    // Display thank you message
-    thankYouMessage.style.display = 'block';
-};
+// submitButton.addEventListener("click" ,()=>{
+//     // Hide star rating section
+//     starRating.style.display = 'none';
+//     // Hide rating heading
+//     ratingHeading.style.display = 'none';
+//     // Hide submit button
+//     submitButton.style.display = 'none';
+//     // Display thank you message
+//     thankYouMessage.style.display = 'block';
+// });
 
 
 // const openRateUsModal = ()=>{

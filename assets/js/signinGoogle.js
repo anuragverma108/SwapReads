@@ -1,5 +1,8 @@
-import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
+// import { initializeApp } from "firebase/app";
+// import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js'; 
+import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.9.2/firebase-auth.js';
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyAIDh842xGC_NZj6pMcB9THjNQ1DyUVnZU",
@@ -59,16 +62,3 @@ facebookLogin.addEventListener("click", function () {
         });
 });
 
-const facebookSignup = document.getElementById("facebook-signup");
-facebookSignup.addEventListener("click", function () {
-    signInWithPopup(auth, facebookProvider)
-        .then((result) => {
-            const user = result.user;
-            console.log(user);
-            alert(user.email + " signed up successfully!");
-        })
-        .catch((error) => {
-            const errorMessage = error.message;
-            alert(errorMessage);
-        });
-});
