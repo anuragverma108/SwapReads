@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox - BookSwap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset */
+        body, h1, h2, h3, h4, p, ul, li, a {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Global Styling */
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+            background-color: #fcb1a2;
+        }
+
+        /* Container Styling */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+
+        .inbox-header {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .home-link {
+            text-decoration: none;
+            color: #ff6b6b;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .home-link:hover {
+            color: #e63946;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul li a {
+            color: #333;
+            font-size: 18px;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #ff6b6b;
+            color: white;
+        }
+
+        /* Message List Styling */
+        .message-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-left: 30px;
+            margin-top: 20px;
+        }
+
+        .message-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            
+        }
+
+        .message-item:hover {
+            transform: translateX(5px);
+        }
+
+        .message-item .message-content {
+            flex-grow: 1;
+        }
+
+        .message-item .message-content h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .message-item .message-content p {
+            color: #666;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .message-item .message-action a {
+            font-size: 16px;
+            font-weight: bold;
+            color: #ff6b6b;
+            text-decoration: none;
+        }
+
+        .message-item .message-action a:hover {
+            color: #e63946;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            .sidebar {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .message-list {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">BookSwap</div>
+            <div class="inbox-header">Inbox</div>
+            <a href="../../index.html" class="home-link">Home</a>
+        </header>
+        
+        <div class="row">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="inbox.html">Inbox</a></li>
+                    <li><a href="../../activity.html">My Orders</a></li>
+                    <li><a href="swap-requests.html">Swap Requests</a></li>
+                    <li><a href="../../profiletest.html">Profile</a></li>
+                    <li><a href="logout.html">Logout</a></li>
+                </ul>
+            </div>
+            
+            <div class="message-list">
+                <!-- Message Item 1 -->
+                <div class="message-item">
+                    <div class="message-content">
+                        <h4>Book Swap Request: "The Great Gatsby"</h4>
+                        <p><strong>From:</strong> User123</p>
+                        <p><strong>Message:</strong> Hi, I'd like to swap "The Great Gatsby" with you. Let me know if you're interested!</p>
+                    </div>
+                    <div class="message-action">
+                        <a href="view-request.html">View</a>
+                    </div>
+                </div>
+                
+                <!-- Message Item 2 -->
+                <div class="message-item">
+                    <div class="message-content">
+                        <h4>Book Order Confirmation: "1984" by George Orwell</h4>
+                        <p><strong>From:</strong> BookSwap Admin</p>
+                        <p>Your order for "1984" has been confirmed! The book will be shipped soon.</p>
+                    </div>
+                    <div class="message-action">
+                        <a href="view-order.html">View</a>
+                    </div>
+                </div>
+
+                <!-- Message Item 3 -->
+                <div class="message-item">
+                    <div class="message-content">
+                        <h4>Book Swap Request: "To Kill a Mockingbird"</h4>
+                        <p><strong>From:</strong> User456</p>
+                        <p><strong>Message:</strong> I'm interested in swapping my copy of "To Kill a Mockingbird". What do you have to offer?</p>
+                    </div>
+                    <div class="message-action">
+                        <a href="view-request.html">View</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
