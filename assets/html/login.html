@@ -100,15 +100,18 @@ button img {
 }
 
 /* Header */
-.header {
-  position: relative;
-  width: 100%;
-/*  top: 10; */
-  z-index: 1000;
-  transition: top 0.3s;
-  padding :none;
-  left : -50px;
-}
+.header{
+      width: 100vw; /* Full viewport width */
+    max-width: 100%; /* Ensure it doesn't go beyond viewport width */
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    transition: top 0.3s;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    
+     }
 
 /* Action */
 .action {
@@ -654,15 +657,12 @@ button img {
                 viewBox="0 0 24 24">
                 <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
               </svg></a>
-              <div class="profile" onclick="menuToggle();">
-              <img id="profile-avatar" src="../images/avatar1.jpg" />
-            </div>
             <div class="dropdown-menu" id="dropdown-menu">
               
 
               <ul class="dropdown-menu-list">
                 <li>
-                  <a href="../../chat.html" class="navbar-link" style="font-family: sans-serif; color: white; margin-bottom: 5px;">
+                  <a href="../../chatt.html" class="navbar-link" style="font-family: sans-serif; color: white; margin-bottom: 5px;">
                     Community chat
                 </a>
                 </li>
@@ -800,7 +800,7 @@ button img {
           <div class="action">
             
             <div class="menu">
-              <h3>XYZ<br /><span>Book Lover</span></h3>
+              <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
               <ul>
                 <li>
                   <img src="../images/user.jpg" /><a href="../../profile.html">My profile</a>
@@ -838,9 +838,15 @@ button img {
 
                document.addEventListener("DOMContentLoaded", () => {
     const savedAvatar = localStorage.getItem("selectedAvatar");
+    const savedName = localStorage.getItem("profileName");
     if (savedAvatar) {
         document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
     }
+    if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
 });
 
 
@@ -915,10 +921,58 @@ button img {
                 <br>
                 <p class="forget-password">
                   <a href="forgot-pass.html" id="forgot_password_link">Forgot Password ?</a></p>
+                  <div>
+                    <label for="remember-me">
+                        <input type="checkbox" id="remember-me" name="remember-me" style="height: 15px; width: 15px; top: -5px;"> Remember me
+                    </label>
+                </div> 
+                <style>
+                  /* Styling the Remember Me container */
+.input-group label[for="remember-me"] {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    color: #555; /* Adjust color as needed */
+    cursor: pointer;
+    gap: 8px; /* Adds space between checkbox and text */
+}
+
+/* Styling the checkbox itself */
+#remember-me {
+  font-size: small;
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: -100px; /* Slight adjustment to align with text */
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+                </style>       
                 <button type="submit" name="Login" id="login">Login</button>
                 <div id="or">Or</div>
                 <div class="social-buttons" style="display: flex; gap: 5px; justify-content: center;">
                   <style>
+                  /* Styling the Remember Me container */
+.input-group label[for="remember-me"] {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    color: #555; /* Adjust color as needed */
+    cursor: pointer;
+    gap: 8px; /* Adds space between checkbox and text */
+}
+
+/* Styling the checkbox itself */
+#remember-me {
+  font-size: small;
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: -100px; /* Slight adjustment to align with text */
+    cursor: pointer;
+    margin-top: 15px;
+}
                     .dark-mode #login:hover{
                       transition: 0.5s ease;
                       color: #483D8B;
@@ -1014,6 +1068,7 @@ button img {
       <div class="register" style="z-index: 2;">
         <form class="form" id="registerForm">
           <label class="but" for="chk" aria-hidden="true">Create Account</label>
+          <p>Are you new here? Create your account now!</p>
           <input class="input" type="email" name="email" id="registerEmail" placeholder="Email" required />
           <div class="input-box">
             <input class="input" type="password" name="pswd" id="registerPassword" placeholder="Password" required />
@@ -1035,6 +1090,34 @@ button img {
 
           </div>
           <br>
+          <div class="input-group">
+            <label for="remember-me1">
+                <input type="checkbox" id="remember-me1" name="remember-me1"> Remember Me
+            </label>
+        </div>
+        <style>
+          /* Styling the Remember Me container */
+.input-group label[for="remember-me1"] {
+display: flex;
+align-items: center;
+font-size: 0.9em;
+color: #555; /* Adjust color as needed */
+cursor: pointer;
+gap: 8px; /* Adds space between checkbox and text */
+}
+
+/* Styling the checkbox itself */
+#remember-me1 {
+font-size: small;
+width: 15px;
+height: 15px;
+position: relative;
+top: -9px; /* Slight adjustment to align with text */
+cursor: pointer;
+margin-top: 15px;
+}
+
+        </style>    
           <button type="submit" name="register" id="register">Register</button>
           <div id="or">Or</div>
           <br>
@@ -1047,321 +1130,315 @@ button img {
   </div>
   <hr/>
 
-  <footer class="ff">
+  <footer class="ff" style="font-size: 18px;">
     <div class="foot-top">
       <div class="foot-left">
-
+  
         <div class="desc">
-<!--google translate-->
-          <!-- <div id="google_translate_element"></div>
-
-          <script type="text/javascript">
-              function googleTranslateElementInit() {
-                  new google.translate.TranslateElement(
-                      {pageLanguage: 'en'},
-                      'google_translate_element'
-                  );
-              }
-          </script>
-
-          <script type="text/javascript"
-                  src=
-      "https://translate.google.com/translate_a/element.js?
-      cb=googleTranslateElementInit">
-          </script> -->
-          <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
+          <div class="SwapReads"><a href="#" class="logoo">SwapReads</a></div>
           <div>
-            <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
-              lovers
-              seeking to swap and
-
-              discover new literary gems.
+            <p style="text-align: justify; color: black; font-size: 16px;" class="description">
+              SwapReads.com is the ultimate destination for book lovers seeking to swap and discover new literary gems.
               Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
-              the
-              world of literature—all on one convenient platform. Join us and dive into a universe of endless
-              possibilities!
+              the world of literature—all on one convenient platform. Join us and dive into a universe of endless possibilities!
             </p>
+            <style>
+              .dark-mode .logo{
+                color: maroon !important;
+              }
+              .dark-mode .description{
+                color: white !important;
+              }
+            </style>
           </div>
-
+          
+  
         </div>
       </div>
       <div class="foot-middle">
-        <h2>Quick Links</h2>
-        <div id="quicklinks" class="row">
-          <div class="col-md-6">
-            <ul>
-              <li class="foot-quick" style="color: white;"><a href="/index.html#home" onclick="lenis.scrollTo('#home')"><i class="fas fa-home"></i><p class="flinks">Home</p></a></li>
-              <li class="foot-quick"><a href="/index.html#benefits" onclick="lenis.scrollTo('#benefits')"><i class="fas fa-book"></i> <p class="flinks">Benefits</p></a></li>
-              <li class="foot-quick"><a href="/index.html#chapters" onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i> <p class="flinks">Literary</p></a></li>
-              <li class="foot-quick"><a href="/index.html#pricing" onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i><p class="flinks">Pricing</p> </a></li>
-              <li class="foot-quick"><a href="book_recommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><p class="flinks">Recommend</p></a></li>
+        <h2 style="margin-left: 2rem; margin-top: 2.75rem; font-size: 28px; font-weight: 700;" id="quicklinks-color">Quick Links</h2>
+        <style>
+          .dark-mode #quicklinks-color{
+            color: maroon !important;
+          }
+          .dark-mode #quicklinks ul li a{
+            color: white !important;
+          }
+        </style>
+        <div id="quicklinks" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem; ">
+          <div class="linkscolor">
+            <ul style="list-style: none; padding: 0;">
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem; ">
+                <i class="fas fa-home" style="color: #374151; margin-right: 4px;"></i>
+                <a href="/./index.html" style="color: #374151; text-decoration: none;">Home</a>
+              </li>
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-book" style="color: #374151; margin-right: 4px;"></i>
+                <a href="/./index.html#benefits" style="color: #374151; text-decoration: none;">Benefits</a>
+              </li>
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-globe" style="color: #374151; margin-right: 4px;"></i>
+                <a href="/./index.html#chapters" style="color: #374151; text-decoration: none;">Literary</a>
+              </li>
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-dollar-sign" style="color: #374151; margin-right: 4px;"></i>
+                <a href="/./index.html#pricing" style="color: #374151; text-decoration: none;">Pricing</a>
+              </li>
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-bookmark" style="color: #374151; margin-right: 4px;"></i>
+                <a href="./book_recommend.html" style="color: #374151; text-decoration: none;">Recommend</a>
+              </li>
             </ul>
           </div>
-          <div class="col-md-6">
-            <ul>
-              <li class="foot-quick"><a href="/assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-exchange-alt"></i><p class="flinks">Swap</p> </a></li>
-              <li class="foot-quick"><a href="/assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-file-pdf"></i> <p class="flinks">E-Book</p></a></li>
-              <li class="foot-quick"><a href="/assets/html/about.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-info-circle"></i> <p class="flinks">About</p></a></li>
-              <li class="foot-quick"><a href="/index.html#contact" onclick="lenis.scrollTo('#contact')"><i class="fas fa-envelope"></i><p class="flinks">Contact</p> </a></li>
-              <li class="foot-quick"><a href="/index.html#faqq" onclick="lenis.scrollTo('#faqq')"><i class="fas fa-question-circle"></i> <p class="flinks">FAQ</p></a></li>
+          <div>
+            <ul style="list-style: none; padding: 0;">
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-exchange-alt" style="color: #374151; margin-right: 4px;"></i>
+                <a href="./booklistswap.html" style="color: #374151; text-decoration: none;">Swap</a>
+              </li>
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-file-pdf" style="color: #374151; margin-right: 4px;"></i>
+                <a href="./freeBooks.html" style="color: #374151; text-decoration: none;">E-Book</a>
+              </li>
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-info-circle" style="color: #374151; margin-right: 4px;"></i>
+                <a href="./about.html" style="color: #374151; text-decoration: none;">About</a>
+              </li>
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-envelope" style="color: #374151; margin-right: 4px;"></i>
+                <a href="/./index.html#contact" style="color: #374151; text-decoration: none;">Contact</a>
+              </li>
+              <li class="foot-quick" style="color: #374151; display: flex; align-items: center; margin-bottom: 0.75rem;">
+                <i class="fas fa-question-circle" style="color: #374151; margin-right: 4px;"></i>
+                <a href="/./index.html#faqq" style="color: #374151; text-decoration: none;">FAQ</a>
+              </li>
             </ul>
           </div>
         </div>
       </div>
-
-
         <style>
-          .social-icons input[type="email"]
+          .social-icons input[type="email"] 
           {
-              border: 2px solid #ccc; /* Gray border */
-              border-radius: 4px; /* Rounded corners */
-              padding: 10px; /* Inner padding */
-              font-size: 16px; /* Font size */
+              border: 0.2rem solid #ccc; /* Gray border */
+              border-radius: 0.4rem; /* Rounded corners */
+              padding: 1rem; /* Inner padding */
+              font-size: 1.6rem; /* Font size */
           }
           #confirmationMessage
           {
-            margin-left: 50px;
-            font-size: 23px;
+            margin-left: 5rem;
+            font-size: 2.3rem;
             color: green;
-
+  
           }
          /* for small screen */
-          @media (max-width: 768px)
+          @media (max-width: 768px) 
           {
-            #confirmationMessage
+            #confirmationMessage 
             {
                 margin-left: 0;
                 text-align: center;
-                font-size: 18px;
+                font-size: 1.8rem;
             }
         }
         </style>
+              <style>
+                #confirmationmessage {
+          position: fixed;
+          top: 42rem;
+          right: 1rem;
+          background-color: green;
+          color: white;
+          padding: 1rem;
+          border-radius: 0.5rem;
+          box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+          z-index: 1000;
+          display: none;
+        }
+  
+              </style>
+  
+  
+  
+  
+          
+        <script>
+        function showConfirmationMessage() {
+  
+        const form = document.getElementById('newsform');
+        const confirmationMessage = document.getElementById('confirmationmessage');
+  
+  
+        confirmationMessage.style.display = 'block';
+        setTimeout(function() {
+          location.reload(); 
+        }, 3000);
+  
+  
+  
+        }
+  
+        </script>
         <style>
-          #confirmationmessage {
-    position: fixed;
-    top: 42rem;
-    right: 10px;
-    background-color: green;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    display: none;
-}
-
+  
+        .subscribe {
+        background-color: #A30F17;
+        color: white; 
+        border: none; 
+        padding: 1rem 2rem; 
+        font-size: 1.4rem; 
+        font-family: Arial, sans-serif;
+        border-radius: 0.5rem; 
+        cursor: pointer; 
+        transition: background-color 0.3s, transform 0.2s;
+        width: 100%;
+        }
+  
+        .subscribe:hover {
+        background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+        transform: scale(1.1);
+        }
+  
+        .subscribe:active {
+        transform: scale(0.98); 
+        }
+  
+        .subscribe:focus {
+        outline: none; 
+        }
+  
         </style>
-
-     <form id="newsform" onsubmit="return showConfirmationMessage();">
-      <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
-      <div class="row-flex display-flex">
-          <input class="finput" type="email" id="new-email" name="email" placeholder="Email address"
-                 pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
-                 title="Please enter a valid email address that ends with '.com'" required>
-          <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
-      </div>
-  </form>
-  <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
-
-  <script>
- function showConfirmationMessage() {
-
-  const form = document.getElementById('newsform');
-  const confirmationMessage = document.getElementById('confirmationmessage');
-
-
-  confirmationMessage.style.display = 'block';
-  setTimeout(function() {
-    location.reload();
-  }, 3000);
-
-
-
-}
-
-
-
-</script>
-<style>
-
-.subscribe {
-  background-color: #A30F17;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-family: Arial, sans-serif;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.subscribe:hover {
-  background: linear-gradient(hwb(357 6% 36%), #d26d6d);
-  transform: scale(1.1);
-}
-
-.subscribe:active {
-  transform: scale(0.98);
-}
-
-.subscribe:focus {
-  outline: none;
-}
-
-</style>
-
-<!-- <script>
-  function showConfirmationMessage()
-  {
-    // Show confirmation message
-    const confirmationMessage = document.getElementById('confirmationMessage');
-    confirmationMessage.innerHTML = "Thank you for subscribing!";
-    confirmationMessage.style.display = 'block';
-
-    // Reset the form after 3 seconds
-    setTimeout(function()
-    {
-        document.getElementById('newsletterForm').reset();
-        confirmationMessage.style.display = 'none';
-
-    }, 3000);
-
-    return false;
-}
-</script>-->
-        <div class="icons">
-          <a href="https://www.discord.com/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
-            </div>
-           </a>
-           <style>
-            .dark-mode .fab.fa-discord:hover{
-              color:#3b5998 !important;
-            }
-           </style>
-
-          <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
-            </div>
-          </a>
-
-          <a href="https://www.facebook.com/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
-            </div>
-          </a>
-
-          <a href="https://x.com/anuragverma_108" target="_blank">
-            <div class="icon">
-              <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
-            </div>
-          </a>
-          <style>
-            .dark-mode .fab.fa-twitter:hover{
-              color: whitesmoke !important;
-            }
-          </style>
-          <a href="https://www.instagram.com/">
-            <div class="icon" id="insta-icon">
-              <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
-            </div>
-          </a>
-
-
-          <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
-            <div class="icon">
-              <i class="fab fa-youtube" style="cursor: pointer;"></i>
-            </div>
-          </a>
-
-
-
-          <a href="https://github.com/anuragverma108">
-            <div class="icon">
-              <i class="fab fa-github" title="Github"></i>
-            </div>
-          </a>
-         <style>
-          .dark-mode .fab.fa-github:hover{
-            color: whitesmoke !important;
+  
+        <div class="foot-right">
+        <h2 style="margin-bottom: 2.4rem; margin-top:0.5rem; font-size: 28px; font-weight: 700;" id="stayconnected-color">Stay Connected</h2>
+        <style>
+          .dark-mode #stayconnected-color{
+            color:maroon !important;
           }
-         </style>
-
+        </style>
+        <form id="newsform" onsubmit="return showConfirmationMessage();">
+            <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
+            <div class="row-flex display-flex">
+                <input class="finput" type="email" id="new-email" name="email" placeholder="Email address"
+                      pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+                      title="Please enter a valid email address that ends with '.com'" required>
+                <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
+            </div>
+        </form>
+        <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
+        <div class="icons">
+  <!-- Discord icon -->
+  <a href="https://www.discord.com/" target="_blank">
+    <div class="icon">
+      <i class="fab fa-discord" title="Discord" style="cursor: pointer; color: #374151; margin-right: 4px;"></i>
+    </div>
+  </a>
+  
+  <!-- LinkedIn icon -->
+  <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
+    <div class="icon">
+      <i class="fab fa-linkedin" title="LinkedIn" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+    </div>
+  </a>
+  
+  <!-- Facebook icon -->
+  <a href="https://www.facebook.com/" target="_blank">
+    <div class="icon">
+      <i class="fab fa-facebook" title="Facebook" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+    </div>
+  </a>
+  
+  <!-- X (formerly Twitter) icon -->
+  <a href="https://x.com/anuragverma_108" target="_blank">
+    <div class="icon">
+      <i class="fab fa-twitter" title="X" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+    </div>
+  </a>
+  
+  <!-- Instagram icon -->
+  <a href="https://www.instagram.com/">
+    <div class="icon" id="insta-icon">
+      <i class="fab fa-instagram" title="Instagram" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+    </div>
+  </a>
+  
+  <!-- YouTube icon -->
+  <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
+    <div class="icon">
+      <i class="fab fa-youtube" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+    </div>
+  </a>
+  
+  <!-- GitHub icon -->
+  <a href="https://github.com/anuragverma108">
+    <div class="icon">
+      <i class="fab fa-github" title="GitHub" style="cursor: pointer; color: #4f5e75; margin-right: 4px;"></i>
+    </div>
+  </a>
+  
+  <style>
+    /* Dark mode hover to display original icon colors */
+  .fab.fa-discord:hover {
+      color: #5865F2 !important; /* Discord original color */
+    }
+  .fab.fa-linkedin:hover {
+      color: #0077B5 !important; /* LinkedIn original color */
+    }
+  .fab.fa-facebook:hover {
+      color: #1877F2 !important; /* Facebook original color */
+    }
+  .fab.fa-twitter:hover {
+      color: #1DA1F2 !important; /* Twitter original color */
+    }
+  .fab.fa-instagram:hover {
+      color: #E4405F !important; /* Instagram original color */
+    }
+  .fab.fa-youtube:hover {
+      color: #FF0000 !important; /* YouTube original color */
+    }
+  .fab.fa-github:hover {
+      color: #171515 !important; /* GitHub original color */
+    }
+  </style>
+  
         </div>
        </div>
-       <div>
-        <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
-          <button class="Btn">
-            <svg height="1.2em" class="arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path></svg>
-          <p class="text">Back to Top</p>
-          </button>
-        </div>
-        <!-- <div>
-          <button id="translateButton">Translate</button>
-        </div> -->
       </div>
-
+  
       </div>
     </div>
-
-
-
-<style>
-  .dark-mode #translateButton:hover{
-    background-color: #36454F;
-    transition: 0.5s ease-in;
-  }
-  #translateButton:hover{
-    background-color: rgb(0, 30, 0);
-    transition: 0.5s ease-in;
-  }
-</style>
+  
+  
     <!-- adding privacy policy and copyright popup-->
-    <div class="footer-f" style="text-align: center; align-items: center;">
+    <div class="footer-f" style="text-align: center; align-items: center;    ">
       <p style="text-align: center">
         &copy;
         <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
       </p>
       <div class="row-copy">
-
-
+  
+  
       <a href="/copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
       <a href="/privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>  |
-      <a href="/our-vision.html" id="ourvisionLink">Our Vision</a></li>  | 
-      <a href="/SwapReads/refundpolicy.html">Refund Policy</a>
+      
+      <a href="/our-vision.html" id="ourvisionLink">Our Vision</a></li>
     </div>
     </div>
-    <style>
-      .dark-mode #copyrightPolicyLink:hover{
-        color: #708090;
-        transition: 0.5s ease;
-      }
-      .dark-mode #privacyNoticeLink:hover{
-        color: #708090;
-        transition: 0.5s ease;
-      }
-      .dark-mode #ourvisionLink:hover{
-        color: #708090;
-        transition: 0.5s ease;
-      }
-      #copyrightPolicyLink:hover{
-        color: rgb(126, 0, 21);
-        transition: 0.5s ease;
-      }
-      #privacyNoticeLink:hover{
-        color: rgb(126, 0, 21);
-        transition: 0.5s ease;
-      }
-      #ourvisionLink:hover{
-        color: rgb(126, 0, 21);
-        transition: 0.5s ease;
-      }
-    </style>
+      <style>
+        #copyrightPolicyLink:hover{
+          color: rgb(126, 0, 21);
+          transition: 0.5s ease;
+        }
+        #privacyNoticeLink:hover{
+          color: rgb(126, 0, 21);
+          transition: 0.5s ease;
+        }
+        #ourvisionLink:hover{
+          color: rgb(126, 0, 21);
+          transition: 0.5s ease;
+        }
+      </style>
   </footer>
-
   <div>
     <button id="translateButton">Translate</button>
   </div>

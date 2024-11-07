@@ -526,6 +526,50 @@
   </head>
   <body>
 
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    
     <div id="preloader">
       <div class="loader">
         <div class="book-wrapper">
@@ -637,7 +681,7 @@
 
                 <ul class="dropdown-menu-list">
                   <li>
-                    <a href="/chat.html" class="navbar-link"
+                    <a href="/chatt.html" class="navbar-link"
                       style="font-family: sans-serif; color: black; margin-bottom: 5px;">
                       Community chat
                     </a>
@@ -660,12 +704,12 @@
                       <i class="ri-customer-service-2-fill"></i> Book Recommendation
                     </a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="./bookpref.html" class="navbar-link"
                       style="font-family: sans-serif; margin-bottom: 5px;">
                       Book Prefer Quiz
                     </a>
-                  </li>
+                  </li> -->
                   <li class="dropdown-menu-item">
                     <a href="../html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
                       data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
@@ -690,7 +734,7 @@
                   <img id="profile-avatar" src="../images/avatar1.jpg" />
                 </div>
                 <div class="menu">
-                  <h3>XYZ<br /><span>Book Lover</span></h3>
+                  <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
                   <ul>
                     <li>
                       <img src="../images/user.jpg" /><a href="../../profile.html">My profile</a>
@@ -716,9 +760,19 @@
       <script>
         document.addEventListener("DOMContentLoaded", () => {
           const savedAvatar = localStorage.getItem("selectedAvatar");
+          const savedName = localStorage.getItem("profileName");
           if (savedAvatar) {
-            document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
+            document.getElementById("profile-avatar").src = `../images/${savedAvatar}`;
           }
+
+          if (savedName) {
+            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
+        } else {
+            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
+        }
+
+
+
         });
         document.getElementById('more-link').addEventListener('click', function(event) {
         event.preventDefault(); 
@@ -733,6 +787,64 @@
           const toggleMenu = document.querySelector(".menu");
           toggleMenu.classList.toggle("active");
         }
+
+
+// Coordinates for the cursor
+const coords = { x: 0, y: 0 };
+const circles = document.querySelectorAll(".circle");
+
+// Colors for the circles
+const colors = [
+  "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+  "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+  "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+  "#680060", "#60005f", "#48005f", "#3d005e"
+];
+
+// Assign colors and initial position to each circle
+circles.forEach(function (circle, index) {
+  circle.x = 0;
+  circle.y = 0;
+  circle.style.backgroundColor = colors[index % colors.length];
+});
+
+// Update the coordinates when the mouse moves
+window.addEventListener("mousemove", function (e) {
+  coords.x = e.clientX;
+  coords.y = e.clientY;
+});
+
+// Animation function to move the circles
+function animateCircles() {
+  let x = coords.x;
+  let y = coords.y;
+
+  circles.forEach(function (circle, index) {
+    // Update the position and scale of each circle
+    circle.style.left = x - 12 + "px";
+    circle.style.top = y - 12 + "px";
+    circle.style.scale = (circles.length - index) / circles.length;
+
+    circle.x = x;
+    circle.y = y;
+
+    // Get the next circle in the sequence
+    const nextCircle = circles[index + 1] || circles[0];
+    x += (nextCircle.x - x) * 0.15;
+    y += (nextCircle.y - y) * 0.15;
+  });
+
+  // Repeat the animation
+  requestAnimationFrame(animateCircles);
+}
+
+// Start the animation
+animateCircles();
+
+
+
+
+
       </script>
       <!-- Google Translate Element -->
       <!-- <li class="navbar-item">
@@ -841,6 +953,23 @@
         color: white;
         text-shadow: 3px 3px 20px #d1c4c4;
       }
+
+
+      .circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999;
+    transition: transform 0.1s ease-out;
+}
+
+
+
     </style><br><br><br><br><br><br><br>
     <div style="background-color: hsl(357, 37%, 62%);color: white; width:100% ;height:50px;right: 0 ;padding: 1px;">
       <marquee>

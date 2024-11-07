@@ -51,6 +51,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="exchangeHub.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="manifest" href="/manifest.json">
   <style>
     body {
       margin: 0;
@@ -556,7 +557,7 @@
         display: block;
         border-radius: 2.8rem;
         background: rgba(255, 171, 157, 0.5);
-        width: 5.6rem;
+        width: 16.6rem;
         height: 5.6rem;
         transition: all 0.3s ease;
       }
@@ -566,7 +567,7 @@
         font-size: 0.8rem;
         line-height: 1.8rem;
         font-weight: 900;
-        letter-spacing: 0.25em;
+        letter-spacing: 0.15em;
         text-transform: uppercase;
         vertical-align: middle;
         color: var(--charcoal);
@@ -621,7 +622,7 @@
         display: block;
         border-radius: 2.8rem;
         background: rgba(255, 171, 157, 0.5);
-        width: 5.6rem;
+        width: 16.6rem;
         height: 5.6rem;
         transition: all 0.3s ease;
       }
@@ -631,7 +632,7 @@
         font-size: 0.8rem;
         line-height: 1.8rem;
         font-weight: 900;
-        letter-spacing: 0.25em;
+        letter-spacing: 0.15em;
         text-transform: uppercase;
         vertical-align: middle;
         color: var(--charcoal);
@@ -665,9 +666,85 @@
         }
       }
     }
+    .cta2.style-9 {
+          position: absolute;
+          bottom: 40px; /* Positions the link 20px above the bottom of the card */
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    
+        .cta2 {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          margin: auto;
+          padding: 2rem 2.4rem;
+          color: hsl(357, 37%, 62%);
+          font-family: Avenir, sans-serif;
+          text-decoration: none;
+          transition: all 0.2s ease;
+    
+          &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            border-radius: 2.8rem;
+            background: rgba(255, 171, 157, 0.5);
+            width: 28rem;
+            height: 5.6rem;
+            transition: all 0.3s ease;
+          }
+    
+          span {
+            position: relative;
+            font-size: 0.8rem;
+            line-height: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            vertical-align: middle;
+            color: var(--charcoal);
+          }
+    
+          svg {
+            position: relative;
+            top: 0;
+            margin-left: 0.5rem;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke: hsl(357, 37%, 62%);
+            stroke-width: 2;
+            transform: translateX(-0.5rem);
+            transition: all 0.3s ease;
+          }
+    
+          &:hover {
+            &:before {
+              width: 9%;
+              background: #ffab9d;
+            }
+    
+            svg {
+              transform: translateX(0);
+            }
+    
+            .active {
+              transform: scale(0.96);
+            }
+          }
+        }
 
 
-
+      .price{
+        font-weight: 800;
+        font-size: 20px;
+      }
 
     /* Dark Mode Styles */
     .dark-mode .readmore-anim {
@@ -997,7 +1074,7 @@
 
 
     .chapter-card {
-      height: 60rem;
+      height: 50rem;
       /* Adjust margin as needed */
       box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
       /* Add shadow for depth effect */
@@ -1234,6 +1311,32 @@
 
 
 <body>
+
+<!--pre-loader-->
+<div class="preloader-theme">
+  <div class="preloader-content">
+    <div class="book" style="width: 160px; height: 100px; max-width: 100%;">
+      <div class="book__pg-shadow"></div>
+      <div class="book__pg"></div>
+      <div class="book__pg book__pg--2"></div>
+      <div class="book__pg book__pg--3"></div>
+      <div class="book__pg book__pg--4"></div>
+      <div class="book__pg book__pg--5"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener("load", function() {
+      setTimeout(function() {
+          const preloader = document.querySelector(".preloader-theme");
+          preloader.classList.add("fade-out");
+          setTimeout(function() {
+              preloader.style.display = "none"; // This hides the preloader
+          }, 500); // Fade-out duration
+      }, 4000); // Time before starting the fade-out
+  });
+</script>
 
   <!-- Circles -->
   <div class="circle"></div>
@@ -2070,14 +2173,14 @@
           display: block;
           border-radius: 2.8rem;
           background: rgb(255 144 125 / 91%);
-          width: 12.6rem;
+          width: 16.6rem;
           height: 5.6rem;
           transition: all 0.3s ease;
         }
 
         span {
           position: relative;
-          font-size: 0.8rem;
+          font-size: 12px;
           line-height: 1.8rem;
           font-weight: 900;
           letter-spacing: 0.25em;
@@ -2135,14 +2238,14 @@
           display: block;
           border-radius: 2.8rem;
           background: rgb(255 144 125 / 91%);
-          width: 12.6rem;
+          width: 16.6rem;
           height: 5.6rem;
           transition: all 0.3s ease;
         }
 
         span {
           position: relative;
-          font-size: 0.8rem;
+          font-size: 12px;
           line-height: 1.8rem;
           font-weight: 900;
           letter-spacing: 0.25em;
@@ -2513,7 +2616,7 @@
 
 
       .chapter-card {
-        height: 60rem;
+        height: 50rem;
         /* Adjust margin as needed */
         box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
         /* Add shadow for depth effect */
@@ -3729,9 +3832,9 @@ color: #ac2127;
 
             <li>
               <div class="action">
-                <!-- <div class="profile" onclick="menuToggle();">
-            <img id="profile-avatar"  src="./assets/images/avatar1.jpg" />
-          </div> -->
+                      <!-- <div class="profile" onclick="menuToggle();">
+                  <img id="profile-avatar"  src="./assets/images/avatar1.jpg" />
+                </div> -->
                 <div class="menu">
                   <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
                   <ul>
@@ -3743,7 +3846,7 @@ color: #ac2127;
                         profile</a>
                     </li>
                     <li>
-                      <img src="./assets/images/inbox.png" /><a href="#">Inbox</a>
+                      <img src="./assets/images/inbox.png" /><a href="./assets/html/inbox.html">Inbox</a>
                     </li>
                     <li>
                       <img src="./assets/images/settings.png" /><a href="#">Settings</a>
@@ -3815,229 +3918,165 @@ color: #ac2127;
     <header class="header header-anim nav-h" data-header>
 
       <div class="container mobile-container-styles">
+        <nav class="navbar nav_activated" data-navbar="">
+            <ul style="max-width: 1300px; display: flex; justify-content: space-between; align-items: center; gap: 5px;" class="navbar-list nav">
+                <li class="navbar-item logo-item" style="display:flex;">
+                    <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo">
+                        <img src="./assets/images/final.png" class="logopic" style="width: 15rem;">
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#home" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link=""><i class="ri-home-fill"></i> Home</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="./assets/html/about.html" class="navbar-link" data-nav-link=""><i class="ri-information-fill"></i> About Us</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link=""><i class="ri-customer-service-2-fill"></i> Contact</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#faq" onclick="lenis.scrollTo('#faq')" class="navbar-link" data-nav-link=""><i class="ri-questionnaire-fill"></i> FAQ</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="./assets/html/event.html" class="navbar-link" data-nav-link="">Events</a>
+                </li>
+                <li class="navbar-item" id="login-signup-link">
+                    <a href="./assets/html/login.html" class="navbar-link">Login</a>
+                </li>
+                <li class="navbar-item dropdown">
+                    <a href="#" class="navbar-link" onclick="toggleMoreMenu(event)">More 
+                        <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z"></path>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./assets/html/author.html" class="navbar-link">Authors</a></li>
+                        <li><a href="./assets/html/tips.html" class="navbar-link">Tips</a></li>
+                        <li><a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link">Benefits</a></li>
+                        <li><a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link">Genre</a></li>
+                        <li><a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a></li>
+                        <li><a href="./assets/html/map.html" class="navbar-link">Map</a></li>
+                        <li><a href="comsp.html" class="navbar-link">Community Spotlight</a></li>
+                        <li><a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link">Audio Books</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="action" style="right: 30px; padding-bottom: 20px;">
+                        <div class="profile" onclick="menuToggle();">
+                            <img id="profile-avatar" src="./assets/images/avatar1.jpg">
+                        </div>
+                    </div>
+                </li>
+            </ul>
 
-        <nav class="navbar nav_activated" data-navbar>
-          <ul style="max-width: 1300px; display: flex; justify-content: space-between; align-items: center; gap: 5px;"
-            class="navbar-list nav">
-            <li class="navbar-item logo-item" style="display:flex;">
-              <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo">
-                <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; ">
-              </a>
-            </li>
-            <li class="navbar-item" style="left: -30px;">
-              <a href="#home" onclick="lenis.scrollTo('#home')" style="left: -30px;" class="navbar-link"
-                data-nav-link><i class="ri-home-fill"></i> Home</a>
-            </li>
-            <li class="navbar-item">
-              <a href="./assets/html/about.html" class="navbar-link" style="left: -30px;" data-nav-link><i
-                  class="ri-home-fill"></i>About<br> Us</a>
-            </li>
-            <li class="navbar-item">
-              <a href="./assets/html/author.html" class="navbar-link" style="left: -30px;" data-nav-link><i
-                  class="ri-home-fill"></i>Authors</a>
-            </li>
-            <li class="navbar-item">
-              <a href="./assets/html/tips.html" class="navbar-link" style="left: -30px;" data-nav-link><i
-                  class="ri-home-fill"></i>Tips</a>
-            </li>
-            <li class="navbar-item">
-              <a href="#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" style="left: -30px;"
-                data-nav-link><i class="ri-bar-chart-fill"></i> Benefits</a>
-            </li>
-            <li class="navbar-item">
-              <a href="#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" style="left: -30px;"
-                data-nav-link><i class="ri-bar-chart-fill"></i> Genre</a>
-            </li>
+            <style>
+                /* Default styling for dropdown menu links */
+                .dropdown-menu {
+                    display: none;
+                    position: absolute;
+                    background-color: white;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    z-index: 1000;
+                }
 
-            <li class="navbar-item">
-              <a href="#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" style="left: -30px;"
-                data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
-            </li>
-            <li class="navbar-item">
-              <a href="#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" style="left: -30px;" data-nav-link>
-                <i class="ri-questionnaire-fill"></i> FAQ
-              </a>
-            </li>
+                .navbar-item.dropdown:hover .dropdown-menu,
+                .dropdown-menu.active {
+                    display: block;
+                }
 
-            <li class="navbar-item">
-              <a href="#rate-us" onclick="openRateUsModal(); return false;" class="navbar-link"
-                style="left: -30px;">Rate<br>Us</a>
-            </li>
-            <li class="navbar-item" id="login-signup-link">
-              <a href="./assets/html/event.html" class="navbar-link" style="left: -30px;">Events</a>
-            </li>
-            <li class="navbar-item" id="login-signup-link">
-              <a href="./assets/html/map.html" class="navbar-link" style="left: -30px;">Map</a>
-            </li>
-            
+                .dropdown-menu li {
+                    padding: 10px;
+                    text-align: left;
+                }
 
-            <li class="navbar-item" id="login-signup-link">
-              <a href="./assets/html/login.html" class="navbar-link" style="left: -30px;">Login</a>
-            </li>
-            
-            
-            <li class="navbar-item" id="login-signup-link">
+                .dropdown-menu li a {
+                    display: block;
+                    color: black; /* Default font color for day mode */
+                    text-decoration: none;
+                }
 
-              <a href="comsp.html" class="navbar-link" style="left: -30px;">Community<br> Spotlight</a>
+                .dropdown-menu li a:hover {
+                    background-color: #f0f0f0;
+                }
 
-            </li>
-            <li class="navbar-item">
-              <a href="audiobook.html" onclick="lenis.scrollTo('audiobooks')" class="navbar-link" style="left: -30px;"
-                data-nav-link>
-                <i class="ri-bar-chart-fill"></i> Audio Books
-              </a>
-            </li>
-            <li>
-              <div class="action" style="right: 30px; padding-bottom: 20px;">
-                <div class="profile" onclick="menuToggle();">
-                  <img id="profile-avatar" src="./assets/images/avatar1.jpg" />
-                </div>
-              </div>
-            </li>
-          </ul>
+                .dropdown-arrow {
+                    margin-left: 5px;
+                    vertical-align: middle;
+                }
+
+                /* Dark mode styling for dropdown menu links */
+                .switch-checkbox:checked ~ .container .dropdown-menu li a {
+                    color: white; /* White font color for night mode */
+                }
+
+                /* Default styling for dropdown menu links in day mode */
+                .dropdown-menu li a {
+                    color: black; /* Default font color for day mode */
+                }
+            </style>
+
+            <script>
+                function toggleMoreMenu(event) {
+                    const menu = event.currentTarget.nextElementSibling;
+                    menu.classList.toggle('active');
+                }
+            </script>
         </nav>
 
-
-
-        <script>
-          function toggleDropdown(event) {
-            event.preventDefault();
-            const dropdownMenu = event.currentTarget.nextElementSibling;
-            dropdownMenu.classList.toggle('show');
-          }
-        </script>
-        <script>
-          document.addEventListener("DOMContentLoaded", () => {
-            const savedAvatar = localStorage.getItem("selectedAvatar");
-            const savedName = localStorage.getItem("profileName");
-            if (savedAvatar) {
-              document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
-            }
-            if (savedName) {
-            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
-        } else {
-            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
-        }
-          });
-
-          function menuToggle() {
-            const toggleMenu = document.querySelector(".menu");
-            toggleMenu.classList.toggle("active");
-          }
-
-          document.addEventListener("click", function (event) {
-            const profile = document.querySelector(".profile");
-            const menu = document.querySelector(".menu");
-
-            if (!profile.contains(event.target) && !menu.contains(event.target)) {
-              menu.classList.remove("active");
-            }
-          });
-
-        
-        </script>
-
         <div id="modal">
-          <form class="modal-box">
-            <!-- <img src="https://st2.depositphotos.com/4103319/6625/i/450/depositphotos_66251761-stock-photo-logout-circular-icon-on-white.jpg" class="logout-img"/> -->
-            <h1>Logout Account</h1>
-            <p class="logout-que">Are you sure you want to log out ?</p>
-            <div class="close-logout-btn">
-              <button class="cancel-logout-btn">Cancel</button>
-              <button class="out-logout-btn">Log Out</button>
-            </div>
-          </form>
+            <form class="modal-box">
+                <h1>Logout Account</h1>
+                <p class="logout-que">Are you sure you want to log out?</p>
+                <div class="close-logout-btn">
+                    <button class="cancel-logout-btn">Cancel</button>
+                    <button class="out-logout-btn">Log Out</button>
+                </div>
+            </form>
         </div>
 
         <script src="../../logout.js"></script>
 
-        <!-- Google Translate Element -->
-        <!-- <li class="navbar-item">
-            <div id="google_element"></div>
-          </li> -->
-        </ul>
-        <!-- <div class="hamburger">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div> -->
-
-        </nav>
         <div id="mobile_View_Menu">
-          <span id="menu_lines"></span>
+            <span id="menu_lines"></span>
         </div>
 
         <script>
-          let menu = document.getElementById('mobile_View_Menu');
-          let navbar_con = document.querySelector('.navbar');
+            let menu = document.getElementById('mobile_View_Menu');
+            let navbar_con = document.querySelector('.navbar');
 
-          menu.addEventListener('click', () => {
-            // Toggle 'open_menu' on menu and 'nav_activated' on navbar container
-            menu.classList.toggle('open_menu');
-            navbar_con.classList.toggle('nav_activated');
-          });
-
-        </script>
-
-
-        <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-        <div className="wrapper col-md-3 col-12" style="justify-Content: 'center'; display: 'flex'">
-
-          <div id="google_element"></div>
-          <Script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"
-            strategy="afterInteractive" />
-          <Script id="google-translate" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: ` function
-            loadGoogleTranslate() { new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_element' ); }
-            `, }} />
-        </div>
-        <script>
-          // const hamburger=document.querySelector('.hamburger');
-          // const head=document.querySelector('.header');
-          // const nav=document.querySelector('.nav');
-          // hamburger.addEventListener('click',()=>{
-          
-          const sections = document.querySelectorAll("section");
-          const navLinks = document.querySelectorAll(".navbar-link");
-
-          // Function to update the active nav link
-          function updateActiveLink() {
-            let scrollPosition = window.scrollY + window.innerHeight / 3;
-
-            sections.forEach((section) => {
-              const sectionTop = section.offsetTop;
-              const sectionHeight = section.offsetHeight;
-              const sectionId = section.getAttribute("id");
-
-              // Check if the current scroll position is within the section
-              if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinks.forEach((link) => {
-                  link.classList.remove("active");
-                  if (link.getAttribute("href") === `#${sectionId}`) {
-                    link.classList.add("active");
-                  }
-                });
-              }
+            menu.addEventListener('click', () => {
+                menu.classList.toggle('open_menu');
+                navbar_con.classList.toggle('nav_activated');
             });
-          }
-
-          //Add scroll event listener to window
-          window.addEventListener("scroll", updateActiveLink);
-          updateActiveLink();
-
-
-          window.addEventListener("scroll", onScroll);
         </script>
+
         <div class="switch-container" style="top: 1.5rem;">
-          <input type="checkbox" id="switch" class="switch-checkbox">
-          <label for="switch" class="switch-label">
-            <div class="switch-button">
-              <span class="material-icons sun-icon">wb_sunny </span>
-              <span class="material-icons moon-icon">brightness_2</span>
-            </div>
-          </label>
+            <input type="checkbox" id="switch" class="switch-checkbox">
+            <label for="switch" class="switch-label">
+                <div class="switch-button">
+                    <span class="material-icons sun-icon">wb_sunny</span>
+                    <span class="material-icons moon-icon">brightness_2</span>
+                </div>
+            </label>
         </div>
-      </div>
-      </div>
+
+    </div>
+
+<style>
+
+                    /* Example for specific elements like navbar links */
+                    .light-mode .navbar-link {
+                        color: black; /* Light mode color */
+                    }
+
+                    .dark-mode .navbar-link {
+                        color: white; /* Dark mode color */
+                    }
+
+          </style>
     </header>
     <link rel="stylesheet" href="assets/css/refresher.css">
     <div id="caduceus-container">
@@ -4518,6 +4557,31 @@ color: #ac2127;
               cardPerView = updateCardPerView();
               carousel.scrollLeft = carousel.offsetWidth * cardPerView;
             });
+
+//Literary Realms carousel autoplaying logic
+
+            let scrollInterval;
+
+const startAutoplay = () => {
+    scrollInterval = setInterval(() => {
+        const scrollAmount = (firstCardWidth) * 1; // Adjust the scroll amount as needed
+        carousel.scrollLeft += scrollAmount;
+    }, 3000); // Change the interval time (3000ms = 3 seconds) as needed
+};
+
+const stopAutoplay = () => {
+    clearInterval(scrollInterval);
+};
+
+// Start autoplay when the page loads
+startAutoplay();
+
+// Optionally, you can stop autoplay when the user interacts with the carousel
+carousel.addEventListener("mouseenter", stopAutoplay);
+carousel.addEventListener("mouseleave", startAutoplay);
+
+
+
           });
         </script>
         <style>
@@ -4799,43 +4863,55 @@ color: #ac2127;
               <ul class="benefits-canvas-container"
                 style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; list-style: none; padding: 0; margin: 0;">
                 <li class="canvas" style="flex: 1 1 30%; max-width: 30%; box-sizing: border-box;">
-                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box;">
+                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box; height: 450px;">
                     <h3 class="h3 card-title">Fresh Pages - New Releases</h3>
                     <data class="price" value="5">75% Off</data>
                     <p class="card-text">
                       Exchange any recently released or gently used books, less than a year old, at 75% of the original
                       cost (Limited Offer)
                     </p>
-                    <a href="assets/html/checkout.html">
-                      <button class="btn btn-secondary">BUY NOW</button>
+                    <a href="assets/html/checkout.html" class="cta1 style-9">
+                      <span style="position: relative; top: 2.7rem; font-size: 15px;">Buy Now</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
                     </a>
                   </div>
                 </li>
 
                 <li class="canvas" style="flex: 1 1 30%; max-width: 30%; box-sizing: border-box;">
-                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box;">
+                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box; height: 450px;">
                     <h3 class="h3 card-title">Timeless Classics - Aged Wonders</h3>
                     <data class="price" value="15">50% Off</data>
                     <p class="card-text">
                       Beloved classics or books aged 1 to 5 years at 50% of the original cost, preserving the magic of
                       timeless stories.
                     </p>
-                    <a href="assets/html/checkout.html">
-                      <button class="btn btn-secondary">BUY NOW</button>
+                    <a href="assets/html/checkout.html" class="cta1 style-9">
+                      <span style="position: relative; top: 2.7rem; font-size: 15px;">Buy Now</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
                     </a>
                   </div>
                 </li>
 
                 <li class="canvas" style="flex: 1 1 30%; max-width: 30%; box-sizing: border-box;">
-                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box;">
+                  <div class="benefits-card has-before has-after" style="padding: 15px; box-sizing: border-box; height: 450px;">
                     <h3 class="h3 card-title">Hidden Treasures - Vintage Editions</h3>
                     <data class="price" value="10">25% Off</data>
                     <p class="card-text">
                       Dive into the past with vintage editions or books over 5 years old, available for exchange at 25%
                       of their original cost.
                     </p>
-                    <a href="assets/html/checkout.html">
-                      <button class="btn btn-secondary">BUY NOW</button>
+                    <a href="assets/html/checkout.html" class="cta1 style-9">
+                      <span style="position: relative; top: 2.7rem; font-size: 15px;">Buy Now</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
                     </a>
                   </div>
                 </li>
@@ -4879,12 +4955,11 @@ color: #ac2127;
 
             <ul class="grid-list" id="genre-list" >
               <li data-aos="slide-right">
-                <a href="classic-literature.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
                     <p class="card-subtitle">01</p>
                     <div class="iconrow">
                       <h3 class="h3 card-title">Classic Literature</h3>
-                      <span style='font-size: 5rem;filter: grayscale(100%);'>&#128395;</span>
+                      <span style='font-size: 5rem;color: blue;'>&#128395;</span>
                     </div>
 
 
@@ -4895,27 +4970,24 @@ color: #ac2127;
                       are
                       all writers whose works are considered classical literature.
                     </p>
-                    <p class="book-recommendation">
-                      Book Recommendations:
-                    </p>
-                    <ul class="book-list">
-                      <li>1. Pride and Prejudice by Jane Austen</li>
-                      <li>2. Moby-Dick by Herman Melville </li>
-                      <li>3. 1984 by George Orwell</li>
-                    </ul>
 
+                    <a href="./assets/html/classic.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
                   </div>
-                </a>
               </li>
 
               <li data-aos="zoom-in">
-                <a href="romance.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card" >
 
                   <p class="card-subtitle" style=" width: 202.48px; height: 13px;">02</p>
                   <div class="iconrow" style=" width: 202.48px; height: 79px;">
                     <h3 class="h3 card-title">Romance</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#10084;</span>
+                    <span style='font-size:5rem;color: red;'>&#10084;</span>
                   </div>
 
                   <p class="card-text">
@@ -4924,27 +4996,24 @@ color: #ac2127;
                     the main characters of the story. The biggest defining characteristic of the romance genre is that a
                     happy ending is always guaranteed, perhaps living 'happily ever after.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Pride and Prejudice by Jane Austen</li>
-                    <li>2. The Notebook by Nicholas Sparks</li>
-                    <li>3. Me Before You by Jojo Moyes Lee</li>
-                  </ul>
+                  <a href="./assets/html/romance.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-              </a>
               </li>
 
               <li data-aos="slide-left">
-                <a href="suspense-thriller.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">03</p>
                   <div class="iconrow" style=" width: 202.48px; height: 79px;">
                     <h3 class="h3 card-title">Suspense Thriller</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#128269;</span>
+                    <span style='font-size:5rem;'>&#128269;</span>
                   </div>
 
 
@@ -4953,27 +5022,24 @@ color: #ac2127;
                     with twists and turns, keeping readers guessing until the very last page as protagonists navigate
                     dangerous situations.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Gone Girl by Gillian Flynn</li>
-                    <li>2. The Girl with the Dragon Tattoo by Stieg Larsson</li>
-                    <li>3. The Da Vinci Code by Dan Brown</li>
-                  </ul>
+                  <a href="./assets/html/suspense-thriller.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-                </a>
               </li>
 
               <li data-aos="slide-right">
-                <a href="science-fiction.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">04</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Science Fiction</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#128640;</span>
+                    <span style='font-size:5rem;'>&#128640;</span>
                   </div>
 
 
@@ -4982,27 +5048,24 @@ color: #ac2127;
                     fiction books ignite the imagination with visions of advanced civilizations, space exploration, and
                     speculative science.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Dune by Frank Herbert</li>
-                    <li>2. Neuromancer by William Gibson</li>
-                    <li>3. The Hitchhiker's Guide to the Galaxy by Douglas Adams</li>
-                  </ul>
+                  <a href="./assets/html/science-fiction.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-                </a>
               </li>
 
               <li data-aos="zoom-in">
-                <a href="fantasy.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">05</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Fantasy</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F52E;</span>
+                    <span style='font-size:5rem;'>&#x1F52E;</span>
                   </div>
 
                   <p class="card-text">
@@ -5010,27 +5073,24 @@ color: #ac2127;
                     anything is possible, weaving tales of epic quests, ancient prophecies, and battles between good and
                     evil.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The Hobbit by J.R.R. Tolkien </li>
-                    <li>2. Harry Potter and the Sorcerer's Stone by J.K. Rowling </li>
-                    <li>3. A Game of Thrones by George R.R. Martin</li>
-                  </ul>
+                  <a href="./assets/html/fantasy.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-                </a>
               </li>
 
               <li data-aos="slide-left">
-                <a href="horror.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">06</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Horror</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F578;</span>
+                    <span style='font-size:5rem;'>&#x1F578;</span>
                   </div>
 
                   <p class="card-text">
@@ -5038,17 +5098,15 @@ color: #ac2127;
                     exploring fear, dread, and the unknown through chilling tales of monsters, ghosts, and psychological
                     terror.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Dracula by Bram Stoker </li>
-                    <li>2. The Shining by Stephen King</li>
-                    <li>3. Frankenstein by Mary Shelley </li>
-                  </ul>
+                  <a href="./assets/html/horror.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
-              </a>
               </li>
 
               <li data-aos="slide-right">
@@ -5057,7 +5115,7 @@ color: #ac2127;
                   <p class="card-subtitle">07</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Biography</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F464;</span>
+                    <span style='font-size:5rem;'>&#x1F464;</span>
                   </div>
 
                   <p class="card-text">
@@ -5066,14 +5124,13 @@ color: #ac2127;
                     struggles of notable individuals, offering inspiration and understanding through their personal
                     stories and achievements.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The Diary of a Young Girl by Anne Frank</li>
-                    <li>2. Long Walk to Freedom by Nelson Mandela</li>
-                    <li>3. Steve Jobs by Walter Isaacson</li>
-                  </ul>
+                  <a href="./assets/html/biography.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
               </li>
@@ -5084,7 +5141,7 @@ color: #ac2127;
                   <p class="card-subtitle">08</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Self Help</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F9E0;</span>
+                    <span style='font-size:5rem;'>&#x1F9E0;</span>
                   </div>
 
                   <p class="card-text">
@@ -5092,24 +5149,24 @@ color: #ac2127;
                     strategies, and insights for personal growth, happiness, and success, covering topics such as
                     relationships, productivity, and mental health.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The 7 Habits of Highly Effective People by Stephen R. Covey </li>
-                    <li>2. The Alchemist by Paulo Coelho</li>
-                    <li>3. Atomic Habits" by James Clear</li>
-                  </ul>
+                  <a href="./assets/html/self-help.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
               </li>
+
               <li data-aos="slide-left">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">09</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Historical Fiction</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F3DB;</span>
+                    <span style='font-size:5rem;'>&#x1F3DB;</span>
                   </div>
 
                   <p class="card-text">
@@ -5117,14 +5174,13 @@ color: #ac2127;
                     narratives, transporting readers to different eras and cultures, bringing history to life through
                     vivid characters and immersive storytelling.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The Book Thief by Markus Zusak </li>
-                    <li>2. All the Light We Cannot See by Anthony Doerr</li>
-                    <li>3. The Nightingal" by Kristin Hannah </li>
-                  </ul>
+                  <a href="./assets/html/historical-fiction.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
               </li>
@@ -5135,7 +5191,7 @@ color: #ac2127;
                   <p class="card-subtitle">10</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Poetry</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x270D;</span>
+                    <span style='font-size:5rem;'>&#x270D;</span>
                   </div>
 
 
@@ -5145,14 +5201,13 @@ color: #ac2127;
                     From ancient epics to modern verses, they celebrate the power of words and the timeless beauty of
                     human expression.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The Waste Land by T.S. Eliot</li>
-                    <li>2. Leaves of Grass by Walt Whitman</li>
-                    <li>3. The Sun and Her Flowers by Rupi Kaur </li>
-                  </ul>
+                  <a href="./assets/html/poetry.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
               </li>
@@ -5163,7 +5218,7 @@ color: #ac2127;
                   <p class="card-subtitle">11</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Philosophy</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F4DC;</span>
+                    <span style='font-size:5rem;'>&#x1F4DC;</span>
                   </div>
 
 
@@ -5172,14 +5227,13 @@ color: #ac2127;
                     and knowledge, they provoke deep thought, challenge assumptions, and offer
                     diverse perspectives, fostering critical thinking and a deeper understanding of the human condition.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Meditations by Marcus Aurelius</li>
-                    <li>2. The Republic by Plato </li>
-                    <li>3. Nicomachean Ethics by Aristotle</li>
-                  </ul>
+                  <a href="./assets/html/philosophy.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
               </li>
@@ -5190,7 +5244,7 @@ color: #ac2127;
                   <p class="card-subtitle">12</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Adventure</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F526;</span>
+                    <span style='font-size:5rem;'>&#x1F526;</span>
                   </div>
 
                   <p class="card-text">
@@ -5198,14 +5252,13 @@ color: #ac2127;
                     transports readers to exotic locales, ignites the imagination, and offers escapism,
                     excitement, and a sense of discovery and wonder.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Treasure Island by Robert Louis Stevenson</li>
-                    <li>2. The Call of the Wild by Jack London</li>
-                    <li>3. Life of Pi by Yann Martel</li>
-                  </ul>
+                  <a href="./assets/html/adventure.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
               </li>
@@ -5217,21 +5270,20 @@ color: #ac2127;
                   <p class="card-subtitle">13</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Non-Fiction</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F4D6;</span>
+                    <span style='font-size:5rem;'>&#x1F4D6;</span>
                   </div>
 
                   <p class="card-text">
                     Dive into the mysteries and secrets of the world surrounding us, and gain a deeper knowledge and
                     history behind the wisdom of our correspondants and predecessors, through non-fiction.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Sapiens: A Brief History of Humankind by Yuval Noah Harari</li>
-                    <li>2. Educated by Tara Westover</li>
-                    <li>3. The Immortal Life of Henrietta Lacks by Rebecca Skloot</li>
-                  </ul>
+                  <a href="./assets/html/nonfiction.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
               </li>
@@ -5242,21 +5294,20 @@ color: #ac2127;
                   <p class="card-subtitle">14</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Comedy</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F939;</span>
+                    <span style='font-size:5rem;'>&#x1F939;</span>
                   </div>
 
                   <p class="card-text">
                     Are you feeling blue and want a good laugh? Well then, Comedy is the right genre for you! Grab a cup
                     of coffee, lean back and dive into a world of humour, smiles and all sun!
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The Hitchhiker's Guide to the Galaxy by Douglas Adams</li>
-                    <li>2. Good Omens by Neil Gaiman and Terry Pratchett</li>
-                    <li>3. Bossypants by Tina Fey</li>
-                  </ul>
+                  <a href="./assets/html/comedy.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
               </li>
@@ -5267,7 +5318,7 @@ color: #ac2127;
                   <p class="card-subtitle">15</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Detective Fiction</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F5DD;</span>
+                    <span style='font-size:5rem;'>&#x1F5DD;</span>
                   </div>
 
 
@@ -5276,14 +5327,13 @@ color: #ac2127;
                     reach your end-goal with secret agents. Put your investigative and observative skills to the test,
                     in the land of Detective Fiction.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The Hound of the Baskervilles by Arthur Conan Doyle</li>
-                    <li>2. Gone Girl by Gillian Flynn</li>
-                    <li>3. The Big Sleep by Raymond Chandler</li>
-                  </ul>
+                  <a href="./assets/html/detective-fiction.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
               </li>
@@ -5292,7 +5342,7 @@ color: #ac2127;
                   <p class="card-subtitle">16</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Fairy Tales</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F9DA;</span>
+                    <span style='font-size:5rem;'>&#x1F9DA;</span>
                   </div>
 
                   <p class="card-text">
@@ -5300,14 +5350,13 @@ color: #ac2127;
                     vanquished. The essence of fairy tales is their promise of a happy ending, with characters finding
                     their "happily ever after."
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Grimm's Fairy Tales by Jacob and Wilhelm Grimm</li>
-                    <li>2. Cinderella by Charles Perrault</li>
-                    <li>3. The Snow Queen by Hans Christian Andersen</li>
-                  </ul>
+                  <a href="./assets/html/fairytale.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
                 </div>
               </li>
               <li data-aos="zoom-in">
@@ -5315,7 +5364,7 @@ color: #ac2127;
                   <p class="card-subtitle">17</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Mythology</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'> &#x1F31F;</span>
+                    <span style='font-size:5rem;'> &#x1F31F;</span>
                   </div>
 
                   <p class="card-text">
@@ -5323,14 +5372,13 @@ color: #ac2127;
                     generations. These tales often feature gods, heroes, and mythical creatures, exploring themes of
                     creation, morality, and the human condition.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Mythology: Timeless Tales of Gods and Heroes by Edith Hamilton </li>
-                    <li>2. The Iliad by Homer</li>
-                    <li>3. Norse Mythology by Neil Gaiman</li>
-                  </ul>
+                  <a href="./assets/html/mythology.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
                 </div>
               </li>
               <li data-aos="slide-left">
@@ -5338,7 +5386,7 @@ color: #ac2127;
                   <p class="card-subtitle">18</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Noir</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F312;</span>
+                    <span style='font-size:5rem;'>&#x1F312;</span>
                   </div>
 
                   <p class="card-text">
@@ -5347,14 +5395,13 @@ color: #ac2127;
                     environments and explore themes of crime, corruption, and existential despair.
                   </p>
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Double Indemnity by James M. Cain</li>
-                    <li>2. The Maltese Falcon by Dashiell Hammett</li>
-                    <li>3. The Postman Always Rings Twice by James M. Cain</li>
-                  </ul>
+                  <a href="./assets/html/noir.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
                 </div>
               </li>
               <li data-aos="slide-right">
@@ -5362,7 +5409,7 @@ color: #ac2127;
                   <p class="card-subtitle">19</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">True Crime</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F575; </span>
+                    <span style='font-size:5rem;'>&#x1F575; </span>
                   </div>
 
                   <p class="card-text">
@@ -5370,14 +5417,13 @@ color: #ac2127;
                     justice system through detailed and factual narratives. These stories often provide deep insights
                     into criminal minds and the complex pursuit of justice.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. In Cold Blood by Truman Capote</li>
-                    <li>2. The Devil in the White City by Erik Larson</li>
-                    <li>3. I'll Be Gone in the Dark by Michelle McNamara </li>
-                  </ul>
+                  <a href="./assets/html/true-crime.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
                 </div>
 
               </li>
@@ -5388,7 +5434,7 @@ color: #ac2127;
                   <p class="card-subtitle">20</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Dystopian</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#128740;</span>
+                    <span style='font-size:5rem;'>&#128740;</span>
                   </div>
 
                   <p class="card-text">
@@ -5396,14 +5442,13 @@ color: #ac2127;
                     oppression, deprivation, and despair. These stories challenge readers to reflect on current social
                     and political issues by presenting exaggerated consequences of modern-day problems.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. 1984 by George Orwell</li>
-                    <li>2. Fahrenheit 451 by Ray Bradbury</li>
-                    <li>3. The Handmaid's Tale by Margaret Atwood</li>
-                  </ul>
+                  <a href="./assets/html/dystopian.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
               </li>
@@ -5414,7 +5459,7 @@ color: #ac2127;
                   <p class="card-subtitle">21</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Magical Realism</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#129668;</span>
+                    <span style='font-size:5rem;'>&#129668;</span>
                   </div>
 
                   <p class="card-text">
@@ -5422,14 +5467,13 @@ color: #ac2127;
                     of everyday life. This genre often explores the boundaries between reality and imagination, weaving
                     fantastical occurrences into the fabric of the mundane.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The Chronicles of Narnia by C.S. Lewis</li>
-                    <li>2. Alice's Adventures in Wonderland by Lewis Carroll</li>
-                    <li>3. The Night Circus by Erin Morgenstern</li>
-                  </ul>
+                  <a href="./assets/html/magical-realism.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
               </li>
@@ -5441,7 +5485,7 @@ color: #ac2127;
                   <p class="card-subtitle">22</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Cyberpunk</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F310;</span>
+                    <span style='font-size:5rem;'>&#x1F310;</span>
                   </div>
 
                   <p class="card-text">
@@ -5450,14 +5494,13 @@ color: #ac2127;
                     technology on human life, including issues of cybernetics, artificial intelligence, and corporate
                     control.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Neuromancer by William Gibson</li>
-                    <li>2. Snow Crash by Neal Stephenson</li>
-                    <li>3. Altered Carbon by Richard K. Morgan</li>
-                  </ul>
+                  <a href="./assets/html/cyberpunk.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
               </li>
@@ -5468,7 +5511,7 @@ color: #ac2127;
                   <p class="card-subtitle">23</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Utopian</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F3DD;</span>
+                    <span style='font-size:5rem;'>&#x1F3DD;</span>
                   </div>
 
                   <p class="card-text">
@@ -5476,14 +5519,13 @@ color: #ac2127;
                     perfect. These stories often explore theoretical models of how human society might function in an
                     ideal state, offering a contrast to real-world issues and inspiring visions of a better future.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Utopia by Thomas More</li>
-                    <li>2. Brave New World by Aldous Huxley</li>
-                    <li>3. The Dispossessed by Ursula K. Le Guin</li>
-                  </ul>
+                  <a href="./assets/html/utopian.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
               </li>
@@ -5494,7 +5536,7 @@ color: #ac2127;
                   <p class="card-subtitle">24</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Experimental Fiction</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F4DA;</span>
+                    <span style='font-size:5rem;'>&#x1F4DA;</span>
                   </div>
 
                   <p class="card-text">
@@ -5502,14 +5544,13 @@ color: #ac2127;
                     genre is known for its innovative approaches, including fragmented narratives, unconventional
                     formats, and metafictional elements, pushing the boundaries of traditional storytelling.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. House of Leaves by Mark Z. Danielewski</li>
-                    <li>2. Ulysses by James Joyce</li>
-                    <li>3. If on a winter's night a traveler by Italo Calvino</li>
-                  </ul>
+                  <a href="./assets/html/experimental-fiction.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
               </li>
@@ -5519,7 +5560,7 @@ color: #ac2127;
                   <p class="card-subtitle">25</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Satire</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F3AD;</span>
+                    <span style='font-size:5rem;'>&#x1F3AD;</span>
                   </div>
 
                   <p class="card-text">
@@ -5527,14 +5568,13 @@ color: #ac2127;
                     through verbal ingenuity, swift perception and the human understanding of sarcasm and irony in
                     real-life.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Animal Farm by George Orwell</li>
-                    <li>2. Catch-22 by Joseph Heller</li>
-                    <li>3. The Hitchhiker's Guide to the Galaxy by Douglas Adams</li>
-                  </ul>
+                  <a href="./assets/html/satire.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
                 </div>
               </li>
 
@@ -5545,7 +5585,7 @@ color: #ac2127;
                   <p class="card-subtitle">26</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Psychological Thriller</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x23F3;</span>
+                    <span style='font-size:5rem;'>&#x23F3;</span>
                   </div>
 
                   <p class="card-text">
@@ -5553,40 +5593,42 @@ color: #ac2127;
                     unreliable narrators. They keep you guessing with twists and explore complex, often dark,
                     motivations.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. Gone Girl by Gillian Flynn</li>
-                    <li>2. The Girl on the Train by Paula Hawkins</li>
-                    <li>3. Shutter Island by Dennis Lehane</li>
-                  </ul>
+                  <a href="./assets/html/psycological-thriller.html" class="cta2 style-9">
+                      <span style="font-size: 1.2rem;">Book Recommendations</span>
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
 
                 </div>
               </li>
 
               <li data-aos="slide-left">
+                <a href="./assets/html/autobiography.html" style="text-decoration: none; color: inherit;">
                 <div class="chapter-card">
 
                   <p class="card-subtitle">27</p>
 
                   <h3 class="h3 card-title">Autobiography</h3>
 
-                  <p class="card-text">
+                  <p class="card-text">`
                     A non-fiction account of a person's life written by that person, offering personal insight and
                     reflection on their experiences.It serves as a means for the author to share their unique narrative,
                     including the challenges they've faced and the lessons they've learned along the way.
                   </p>
-                  <p class="book-recommendation">
-                    Book Recommendations:
-                  </p>
-                  <ul class="book-list">
-                    <li>1. The Story of My Life by Helen Keller</li>
-                    <li>2. Becoming by Michelle Obama</li>
-                    <li>3. Educated by Tara Westover</li>
-                  </ul>
 
+                  <a href="./assets/html/biography.html" class="cta2 style-9">
+
+        <span style="font-size: 1.2rem;">Book Recommendations</span>
+
+                      <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                      </svg>
+                    </a>
                 </div>
+              </a>
               </li>
             </ul>
             
@@ -5997,18 +6039,96 @@ color: #ac2127;
         event.preventDefault(); // Prevent the default form submission
         console.log('Form submitted'); // Debug log
 
-        // Show the thank-you popup
-        document.getElementById('thank-you-popup').style.display = 'block';
 
-        // Reset the form
-        this.reset();
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {})
+
+
+
+            <!-- JavaScript for form submission -->
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {})
+
+
+
+     
+
+
+              // <!-- Rate Us Component -->
+              <div id="rate-us">
+                <div class="heading">
+                  <h3>Rateus</h3>
+                  <p>Tell us about your experience!</p>
+                </div>
+
+                <div class="stars">
+                  <input type="radio" id="star5" name="rate" value="5" />
+                  <label for="star5">😭</label>
+                  <input type="radio" id="star4" name="rate" value="4" />
+                  <label for="star4">😢</label>
+                  <input type="radio" id="star3" name="rate" value="3" />
+                  <label for="star3">😐</label>
+                  <input type="radio" id="star2" name="rate" value="2" />
+                  <label for="star2">😊</label>
+                  <input type="radio" id="star1" name="rate" value="1" />
+                  <label for="star1">😍</label>
+                </div>
+
+                <div class="feedback-container">
+                  <textarea id="feedback" placeholder="Enter your feedback..." rows="4"></textarea>
+                </div>
+
+                <div class="button">
+
+                  <center><button id="submit-btn">Submit</button></center>
+                </div>
+              </div>
+
+              <div id="toastMessage" class="toast-message"></div>
+              <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                  main
+    const toastMessage = document.getElementById("toastMessage");
+
+                document.getElementById("submit-btn").addEventListener("click", function(event) {
+                  event.preventDefault(); // Prevent default form submission
+
+                let selectedEmoji = document.querySelector('input[name="rate"]:checked');
+                let feedback = document.getElementById("feedback").value.trim();
+
+                if (selectedEmoji && feedback !== "") {
+                  // Show success toast message
+                  toastMessage.textContent = "Feedback submitted successfully!";
+                toastMessage.style.backgroundColor = "green";
+                showToastMessage();
+
+                // Reset form fields
+                document.getElementById("feedback").value = "";
+                let starInputs = document.querySelectorAll('input[name="rate"]');
+        starInputs.forEach(input => input.checked = false);
+      } else {
+                  // Show failure toast message
+                  toastMessage.textContent = "Please select an emoji and give feedback.";
+                toastMessage.style.backgroundColor = "red";
+                showToastMessage();
+      }
     });
 
-    function closePopup() {
-        document.getElementById('thank-you-popup').style.display = 'none';
-    }
-</script>
+                function showToastMessage() {
+                  toastMessage.style.display = "block",
+      setTimeout(() => {
+                  toastMessage.style.opacity = "1"
+      }, 100);
 
+                setTimeout(function() {
+                  toastMessage.style.opacity = "0",
+        setTimeout(() => {
+                  toastMessage.style.display = "none"
+        }, 300)
+      }, 3000)
+    }
+  })
+        </script>
 <style>
 
 /* Basic styles for body */
@@ -6035,6 +6155,7 @@ body {
     transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transitions */
     z-index: 999; /* Ensure it's above other elements */
 }
+
 
 
 
@@ -6668,7 +6789,7 @@ box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); /* Slightly larger shadow on hover */
                   new google.translate.TranslateElement(
                     { pageLanguage: 'en' },
                     'google_translate_element'
-                  );
+                  )
               }
             </script>
 
@@ -6758,12 +6879,92 @@ box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); /* Slightly larger shadow on hover */
                     </ul>
                   </div>
                 </div>
+
+                <div id="quicklink" class="row">
+                  <div>
+                    <ul>
+                      <li class="foot-quick"><a href="/chatt.html"><i class="fa-solid fa-message"></i>
+                          <h4 class="flinks">Community Chat</h4>
+                        </a></li>
+                    </ul>
+                  </div> 
+
+                  <div>
+                    <ul>
+                      <li class="foot-quick"><a href="assets/html/read_later.html"><i class="fa-solid fa-book-open-reader"></i>
+                          <h4 class="flinks">Read Later</h4>
+                        </a></li>
+                    </ul>
+                  </div> 
+
+                  <div>
+                    <ul>
+                      <li class="foot-quick"><a href="assets/html/ConnReader.html"><i class="fa-solid fa-users"></i>
+                          <h4 class="flinks">Reader Connection</h4>
+                        </a></li>
+                    </ul>
+                  </div> 
+                  <div>
+                   <ul>
+                     <li class="foot-quick"><a href="assets/html/blog.html"><i class="fas fa-book"></i>
+                       <h4 class="flinks">Blogs</h4>
+                      </a></li>
+                     </ul>
+                  </div> 
+                
+                </div>
+
               </div>
             </div>
 
           </div>
         </div>
         <style>
+          #quicklink{
+            display: flex;
+            justify-content: flex-start;
+            gap:20px;
+          }
+
+          #quicklink ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      #quicklink .foot-quick {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0rem;
+        /* Adjust spacing between list items */
+      }
+
+      #quicklink .foot-quick a {
+        display: flex;
+        flex-direction: row;
+        /* Ensure icon and text are in a row */
+        align-items: center;
+        /* Vertically center-align the icon and text */
+        text-decoration: none;
+        color: rgb(83, 74, 74);
+        /* Adjust link color as needed */
+      }
+
+      #quicklink .foot-quick a i {
+        margin-right: 0.5rem;
+        /* Adjust spacing between icon and text */
+      }
+
+      #quicklink .foot-quick a p {
+        margin: 0;
+        /* Remove default margins from <p> */
+      }
+
+      .dark-mode #quicklink .foot-quick h4 {
+        color: #909dc2;
+      }
+
+
+
           #quicklinks:hover {
             text-decoration: none;
           }
@@ -6965,9 +7166,38 @@ function showSuccessMessage() {
 
           <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
           <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a> |
-          <a href="our-vision.html" id="ourvisionlink">Our Vision</a></li> |
-          <a href="./contributors/contributor.html" id="ourvisionlink">Our Contributors </a></li> |
-          <a href="refundpolicy.html">Refund Policy</a>
+          <a href="our-vision.html" id="ourvisionlink">Our Vision</a> |
+          <a href="./contributor/contributorss.html" class="contributors"><i class="fas fa-users"></i> Our Contributors</a> |
+          <a href="refundpolicy.html" id="refundp">Refund Policy</a>
+          <style>
+            #refundp:hover{
+              color: rgb(126, 0, 21);
+              transition: color 0.5s ease;
+            }
+            .dark-mode #refundp:hover{
+              color: #708090;
+              transition: color 0.5s ease;
+            }
+            .fas .fa-users:hover{
+              color: rgb(126, 0, 21) !important;
+              transition: color 0.5s ease !important;
+            }
+            .dark-mode .fas .fa-users:hover{
+              color: #708090 !important;
+              transition: color 0.5s ease !important;
+            }
+            .contributors:hover{
+              color: rgb(126, 0, 21) !important;
+              transition: color 0.5s ease !important;
+            }
+            .dark-mode .contributors:hover{
+              color: #708090 !important;
+              transition: color 0.5s ease !important;
+            }
+            </style>
+
+          
+
 
         </div>
       </div>
@@ -7323,7 +7553,7 @@ function showSuccessMessage() {
                   lenis.raf(time);
                 requestAnimationFrame(raf);
     }
-
+  
                 requestAnimationFrame(raf);
                 // JavaScript function to load more content when user scrolls to bottom
                 function loadMoreContent() {
@@ -7606,6 +7836,46 @@ open.classList.add('open')
 </script>
 
 
+<button id="achievement" class="achievement-button" onclick="window.location.href='./achievements.html'" title="Achievements">🏅</button>
+
+    <style>
+      .achievement-button {
+        position: fixed;
+        right: 45px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: linear-gradient(hwb(357 6% 30%), #d26d6d);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        /* Make it circular */
+        width: 50px;
+        /* Set width */
+        height: 50px;
+        /* Set height */
+        padding: 0;
+        /* Remove padding */
+        cursor: pointer;
+        z-index: 1005;
+        /* Ensure button is on top */
+        display: flex;
+        /* Center content */
+        justify-content: center;
+        /* Center content horizontally */
+        align-items: center;
+        /* Center content vertically */
+        font-size: 12px;
+        /* Smaller font size */
+        text-align: center;
+        /* Center text */
+        font-size: 23px;
+      }
+
+      .achievement-button:hover {
+        transform: translateY(-50%) scale(1.2);
+      }
+    </style>
+
 <style>
 
 .popupp {
@@ -7665,6 +7935,8 @@ body {
 
 }
 </style>
+
+<script src="scripts.js"></script> <!-- Link to your service worker registration script -->
 
   </body>
 
