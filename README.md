@@ -400,6 +400,7 @@
 │   │   ├── frog.jpg
 │   │   ├── fun.jpg
 │   │   ├── game.jpg
+│   │   ├── genre.jpg
 │   │   ├── genres/
 │   │   │   ├── 1.jpg
 │   │   │   ├── 10.jpg
@@ -530,6 +531,7 @@
 │   │   ├── mona.jpeg
 │   │   ├── moon.png
 │   │   ├── moon_solid.svg
+│   │   ├── motivation.jpg
 │   │   ├── murder.jpg
 │   │   ├── my.jpg
 │   │   ├── mystery.jpg
