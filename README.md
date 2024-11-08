@@ -834,6 +834,7 @@
 ├── subscribe.html
 ├── sw.js
 ├── terms&cond.html
+├── terms.css
 ├── testp.css
 ├── testp.js
 ├── thrilling-adventures.html

@@ -564,6 +564,232 @@
 #dropdown-menu.open {
   display: block;
 }
+/* Reset styles */
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Section styling */
+section {
+  padding: 30px;
+  max-width: 900px;
+  margin: 40px auto;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+section.dark-mode {
+  background-color: #2d2d2d; /* Dark background */
+  color: #eaeaea; /* Light text */
+}
+
+/* Navbar styling */
+.navbar5 {
+  background-color: #ffe6eb;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.navbar5.dark-mode {
+  background-color: #3b3b3b; /* Dark navbar background */
+  color: #eaeaea;
+}
+
+.navbar5 h1 a {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #d23b57;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar5.dark-mode h1 a {
+  color: #f84f35; /* Lighter color for dark mode */
+}
+
+.navbar5 h1 a:hover {
+  color: #7b1b3f;
+  text-decoration: underline;
+}
+
+.navbar5.dark-mode h1 a:hover {
+  color: #f28c9d;
+}
+
+.dark-mode .navbar5{
+  background-color: var(--white);
+  color:#f84f35;
+}
+
+/* Container styling */
+#container5 h2 {
+  color: #f84f35;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ffd3d9;
+  padding-bottom: 8px;
+}
+
+#container5.dark-mode h2 {
+  color: #f28c9d; /* Adjusted for dark mode */
+  border-bottom-color: #8a3a4b; /* Darker border */
+}
+
+/* Form styling */
+#book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+#book-form input[type="text"],
+#book-form select {
+  padding: 14px;
+  font-size: 1.1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.dark-mode #book-form input[type="text"],
+.dark-mode #book-form select {
+  background-color: #424242; /* Dark input background */
+  color: #eaeaea;
+  border: 1px solid #555;
+}
+
+#book-form input[type="text"]:focus,
+#book-form select:focus {
+  border-color: #d23b57;
+  outline: none;
+}
+
+.dark-mode #book-form input[type="text"]:focus,
+.dark-mode #book-form select:focus {
+  border-color: #f28c9d;
+}
+
+/* Button styling */
+button,
+#book-form button {
+  padding: 12px 20px;
+  background-color: #f84f35;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode button,
+.dark-mode #book-form button {
+  background-color: #a43a3a;
+  color: #eaeaea;
+}
+
+button:hover,
+#book-form button:hover {
+  background-color: #d23b57;
+}
+
+.dark-mode button:hover,
+.dark-mode #book-form button:hover {
+  background-color: #8a3a4b;
+}
+
+/* Text styling */
+p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.dark-mode p {
+  color: #eaeaea; /* Light text for dark mode */
+}
+
+/* Book list styling */
+.book-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.book-list li {
+  background-color: #ffe6eb;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .book-list li {
+  background-color: #3b3b3b; /* Dark background for list items */
+  color: #eaeaea;
+}
+
+
+.book-list li h3 {
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.book-list.dark-mode li h3 {
+  color: #f28c9d; /* Adjusted color for dark mode */
+}
+
+.book-list li p {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}
+
+.book-list.dark-mode li p {
+  color: #eaeaea;
+}
+#book-form input[type="text"],#book-form input[type="text"], #book-form select {
+  font-size: 1.8rem;
+}
+/* Responsive styling */
+@media (max-width: 768px) {
+  #book-form {
+    gap: 10px;
+  }
+
+  .navbar5 h1 a {
+    font-size: 1.5rem;
+  }
+
+  #container5 h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
   </style>
 </head>
 
@@ -743,12 +969,6 @@
                     <i class="ri-customer-service-2-fill"></i> Book Recommendation
                   </a>
                 </li>
-                <!-- <li>
-                  <a href="./bookpref.html" class="navbar-link"
-                    style="font-family: sans-serif; margin-bottom: 5px;">
-                    Book Prefer Quiz
-                  </a>
-                </li> -->
                 <li class="dropdown-menu-item">
                   <a href="../html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
                     data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
@@ -948,28 +1168,6 @@ animateCircles();
 
 
 
-    <!-- <div class="switch-toggle-container">
-
-
-      window.addEventListener("scroll", onScroll);
-    </script>
-    <div class="switch-toggle-container">
-
-      <div class="switch-container switch-container-mobile">
-        <input type="checkbox" id="switch" class="switch-checkbox">
-        <label for="switch" class="switch-label">
-          <div class="switch-button">
-            <span class="material-icons sun-icon">wb_sunny</span>
-            <span class="material-icons moon-icon">brightness_2</span>
-          </div>
-        </label>
-      </div> -->
-
-    <!-- <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler id="nav-toggle-button">
-        <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
-
-        <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
-      </button> -->
     <div class="switch-container" style="top: 15px;">
       <input type="checkbox" id="switch" class="switch-checkbox">
       <label for="switch" class="switch-label">
@@ -1569,8 +1767,8 @@ animateCircles();
         bookItem.innerHTML = `
                     <div>
                         <h3>${title}</h3>
-                        <p><strong>Author:</strong> ${author}</p>
-                        <p><strong>Genre:</strong> ${genre}</p>
+                        <h3>${author}</h3>
+                        <h3>${genre}</h3>
                     </div>
                     <button class="remove-btn">Remove</button> <!-- Changed from '-' to 'Remove' for clarity -->
                     <div class="interested-users">
