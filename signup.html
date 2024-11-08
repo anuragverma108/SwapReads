@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register & Login</title>
+  <link rel="stylesheet" href="signup.css" />
+  <link rel="shortcut icon" href="ambulance.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+  <!-- preloader -->
+  <div id="preloader">
+    <div class="wrapper">
+      <div class="box-wrap">
+        <div class="box one"></div>
+        <div class="box two"></div>
+        <div class="box three"></div>
+        <div class="box four"></div>
+        <div class="box five"></div>
+        <div class="box six"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="forms-container">
+      <div class="signin-signup">
+        <form action="#" class="sign-in-form" onsubmit="return validateSignInForm()">
+          <h2 class="title">Sign in</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" id="username" placeholder="Username" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock" id="toggle-password"></i>
+            <input type="password" placeholder="Password" id="password-input" />
+          </div>
+          <div class="form-check d-flex">
+            <input type="checkbox" class="form-check-input" id="remember-me" />
+            <label class="form-check-label">Remember me</label>
+          </div>
+
+          <input type="submit" value="Login" class="btn solid" />
+          <p class="social-text">Or Sign in with social platforms</p>
+          <div class="social-media">
+            <div class="social-icon g-signin2" id="google_btn">
+              <i class="fab fa-google" style="font-size: 24px; color: #4285F4;"></i>
+            </div>
+            <a href="https://facebook.com/YourPage" target="_blank" class="social-icon">
+              <i class="fab fa-facebook-f" style="font-size: 24px; color: #4267b2"></i>
+            </a>
+            <a href="https://github.com/YourGitHubProfile" target="_blank" class="social-icon">
+              <i class="fab fa-github" style="font-size: 24px; color: #333"></i>
+            </a>
+          </div>
+        </form>
+       <script>
+       function validateSignInForm() {
+                const username = document.querySelector('.sign-in-form input[type="text"]').value;
+                const password = document.querySelector('.sign-in-form input[type="password"]').value;
+
+                // Sign-in validation logic
+                if (username.trim() === "") {
+                    alert("Please enter your username.");
+                    return false;
+                }
+
+                if (password.trim() === "") {
+                    alert("Please enter your password.");
+                    return false;
+                }
+
+                // Simulate successful login 
+                alert("You have successfully logged in to the website!");
+
+                // Redirect to the home screen after a short delay
+                setTimeout(function() {
+                    window.location.href = "index.html"; 
+                }, 2000); // Redirect after 2 seconds
+
+                // If all validations pass, return true to allow form submission
+                return false; // Prevent form submission since we are handling the redirect
+            };
+          </script>
+        <form action="#" class="sign-up-form"
+          style="background-color: #fff; padding: 20px;">
+          <h2 class="title">Sign up</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Username" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email" />
+          </div>
+          <div class="input-field">
+
+            <i class="fas fa-lock" id="toggle-password-signup"></i>
+            <input type="password" placeholder="Password" id="password-input-signup" />
+          </div>
+
+          <!-- Password strength meter starts here (initially hidden) -->
+          <div id="password-strength-section" style="display: none;">
+            <label for="password-input-signup">Password Strength:</label>
+            <div class="strength-meter"
+              style="width: 100%; max-width: 300px; height: 10px; background-color: #e0e0e0; border-radius: 5px; margin: 10px auto;">
+              <div id="strength-bar-signup"
+                style="height: 100%; width: 1%; background-color: #d73f40; border-radius: 5px; transition: width 0.5s, background-color 0.5s;">
+              </div>
+            </div>
+            <div class="strength-label" id="strength-label-signup" style="font-size: 14px; margin-top: 10px;">Weak</div>
+          </div>
+          <!-- Password strength meter ends here -->
+          <div class="form-check d-flex">
+            <input type="checkbox" class="form-check-input" id="login-remember" />
+            <label class="form-check-label">Remember me</label>
+          </div>
+          <input type="submit" class="btn" value="Sign up" />
+          <p class="social-text">Or Sign up with social platforms</p>
+          <div class="social-media">
+            <div class="social-icon g-signin2" id="google_btn">
+              <i class="fab fa-google" style="font-size: 24px; color: #4285F4;"></i>
+            </div>
+            <a href="https://facebook.com/YourPage" target="_blank" class="social-icon">
+              <i class="fab fa-facebook-f" style="font-size: 24px; color: #4267B2;"></i>
+            </a>
+            <a href="https://github.com/YourGitHubProfile" target="_blank" class="social-icon">
+              <i class="fab fa-github" style="font-size: 24px; color: #333;"></i>
+            </a>
+          </div>
+        </form>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+        <script>
+          let passwordSignup = document.getElementById("password-input-signup");
+          let strengthBarSignup = document.getElementById("strength-bar-signup");
+          let strengthLabelSignup = document.getElementById("strength-label-signup");
+          let passwordStrengthSection = document.getElementById("password-strength-section");
+
+          passwordSignup.oninput = function () {
+            let value = passwordSignup.value;
+
+            // Show the strength meter when the user starts typing
+            if (value.length > 0) {
+              passwordStrengthSection.style.display = "block";
+            } else {
+              passwordStrengthSection.style.display = "none";
+            }
+
+            let result = zxcvbn(value);
+            let score = result.score; // Score is between 0 and 4
+            let widths = ["1%", "25%", "50%", "75%", "100%"];
+            let colors = ["#d73f40", "#dc6551", "#f2b84f", "#bde952", "#3ba62f"];
+            let labels = ["Very Weak", "Weak", "Fair", "Good", "Strong"];
+
+            strengthBarSignup.style.width = widths[score];
+            strengthBarSignup.style.backgroundColor = colors[score];
+            strengthLabelSignup.textContent = labels[score];
+          };
+        </script>
+
+      </div>
+    </div>
+
+    <div class="panels-container">
+      <a href="index.html" class="homeBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 20" width="30" height="30">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+        </svg>
+      </a>
+      <div class="panel left-panel">
+        <div class="content">
+          <h3>New here ?</h3>
+          <p>
+            Create your account.
+          </p>
+
+          <button class="btn transparent" id="sign-up-btn">Sign up</button>
+        </div>
+        <img src="img/log.svg" class="image" alt="" />
+      </div>
+      <div class="panel right-panel">
+        <div class="content">
+          <h3>One of us ?</h3>
+          <p>Welcome to our community</p>
+          <button class="btn transparent" id="sign-in-btn">Sign in</button>
+        </div>
+        <img src="img/register.svg" class="image" alt="" />
+      </div>
+    </div>
+  </div>
+  <script src="preloader.js"></script>
+  <script>
+    const sign_in_btn = document.querySelector("#sign-in-btn");
+    const sign_up_btn = document.querySelector("#sign-up-btn");
+    const container = document.querySelector(".container");
+
+    sign_up_btn.addEventListener("click", () => {
+      container.classList.add("sign-up-mode");
+    });
+
+    sign_in_btn.addEventListener("click", () => {
+      container.classList.remove("sign-up-mode");
+    });
+
+    // Sign in form submission
+    document.querySelector(".sign-in-form").addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const username = document.querySelector(".sign-in-form input[type='text']").value;
+      const password = document.querySelector(".sign-in-form input[type='password']").value;
+
+      // Remove the below block of code when the server is ready (Written just for testing)
+      if (username === "username" && password === "123456") {
+        console.log("Login successful!");
+        localStorage.setItem("userID", "7887892rdwed3")
+        localStorage.setItem("JWTtoken", "dummyToken123"); // Example token
+        localStorage.setItem("login", "success");
+        window.location.href = "hospital.html";
+      }
+      // Testing block ends here, proceed with actual request once the server is ready
+
+      const data = JSON.stringify({ username, password });
+      console.log(data);
+
+      // Uncomment the below code when MongoDB is ready
+      /*
+      try {
+          const response = await fetch("http://localhost:3000/login", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: data,
+          });
+          if (!response.ok) {
+              throw new Error("Login failed: " + response.statusText);
+          }
+          const result = await response.json();
+          console.log("Server response:", result);
+          localStorage.setItem("token", result.token);
+          localStorage.setItem("userID", result.id);
+          console.log('Login successful!');
+          window.location.href = "hospital.html";
+      } catch (error) {
+          alert("Invalid username or password");
+          console.error("Error during login:", error);
+      }
+      */
+    });
+
+
+
+    // Uncomment the below code when MongoDB is ready
+    /*
+    try {
+      const response = await fetch("http://localhost:3000/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: data,
+      });
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Signup failed");
+      }
+      const result = await response.json();
+      console.log("Server response:", result);
+      alert("Signup successful!");
+      window.location.href = "login.html";
+    } catch (error) {
+      alert(error.message);
+      console.error("Error during signup:", error);
+    }
+    */
+
+    // Toggle password visibility
+    function togglePassword(fieldId, icon) {
+      const field = document.getElementById(fieldId);
+      const isPassword = field.type === "password";
+
+      // Toggle between 'password' and 'text'
+      field.type = isPassword ? "text" : "password";
+
+      // Change the icon class between eye and eye-slash
+      icon.classList.toggle("fa-lock-open", isPassword);
+      icon.classList.toggle("fa-lock", !isPassword);
+    }
+
+    document
+      .getElementById("toggle-password")
+      .addEventListener("click", function () {
+        togglePassword("password-input", this);
+      });
+
+    document
+      .getElementById("toggle-password-signup")
+      .addEventListener("click", function () {
+        togglePassword("password-input-signup", this);
+      });
+
+    // Check password strength
+    function checkPasswordStrength() {
+      const password = document.querySelector(
+        ".sign-up-form input[type='password']"
+      ).value;
+      const strengthWeak = document.getElementById("strength-weak");
+      const strengthMedium = document.getElementById("strength-medium");
+      const strengthStrong = document.getElementById("strength-strong");
+
+      let strength = 0;
+
+      if (password.length >= 8) strength++;
+      if (password.match(/[A-Z]/)) strength++;
+      if (password.match(/[a-z]/)) strength++;
+      if (password.match(/[0-9]/)) strength++;
+      if (password.match(/[^a-zA-Z0-9]/)) strength++;
+
+      strengthWeak.className = "";
+      strengthMedium.className = "";
+      strengthStrong.className = "";
+
+      if (strength >= 1) strengthWeak.className = "weak";
+      if (strength >= 3) strengthMedium.className = "medium";
+      if (strength >= 5) strengthStrong.className = "strong";
+    }
+
+    document
+      .querySelector(".sign-up-form input[type='password']")
+      .addEventListener("input", checkPasswordStrength);
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+  <script>
+    const coords = { x: 0, y: 0 };
+ 
+
+    const colors = [
+      "#ffb56b",
+      "#fdaf69",
+      "#f89d63",
+      "#f59761",
+      "#ef865e",
+      "#ec805d",
+      "#e36e5c",
+      "#df685c",
+      "#d5585c",
+      "#d1525c",
+      "#c5415d",
+      "#c03b5d",
+      "#b22c5e",
+      "#ac265e",
+      "#9c155f",
+      "#950f5f",
+      "#830060",
+      "#7c0060",
+      "#680060",
+      "#60005f",
+      "#48005f",
+      "#3d005e",
+    ];
+
+
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const rememberMeCheckbox = document.getElementById("remember-me");
+      const usernameInput = document.getElementById("username");
+
+      // Load saved username if it exists
+      if (localStorage.getItem("rememberedUsername")) {
+        usernameInput.value = localStorage.getItem("rememberedUsername");
+        rememberMeCheckbox.checked = true;
+      }
+
+      // When the form is submitted, save the username if "Remember Me" is checked
+      document.querySelector(".sign-in-form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent default form submission
+
+        if (rememberMeCheckbox.checked) {
+          localStorage.setItem("rememberedUsername", usernameInput.value);
+        } else {
+          localStorage.removeItem("rememberedUsername");
+        }
+        // Add form submission logic here
+      });
+    });
+
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <!-- <script src="Firebase.js" type="module"></script> -->
+</body>
+
+</html>
