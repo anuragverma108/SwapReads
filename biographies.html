@@ -445,6 +445,21 @@
 
 
 <style>
+       .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+   margin-top: 45px;
+   margin-left: 9rem;
+}
+        .navbar-link {
+  color: black !important;
+}
+
+.dark-mode .navbar-link {
+  color: white !important;
+}
     .work-sans {
         font-family: 'Work Sans', sans-serif;
     }
@@ -504,63 +519,118 @@
   #chaps {
       margin-top: 150px; /* Adjust the margin-top value as needed */
   }
+  h2.section-title {
+  margin-top: -30px; /* Adjust this value to move the heading upwards */
+  margin-bottom: 20px; /* Adjust if necessary */
+}
+/* Ensure the card itself has a border and the container is defined */
+.chapter-card {
+  background-color: white; /* Initial background color */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect for depth */
+  transition: all 0.3s ease; /* Smooth transition for all changes */
+}
+
+/* Apply hover effect for color changes */
+.chapter-card:hover {
+  background-color: #ffb6b9; /* Change background color to pink on hover */
+}
+
+/* Apply hover effect for the heading to darken its color */
+.chapter-card:hover .card-title {
+  color: #b36b6b; /* Darker shade of the title */
+}
+
+/* Bold and large heading */
+.card-title {
+  font-size: 2em; /* Increase font size */
+  font-weight: bold; /* Make the title bold */
+  color: #333; /* Default color */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Apply hover effect for subtitle and text color */
+.chapter-card:hover .card-subtitle,
+.chapter-card:hover .card-text {
+  color: #ffffff; /* Change text color to white */
+}
+
+/* Subtitle and text default colors */
+.card-subtitle {
+  color: #777; /* Subtitle color */
+}
+
+.card-text {
+  color: #444; /* Default text color */
+}
+
   </style>
 
 <section class="section chapters" id="chapters">
-    <div class="container" id="chaps">
+  <div class="container w-full mx-auto flex flex-col" id="chaps">
+    <!-- <p class="section-subtitle"></p> -->
 
-      <p class="section-subtitle"></p>
+    <h2 class="h2 section-title has-underline" style="margin-bottom: 50px;">
+      Explore New Worlds
+      <span class="span has-before"></span>
+    </h2>
 
-      <h2 class="h2 section-title has-underline">
-        Explore New Worlds
-        <span class="span has-before"></span>
-      </h2>
+    <ul class="grid grid-cols-3 justify-center">
 
-      <ul class="grid-list">
+      <li>
+        <div class="chapter-card" style="height: 550px;">
 
-        <li>
-          <a href="books.html" class="chapter-card">
+          <h3 class="h3 card-title"> "Discover Extraordinary Lives"</h3>
+          <p class="card-subtitle mt-20 italic">Love, One Page at a Time</p>
 
-            <p class="card-subtitle"></p>
+          <p class="card-text mt-12">
+            Step into the lives of those who have defied the odds and created lasting legacies. Through each book, you’ll discover extraordinary individuals who’ve faced unimaginable challenges and risen above. These stories will inspire you to unlock your own potential and lead a life that’s anything but ordinary.
+            <br><br>
+            Whether it’s a tale of overcoming adversity or a journey of self-discovery, these books remind us that greatness can come from the most unexpected places. Let their lives inspire yours.
+          </p>
 
-            <h3 class="h3 card-title"> "Discover Extraordinary Lives"</h3>
+        </div>
+      </li>
 
-            <p class="card-text">
-            </p>
+      <li>
+        <div class="chapter-card" style="height: 550px;">
 
-          </a>
-        </li>
+          <h3 class="h3 card-title">"Be Inspired by True Legends"</h3>
 
-        <li>
-            <a href="books.html" class="chapter-card">
+          <p class="card-subtitle italic">Leave the Ordinary Behind</p>
 
-              <p class="card-subtitle"></p>
+          <p class="card-text mt-10">
+            Legends aren’t just born—they’re made through extraordinary feats and undying courage. Embark on a journey with real heroes, individuals who’ve overcome seemingly impossible odds to become icons of inspiration. These stories transcend time, reminding us that the pursuit of greatness is a journey worth taking.
+            <br><br>
+            When you read these tales, you’ll find yourself drawn to their strength, resilience, and the fire that drove them to make history. Get ready to be inspired by true legends!
+          </p>
 
-              <h3 class="h3 card-title">"Be Inspired by True Legends"</h3>
+        </div>
+      </li>
 
-              <p class="card-text">
-              </p>
+      <li>
+        <div class="chapter-card" style="height: 550px;">
 
-            </a>
-          </li>
+          <h3 class="h3 card-title">"Unlock Your Potential with Real Stories"</h3>
+          <p class="card-subtitle italic">Adventure Awaits in Every Chapter</p>
 
-        <li>
-          <div class="chapter-card">
-            <p class="card-subtitle"></p>
-            <h3 class="h3 card-title">"Unlock Your Potential with Real Stories"</h3>
+          <p class="card-text mt-10">
+            Real stories have the power to transform us. By diving into the lives of those who’ve journeyed through struggles and triumphs, you can find the inspiration you need to unlock your own potential. These books bring you closer to the heart of what it means to be human, offering lessons, courage, and the strength to continue forging your own path.
+            <br><br>
+            Every page offers an adventure—whether it’s discovering new perspectives, confronting fears, or achieving the impossible. The real stories you’ll find here will not only captivate you but also push you to pursue your own greatness.
+          </p>
 
-            <p class="card-text">
-            </p>
-
-          </div>
-        </li>
+        </div>
+      </li>
     </ul>
-    </div>
-    </section>
+  </div>
+</section>
+
 
 <!--THE BOOKS-->
 <h2 class="h2 section-title has-underline" data-sr-id="11" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2s cubic-bezier(0.5, 0, 0, 1) 0.1s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0.1s;">
-    Mindful Living
+    Biographies
     <span class="span has-before"></span>
   </h2>
 <div class="book-list">
