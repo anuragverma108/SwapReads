@@ -47,6 +47,12 @@
         .option {
             margin: 5px 0; /* Space between options */
         }
+
+        .solution {
+            margin-top: 10px;
+            text-align: left;
+        }
+
     </style>
 </head>
 <body>
@@ -59,6 +65,7 @@
     <button id="submit-button" onclick="submitQuiz()">Submit</button>
     <div id="quiz-result" style="display: none;"></div>
     <button id="home-button" style="display: none;" onclick="window.location.href='index.html';">Return to Home</button>
+    <button id="solutions-button" style="display: none;" onclick="showSolutions()">See Solutions</button>
 </div>
 
 <script>
@@ -87,38 +94,13 @@
             question: "What does the title 'A Fine Balance' refer to?",
             options: ["The balance of power", "The balance of life and death", "The balance between tradition and modernity", "The balance of happiness and sorrow"],
             answer: "The balance of happiness and sorrow"
-        },
-        {
-            question: "What is the profession of Ishvar and Om?",
-            options: ["Doctors", "Tailors", "Teachers", "Farmers"],
-            answer: "Tailors"
-        },
-        {
-            question: "What tragic event happens to Dina's brother, Nirmal?",
-            options: ["He dies in a riot", "He is imprisoned", "He becomes a politician", "He leaves the family"],
-            answer: "He dies in a riot"
-        },
-        {
-            question: "What does the character Maneck struggle with throughout the novel?",
-            options: ["His identity", "His family relationships", "His career choices", "All of the above"],
-            answer: "All of the above"
-        },
-        {
-            question: "Which character is a victim of the caste system?",
-            options: ["Dina Dalal", "Ishvar", "Maneck", "Om"],
-            answer: "Ishvar"
-        },
-        {
-            question: "What does the character Om aspire to do?",
-            options: ["Become a doctor", "Start his own business", "Become a successful tailor", "Become a politician"],
-            answer: "Become a successful tailor"
         }
     ];
 
     let currentQuestionIndex = 0;
     let score = 0;
 
- function loadQuestion() {
+    function loadQuestion() {
         const questionElement = document.getElementById('quiz-questions');
         questionElement.innerHTML = '';
 
@@ -153,15 +135,47 @@
     function showResult() {
         const quizContainer = document.querySelector('.quiz-container');
         quizContainer.innerHTML = `<h2>Your Score: ${score}/${quizData.length}</h2>`;
-        
+
         // Create the return home button
         const homeButton = document.createElement('button');
         homeButton.onclick = () => window.location.href = 'quizzes.html';
         homeButton.innerText = 'Return to Quizzes';
         quizContainer.appendChild(homeButton);
+
+        // Create the see solutions button
+        const solutionsButton = document.createElement('button');
+        solutionsButton.onclick = showSolutions;
+        solutionsButton.innerText = 'See Solutions';
+        quizContainer.appendChild(solutionsButton);
     }
 
-    function submitQuiz () {
+    function showSolutions() {
+        const quizContainer = document.querySelector('.quiz-container');
+        quizContainer.innerHTML = '<h2>Quiz Solutions</h2>';
+
+        quizData.forEach((question, index) => {
+            const solutionElement = document.createElement('div');
+            solutionElement.classList.add('solution');
+            
+            const questionText = document.createElement('h4');
+            questionText.innerText = `${index + 1}. ${question.question}`;
+            solutionElement.appendChild(questionText);
+
+            const correctAnswer = document.createElement('p');
+            correctAnswer.innerText = `Correct Answer: ${question.answer}`;
+            solutionElement.appendChild(correctAnswer);
+
+            quizContainer.appendChild(solutionElement);
+        });
+
+        // Add the return to home button again
+        const homeButton = document.createElement('button');
+        homeButton.onclick = () => window.location.href = 'quizzes.html';
+        homeButton.innerText = 'Return to Home';
+        quizContainer.appendChild(homeButton);
+    }
+
+    function submitQuiz() {
         if (currentQuestionIndex < quizData.length) {
             alert("Please answer all questions before submitting!");
         } else {
