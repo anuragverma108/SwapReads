@@ -357,6 +357,21 @@ s<!DOCTYPE html>
 
 
 <style>
+      .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+   margin-top: 45px;
+   margin-left: 9rem;
+}
+        .navbar-link {
+  color: black !important;
+}
+
+.dark-mode .navbar-link {
+  color: white !important;
+}
     .work-sans {
         font-family: 'Work Sans', sans-serif;
     }
@@ -558,14 +573,14 @@ s<!DOCTYPE html>
     </article>
   </main>
 
-   <footer>
+  <footer class="ff">
     <div class="foot-top">
       <div class="foot-left">
-
+  
         <div class="desc">
-<!--google translate-->
-          <div id="google_translate_element"></div>
-
+  <!--google translate-->
+          <!-- <div id="google_translate_element"></div>
+  
           <script type="text/javascript">
               function googleTranslateElementInit() {
                   new google.translate.TranslateElement(
@@ -574,18 +589,18 @@ s<!DOCTYPE html>
                   );
               }
           </script>
-
+  
           <script type="text/javascript"
                   src=
       "https://translate.google.com/translate_a/element.js?
       cb=googleTranslateElementInit">
-          </script>
-          <div><a href="#" class="logo">SwapReads</a></div>
+          </script> -->
+          <div class="SwapReads" ><a href="#" class="logo" style="margin: 0px 40px">SwapReads</a></div>
           <div>
             <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
               lovers
               seeking to swap and
-
+  
               discover new literary gems.
               Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
               the
@@ -593,123 +608,400 @@ s<!DOCTYPE html>
               possibilities!
             </p>
           </div>
-
+  
         </div>
       </div>
-      <div class="foot-middle">
-        <h2>Quick Links</h2>
-        <div id="quicklinks">
-          <div>
-          <ul>
-            <li class="foot-quick"><a href="index.html" onclick="lenis.scrollTo('#home')">Home</a></li>
-            <li class="foot-quick"><a href="index.html#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
-            <li class="foot-quick"><a href="index.html#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
-            <li class="foot-quick"><a href="index.html#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
-            <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
-              onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
-          </ul>
-        </div>
-        <div>
-          <ul>
-            <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')">Swap
-                BookList</a></li>
-            <li class="foot-quick"><a href="./assets/html/freeBooks.html"
-                onclick="lenis.scrollTo('#contact')">E-Book</a></li>
-            <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
-            </li>
-            <li class="foot-quick"><a href="index.html#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
-            <li class="foot-quick"><a href="index.html#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
-          </ul>
-        </div>
+      <div class="foot-middle" style="padding: 20px; ">
+        <h2 style="font-size: 24px; margin-bottom: 15px; ">Quick Links</h2>
+        <div id="quicklinks" class="row" style="display: flex; gap: 20px;">
+          <!-- First Column -->
+          <div class="col-md-6" style="flex: 1;">
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li class="foot-quick" style="margin-bottom: 10px;">
+                <a href="/index.html#home" onclick="lenis.scrollTo('#home')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                  <i class="fas fa-home" style="margin-right: 8px;"></i>
+                  <p class="flinks" style="margin: 0;">Home</p>
+                </a>
+              </li>
+              <li class="foot-quick" style="margin-bottom: 10px;">
+                <a href="/index.html#benefits" onclick="lenis.scrollTo('#benefits')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                  <i class="fas fa-book" style="margin-right: 8px;"></i>
+                  <p class="flinks" style="margin: 0;">Benefits</p>
+                </a>
+              </li>
+              <li class="foot-quick" style="margin-bottom: 10px;">
+                <a href="/index.html#chapters" onclick="lenis.scrollTo('#chapters')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                  <i class="fas fa-globe" style="margin-right: 8px;"></i>
+                  <p class="flinks" style="margin: 0;">Literary</p>
+                </a>
+              </li>
+              <li class="foot-quick" style="margin-bottom: 10px;">
+                <a href="/index.html#pricing" onclick="lenis.scrollTo('#pricing')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                  <i class="fas fa-dollar-sign" style="margin-right: 8px;"></i>
+                  <p class="flinks" style="margin: 0;">Pricing</p>
+                </a>
+              </li>
+              <li class="foot-quick" style="margin-bottom: 10px;">
+                <a href="book_recommend.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                  <i class="fas fa-bookmark" style="margin-right: 8px;"></i>
+                  <p class="flinks" style="margin: 0;">Recommend</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+      
+          <!-- Second Column -->
+          <div class="col-md-6" style="flex: 1;">
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li class="foot-quick" style="margin-bottom: 10px;">
+                <a href="/assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                  <i class="fas fa-exchange-alt" style="margin-right: 8px;"></i>
+                  <p class="flinks" style="margin: 0;">Swap</p>
+                </a>
+              </li>
+              <li class="foot-quick" style="margin-bottom: 10px;">
+                <a href="/assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                  <i class="fas fa-file-pdf" style="margin-right: 8px;"></i>
+                  <p class="flinks" style="margin: 0;">E-Book</p>
+                </a>
+              </li>
+              <li class="foot-quick" style="margin-bottom: 10px;">
+                <a href="/assets/html/about.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                  <i class="fas fa-info-circle" style="margin-right: 8px;"></i>
+                  <p class="flinks" style="margin: 0;">About</p>
+                </a>
+              </li>
+              <li class="foot-quick" style="margin-bottom: 10px;">
+                <a href="/index.html#contact" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                  <i class="fas fa-envelope" style="margin-right: 8px;"></i>
+                  <p class="flinks" style="margin: 0;">Contact</p>
+                </a>
+              </li>
+              <li class="foot-quick" style="margin-bottom: 10px;">
+                <a href="/index.html#faqq" onclick="lenis.scrollTo('#faqq')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                  <i class="fas fa-question-circle" style="margin-right: 8px;"></i>
+                  <p class="flinks" style="margin: 0;">FAQ</p>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="social-icons">
-
+      
         <style>
-          input[type="email"] {
+          .social-icons input[type="email"] 
+          {
               border: 2px solid #ccc; /* Gray border */
               border-radius: 4px; /* Rounded corners */
               padding: 10px; /* Inner padding */
               font-size: 16px; /* Font size */
           }
+          #confirmationMessage
+          {
+            margin-left: 50px;
+            font-size: 23px;
+            color: green;
+  
+          }
+         /* for small screen */
+          @media (max-width: 768px) 
+          {
+            #confirmationMessage 
+            {
+                margin-left: 0;
+                text-align: center;
+                font-size: 18px;
+            }
+        }
         </style>
+        <style>
+          #confirmationmessage {
+    position: fixed;
+    top: 42rem;
+    right: 10px;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+  }
+  
+        </style>
+  
+  <form id="newsform" onsubmit="return showConfirmationMessage();">
+    <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
+    <div class="row-flex display-flex">
+        <input class="finput" type="email" id="new-email" name="email" 
+               placeholder="Email address" 
+               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+               title="Please enter a valid email address that ends with '.com'" required>
+        <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
+    </div>
+</form>
 
-        <form type="newsletter">
-          <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
-          <div class="row-flex">
-              <!-- Email input -->
-              <input type="email" id="newsletter-email" name="email" placeholder="E mail address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$" 
-              title="Please enter a valid email address that ends with '.com'" required>
-              <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
-          </div>
-      </form>
-      <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+<div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
 
+<script>
+function showConfirmationMessage() {
+    const form = document.getElementById('newsform');
+    const confirmationMessage = document.getElementById('confirmationmessage');
 
+    confirmationMessage.style.display = 'block';
+    setTimeout(function() {
+        location.reload(); 
+    }, 3000);
+}
+</script>
+
+<style>
+.finput:hover {
+    border: 0.2rem solid #A30F17;
+    margin-bottom: -0.2rem;
+}
+form {
+    width: 500px;
+    height: 300px;
+    font-size: larger;
+}
+
+.subscribe {
+    background-color: #A30F17;
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    font-family: Arial, sans-serif;
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.subscribe:hover {
+    background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+    transform: scale(1.1);
+}
+
+.subscribe:active {
+    transform: scale(0.98); 
+}
+
+.subscribe:focus {
+    outline: none; 
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 150px;
+}
+
+/* Add this to change the placeholder text color */
+input::placeholder {
+    color: rgb(58, 56, 56); /* Set placeholder text color to black */
+}
+</style>
+
+  
+  <!-- <script>
+  function showConfirmationMessage() 
+  {
+    // Show confirmation message
+    const confirmationMessage = document.getElementById('confirmationMessage');
+    confirmationMessage.innerHTML = "Thank you for subscribing!";
+    confirmationMessage.style.display = 'block';
+  
+    // Reset the form after 3 seconds
+    setTimeout(function() 
+    {
+        document.getElementById('newsletterForm').reset();
+        confirmationMessage.style.display = 'none';
+        
+    }, 3000);
+  
+    return false; 
+  }
+  </script>-->
         <div class="icons">
-            <a href="https://www.discord.com/" target="_blank">
-             <div class="icon">
-                <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
-             </div>
-            </a>
-          <a href="https://www.linkedin.com/in/anurag-verma-b91417253/">
+          <a href="https://www.discord.com/" target="_blank">
+            <div class="icon">
+              <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
+            </div>
+           </a>
+  
+          <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
             <div class="icon">
               <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
             </div>
           </a>
-
-          <a href="https://x.com/anuragverma_108">
+  
+          <a href="https://www.facebook.com/" target="_blank">
+            <div class="icon">
+              <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
+            </div>
+          </a>
+  
+          <a href="https://x.com/anuragverma_108" target="_blank">
             <div class="icon">
               <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
             </div>
           </a>
-
-          <a href="#">
-            <div class="icon">
+  
+          <a href="https://www.instagram.com/">
+            <div class="icon" id="insta-icon">
               <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
             </div>
           </a>
-
-
-          <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
+  
+  
+          <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
             <div class="icon">
-              <i class="fab fa-youtube" style="cursor: pointer; "></i>
+              <i class="fab fa-youtube" style="cursor: pointer;"></i>
             </div>
           </a>
-
+  
+  
+  
+          <a href="https://github.com/anuragverma108">
+            <div class="icon">
+              <i class="fab fa-github" title="Github"></i>
+            </div>
+          </a>
+         
+  
         </div>
-
-
+       </div>
+  
+       <div>
         <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
-          <div class="circle1">
-            <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-              class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-              <path
-                d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-            </svg>
-          </div>
+          <button class="Btn">
+            <svg height="1.2em" class="arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path></svg>
+            <p class="text">Back to Top</p>
+          </button>
         </div>
-
+        <!-- <div>
+          <button id="translateButton" style="background-color: #A30F17; transition:all 1s ease 0.1s;">Translate</button>
+        </div> -->
+      </div>
+  
       </div>
     </div>
-
-
-
-
-    <div style="text-align: center; align-items: center;">
+  <!-- <style>
+    #translateButton:hover{
+      background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+      transform:scale(1.1);
+    }
+  </style> -->
+  
+    <!-- adding privacy policy and copyright popup-->
+    <div class="footer-f" style="text-align: center; align-items: center;">
       <p style="text-align: center">
         &copy;
         <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
       </p>
       <div class="row-copy">
-
-
-      <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
-      <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
+  
+  
+      <a href="/copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+      <a href="/privacynotice.html" id="privacyNoticeLink">Privacy Notice</a> |
+      <a href="/our-vision.html" id="ourvisionLink">Our Vision</a></li> |
+      <a href="\SwapReads\refundpolicy.html">Refund Policy</a>
     </div>
     </div>
-
-</footer>
+    <style>
+      #copyrightPolicyLink:hover{
+        color: rgb(126, 0, 21);
+        transition: 0.5s ease;
+        text-decoration: none;
+      }
+      #privacyNoticeLink:hover{
+        color: rgb(126, 0, 21);
+        transition: 0.5s ease;
+        text-decoration: none;
+      }
+      #ourvisionLink:hover{
+        color: rgb(126, 0, 21);
+        transition: 0.5s ease;
+        text-decoration: none;
+      }
+    </style>
+  
+    <!-- Copyright Policy Modal -->
+    <div id="copyrightPolicyModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeCopyright">&times;</span>
+        <h1>Copyright Policy</h1>
+        <p>Welcome to SwapReads. Here is our copyright policy:</p>
+        <ul>
+          <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
+          <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
+          <li>Users may download and print content for personal use only.</li>
+          <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
+          <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
+        </ul>
+      </div>
+    </div> 
+  
+    <!-- Privacy Notice Modal -->
+    <div id="privacyNoticeModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closePrivacy">&times;</span>
+        <h1>Privacy Notice</h1>
+        <p>Welcome to SwapReads. Here is our privacy notice:</p>
+        <ul>
+          <li>We collect personal information when you register, buy, or sell books.</li>
+          <li>We use this information to provide and improve our services.</li>
+          <li>We do not share your personal information with third parties without your consent.</li>
+          <li>We take reasonable measures to protect your data from unauthorized access.</li>
+          <li>You can contact us to update or delete your personal information.</li>
+          <li>By using our site, you consent to our privacy practices.</li>
+        </ul>
+      </div>
+    </div> 
+  
+    <script>
+      // Get the modal elements
+      var copyrightModal = document.getElementById("copyrightPolicyModal");
+      var privacyModal = document.getElementById("privacyNoticeModal");
+  
+      // Get the link elements
+      var copyrightLink = document.getElementById("copyrightPolicyLink");
+      var privacyLink = document.getElementById("privacyNoticeLink");
+  
+      // Get the <span> elements that close the modals
+      var closeCopyright = document.getElementById("closeCopyright");
+      var closePrivacy = document.getElementById("closePrivacy");
+  
+      // When the user clicks the link, open the modal
+      copyrightLink.onclick = function() {
+        copyrightModal.style.display = "block";
+      }
+      privacyLink.onclick = function() {
+        privacyModal.style.display = "block";
+      }
+  
+      // When the user clicks on <span> (x), close the modal
+      closeCopyright.onclick = function() {
+        copyrightModal.style.display = "none";
+      }
+      closePrivacy.onclick = function() {
+        privacyModal.style.display = "none";
+      }
+  
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == copyrightModal) {
+          copyrightModal.style.display = "none";
+        }
+        if (event.target == privacyModal) {
+          privacyModal.style.display = "none";
+        }
+      }
+    </script>
+    
+  </footer>
 
   <!--Dark Mode-->
 
