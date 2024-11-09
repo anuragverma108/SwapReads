@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Notice - SwapReads</title>
+    
 
     <link rel="stylesheet" href="./assets/css/playNow.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -860,6 +860,17 @@ a {
         z-index: 99999999;
         transition: transform 0.1s ease-out;
       }
+      .logo {
+  display: flex;
+  align-items: center;
+}
+
+.logopic {
+  height: 80px; /* Adjust as needed */
+  width: auto;
+  object-fit: contain;
+}
+
     </style>
     </head>
     
@@ -912,7 +923,7 @@ a {
         <header class="header header-anim nav-h" data-header>
   
           <div class="container mobile-container-styles">
-            <button class="hamburger" id="hamburger-button" aria-label="Menu">
+           
               <span></span>
               <span></span>
               <span></span>
@@ -922,7 +933,7 @@ a {
         
               <ul class="navbar-list nav" style="margin-right: 10px;">
                 <a href="index.html" class="logo" style="display:flex;">
-                  <img src="./assets/images/final.png" class="logopic" style=" width: 10rem; height:100px; margin:0px 0px 15px -10px;">
+                  <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; height:100px; margin:0px 0px 15px -10px;">
                 </a>
         
                 <li class="navbar-item" style="margin-right: 10px;">
@@ -948,11 +959,12 @@ a {
                       class="ri-bar-chart-fill"></i> Genre</a>
                 </li>
         
-               <li class="navbar-item"  style="margin-right: 10px;">
-                    <a href="books.html" class="navbar-link" data-nav-link>
-                        <i class="ri-questionnaire-fill"></i> Books
+               <li class="navbar-item">
+                    <a href="audiobook.html" class="navbar-link" data-nav-link>
+                        <i class="ri-questionnaire-fill"></i> Audio Books
                     </a>
                 </li>
+        
         
                 <li class="navbar-item" style="margin-right: 10px;">
                   <a href="index.html#contact"  class="navbar-link" data-nav-link>
@@ -986,7 +998,7 @@ a {
                   </label>
                   </div>
                     <!-- Theme switcher -->
-
+      
                     
                   
                     <script>
@@ -1019,40 +1031,40 @@ a {
                       document.getElementById('hamburger-button').addEventListener('click', function() {
                         document.querySelector('.navbar').classList.toggle('active');
                       });
-    
+      
                     // Update the coordinates when the mouse moves
                     window.addEventListener("mousemove", function (e) {
                       coords.x = e.clientX;
                     coords.y = e.clientY;
       });
-    
+      
                     // Animation function to move the circles
                     function animateCircles() {
                       let x = coords.x;
                     let y = coords.y;
-    
+      
                     circles.forEach(function (circle, index) {
                       // Update the position and scale of each circle
                       circle.style.left = x - 12 + "px";
                     circle.style.top = y - 12 + "px";
                     circle.style.scale = (circles.length - index) / circles.length;
-    
+      
                     circle.x = x;
                     circle.y = y;
-    
+      
                     // Get the next circle in the sequence
                     const nextCircle = circles[index + 1] || circles[0];
                     x += (nextCircle.x - x) * 0.15;
                     y += (nextCircle.y - y) * 0.15;
         });
-    
+      
                     // Repeat the animation
                     requestAnimationFrame(animateCircles);
       }
-    
+      
                     // Start the animation
                     animateCircles();
-    
+      
                     function scrollToGenre(genreId) {
                       const element = document.getElementById(genreId);
                       if (element) {
@@ -1398,7 +1410,7 @@ a {
 </script>
 
 
-<footer class="ff" style="font-size: 18px;">
+ <footer class="ff" style="font-size: 18px;">
   <div class="foot-top">
     <div class="foot-left">
 
