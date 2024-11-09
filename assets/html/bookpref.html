@@ -1,1487 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon_package_v0.16/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../favicon_package_v0.16/favicon-16x16.png">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/test-style.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="../favicon_package_v0.16/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon_package_v0.16/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../favicon_package_v0.16/favicon-16x16.png">
-  <link rel="manifest" href="../favicon_package_v0.16/site.webmanifest">
-  <link rel="mask-icon" href="../favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- <link rel="stylesheet" href="../css/login.css" /> -->
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Quiz</title>
+    <link rel="stylesheet" href="https://swapreadsconnect.netlify.app/assets/css/style.css">
 
-  <link rel="stylesheet" href="./scrollbar.css">
+    <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="./assets/favicon_package_v0.16/apple-touch-icon.png"
+ >
 
-  <link rel="stylesheet" href="../css/aboutus.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
-  <link rel="stylesheet" href="./assets/css/MenuClick.css">
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="../js/script.js" defer></script>
-  <script src="../js/scroll-reveal.js"></script>
-  <script src="https://cdn.lordicon.com/lordicon.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <link rel="stylesheet" href="../css/styles.css">
-  <title>Book Prefer</title>
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+#quizForm {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.question {
+    font-size: 18px;
+    margin: 15px 0;
+    color: rgb(168, 6, 6);
+}
+
+.options {
+    margin: 10px 0 20px;
+}
+
+label {
+    display: block;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+
+.correct-answer {
+    color: rgb(10, 185, 10);
+    font-weight: bold;
+}
+
+.incorrect {
+    color: red;
+    font-weight: bold;
+}
+
+#result {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 20px auto;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+select:focus {
+    border-color: #007BFF; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle shadow */
+}
+
+option {
+    padding: 10px; 
+}
+
+
+label {
+    display: block; 
+    font-size: 18px; 
+    margin-bottom: 10px; 
+    color: #333;
+    font-weight: bold; 
+    text-align: left; 
+    transition: color 0.3s; 
+    background-color: white;
+}
+
+label:hover {
+    color: #007BFF; 
+}
+
+.home-link {
+            position: fixed; 
+            top: 10px;
+            left: 15px; 
+            text-decoration: none; 
+            color: black;
+            font-size: 24px; 
+            z-index: 1000; 
+        }
+
+        .home-link:hover  , .icon-link:hover {
+            color: rgb(159, 74, 32); 
+        }
+
+
+        .icon-link {
+            position: fixed; 
+            top: 10px; 
+            right: 10px; 
+            text-decoration: none; 
+            color: black; 
+            font-size: 24px; 
+            z-index: 1000; 
+        }
+
+    </style>
 </head>
-
 <body>
 
-  <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
 
-        .quiz-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 600px;
-        }
-
-        .quiz-container h2 {
-            text-align: center;
-            color: #007bff;
-            margin-bottom: 20px;
-        }
-
-        .quiz-container label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .quiz-container input[type="text"],
-        .quiz-container input[type="number"],
-        .quiz-container select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        .quiz-container input[type="submit"] {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-        }
-
-        .quiz-container input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
-        .suggestion {
-            text-align: center;
-            margin-top: 20px;
-            color: #333;
-        }
-
-        .suggestion span {
-            color: #007bff;
-            font-weight: bold;
-        }
-    .action {
-      position: fixed;
-      top: 20px;
-      right: 30px;
-    }
-
-    .action .profile {
-      position: relative;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .action .profile img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .about p {
-      color: var(--sonic-silver);
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .stats-box {
-      background-color: var(--seashell);
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border: 1px solid #ddd;
-      padding: 20px;
-      margin-bottom: 40px;
-    }
-
-    .stats-box h2 {
-      color: var(--sonic-silver);
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .stats {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 20px;
-    }
-
-    .stat {
-
-      text-align: center;
-    }
-
-    .stat h3 {
-      color: var(--sonic-silver);
-      font-size: 36px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .stat p {
-      color: var(--sonic-silver);
-      font-size: 16px;
-    }
-
-    .mission-values {
-      background-color: var(--seashell);
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border: 1px solid #ddd;
-      padding: 20px;
-      margin-bottom: 40px;
-    }
-
-    .mission-values h2 {
-      color: var(--sonic-silver);
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .about-us-heading {
-      text-align: center;
-      margin-bottom: 5rem;
-      margin-top: 160px;
-      /* Adjust this value to position it below the header */
-      color: red;
-
-    }
-
-
-    .about-us-block {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 20px;
-    }
-
-    .about-us-community,
-    .about-us-product,
-    .about-us-event,
-    .about-us-location {
-      background-color: var(--seashell);
-      border: 1px solid rgba(206, 212, 218, 1);
-      border-radius: 8px;
-      padding: 20px;
-      width: 45%;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      margin-bottom: 21px;
-    }
-
-    .about-us-blk-text {
-      color: var(--sonic-silver);
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .about-us-blk-para {
-      color: var(--sonic-silver);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .switch-label {
-      /* right: 0.5rem; */
-      left: 8.0rem;
-      top: 0.5rem;
-      position: relative;
-      width: 40px;
-      height: 30px;
-      background-color: #ccc;
-      border-radius: 20px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 5px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.5s ease;
-    }
-
-    .switch-label .sun-icon,
-    .switch-label .moon-icon {
-      font-size: 19spx;
-      position: absolute;
-      cursor: pointer;
-      top: 50%;
-      transform: translateY(-50%);
-      transition: opacity 0.5s ease, color 0.5s ease;
-    }
-
-    .switch-label .sun-icon {
-      color: #f39c12;
-      left: 2px;
-    }
-
-    .switch-label .moon-icon {
-      color: #bdc3c7;
-      opacity: 0;
-      left: 5px;
-    }
-
-    /* Switch Button */
-    .switch-button {
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 25px;
-      height: 25px;
-      background-color: #fff;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      transition: transform 0.5s ease, background-color 0.5s ease;
-    }
-
-    /* Checkbox Checked State */
-    .switch-checkbox:checked+.switch-label {
-      background-color: #34495e;
-    }
-
-    .switch-checkbox:checked+.switch-label .sun-icon {
-      opacity: 0;
-    }
-
-    .switch-checkbox:checked+.switch-label .moon-icon {
-      opacity: 1;
-    }
-
-    .action .menu ul li a {
-      display: inline-flex;
-      text-align: center;
-      padding-left: 5%;
-      font-weight: 300;
-      font-size: 19px;
-      text-decoration: none;
-      color: #555;
-      font-weight: 500;
-      transition: 0.5s;
-    }
-
-    .action .menu ul li:hover a {
-      color: #ff5d94;
-      font-size: 21px;
-
-    }
-
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      position: absolute;
-      top: 24px;
-      left: 1.5%;
-    }
-
-    .line {
-      width: 36px;
-      height: 5px;
-      margin: 4px 4px;
-      background-color: rgb(240, 15, 15);
-    }
-
-    @media only screen and (max-width:1063px) {
-      .nav {
-        flex-direction: column;
-      }
-
-      .header {
-        flex-direction: column;
-        height: 53.8rem;
-        transition: 0.55s all ease-out;
-        padding-top: 5px;
-      }
-
-      .navbar-item {
-        margin-right: 40px;
-      }
-
-      .navbar-list {
-        position: relative;
-      }
-
-      .hamburger {
-        display: block;
-      }
-
-      .nav-h {
-        height: 78px;
-        width: 90vw;
-        margin: auto;
-      }
-
-      .vis-h {
-        opacity: 0;
-      }
-
-      .logo img {
-        position: relative;
-        top: 17px;
-        left: 350px;
-      }
-    }
-
-    @media only screen and (max-width:990px) {
-      .header {
-        height: 9rem;
-      }
-
-      .logo img {
-        top: -9px;
-        left: 50px;
-      }
-    }
-
-    @media only screen and (max-width: 550px) {
-      .about-us-block {
-        flex-wrap: wrap;
-      }
-
-      .about-us-block .about-us-community, .about-us-product, .about-us-location, .about-us-event {
-        width: 80% !important;
-      }
-    }
-
-    .navbar-item {
-      margin-top: 10px;
-      /* Increase the top margin of each item */
-    }
-    .navbar-item {
-  list-style: none;
-}
-
-.navbar-link {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-}
-
-.navbar-link lord-icon {
-  display: inline-block;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-
-  </style>
-  <header class="header header-anim nav-h" data-header>
-
-    <div class="container mobile-container-styles" style="padding-left: 0;">
-
-      <nav class="navbar nav_activated" data-navbar>
-
-
-        <ul class="navbar-list nav">
-          <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-            <img src="../images/final.png" class="logopic" style=" width: 150px;">
-          </a>
-          <li class="navbar-item">
-            <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link>
-              <lord-icon
-              src="https://cdn.lordicon.com/qeltvbrs.json"
-              trigger="hover"
-              colors="primary:#e88c30,secondary:#a30f17"
-              style="width:25px;height:25px">
-            </lord-icon>  Home</a>
-          </li>
-         
-          <li class="navbar-item">
-            <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link"
-              data-nav-link><lord-icon
-              src="https://cdn.lordicon.com/jibxifeu.json"
-              trigger="hover"
-              state="hover-up"
-              colors="primary:#a30f17,secondary:#e88c30"
-              style="width:25px;height:25px">
-          </lord-icon>  Benefits</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link>
-              <lord-icon
-              src="https://cdn.lordicon.com/bhmovrlt.json"
-              trigger="hover"
-              state="morph-open"
-              colors="primary:#a30f17,secondary:#e88c30"
-              style="width:25px;height:25px">
-          </lord-icon>  Genre</a>
-          </li>
-        </li>
-        <li class="navbar-item">
-          <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link"> 
-            <lord-icon
-            src="https://cdn.lordicon.com/jxjfjyri.json"
-            trigger="morph"
-            stroke="bold"
-            state="morph-select"
-            colors="primary:#eeaa66,secondary:#e88c30"
-            style="width:25px;height:25px">
-        </lord-icon> RateUs</a>
-        </li>
-
-          <li class="navbar-item">
-            <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link>
-              <img src="../images/telephone.png" height="25px" width="25px"/>Contact</a>
-          </li>
-          <li class="navbar-item">
-            <a href="../../index.html#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
-              <lord-icon
-              src="https://cdn.lordicon.com/motnbmtz.json"
-              trigger="hover"
-              stroke="bold"     
-              colors="primary:#a30f17,secondary:#e88c30"
-              style="width:25px;height:25px">
-          </lord-icon> FAQ
-            </a>
-         
-
-          <li class="navbar-item">
-            <a href="../html/about.html" class="navbar-link" data-nav-link>
-              <lord-icon
-              src="https://cdn.lordicon.com/fozsorqm.json"
-              trigger="hover"
-              stroke="bold"
-              state="hover-up"
-              colors="primary:#a30f17,secondary:#e88c30"
-              style="width:30px;height:30px"></lord-icon>AboutUs </a>
-          </li>
-
+  <a href="../../index.html" class="home-link">
+    <i class='bx bx-home'></i>
+</a>
+<a href="./adventure.html" class="icon-link" title="Go Back">
+  <i class='bx bx-arrow-back'></i>
+</a>
+
+<div class="quiz-container">
+    <h1>Book Quiz</h1>
+
+    <!-- Topic Selection -->
+    <div class="topic-select">
+        <label for="topic">Choose a topic:</label>
+        <select id="topic" onchange="loadQuiz()">
+            <option value="classic">Classic Literature</option>
+            <option value="sci-fi">Science Fiction</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="mystery">Mystry</option>
+            <option value="horror">Horror</option>
+            <option value="romance">Romance</option>
+        </select>
+    </div>
+
+    <!-- Quiz form -->
+    <form id="quizForm">
+        <!-- Questions will be dynamically injected here -->
+    </form>
+
+    <button type="button" class="submit-btn" onclick="checkAnswers()">Submit Answers</button>
+    <div id="result" class="result"></div>
+</div>
+
+<script>
+    // Sample questions for different topics
+    const quizzes = {
+    "classic": [
+        { question: "Who wrote *Pride and Prejudice*?", options: ["Jane Austen", "Charles Dickens", "Mark Twain", "William Shakespeare"], answer: "Jane Austen" },
+        { question: "What is the title of the first science fiction novel?", options: ["Frankenstein", "Dracula", "Moby Dick", "The Odyssey"], answer: "Frankenstein" },
+        { question: "In *The Great Gatsby*, what is Gatsby's first name?", options: ["James", "Jay", "John", "Jacob"], answer: "Jay" },
+        { question: "Who wrote *War and Peace*?", options: ["Leo Tolstoy", "Fyodor Dostoevsky", "Gustave Flaubert", "Honore de Balzac"], answer: "Leo Tolstoy" },
+        { question: "In *Jane Eyre*, what is the name of the estate where Jane grows up?", options: ["Thornfield Hall", "Gateshead Hall", "Lowood School", "Moors"], answer: "Gateshead Hall" },
+        { question: "Who wrote *Wuthering Heights*?", options: ["Emily Bronte", "Charlotte Bronte", "Anne Bronte", "Mary Shelley"], answer: "Emily Bronte" },
+        { question: "In *The Count of Monte Cristo*, what is the name of the main character?", options: ["Edmond Dantès", "Athos", "Porthos", "Aramis"], answer: "Edmond Dantès" },
+        { question: "Who wrote *The Scarlet Letter*?", options: ["Nathaniel Hawthorne", "Herman Melville", "Mark Twain", "Edgar Allan Poe"], answer: "Nathaniel Hawthorne" },
+        { question: "In *Moby Dick*, what is the name of the ship?", options: ["Pequod", "White Whale", "Moby Dick", "Ahab's Ship"], answer: "Pequod" },
+        { question: "Who wrote *The Adventures of Tom Sawyer*?", options: ["Mark Twain", "Charles Dickens", "Robert Louis Stevenson", "H.G. Wells"], answer: "Mark Twain" },
+        { question: "In *The Picture of Dorian Gray*, what is the name of the main character?", options: ["Dorian Gray", "Lord Henry", "Basil Hallward", "Sibyl Vane"], answer: "Dorian Gray" },
+        { question: "Who wrote *The Importance of Being Earnest*?", options: ["Oscar Wilde", "George Bernard Shaw", "James Joyce", "Virginia Woolf"], answer: "Oscar Wilde" },
+        { question: "In *The War of the Worlds*, what is the name of the planet from which the aliens come?", options: ["Mars", "Venus", "Jupiter", "Saturn"], answer: "Mars" },
+        { question: "Who wrote *The Time Machine*?", options: ["H.G. Wells", "Jules Verne", "Herman Melville", "Edgar Allan Poe"], answer: "H.G. Wells" },
+        { question: "In *The Turn of the Screw*, what is the name of the governess?", options: ["The Governess", "Mrs. Grose", "Flora", "Miles"], answer: "The Governess" },
+        { question: "Who wrote *The Jungle Book*?", options: ["Rudyard Kipling", "Joseph Conrad", "E.M. Forster", "George Orwell"], answer: "Rudyard Kipling" },
+        { question: "In *The Secret Garden*, what is the name of the main character?", options: ["Mary Lennox", "Archibald Craven", "Dickon", "Colin Craven"], answer: "Mary Lennox" },
+        { question: "Who wrote *The Call of the Wild*?", options: ["Jack London", "Ernest Hemingway", "F. Scott Fitzgerald", "William Faulkner"], answer: "Jack London" },
+        { question: "In *The Grapes of Wrath*, what is the name of the main family?", options: ["The Joads", "The Okies", "The Wilsons", "The Johnsons"], answer: "The Joads" },
+        { question: "Who wrote *To Kill a Mockingbird*?", options: ["Harper Lee", "F. Scott Fitzgerald", "William Faulkner", "Truman Capote"], answer: "Harper Lee" }
+    ],
+    "sci-fi": [
         
-
-          <li class="navbar-item" id="login-signup-link">
-            <a href="../html/login.html" class="navbar-link"> <lord-icon
-              src="https://cdn.lordicon.com/xfzuyvam.json"
-              trigger="morph"
-              state="morph-group"
-              colors="primary:#a30f17,secondary:#e88c30"
-              style="width:25px;height:25px">
-          </lord-icon>Login/Signup</a>
-          </li>
-
-
-          <li class="navbar-item dropdown" id="more-dropdown">
-            <a href="#" class="navbar-link" id="more-link">More
-              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
-                viewBox="0 0 24 24">
-                <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
-              </svg></a>
-            <div class="dropdown-menu" id="dropdown-menu">
-
-              <ul class="dropdown-menu-list">
-                <li>
-                  <a href="chatt.html" class="navbar-link"
-                    style="font-family: sans-serif; color: black; margin-bottom: 5px;">
-                    Community chat
-                  </a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="tips.html" class="navbar-link"
-                    style="font-family: sans-serif;  margin-bottom: 5px;">
-                   Tips
-                  </a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="author.html" class="navbar-link"
-                    style="font-family: sans-serif;  margin-bottom: 5px;">
-                    Authors
-                  </a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="../html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link"
-                    data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="../html/booklistswap.html" class="navbar-link">Booklist for Swapping</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="../html/book_recommend.html" class="navbar-link" data-nav-link>
-                    <i class="ri-customer-service-2-fill"></i> Book Recommendation
-                  </a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="../html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
-                    data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="../html/read_later.html" class="navbar-link" data-nav-link><i
-                      class="ri-price-tag-3-fill"></i>Read Later</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href=".../html/ConnReader.html" class="navbar-link" data-nav-link><i
-                      class="ri-price-tag-3-fill"></i>Reader Connection</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="../html/about.html" class="navbar-link">About</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <div class="action">
-              <div class="profile" onclick="menuToggle();">
-                <img id="profile-avatar" src="../images/avatar1.jpg" />
-              </div>
-              <!-- <div class="menu">
-                <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
-                <ul>
-                  <li>
-                    <img src="../images/user.jpg" /><a href="../../profile.html">My profile</a>
-                  </li>
-                  <li>
-                    <img src="../images/edit profile.jpg" /><a href="../html/profileedit.html">Edit profile</a>
-                  </li>
-                  <li>
-                    <img src="../images/inbox.png" /><a href="#">Inbox</a>
-                  </li>
-                  <li>
-                    <img src="../images/settings.png" /><a href="#">Settings</a>
-                  </li>
-                  <li><img src="../images/help.png" /><a href="#">Help</a></li>
-                  <li>
-                    <img src="../images/logout.png" /><a href="#">Logout</a>
-                  </li>
-                </ul>
-              </div> -->
-          </li>
-    </div>
-    </ul>
-    </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const savedAvatar = localStorage.getItem("selectedAvatar");
-        const savedName = localStorage.getItem("profileName");
-        if (savedAvatar) {
-          document.getElementById("profile-avatar").src = `./assets/images/${savedAvatar}`;
-        }
-        if (savedName) {
-            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
-        } else {
-            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
-        }
-      });
-
-
-      function menuToggle() {
-        const toggleMenu = document.querySelector(".menu");
-        toggleMenu.classList.toggle("active");
-      }
-    </script>
-    <!-- Google Translate Element -->
-    <!-- <li class="navbar-item">
-            <div id="google_element"></div>
-          </li> -->
-    </ul>
-    <!-- <div class="hamburger">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div> -->
-    </nav>
-    <div id="mobile_View_Menu">
-      <span id="menu_lines"></span>
-    </div>
-    <script>
-      let menu = document.getElementById('mobile_View_Menu')
-      let navbar_con = document.querySelector('.navbar')
-      menu.addEventListener('click', () => {
-        if (menu.classList.contains('open_menu')) {
-          menu.classList.remove('open_menu')
-          navbar_con.classList.add('nav_activated')
-        }
-        else {
-          menu.classList.add('open_menu')
-          navbar_con.classList.remove('nav_activated')
-        }
-      })
-    </script>
-    <!-- <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-    <script>
-      function loadGoogleTranslate() {
-        new google.translate.TranslateElement({
-          pageLanguage: 'en'
-        }, 'google_element');
-      }
-    </script> -->
-    <script>
-      // const hamburger=document.querySelector('.hamburger');
-      // const head=document.querySelector('.header');
-      // const nav=document.querySelector('.nav');
-      // hamburger.addEventListener('click',()=>{
-      //   head.classList.toggle('nav-h');
-      //   nav.classList.toggle('vis-h');
-      // })
-      // let lastScrollTop = 0;
-      // function onScroll() {
-      //     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-      //     const header = document.querySelector('.header');
-
-      //     if (currentScroll > lastScrollTop) {
-      //         header.classList.add('hidden');
-      //     } else {
-      //         header.classList.remove('hidden');
-      //     }
-      //     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-      // }
-      window.addEventListener("scroll", onScroll);
-    </script>
-
-
-
-
-    <!-- <div class="switch-toggle-container">
-
-
-      window.addEventListener("scroll", onScroll);
-    </script>
-    <div class="switch-toggle-container">
-
-      <div class="switch-container switch-container-mobile">
-        <input type="checkbox" id="switch" class="switch-checkbox">
-        <label for="switch" class="switch-label">
-          <div class="switch-button">
-            <span class="material-icons sun-icon">wb_sunny</span>
-            <span class="material-icons moon-icon">brightness_2</span>
-          </div>
-        </label>
-      </div> -->
-
-    <!-- <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler id="nav-toggle-button">
-        <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
-
-        <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
-      </button> -->
-    <div class="switch-container" style="top: 15px;">
-      <input type="checkbox" id="switch" class="switch-checkbox">
-      <label for="switch" class="switch-label">
-        <div class="switch-button">
-          <span class="material-icons sun-icon">wb_sunny</span>
-          <span class="material-icons moon-icon">brightness_2</span>
-        </div>
-      </label>
-    </div>
-    </div>
-
-
-
-    </div>
-  </header>
-
-  <!-- Progress bar -->
-  <div id="progressBar"></div>
-
-  <script>
-    window.onscroll = function () {
-      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      var scrolled = (winScroll / height) * 100;
-      document.getElementById("progressBar").style.width = scrolled + "%";
+        { question: "Who wrote *Neuromancer*?", options: ["William Gibson", "Bruce Sterling", "Neal Stephenson", "Charles Stross"], answer: "William Gibson" },
+        { question: "What is the name of the spaceship in *2001: A Space Odyssey*?", options: ["Discovery One", "Apollo 13", "Enterprise", "Nostromo"], answer: "Discovery One" },
+        { question: "Who is the author of *The Time Machine*?", options: ["H.G. Wells", "Jules Verne", "Herman Melville", "Edgar Allan Poe"], answer: "H.G. Wells" },
+        { question: "In *Dune*, what is the name of the planet?", options: ["Arrakis", "Tatooine", "Coruscant", "Trantor"], answer: "Arrakis" },
+        { question: "Who wrote *The Handmaid's Tale*?", options: ["Margaret Atwood", "Ursula K. Le Guin", "Octavia Butler", "Joanna Russ"], answer: "Margaret Atwood" },
+        { question: "What is the name of the artificial intelligence in *Do Androids Dream of Electric Sheep*?", options: ["Mercer", "Deckard", "Roy Batty", "Pris"], answer: "Mercer" },
+        { question: "Who is the author of *The Hitchhiker's Guide to the Galaxy*?", options: ["Douglas Adams", "Terry Pratchett", "Neil Gaiman", "Isaac Asimov"], answer: "Douglas Adams" },
+        { question: "In *Foundation*, what is the name of the mathematician?", options: ["Hari Seldon", "Isaac Asimov", "Arthur C. Clarke", "Robert A. Heinlein"], answer: "Hari Seldon" },
+        { question: "Who wrote *The Three-Body Problem*?", options: ["Liu Cixin", "Cixin Liu", "Ken Liu", "Baoshu"], answer: "Liu Cixin" },
+        { question: "What is the name of the space station in *Saturn's Children*?", options: ["Xanthus", "Titan", "Enceladus", "Mimas"], answer: "Xanthus" },
+        { question: "Who is the author of *The Diamond Age*?", options: ["Neal Stephenson", "Charles Stross", "Bruce Sterling", "William Gibson"], answer: "Neal Stephenson" },
+        { question: "In *Snow Crash*, what is the name of the virtual reality?", options: ["Metaverse", "Virtual Reality", "Cyberspace", "The Matrix"], answer: "Metaverse" },
+        { question: "Who wrote *The City & The City*?", options: ["China Miéville", "Richard K. Morgan", "Alastair Reynolds", "Charles Stross"], answer: "China Miéville" },
+        { question: "What is the name of the alien species in *Embassytown*?", options: ["Ariekei", "Zhoghk", "Shuos", "Kai"], answer: "Ariekei" },
+        { question: "Who is the author of *Ancillary Justice*?", options: ["Ann Leckie", "N.K. Jemisin", "Cixin Liu", "Kim Stanley Robinson"], answer: "Ann Leckie" },
+        { question: "In *Old Man's War*, what is the name of the space navy?", options: ["Colonial Defense Force", "United Nations Space Navy", "Interstellar Navy", "Galactic Republic"], answer: "Colonial Defense Force" },
+        { question: "Who wrote *The Power*?", options: ["Naomi Alderman", "Margaret Atwood", "Octavia Butler", "Joanna Russ"], answer: "Naomi Alderman" },
+        { question: "What is the name of the dystopian society in *The Dispossessed*?", options: ["Anarres", "Urras", "Kadesh", "Thuvia"], answer: "Anarres" },
+        { question: "Who is the author of *Altered Carbon*?", options: ["Richard K. Morgan", "William Gibson", "Bruce Sterling", "Neal Stephenson"], answer: "Richard K. Morgan" },
+        { question: "In *Diaspora*, what is the name of the artificial intelligence?", options: ["Yatima", "Citizen Y", "Polis", "Civic"], answer: "Yatima" }
+    ],
+    "fantasy": [
+    { question: "Who wrote *The Hobbit*?", options: ["J.R.R. Tolkien", "C.S. Lewis", "J.K. Rowling", "George R.R. Martin"], answer: "J.R.R. Tolkien" },
+    { question: "What is the name of Harry Potter's owl?", options: ["Hedwig", "Errol", "Scabbers", "Crookshanks"], answer: "Hedwig" },
+    { question: "In *The Chronicles of Narnia*, who is the lion?", options: ["Aslan", "Gandalf", "Smaug", "Frodo"], answer: "Aslan" },
+    { question: "Who wrote *The Wheel of Time*?", options: ["Robert Jordan", "George R.R. Martin", "J.R.R. Tolkien", "Terry Pratchett"], answer: "Robert Jordan" },
+    { question: "What is the name of the magical school in *Harry Potter*?", options: ["Hogwarts", "Beauxbatons", "Durmstrang", "Mahoutokoro"], answer: "Hogwarts" },
+    { question: "Who is the author of *The Lord of the Rings*?", options: ["J.R.R. Tolkien", "C.S. Lewis", "J.K. Rowling", "George R.R. Martin"], answer: "J.R.R. Tolkien" },
+    { question: "In *The Golden Compass*, what is the name of the main character?", options: ["Lyra Belacqua", "Will Parry", "Lord Asriel", "Mrs. Coulter"], answer: "Lyra Belacqua" },
+    { question: "Who wrote *The Princess Bride*?", options: ["William Goldman", "George R.R. Martin", "J.R.R. Tolkien", "C.S. Lewis"], answer: "William Goldman" },
+    { question: "What is the name of the fantasy world in *The Chronicles of Narnia*?", options: ["Narnia", "Middle-earth", "Westeros", "Hogwarts"], answer: "Narnia" },
+    { question: "Who is the author of *The Dresden Files*?", options: ["Jim Butcher", "George R.R. Martin", "J.R.R. Tolkien", "Robert Jordan"], answer: "Jim Butcher" },
+    { question: "In *The Sword of Truth*, what is the name of the main character?", options: ["Richard Cypher", "Kahlan Amnell", "Zeddicus Zu'l Zorander", "Darken Rahl"], answer: "Richard Cypher" },
+    { question: "Who wrote *The First Law* trilogy?", options: ["Joe Abercrombie", "George R.R. Martin", "J.R.R. Tolkien", "Robert Jordan"], answer: "Joe Abercrombie" },
+    { question: "What is the name of the magical system in *The Kingkiller Chronicle*?", options: ["Sympathy", "Magic", "Alchemy", "Thaumaturgy"], answer: "Sympathy" },
+    { question: "Who is the author of *The Mistborn Series*?", options: ["Brandon Sanderson", "George R.R. Martin", "J.R.R. Tolkien", "Robert Jordan"], answer: "Brandon Sanderson" },
+    { question: "In *The Stormlight Archive*, what is the name of the main world?", options: ["Roshar", "Scadrial", "Nalthis", "Sel"], answer: "Roshar" },
+    { question: "Who wrote *The Earthsea Cycle*?", options: ["Ursula K. Le Guin", "George R.R. Martin", "J.R.R. Tolkien", "Robert Jordan"], answer: "Ursula K. Le Guin" },
+    { question: "What is the name of the fantasy creature in *The Spiderwick Chronicles*?", options: ["Fairies", "Goblins", "Trolls", "Dragons"], answer: "Fairies" },
+    { question: "Who is the author of *The Beyonders*?", options: ["Brandon Mull", "George R.R. Martin", "J.R.R. Tolkien", "Robert Jordan"], answer: "Brandon Mull" },
+    { question: "In *The Fablehaven Series*, what is the name of the magical preserve?", options: ["Fablehaven", "Wonderland", "Narnia", "Hogwarts"], answer: "Fablehaven" },
+    ],
+    "mystery": [
+    { question: "Who wrote *And Then There Were None*?", options: ["Agatha Christie", "Arthur Conan Doyle", "Edgar Allan Poe", "Sherlock Holmes"], answer: "Agatha Christie" },
+    { question: "Who is the detective in *The Hound of the Baskervilles*?", options: ["Sherlock Holmes", "Hercule Poirot", "Miss Marple", "Inspector Morse"], answer: "Sherlock Holmes" },
+    { question: "What is the name of the famous detective agency?", options: ["Scotland Yard", "FBI", "CIA", "MI6"], answer: "Scotland Yard" },
+    { question: "Who wrote *The Girl with the Dragon Tattoo*?", options: ["Stieg Larsson", "Gillian Flynn", "Tana French", "Dennis Lehane"], answer: "Stieg Larsson" },
+    { question: "Who is the protagonist in *The Silence of the Lambs*?", options: ["Clarice Starling", "Hannibal Lecter", "Buffalo Bill", "FBI Agent"], answer: "Clarice Starling" },
+    { question: "Who wrote *The Da Vinci Code*?", options: ["Dan Brown", "John Grisham", "James Patterson", "Michael Crichton"], answer: "Dan Brown" },
+    { question: "Who is the detective in *The Lincoln Rhyme* series?", options: ["Lincoln Rhyme", "Amelia Sachs", "Sherlock Holmes", "Hercule Poirot"], answer: "Lincoln Rhyme" },
+    { question: "What is the name of the famous true crime novel?", options: ["In Cold Blood", "Helter Skelter", "The Monster of Florence", "The Devil in the White City"], answer: "In Cold Blood" },
+    { question: "Who wrote *The Murder on the Orient Express*?", options: ["Agatha Christie", "Arthur Conan Doyle", "Edgar Allan Poe", "Sherlock Holmes"], answer: "Agatha Christie" },
+    { question: "Who is the protagonist in *The Cuckoo's Calling*?", options: ["Cormoran Strike", "Robin Ellacott", "J.K. Rowling", "Robert Galbraith"], answer: "Cormoran Strike" },
+    { question: "Who wrote *The Woman in the Window*?", options: ["A.J. Finn", "Stephen King", "Gillian Flynn", "Paula Hawkins"], answer: "A.J. Finn" },
+    { question: "What is the name of the detective agency in *Veronica Mars*?", options: ["Mars Investigations", "Veronica Mars Investigations", "Keith Mars Investigations", "Neptune Investigations"], answer: "Mars Investigations" },
+    { question: "Who wrote *The Big Sleep*?", options: ["Raymond Chandler", "Dashiell Hammett", "Ross Macdonald", "Robert B. Parker"], answer: "Raymond Chandler" },
+    { question: "Who is the protagonist in *The Maltese Falcon*?", options: ["Sam Spade", "Nick Charles", "Philip Marlowe", "Mike Hammer"], answer: "Sam Spade" },
+    { question: "What is the name of the famous mystery novel by Arthur Conan Doyle?", options: ["The Hound of the Baskervilles", "The Adventures of Sherlock Holmes", "The Memoirs of Sherlock Holmes", "The Return of Sherlock Holmes"], answer: "The Hound of the Baskervilles" },
+    { question: "Who wrote *The Alienist*?", options: ["Caleb Carr", "Thomas Harris", "Dennis Lehane", "Katherine Neville"], answer: "Caleb Carr" },
+    { question: "Who is the protagonist in *The City & The City*?", options: ["Borlú", "Corwi", "Syedr", "Kafka"], answer: "Borlú" },
+    { question: "What is the name of the famous mystery novel by Gillian Flynn?", options: ["Gone Girl", "Sharp Objects", "Dark Places", "The Grownup"], answer: "Gone Girl" },
+    { question: "Who wrote *The Devil in the White City*?", options: ["Erik Larson", "H.H. Holmes", "Daniel Burnham", "Theodore Dreiser"], answer: "Erik Larson" },
+    { question: "Who is the protagonist in *The Dresden Files*?", options: ["Harry Dresden", "Karrin Murphy", "Gentleman Johnny Marcone", "Bob the Skull"], answer: "Harry Dresden" }
+],
+"horror": [
+    { question: "Who wrote *Dracula*?", options: ["Bram Stoker", "Mary Shelley", "Robert Louis Stevenson", "Edgar Allan Poe"], answer: "Bram Stoker" },
+    { question: "What is the name of the haunted hotel in *The Shining*?", options: ["Overlook Hotel", "Amityville Horror", "The Exorcist", "The Ring"], answer: "Overlook Hotel" },
+    { question: "Who is the author of *The Exorcist*?", options: ["William Peter Blatty", "Stephen King", "Clive Barker", "Anne Rice"], answer: "William Peter Blatty" },
+    { question: "Who wrote *Frankenstein*?", options: ["Mary Shelley", "Bram Stoker", "Robert Louis Stevenson", "Edgar Allan Poe"], answer: "Mary Shelley" },
+    { question: "What is the name of the vampire in *Interview with the Vampire*?", options: ["Lestat", "Louis", "Claudia", "Akasha"], answer: "Lestat" },
+    { question: "Who is the author of *The Silence of the Lambs*?", options: ["Thomas Harris", "Stephen King", "Clive Barker", "Anne Rice"], answer: "Thomas Harris" },
+    { question: "What is the name of the haunted house in *The Amityville Horror*?", options: ["Amityville House", "The Overlook Hotel", "The Exorcist's House", "The Haunted Mansion"], answer: "Amityville House" },
+    { question: "Who wrote *The Ring*?", options: ["Koji Suzuki", "Stephen King", "Clive Barker", "Anne Rice"], answer: "Koji Suzuki" },
+    { question: "Who is the author of *The Hellbound Heart*?", options: ["Clive Barker", "Stephen King", "Anne Rice", "H.P. Lovecraft"], answer: "Clive Barker" },
+    { question: "What is the name of the monster in *The Creature from the Black Lagoon*?", options: ["The Creature", "The Gill-man", "The Monster", "The Beast"], answer: "The Creature" },
+    { question: "Who wrote *The Turn of the Screw*?", options: ["Henry James", "Edgar Allan Poe", "Bram Stoker", "Mary Shelley"], answer: "Henry James" },
+    { question: "Who is the author of *The Picture of Dorian Gray*?", options: ["Oscar Wilde", "Bram Stoker", "Robert Louis Stevenson", "Edgar Allan Poe"], answer: "Oscar Wilde" },
+    { question: "What is the name of the haunted asylum in *The Haunting*?", options: ["Hill House", "Amityville Asylum", "The Overlook Hotel", "The Exorcist's Asylum"], answer: "Hill House" },
+    { question: "Who wrote *The Woman in Black*?", options: ["Susan Hill", "Stephen King", "Clive Barker", "Anne Rice"], answer: "Susan Hill" },
+    { question: "Who is the author of *The Monk*?", options: ["Matthew Lewis", "Bram Stoker", "Robert Louis Stevenson", "Edgar Allan Poe"], answer: "Matthew Lewis" },
+    { question: "What is the name of the vampire in *Let the Right One In*?", options: ["Eli", "Lestat", "Louis", "Claudia"], answer: "Eli" },
+    { question: "Who wrote *The Fisherman*?", options: ["John Langan", "Stephen King", "Clive Barker", "Anne Rice"], answer: "John Langan" },
+    { question: "Who is the author of *The Hunger*?", options: ["Alma Katsu", "Stephen King", "Clive Barker", "Anne Rice"], answer: "Alma Katsu" },
+    { question: "What is the name of the haunted forest in *The Ritual*?", options: ["The Swedish Forest", "The Haunted Woods", "The Devil's Forest", "The Cursed Forest"], answer: "The Swedish Forest" },
+    { question: "Who wrote *The Border*?", options: ["Robert R. McCammon", "Stephen King", "Clive Barker", "Anne Rice"], answer: "Robert R. McCammon" }
+],
+"romance": [
+    { question: "Who wrote *Pride and Prejudice*?", options: ["Jane Austen", "Charles Dickens", "Mark Twain", "William Shakespeare"], answer: "Jane Austen" },
+    { question: "What is the name of the famous romance novel by Nicholas Sparks?", options: ["The Notebook", "A Walk to Remember", "Dear John", "The Lucky One"], answer: "The Notebook" },
+    { question: "Who is the author of *The Time Traveler's Wife*?", options: ["Audrey Niffenegger", "Nicholas Sparks", "Jane Austen", "Emily Bronte"], answer: "Audrey Niffenegger" },
+    { question: "Who wrote *Twilight*?", options: ["Stephenie Meyer", "Nicholas Sparks", "Jane Austen", "J.K. Rowling"], answer: "Stephenie Meyer" },
+    { question: "What is the name of the main character in *The Fault in Our Stars*?", options: ["Hazel Grace", "Augustus Waters", "Tris Prior", "Katniss Everdeen"], answer: "Hazel Grace" },
+    { question: "Who is the author of *Me Before You*?", options: ["Jojo Moyes", "Nicholas Sparks", "Jane Austen", "Emily Bronte"], answer: "Jojo Moyes" },
+    { question: "Who wrote *The Princess Bride*?", options: ["William Goldman", "Nicholas Sparks", "Jane Austen", "C.S. Lewis"], answer: "William Goldman" },
+    { question: "What is the name of the romance novel by Colleen Hoover?", options: ["Slammed", "Maybe Someday", "Ugly Love", "It Ends with Us"], answer: "Slammed" },
+    { question: "Who is the author of *The Notebook*?", options: ["Nicholas Sparks", "Jane Austen", "Emily Bronte", "Audrey Niffenegger"], answer: "Nicholas Sparks" },
+    { question: "Who wrote *Wuthering Heights*?", options: ["Emily Bronte", "Charlotte Bronte", "Jane Austen", "Mary Shelley"], answer: "Emily Bronte" },
+    { question: "What is the name of the main character in *Outlander*?", options: ["Claire Randall", "Jamie Fraser", "Black Jack Randall", "Geillis Duncan"], answer: "Claire Randall" },
+    { question: "Who is the author of *The Bridges of Madison County*?", options: ["Robert James Waller", "Nicholas Sparks", "Jane Austen", "Emily Bronte"], answer: "Robert James Waller" },
+    { question: "Who wrote *The Lake House*?", options: ["Kate Morton", "Nicholas Sparks", "Jane Austen", "Audrey Niffenegger"], answer: "Kate Morton" },
+    { question: "What is the name of the romance novel by Jennifer Weiner?", options: ["Good in Bed", "In Her Shoes", "Who Do You Love", "Hungry Heart"], answer: "Good in Bed" },
+    { question: "Who is the author of *Eleanor Oliphant is Completely Fine*?", options: ["Gail Honeyman", "Nicholas Sparks", "Jane Austen", "Emily Bronte"], answer: "Gail Honeyman" },
+    { question: "Who wrote *The Rosie Project*?", options: ["Graeme Simsion", "Nicholas Sparks", "Jane Austen", "Emily Bronte"], answer: "Graeme Simsion" },
+    { question: "What is the name of the main character in *The Time Traveler's Wife*?", options: ["Henry DeTamble", "Clare DeTamble", "Eric Bress", "Jaye Davidson"], answer: "Henry DeTamble" },
+    { question: "Who is the author of *Attachments*?", options: ["Rainbow Rowell", "Nicholas Sparks", "Jane Austen", "Emily Bronte"], answer: "Rainbow Rowell" },
+    { question: "Who wrote *Eleanor & Park*?", options: ["Rainbow Rowell", "Nicholas Sparks", "Jane Austen", "Emily Bronte"], answer: "Rainbow Rowell" },
+    { question: "What is the name of the romance novel by Taylor Jenkins Reid?", options: ["Maybe in Another Life", "After I Do", "Forever, Interrupted", "Carrie Soto is Back"], answer: "Maybe in Another Life" }
+]
     };
-  </script>
-  <!-- Progress bar close -->
 
-  
-  </head>
+    function loadQuiz() {
+        // Clear previous result and questions
+        document.getElementById('result').innerHTML = '';
+        const quizForm = document.getElementById('quizForm');
+        quizForm.innerHTML = '';
 
-  <body>
-    <div class="quiz-container">
-      <h2>Book Quiz</h2>
+        // Get the selected topic
+        const topic = document.getElementById('topic').value;
+        const questions = quizzes[topic];
 
-      <!-- Gender Question -->
-      <label for="gender">Select Gender:</label>
-      <select id="gender">
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="nondisclose">Prefer not to disclose</option>
-      </select>
+        // Populate quiz questions based on selected topic
+        questions.forEach((item, index) => {
+            const questionElem = document.createElement('div');
+            questionElem.classList.add('question');
+            questionElem.textContent = `${index + 1}. ${item.question}`;
+            
+            const optionsElem = document.createElement('div');
+            optionsElem.classList.add('options');
 
-      <!-- Author Name Question -->
-      <label for="author">Enter Favorite Author Name:</label>
-      <input type="text" id="author" placeholder="Enter author name">
+            item.options.forEach(option => {
+                const label = document.createElement('label');
+                label.innerHTML = `<input type="radio" name="q${index}" value="${option}"> ${option}`;
+                optionsElem.appendChild(label);
+            });
 
-      <!-- Age Question -->
-      <label for="age">Enter Your Age:</label>
-      <input type="number" id="age" placeholder="Enter your age">
-
-      <!-- Genre Question -->
-      <label for="genre">Select Genre:</label>
-      <select id="genre">
-          <option value="action">Action</option>
-          <option value="thriller">Thriller</option>
-          <option value="fiction">Fiction</option>
-          <option value="tech">Tech</option>
-          <option value="philosophy">Philosophy</option>
-          <option value="manga">Manga</option>
-      </select>
-
-      <!-- Submit Button -->
-      <input type="submit" value="Submit Quiz">
-
-      <!-- Suggestion Message -->
-      <div class="suggestion">
-          You are interested in reading <span id="selected-genre">Genre Type</span> books!
-      </div>
-  </div>
-
-  <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+            quizForm.appendChild(questionElem);
+            quizForm.appendChild(optionsElem);
+        });
     }
 
-    .quiz-container {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 600px;
-        box-sizing: border-box; /* Ensures padding is included in width */
+    function checkAnswers() {
+        // Get selected topic and questions
+        const topic = document.getElementById('topic').value;
+        const questions = quizzes[topic];
+
+        let score = 0;
+        const result = document.getElementById('result');
+        result.innerHTML = '';
+
+        // Check answers and display feedback
+        questions.forEach((item, index) => {
+            const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+            const isCorrect = selectedOption && selectedOption.value === item.answer;
+
+            const feedbackElem = document.createElement('div');
+            feedbackElem.classList.add(isCorrect ? 'correct-answer' : 'incorrect');
+            feedbackElem.textContent = isCorrect ? "Correct!" : `Incorrect. The correct answer is: ${item.answer}`;
+
+            selectedOption ? selectedOption.parentNode.appendChild(feedbackElem) : null;
+            if (isCorrect) score++;
+        });
+
+        // Display the final score
+        result.textContent = `You scored ${score} out of ${questions.length}`;
     }
 
-    .quiz-container h2 {
-        text-align: center;
-        color: #007bff;
-        margin-bottom: 20px;
-    }
+    // Load initial quiz
+    loadQuiz();
+</script>
 
-    .quiz-container label {
-        display: block;
-        margin-bottom: 10px;
-        font-weight: bold;
-        color: #333;
-    }
-
-    .quiz-container input[type="text"],
-    .quiz-container input[type="number"],
-    .quiz-container select {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-
-    .quiz-container input[type="submit"] {
-        background-color: #007bff;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        width: 100%;
-        font-size: 16px;
-    }
-
-    .quiz-container input[type="submit"]:hover {
-        background-color: #0056b3;
-    }
-
-    .suggestion {
-        text-align: center;
-        margin-top: 20px;
-        color: #333;
-    }
-
-    .suggestion span {
-        color: #007bff;
-        font-weight: bold;
-    }
-</style><style>
-  body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
-
-  .quiz-container {
-    margin-top:390px;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 600px;
-      box-sizing: border-box; /* Ensures padding is included in width */
-  }
-
-  .quiz-container h2 {
-      text-align: center;
-      color: #007bff;
-      margin-bottom: 20px;
-  }
-
-  .quiz-container label {
-      display: block;
-      margin-bottom: 10px;
-      font-weight: bold;
-      color: #333;
-  }
-
-  .quiz-container input[type="text"],
-  .quiz-container input[type="number"],
-  .quiz-container select {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-  }
-
-  .quiz-container input[type="submit"] {
-      background-color: #007bff;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      width: 100%;
-      font-size: 16px;
-  }
-
-  .quiz-container input[type="submit"]:hover {
-      background-color: #0056b3;
-  }
-
-  .suggestion {
-      text-align: center;
-      margin-top: 20px;
-      color: #333;
-  }
-
-  .suggestion span {
-      color: #007bff;
-      font-weight: bold;
-  }
-</style>
-           
-        
-          <style>
-            .social-icons input[type="email"] {
-              border: 2px solid #ccc;
-              /* Gray border */
-              border-radius: 4px;
-              /* Rounded corners */
-              padding: 10px;
-              /* Inner padding */
-              font-size: 16px;
-              /* Font size */
-            }
-
-            #confirmationMessage {
-              margin-left: 50px;
-              font-size: 23px;
-              color: rgb(15, 15, 16);
-            }
-          </style>
-
-          
-      </div>
-      <div>
-        <button id="translateButton">Translate</button>
-      </div>
-      <style>
-        /* Fixed translate button */
-      #translateButton {
-        position: fixed;
-        /* bottom: 20px; */
-        top:-15rem;
-        right: 4.4rem;
-        z-index: 1000;
-        width: 53px;  
-        height: 53px;
-        border-radius: 50%; 
-        border: none; 
-        background:#ff9b9b; 
-        color: white; 
-        text-align: center; 
-        display: inline-block; 
-        font-size: 16px; 
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 12px;
-        line-height: 1;
-        text-align: center;
-        white-space: nowrap;
-        transition: transform 0.3s ease;
-        margin-top: 75.8vh;
-        margin-right:opx;
-      }
-      #translateButton:hover {
-        transform: scale(1.2); 
-      }
-      /* The popup modal */
-      .popup {
-        display: none; 
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0,0,0); 
-        background-color: rgba(0,0,0,0.4); 
-      }
-      /* Popup content */
-      .popup-content {
-      background:#ff9b9b;
-        margin-top: 600px;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 300px;
-        border-radius: 10px;
-        position: relative;
-        margin-left: 1160px;
-        /* margin-right: 0px; */
-      }
-      /* Close button */
-      .close {
-        color: #073725;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-      }
-      .close:hover,
-      .close:focus {
-        color: black;
-        text-decoration: none;
-      }
-      /* Hide the default Google Translate widget */
-      .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
-        display: none !important;
-      }
-      body {
-        top: 0px !important;
-      }
-      /* Hide the "Powered by Google" branding */
-      .goog-logo-link {
-        display: none !important;
-      }
-      .goog-te-gadget {
-        height: 28px !important;
-        overflow: hidden;
-      }
-      /* Hide Google Translate notifications */
-      .goog-te-spinner-pos,
-      .goog-te-spinner,
-      .goog-te-balloon-frame,
-      .goog-te-banner-frame,
-      .goog-te-banner,
-      .goog-te-balloon {
-        display: none !important;
-      }
-      /* Custom styles for the Google Translate dropdown */
-      #google_translate_element select {
-        background: #ffffff; 
-        border: 1px solid #ccc; 
-        color: #d26d6d; 
-        padding: 5px; 
-        font-size: 14px; 
-        border-radius: 5px; 
-      }
-      /* Hide the Google Translate bar */
-      body > .skiptranslate {
-        display: none !important;
-      }
-      .goog-te-banner-frame.skiptranslate {
-        display: none !important;
-      }
-      .goog-te-banner-frame {
-        display: none !important;
-      }
-      .goog-te-banner {
-        display: none !important;
-      }
-      </style>
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        // Get the popup
-        var popup = document.getElementById('translatePopup');
-        // Get the button that opens the popup
-        var btn = document.getElementById('translateButton');
-        // Get the <span> element that closes the popup
-        var span = document.getElementsByClassName('close')[0];
-        // When the user clicks the button, open the popup 
-        btn.onclick = function() {
-            popup.style.display = 'block';
-        }
-        // When the user clicks on <span> (x), close the popup
-        span.onclick = function() {
-            popup.style.display = 'none';
-        }
-        // When the user clicks anywhere outside of the popup, close it
-        window.onclick = function(event) {
-            if (event.target == popup) {
-                popup.style.display = 'none';
-            }
-        }
-      });
-      </script>
-      <!-- Popup for Google Translate -->
-      <div id="translatePopup" class="popup">
-          <div class="popup-content">
-              <span class="close">&times;</span>
-              <div id="google_translate_element"></div>
-          </div>
-      </div>
-      <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-            }, 'google_translate_element');
-        }
-      </script>
-      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-      
-      <!-- Your custom JavaScript -->
-      <script src="script.js"></script>
-
-      <script>
-        // Get the modal elements
-        var copyrightModal = document.getElementById("copyrightPolicyModal");
-        var privacyModal = document.getElementById("privacyNoticeModal");
-
-        // Get the link elements
-        var copyrightLink = document.getElementById("copyrightPolicyLink");
-        var privacyLink = document.getElementById("privacyNoticeLink");
-
-        // Get the <span> elements that close the modals
-        var closeCopyright = document.getElementById("closeCopyright");
-        var closePrivacy = document.getElementById("closePrivacy");
-
-        // When the user clicks the link, open the modal 
-        copyrightLink.onclick = function () {
-          copyrightModal.style.display = "block";
-        }
-        privacyLink.onclick = function () {
-          privacyModal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        closeCopyright.onclick = function () {
-          copyrightModal.style.display = "none";
-        }
-        closePrivacy.onclick = function () {
-          privacyModal.style.display = "none";
-        }
-      </script>
-
-      <!-- // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == copyrightModal) {
-        copyrightModal.style.display = "none";
-      }
-      if (event.target == privacyModal) {
-        privacyModal.style.display = "none";
-      }
-    }
-  </script> -->
-    <script>
-      // Function to animate counting from 0 to a target number
-      function countUp(target, elementId) {
-        let count = 0;
-        const increment = target / 100; // Increment by a fraction of the target number
-        const interval = setInterval(() => {
-          count += increment;
-          document.getElementById(elementId).textContent = Math.round(count) + "+"; // Add the "+" sign
-          // Stop the interval when count reaches or exceeds the target number
-          if (count >= target) {
-            clearInterval(interval);
-            document.getElementById(elementId).textContent = target + "+"; // Ensure final value is exact with the "+"
-            // Start counting animation again after a delay
-            setTimeout(() => {
-              countUp(target, elementId);
-            }, 3000); // Delay before restarting the animation (adjust as needed)
-          }
-        }, 20); // Adjust interval speed as needed
-      }
-
-      // Start counting animation for each stat
-      countUp(150, 'stat1'); // Example target number for stat 1
-      countUp(100, 'stat2'); // Example target number for stat 2
-      countUp(500, 'stat3'); // Example target number for stat 3
-      // JavaScript for hover effects
-      document.querySelectorAll('.about-us-community').forEach(function (element) {
-        element.addEventListener('mouseover', function () {
-          element.querySelector('img').src = '../images/bookhover.png';
-        });
-        element.addEventListener('mouseleave', function () {
-          element.querySelector('img').src = '../images/book.png';
-        });
-      });
-      document.querySelectorAll('.about-us-event').forEach(function (element) {
-        element.addEventListener('mouseover', function () {
-          element.querySelector('img').src = '../images/bookshelfhover.png';
-        });
-        element.addEventListener('mouseleave', function () {
-          element.querySelector('img').src = '../images/bookshelf.png';
-        });
-      });
-      document.querySelectorAll('.about-us-product').forEach(function (element) {
-        element.addEventListener('mouseover', function () {
-          element.querySelector('img').src = '../images/communityhover.png';
-        });
-        element.addEventListener('mouseleave', function () {
-          element.querySelector('img').src = '../images/community.png';
-        });
-      });
-      document.querySelectorAll('.about-us-location').forEach(function (element) {
-        element.addEventListener('mouseover', function () {
-          element.querySelector('img').src = '../images/readhover.png';
-        });
-        element.addEventListener('mouseleave', function () {
-          element.querySelector('img').src = '../images/read.png';
-        });
-      });
-      //Custom Cursor
-
-      const coords = { x: 0, y: 0 };
-      const circles = document.querySelectorAll(".circle");
-      const colors = [
-        "#ffb56b",
-        "#fdaf69",
-        "#f89d63",
-        "#f59761",
-        "#ef865e",
-        "#ec805d",
-        "#e36e5c",
-        "#df685c",
-        "#d5585c",
-        "#d1525c",
-        "#c5415d",
-        "#c03b5d",
-        "#b22c5e",
-        "#ac265e",
-        "#9c155f",
-        "#950f5f",
-        "#830060",
-        "#7c0060",
-        "#680060",
-        "#60005f",
-        "#48005f",
-        "#3d005e"
-      ];
-
-      circles.forEach(function (circle, index) {
-        circle.x = 0;
-        circle.y = 0;
-        circle.style.backgroundColor = colors[index % colors.length];
-      });
-
-      window.addEventListener("mousemove", function (e) {
-        coords.x = e.clientX;
-        coords.y = e.clientY;
-
-      });
-
-      function animateCircles() {
-
-        let x = coords.x;
-        let y = coords.y;
-
-        circles.forEach(function (circle, index) {
-          circle.style.left = x - 12 + "px";
-          circle.style.top = y - 12 + "px";
-
-          circle.style.scale = (circles.length - index) / circles.length;
-
-          circle.x = x;
-          circle.y = y;
-
-          const nextCircle = circles[index + 1] || circles[0];
-          x += (nextCircle.x - x) * 0.3;
-          y += (nextCircle.y - y) * 0.3;
-        });
-
-        requestAnimationFrame(animateCircles);
-      }
-      animateCircles();
-
-      // Function to toggle dark mode
-      function toggleDarkMode() {
-        const isDarkMode = isDarkModePreferred();
-        setDarkModePreference(!isDarkMode);
-        applyDarkModePreference();
-      }
-      // Function to apply dark mode preference
-      function applyDarkModePreference() {
-        const isDarkMode = isDarkModePreferred();
-        if (isDarkMode) {
-          document.body.classList.add('dark-mode');
-          document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
-        } else {
-          document.body.classList.remove('dark-mode');
-          document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
-        }
-      }
-      // Function to set dark mode preference
-      document.addEventListener('DOMContentLoaded', () => {
-        const currentTheme = localStorage.getItem('theme');
-        const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
-
-        if (switchCheckbox) { // Check if switchCheckbox is not null
-          function applyDarkModeStyles() {
-            document.body.classList.remove('light-mode');
-            document.body.classList.add('dark-mode');
-
-          }
-
-          function applyLightModeStyles() {
-            document.body.classList.remove('dark-mode');
-            document.body.classList.add('light-mode');
-          }
-
-          if (currentTheme) {
-            if (currentTheme === 'dark-mode') {
-              applyDarkModeStyles();
-              switchCheckbox.checked = true;
-            } else {
-              applyLightModeStyles();
-            }
-          }
-
-          switchCheckbox.addEventListener('change', () => {
-            if (switchCheckbox.checked) {
-              applyDarkModeStyles();
-              localStorage.setItem('theme', 'dark-mode');
-            } else {
-              applyLightModeStyles();
-              localStorage.setItem('theme', 'light-mode');
-            }
-          });
-        } else {
-          console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
-        }
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const backToTopButton = document.getElementById('back-to-top-container');
-
-        function checkButtonVisibility() {
-          if (window.innerWidth > 100 && window.scrollY > 100) {
-            backToTopButton.style.display = 'block';
-          } else {
-            backToTopButton.style.display = 'none';
-          }
-        }
-
-        window.addEventListener('scroll', checkButtonVisibility);
-        window.addEventListener('resize', checkButtonVisibility);
-
-        backToTopButton.addEventListener('click', function () {
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-        });
-        checkButtonVisibility();
-      });
-    </script>
-    <script>
-      VanillaTilt.init(document.querySelectorAll(".team-member"), {
-        max: 25,
-        speed: 400
-      });
-    </script>
-    <script>
-
-      // Function for the contributors section
-
-      const owner = 'anuragverma108';
-      const repo = 'SwapReads';
-      const contributorsPerPage = 8;
-      let contributors = [];
-      let currentPage = 1;
-
-      async function fetchContributors() {
-        const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contributors`);
-        if (!response.ok) {
-          console.error('Failed to fetch contributors:', response.statusText);
-          return;
-        }
-        contributors = await response.json();
-        displayContributors();
-        createPaginationButtons();
-      }
-
-      function displayContributors() {
-        const container = document.getElementById('contributor-cards');
-        container.innerHTML = '';
-        const start = (currentPage - 1) * contributorsPerPage;
-        const end = start + contributorsPerPage;
-        const currentContributors = contributors.slice(start, end);
-
-        currentContributors.forEach(contributor => {
-          const card = document.createElement('div');
-          card.className = 'contributor-member';
-          card.setAttribute('data-tilt', '');
-
-          const img = document.createElement('img');
-          img.src = contributor.avatar_url;
-          img.alt = contributor.login;
-
-          const name = document.createElement('h3');
-          name.textContent = contributor.login;
-
-          const contributions = document.createElement('p');
-          contributions.textContent = `${contributor.contributions} contributions`;
-
-          const viewProfileButton = document.createElement("button");
-          viewProfileButton.textContent = "View Profile";
-          viewProfileButton.addEventListener("click", () => {
-            window.open(contributor.html_url, "_blank");
-          });
-
-          card.appendChild(img);
-          card.appendChild(name);
-          card.appendChild(contributions);
-          container.appendChild(card);
-          card.appendChild(viewProfileButton);
-        });
-      }
-
-      function createPaginationButtons() {
-        const paginationContainer = document.getElementById('pagination');
-        paginationContainer.innerHTML = '';
-        const totalPages = Math.ceil(contributors.length / contributorsPerPage);
-
-        for (let i = 1; i <= totalPages; i++) {
-          const button = document.createElement('button');
-          button.textContent = i;
-          button.classList.add('pagination-button');
-          if (i === currentPage) {
-            button.classList.add('active');
-          }
-          button.addEventListener('click', () => {
-            currentPage = i;
-            displayContributors();
-            updatePaginationButtons();
-          });
-          paginationContainer.appendChild(button);
-        }
-      }
-
-      function updatePaginationButtons() {
-        const buttons = document.querySelectorAll('.pagination-button');
-        buttons.forEach(button => {
-          button.classList.remove('active');
-          if (parseInt(button.textContent) === currentPage) {
-            button.classList.add('active');
-          }
-        });
-      }
-
-      fetchContributors();
-      
-    </script>
-    <script>
-      const navbar = document.querySelector('.navbar'),
-        NavButton = document.querySelector('.nav-toggle-btn'),
-        open = document.querySelector('.open'),
-        close = document.querySelector('.close');
-      let count = 0
-      NavButton.addEventListener('click', () => {
-
-        if (count === 0) {
-          navbar.classList.remove('nav_activated')
-          open.classList.add('close')
-          close.classList.add('open')
-          open.classList.remove('open')
-          close.classList.remove('close')
-          count++
-        }
-        else {
-          navbar.classList.add('nav_activated')
-          open.classList.add('open')
-          close.classList.add('close')
-          open.classList.remove('close')
-          close.classList.remove('open')
-          count = 0
-        }
-      })
-    </script>
-    <script>
-      document.querySelector('input[type="submit"]').addEventListener('click', function() {
-          const selectedGenre = document.getElementById('genre').value;
-          document.getElementById('selected-genre').innerText = selectedGenre;
-      });
-  </script>
-
-  </body>
-
+</body>
 </html>

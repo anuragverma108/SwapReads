@@ -168,22 +168,139 @@
         <div><br /><br /></div>
         <div class="blog-card-add">
           <h2>Want to add your Blog?</h2>
-          <br />
+          <br>
           <label for="title">Title:</label>
-          <input type="text" id="title" name="title" />
-          <br />
+          <input type="text" id="title" name="title" maxlength="30">
+          <br>
           <label for="author-name">Author:</label>
-          <input type="text" id="author-name" name="author-name" />
-          <br />
+          <input type="text" id="author-name" name="author-name" maxlength="30">
+          <br>
+          <label for="short-description">Short Description:</label>
+          <input type="text" id="short-description" name="short-description" maxlength="100" placeholder="Short description of your blog-post ( 50 Words )">
+          <br>
           <label for="message">Description:</label>
-          <textarea id="message" name="message" rows="4" cols="50">
-A brief summary of discription of your blog-post</textarea
-          >
-
-          <button>Add</button>
+          <textarea id="message" name="message" rows="4" cols="50" placeholder="A brief summary of discription of your blog-post"></textarea>
+        
+          <button id="add-blog-btn">Add</button>
         </div>
-      </section>
-    </main>
+  </section>
+</main>
+
+
+
+<script>
+const addBlogBtn = document.getElementById('add-blog-btn');
+const blogGrid = document.querySelector('.blog__grid');
+
+addBlogBtn.addEventListener('click', function() {
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author-name').value;
+  const shortDescription = document.getElementById('short-description').value;
+  const description = document.getElementById('message').value;
+
+  if (title && author && shortDescription && description) {
+    const newBlogCard = document.createElement('div');
+    newBlogCard.classList.add('blog__card');
+    newBlogCard.innerHTML = `
+      <img src="../images/re.jpg" alt="Blog" style="height: 250px; object-fit: cover;">
+      <div class="blog__details">
+        <h4>${title}</h4>
+        <p>${shortDescription}</p>
+        <button class="read-more-btn" data-title="${title}" data-author="${author}" data-description="${description}">Read more</button>
+      </div>
+    `;
+
+    blogGrid.appendChild(newBlogCard);
+
+    // Add event listener to the read more button
+    const readMoreBtn = newBlogCard.querySelector('.read-more-btn');
+    readMoreBtn.addEventListener('click', function() {
+      const title = this.getAttribute('data-title');
+      const author = this.getAttribute('data-author');
+      const description = this.getAttribute('data-description');
+
+      // Store data in localStorage
+      localStorage.setItem('blogData', JSON.stringify({
+        title,
+        author,
+        description
+      }));
+
+      // Open the blog content page
+      window.open('blog-content.html', '_blank');
+    });
+
+    // Retrieve existing blogs from localStorage
+    let blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+    
+    // Create a new blog object
+    const newBlog = {
+      title: title,
+      author: author,
+      shortDescription: shortDescription,
+      description: description
+    };
+    
+    // Add the new blog to the array
+    blogs.push(newBlog);
+    
+    // Save the updated blogs array back to localStorage
+    localStorage.setItem('blogs', JSON.stringify(blogs));
+
+    // Clear input fields
+    document.getElementById('title').value = '';
+    document.getElementById('author-name').value = '';
+    document.getElementById('short-description').value = '';
+    document.getElementById('message').value = '';
+  }
+});
+
+
+// Function to render blogs from local storage
+function renderBlogs() {
+  // Retrieve existing blogs from localStorage
+  let blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+
+  // Loop through each blog and create a card
+  blogs.forEach(blog => {
+    const blogCard = document.createElement('div');
+    blogCard.classList.add('blog__card');
+    blogCard.innerHTML = `
+      <img src="../images/re.jpg" alt="Blog" style="height: 250px; object-fit: cover;">
+      <div class="blog__details">
+        <h4>${blog.title}</h4>
+        <p>${blog.shortDescription}</p>
+        <button class="read-more-btn" data-title="${blog.title}" data-author="${blog.author}" data-description="${blog.description}">Read more</button>
+      </div>
+    `;
+
+    blogGrid.appendChild(blogCard);
+
+    // Add event listener to the read more button
+    const readMoreBtn = blogCard.querySelector('.read-more-btn');
+    readMoreBtn.addEventListener('click', function() {
+      const title = this.getAttribute('data-title');
+      const author = this.getAttribute('data-author');
+      const description = this.getAttribute('data-description');
+
+      // Store data in localStorage
+      localStorage.setItem('blogData', JSON.stringify({
+        title,
+        author,
+        description
+      }));
+
+      // Open the blog content page
+      window.location.href = 'blog-content.html';
+    });
+  });
+}
+
+// Call the function to render blogs when the page loads
+document.addEventListener('DOMContentLoaded', renderBlogs);
+
+</script>
+
 
     <!-- Modal for displaying content -->
     <div id="content-modal">
