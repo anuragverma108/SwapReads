@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nectar in a Sieve Quiz</title>
+    <title>The Nectar in a Sieve Quiz</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #ffd2d3; /* Changed to pink color */
+            background-color: #ffd2d3;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -32,8 +32,8 @@
             color: white;
             border: none;
             border-radius: 5px;
-            display: block; /* Make buttons block elements for vertical display */
-            width: 100%; /* Make buttons full width */
+            display: block;
+            width: 100%;
         }
 
         button:hover {
@@ -45,20 +45,26 @@
         }
 
         .option {
-            margin: 5px 0; /* Space between options */
+            margin: 5px 0;
+        }
+
+        .solution {
+            margin-top: 10px;
+            text-align: left;
         }
     </style>
 </head>
 <body>
 
 <div class="quiz-container">
-    <h1>Nectar in a Sieve Quiz</h1>
+    <h1>The Nectar in a Sieve Quiz</h1>
     <div id="quiz-questions">
         <!-- Questions will be inserted here -->
     </div>
     <button id="submit-button" onclick="submitQuiz()">Submit</button>
     <div id="quiz-result" style="display: none;"></div>
     <button id="home-button" style="display: none;" onclick="window.location.href='index.html';">Return to Home</button>
+    <button id="solutions-button" style="display: none;" onclick="showSolutions()">See Solutions</button>
 </div>
 
 <script>
@@ -128,15 +134,44 @@
     function showResult() {
         const quizContainer = document.querySelector('.quiz-container');
         quizContainer.innerHTML = `<h2>Your Score: ${score}/${quizData.length}</h2>`;
-        
-        // Create the return home button
+
         const homeButton = document.createElement('button');
         homeButton.onclick = () => window.location.href = 'quizzes.html';
         homeButton.innerText = 'Return to Quizzes';
         quizContainer.appendChild(homeButton);
+
+        const solutionsButton = document.createElement('button');
+        solutionsButton.onclick = showSolutions;
+        solutionsButton.innerText = 'See Solutions';
+        quizContainer.appendChild(solutionsButton);
     }
 
-    function submitQuiz () {
+    function showSolutions() {
+        const quizContainer = document.querySelector('.quiz-container');
+        quizContainer.innerHTML = '<h2>Quiz Solutions</h2>';
+
+        quizData.forEach((question, index) => {
+            const solutionElement = document.createElement('div');
+            solutionElement.classList.add('solution');
+            
+            const questionText = document.createElement('h4');
+            questionText.innerText = `${index + 1}. ${question.question}`;
+            solutionElement.appendChild(questionText);
+
+            const correctAnswer = document.createElement('p');
+            correctAnswer.innerText = `Correct Answer: ${question.answer}`;
+            solutionElement.appendChild(correctAnswer);
+
+            quizContainer.appendChild(solutionElement);
+        });
+
+        const homeButton = document.createElement('button');
+        homeButton.onclick = () => window.location.href = 'quizzes.html';
+        homeButton.innerText = 'Return to Home';
+        quizContainer.appendChild(homeButton);
+    }
+
+    function submitQuiz() {
         if (currentQuestionIndex < quizData.length) {
             alert("Please answer all questions before submitting!");
         } else {
@@ -144,7 +179,6 @@
         }
     }
 
-    // Load the first question when the page is ready
     document.addEventListener('DOMContentLoaded', loadQuestion);
 </script>
 
