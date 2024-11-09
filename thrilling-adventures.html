@@ -170,6 +170,67 @@
 .dark-mode .navbar-link {
   color: white !important;
 }
+
+/* Ensure the card itself has a border and the container is defined */
+.chapter-card {
+  background-color: white; /* Initial background color */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect for depth */
+  transition: all 0.3s ease; /* Smooth transition for all changes */
+}
+
+/* Apply hover effect for color changes */
+.chapter-card:hover {
+  background-color: #ffb6b9; /* Change background color to pink on hover */
+}
+
+/* Apply hover effect for the heading to darken its color */
+.chapter-card:hover .card-title {
+  color: #b36b6b; /* Darker shade of the title */
+}
+
+/* Bold and large heading */
+.card-title {
+  font-size: 2em; /* Increase font size */
+  font-weight: bold; /* Make the title bold */
+  color: #333; /* Default color */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Apply hover effect for subtitle and text color */
+.chapter-card:hover .card-subtitle,
+.chapter-card:hover .card-text {
+  color: #ffffff; /* Change text color to white */
+}
+
+/* Subtitle and text default colors */
+.card-subtitle {
+  color: #777; /* Subtitle color */
+}
+
+.card-text {
+  color: #444; /* Default text color */
+}
+h2.section-title {
+  margin-top: -30px; /* Adjust upwards */
+  margin-bottom: 20px; /* Adjust spacing below */
+}
+    .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+   margin-top: 45px;
+   margin-left: 9rem;
+}
+        .navbar-link {
+  color: black !important;
+}
+
+.dark-mode .navbar-link {
+  color: white !important;
+}
 </style>
 
 <body>
@@ -385,59 +446,74 @@
   }
   </style>
 
+
 <section class="section chapters" id="chapters">
-    <div class="container" id="chaps">
+  <div class="container w-full mx-auto flex flex-col" id="chaps">
+    <!-- <p class="section-subtitle"></p> -->
 
-      <p class="section-subtitle"></p>
+    <h2 class="h2 section-title has-underline" style="margin-bottom: 50px;">
+      Explore New Worlds
+      <span class="span has-before"></span>
+    </h2>
 
-      <h2 class="h2 section-title has-underline">
-        Explore New Worlds
-        <span class="span has-before"></span>
-      </h2>
+    <ul class="grid grid-cols-3 justify-center">
 
-      <ul class="grid-list">
+      <li>
+        <div class="chapter-card" style="height: 550px;">
 
-        <li>
-          <a href="books.html" class="chapter-card">
+          <h3 class="h3 card-title"> "Dare to Experience the Unknown"</h3>
+          <p class="card-subtitle mt-20 italic">Love, One Page at a Time</p>
 
-            <p class="card-subtitle"></p>
+          <p class="card-text mt-12">
+            Discover stories that tug at your heartstrings and immerse yourself in a world where every page whispers
+            romance. Whether it's a classic love story or a modern-day fairytale, each book opens a door to
+            unforgettable emotions. Swap and find your next literary soulmate today!
+            <br><br>
+             As you turn the pages, you’ll find pieces of yourself in these stories, reminding you that love isn’t just found—it’s lived.
+          </p>
 
-            <h3 class="h3 card-title"> "Dare to Experience the Unknown"</h3>
+        </div>
+      </li>
 
-            <p class="card-text">
-            </p>
+      <li>
+        <div class="chapter-card" style="height: 550px;">
 
-          </a>
-        </li>
+          <h3 class="h3 card-title">"Edge-of-Your-Seat-Thrills"</h3>
 
-        <li>
-            <a href="books.html" class="chapter-card">
+          <p class="card-subtitle italic">Leave the Ordinary Behind</p>
 
-              <p class="card-subtitle"></p>
 
-              <h3 class="h3 card-title">"Edge-of-Your-Seat Thrills"</h3>
+          <p class="card-text mt-10">
+            Take a break from the ordinary and step into the extraordinary. Let books transport you into realms
+            where magic is real, heroes rise, and challenges are overcome. Explore our collection, swap your
+            favorites, and find stories that make your imagination soar.
+            <br><br>
+            Books are a soothing retreat when reality becomes too demanding.
+          </p>
 
-              <p class="card-text">
-              </p>
+        </div>
+      </li>
 
-            </a>
-          </li>
+      <li>
+        <div class="chapter-card" style="height: 550px;">
 
-        <li>
-          <div class="chapter-card">
+          
+          <h3 class="h3 card-title">"Heart-Pounding Adventures Await"</h3>
+          <p class="card-subtitle italic">Adventure Awaits in Every Chapter</p>
+          
+          <p class="card-text mt-10">
+            Books are portals to adventures waiting to be explored—journey through ancient kingdoms, futuristic
+            landscapes, or distant galaxies. With each turn of the page, you’ll uncover new cultures, ideas, and
+            perspectives. Dive in and experience the thrill of discovery, one book at a time!
+            <br><br>
+           Adventure is waiting just one page away, and the best part is that your next thrill lies in a book swap
+          </p>
 
-            <p class="card-subtitle"></p>
-
-            <h3 class="h3 card-title">"Heart-Pounding Adventures Await"</h3>
-
-            <p class="card-text">
-            </p>
-
-          </div>
-        </li>
+        </div>
+      </li>
     </ul>
-    </div>
-    </section>
+  </div>
+</section>
 
 <!--THE BOOKS-->
 <h2 class="h2 section-title has-underline" data-sr-id="11" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2s cubic-bezier(0.5, 0, 0, 1) 0.1s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0.1s;">
