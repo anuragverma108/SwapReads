@@ -3471,6 +3471,62 @@ color: #ac2127;
         margin-top: 0;
         margin-bottom: 10px;
       }
+
+      /* Responsive design for screens smaller than 768px */
+@media screen and (max-width: 768px) {
+    .popup-content-nl {
+        flex-direction: column; /* Stack elements vertically on mobile */
+        max-width: 90%; /* Make the popup smaller */
+        height: auto; /* Allow height to adjust automatically */
+        padding: 10px; /* Add some padding */
+    }
+
+    .popup-left-nl {
+        display: none; /* Hide the image on mobile */
+    }
+
+    .popup-right-nl {
+        width: 100%;
+        padding: 20px;
+        text-align: center; 
+    }
+
+    .popup-right-nl h1 {
+        font-size: 20px; 
+    }
+
+    .popup-right-nl .h2-nl {
+        font-size: 16px; /* Adjust the subheading font size */
+    }
+
+    .popup-right-nl p {
+        font-size: 14px; /* Adjust text size for mobile */
+    }
+
+    .close1-btn-nl {
+        width: 20px;
+        cursor: pointer;
+        margin: 18px 10px;
+        position: absolute;
+        top: -4px;
+        right: 12px;
+        font-size: 18px;
+        font-weight: 800;
+        z-index: 1010; /* Ensure the close button is on top */
+    }
+
+    .no-thanks-nl {
+        font-size: 14px; /* Adjust 'No thanks' font size */
+    }
+
+    .signup-btn1-nl {
+        font-size: 14px; 
+    }
+
+    .terms-nl {
+        font-size: 10px; /* Adjust terms text size */
+    }
+}
     </style>
     <div id="popup-nl" class="popup-nl">
       <div class="popup-content-nl">
@@ -3523,93 +3579,85 @@ color: #ac2127;
 </div>
 
 <script>
-
-  // Show the newsletter popup immediately on page load
-  function displayNewsletterPopup() {
-      document.getElementById('popup-nl').style.display = 'flex'; // Show newsletter
+// Display newsletter popup if not shown in session
+function displayNewsletterPopup() {
+  if (!sessionStorage.getItem("newsletterPopupDisplayed")) {
+    document.getElementById("popup-nl").style.display = "flex";
+    sessionStorage.setItem("newsletterPopupDisplayed", "true"); // Mark as displayed
   }
-  displayNewsletterPopup(); // Call the function
+}
 
-  // Check if the user has already voted in this session
-  const hasVoted = sessionStorage.getItem('hasVoted');
-
-  // Show the poll popup after a delay, only if the user hasn't voted
-  function checkAndDisplayPollPopup() {
-      const newsletterPopup = document.getElementById('popup-nl');
-      if (newsletterPopup.style.display !== 'flex' && !hasVoted) {
-          document.getElementById('pollPopup').style.display = 'flex'; // Show poll
-      }
+// Show the poll popup after a delay if not shown in session and user hasn't voted
+function displayPollPopup() {
+  if (!sessionStorage.getItem("pollPopupDisplayed") && !sessionStorage.getItem("hasVoted")) {
+    setTimeout(() => {
+      document.getElementById("pollPopup").style.display = "flex";
+      sessionStorage.setItem("pollPopupDisplayed", "true"); // Mark poll popup as displayed
+    }, 10000); // 10-second delay
   }
+}
 
-  // Set timeout for poll display
-  setTimeout(checkAndDisplayPollPopup, 10000);
+// Close popups function for both newsletter and poll
+function closePopups() {
+  document.getElementById("popup-nl").style.display = "none";
+  document.getElementById("pollPopup").style.display = "none";
+}
 
-  // Manage user selections and votes
-  const pollButtons = document.querySelectorAll('.poll-button[data-value]');
-  let selectedValue = '';
+// Add event listeners for close buttons in both popups
+document.querySelectorAll(".close-nl").forEach(btn => {
+  btn.addEventListener("click", closePopups);
+});
 
-  // Handle clicks on poll buttons
-  pollButtons.forEach(button => {
-      button.addEventListener('click', function() {
-          pollButtons.forEach(btn => btn.classList.remove('selected')); // Clear previous selections
-          button.classList.add('selected'); // Highlight selected button
-          selectedValue = button.getAttribute('data-value'); // Store selected value
-      });
+// Initialize popups on page load
+window.onload = function() {
+  displayNewsletterPopup(); // Show newsletter popup
+  displayPollPopup(); // Check and show poll popup if conditions met
+};
+
+// Close the popup when clicking outside the content
+window.addEventListener("click", function(event) {
+  const popupContent = document.querySelector(".popup-content");
+  if (
+    event.target === document.getElementById("popup-nl") && 
+    !popupContent.contains(event.target)
+  ) {
+    document.getElementById("popup-nl").style.display = "none";
+  }
+});
+
+// Handle form submission for newsletter
+document.getElementById("emailForm-nl").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const email = document.getElementById("email-nl").value;
+  if (email) {
+    alert(`Your email ID ${email} has been registered successfully for the newsletter.`);
+    document.getElementById("popup-nl").style.display = "none";
+  }
+});
+
+// Poll voting logic
+const pollButtons = document.querySelectorAll(".poll-button[data-value]");
+let selectedValue = "";
+
+pollButtons.forEach(button => {
+  button.addEventListener("click", function() {
+    pollButtons.forEach(btn => btn.classList.remove("selected"));
+    button.classList.add("selected");
+    selectedValue = button.getAttribute("data-value");
   });
+});
 
-  // Handle voting process
-  document.getElementById('voteButton').addEventListener('click', function() {
-      if (selectedValue) {
-          document.getElementById('result').innerHTML = `You voted for: ${selectedValue}<br>Thank you!`; // Show result
-          sessionStorage.setItem('hasVoted', 'true'); // Save voting status
-          setTimeout(() => {
-              document.getElementById('pollPopup').style.display = 'none'; // Hide poll
-          }, 2000);
-      } else {
-          alert("Please select an option!"); // Alert if no option is selected
-      }
-  });
-
-  // Close popups function
-  function closePopups() {
-      document.getElementById('popup-nl').style.display = 'none'; // Hide newsletter popup
+document.getElementById("voteButton").addEventListener("click", function() {
+  if (selectedValue) {
+    document.getElementById("result").innerHTML = `You voted for: ${selectedValue}<br>Thank you!`;
+    sessionStorage.setItem("hasVoted", "true");
+    setTimeout(() => {
+      document.getElementById("pollPopup").style.display = "none";
+    }, 2000);
+  } else {
+    alert("Please select an option!");
   }
-
-  // Attach close event to close buttons
-  document.querySelectorAll('.close-nl').forEach(btn => {
-      btn.addEventListener('click', closePopups);
-  });
-
-  // Function to log the voting action
-  function logVoteAction() {
-      console.log("User has voted for: " + selectedValue); // Log selected value
-  }
-
-  // Event listener for the vote button to log action
-  document.getElementById('voteButton').addEventListener('click', logVoteAction);
-
-  // Function to manage button focus for accessibility
-  function handleFocus(event) {
-      event.target.style.border = '2px solid #0058ff'; // Optional highlight effect
-  }
-
-  // Attach focus event for accessibility improvement
-  pollButtons.forEach(button => {
-      button.addEventListener('focus', handleFocus);
-  });
-
-  // Function to remove focus style
-  function handleBlur(event) {
-      event.target.style.border = ''; // Remove highlight effect
-  }
-
-  // Attach blur event for accessibility improvement
-  pollButtons.forEach(button => {
-      button.addEventListener('blur', handleBlur);
-  });
-
-  // Log when the script has loaded
-  console.log("Poll script initialized and ready!");
+});
 
 </script>
 

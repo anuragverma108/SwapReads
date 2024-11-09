@@ -826,6 +826,7 @@
 ├── scifi.html
 ├── script.js
 ├── scripts.js
+├── scrollToTop.js
 ├── scrollbar.css
 ├── scrollbar.js
 ├── sense-sensibility_01_austen_64kb.mp3
@@ -837,6 +838,7 @@
 ├── subscribe.html
 ├── sw.js
 ├── terms&cond.html
+├── terms.css
 ├── testp.css
 ├── testp.js
 ├── thrilling-adventures.html
