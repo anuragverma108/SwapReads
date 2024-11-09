@@ -5476,60 +5476,6 @@ body, .container1, .form-fields {
   window.addEventListener("scroll", onScroll);
 
 
-// Coordinates for the cursor
-const coords = { x: 0, y: 0 };
-const circles = document.querySelectorAll(".circle");
-
-// Colors for the circles
-const colors = [
-  "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
-  "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
-  "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
-  "#680060", "#60005f", "#48005f", "#3d005e"
-];
-
-// Assign colors and initial position to each circle
-circles.forEach(function (circle, index) {
-  circle.x = 0;
-  circle.y = 0;
-  circle.style.backgroundColor = colors[index % colors.length];
-});
-
-// Update the coordinates when the mouse moves
-window.addEventListener("mousemove", function (e) {
-  coords.x = e.clientX;
-  coords.y = e.clientY;
-});
-
-// Animation function to move the circles
-function animateCircles() {
-  let x = coords.x;
-  let y = coords.y;
-
-  circles.forEach(function (circle, index) {
-    // Update the position and scale of each circle
-    circle.style.left = x - 12 + "px";
-    circle.style.top = y - 12 + "px";
-    circle.style.scale = (circles.length - index) / circles.length;
-
-    circle.x = x;
-    circle.y = y;
-
-    // Get the next circle in the sequence
-    const nextCircle = circles[index + 1] || circles[0];
-    x += (nextCircle.x - x) * 0.15;
-    y += (nextCircle.y - y) * 0.15;
-  });
-
-  // Repeat the animation
-  requestAnimationFrame(animateCircles);
-}
-
-// Start the animation
-animateCircles();
-
-
-
 
 </script>
 
@@ -5715,6 +5661,169 @@ animateCircles();
     z-index: 99999999;
     transition: transform 0.1s ease-out;
 }
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Section Styling */
+#addBookSection,
+#readLaterSection {
+  padding: 30px;
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: pink;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.dark-mode #addBookSection,
+.dark-mode #readLaterSection {
+  background-color: #2d2d2d; /* Dark background */
+  color: #eaeaea;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Titles */
+#addBookSection h2,
+#readLaterSection h2 {
+  font-size: 1.8rem;
+  color: #d23b57;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ffd3d9;
+  padding-bottom: 8px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.dark-mode #addBookSection h2,
+.dark-mode #readLaterSection h2 {
+  color: #f28c9d;
+  border-bottom-color: #8a3a4b;
+}
+
+/* Form Styling */
+#noteForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#noteForm input[type="text"],
+#noteForm select {
+  padding: 14px;
+  font-size: 1.4rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+.dark-mode #noteForm input[type="text"],
+.dark-mode #noteForm select {
+  background-color: #424242;
+  color: #eaeaea;
+  border: 1px solid #555;
+}
+
+#noteForm input[type="text"]:focus,
+#noteForm select:focus {
+  border-color: #d23b57;
+  outline: none;
+}
+
+.dark-mode #noteForm input[type="text"]:focus,
+.dark-mode #noteForm select:focus {
+  border-color: #f28c9d;
+}
+
+/* Button Styling */
+#noteForm button {
+  padding: 12px 20px;
+  background-color: #f84f35;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode #noteForm button {
+  background-color: #a43a3a;
+}
+
+#noteForm button:hover {
+  background-color: #d23b57;
+}
+
+.dark-mode #noteForm button:hover {
+  background-color: #8a3a4b;
+}
+
+/* Dark mode input placeholder styling */
+.dark-mode #noteForm input[type="text"]::placeholder,
+.dark-mode #noteForm select::placeholder {
+  color: #eaeaea; /* White placeholder text */
+  opacity: 0.8; /* Slight transparency for a softer look */
+}
+
+/* Notes List Styling */
+#notesContainer {
+  margin-top: 20px;
+}
+
+.notes {
+  list-style: none;
+  padding-left: 0;
+}
+
+.notes .note-item {
+  background-color: #ffe6eb;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .notes .note-item {
+  background-color: #3b3b3b;
+  color: #eaeaea;
+}
+
+/* Note Item Title Styling */
+.notes .note-item h3 {
+  font-size: 1.2rem;
+  color: #7b1b3f;
+  margin: 0;
+  font-weight: 600;
+}
+
+.dark-mode .notes .note-item h3 {
+  color: #f28c9d;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 
   </style>
