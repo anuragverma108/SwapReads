@@ -162,6 +162,48 @@
 
 <body>
 
+          <!-- Circles -->
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div> 
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
 
   <header class="header header-anim nav-h" data-header>
   
@@ -324,85 +366,176 @@
 
 
 
-<style>
-    .work-sans {
+    <style>
+      .work-sans {
         font-family: 'Work Sans', sans-serif;
-    }
+      }
 
-    #menu-toggle:checked + #menu {
+      #menu-toggle:checked+#menu {
         display: block;
-    }
+      }
 
-    .hover\:grow {
+      .hover\:grow {
         transition: all 0.3s;
         transform: scale(1);
-    }
+      }
 
-    .hover\:grow:hover {
+      .hover\:grow:hover {
         transform: scale(1.02);
     }
 
 
 
 </style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('book-search');
+    const allBooks = document.querySelectorAll('.flex.flex-col');
+    const parentElement = document.getElementById('books-container');
+    let noBooksMessage;
+    searchInput.addEventListener('input', function() {
+        const searchTerm = searchInput.value.toLowerCase();
+        var count = 0; 
+        allBooks.forEach(book => {
+            const title = book.querySelector('p').textContent.toLowerCase();
 
+            if (title.includes(searchTerm)) {
+                count++;
+                book.style.display = 'block'; // Show matching book
+            } else {
+              book.style.display = 'none'; // Hide non-matching book
+            }
+        });
+        // Showing No books found if none of the books match
+        if(count == 0){
+          if(!noBooksMessage){
+            noBooksMessage = document.createElement("p");
+            noBooksMessage.classList.add("error-message")
+            noBooksMessage.textContent = "No books Found ";
+            parentElement.appendChild(noBooksMessage);
+          }
+        }
+        else if(noBooksMessage){
+          noBooksMessage.remove();
+          noBooksMessage = null;
+        }
+    });
+});
+</script>
 <style>
   #chaps {
       margin-top: 150px; /* Adjust the margin-top value as needed */
   }
+  h2.section-title {
+  margin-top: -30px; /* Adjust this value to move the heading upwards */
+  margin-bottom: 20px; /* Adjust if necessary */
+}
+  /* Base Styles */
+/* Ensure the card itself has a border and the container is defined */
+.chapter-card {
+  background-color: white; /* Initial background color */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect for depth */
+  transition: all 0.3s ease; /* Smooth transition for all changes */
+}
+
+/* Apply hover effect for color changes */
+.chapter-card:hover {
+  background-color: #ffb6b9; /* Change background color to pink on hover */
+}
+
+/* Apply hover effect for the heading to darken its color */
+.chapter-card:hover .card-title {
+  color: #b36b6b; /* Darker shade of the title */
+}
+
+/* Bold and large heading */
+.card-title {
+  font-size: 2em; /* Increase font size */
+  font-weight: bold; /* Make the title bold */
+  color: #333; /* Default color */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Apply hover effect for subtitle and text color */
+.chapter-card:hover .card-subtitle,
+.chapter-card:hover .card-text {
+  color: #ffffff; /* Change text color to white */
+}
+
+/* Subtitle and text default colors */
+.card-subtitle {
+  color: #777; /* Subtitle color */
+}
+
+.card-text {
+  color: #444; /* Default text color */
+}
+
+
   </style>
 
 <section class="section chapters" id="chapters">
-    <div class="container" id="chaps">
+  <div class="container w-full mx-auto flex flex-col" id="chaps">
+    <h2 class="h2 section-title has-underline" style="margin-bottom: 50px;">
+      Explore New Worlds
+      <span class="span has-before"></span>
+    </h2>
 
-      <p class="section-subtitle"></p>
+    <ul class="grid grid-cols-3 justify-center">
 
-      <h2 class="h2 section-title has-underline">
-        Explore New Worlds
-        <span class="span has-before"></span>
-      </h2>
+      <li>
+        <div class="chapter-card" style="height: 550px;">
+          <h3 class="h3 card-title">"Solve the Unsolvable"</h3>
+          <p class="card-subtitle mt-20 italic">Love, One Page at a Time</p>
 
-      <ul class="grid-list">
+          <p class="card-text mt-12">
+            Embark on a journey of unraveling mysteries and solving the unsolvable. These stories challenge the mind
+            while tugging at your heartstrings. Whether it's a gripping puzzle or a love that transcends time, each page
+            draws you deeper into a world of intrigue. Swap your book and dive into the unknown.
+            <br><br>
+            Every chapter holds a key to unlocking the secrets of the human spirit—solve them and discover your next great read.
+          </p>
+        </div>
+      </li>
 
-        <li>
-          <a href="books.html" class="chapter-card">
+      <li>
+        <div class="chapter-card" style="height: 550px;">
+          <h3 class="h3 card-title">"Follow the Clues"</h3>
+          <p class="card-subtitle italic">Leave the Ordinary Behind</p>
 
-            <p class="card-subtitle"></p>
+          <p class="card-text mt-10">
+            Follow the trail of clues and mysteries that lead you to unexpected places. These stories ignite your curiosity
+            and pull you into worlds filled with twists and turns. As you journey through each chapter, you’ll uncover secrets
+            that challenge the mind and engage the soul. Swap books and step into a story where the clues are waiting to be solved.
+            <br><br>
+            Books are a gateway to a reality far more exciting than the mundane—follow the clues and uncover a world of endless possibilities.
+          </p>
+        </div>
+      </li>
 
-            <h3 class="h3 card-title"> "Solve the Unsolvable"</h3>
+      <li>
+        <div class="chapter-card" style="height: 550px;">
+          <h3 class="h3 card-title">"Unlock the Mysteries"</h3>
+          <p class="card-subtitle italic">Adventure Awaits in Every Chapter</p>
 
-            <p class="card-text">
-            </p>
+          <p class="card-text mt-10">
+            Uncover secrets and unlock the mysteries hidden in every chapter. These books are filled with adventure,
+            where the unknown awaits at every corner. From ancient legends to futuristic escapades, every page brings
+            new revelations. Dive into the unknown and let your next literary adventure begin with a simple book swap.
+            <br><br>
+            Whether it's solving an ancient riddle or discovering a hidden realm, the mysteries unfold with every turn of the page.
+          </p>
+        </div>
+      </li>
 
-          </a>
-        </li>
-
-        <li>
-            <a href="books.html" class="chapter-card">
-
-              <p class="card-subtitle"></p>
-
-              <h3 class="h3 card-title">"Follow the Clues"</h3>
-
-              <p class="card-text">
-              </p>
-
-            </a>
-          </li>
-
-        <li>
-          <div class="chapter-card">
-            <p class="card-subtitle"></p>
-            <h3 class="h3 card-title">"Unlock the Mysteries"</h3>
-
-            <p class="card-text">
-            </p>
-
-          </div>
-        </li>
     </ul>
-    </div>
-    </section>
+  </div>
+</section>
+
+
+
 
 <!--THE BOOKS-->
 <h2 class="h2 section-title has-underline" data-sr-id="11" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2s cubic-bezier(0.5, 0, 0, 1) 0.1s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0.1s;">
@@ -1214,6 +1347,62 @@ close.classList.remove('open')
 count=0
 }
 })
+</script>
+
+<script>
+
+  // Coordinates for the cursor
+  const coords = { x: 0, y: 0 };
+  const circles = document.querySelectorAll(".circle");
+
+  // Colors for the circles
+  const colors = [
+    "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+    "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+    "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+    "#680060", "#60005f", "#48005f", "#3d005e"
+  ];
+
+  // Assign colors and initial position to each circle
+  circles.forEach(function (circle, index) {
+    circle.x = 0;
+    circle.y = 0;
+    circle.style.backgroundColor = colors[index % colors.length];
+  });
+
+  // Update the coordinates when the mouse moves
+  window.addEventListener("mousemove", function (e) {
+    coords.x = e.clientX;
+    coords.y = e.clientY;
+  });
+
+  // Animation function to move the circles
+  function animateCircles() {
+    let x = coords.x;
+    let y = coords.y;
+
+    circles.forEach(function (circle, index) {
+      // Update the position and scale of each circle
+      circle.style.left = x - 12 + "px";
+      circle.style.top = y - 12 + "px";
+      circle.style.scale = (circles.length - index) / circles.length;
+
+      circle.x = x;
+      circle.y = y;
+
+      // Get the next circle in the sequence
+      const nextCircle = circles[index + 1] || circles[0];
+      x += (nextCircle.x - x) * 0.15;
+      y += (nextCircle.y - y) * 0.15;
+    });
+
+    // Repeat the animation
+    requestAnimationFrame(animateCircles);
+  }
+
+  // Start the animation
+  animateCircles();
+
 </script>
 </body>
 
