@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Approach to Reading Classic Literature</title>
+    <style>
+      /* Circle styles */
+      .circle {
+        height: 24px;
+        width: 24px;
+        border-radius: 50%;
+        background-color: black;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 99999999;
+        transition: transform 0.1s ease-out;
+      }
+      /* Body Styling */
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #fde2e2;
+        color: #222;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      /* Container Styling */
+      .content-container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 900px;
+        text-align: center;
+        margin: auto;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .content-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+      }
+
+      /* Heading Styles */
+      h2 {
+        color: #c0392b;
+        font-size: 2.6rem;
+        margin-bottom: 20px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+      }
+
+      h3 {
+        color: #333333;
+        text-align: left;
+        margin-top: 35px;
+        font-size: 1.8rem;
+        font-weight: 700;
+        border-bottom: 2px solid #e74c3c;
+        padding-bottom: 8px;
+      }
+
+      /* Paragraph Styling */
+      p {
+        font-size: 1.2rem;
+        text-align: left;
+        line-height: 1.75;
+        margin-bottom: 20px;
+        color: #444;
+        font-weight: 500;
+      }
+
+      /* List Styling */
+      ul {
+        text-align: left;
+        margin: 20px 0;
+        padding-left: 25px;
+        font-size: 1.2rem;
+        line-height: 1.7;
+        font-weight: 500;
+        color: #333;
+      }
+
+      ul li {
+        margin: 12px 0;
+        padding-left: 5px;
+        list-style-type: disc;
+      }
+
+      ul li strong {
+        color: #c0392b;
+        font-weight: 700;
+      }
+
+      /* Button Styling */
+      button {
+        padding: 14px 32px;
+        margin-top: 30px;
+        cursor: pointer;
+        background-color: #c0392b;
+        color: #ffffff;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        transition: background-color 0.3s, transform 0.2s;
+        box-shadow: 0 6px 12px rgba(192, 57, 43, 0.3);
+      }
+
+      button:hover {
+        background-color: #96281b;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(150, 40, 27, 0.3);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .content-container {
+          padding: 25px;
+        }
+
+        h2 {
+          font-size: 2.2rem;
+        }
+
+        h3 {
+          font-size: 1.6rem;
+        }
+
+        p,
+        ul {
+          font-size: 1.1rem;
+        }
+
+        button {
+          font-size: 1rem;
+          padding: 12px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Circles -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <script>
+      // Coordinates for the cursor
+      const coords = { x: 0, y: 0 };
+      const circles = document.querySelectorAll(".circle");
+
+      // Colors for the circles
+      const colors = [
+        "#ffb56b",
+        "#fdaf69",
+        "#f89d63",
+        "#f59761",
+        "#ef865e",
+        "#ec805d",
+        "#e36e5c",
+        "#df685c",
+        "#d5585c",
+        "#d1525c",
+        "#c5415d",
+        "#c03b5d",
+        "#b22c5e",
+        "#ac265e",
+        "#9c155f",
+        "#950f5f",
+        "#830060",
+        "#7c0060",
+        "#680060",
+        "#60005f",
+        "#48005f",
+        "#3d005e",
+      ];
+
+      // Assign colors and initial position to each circle
+      circles.forEach(function (circle, index) {
+        circle.x = 0;
+        circle.y = 0;
+        circle.style.backgroundColor = colors[index % colors.length];
+      });
+
+      // Update the coordinates when the mouse moves
+      window.addEventListener("mousemove", function (e) {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+      });
+
+      // Animation function to move the circles
+      function animateCircles() {
+        let x = coords.x;
+        let y = coords.y;
+
+        circles.forEach(function (circle, index) {
+          // Update the position and scale of each circle
+          circle.style.left = x - 12 + "px";
+          circle.style.top = y - 12 + "px";
+          circle.style.scale = (circles.length - index) / circles.length;
+
+          circle.x = x;
+          circle.y = y;
+
+          // Get the next circle in the sequence
+          const nextCircle = circles[index + 1] || circles[0];
+          x += (nextCircle.x - x) * 0.15;
+          y += (nextCircle.y - y) * 0.15;
+        });
+
+        // Repeat the animation
+        requestAnimationFrame(animateCircles);
+      }
+
+      // Start the animation
+      animateCircles();
+    </script>
+    <div class="content-container">
+      <h2>How to Approach Reading Classic Literature</h2>
+      <p>
+        Reading classic literature can be a rewarding experience, but it often
+        requires a thoughtful approach. Here are some tips to help you get
+        started:
+      </p>
+      <ul>
+        <li>
+          <strong>Start with the Right Book:</strong> Choose a classic that
+          matches your interests. For adventure, try <em>Treasure Island</em>;
+          for romance, consider <em>Pride and Prejudice</em>.
+        </li>
+        <li>
+          <strong>Understand the Context:</strong> Learning about the historical
+          and cultural background can enrich your understanding. Try reading an
+          introduction or summary beforehand.
+        </li>
+        <li>
+          <strong>Take Your Time:</strong> Classics are often dense and richly
+          layered. Read slowly, take breaks, and savor the details.
+        </li>
+        <li>
+          <strong>Annotate and Take Notes:</strong> Jotting down thoughts,
+          questions, or new words can deepen your engagement with the text.
+        </li>
+        <li>
+          <strong>Discuss with Others:</strong> Joining a book club or
+          discussing with friends can offer new perspectives and make the
+          experience more enjoyable.
+        </li>
+        <li>
+          <strong>Use Supplemental Resources:</strong> Online resources like
+          SparkNotes or study guides can provide summaries and analyses to aid
+          comprehension.
+        </li>
+      </ul>
+
+      <h3>Examples of Classic Literature</h3>
+      <ul>
+        <li>
+          <strong>Pride and Prejudice</strong> by Jane Austen – A tale of love,
+          society, and class in Regency-era England.
+        </li>
+        <li>
+          <strong>Moby-Dick</strong> by Herman Melville – An adventurous quest
+          on the high seas, exploring obsession and revenge.
+        </li>
+        <li>
+          <strong>1984</strong> by George Orwell – A dystopian novel about
+          totalitarianism and the dangers of a controlled society.
+        </li>
+        <li>
+          <strong>Great Expectations</strong> by Charles Dickens – A story of
+          ambition, social class, and personal growth in Victorian England.
+        </li>
+        <li>
+          <strong>To Kill a Mockingbird</strong> by Harper Lee – A powerful
+          narrative on racial injustice and moral integrity in the American
+          South.
+        </li>
+        <li>
+          <strong>War and Peace</strong> by Leo Tolstoy – A sprawling tale of
+          Russian society, war, and personal fate during the Napoleonic era.
+        </li>
+        <li>
+          <strong>The Great Gatsby</strong> by F. Scott Fitzgerald – A critique
+          of the American Dream set in the Jazz Age.
+        </li>
+      </ul>
+
+      <button onclick="window.location.href='classic.html';">
+        Return to Home
+      </button>
+    </div>
+  </body>
+</html>

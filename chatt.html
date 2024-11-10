@@ -1,22 +1,764 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SwapReads Community Chat</title>
-    <link rel="stylesheet" href="chatt.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
     <link rel="manifest" href="./assets/favicon_package_v0.16/site.webmanifest">
     <link rel="mask-icon" href="./assets/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/litrary_realms.css">
+    <link rel="stylesheet" href="./assets/font-6/css/all.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="./assets/css/MenuClick.css">
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet">
+  
+    <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  
+    <script src="./assets/js/rateUsModal.js" defer></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="./assets/js/faq.js"></script>
+    <script src="./assets/js/tilt.js"></script>
+    <script src="./assets/js/scroll.js"></script>
+    <link rel="stylesheet" href="./scrollbar.css">
+  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="modals(privacy policy).css">
+  
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+  
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/test-style.css">
+  
+    <!-- Preloader CSS-->
+    <link rel="stylesheet" href="assets/css/preloader.css">
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script src="./assets/js/preloader.js" defer></script>
+    <script src="./script.js"></script>
+    
+   
+    <style>
+     
+     .header {
 
-</head>
+position: fixed;
+top: 0;
+width: 100%;
+z-index: 1000; /* Ensures it stays on top of other content */
+margin-top: 45px;
+margin-left: 9rem;
+}
+      swiper-container {
+        width: 100%;
+        height: 75%;
+      }
+  
+    
+      /* Theme Change Button Style */
+      @media (max-width: 990px) {
+        .switch-container {
+          margin-top: 3.2rem;
+          margin-right: -0.5rem;
+        }
+      }
+      @media (max-width: 575px) {
+        .switch-container {
+          margin-top: 2.4rem;
+          margin-right: -0.5rem;
+        }
+        /* Navbar Toggle Button placed in center */
+        .nav-toggle-btn{
+          margin-top: -2rem;
+          margin-left: 2.2rem;
+        }
+      }
+  
+  /* testimonal card fix by harshcodesit */
+      swiper-slide {
+        text-align: center;
+        font-size: 15;
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+      }
+      /* ########### */
+  
+      swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        color: hsl(357, 37%, 62%);
+      }
+  
+      swiper-container {
+  
+         margin: auto;
+  
+      }
+  
+      .flip-card {
+        background-color: transparent;
+        width: 400px;
+        height: 370px;
+        /* margin: 2px; */
+        /* border: 1px solid #f1f1f1; */
+        perspective: 1000px;
+        /* Remove this if you don't want the 3D effect */
+      }
+  
+      /* This container is needed to position the front and back side */
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.7s;
+        transform-style: preserve-3d;
+        padding: 10px;
+      }
+  
+      /* Do an horizontal flip when you move the mouse over the flip box container */
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+  
+      /* Position the front and back side */
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        /* Safari */
+        backface-visibility: hidden;
+      }
+  
+      /* Style the front side (fallback if image is missing) */
+      .flip-card-front {
+        background-color: white;
+        color: black;
+      }
+  
+      /* Style the back side */
+      .flip-card-back {
+        background-color: white;
+        color: black;
+        transform: rotateY(180deg);
+      }
+  
+      /* Light mode styles */
+      .light-mode .readmore-anim {
+        font-size: 18px;
+        letter-spacing: 0;
+        color: hsl(357, 37%, 62%);
+      }
+  
+      .light-mode .readmore-anim:hover {
+        color: red;
+        letter-spacing: 1px;
+        transition: ease-in-out;
+      }
+      .cta1{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: auto;
+    padding: 20px 24px;
+    color:  hsl(357, 37%, 62%);
+    font-family: Avenir, sans-serif;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 27px;
+      left: 0;
+      display: block;
+      border-radius: 28px;
+      background: rgba(255, 171, 157, 0.5);
+      width: 56px;
+      height: 56px;
+      transition: all 0.3s ease;
+    }
+    span {
+      position: relative;
+      font-size: 8px;
+      line-height: 18px;
+      font-weight: 900;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      vertical-align: middle;
+      color: var(--charcoal);
+    }
+    svg {
+      position: relative;
+      top: 27px;
+      margin-left: 5px;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke: hsl(357, 37%, 62%);
+      stroke-width: 2;
+      transform: translateX(-5px);
+      transition: all 0.3s ease;
+    }
+    &:hover {
+      &:before {
+        width: 9%;
+        background: #ffab9d;
+      }
+      svg {
+        transform: translateX(0);
+      }
+      .active {
+        transform: scale(0.96);
+      }
+    }
+  }
+  /* CSS to make navbar item text color black */
+.navbar-link {
+color: black !important;
+}
 
-<body>
+  .cta {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: auto;
+    padding: 20px 24px;
+    color:  hsl(357, 37%, 62%);
+    font-family: Avenir, sans-serif;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      border-radius: 28px;
+      background: rgba(255, 171, 157, 0.5);
+      width: 56px;
+      height: 56px;
+      transition: all 0.3s ease;
+    }
+    span {
+      position: relative;
+      font-size: 8px;
+      line-height: 18px;
+      font-weight: 900;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      vertical-align: middle;
+      color: var(--charcoal);
+    }
+    svg {
+      position: relative;
+      top: 0;
+      margin-left: 5px;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke: hsl(357, 37%, 62%);
+      stroke-width: 2;
+      transform: translateX(-5px);
+      transition: all 0.3s ease;
+    }
+    &:hover {
+      &:before {
+        width: 9%;
+        background: #ffab9d;
+      }
+      svg {
+        transform: translateX(0);
+      }
+      .active {
+        transform: scale(0.96);
+      }
+    }
+  }
+  
+  
+  
+      /* Dark Mode Styles */
+      .dark-mode .readmore-anim {
+        font-size: 18px;
+        letter-spacing: 0;
+        color: hsl(357, 37%, 62%);
+        
+      }
+  
+      .readmore-anim .icon:hover {
+        color: red;
+      }
+  
+      .dark-mode .readmore-anim:hover {
+        color: red;
+        letter-spacing: 1px;
+        transition: ease-in-out;
+      }
+  
+      .dark-mode .header.scrolled {
+        background-color: #232222; /* Change to a darker color when scrolled */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+      }
+  
+      #cookie-consent {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background-color: #f1f1f1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    height: fit-content;
+    z-index: 100;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin: 20px;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    transition: border-color 0.3s;
+  }
+  
+  #cookie-consent:hover {
+    border-right-color: #A30F17;
+    border-bottom-color: #A30F17;
+  }
+  
+  #cookie-consent p {
+    color: black;  /* Make the text black for better visibility */
+    text-align: center;  /* Center align the text */
+  }
+  
+   .menu {
+     display: none;
+     position: absolute;
+     top: 80px; 
+     right: 0;
+     background-color: white;
+     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+     border-radius: 8px;
+     width: 200px; 
+     z-index: 1000;
+     margin-right:10px;
+   }
+   
+   .menu.active {
+     display: block;
+   }
+   
+   .menu h3 {
+     padding: 10px;
+     text-align: center;
+   }
+   
+   .menu ul {
+     list-style: none;
+     padding: 10px 0;
+   }
+   
+   .menu ul li {
+     padding: 10px;
+     display: flex;
+     align-items: center;
+   }
+   
+   .menu ul li img {
+     width: 20px;
+     height: 20px;
+     margin-right: 10px;
+   }
+   .profile img {
+     width: 50px; 
+     height: 50px; 
+     border-radius: 50%; 
+     object-fit: cover;
+     border: 2px solid #fff; 
+     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+   }
+ 
+  .accept-cookies,
+  .reject-cookies {
+    width: 260px;  /* Decrease the button width */
+    height: 35px;  /* Decrease the button height */
+    color: white;
+    background-color: #A30F17;
+    border: none;
+    border-radius: 5px;  /* Add rounded corners */
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;  /* Smooth transition for effects */
+  }
+  
+  .reject-cookies {
+    margin-top: 10px;
+  }
+  
+  
+  .accept-cookies:hover,
+  .reject-cookies:hover {
+    transform: scale(0.95);
+    box-shadow: 0 0 15px rgb(249, 212, 212);  /* Reduce the shadow size */
+  }
+  
+  .accept-cookies:hover {
+    background-color: rgb(245, 202, 202);
+    color: #A30F17;
+  }
+  
+  .reject-cookies:hover {
+    background-color: rgb(250, 192, 192);
+    color: #A30F17;
+  }
+  
+  #learn-more-link,
+  #show-less-link {
+    color: #A30F17;  
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  #learn-more-link:hover,
+  #show-less-link:hover {
+    text-decoration: underline;
+  }
+  
+  #cookie-content {
+    display: none;
+    margin-top: 10px;
+  }
+  
+  
+  #back-to-top-container {
+    position: fixed;
+  }
+  
+  
+  
+      /* Basic navbar styling */
+  .header {
+    position: fixed;
+    width: 100%;
+    top: 10;
+    z-index: 1000;
+    transition: top 0.3s;
+  }
+  
+  /* Hide the navbar */
+  .header.hidden {
+    top: -93px; /* Adjust according to your header height */
+  }
+  
+  /* Navbar styling when scrolled */
+  .header.scrolled {
+    background-color: #efefef; /* Change to a darker color when scrolled */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  
+  .action {
+    position: fixed;
+    top: 43px;
+    right: 83px;
+  }
+  
+  .action .profile {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .action .profile img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .action .menu {
+    position: absolute;
+    top: 120px;
+    right: -10px;
+    padding: 10px 20px;
+    background: #fff;
+    width: 200px;
+    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .action .menu.active {
+    top: 80px;
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .action .menu::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    right: 28px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    transform: rotate(45deg);
+  }
+  
+  .action .menu h3 {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px 0;
+    font-weight: 500;
+    color: #555;
+    line-height: 1.5em;
+  }
+  
+  .action .menu h3 span {
+    font-size: 14px;
+    color: #cecece;
+    font-weight: 300;
+  }
+  
+  .action .menu ul li {
+    list-style: none;
+    padding: 16px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+  }
+  
+  .action .menu ul li img {
+    max-width: 20px;
+    margin-right: 10px;
+    opacity: 0.5;
+    transition: 0.5s;
+  }
+  
+  .action .menu ul li:hover img {
+    opacity: 1;
+  }
+  
+  .action .menu ul li a {
+    display: inline-flex;
+    text-align: center;
+    padding-left: 5%;
+    font-weight: 300;
+    font-size: 19px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: 0.5s;
+  }
+  
+  .action .menu ul li:hover a {
+    color: #ff5d94;
+    font-size: 21px;
+  
+  }
+  .hamburger{
+      display: none;
+      cursor: pointer;
+      position: absolute;
+      top: 24px;
+      left: 1.5%;
+  }
+  .line{
+      width: 36px;
+      height: 5px;
+      margin: 4px 4px;
+      background-color: rgb(240, 15, 15);
+  }
+  @media only screen and (max-width:1063px){
+      .nav{
+          flex-direction: column;
+          position: fixed;
+          top: 0;
+          width: 100%;
+      }
+      .header{
+          flex-direction: column;
+          height: 53.8rem;
+          transition: 0.55s all ease-out;
+          padding-top: 5px;
+          padding-top: 60px;
+      }
+      .navbar-item{
+          margin-right: 40px;
+      }
+      .navbar-list{
+        position: relative;
+        top: 400px;
+      }
+      .hamburger{
+          display: block;
+      }
+      .nav-h{
+          height: 78px;
+          width: 100vw;
+      }
+      .vis-h{
+          opacity: 0;
+      }
+      .logo img{
+        position: relative;
+        top: 17px;
+        left: 350px;
+      }
+  }
+  @media only screen and (max-width:990px){
+    .header{
+      height: 0;
+    }
+    .navbar-list{
+      top: 0;
+    }
+    .logo img{
+      top: -9px;
+      left: 50px;
+      
+    }
+  }
+  @media (min-width: 990px){
+
+  .grid-list {
+ grid-template-columns: repeat(2, 1fr);
+}
+  }
+  .chapter-card{
+     width: 30vw;
+     height: 400px;
+  }
+
+  .chapter-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  }
+
+.chapter-card:hover {
+ transform: scale(1.05); 
+ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+}  
+  .genre{
+     margin-top: 200px;
+  }
+  .light-mode .switch-container {
+ right: 140px;
+ top: 10px;
+}
+.switch-checkbox:checked + .switch-label .switch-button {
+ transform: translateX(13px);
+ /* background-color: #34495e; */
+}
+.ben {
+ color: var(--sonic-silver);
+ font-size: 24px;
+ font-weight: bold;
+ margin-bottom: 20px;
+ text-align: center;
+
+}
+.chapter-card:hover .ben{
+color: #d26d6d;
+}
+    </style>
+   <style>
+     /* Circle styles */
+     .circle {
+       height: 24px;
+       width: 24px;
+       border-radius: 50%;
+       background-color: black;
+       position: fixed;
+       top: 0;
+       left: 0;
+       pointer-events: none;
+       z-index: 99999999;
+       transition: transform 0.1s ease-out;
+     }
+
+     
+   </style>
+    <link rel="stylesheet" href="chatt.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/favicon_package_v0.16/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon_package_v0.16/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon_package_v0.16/favicon-16x16.png"
+    />
+    <link
+      rel="manifest"
+      href="./assets/favicon_package_v0.16/site.webmanifest"
+    />
+    <link
+      rel="mask-icon"
+      href="./assets/favicon_package_v0.16/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+
+  <body>
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
@@ -59,38 +801,1036 @@
     <div class="circle"></div>
     <div class="circle"></div>
 
-    <header>
-        <nav>
-            <ul>
-                <a href="index.html">
-                    <i class="fas fa-home"></i>
+    <header class="header header-anim nav-h" data-header>
+  
+      <div class="container mobile-container-styles">
+       
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="navbar nav_activated" data-navbar>
+    
+    
+          <ul class="navbar-list nav" style="margin-right: 10px;">
+            <a href="index.html" class="logo" style="display:flex;">
+              <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; height:100px; margin:0px 0px 15px -10px;">
+            </a>
+    
+            <li class="navbar-item" style="margin-right: 10px; font-size: smaller;">
+              <a href="index.html" class="navbar-link" data-nav-link>
+                <i class="ri-home-fill"></i> Home
+              </a>
+            </li>
+    
+    
+            <li class="navbar-item" style="margin-right: 10px;">
+              <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
+                <i class="ri-information-fill"></i> About Us
+              </a>
+            </li>
+    
+           <li class="navbar-item" style="margin-right: 10px;">
+              <a href="index.html#benefits"  class="navbar-link" data-nav-link><i
+                  class="ri-bar-chart-fill"></i> Benefits</a>
+            </li>
+    
+            <li class="navbar-item" style="margin-right: 10px;">
+              <a href="index.html#genre"  class="navbar-link" data-nav-link><i
+                  class="ri-bar-chart-fill"></i> Genre</a>
+            </li>
+    
+           <li class="navbar-item">
+                <a href="audiobook.html" class="navbar-link" data-nav-link>
+                    <i class="ri-questionnaire-fill"></i> Audio Books
                 </a>
-
-                <a href="./assets/html/about.html">
-                    <i class="fas fa-arrow-left"></i>
-                </a>
-
-            </ul>
-        </nav>
-    </header>
+            </li>
+    
+    
+            <li class="navbar-item" style="margin-right: 10px;">
+              <a href="index.html#contact"  class="navbar-link" data-nav-link>
+                <i class="ri-contacts-fill"></i> Contact
+              </a>
+            </li>
+    
+            <li class="navbar-item" id="login-signup-link" style="margin-right: 10px;">
+              <a href="./assets/html/login.html" class="navbar-link">
+                <i class="ri-login-box-fill"></i> Login/Signup
+              </a>
+            </li>
+    
+            <li class="navbar-item" style="margin-right: 10px;">
+              <a href="comsp.html" class="navbar-link" data-nav-link>
+                <i class="ri-book-fill"></i> Community
+              </a>
+            </li>
+            <li class="navbar-item" style="margin-right: 10px;">
+              <a href="./assets/html/event.html"  class="navbar-link" data-nav-link>
+                <i class="ri-community-fill"></i> Events
+              </a>
+            </li>   
+            <div class="switch-container">
+              <input type="checkbox" id="switch" class="switch-checkbox">
+              <label for="switch" class="switch-label">
+                <div class="switch-button">
+                  <span class="material-icons sun-icon">wb_sunny</span>
+                  <span class="material-icons moon-icon">brightness_2</span>
+                </div>
+              </label>
+              </div>
+                <!-- Theme switcher -->
+  
+                
+              
+                <script>
+                    // Theme switcher
+                    document.addEventListener('DOMContentLoaded', function () {
+                      const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
+                      const bodyElement = document.body;
+                
+                      const currentTheme = localStorage.getItem('theme') || 'light';
+                      if (currentTheme === 'dark') {
+                        bodyElement.classList.add('dark-mode');
+                        toggleSwitch.checked = true;
+                      } else {
+                        bodyElement.classList.add('light-mode');
+                      }
+                
+                      toggleSwitch.addEventListener('change', function (event) {
+                        if (event.target.checked) {
+                          bodyElement.classList.remove('light-mode');
+                          bodyElement.classList.add('dark-mode');
+                          localStorage.setItem('theme', 'dark');
+                        } else {
+                          bodyElement.classList.remove('dark-mode');
+                          bodyElement.classList.add('light-mode');
+                          localStorage.setItem('theme', 'light');
+                        }
+                      });
+                    });
+                  // Hamburger toggle
+                  document.getElementById('hamburger-button').addEventListener('click', function() {
+                    document.querySelector('.navbar').classList.toggle('active');
+                  });
+  
+                // Update the coordinates when the mouse moves
+                window.addEventListener("mousemove", function (e) {
+                  coords.x = e.clientX;
+                coords.y = e.clientY;
+  });
+  
+                // Animation function to move the circles
+                function animateCircles() {
+                  let x = coords.x;
+                let y = coords.y;
+  
+                circles.forEach(function (circle, index) {
+                  // Update the position and scale of each circle
+                  circle.style.left = x - 12 + "px";
+                circle.style.top = y - 12 + "px";
+                circle.style.scale = (circles.length - index) / circles.length;
+  
+                circle.x = x;
+                circle.y = y;
+  
+                // Get the next circle in the sequence
+                const nextCircle = circles[index + 1] || circles[0];
+                x += (nextCircle.x - x) * 0.15;
+                y += (nextCircle.y - y) * 0.15;
+    });
+  
+                // Repeat the animation
+                requestAnimationFrame(animateCircles);
+  }
+  
+                // Start the animation
+                animateCircles();
+  
+                function scrollToGenre(genreId) {
+                  const element = document.getElementById(genreId);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }
+                  </script>
+                </header>
     <main>
-        <section class="chat-container">
-            <div class="chat-header">
-                <h2>Community Chat</h2>
-            </div>
-            <div class="chat-messages" id="chat-messages">
-                <!-- Messages will be displayed here -->
-            </div>
-            <div class="chat-input">
-                <input type="text" id="message-input" placeholder="Type a message...">
-                <button id="send-button">Send</button>
-                <button id="media-button">
-                    <i class="fa-solid fa-paperclip"></i>
-                </button>
-            </div>
-        </section>
+      <section class="chat-container" style="margin-top: 18rem;">
+        <div class="chat-header">
+          <h2 style="font-size: larger;">Community Chat</h2>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+          <!-- Messages will be displayed here -->
+        </div>
+        <div class="chat-input">
+          <input
+            type="text"
+            id="message-input"
+            placeholder="Type a message..."
+          />
+          <button id="send-button">Send</button>
+          <button id="media-button">
+            <i class="fa-solid fa-paperclip"></i>
+          </button>
+        </div>
+      </section>
     </main>
     <script src="chatt.js"></script>
-</body>
+    <footer class="ff">
+      <div class="foot-top">
+        <div class="foot-left">
+    
+          <div class="desc">
+    <!--google translate-->
+            <!-- <div id="google_translate_element"></div>
+    
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement(
+                        {pageLanguage: 'en'},
+                        'google_translate_element'
+                    );
+                }
+            </script>
+    
+            <script type="text/javascript"
+                    src=
+        "https://translate.google.com/translate_a/element.js?
+        cb=googleTranslateElementInit">
+            </script> -->
+            <div class="SwapReads" ><a href="#" class="logo" style="margin: 0px 40px">SwapReads</a></div>
+            <div>
+              <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
+                lovers
+                seeking to swap and
+    
+                discover new literary gems.
+                Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
+                the
+                world of literature—all on one convenient platform. Join us and dive into a universe of endless
+                possibilities!
+              </p>
+            </div>
+    
+          </div>
+        </div>
+        <div class="foot-middle" style="padding: 20px; ">
+          <h2 style="font-size: 24px; margin-bottom: 15px; ">Quick Links</h2>
+          <div id="quicklinks" class="row" style="display: flex; gap: 20px;">
+            <!-- First Column -->
+            <div class="col-md-6" style="flex: 1;">
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/index.html#home" onclick="lenis.scrollTo('#home')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-home" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">Home</p>
+                  </a>
+                </li>
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/index.html#benefits" onclick="lenis.scrollTo('#benefits')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-book" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">Benefits</p>
+                  </a>
+                </li>
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/index.html#chapters" onclick="lenis.scrollTo('#chapters')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-globe" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">Literary</p>
+                  </a>
+                </li>
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/index.html#pricing" onclick="lenis.scrollTo('#pricing')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-dollar-sign" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">Pricing</p>
+                  </a>
+                </li>
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="book_recommend.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-bookmark" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">Recommend</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+        
+            <!-- Second Column -->
+            <div class="col-md-6" style="flex: 1;">
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-exchange-alt" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">Swap</p>
+                  </a>
+                </li>
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-file-pdf" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">E-Book</p>
+                  </a>
+                </li>
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/assets/html/about.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-info-circle" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">About</p>
+                  </a>
+                </li>
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/index.html#contact" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-envelope" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">Contact</p>
+                  </a>
+                </li>
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/index.html#faqq" onclick="lenis.scrollTo('#faqq')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-question-circle" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">FAQ</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+          <style>
+            .social-icons input[type="email"] 
+            {
+                border: 2px solid #ccc; /* Gray border */
+                border-radius: 4px; /* Rounded corners */
+                padding: 10px; /* Inner padding */
+                font-size: 16px; /* Font size */
+            }
+            #confirmationMessage
+            {
+              margin-left: 50px;
+              font-size: 23px;
+              color: green;
+    
+            }
+           /* for small screen */
+            @media (max-width: 768px) 
+            {
+              #confirmationMessage 
+              {
+                  margin-left: 0;
+                  text-align: center;
+                  font-size: 18px;
+              }
+          }
+          </style>
+          <style>
+            #confirmationmessage {
+      position: fixed;
+      top: 42rem;
+      right: 10px;
+      background-color: green;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      display: none;
+    }
+    
+          </style>
+    
+       <form id="newsform" onsubmit="return showConfirmationMessage();">
+        <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
+        <div class="row-flex display-flex">
+            <input class="finput" type="email" id="new-email" name="email" placeholder="Email address"
+                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+                   title="Please enter a valid email address that ends with '.com'" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
+        </div>
+    </form>
+    
+    <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
+      
+    <script>
+    function showConfirmationMessage() {
+    
+    const form = document.getElementById('newsform');
+    const confirmationMessage = document.getElementById('confirmationmessage');
+    
+    
+    confirmationMessage.style.display = 'block';
+    setTimeout(function() {
+      location.reload(); 
+    }, 3000);
+    
+    
+    
+    }
+    
+    
+    
+    </script>
+    <style>
+    .finput:hover{
+      border:0.2rem solid #A30F17;
+      margin-bottom:-0.2rem;
+    }
+    form {
+      width: 500px;
+      height:300px;
+      font-size: larger;
+    }
+    
+    .subscribe {
+    background-color: #A30F17;
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    font-family: Arial, sans-serif;
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.2s;
+    }
+    
+    .subscribe:hover {
+    background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+    transform: scale(1.1);
+    }
+    
+    .subscribe:active {
+    transform: scale(0.98); 
+    }
+    
+    .subscribe:focus {
+    outline: none; 
+    }
+    
+    .icons{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 150px;
+    }
+    
+    
+    </style>
+    
+    <!-- <script>
+    function showConfirmationMessage() 
+    {
+      // Show confirmation message
+      const confirmationMessage = document.getElementById('confirmationMessage');
+      confirmationMessage.innerHTML = "Thank you for subscribing!";
+      confirmationMessage.style.display = 'block';
+    
+      // Reset the form after 3 seconds
+      setTimeout(function() 
+      {
+          document.getElementById('newsletterForm').reset();
+          confirmationMessage.style.display = 'none';
+          
+      }, 3000);
+    
+      return false; 
+    }
+    </script>-->
+          <div class="icons">
+            <a href="https://www.discord.com/" target="_blank">
+              <div class="icon">
+                <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
+              </div>
+             </a>
+    
+            <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
+              <div class="icon">
+                <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
+              </div>
+            </a>
+    
+            <a href="https://www.facebook.com/" target="_blank">
+              <div class="icon">
+                <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
+              </div>
+            </a>
+    
+            <a href="https://x.com/anuragverma_108" target="_blank">
+              <div class="icon">
+                <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
+              </div>
+            </a>
+    
+            <a href="https://www.instagram.com/">
+              <div class="icon" id="insta-icon">
+                <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
+              </div>
+            </a>
+    
+    
+            <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
+              <div class="icon">
+                <i class="fab fa-youtube" style="cursor: pointer;"></i>
+              </div>
+            </a>
+    
+    
+    
+            <a href="https://github.com/anuragverma108">
+              <div class="icon">
+                <i class="fab fa-github" title="Github"></i>
+              </div>
+            </a>
+           
+    
+          </div>
+         </div>
+    
+         <div>
+          <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
+            <button class="Btn">
+              <svg height="1.2em" class="arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path></svg>
+              <p class="text">Back to Top</p>
+            </button>
+          </div>
+          <!-- <div>
+            <button id="translateButton" style="background-color: #A30F17; transition:all 1s ease 0.1s;">Translate</button>
+          </div> -->
+        </div>
+    
+        </div>
+      </div>
+    <!-- <style>
+      #translateButton:hover{
+        background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+        transform:scale(1.1);
+      }
+    </style> -->
+    
+      <!-- adding privacy policy and copyright popup-->
+      <div class="footer-f" style="text-align: center; align-items: center;">
+        <p style="text-align: center">
+          &copy;
+          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+        </p>
+        <div class="row-copy">
+    
+    
+        <a href="/copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+        <a href="/privacynotice.html" id="privacyNoticeLink">Privacy Notice</a> |
+        <a href="/our-vision.html" id="ourvisionLink">Our Vision</a></li> |
+        <a href="\SwapReads\refundpolicy.html">Refund Policy</a>
+      </div>
+      </div>
+      <style>
+        #copyrightPolicyLink:hover{
+          color: rgb(126, 0, 21);
+          transition: 0.5s ease;
+          text-decoration: none;
+        }
+        #privacyNoticeLink:hover{
+          color: rgb(126, 0, 21);
+          transition: 0.5s ease;
+          text-decoration: none;
+        }
+        #ourvisionLink:hover{
+          color: rgb(126, 0, 21);
+          transition: 0.5s ease;
+          text-decoration: none;
+        }
+      </style>
+    
+      <!-- Copyright Policy Modal -->
+      <div id="copyrightPolicyModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeCopyright">&times;</span>
+          <h1>Copyright Policy</h1>
+          <p>Welcome to SwapReads. Here is our copyright policy:</p>
+          <ul>
+            <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
+            <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
+            <li>Users may download and print content for personal use only.</li>
+            <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
+            <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
+          </ul>
+        </div>
+      </div> 
+    
+      <!-- Privacy Notice Modal -->
+      <div id="privacyNoticeModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closePrivacy">&times;</span>
+          <h1>Privacy Notice</h1>
+          <p>Welcome to SwapReads. Here is our privacy notice:</p>
+          <ul>
+            <li>We collect personal information when you register, buy, or sell books.</li>
+            <li>We use this information to provide and improve our services.</li>
+            <li>We do not share your personal information with third parties without your consent.</li>
+            <li>We take reasonable measures to protect your data from unauthorized access.</li>
+            <li>You can contact us to update or delete your personal information.</li>
+            <li>By using our site, you consent to our privacy practices.</li>
+          </ul>
+        </div>
+      </div> 
+    
+      <script>
+        // Get the modal elements
+        var copyrightModal = document.getElementById("copyrightPolicyModal");
+        var privacyModal = document.getElementById("privacyNoticeModal");
+    
+        // Get the link elements
+        var copyrightLink = document.getElementById("copyrightPolicyLink");
+        var privacyLink = document.getElementById("privacyNoticeLink");
+    
+        // Get the <span> elements that close the modals
+        var closeCopyright = document.getElementById("closeCopyright");
+        var closePrivacy = document.getElementById("closePrivacy");
+    
+        // When the user clicks the link, open the modal
+        copyrightLink.onclick = function() {
+          copyrightModal.style.display = "block";
+        }
+        privacyLink.onclick = function() {
+          privacyModal.style.display = "block";
+        }
+    
+        // When the user clicks on <span> (x), close the modal
+        closeCopyright.onclick = function() {
+          copyrightModal.style.display = "none";
+        }
+        closePrivacy.onclick = function() {
+          privacyModal.style.display = "none";
+        }
+    
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == copyrightModal) {
+            copyrightModal.style.display = "none";
+          }
+          if (event.target == privacyModal) {
+            privacyModal.style.display = "none";
+          }
+        }
+      </script>
+      
+    </footer>
+    
+     <div>
+      <button id="translateButton">Translate</button>
+    </div>
+    <style>
+      /* Quick Links Grid Styling */
+footer .footer-column ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 10px 20px; /* Space between items */
+}
 
+footer .footer-column ul li {
+  margin: 0; /* Reset default margin */
+}
+
+footer .footer-column ul li a {
+  color: inherit; /* Keep the color as in original code */
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+footer .footer-column ul li a:hover {
+  color: inherit; /* Keep the hover color as in original code */
+}
+
+      /* Fixed translate button */
+    #translateButton {
+      position: fixed;
+      /* bottom: 20px; */
+      top:-15rem;
+      right: 4.4rem;
+      z-index: 1000;
+      width: 53px;  
+      height: 53px;
+      border-radius: 50%; 
+      border: none; 
+      background:linear-gradient(hwb(357 6% 36%),#d26d6d); 
+      color: white; 
+      text-align: center; 
+      display: inline-block; 
+      font-size: 16px; 
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      transition: transform 0.3s ease;
+      margin-top: 75.8vh;
+      margin-right:opx;
+    }
+    #translateButton:hover {
+      transform: scale(1.2); 
+    }
+    /* The popup modal */
+    .popup {
+      display: none; 
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0); 
+      background-color: rgba(0,0,0,0.4); 
+    }
+    /* Popup content */
+    .popup-content {
+    background:linear-gradient(hwb(357 6% 36%),#d26d6d);
+      margin-top: 600px;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 300px;
+      border-radius: 10px;
+      position: relative;
+      margin-left: 1160px;
+      /* margin-right: 0px; */
+    }
+    /* Close button */
+    .close {
+      color: #073725;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+    }
+    /* Hide the default Google Translate widget */
+    .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+      display: none !important;
+    }
+    body {
+      top: 0px !important;
+    }
+    /* Hide the "Powered by Google" branding */
+    .goog-logo-link {
+      display: none !important;
+    }
+    .goog-te-gadget {
+      height: 28px !important;
+      overflow: hidden;
+    }
+    /* Hide Google Translate notifications */
+    .goog-te-spinner-pos,
+    .goog-te-spinner,
+    .goog-te-balloon-frame,
+    .goog-te-banner-frame,
+    .goog-te-banner,
+    .goog-te-balloon {
+      display: none !important;
+    }
+    /* Custom styles for the Google Translate dropdown */
+    #google_translate_element select {
+      background: #ffffff; 
+      border: 1px solid #ccc; 
+      color: #d26d6d; 
+      padding: 5px; 
+      font-size: 14px; 
+      border-radius: 5px; 
+    }
+    /* Hide the Google Translate bar */
+    body > .skiptranslate {
+      display: none !important;
+    }
+    .goog-te-banner-frame.skiptranslate {
+      display: none !important;
+    }
+    .goog-te-banner-frame {
+      display: none !important;
+    }
+    .goog-te-banner {
+      display: none !important;
+    }
+    .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+   margin-top: 45px;
+   margin-left: 9rem;
+}
+        .navbar-link {
+  color: black !important;
+}
+
+.dark-mode .navbar-link {
+  color: white !important;
+}
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      // Get the popup
+      var popup = document.getElementById('translatePopup');
+      // Get the button that opens the popup
+      var btn = document.getElementById('translateButton');
+      // Get the <span> element that closes the popup
+      var span = document.getElementsByClassName('close')[0];
+      // When the user clicks the button, open the popup 
+      btn.onclick = function() {
+          popup.style.display = 'block';
+      }
+      // When the user clicks on <span> (x), close the popup
+      span.onclick = function() {
+          popup.style.display = 'none';
+      }
+      // When the user clicks anywhere outside of the popup, close it
+      window.onclick = function(event) {
+          if (event.target == popup) {
+              popup.style.display = 'none';
+          }
+      }
+    });
+    </script>
+    <!-- Popup for Google Translate -->
+    <div id="translatePopup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <div id="google_translate_element"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+              pageLanguage: 'en',
+          }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <!-- Your custom JavaScript -->
+    <script src="script.js"></script>
+
+     <script>
+
+        function toggleDarkMode() {
+          const isDarkMode = isDarkModePreferred();
+          setDarkModePreference(!isDarkMode);
+          applyDarkModePreference();
+        }
+    
+        // Function to apply dark mode preference
+        function applyDarkModePreference() {
+          const isDarkMode = isDarkModePreferred();
+          if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
+          } else {
+            document.body.classList.remove('dark-mode');
+            document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
+          }
+        }
+    
+        document.addEventListener('DOMContentLoaded', () => {
+          const currentTheme = localStorage.getItem('theme');
+          const switchCheckbox = document.getElementById('switch');
+        
+          if (!switchCheckbox) {
+            console.error("Switch checkbox not found!");
+            return;
+          }
+        
+          const applyDarkModeStyles = () => {
+            document.body.classList.remove('light-mode');
+            document.body.classList.add('dark-mode');
+          };
+        
+          const applyLightModeStyles = () => {
+            document.body.classList.remove('dark-mode');
+            document.body.classList.add('light-mode');
+          };
+        
+          const initializeTheme = () => {
+            if (currentTheme === 'dark-mode') {
+              applyDarkModeStyles();
+              switchCheckbox.checked = true;
+            } else {
+              applyLightModeStyles();
+            }
+          };
+        
+          const handleThemeChange = () => {
+            if (switchCheckbox.checked) {
+              applyDarkModeStyles();
+              localStorage.setItem('theme', 'dark-mode');
+            } else {
+              applyLightModeStyles();
+              localStorage.setItem('theme', 'light-mode');
+            }
+          };
+        
+          initializeTheme();
+          switchCheckbox.addEventListener('change', handleThemeChange);
+        });
+        
+      </script>
+       <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const backToTopButton = document.getElementById('back-to-top-container');
+    
+          function checkButtonVisibility() {
+            if (window.innerWidth > 100 && window.scrollY > 100) {
+              backToTopButton.style.display = 'block';
+            } else {
+              backToTopButton.style.display = 'none';
+            }
+          }
+    
+          window.addEventListener('scroll', checkButtonVisibility);
+          window.addEventListener('resize', checkButtonVisibility);
+    
+          backToTopButton.addEventListener('click', function () {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          });
+    
+          checkButtonVisibility();
+        });
+    
+      </script>
+      
+  <script>
+
+    //   function sendMail(){
+    //         let params={
+    //             name:document.getElementById('name').value,
+    //             email:document.getElementById('email').value,
+    //             subject:document.getElementById('subject').value,
+    //             message:document.getElementById('message').value,
+    //             subscribe:document.getElementById('newsletter-email').value
+    //         }
+    //         EmailJSResponseStatus.send("service_lktb68z","template_w79vd94",params,"o6kveYmOSDrs0l1Mg")
+    //         .then(alert('Email sent successfully'))
+    //       }
+
+    // document.querySelector('subscribe-btn').addEventListener('submit', sendMail());
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+      const isDarkMode = isDarkModePreferred();
+      setDarkModePreference(!isDarkMode);
+      applyDarkModePreference();
+    }
+
+    // Function to apply dark mode preference
+    function applyDarkModePreference() {
+      const isDarkMode = isDarkModePreferred();
+      if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
+      } else {
+        document.body.classList.remove('dark-mode');
+        document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentTheme = localStorage.getItem('theme');
+      const switchCheckbox = document.getElementById('switch');
+    
+      if (!switchCheckbox) {
+        console.error("Switch checkbox not found!");
+        return;
+      }
+    
+      const applyDarkModeStyles = () => {
+        document.body.classList.remove('light-mode');
+        document.body.classList.add('dark-mode');
+      };
+    
+      const applyLightModeStyles = () => {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+      };
+    
+      const initializeTheme = () => {
+        if (currentTheme === 'dark-mode') {
+          applyDarkModeStyles();
+          switchCheckbox.checked = true;
+        } else {
+          applyLightModeStyles();
+        }
+      };
+    
+      const handleThemeChange = () => {
+        if (switchCheckbox.checked) {
+          applyDarkModeStyles();
+          localStorage.setItem('theme', 'dark-mode');
+        } else {
+          applyLightModeStyles();
+          localStorage.setItem('theme', 'light-mode');
+        }
+      };
+    
+      initializeTheme();
+      switchCheckbox.addEventListener('change', handleThemeChange);
+    });
+    
+  </script>
+      <script>
+        // Coordinates for the cursor
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+
+        // Colors for the circles
+        const colors = [
+          "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+          "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+          "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+          "#680060", "#60005f", "#48005f", "#3d005e"
+        ];
+
+        // Assign colors and initial position to each circle
+        circles.forEach(function (circle, index) {
+          circle.x = 0;
+          circle.y = 0;
+          circle.style.backgroundColor = colors[index % colors.length];
+        });
+
+        // Update the coordinates when the mouse moves
+        window.addEventListener("mousemove", function (e) {
+          coords.x = e.clientX;
+          coords.y = e.clientY;
+        });
+
+        // Animation function to move the circles
+        function animateCircles() {
+          let x = coords.x;
+          let y = coords.y;
+
+          circles.forEach(function (circle, index) {
+            // Update the position and scale of each circle
+            circle.style.left = x - 12 + "px";
+            circle.style.top = y - 12 + "px";
+            circle.style.scale = (circles.length - index) / circles.length;
+
+            circle.x = x;
+            circle.y = y;
+
+            // Get the next circle in the sequence
+            const nextCircle = circles[index + 1] || circles[0];
+            x += (nextCircle.x - x) * 0.3;
+            y += (nextCircle.y - y) * 0.3;
+          });
+
+          // Repeat the animation
+          requestAnimationFrame(animateCircles);
+        }
+
+        // Start the animation
+        animateCircles();
+      </script>
+</body>
 </html>
+

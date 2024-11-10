@@ -51,6 +51,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="exchangeHub.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="manifest" href="/manifest.json">
   <style>
     body {
       margin: 0;
@@ -3470,6 +3471,62 @@ color: #ac2127;
         margin-top: 0;
         margin-bottom: 10px;
       }
+
+      /* Responsive design for screens smaller than 768px */
+@media screen and (max-width: 768px) {
+    .popup-content-nl {
+        flex-direction: column; /* Stack elements vertically on mobile */
+        max-width: 90%; /* Make the popup smaller */
+        height: auto; /* Allow height to adjust automatically */
+        padding: 10px; /* Add some padding */
+    }
+
+    .popup-left-nl {
+        display: none; /* Hide the image on mobile */
+    }
+
+    .popup-right-nl {
+        width: 100%;
+        padding: 20px;
+        text-align: center; 
+    }
+
+    .popup-right-nl h1 {
+        font-size: 20px; 
+    }
+
+    .popup-right-nl .h2-nl {
+        font-size: 16px; /* Adjust the subheading font size */
+    }
+
+    .popup-right-nl p {
+        font-size: 14px; /* Adjust text size for mobile */
+    }
+
+    .close1-btn-nl {
+        width: 20px;
+        cursor: pointer;
+        margin: 18px 10px;
+        position: absolute;
+        top: -4px;
+        right: 12px;
+        font-size: 18px;
+        font-weight: 800;
+        z-index: 1010; /* Ensure the close button is on top */
+    }
+
+    .no-thanks-nl {
+        font-size: 14px; /* Adjust 'No thanks' font size */
+    }
+
+    .signup-btn1-nl {
+        font-size: 14px; 
+    }
+
+    .terms-nl {
+        font-size: 10px; /* Adjust terms text size */
+    }
+}
     </style>
     <div id="popup-nl" class="popup-nl">
       <div class="popup-content-nl">
@@ -3522,93 +3579,85 @@ color: #ac2127;
 </div>
 
 <script>
-
-  // Show the newsletter popup immediately on page load
-  function displayNewsletterPopup() {
-      document.getElementById('popup-nl').style.display = 'flex'; // Show newsletter
+// Display newsletter popup if not shown in session
+function displayNewsletterPopup() {
+  if (!sessionStorage.getItem("newsletterPopupDisplayed")) {
+    document.getElementById("popup-nl").style.display = "flex";
+    sessionStorage.setItem("newsletterPopupDisplayed", "true"); // Mark as displayed
   }
-  displayNewsletterPopup(); // Call the function
+}
 
-  // Check if the user has already voted in this session
-  const hasVoted = sessionStorage.getItem('hasVoted');
-
-  // Show the poll popup after a delay, only if the user hasn't voted
-  function checkAndDisplayPollPopup() {
-      const newsletterPopup = document.getElementById('popup-nl');
-      if (newsletterPopup.style.display !== 'flex' && !hasVoted) {
-          document.getElementById('pollPopup').style.display = 'flex'; // Show poll
-      }
+// Show the poll popup after a delay if not shown in session and user hasn't voted
+function displayPollPopup() {
+  if (!sessionStorage.getItem("pollPopupDisplayed") && !sessionStorage.getItem("hasVoted")) {
+    setTimeout(() => {
+      document.getElementById("pollPopup").style.display = "flex";
+      sessionStorage.setItem("pollPopupDisplayed", "true"); // Mark poll popup as displayed
+    }, 10000); // 10-second delay
   }
+}
 
-  // Set timeout for poll display
-  setTimeout(checkAndDisplayPollPopup, 10000);
+// Close popups function for both newsletter and poll
+function closePopups() {
+  document.getElementById("popup-nl").style.display = "none";
+  document.getElementById("pollPopup").style.display = "none";
+}
 
-  // Manage user selections and votes
-  const pollButtons = document.querySelectorAll('.poll-button[data-value]');
-  let selectedValue = '';
+// Add event listeners for close buttons in both popups
+document.querySelectorAll(".close-nl").forEach(btn => {
+  btn.addEventListener("click", closePopups);
+});
 
-  // Handle clicks on poll buttons
-  pollButtons.forEach(button => {
-      button.addEventListener('click', function() {
-          pollButtons.forEach(btn => btn.classList.remove('selected')); // Clear previous selections
-          button.classList.add('selected'); // Highlight selected button
-          selectedValue = button.getAttribute('data-value'); // Store selected value
-      });
+// Initialize popups on page load
+window.onload = function() {
+  displayNewsletterPopup(); // Show newsletter popup
+  displayPollPopup(); // Check and show poll popup if conditions met
+};
+
+// Close the popup when clicking outside the content
+window.addEventListener("click", function(event) {
+  const popupContent = document.querySelector(".popup-content");
+  if (
+    event.target === document.getElementById("popup-nl") && 
+    !popupContent.contains(event.target)
+  ) {
+    document.getElementById("popup-nl").style.display = "none";
+  }
+});
+
+// Handle form submission for newsletter
+document.getElementById("emailForm-nl").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const email = document.getElementById("email-nl").value;
+  if (email) {
+    alert(`Your email ID ${email} has been registered successfully for the newsletter.`);
+    document.getElementById("popup-nl").style.display = "none";
+  }
+});
+
+// Poll voting logic
+const pollButtons = document.querySelectorAll(".poll-button[data-value]");
+let selectedValue = "";
+
+pollButtons.forEach(button => {
+  button.addEventListener("click", function() {
+    pollButtons.forEach(btn => btn.classList.remove("selected"));
+    button.classList.add("selected");
+    selectedValue = button.getAttribute("data-value");
   });
+});
 
-  // Handle voting process
-  document.getElementById('voteButton').addEventListener('click', function() {
-      if (selectedValue) {
-          document.getElementById('result').innerHTML = `You voted for: ${selectedValue}<br>Thank you!`; // Show result
-          sessionStorage.setItem('hasVoted', 'true'); // Save voting status
-          setTimeout(() => {
-              document.getElementById('pollPopup').style.display = 'none'; // Hide poll
-          }, 2000);
-      } else {
-          alert("Please select an option!"); // Alert if no option is selected
-      }
-  });
-
-  // Close popups function
-  function closePopups() {
-      document.getElementById('popup-nl').style.display = 'none'; // Hide newsletter popup
+document.getElementById("voteButton").addEventListener("click", function() {
+  if (selectedValue) {
+    document.getElementById("result").innerHTML = `You voted for: ${selectedValue}<br>Thank you!`;
+    sessionStorage.setItem("hasVoted", "true");
+    setTimeout(() => {
+      document.getElementById("pollPopup").style.display = "none";
+    }, 2000);
+  } else {
+    alert("Please select an option!");
   }
-
-  // Attach close event to close buttons
-  document.querySelectorAll('.close-nl').forEach(btn => {
-      btn.addEventListener('click', closePopups);
-  });
-
-  // Function to log the voting action
-  function logVoteAction() {
-      console.log("User has voted for: " + selectedValue); // Log selected value
-  }
-
-  // Event listener for the vote button to log action
-  document.getElementById('voteButton').addEventListener('click', logVoteAction);
-
-  // Function to manage button focus for accessibility
-  function handleFocus(event) {
-      event.target.style.border = '2px solid #0058ff'; // Optional highlight effect
-  }
-
-  // Attach focus event for accessibility improvement
-  pollButtons.forEach(button => {
-      button.addEventListener('focus', handleFocus);
-  });
-
-  // Function to remove focus style
-  function handleBlur(event) {
-      event.target.style.border = ''; // Remove highlight effect
-  }
-
-  // Attach blur event for accessibility improvement
-  pollButtons.forEach(button => {
-      button.addEventListener('blur', handleBlur);
-  });
-
-  // Log when the script has loaded
-  console.log("Poll script initialized and ready!");
+});
 
 </script>
 
@@ -3766,7 +3815,7 @@ color: #ac2127;
 
           <ul class="navbar-list nav" style="margin-right: 10px;">
             <a href="index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-              <img src="./assets/images/final.png" class="logopic" style=" width: 15rem; margin:0px 0px 0px -10px;">
+              <img src="./assets/images/final.png" class="logopic">
             </a>
 
             <li class="navbar-item" style="margin-right: 10px;">
@@ -3845,10 +3894,10 @@ color: #ac2127;
                         profile</a>
                     </li>
                     <li>
-                      <img src="./assets/images/inbox.png" /><a href="#">Inbox</a>
+                      <img src="./assets/images/inbox.png" /><a href="./assets/html/inbox.html">Inbox</a>
                     </li>
                     <li>
-                      <img src="./assets/images/settings.png" /><a href="#">Settings</a>
+                      <img src="./assets/images/settings.png" /><a href="./assets/html/settings.html">Settings</a>
                     </li>
                     <li><img src="./assets/images/help.png" /><a href="/help.html">Help</a></li>
                     <li>
@@ -4151,6 +4200,9 @@ color: #ac2127;
                 Discover
                 a world where books find new adventures and readers connect through the joy of sharing stories.
               </p>
+              <button onclick="window.location.href='./bookrec.html'">
+                Book Recommendation
+              </button>
               <div class="container hero-button">
                 <button class="play-btn" aria-label="play video" onclick="window.location.href='./playNow.html'">
                   <ion-icon name="play-outline" aria-hidden="true"></ion-icon>
@@ -6019,8 +6071,8 @@ carousel.addEventListener("mouseleave", startAutoplay);
             <textarea id="feedback" placeholder="Enter your feedback..." rows="4" required></textarea>
         </div>
 
-           <div class="button">
-            <center><button type="submit">Submit</button></center>
+           <div class="button" style="width: 50%; display: flex;">
+            <center><button style="justify-content: center; align-items: center;" type="submit">Submit</button></center>
         </div>
       </form>
     </div>
@@ -6192,6 +6244,7 @@ body {
   font-size: 18px;
   color: #ffffff;
   text-shadow:  2px 2px 2px black;
+}
   .ok-button {
 
 background-color: #f37777; /* Button background color */
@@ -6794,6 +6847,7 @@ box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); /* Slightly larger shadow on hover */
 
             <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?
       cb=googleTranslateElementInit">
+
           </script>
           <div class="SwapReads" style="margin-right: 120px;"><a href="#" class="logo">SwapReads</a></div>
           <div>
@@ -6841,79 +6895,43 @@ box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); /* Slightly larger shadow on hover */
           </div>
         </div>
         <style>
-          #quicklink{
+          #quicklinks {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(80px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+          }
+        
+          .quicklink-item {
             display: flex;
-            justify-content: flex-start;
-            gap:20px;
+            flex-direction: row;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: 8px;
           }
-
-          #quicklink ul {
-        list-style-type: none;
-        padding: 0;
-      }
-
-      #quicklink .foot-quick {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0rem;
-        /* Adjust spacing between list items */
-      }
-
-      #quicklink .foot-quick a {
-        display: flex;
-        flex-direction: row;
-        /* Ensure icon and text are in a row */
-        align-items: center;
-        /* Vertically center-align the icon and text */
-        text-decoration: none;
-        color: rgb(83, 74, 74);
-        /* Adjust link color as needed */
-      }
-
-      #quicklink .foot-quick a i {
-        margin-right: 0.5rem;
-        /* Adjust spacing between icon and text */
-      }
-
-      #quicklink .foot-quick a p {
-        margin: 0;
-        /* Remove default margins from <p> */
-      }
-
-      .dark-mode #quicklink .foot-quick h4 {
-        color: #909dc2;
-      }
-
-
-
-          #quicklinks:hover {
-            text-decoration: none;
+        
+          .quicklink-item i {
+            font-size: 16px;
+            color: #333;
+            margin-right: 6px;
           }
-
-          .social-icons input[type="email"] {
-            border: 0.2rem solid #ccc;
-            /* Gray border */
-            border-radius: 0.4rem;
-            /* Rounded corners */
-            padding: 1rem;
-            /* Inner padding */
-            font-size: 1.6rem;
-            /* Font size */
+        
+          .quicklink-item h4 {
+            font-size: 13px;
+            color: #333;
+            margin: 0;
+            font-weight: normal;
           }
-
-          #confirmationMessage {
-            margin-left: 5rem;
-            font-size: 2.3rem;
-            color: green;
-
-          }
-
-          /* for small screen */
+        
           @media (max-width: 768px) {
-            #confirmationMessage {
-              margin-left: 0;
-              text-align: center;
-              font-size: 1.8rem;
+            #quicklinks {
+              grid-template-columns: repeat(3, minmax(80px, 1fr));
+            }
+          }
+        
+          @media (max-width: 480px) {
+            #quicklinks {
+              grid-template-columns: repeat(2, minmax(80px, 1fr));
             }
           }
         </style>
@@ -7055,16 +7073,7 @@ function showSuccessMessage() {
 
       </div>
       <div>
-        <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
-          <button class="Btn">
-            <svg height="1.2em" class="arrow" viewBox="0 0 512 512">
-              <path
-                d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z">
-              </path>
-            </svg>
-            <p class="text">Back to Top</p>
-          </button>
-        </div>
+        
         <div>
           <button id="translateButton">Translate</button>
         </div>
@@ -7078,50 +7087,43 @@ function showSuccessMessage() {
 
       <!-- adding privacy policy and copyright popup-->
       <div class="footer-f" style="text-align: center; align-items: center;">
-        <p style="text-align: center">
-          &copy;
-          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-          Hackers.
-        </p>
-        <div class="row-copy">
+  <p style="text-align: center">
+    &copy;
+    <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+  </p>
+  <div class="row-copy">
+    <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+    <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a> |
+    <a href="our-vision.html" id="ourvisionlink">Our Vision</a> |
+    <a href="./contributor/contributorss.html" class="contributors"><i class="fas fa-users"></i> Our Contributors</a> |
+    <a href="refundpolicy.html" id="refundp">Refund Policy</a>
 
-          <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
-          <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a> |
-          <a href="our-vision.html" id="ourvisionlink">Our Vision</a> |
-          <a href="./contributor/contributorss.html" class="contributors"><i class="fas fa-users"></i> Our Contributors</a> |
-          <a href="refundpolicy.html" id="refundp">Refund Policy</a>
-          <style>
-            #refundp:hover{
-              color: rgb(126, 0, 21);
-              transition: color 0.5s ease;
-            }
-            .dark-mode #refundp:hover{
-              color: #708090;
-              transition: color 0.5s ease;
-            }
-            .fas .fa-users:hover{
-              color: rgb(126, 0, 21) !important;
-              transition: color 0.5s ease !important;
-            }
-            .dark-mode .fas .fa-users:hover{
-              color: #708090 !important;
-              transition: color 0.5s ease !important;
-            }
-            .contributors:hover{
-              color: rgb(126, 0, 21) !important;
-              transition: color 0.5s ease !important;
-            }
-            .dark-mode .contributors:hover{
-              color: #708090 !important;
-              transition: color 0.5s ease !important;
-            }
-            </style>
+    <!-- Styles for hover effects -->
+    <style>
+      #refundp:hover {
+        color: rgb(126, 0, 21);
+        transition: color 0.5s ease;
+      }
+      .dark-mode #refundp:hover {
+        color: #708090;
+        transition: color 0.5s ease;
+      }
+      .fas .fa-users:hover, .contributors:hover {
+        color: rgb(126, 0, 21) !important;
+        transition: color 0.5s ease !important;
+      }
+      .dark-mode .fas .fa-users:hover, .dark-mode .contributors:hover {
+        color: #708090 !important;
+        transition: color 0.5s ease !important;
+      }
+    </style>
 
-          
+    <!-- Script for showing the Back to Top button when scrolling -->
+    
+  </div>
+</div>
 
 
-        </div>
-      </div>
       <style>
         .dark-mode #copyrightPolicyLink:hover {
           color: #708090;
@@ -7856,6 +7858,8 @@ body {
 
 }
 </style>
+
+<script src="scripts.js"></script> <!-- Link to your service worker registration script -->
 
   </body>
 
