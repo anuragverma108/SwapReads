@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Untouchable Quiz</title>
+    <title>Classic Literature Quiz</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -57,7 +57,7 @@
 <body>
 
 <div class="quiz-container">
-    <h1>The Untouchable Quiz</h1>
+    <h1>Classic Literature Quiz</h1>
     <div id="quiz-questions">
         <!-- Questions will be inserted here -->
     </div>
@@ -70,29 +70,29 @@
 <script>
     const quizData = [
         {
-            question: "Who is the protagonist of 'Untouchable'?",
-            options: ["Bakha", "Babu", "Ram Charan", "Lala"],
-            answer: "Bakha"
+            question: "Who is the author of 'Pride and Prejudice'?",
+            options: ["Charles Dickens", "Jane Austen", "George Orwell", "Leo Tolstoy"],
+            answer: "Jane Austen"
         },
         {
-            question: "What is Bakha's occupation?",
-            options: ["Sweeper", "Farmer", "Teacher", "Merchant"],
-            answer: "Sweeper"
+            question: "In 'Moby-Dick', what is the name of Captain Ahab’s ship?",
+            options: ["The Beagle", "The Pequod", "The Bounty", "The Adventure"],
+            answer: "The Pequod"
         },
         {
-            question: "What is the name of the man who speaks to Bakha about his plight?",
-            options: ["The Priest", "The Englishman", "The Maharaj", "The Pandit"],
-            answer: "The Englishman"
+            question: "Which novel takes place in a dystopian world with surveillance by 'Big Brother'?",
+            options: ["Brave New World", "Fahrenheit 451", "1984", "Animal Farm"],
+            answer: "1984"
         },
         {
-            question: "Which major event causes Bakha to feel conflicted about his life?",
-            options: ["The touch of a higher caste man", "The death of his father", "The arrival of the British", "The injustice at the temple"],
-            answer: "The touch of a higher caste man"
+            question: "Who is the main protagonist in 'To Kill a Mockingbird'?",
+            options: ["Scout Finch", "Huck Finn", "Elizabeth Bennet", "Pip"],
+            answer: "Scout Finch"
         },
         {
-            question: "What does Bakha ultimately realize at the end of the novel?",
-            options: ["That he is destined to remain untouchable", "That he must escape his community", "That education is the way forward", "That he must fight for justice"],
-            answer: "That education is the way forward"
+            question: "Which character says 'It is a far, far better thing that I do, than I have ever done' in 'A Tale of Two Cities'?",
+            options: ["Charles Darnay", "Sydney Carton", "Pip", "Jay Gatsby"],
+            answer: "Sydney Carton"
         }
     ];
 
@@ -136,8 +136,8 @@
         quizContainer.innerHTML = `<h2>Your Score: ${score}/${quizData.length}</h2>`;
 
         const homeButton = document.createElement('button');
-        homeButton.onclick = () => window.location.href = 'quizzes.html';
-        homeButton.innerText = 'Return to Quizzes';
+        homeButton.onclick = () => window.location.href = 'classic.html';
+        homeButton.innerText = 'Return to home';
         quizContainer.appendChild(homeButton);
 
         const solutionsButton = document.createElement('button');
@@ -153,7 +153,7 @@
         quizData.forEach((question, index) => {
             const solutionElement = document.createElement('div');
             solutionElement.classList.add('solution');
-            
+
             const questionText = document.createElement('h4');
             questionText.innerText = `${index + 1}. ${question.question}`;
             solutionElement.appendChild(questionText);

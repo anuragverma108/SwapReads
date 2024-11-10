@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Untouchable Quiz</title>
+    <title>The story of my expirements with truth Quiz</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #ffd2d3;
+            background-color: #ffd2d3; /* Changed to pink color */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -32,8 +32,8 @@
             color: white;
             border: none;
             border-radius: 5px;
-            display: block;
-            width: 100%;
+            display: block; /* Make buttons block elements for vertical display */
+            width: 100%; /* Make buttons full width */
         }
 
         button:hover {
@@ -45,19 +45,20 @@
         }
 
         .option {
-            margin: 5px 0;
+            margin: 5px 0; /* Space between options */
         }
 
         .solution {
             margin-top: 10px;
             text-align: left;
         }
+
     </style>
 </head>
 <body>
 
 <div class="quiz-container">
-    <h1>The Untouchable Quiz</h1>
+    <h1>The story of my expirements with truth Quiz</h1>
     <div id="quiz-questions">
         <!-- Questions will be inserted here -->
     </div>
@@ -70,29 +71,29 @@
 <script>
     const quizData = [
         {
-            question: "Who is the protagonist of 'Untouchable'?",
-            options: ["Bakha", "Babu", "Ram Charan", "Lala"],
-            answer: "Bakha"
+            question: "What is the full title of the autobiography written by Mahatma Gandhi?",
+            options: ["The Story of Experiments with Truth", "Truth and Non-Violence", "My Experiments with Truth", "Gandhi's Truth Journey"],
+            answer: "The Story of Experiments with Truth"
         },
         {
-            question: "What is Bakha's occupation?",
-            options: ["Sweeper", "Farmer", "Teacher", "Merchant"],
-            answer: "Sweeper"
+            question: "Where was Mahatma Gandhi born?",
+            options: ["Pune", "Delhi", "Porbandar", "Mumbai"],
+            answer: "Porbandar"
         },
         {
-            question: "What is the name of the man who speaks to Bakha about his plight?",
-            options: ["The Priest", "The Englishman", "The Maharaj", "The Pandit"],
-            answer: "The Englishman"
+            question: "What was the name of the movement led by Gandhi to end British rule in India?",
+            options: ["Non-Cooperation Movement", "Salt March", "Quit India Movement", "Civil Disobedience Movement"],
+            answer: "Non-Cooperation Movement"
         },
         {
-            question: "Which major event causes Bakha to feel conflicted about his life?",
-            options: ["The touch of a higher caste man", "The death of his father", "The arrival of the British", "The injustice at the temple"],
-            answer: "The touch of a higher caste man"
+            question: "What did Gandhi do to protest against the British Salt Tax?",
+            options: ["Fast until death", "Salt March", "Non-violent protests", "Boycott British goods"],
+            answer: "Salt March"
         },
         {
-            question: "What does Bakha ultimately realize at the end of the novel?",
-            options: ["That he is destined to remain untouchable", "That he must escape his community", "That education is the way forward", "That he must fight for justice"],
-            answer: "That education is the way forward"
+            question: "What principle did Gandhi adopt for his political and social work?",
+            options: ["Satya (Truth)", "Ahimsa (Non-violence)", "Swaraj (Self-rule)", "All of the above"],
+            answer: "All of the above"
         }
     ];
 
@@ -135,11 +136,13 @@
         const quizContainer = document.querySelector('.quiz-container');
         quizContainer.innerHTML = `<h2>Your Score: ${score}/${quizData.length}</h2>`;
 
+        // Create the return home button
         const homeButton = document.createElement('button');
         homeButton.onclick = () => window.location.href = 'quizzes.html';
         homeButton.innerText = 'Return to Quizzes';
         quizContainer.appendChild(homeButton);
 
+        // Create the see solutions button
         const solutionsButton = document.createElement('button');
         solutionsButton.onclick = showSolutions;
         solutionsButton.innerText = 'See Solutions';
@@ -165,6 +168,7 @@
             quizContainer.appendChild(solutionElement);
         });
 
+        // Add the return to home button again
         const homeButton = document.createElement('button');
         homeButton.onclick = () => window.location.href = 'quizzes.html';
         homeButton.innerText = 'Return to Home';
@@ -179,6 +183,7 @@
         }
     }
 
+    // Load the first question when the page is ready
     document.addEventListener('DOMContentLoaded', loadQuestion);
 </script>
 
