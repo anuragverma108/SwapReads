@@ -61,14 +61,8 @@
       
        <style>
         
-        .header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000; /* Ensures it stays on top of other content */
-   margin-top: 45px;
-   margin-left: 9rem;
-}
+
+
          swiper-container {
            width: 100%;
            height: 75%;
@@ -242,7 +236,7 @@
      }
      /* CSS to make navbar item text color black */
 .navbar-link {
-  color: black !important;
+  color: black;
 }
 
      .cta {
@@ -328,6 +322,7 @@
            background-color: #232222; /* Change to a darker color when scrolled */
            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
          }
+
      
          #cookie-consent {
        position: fixed;
@@ -465,14 +460,7 @@
      
      
      
-         /* Basic navbar styling */
-     .header {
-       position: fixed;
-       width: 100%;
-       top: 10;
-       z-index: 1000;
-       transition: top 0.3s;
-     }
+
      
      /* Hide the navbar */
      .header.hidden {
@@ -722,7 +710,37 @@ color: #d26d6d;
           transition: transform 0.1s ease-out;
         }
 
-        
+        body, html {
+  height: 100vh; /* Set the body to always take the full viewport height */
+  margin: 0;
+  overflow-x: hidden; /* Prevents horizontal scroll in case of slight overflow */
+}
+
+         /* Basic navbar styling */
+         .header {
+  position: fixed;
+  top: 0;
+  min-width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically if needed */
+  border-radius: 0px;
+}
+
+body.dark-mode {
+  color: #ffffff;
+  background-image: url('./assets/images/darkmode_bg.png'); /* Add your dark mode image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh; /* Ensures the background covers the full screen height */
+}
+
+.dark-mode .navbar-link {
+    color: #fff;
+}
+
       </style>
      </head>
 <body> 
