@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Literature Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffd2d3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: #b00000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            display: block;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        h4 {
+            margin: 10px 0;
+        }
+
+        .option {
+            margin: 5px 0;
+        }
+
+        .solution {
+            margin-top: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Classic Literature Quiz</h1>
+    <div id="quiz-questions">
+        <!-- Questions will be inserted here -->
+    </div>
+    <button id="submit-button" onclick="submitQuiz()">Submit</button>
+    <div id="quiz-result" style="display: none;"></div>
+    <button id="home-button" style="display: none;" onclick="window.location.href='index.html';">Return to Home</button>
+    <button id="solutions-button" style="display: none;" onclick="showSolutions()">See Solutions</button>
+</div>
+
+<script>
+    const quizData = [
+        {
+            question: "Who is the author of 'Pride and Prejudice'?",
+            options: ["Charles Dickens", "Jane Austen", "George Orwell", "Leo Tolstoy"],
+            answer: "Jane Austen"
+        },
+        {
+            question: "In 'Moby-Dick', what is the name of Captain Ahab’s ship?",
+            options: ["The Beagle", "The Pequod", "The Bounty", "The Adventure"],
+            answer: "The Pequod"
+        },
+        {
+            question: "Which novel takes place in a dystopian world with surveillance by 'Big Brother'?",
+            options: ["Brave New World", "Fahrenheit 451", "1984", "Animal Farm"],
+            answer: "1984"
+        },
+        {
+            question: "Who is the main protagonist in 'To Kill a Mockingbird'?",
+            options: ["Scout Finch", "Huck Finn", "Elizabeth Bennet", "Pip"],
+            answer: "Scout Finch"
+        },
+        {
+            question: "Which character says 'It is a far, far better thing that I do, than I have ever done' in 'A Tale of Two Cities'?",
+            options: ["Charles Darnay", "Sydney Carton", "Pip", "Jay Gatsby"],
+            answer: "Sydney Carton"
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const questionElement = document.getElementById('quiz-questions');
+        questionElement.innerHTML = '';
+
+        const currentQuestion = quizData[currentQuestionIndex];
+        const questionText = document.createElement('h4');
+        questionText.innerText = currentQuestion.question;
+        questionElement.appendChild(questionText);
+
+        currentQuestion.options.forEach(option => {
+            const optionButton = document.createElement('button');
+            optionButton.classList.add('option');
+            optionButton.innerText = option;
+            optionButton.onclick = () => selectAnswer(option);
+            questionElement.appendChild(optionButton);
+        });
+    }
+
+    function selectAnswer(selectedOption) {
+        const currentQuestion = quizData[currentQuestionIndex];
+        if (selectedOption === currentQuestion.answer) {
+            score++;
+        }
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < quizData.length) {
+            loadQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        const quizContainer = document.querySelector('.quiz-container');
+        quizContainer.innerHTML = `<h2>Your Score: ${score}/${quizData.length}</h2>`;
+
+        const homeButton = document.createElement('button');
+        homeButton.onclick = () => window.location.href = 'classic.html';
+        homeButton.innerText = 'Return to home';
+        quizContainer.appendChild(homeButton);
+
+        const solutionsButton = document.createElement('button');
+        solutionsButton.onclick = showSolutions;
+        solutionsButton.innerText = 'See Solutions';
+        quizContainer.appendChild(solutionsButton);
+    }
+
+    function showSolutions() {
+        const quizContainer = document.querySelector('.quiz-container');
+        quizContainer.innerHTML = '<h2>Quiz Solutions</h2>';
+
+        quizData.forEach((question, index) => {
+            const solutionElement = document.createElement('div');
+            solutionElement.classList.add('solution');
+
+            const questionText = document.createElement('h4');
+            questionText.innerText = `${index + 1}. ${question.question}`;
+            solutionElement.appendChild(questionText);
+
+            const correctAnswer = document.createElement('p');
+            correctAnswer.innerText = `Correct Answer: ${question.answer}`;
+            solutionElement.appendChild(correctAnswer);
+
+            quizContainer.appendChild(solutionElement);
+        });
+
+        const homeButton = document.createElement('button');
+        homeButton.onclick = () => window.location.href = 'quizzes.html';
+        homeButton.innerText = 'Return to Home';
+        quizContainer.appendChild(homeButton);
+    }
+
+    function submitQuiz() {
+        if (currentQuestionIndex < quizData.length) {
+            alert("Please answer all questions before submitting!");
+        } else {
+            showResult();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadQuestion);
+</script>
+
+</body>
+</html>
