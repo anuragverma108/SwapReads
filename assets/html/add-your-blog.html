@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SwapReads Blog Writer</title>
+<style>
+    /* Base Styling */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #ffe6f2;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    /* Blog Container */
+    .blog-container {
+        background-color: #f9a7d084;
+        color: #4d004d;
+        padding: 20px;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 2600px;
+        height: 790px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Title Styling */
+    .blog-title {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    p {
+        text-align: center;
+        font-style: italic;
+    }
+
+    /* Toolbar */
+    .toolbar {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 10px;
+        gap: 20px;
+        
+    }
+    
+    .toolbar label {
+        
+        /* margin-left: 300px; */
+        color: #4d004d;
+        font-weight: 400px;
+        font-size: 18px;
+        font-style: italic;
+
+    }
+
+    select, input[type="range"] {
+        font-size: 16px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ff66a3;
+        background-color: #ffb3d9;
+        color: #4d004d;
+    }
+
+    /* Text Area */
+    #blogContent {
+        width: 97%;
+        min-height: 500px;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ff66a3;
+        resize: vertical;
+    }
+
+    /* Publish Button */
+    .publish-btn {
+        width: 99%;
+        padding: 10px;
+        font-size: 16px;
+        color: white;
+        background-color: #f54aa0;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .publish-btn:hover {
+        background-color: #cc0066;
+    }
+    /* Image Upload Section */
+    .image-upload {
+        margin: 20px 0;
+    }
+    .image-upload input {
+        display: none;
+    }
+    .upload-label {
+        /* display: inline-block; */
+        padding: 10px;
+        background-color: #f54aa0;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .upload-label:hover {
+        background-color: #cc0066;
+    }
+    .img-preview {
+        margin-top: 10px;
+        max-width: 100%;
+        max-height: 200px;
+        display: none;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+
+<div class="blog-container">
+    <h2 class="blog-title">Write Your Blog on SwapReads</h2>
+    
+    <p>Express Your thoughts and get your blog published on Swapread</p>
+    <br><br><br>
+    
+    <!-- Toolbar for Text Customization -->
+    <div class="toolbar">
+        <section id="font-tools">
+        <label for="fontSelector">Font:</label>
+        <br>
+        <select id="fontSelector" onchange="changeFont()">
+            <option value="Arial">Arial</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Times New Roman">Times New Roman</option>
+        </select>
+        </section>
+        <section id="size-tools" style="margin-bottom: 4px;">
+        <label for="fontSizeSelector">Text Size:</label>
+        <br>
+        <input type="range" id="fontSizeSelector" min="14" max="24" value="16" onchange="changeFontSize()">
+        </section>
+        <section id="img-tools">
+        <div class="image-upload">
+            <label for="uploadImage" class="upload-label">Upload an Image</label>
+            <input type="file" id="uploadImage" accept="image/*" onchange="insertImage(event)">
+            
+        </div>
+        </section>
+    </div>
+    
+    <!-- Text Area for Blog Content -->
+    <div id="blogContent" class="editable" contenteditable="true" placeholder="Write your blog here..."></div>
+    <br>
+    
+    <!-- Publish Button -->
+   <div><button class="publish-btn" onclick="publishBlog()">Publish Blog</button>
+</div>
+
+<script>
+    // Change Font Function
+    function changeFont() {
+        const font = document.getElementById('fontSelector').value;
+        document.getElementById('blogContent').style.fontFamily = font;
+    }
+
+    // Change Font Size Function
+    function changeFontSize() {
+        const fontSize = document.getElementById('fontSizeSelector').value + 'px';
+        document.getElementById('blogContent').style.fontSize = fontSize;
+    }
+
+    function publishBlog() {
+    // Check if blogContent is a textarea or contenteditable div
+    const blogContentElement = document.getElementById('blogContent');
+    const content = blogContentElement.tagName === 'TEXTAREA' 
+                    ? blogContentElement.value 
+                    : blogContentElement.innerText;
+
+    const imgPreview = document.getElementById('imgPreview');
+    const imgSrc = imgPreview && imgPreview.src ? imgPreview.src : null;
+
+    if (content.trim()) {
+        alert('Blog Published:\n' + content + (imgSrc ? '\nImage Included' : ''));
+        
+        // Clear the content
+        if (blogContentElement.tagName === 'TEXTAREA') {
+            blogContentElement.value = ''; // Clear textarea content
+        } else {
+            blogContentElement.innerText = ''; // Clear contenteditable div
+        }
+
+        // Hide the image preview and clear file input
+        if (imgPreview) imgPreview.style.display = 'none';
+        document.getElementById('uploadImage').value = ''; // Clear file input
+    } else {
+        alert('Please write something before publishing!');
+    }
+}
+
+    // Function to insert the image into the contenteditable div
+    function insertImage(event) {
+        const file = event.target.files[0];
+        const blogContent = document.getElementById('blogContent');
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.style.maxWidth = '100%';
+                img.style.margin = '10px 0';
+                blogContent.appendChild(img); // Add image to the contenteditable div
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+
+</body>
+</html>
