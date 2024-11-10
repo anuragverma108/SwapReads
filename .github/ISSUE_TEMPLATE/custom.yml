@@ -1,0 +1,70 @@
+name: "⚙️ Custom Issue"
+description: "Submit a custom issue or suggestion for SwapReads."
+title: "[Custom]: <Brief description of the issue>"
+labels: ["custom", "status: needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for submitting a custom issue for **SwapReads**! This template is intended for any requests or suggestions that don't fit into the bug report, feature request, or documentation categories.
+
+  - type: input
+    id: issue_summary
+    attributes:
+      label: "Issue Summary"
+      description: "Provide a summary of the custom issue."
+      placeholder: "E.g., Enhancement suggestion for search functionality"
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue_description
+    attributes:
+      label: "Issue Description"
+      description: "Describe the issue or suggestion in detail."
+      placeholder: "Provide a detailed description of the custom issue, including the context, use case, or scenario in which this issue occurs or would be relevant..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: "Proposed Solution (Optional)"
+      description: "If you have any ideas or suggestions for how to address this issue, describe them here."
+      placeholder: "Describe your proposed solution or approach..."
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority"
+      description: "How important is this issue to you?"
+      options:
+        - "High - Requires urgent attention"
+        - "Medium - Should be addressed soon"
+        - "Low - Can be addressed later"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: category
+    attributes:
+      label: "Category"
+      description: "Select the category that best describes the issue."
+      options:
+        - label: "Enhancement"
+        - label: "Refactor"
+        - label: "Security"
+        - label: "Design"
+        - label: "Other"
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: "Additional Context (Optional)"
+      description: "Add any other context or information that might be relevant to this issue."
+      placeholder: "Provide any extra details, screenshots, or references that could help with understanding the issue..."
+
+  - type: markdown
+    attributes:
+      value: |
+        **Thank you for your suggestion!** We appreciate your input and will review your custom issue promptly. 📝
