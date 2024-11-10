@@ -1,186 +1,401 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Classic Literature Quiz</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffd2d3;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+      /* Circle styles */
+      .circle {
+        height: 24px;
+        width: 24px;
+        border-radius: 50%;
+        background-color: black;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 99999999;
+        transition: transform 0.1s ease-out;
+      }
+      /* Body Styling */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        transition: background-color 0.3s;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpath fill='%23ffb9b0' d='M486 705.8c-109.3-21.8-223.4-32.2-335.3-19.4C99.5 692.1 49 703 0 719.8V800h843.8c-115.9-33.2-230.8-68.1-347.6-92.2C492.8 707.1 489.4 706.5 486 705.8z'/%3E%3Cpath fill='%23ffc1b7' d='M1600 0H0v719.8c49-16.8 99.5-27.8 150.7-33.5c111.9-12.7 226-2.4 335.3 19.4c3.4 0.7 6.8 1.4 10.2 2c116.8 24 231.7 59 347.6 92.2H1600V0z'/%3E%3Cpath fill='%23ffc8bf' d='M478.4 581c3.2 0.8 6.4 1.7 9.5 2.5c196.2 52.5 388.7 133.5 593.5 176.6c174.2 36.6 349.5 29.2 518.6-10.2V0H0v574.9c52.3-17.6 106.5-27.7 161.1-30.9C268.4 537.4 375.7 554.2 478.4 581z'/%3E%3Cpath fill='%23ffcfc6' d='M0 0v429.4c55.6-18.4 113.5-27.3 171.4-27.7c102.8-0.8 203.2 22.7 299.3 54.5c3 1 5.9 2 8.9 3c183.6 62 365.7 146.1 562.4 192.1c186.7 43.7 376.3 34.4 557.9-12.6V0H0z'/%3E%3Cpath fill='%23FFD6CE' d='M181.8 259.4c98.2 6 191.9 35.2 281.3 72.1c2.8 1.1 5.5 2.3 8.3 3.4c171 71.6 342.7 158.5 531.3 207.7c198.8 51.8 403.4 40.8 597.3-14.8V0H0v283.2C59 263.6 120.6 255.7 181.8 259.4z'/%3E%3Cpath fill='%23ffdcd4' d='M1600 0H0v136.3c62.3-20.9 127.7-27.5 192.2-19.2c93.6 12.1 180.5 47.7 263.3 89.6c2.6 1.3 5.1 2.6 7.7 3.9c158.4 81.1 319.7 170.9 500.3 223.2c210.5 61 430.8 49 636.6-16.6V0z'/%3E%3Cpath fill='%23ffe1d9' d='M454.9 86.3C600.7 177 751.6 269.3 924.1 325c208.6 67.4 431.3 60.8 637.9-5.3c12.8-4.1 25.4-8.4 38.1-12.9V0H288.1c56 21.3 108.7 50.6 159.7 82C450.2 83.4 452.5 84.9 454.9 86.3z'/%3E%3Cpath fill='%23ffe6df' d='M1600 0H498c118.1 85.8 243.5 164.5 386.8 216.2c191.8 69.2 400 74.7 595 21.1c40.8-11.2 81.1-25.2 120.3-41.7V0z'/%3E%3Cpath fill='%23ffebe4' d='M1397.5 154.8c47.2-10.6 93.6-25.3 138.6-43.8c21.7-8.9 43-18.8 63.9-29.5V0H643.4c62.9 41.7 129.7 78.2 202.1 107.4C1020.4 178.1 1214.2 196.1 1397.5 154.8z'/%3E%3Cpath fill='%23FFF0EA' d='M1315.3 72.4c75.3-12.6 148.9-37.1 216.8-72.4h-723C966.8 71 1144.7 101 1315.3 72.4z'/%3E%3C/g%3E%3C/svg%3E");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+      }
 
-        .quiz-container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
+      /* Quiz Container Styling */
+      .quiz-container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+        transition: background-color 0.3s, box-shadow 0.3s;
+      }
 
-        button {
-            padding: 10px 20px;
-            margin-top: 20px;
-            cursor: pointer;
-            background-color: #b00000;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            display: block;
-            width: 100%;
-        }
+      .quiz-container h1 {
+        color: #3b0a45;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
 
-        button:hover {
-            background-color: #0056b3;
-        }
+      /* Button Styling */
+      button {
+        padding: 12px 0;
+        margin-top: 20px;
+        cursor: pointer;
+        background-color: #8e0013;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        display: block;
+        width: 100%;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: background-color 0.3s, transform 0.2s;
+        box-shadow: 0 5px 15px rgba(142, 0, 19, 0.2);
+      }
 
-        h4 {
-            margin: 10px 0;
-        }
+      button:hover {
+        background-color: #b30017;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(179, 0, 23, 0.3);
+      }
 
-        .option {
-            margin: 5px 0;
-        }
+      /* Question Styling */
+      h4 {
+        margin: 15px 0;
+        color: #333333;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
 
-        .solution {
-            margin-top: 10px;
-            text-align: left;
-        }
+      /* Option Button Styling */
+      .option {
+        margin: 8px 0;
+        background-color: #f9f9fb;
+        border: 2px solid #dedfe2;
+        color: #333;
+        border-radius: 6px;
+        padding: 12px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        text-align: left;
+        font-weight: 700;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .option:hover {
+        background-color: #f2e9e4;
+        color: #8e0013;
+        border-color: #8e0013;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(142, 0, 19, 0.1);
+      }
+
+      .option:active {
+        background-color: #f7d8e1;
+        color: #8e0013;
+        border-color: #8e0013;
+      }
+
+      /* Solution Display Styling */
+      .solution {
+        margin-top: 15px;
+        text-align: left;
+        font-size: 0.9rem;
+        color: #5a5a5a;
+        border-top: 1px solid #ddd;
+        padding-top: 10px;
+        font-weight: 500;
+      }
+
+      /* Result Display Styling */
+      #quiz-result {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #8e0013;
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: #fbe3e7;
+        box-shadow: 0 4px 12px rgba(142, 0, 19, 0.2);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- Circles -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <script>
+      // Coordinates for the cursor
+      const coords = { x: 0, y: 0 };
+      const circles = document.querySelectorAll(".circle");
 
-<div class="quiz-container">
-    <h1>Classic Literature Quiz</h1>
-    <div id="quiz-questions">
+      // Colors for the circles
+      const colors = [
+        "#ffb56b",
+        "#fdaf69",
+        "#f89d63",
+        "#f59761",
+        "#ef865e",
+        "#ec805d",
+        "#e36e5c",
+        "#df685c",
+        "#d5585c",
+        "#d1525c",
+        "#c5415d",
+        "#c03b5d",
+        "#b22c5e",
+        "#ac265e",
+        "#9c155f",
+        "#950f5f",
+        "#830060",
+        "#7c0060",
+        "#680060",
+        "#60005f",
+        "#48005f",
+        "#3d005e",
+      ];
+
+      // Assign colors and initial position to each circle
+      circles.forEach(function (circle, index) {
+        circle.x = 0;
+        circle.y = 0;
+        circle.style.backgroundColor = colors[index % colors.length];
+      });
+
+      // Update the coordinates when the mouse moves
+      window.addEventListener("mousemove", function (e) {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+      });
+
+      // Animation function to move the circles
+      function animateCircles() {
+        let x = coords.x;
+        let y = coords.y;
+
+        circles.forEach(function (circle, index) {
+          // Update the position and scale of each circle
+          circle.style.left = x - 12 + "px";
+          circle.style.top = y - 12 + "px";
+          circle.style.scale = (circles.length - index) / circles.length;
+
+          circle.x = x;
+          circle.y = y;
+
+          // Get the next circle in the sequence
+          const nextCircle = circles[index + 1] || circles[0];
+          x += (nextCircle.x - x) * 0.15;
+          y += (nextCircle.y - y) * 0.15;
+        });
+
+        // Repeat the animation
+        requestAnimationFrame(animateCircles);
+      }
+
+      // Start the animation
+      animateCircles();
+    </script>
+
+    <div class="quiz-container">
+      <h1>Classic Literature Quiz</h1>
+      <div id="quiz-questions">
         <!-- Questions will be inserted here -->
+      </div>
+      <button id="submit-button" onclick="submitQuiz()">Submit</button>
+      <div id="quiz-result" style="display: none"></div>
+      <button
+        id="home-button"
+        style="display: none"
+        onclick="window.location.href='index.html';"
+      >
+        Return to Home
+      </button>
+      <button
+        id="solutions-button"
+        style="display: none"
+        onclick="showSolutions()"
+      >
+        See Solutions
+      </button>
     </div>
-    <button id="submit-button" onclick="submitQuiz()">Submit</button>
-    <div id="quiz-result" style="display: none;"></div>
-    <button id="home-button" style="display: none;" onclick="window.location.href='index.html';">Return to Home</button>
-    <button id="solutions-button" style="display: none;" onclick="showSolutions()">See Solutions</button>
-</div>
 
-<script>
-    const quizData = [
+    <script>
+      const quizData = [
         {
-            question: "Who is the author of 'Pride and Prejudice'?",
-            options: ["Charles Dickens", "Jane Austen", "George Orwell", "Leo Tolstoy"],
-            answer: "Jane Austen"
+          question: "Who is the author of 'Pride and Prejudice'?",
+          options: [
+            "Charles Dickens",
+            "Jane Austen",
+            "George Orwell",
+            "Leo Tolstoy",
+          ],
+          answer: "Jane Austen",
         },
         {
-            question: "In 'Moby-Dick', what is the name of Captain Ahab’s ship?",
-            options: ["The Beagle", "The Pequod", "The Bounty", "The Adventure"],
-            answer: "The Pequod"
+          question: "In 'Moby-Dick', what is the name of Captain Ahab’s ship?",
+          options: ["The Beagle", "The Pequod", "The Bounty", "The Adventure"],
+          answer: "The Pequod",
         },
         {
-            question: "Which novel takes place in a dystopian world with surveillance by 'Big Brother'?",
-            options: ["Brave New World", "Fahrenheit 451", "1984", "Animal Farm"],
-            answer: "1984"
+          question:
+            "Which novel takes place in a dystopian world with surveillance by 'Big Brother'?",
+          options: ["Brave New World", "Fahrenheit 451", "1984", "Animal Farm"],
+          answer: "1984",
         },
         {
-            question: "Who is the main protagonist in 'To Kill a Mockingbird'?",
-            options: ["Scout Finch", "Huck Finn", "Elizabeth Bennet", "Pip"],
-            answer: "Scout Finch"
+          question: "Who is the main protagonist in 'To Kill a Mockingbird'?",
+          options: ["Scout Finch", "Huck Finn", "Elizabeth Bennet", "Pip"],
+          answer: "Scout Finch",
         },
         {
-            question: "Which character says 'It is a far, far better thing that I do, than I have ever done' in 'A Tale of Two Cities'?",
-            options: ["Charles Darnay", "Sydney Carton", "Pip", "Jay Gatsby"],
-            answer: "Sydney Carton"
-        }
-    ];
+          question:
+            "Which character says 'It is a far, far better thing that I do, than I have ever done' in 'A Tale of Two Cities'?",
+          options: ["Charles Darnay", "Sydney Carton", "Pip", "Jay Gatsby"],
+          answer: "Sydney Carton",
+        },
+      ];
 
-    let currentQuestionIndex = 0;
-    let score = 0;
+      let currentQuestionIndex = 0;
+      let score = 0;
 
-    function loadQuestion() {
-        const questionElement = document.getElementById('quiz-questions');
-        questionElement.innerHTML = '';
+      function loadQuestion() {
+        const questionElement = document.getElementById("quiz-questions");
+        questionElement.innerHTML = "";
 
         const currentQuestion = quizData[currentQuestionIndex];
-        const questionText = document.createElement('h4');
+        const questionText = document.createElement("h4");
         questionText.innerText = currentQuestion.question;
         questionElement.appendChild(questionText);
 
-        currentQuestion.options.forEach(option => {
-            const optionButton = document.createElement('button');
-            optionButton.classList.add('option');
-            optionButton.innerText = option;
-            optionButton.onclick = () => selectAnswer(option);
-            questionElement.appendChild(optionButton);
+        currentQuestion.options.forEach((option) => {
+          const optionButton = document.createElement("button");
+          optionButton.classList.add("option");
+          optionButton.innerText = option;
+          optionButton.onclick = () => selectAnswer(option);
+          questionElement.appendChild(optionButton);
         });
-    }
+      }
 
-    function selectAnswer(selectedOption) {
+      function selectAnswer(selectedOption) {
         const currentQuestion = quizData[currentQuestionIndex];
         if (selectedOption === currentQuestion.answer) {
-            score++;
+          score++;
         }
         currentQuestionIndex++;
 
         if (currentQuestionIndex < quizData.length) {
-            loadQuestion();
+          loadQuestion();
         } else {
-            showResult();
+          showResult();
         }
-    }
+      }
 
-    function showResult() {
-        const quizContainer = document.querySelector('.quiz-container');
+      function showResult() {
+        const quizContainer = document.querySelector(".quiz-container");
         quizContainer.innerHTML = `<h2>Your Score: ${score}/${quizData.length}</h2>`;
 
-        const homeButton = document.createElement('button');
-        homeButton.onclick = () => window.location.href = 'classic.html';
-        homeButton.innerText = 'Return to home';
+        const homeButton = document.createElement("button");
+        homeButton.onclick = () => (window.location.href = "classic.html");
+        homeButton.innerText = "Return to home";
         quizContainer.appendChild(homeButton);
 
-        const solutionsButton = document.createElement('button');
+        const solutionsButton = document.createElement("button");
         solutionsButton.onclick = showSolutions;
-        solutionsButton.innerText = 'See Solutions';
+        solutionsButton.innerText = "See Solutions";
         quizContainer.appendChild(solutionsButton);
-    }
+      }
 
-    function showSolutions() {
-        const quizContainer = document.querySelector('.quiz-container');
-        quizContainer.innerHTML = '<h2>Quiz Solutions</h2>';
+      function showSolutions() {
+        const quizContainer = document.querySelector(".quiz-container");
+        quizContainer.innerHTML = "<h2>Quiz Solutions</h2>";
 
         quizData.forEach((question, index) => {
-            const solutionElement = document.createElement('div');
-            solutionElement.classList.add('solution');
+          const solutionElement = document.createElement("div");
+          solutionElement.classList.add("solution");
 
-            const questionText = document.createElement('h4');
-            questionText.innerText = `${index + 1}. ${question.question}`;
-            solutionElement.appendChild(questionText);
+          const questionText = document.createElement("h4");
+          questionText.innerText = `${index + 1}. ${question.question}`;
+          solutionElement.appendChild(questionText);
 
-            const correctAnswer = document.createElement('p');
-            correctAnswer.innerText = `Correct Answer: ${question.answer}`;
-            solutionElement.appendChild(correctAnswer);
+          const correctAnswer = document.createElement("p");
+          correctAnswer.innerText = `Correct Answer: ${question.answer}`;
+          solutionElement.appendChild(correctAnswer);
 
-            quizContainer.appendChild(solutionElement);
+          quizContainer.appendChild(solutionElement);
         });
 
-        const homeButton = document.createElement('button');
-        homeButton.onclick = () => window.location.href = 'quizzes.html';
-        homeButton.innerText = 'Return to Home';
+        const homeButton = document.createElement("button");
+        homeButton.onclick = () => (window.location.href = "quizzes.html");
+        homeButton.innerText = "Return to Home";
         quizContainer.appendChild(homeButton);
-    }
+      }
 
-    function submitQuiz() {
+      function submitQuiz() {
         if (currentQuestionIndex < quizData.length) {
-            alert("Please answer all questions before submitting!");
+          alert("Please answer all questions before submitting!");
         } else {
-            showResult();
+          showResult();
         }
-    }
+      }
 
-    document.addEventListener('DOMContentLoaded', loadQuestion);
-</script>
-
-</body>
+      document.addEventListener("DOMContentLoaded", loadQuestion);
+    </script>
+  </body>
 </html>
