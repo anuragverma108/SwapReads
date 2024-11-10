@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Select Genre</title>
+    <title>Book Recommend - SwapReads</title>
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon_package_v0.16/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon_package_v0.16/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon_package_v0.16/apple-touch-icon.png">
@@ -395,6 +395,114 @@
       z-index: 99999999;
       transition: transform 0.1s ease-out;
   }
+  .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+   margin-top: 45px;
+   margin-left: 9rem;
+}
+        .navbar-link {
+  color: black !important;
+}
+
+.dark-mode .navbar-link {
+  color: white !important;
+}
+ @media only screen and (max-width:1063px) {
+      .nav {
+        flex-direction: column;
+      }
+
+      .header {
+        flex-direction: column;
+        height: 53.8rem;
+        transition: 0.55s all ease-out;
+        padding-top: 5px;
+      }
+
+      .navbar-item {
+        margin-right: 40px;
+      }
+
+      .navbar-list {
+        position: relative;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .nav-h {
+        height: 78px;
+        width: 90vw;
+        margin: auto;
+      }
+
+      .vis-h {
+        opacity: 0;
+      }
+
+      .logo img {
+        position: relative;
+        top: 17px;
+        left: 350px;
+      }
+    }
+
+    @media only screen and (max-width:990px) {
+      .header {
+        height: 9rem;
+      }
+
+      .logo img {
+        top: -9px;
+        left: 50px;
+      }
+    }
+
+    @media only screen and (max-width: 550px) {
+      .about-us-block {
+        flex-wrap: wrap;
+      }
+
+      .about-us-block .about-us-community,
+      .about-us-product,
+      .about-us-location,
+      .about-us-event {
+        width: 80% !important;
+      }
+    }
+
+    .navbar-item {
+      margin-top: 10px;
+      /* Increase the top margin of each item */
+    }
+      /* Position the toggle button to the right */
+      .switch-container {
+      position: absolute;
+      right: 10rem;
+      /* Adjust this value to move the button more to the right */
+      top: 1.5rem;
+      /* Adjust this value to move the button vertically */
+    }
+
+    /* For responsiveness */
+    @media (max-width: 99rem) {
+      .switch-container {
+        right: 9rem;
+        /* Adjust this value for smaller screens */
+      }
+    }
+
+    @media (max-width: 57.5rem) {
+      .switch-container {
+        right: 2rem;
+        /* Adjust this value for smaller screens */
+      }
+    }
+
 </style>
 
 
@@ -552,394 +660,158 @@
         
       </div>
       <header class="header header-anim nav-h" data-header>
-
-        <div class="container mobile-container-styles" style="padding-left: 0;">
-    
+  
+        <div class="container mobile-container-styles">
+         
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
           <nav class="navbar nav_activated" data-navbar>
-    
-    
-            <ul class="navbar-list nav">
-              <a href="../../index.html" onclick="lenis.scrollTo('index.html');" class="logo" style="display:flex;">
-                <img src="../images/final.png" class="logopic" style=" width: 150px;">
-              </a>
-              <li class="navbar-item">
-                <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link>
-                  <lord-icon
-                  src="https://cdn.lordicon.com/qeltvbrs.json"
-                  trigger="hover"
-                  colors="primary:#e88c30,secondary:#a30f17"
-                  style="width:25px;height:25px">
-                </lord-icon>  Home</a>
-              </li>
-              
-                  
-              <li class="navbar-item">
-                <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link>
-                  <lord-icon
-              src="https://cdn.lordicon.com/jibxifeu.json"
-              trigger="hover"
-              state="hover-up"
-              colors="primary:#a30f17,secondary:#e88c30"
-              style="width:25px;height:25px">
-          </lord-icon> Benefits</a>
-              </li>
-    
-              <li class="navbar-item">
-                <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link>
-                  <lord-icon
-                  src="https://cdn.lordicon.com/bhmovrlt.json"
-                  trigger="hover"
-                  state="morph-open"
-                  colors="primary:#a30f17,secondary:#e88c30"
-                  style="width:25px;height:25px">
-              </lord-icon> Genre</a>
-              </li>
-              
-              <li class="navbar-item">
-                <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link"><lord-icon
-                src="https://cdn.lordicon.com/jxjfjyri.json"
-                trigger="morph"
-                stroke="bold"
-                state="morph-select"
-                colors="primary:#eeaa66,secondary:#e88c30"
-                style="width:25px;height:25px">
-            </lord-icon>RateUs</a></li>
-              
-    
-              <li class="navbar-item">
-                <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link>
-                  <img src="../images/telephone.png" height="25px" width="25px"/> Contact</a>
-                </li>
-                <li class="navbar-item">
-                  <a href="../../index.html#faq" onclick="lenis.scrollTo('#faqq')" class="navbar-link" data-nav-link>
-                    <lord-icon
-                    src="https://cdn.lordicon.com/motnbmtz.json"
-                    trigger="hover"
-                    stroke="bold"     
-                    colors="primary:#a30f17,secondary:#e88c30"
-                    style="width:25px;height:25px">
-                </lord-icon>  FAQ
-                  </a>
-              </li>
-              <li class="navbar-item">
-                <a href="../html/about.html"  class="navbar-link" data-nav-link>
-                  <lord-icon
-                  src="https://cdn.lordicon.com/fozsorqm.json"
-                  trigger="hover"
-                  stroke="bold"
-                  state="hover-up"
-                  colors="primary:#a30f17,secondary:#e88c30"
-                  style="width:30px;height:30px"></lord-icon> AboutUs </a>
-              </li>
-     
-              <li class="navbar-item" id="login-signup-link">
-                <a href="../html/login.html" class="navbar-link"><lord-icon
-                  src="https://cdn.lordicon.com/xfzuyvam.json"
-                  trigger="morph"
-                  state="morph-group"
-                  colors="primary:#a30f17,secondary:#e88c30"
-                  style="width:25px;height:25px">
-              </lord-icon>Login/Signup</a>
-              </li>
-
-            <li class="navbar-item dropdown" id="more-dropdown">
-            <a href="#" class="navbar-link" id="more-link">More
-              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
-                viewBox="0 0 24 24">
-                <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
-              </svg></a>
-            <div class="dropdown-menu" id="dropdown-menu">
-
-              <ul class="dropdown-menu-list">
-                <li>
-                  <a href="../../chatt.html" class="navbar-link" style="font-family: sans-serif; color: white; margin-bottom: 5px;">
-                    Community chat
-                </a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="author.html" class="navbar-link"
-                    style="font-family: sans-serif;  margin-bottom: 5px;">
-                    Authors
-                  </a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="../html/pricing.html" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
-                      class="ri-price-tag-3-fill"></i> Pricing</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="../html/booklistswap.html" class="navbar-link">Booklist for Swapping</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="../html/book_recommend.html" class="navbar-link" data-nav-link>
-                    <i class="ri-customer-service-2-fill"></i> Book Recommendation
-                  </a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="../html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
-                    data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="../html/read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="../html/ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
-                </li>
-                <li class="dropdown-menu-item">
-                  <a href="../html/about.html" class="navbar-link">About</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-
-          <style>
-            .darkmode{
-                white-space: nowrap;
-                display: inline-block;
-                background-color: none;
-                border: none;
-                text-decoration: none;
-                color: rebeccapurple;
-                padding: 0;
-
-                transition: all 0.3s ease;
-                padding-left: 5px;
-                padding-right: 10px;
-                padding-top: 3px;
-                text-decoration: none;
-
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: relative;
-                color: var(--charcoal);
-                padding: 8px 12px;
-                line-height: 2;
-                transition: var(--transition-1);
-
-                .container {
-            width: 100%;
-        }
-        .main {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .login {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .input {
-            margin: 10px 0;
-        }
-        .input-box {
-            position: relative;
-        }
-        .input-box img {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-        .p1 {
-            margin: 10px;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-        }
-        .social-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-            }
-            .dropdown-menu {
-      display: none;
-  }
-  .dropdown-menu.show {
-      display: block;
-  }
-          </style>
-          
-          <li>
-            <div class="action">
-              <div class="profile" onclick="menuToggle();">
-                <img id="profile-avatar" src="../images/avatar1.jpg" />
-              </div>
-              <div class="menu">
-                <h3 id="profileNameDisplay">XYZ<br /><span>Book Lover</span></h3>
-                <ul>
-                  <li>
-                    <img src="../images/user.jpg" /><a href="../../profile.html">My profile</a>
-                  </li>
-                  <li>
-                    <img src="../images/edit profile.jpg" /><a href="../html/profileedit.html">Edit profile</a>
-                  </li>
-                  <li>
-                    <img src="../images/inbox.png" /><a href="#">Inbox</a>
-                  </li>
-                  <li>
-                    <img src="../images/settings.png" /><a href="#">Settings</a>
-                  </li>
-                  <li><img src="../images/help.png" /><a href="#">Help</a></li>
-                  <li>
-                    <img src="../images/logout.png" /><a href="#">Logout</a>
-                  </li>
-                </ul>
-              </li>
-                </div>
-              </ul>
-                </div>
-                <script>
-                  document.addEventListener("DOMContentLoaded", function () {
-                      const moreLink = document.getElementById("more-link");
-                      const dropdownMenu = document.getElementById("dropdown-menu");
-              
-                      moreLink.addEventListener("click", function (event) {
-                          event.preventDefault();
-                          dropdownMenu.classList.toggle("show");
-                      });
-                  });
-              </script>
-                <script>
-                  
-                 document.addEventListener("DOMContentLoaded", () => {
-      const savedAvatar = localStorage.getItem("selectedAvatar");
-      const savedName = localStorage.getItem("profileName");
-      if (savedAvatar) {
-          document.getElementById("profile-avatar").src = `../images/${savedAvatar}`;
-      }
-
-      if (savedName) {
-            document.getElementById("profileNameDisplay").textContent = `${savedName}`;
-        } else {
-            document.getElementById("profileNameDisplay").textContent = "Welcome, Guest!";
-        }
-  });
-  
-          
-                  function menuToggle() {
-                      const toggleMenu = document.querySelector(".menu");
-                      toggleMenu.classList.toggle("active");
-                  }
-              </script>
-          </ul>
-        </nav>
-        <div id="mobile_View_Menu">
-          <span id="menu_lines"></span>
-         </div>
-      <script>
-          let menu=document.getElementById('mobile_View_Menu')
-          let navbar_con=document.querySelector('.navbar')
-          menu.addEventListener('click',()=>{
-            if(menu.classList.contains('open_menu')){
-              menu.classList.remove('open_menu')
-              navbar_con.classList.add('nav_activated')
-            }
-            else{
-              menu.classList.add('open_menu')
-              navbar_con.classList.remove('nav_activated')
-            }
-          })
-        </script>
-        
-  <script>
-    document.getElementById("more-link").addEventListener("click", function (event) {
-    event.preventDefault();  // Prevent the default behavior of the link
-    const dropdownMenu = document.getElementById("dropdown-menu");
-    dropdownMenu.classList.toggle("active");  // Toggle the visibility of the dropdown menu
-  });
-  </script>
-  
-
-
-
-
-
-
-
-
-              <!-- Google Translate Element -->
-              <!-- <li class="navbar-item">
-                <div id="google_element"></div>
-              </li> -->
-            </ul>
-            <!-- <div class="hamburger">
-              <div class="line"></div>
-              <div class="line"></div>
-              <div class="line"></div>
-            </div> -->
-          </nav>
-          <div id="mobile_View_Menu">
-            <span id="menu_lines"></span>
-           </div>
-       
-        <!-- <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-        <script>
-          function loadGoogleTranslate() {
-            new google.translate.TranslateElement({
-              pageLanguage: 'en'
-            }, 'google_element');
-          }
-        </script> -->
-        <script>
-          // const hamburger=document.querySelector('.hamburger');
-          // const head=document.querySelector('.header');
-          // const nav=document.querySelector('.nav');
-          // hamburger.addEventListener('click',()=>{
-          //   head.classList.toggle('nav-h');
-          //   nav.classList.toggle('vis-h');
-          // })
-          // let lastScrollTop = 0;
-          // function onScroll() {
-          //     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-          //     const header = document.querySelector('.header');
-    
-          //     if (currentScroll > lastScrollTop) {
-          //         header.classList.add('hidden');
-          //     } else {
-          //         header.classList.remove('hidden');
-          //     }
-          //     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-          // }
-    
-    
-      window.addEventListener("scroll", onScroll);
-    </script>
-    
-    
-    
-        
       
+      
+            <ul class="navbar-list nav" style="margin-right: 10px;">
+              <a href="index.html" class="logo" style="display:flex;">
+                <img src="../images/final.png" class="logopic" style=" width: 15rem; height:100px; margin:0px 0px 15px -10px;">
+              </a>
+      
+              <li class="navbar-item" style="margin-right: 10px;">
+                <a href="index.html" class="navbar-link" data-nav-link>
+                  <i class="ri-home-fill"></i> Home
+                </a>
+              </li>
+      
+      
+              <li class="navbar-item" style="margin-right: 10px;">
+                <a href="./assets/html/about.html" class="navbar-link" data-nav-link>
+                  <i class="ri-information-fill"></i> About Us
+                </a>
+              </li>
+      
+             <li class="navbar-item" style="margin-right: 10px;">
+                <a href="index.html#benefits"  class="navbar-link" data-nav-link><i
+                    class="ri-bar-chart-fill"></i> Benefits</a>
+              </li>
+      
+              <li class="navbar-item" style="margin-right: 10px;">
+                <a href="index.html#genre"  class="navbar-link" data-nav-link><i
+                    class="ri-bar-chart-fill"></i> Genre</a>
+              </li>
+      
+             <li class="navbar-item">
+                  <a href="audiobook.html" class="navbar-link" data-nav-link>
+                      <i class="ri-questionnaire-fill"></i> Audio Books
+                  </a>
+              </li>
+      
+      
+              <li class="navbar-item" style="margin-right: 10px;">
+                <a href="index.html#contact"  class="navbar-link" data-nav-link>
+                  <i class="ri-contacts-fill"></i> Contact
+                </a>
+              </li>
+      
+              <li class="navbar-item" id="login-signup-link" style="margin-right: 10px;">
+                <a href="./assets/html/login.html" class="navbar-link">
+                  <i class="ri-login-box-fill"></i> Login/Signup
+                </a>
+              </li>
+      
+              <li class="navbar-item" style="margin-right: 10px;">
+                <a href="comsp.html" class="navbar-link" data-nav-link>
+                  <i class="ri-book-fill"></i> Community
+                </a>
+              </li>
+              <li class="navbar-item" style="margin-right: 10px;">
+                <a href="./assets/html/event.html"  class="navbar-link" data-nav-link>
+                  <i class="ri-community-fill"></i> Events
+                </a>
+              </li>   
+              <div class="switch-container">
+                <input type="checkbox" id="switch" class="switch-checkbox">
+                <label for="switch" class="switch-label">
+                  <div class="switch-button">
+                    <span class="material-icons sun-icon">wb_sunny</span>
+                    <span class="material-icons moon-icon">brightness_2</span>
+                  </div>
+                </label>
+                </div>
+                  <!-- Theme switcher -->
     
-          <!-- <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler id="nav-toggle-button">
-            <ion-icon name="menu-outline" aria-hidden="true" class="md hydrated open"></ion-icon>
+                  
+                
+                  <script>
+                      // Theme switcher
+                      document.addEventListener('DOMContentLoaded', function () {
+                        const toggleSwitch = document.querySelector('.switch-container input[type="checkbox"]');
+                        const bodyElement = document.body;
+                  
+                        const currentTheme = localStorage.getItem('theme') || 'light';
+                        if (currentTheme === 'dark') {
+                          bodyElement.classList.add('dark-mode');
+                          toggleSwitch.checked = true;
+                        } else {
+                          bodyElement.classList.add('light-mode');
+                        }
+                  
+                        toggleSwitch.addEventListener('change', function (event) {
+                          if (event.target.checked) {
+                            bodyElement.classList.remove('light-mode');
+                            bodyElement.classList.add('dark-mode');
+                            localStorage.setItem('theme', 'dark');
+                          } else {
+                            bodyElement.classList.remove('dark-mode');
+                            bodyElement.classList.add('light-mode');
+                            localStorage.setItem('theme', 'light');
+                          }
+                        });
+                      });
+                    // Hamburger toggle
+                    document.getElementById('hamburger-button').addEventListener('click', function() {
+                      document.querySelector('.navbar').classList.toggle('active');
+                    });
     
-            <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
-          </button> -->
-          <div class="switch-container" style="top: 15px;">
-            <input type="checkbox" id="switch" class="switch-checkbox">
-            <label for="switch" class="switch-label">
-              <div class="switch-button">
-                <span class="material-icons sun-icon">wb_sunny</span>
-                <span class="material-icons moon-icon">brightness_2</span>
-              </div>
-            </label>
-          </div>
-        </div>
+                  // Update the coordinates when the mouse moves
+                  window.addEventListener("mousemove", function (e) {
+                    coords.x = e.clientX;
+                  coords.y = e.clientY;
+    });
     
+                  // Animation function to move the circles
+                  function animateCircles() {
+                    let x = coords.x;
+                  let y = coords.y;
     
+                  circles.forEach(function (circle, index) {
+                    // Update the position and scale of each circle
+                    circle.style.left = x - 12 + "px";
+                  circle.style.top = y - 12 + "px";
+                  circle.style.scale = (circles.length - index) / circles.length;
     
-        </div>
-      </header>
+                  circle.x = x;
+                  circle.y = y;
+    
+                  // Get the next circle in the sequence
+                  const nextCircle = circles[index + 1] || circles[0];
+                  x += (nextCircle.x - x) * 0.15;
+                  y += (nextCircle.y - y) * 0.15;
+      });
+    
+                  // Repeat the animation
+                  requestAnimationFrame(animateCircles);
+    }
+    
+                  // Start the animation
+                  animateCircles();
+    
+                  function scrollToGenre(genreId) {
+                    const element = document.getElementById(genreId);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }
+                    </script>
+                  </header>
       <main>
     
         <!-- Rate Us Modal Pop up -->
@@ -1883,14 +1755,29 @@
     
 </script>
  </article>
-
-
  <footer class="ff">
   <div class="foot-top">
     <div class="foot-left">
 
       <div class="desc">
-        <div class="SwapReads"><a href="#" class="logo">SwapReads</a></div>
+<!--google translate-->
+        <!-- <div id="google_translate_element"></div>
+
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                    {pageLanguage: 'en'},
+                    'google_translate_element'
+                );
+            }
+        </script>
+
+        <script type="text/javascript"
+                src=
+    "https://translate.google.com/translate_a/element.js?
+    cb=googleTranslateElementInit">
+        </script> -->
+        <div class="SwapReads" ><a href="#" class="logo" style="margin: 0px 40px">SwapReads</a></div>
         <div>
           <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
             lovers
@@ -1906,31 +1793,83 @@
 
       </div>
     </div>
-    <div class="foot-middle">
-      <h2>Quick Links</h2>
-      <div id="quicklinks" class="row">
-        <div class="col-md-6">
-          <ul>
-            <li class="foot-quick" style="color: white;"><a href="/index.html#home" onclick="lenis.scrollTo('#home')"><i class="fas fa-home"></i><p class="flinks">Home</p></a></li>
-            <li class="foot-quick"><a href="/index.html#benefits" onclick="lenis.scrollTo('#benefits')"><i class="fas fa-book"></i> <p class="flinks">Benefits</p></a></li>
-            <li class="foot-quick"><a href="/index.html#chapters" onclick="lenis.scrollTo('#chapters')"><i class="fas fa-globe"></i> <p class="flinks">Literary</p></a></li>
-            <li class="foot-quick"><a href="/index.html#pricing" onclick="lenis.scrollTo('#pricing')"><i class="fas fa-dollar-sign"></i><p class="flinks">Pricing</p> </a></li>
-            <li class="foot-quick"><a href="book_recommend.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-bookmark"></i><p class="flinks">Recommend</p></a></li>
+    <div class="foot-middle" style="padding: 20px; ">
+      <h2 style="font-size: 24px; margin-bottom: 15px; ">Quick Links</h2>
+      <div id="quicklinks" class="row" style="display: flex; gap: 20px;">
+        <!-- First Column -->
+        <div class="col-md-6" style="flex: 1;">
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li class="foot-quick" style="margin-bottom: 10px;">
+              <a href="/index.html#home" onclick="lenis.scrollTo('#home')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                <i class="fas fa-home" style="margin-right: 8px;"></i>
+                <p class="flinks" style="margin: 0;">Home</p>
+              </a>
+            </li>
+            <li class="foot-quick" style="margin-bottom: 10px;">
+              <a href="/index.html#benefits" onclick="lenis.scrollTo('#benefits')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                <i class="fas fa-book" style="margin-right: 8px;"></i>
+                <p class="flinks" style="margin: 0;">Benefits</p>
+              </a>
+            </li>
+            <li class="foot-quick" style="margin-bottom: 10px;">
+              <a href="/index.html#chapters" onclick="lenis.scrollTo('#chapters')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                <i class="fas fa-globe" style="margin-right: 8px;"></i>
+                <p class="flinks" style="margin: 0;">Literary</p>
+              </a>
+            </li>
+            <li class="foot-quick" style="margin-bottom: 10px;">
+              <a href="/index.html#pricing" onclick="lenis.scrollTo('#pricing')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                <i class="fas fa-dollar-sign" style="margin-right: 8px;"></i>
+                <p class="flinks" style="margin: 0;">Pricing</p>
+              </a>
+            </li>
+            <li class="foot-quick" style="margin-bottom: 10px;">
+              <a href="book_recommend.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                <i class="fas fa-bookmark" style="margin-right: 8px;"></i>
+                <p class="flinks" style="margin: 0;">Recommend</p>
+              </a>
+            </li>
           </ul>
         </div>
-        <div class="col-md-6">
-          <ul>
-            <li class="foot-quick"><a href="/assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-exchange-alt"></i><p class="flinks">Swap</p> </a></li>
-            <li class="foot-quick"><a href="/assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-file-pdf"></i> <p class="flinks">E-Book</p></a></li>
-            <li class="foot-quick"><a href="/assets/html/about.html" onclick="lenis.scrollTo('#contact')"><i class="fas fa-info-circle"></i> <p class="flinks">About</p></a></li>
-            <li class="foot-quick"><a href="/index.html#contact" onclick="lenis.scrollTo('#contact')"><i class="fas fa-envelope"></i><p class="flinks">Contact</p> </a></li>
-            <li class="foot-quick"><a href="/index.html#faqq" onclick="lenis.scrollTo('#faqq')"><i class="fas fa-question-circle"></i> <p class="flinks">FAQ</p></a></li>
+    
+        <!-- Second Column -->
+        <div class="col-md-6" style="flex: 1;">
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li class="foot-quick" style="margin-bottom: 10px;">
+              <a href="/assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                <i class="fas fa-exchange-alt" style="margin-right: 8px;"></i>
+                <p class="flinks" style="margin: 0;">Swap</p>
+              </a>
+            </li>
+            <li class="foot-quick" style="margin-bottom: 10px;">
+              <a href="/assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                <i class="fas fa-file-pdf" style="margin-right: 8px;"></i>
+                <p class="flinks" style="margin: 0;">E-Book</p>
+              </a>
+            </li>
+            <li class="foot-quick" style="margin-bottom: 10px;">
+              <a href="/assets/html/about.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                <i class="fas fa-info-circle" style="margin-right: 8px;"></i>
+                <p class="flinks" style="margin: 0;">About</p>
+              </a>
+            </li>
+            <li class="foot-quick" style="margin-bottom: 10px;">
+              <a href="/index.html#contact" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                <i class="fas fa-envelope" style="margin-right: 8px;"></i>
+                <p class="flinks" style="margin: 0;">Contact</p>
+              </a>
+            </li>
+            <li class="foot-quick" style="margin-bottom: 10px;">
+              <a href="/index.html#faqq" onclick="lenis.scrollTo('#faqq')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
+                <i class="fas fa-question-circle" style="margin-right: 8px;"></i>
+                <p class="flinks" style="margin: 0;">FAQ</p>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
     </div>
     
-
       <style>
         .social-icons input[type="email"] 
         {
@@ -1973,64 +1912,80 @@
 
       </style>
 
-   <form id="newsform" onsubmit="return showConfirmationMessage();">
-    <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
-    <div class="row-flex display-flex">
-        <input class="finput" type="email" id="new-email" name="email" placeholder="Email address"
-               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
-               title="Please enter a valid email address that ends with '.com'" required>
-        <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
-    </div>
+<form id="newsform" onsubmit="return showConfirmationMessage();">
+  <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
+  <div class="row-flex display-flex">
+      <input class="finput" type="email" id="new-email" name="email" 
+             placeholder="Email address" 
+             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+             title="Please enter a valid email address that ends with '.com'" required>
+      <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
+  </div>
 </form>
+
 <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
-  
+
 <script>
 function showConfirmationMessage() {
+  const form = document.getElementById('newsform');
+  const confirmationMessage = document.getElementById('confirmationmessage');
 
-const form = document.getElementById('newsform');
-const confirmationMessage = document.getElementById('confirmationmessage');
+  confirmationMessage.style.display = 'block';
+  setTimeout(function() {
+      location.reload(); 
+  }, 3000);
+}
+</script>
 
-
-confirmationMessage.style.display = 'block';
-setTimeout(function() {
-  location.reload(); 
-}, 3000);
-
-
-
+<style>
+.finput:hover {
+  border: 0.2rem solid #A30F17;
+  margin-bottom: -0.2rem;
+}
+form {
+  width: 500px;
+  height: 300px;
+  font-size: larger;
 }
 
-
-
-</script>
-<style>
-
 .subscribe {
-background-color: #A30F17;
-color: white; 
-border: none; 
-padding: 10px 20px; 
-font-size: 16px; 
-font-family: Arial, sans-serif;
-border-radius: 5px; 
-cursor: pointer; 
-transition: background-color 0.3s, transform 0.2s;
+  background-color: #A30F17;
+  color: white; 
+  border: none; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  font-family: Arial, sans-serif;
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .subscribe:hover {
-background: linear-gradient(hwb(357 6% 36%), #d26d6d);
-transform: scale(1.1);
+  background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+  transform: scale(1.1);
 }
 
 .subscribe:active {
-transform: scale(0.98); 
+  transform: scale(0.98); 
 }
 
 .subscribe:focus {
-outline: none; 
+  outline: none; 
 }
 
+.icons {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 150px;
+}
+
+/* Add this to change the placeholder text color */
+input::placeholder {
+  color: rgb(58, 56, 56); /* Set placeholder text color to black */
+}
 </style>
+
 
 <!-- <script>
 function showConfirmationMessage() 
@@ -2100,37 +2055,27 @@ function showConfirmationMessage()
 
       </div>
      </div>
+
      <div>
       <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
         <button class="Btn">
           <svg height="1.2em" class="arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path></svg>
-        <p class="text">Back to Top</p>
+          <p class="text">Back to Top</p>
         </button>
       </div>
       <!-- <div>
-        <button id="translateButton">Translate</button>
-      </div>
-      <style>
-        #translateButton{
-          margin-left: 250px;
-
-        }
-        #translateButton:hover{
-          transition: 0.5s ease-in;
-          background-color: rgb(8, 43, 0);
-        }
-        .dark-mode #translateButton:hover{
-          transition: 0.5s ease-in;
-          background-color: darkgray;
-        }
-      </style> -->
+        <button id="translateButton" style="background-color: #A30F17; transition:all 1s ease 0.1s;">Translate</button>
+      </div> -->
     </div>
 
     </div>
   </div>
-
-
-
+<!-- <style>
+  #translateButton:hover{
+    background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+    transform:scale(1.1);
+  }
+</style> -->
 
   <!-- adding privacy policy and copyright popup-->
   <div class="footer-f" style="text-align: center; align-items: center;">
@@ -2143,38 +2088,30 @@ function showConfirmationMessage()
 
     <a href="/copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
     <a href="/privacynotice.html" id="privacyNoticeLink">Privacy Notice</a> |
-    <a href="/our-vision.html" id="ourvisionlink">Our Vision</a></li>
+    <a href="/our-vision.html" id="ourvisionLink">Our Vision</a></li> |
+    <a href="\SwapReads\refundpolicy.html">Refund Policy</a>
   </div>
   </div>
   <style>
-     #copyrightPolicyLink:hover{
-        transition: color 0.5s ease ;
-        color:rgb(126, 0, 21);
+    #copyrightPolicyLink:hover{
+      color: rgb(126, 0, 21);
+      transition: 0.5s ease;
+      text-decoration: none;
     }
     #privacyNoticeLink:hover{
-      transition: color 0.5s ease ;
-        color:rgb(126, 0, 21);
+      color: rgb(126, 0, 21);
+      transition: 0.5s ease;
+      text-decoration: none;
     }
-    #ourvisionlink:hover{
-      transition: color 0.5s ease ;
-      color:rgb(126, 0, 21);
-    }
-    .dark-mode .fab.fa-twitter:hover{
-      color: whitesmoke !important;
-    }
-    .dark-mode .fab.fa-discord:hover{
-      color: #3b5998 !important;
-    }
-    .dark-mode .fab.fa-github:hover{
-      color: white !important;
-    }
-    .fab.fa-discord:hover{
-      color:#3b5998 !important;
+    #ourvisionLink:hover{
+      color: rgb(126, 0, 21);
+      transition: 0.5s ease;
+      text-decoration: none;
     }
   </style>
 
   <!-- Copyright Policy Modal -->
-   <div id="copyrightPolicyModal" class="modal">
+  <div id="copyrightPolicyModal" class="modal">
     <div class="modal-content">
       <span class="close" id="closeCopyright">&times;</span>
       <h1>Copyright Policy</h1>
@@ -2204,7 +2141,7 @@ function showConfirmationMessage()
         <li>By using our site, you consent to our privacy practices.</li>
       </ul>
     </div>
-  </div>
+  </div> 
 
   <script>
     // Get the modal elements
@@ -2245,7 +2182,10 @@ function showConfirmationMessage()
       }
     }
   </script>
+  
 </footer>
+
+
 <!--google translate-->
 <div>
   <button id="translateButton">Translate</button>
