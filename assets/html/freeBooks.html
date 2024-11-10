@@ -123,6 +123,8 @@
         position: fixed;
         top: 20px;
         right: 150px;
+        margin-top: 5px;
+        margin-bottom: 700px;
 
       }
 
@@ -510,7 +512,7 @@
 #dropdown-menu {
   display: none;
   position: absolute;
-  background-color: #7c0f1b;
+  background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   padding: 10px;
@@ -526,6 +528,50 @@
   </head>
   <body>
 
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    
     <div id="preloader">
       <div class="loader">
         <div class="book-wrapper">
@@ -552,6 +598,12 @@
     <header class="header header-anim nav-h" data-header>
 
       <div class="container mobile-container-styles" style="padding-left: 0;">
+        <!-- Hamburger Menu Icon -->
+    <div class="hamburger" onclick="toggleNav()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
 
         <nav class="navbar nav_activated" data-navbar>
 
@@ -609,14 +661,14 @@
                   colors="primary:#a30f17,secondary:#e88c30" style="width:30px;height:30px"></lord-icon> AboutUs </a>
             </li>
 
-            <li class="navbar-item">
+            <!-- <li class="navbar-item">
               <a href="../../index.html#rateus" onclick="openRateUsModal(); return false;" class="navbar-link">
                 <lord-icon src="https://cdn.lordicon.com/jxjfjyri.json" trigger="morph" stroke="bold"
                   state="morph-select" colors="primary:#eeaa66,secondary:#e88c30" style="width:25px;height:25px">
                 </lord-icon>
                 RateUs
               </a>
-            </li>
+            </li> -->
 
 
             <li class="navbar-item" id="login-signup-link">
@@ -660,12 +712,12 @@
                       <i class="ri-customer-service-2-fill"></i> Book Recommendation
                     </a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="./bookpref.html" class="navbar-link"
                       style="font-family: sans-serif; margin-bottom: 5px;">
                       Book Prefer Quiz
                     </a>
-                  </li>
+                  </li> -->
                   <li class="dropdown-menu-item">
                     <a href="../html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
                       data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
@@ -713,6 +765,72 @@
       </div>
       </ul>
       </div>
+      <style>
+        /* * Initially hide the navigation menu for mobile */ 
+@media (max-width: 768px) {
+  /* Initially hide the navbar list */
+  .navbar-list {
+    display: none; /* Hide the navbar initially */
+    position: fixed;
+    top: 0;
+    right: -250px; /* Place it off-screen initially */
+    width: 250px; /* Adjust width as needed */
+    height: 100%;
+    background-color: white; /* White background for the sliding menu */
+    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.3); /* Optional: add some shadow for depth */
+    transition: all 0.3s ease; /* Smooth sliding transition */
+    z-index: 9999; /* Ensure it appears on top of other content */
+    padding-top: 60px; /* Adjust to your navbar height */
+  }
+
+  /* When 'active' class is added, show the navbar */
+  .navbar-list.active {
+    display: block;
+    right: 0; /* Slide it into view */
+  }
+
+  /* Hamburger button */
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 20px; /* Adjust position as needed */
+    left: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 10000; /* Ensure it's on top of other elements */
+  }
+}
+
+/* Styling for navbar items */
+.navbar-item {
+  list-style-type: none;
+  padding: 15px;
+  text-align: left;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+}
+
+.navbar-item a {
+  color: #333; /* Dark text color for contrast */
+  text-decoration: none;
+  font-size: 18px;
+  display: block; /* Ensure the links take full width */
+  padding: 10px;
+  transition: background-color 0.2s ease; /* Smooth hover effect */
+}
+
+.navbar-item a:hover {
+  background-color: #f0f0f0; /* Change background on hover */
+}
+
+      </style>
+      <script>
+        // Toggle function to show/hide the navigation menu
+        function toggleNav() {
+          const navbarList = document.querySelector('.navbar-list');
+          navbarList.classList.toggle('active');
+        }
+      </script>
       <script>
         document.addEventListener("DOMContentLoaded", () => {
           const savedAvatar = localStorage.getItem("selectedAvatar");
@@ -743,6 +861,64 @@
           const toggleMenu = document.querySelector(".menu");
           toggleMenu.classList.toggle("active");
         }
+
+
+// Coordinates for the cursor
+const coords = { x: 0, y: 0 };
+const circles = document.querySelectorAll(".circle");
+
+// Colors for the circles
+const colors = [
+  "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+  "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+  "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+  "#680060", "#60005f", "#48005f", "#3d005e"
+];
+
+// Assign colors and initial position to each circle
+circles.forEach(function (circle, index) {
+  circle.x = 0;
+  circle.y = 0;
+  circle.style.backgroundColor = colors[index % colors.length];
+});
+
+// Update the coordinates when the mouse moves
+window.addEventListener("mousemove", function (e) {
+  coords.x = e.clientX;
+  coords.y = e.clientY;
+});
+
+// Animation function to move the circles
+function animateCircles() {
+  let x = coords.x;
+  let y = coords.y;
+
+  circles.forEach(function (circle, index) {
+    // Update the position and scale of each circle
+    circle.style.left = x - 12 + "px";
+    circle.style.top = y - 12 + "px";
+    circle.style.scale = (circles.length - index) / circles.length;
+
+    circle.x = x;
+    circle.y = y;
+
+    // Get the next circle in the sequence
+    const nextCircle = circles[index + 1] || circles[0];
+    x += (nextCircle.x - x) * 0.15;
+    y += (nextCircle.y - y) * 0.15;
+  });
+
+  // Repeat the animation
+  requestAnimationFrame(animateCircles);
+}
+
+// Start the animation
+animateCircles();
+
+
+
+
+
       </script>
       <!-- Google Translate Element -->
       <!-- <li class="navbar-item">
@@ -840,6 +1016,12 @@
         </label>
       </div>
       </div>
+      <style>
+        .switch-label{
+          margin-top:-40px;
+          margin-left: 413px;
+        }
+      </style>
 
 
 
@@ -851,6 +1033,23 @@
         color: white;
         text-shadow: 3px 3px 20px #d1c4c4;
       }
+
+
+      .circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999;
+    transition: transform 0.1s ease-out;
+}
+
+
+
     </style><br><br><br><br><br><br><br>
     <div style="background-color: hsl(357, 37%, 62%);color: white; width:100% ;height:50px;right: 0 ;padding: 1px;">
       <marquee>
@@ -1748,6 +1947,17 @@
       <button id="translateButton">Translate</button>
     </div>
     <style>
+      /* Navbar list styling for mobile */
+.navbar-list {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+.navbar-item {
+    list-style-type: none;
+    padding: 10px;
+}
       /* Fixed translate button */
     #translateButton {
       position: fixed;
@@ -1779,6 +1989,30 @@
     #translateButton:hover {
       transform: scale(1.2); 
     }
+    /* Responsive media queries */
+@media (max-width: 768px) {
+    #translateButton {
+        display: none; /* Hide fixed translate button on mobile */
+    }
+
+    .navbar-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Show translate button in the navbar only on mobile */
+    .navbar-item button {
+        display: block;
+        background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+        border-radius: 5px;
+        padding: 10px 15px;
+        font-size: 14px;
+        color: white;
+        cursor: pointer;
+    }
+}
+
     /* The popup modal */
     .popup {
       display: none; 
@@ -1887,6 +2121,48 @@
           }
       }
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get the popup
+    var popup = document.getElementById('translatePopup');
+    // Get the button that opens the popup
+    var btn = document.getElementById('translateButton');
+    // Get the <span> element that closes the popup
+    var span = document.getElementsByClassName('close')[0];
+
+    // When the user clicks the button, open the popup
+    btn.onclick = function() {
+        popup.style.display = 'block';
+    }
+
+    // When the user clicks on <span> (x), close the popup
+    span.onclick = function() {
+        popup.style.display = 'none';
+    }
+
+    // When the user clicks anywhere outside of the popup, close it
+    window.onclick = function(event) {
+        if (event.target == popup) {
+            popup.style.display = 'none';
+        }
+    }
+});
+
+// Google Translate initialization
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+    }, 'google_translate_element');
+}
+
+// Load Google Translate script
+(function() {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.body.appendChild(script);
+})();
+
     </script>
     <!-- Popup for Google Translate -->
     <div id="translatePopup" class="popup">

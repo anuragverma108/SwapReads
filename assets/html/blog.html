@@ -1,371 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Swap-read-blogs</title>
-    <style>
-        /* Global Styling */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffcce0;
-            color: #333;
-            line-height: 1.6;
-        }
-
-       /* Header styling */
-header {
-  text-align: center;
-  padding: 2rem 1rem;
-  background-color: #ffb3c6; /* Slightly darker pink for contrast */
-}
-
-header h1 {
-  font-size: 2.5rem;
-  color: #990033; /* Darker pink for the title */
-}
-
-header p {
-  font-size: 1.1rem;
-  color: #660022; /* Slightly muted dark pink */
-  margin-top: 0.5rem;
-}
-
-        main {
-            padding: 2em 1em;
-        }
-
-        /* Blog Section Styling */
-        .blog-articles {
-            padding: 4em 0;
-            background-color: #fff;
-            text-align: center;
-        }
-
-        .section__container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1em;
-        }
-
-        .section__title {
-            font-size: 2.5em;
-            margin-bottom: 0.5em;
-            color: #d1495b;
-        }
-
-        .section__subtitle {
-            font-size: 1.2em;
-            color: #6c757d;
-            margin-bottom: 3em;
-        }
-
-        .blog__grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2em;
-        }
-
-        .blog__card {
-            background-color: #fceef3;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .blog__card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-        }
-
-        .blog__card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .blog__details {
-            padding: 1.5em;
-        }
-
-        .blog__details h4 {
-            font-size: 1.5em;
-            margin: 0 0 0.5em;
-            color: #b9083a;
-        }
-
-        .blog__details p {
-            font-size: 1em;
-            color: #34495e;
-        }
-
-        /* Blog card styling */
-/* .blog-card-add {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
- width: 300px; 
-} */
-
-/* .blog-card-add h2 {
-  font-size: 1.5rem;
-  color: #990033;
-} */
-
-.blog-card-add span {
-  font-weight: bold;
-  color: #990033;
-}
-
-.blog-card-add .blog-content {
-  margin: 1rem 0;
-  color: #333;
-}
-
-.blog-card-add button {
-  background-color: #ff6699;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.blog-card-add button:hover {
-  background-color: #e60073;
-}
-.blog-card-add {
-      background-color: #f4d8e6;
-      padding: 2rem;
-      border-radius: 10px;
-      max-width: 630px;
-      width: 100%;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      margin-left: 500px;
-    }
-
-    .blog-card-add h2 {
-      color: #990033; /* Dark pink title */
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    /* Label and Input Styling */
-    label {
-      display: block;
-      margin-top: 1rem;
-      color: #333;
-      font-weight: bold;
-      text-align: left;
-    }
-
-    input[type="text"],
-    textarea {
-      width: 90%;
-      padding: 0.8rem;
-      margin-top: 5px;
-      margin-right: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-      background-color: #f9f9f9;
-    }
-
-    /* textarea {
-      resize: vertical; /* Allows vertical resizing only 
-    } */
-
-
-        /* Footer Styling */
-        footer {
-            background-color: #f89bb3;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 1em;
-        }
-
-        /* Modal Styling */
-        #content-modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-content {
-            background-color: #fff;
-            margin: 15% auto;
-            padding: 2em;
-            border-radius: 8px;
-            width: 80%;
-            max-width: 600px;
-            position: relative;
-        }
-
-        .close-button {
-            color: #aaa;
-            position: absolute;
-            right: 1em;
-            top: 1em;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close-button:hover,
-        .close-button:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        button {
-             background-color: #f68ee3;
-             font-size: 15px;
-             border-radius: 15%;
-             border-color: rgb(214, 6, 173);
-        }
-
-    </style>
-</head>
-<body>
+    <link rel="stylesheet" href="../css/blog.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <a href="index.html">
+      <i class="fas fa-home"></i>
+    </a>
     <header>
-        <h1>Book Blogs</h1>
+      <h1>Book Blogs</h1>
+      <div class="section-title">
         <p>Get inspired and share your thoughts on the books you've read</p>
-      </header>
+      </div>
+    </header>
 
     <main>
-        <section class="blog-articles">
-            <div class="section__container">
-                <div class="blog__grid">
-                    <div class="blog__card">
-                        <img src="../images/re.jpg" alt="Blog 1">
-                        <div class="blog__details">
-                            <h4>10 Tips to Develop a Reading Habit</h4>
-                            <p>Discover how you can incorporate reading into your daily routine and make it a habit.</p>
-                            <button onclick="window.location.href='https://independentbookreview.com/2021/12/03/how-do-you-develop-a-reading-habit-at-home/'">
-                                Read more
-                              </button>
-                              
-                        </div>
-                    </div>
-                    <div class="blog__card">
-                        <img src="../images/be.jpeg" alt="Blog 2">
-                        <div class="blog__details">
-                            <h4>The Benefits of Reading Every Day</h4>
-                            <p>Learn about the numerous benefits of reading regularly, from mental stimulation to stress reduction.</p>
-                            <button onclick="window.location.href='https://www.icscareergps.com/blog/latest-education-and-career-buzz/10-benefits-of-reading-why-you-should-read-every-day/'">Read more</button>
-                        </div>
-                    </div>
-                    <div class="blog__card">
-                        <img src="../images/cl.jpg" alt="Blog 3">
-                        <div class="blog__details">
-                            <h4>Top 10 Must-Read Classics</h4>
-                            <p>A list of timeless classics that everyone should read at least once in their lifetime.</p>
-                            <button onclick="window.location.href='https://www.panmacmillan.com/blogs/classics/classic-books-to-read-before-you-die'">Read more</button>
-                        </div>
-                    </div>
-                    <div class="blog__card">
-                        <img src="../images/nes.jpeg" alt="Blog 4">
-                        <div class="blog__details">
-                            <h4>How to Choose Your Next Book</h4>
-                            <p>Tips and strategies for selecting your next great read from the vast world of literature.</p>
-                            <button onclick="window.location.href='https://www.theitalianreve.com/how-to-choose-your-next-book-to-read/'">Read more</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div><br><br></div>
-            <div class="blog-card-add">
-                <h2>Want to add your Blog?</h2>
-                <br>
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title">
-                 <br>
-                <label for="author-name">Author:</label>
-                <input type="text" id="author-name" name="author-name">
-                <br>
-                <label for="message">Description:</label>
-                <textarea id="message" name="message" rows="4" cols="50">A brief summary of discription of your blog-post</textarea>
-
-                <button>Add</button>
+      <section class="blog-articles">
+        <div class="section__container">
+          <div class="blog__grid">
+            <div class="blog__card">
+              <img src="../images/re.jpg" alt="Blog 1" />
+              <div class="blog__details">
+                <h4>10 Tips to Develop a Reading Habit</h4>
+                <p>
+                  Discover how you can incorporate reading into your daily
+                  routine and make it a habit.
+                </p>
+                <button
+                  class="read-more"
+                  onclick="window.location.href='https://independentbookreview.com/2021/12/03/how-do-you-develop-a-reading-habit-at-home/'"
+                >
+                  Read more
+                </button>
               </div>
-        </section>
-    </main>
+            </div>
+            <div class="blog__card">
+              <img src="../images/be.jpeg" alt="Blog 2" />
+              <div class="blog__details">
+                <h4>The Benefits of Reading Every Day</h4>
+                <p>
+                  Learn about the numerous benefits of reading regularly, from
+                  mental stimulation to stress reduction.
+                </p>
+                <button
+                  class="read-more"
+                  onclick="window.location.href='https://www.icscareergps.com/blog/latest-education-and-career-buzz/10-benefits-of-reading-why-you-should-read-every-day/'"
+                >
+                  Read more
+                </button>
+              </div>
+            </div>
+            <div class="blog__card">
+              <img src="../images/cl.jpg" alt="Blog 3" />
+              <div class="blog__details">
+                <h4>Top 10 Must-Read Classics</h4>
+                <p>
+                  A list of timeless classics that everyone should read at least
+                  once in their lifetime.
+                </p>
+                <button
+                  class="read-more"
+                  onclick="window.location.href='https://www.panmacmillan.com/blogs/classics/classic-books-to-read-before-you-die'"
+                >
+                  Read more
+                </button>
+              </div>
+            </div>
+            <div class="blog__card">
+              <img src="../images/nes.jpeg" alt="Blog 4" />
+              <div class="blog__details">
+                <h4>How to Choose Your Next Book</h4>
+                <p>
+                  Tips and strategies for selecting your next great read from
+                  the vast world of literature.
+                </p>
+                <button
+                  class="read-more"
+                  onclick="window.location.href='https://www.theitalianreve.com/how-to-choose-your-next-book-to-read/'"
+                >
+                  Read more
+                </button>
+              </div>
+            </div>
+            <div class="blog__card">
+              <img src="../images/motivation.jpg" alt="Blog 5" />
+              <div class="blog__details">
+                <h4>Finding Motivation to Read More</h4>
+                <p>
+                  Struggling to read more? Discover strategies to stay motivated
+                  and engaged with your reading goals.
+                </p>
+                <button
+                  class="read-more"
+                  onclick="window.location.href='https://www.entrepreneur.com/leadership/13-tricks-that-will-help-you-read-more-books/275880'"
+                >
+                  Read more
+                </button>
+              </div>
+            </div>
 
-    <footer>
-        <p>&copy; 2024 SwapReads. All rights reserved.</p>
-    </footer>
+            <div class="blog__card">
+              <img src="../images/genre.jpg" alt="Blog 6" />
+              <div class="blog__details">
+                <h4>Exploring Different Book Genres</h4>
+                <p>
+                  From mystery to sci-fi, find out how exploring new genres can
+                  broaden your perspective and reading experience.
+                </p>
+                <button
+                  class="read-more"
+                  onclick="window.location.href='https://bookriot.com/guide-to-book-genres/'"
+                >
+                  Read more
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div><br /><br /></div>
+        <div class="blog-card-add">
+          <h2>Want to add your Blog?</h2>
+          <br>
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" maxlength="30">
+          <br>
+          <label for="author-name">Author:</label>
+          <input type="text" id="author-name" name="author-name" maxlength="30">
+          <br>
+          <label for="short-description">Short Description:</label>
+          <input type="text" id="short-description" name="short-description" maxlength="100" placeholder="Short description of your blog-post ( 50 Words )">
+          <br>
+          <label for="message">Description:</label>
+          <textarea id="message" name="message" rows="4" cols="50" placeholder="A brief summary of discription of your blog-post"></textarea>
+        
+          <button id="add-blog-btn">Add</button>
+        </div>
+  </section>
+</main>
+
+
+
+<script>
+const addBlogBtn = document.getElementById('add-blog-btn');
+const blogGrid = document.querySelector('.blog__grid');
+
+addBlogBtn.addEventListener('click', function() {
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author-name').value;
+  const shortDescription = document.getElementById('short-description').value;
+  const description = document.getElementById('message').value;
+
+  if (title && author && shortDescription && description) {
+    const newBlogCard = document.createElement('div');
+    newBlogCard.classList.add('blog__card');
+    newBlogCard.innerHTML = `
+      <img src="../images/re.jpg" alt="Blog" style="height: 250px; object-fit: cover;">
+      <div class="blog__details">
+        <h4>${title}</h4>
+        <p>${shortDescription}</p>
+        <button class="read-more-btn" data-title="${title}" data-author="${author}" data-description="${description}">Read more</button>
+      </div>
+    `;
+
+    blogGrid.appendChild(newBlogCard);
+
+    // Add event listener to the read more button
+    const readMoreBtn = newBlogCard.querySelector('.read-more-btn');
+    readMoreBtn.addEventListener('click', function() {
+      const title = this.getAttribute('data-title');
+      const author = this.getAttribute('data-author');
+      const description = this.getAttribute('data-description');
+
+      // Store data in localStorage
+      localStorage.setItem('blogData', JSON.stringify({
+        title,
+        author,
+        description
+      }));
+
+      // Open the blog content page
+      window.open('blog-content.html', '_blank');
+    });
+
+    // Retrieve existing blogs from localStorage
+    let blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+    
+    // Create a new blog object
+    const newBlog = {
+      title: title,
+      author: author,
+      shortDescription: shortDescription,
+      description: description
+    };
+    
+    // Add the new blog to the array
+    blogs.push(newBlog);
+    
+    // Save the updated blogs array back to localStorage
+    localStorage.setItem('blogs', JSON.stringify(blogs));
+
+    // Clear input fields
+    document.getElementById('title').value = '';
+    document.getElementById('author-name').value = '';
+    document.getElementById('short-description').value = '';
+    document.getElementById('message').value = '';
+  }
+});
+
+
+// Function to render blogs from local storage
+function renderBlogs() {
+  // Retrieve existing blogs from localStorage
+  let blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+
+  // Loop through each blog and create a card
+  blogs.forEach(blog => {
+    const blogCard = document.createElement('div');
+    blogCard.classList.add('blog__card');
+    blogCard.innerHTML = `
+      <img src="../images/re.jpg" alt="Blog" style="height: 250px; object-fit: cover;">
+      <div class="blog__details">
+        <h4>${blog.title}</h4>
+        <p>${blog.shortDescription}</p>
+        <button class="read-more-btn" data-title="${blog.title}" data-author="${blog.author}" data-description="${blog.description}">Read more</button>
+      </div>
+    `;
+
+    blogGrid.appendChild(blogCard);
+
+    // Add event listener to the read more button
+    const readMoreBtn = blogCard.querySelector('.read-more-btn');
+    readMoreBtn.addEventListener('click', function() {
+      const title = this.getAttribute('data-title');
+      const author = this.getAttribute('data-author');
+      const description = this.getAttribute('data-description');
+
+      // Store data in localStorage
+      localStorage.setItem('blogData', JSON.stringify({
+        title,
+        author,
+        description
+      }));
+
+      // Open the blog content page
+      window.location.href = 'blog-content.html';
+    });
+  });
+}
+
+// Call the function to render blogs when the page loads
+document.addEventListener('DOMContentLoaded', renderBlogs);
+
+</script>
+
 
     <!-- Modal for displaying content -->
     <div id="content-modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <div id="modal-body"></div>
-        </div>
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div id="modal-body"></div>
+      </div>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const buttons = document.querySelectorAll(".author button");
-            const modal = document.getElementById("content-modal");
-            const modalBody = document.getElementById("modal-body");
-            const closeButton = document.querySelector(".close-button");
+      document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".author button");
+        const modal = document.getElementById("content-modal");
+        const modalBody = document.getElementById("modal-body");
+        const closeButton = document.querySelector(".close-button");
 
-            buttons.forEach(button => {
-                button.addEventListener("click", function() {
-                    const author = this.getAttribute("data-author");
-                    const action = this.getAttribute("data-action");
-                    let content = '';
+        buttons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const author = this.getAttribute("data-author");
+            const action = this.getAttribute("data-action");
+            let content = "";
 
-                    switch(action) {
-                        case 'interview':
-                            content = `<h2>Interview with ${author.replace(/-/g, ' ')}</h2>
-                                       <p>${author.replace(/-/g, ' ')} shares insights into their writing process, latest work, and experiences as an author.</p>`;
-                            break;
-                        case 'articles':
-                            content = `<h2>Articles by ${author.replace(/-/g, ' ')}</h2>
+            switch (action) {
+              case "interview":
+                content = `<h2>Interview with ${author.replace(/-/g, " ")}</h2>
+                                       <p>${author.replace(
+                                         /-/g,
+                                         " "
+                                       )} shares insights into their writing process, latest work, and experiences as an author.</p>`;
+                break;
+              case "articles":
+                content = `<h2>Articles by ${author.replace(/-/g, " ")}</h2>
                                        <ul>
                                            <li><a href="#">The Craft of Writing</a></li>
                                            <li><a href="#">Understanding Narrative Structures</a></li>
                                        </ul>`;
-                            break;
-                        case 'recommendations':
-                            content = `<h2>Reading Recommendations by ${author.replace(/-/g, ' ')}</h2>
+                break;
+              case "recommendations":
+                content = `<h2>Reading Recommendations by ${author.replace(
+                  /-/g,
+                  " "
+                )}</h2>
                                        <ul>
                                            <li><a href="#">Book Title 1</a> by Author 1</li>
                                            <li><a href="#">Book Title 2</a> by Author 2</li>
                                        </ul>`;
-                            break;
-                        default:
-                            content = '<p>No content available.</p>';
-                    }
+                break;
+              default:
+                content = "<p>No content available.</p>";
+            }
 
-                    modalBody.innerHTML = content;
-                    modal.style.display = "block";
-                });
-            });
+            modalBody.innerHTML = content;
+            modal.style.display = "block";
+          });
+        });
 
-            closeButton.addEventListener("click", function() {
-                modal.style.display = "none";
-            });
+        closeButton.addEventListener("click", function () {
+          modal.style.display = "none";
+        });
 
-            window.addEventListener("click", function(event)
+        window.addEventListener("click", function (event) {
+          if (event.target === modal) {
+            modal.style.display = "none";
+          }
+        });
+      });
+
+      // Coordinates for the cursor
+      const coords = { x: 0, y: 0 };
+      const circles = document.querySelectorAll(".circle");
+
+      // Colors for the circles
+      const colors = [
+        "#ffb56b",
+        "#fdaf69",
+        "#f89d63",
+        "#f59761",
+        "#ef865e",
+        "#ec805d",
+        "#e36e5c",
+        "#df685c",
+        "#d5585c",
+        "#d1525c",
+        "#c5415d",
+        "#c03b5d",
+        "#b22c5e",
+        "#ac265e",
+        "#9c155f",
+        "#950f5f",
+        "#830060",
+        "#7c0060",
+        "#680060",
+        "#60005f",
+        "#48005f",
+        "#3d005e",
+      ];
+
+      // Assign colors and initial position to each circle
+      circles.forEach(function (circle, index) {
+        circle.x = 0;
+        circle.y = 0;
+        circle.style.backgroundColor = colors[index % colors.length];
+      });
+
+      // Update the coordinates when the mouse moves
+      window.addEventListener("mousemove", function (e) {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+      });
+
+      // Animation function to move the circles
+      function animateCircles() {
+        let x = coords.x;
+        let y = coords.y;
+
+        circles.forEach(function (circle, index) {
+          // Update the position and scale of each circle
+          circle.style.left = x - 12 + "px";
+          circle.style.top = y - 12 + "px";
+          circle.style.scale = (circles.length - index) / circles.length;
+
+          circle.x = x;
+          circle.y = y;
+
+          // Get the next circle in the sequence
+          const nextCircle = circles[index + 1] || circles[0];
+          x += (nextCircle.x - x) * 0.15;
+          y += (nextCircle.y - y) * 0.15;
+        });
+
+        // Repeat the animation
+        requestAnimationFrame(animateCircles);
+      }
+
+      // Start the animation
+      animateCircles();
+    </script>
+  </body>
+</html>

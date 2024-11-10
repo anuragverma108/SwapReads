@@ -53,6 +53,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="exchangeHub.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="manifest" href="/manifest.json">
   <style>
     body {
       margin: 0;
@@ -568,7 +569,7 @@
         font-size: 0.8rem;
         line-height: 1.8rem;
         font-weight: 900;
-        letter-spacing: 0.25em;
+        letter-spacing: 0.15em;
         text-transform: uppercase;
         vertical-align: middle;
         color: var(--charcoal);
@@ -633,7 +634,7 @@
         font-size: 0.8rem;
         line-height: 1.8rem;
         font-weight: 900;
-        letter-spacing: 0.25em;
+        letter-spacing: 0.15em;
         text-transform: uppercase;
         vertical-align: middle;
         color: var(--charcoal);
@@ -677,7 +678,7 @@
       text-decoration: none;
       font-size: 1.2rem;
     }
-
+ 
     .cta2 {
       position: relative;
       display: flex;
@@ -731,6 +732,7 @@
         &:before {
           width: 9%;
           background: #ffab9d;
+ 
         }
 
         svg {
@@ -3500,6 +3502,62 @@
         margin-top: 0;
         margin-bottom: 10px;
       }
+
+      /* Responsive design for screens smaller than 768px */
+@media screen and (max-width: 768px) {
+    .popup-content-nl {
+        flex-direction: column; /* Stack elements vertically on mobile */
+        max-width: 90%; /* Make the popup smaller */
+        height: auto; /* Allow height to adjust automatically */
+        padding: 10px; /* Add some padding */
+    }
+
+    .popup-left-nl {
+        display: none; /* Hide the image on mobile */
+    }
+
+    .popup-right-nl {
+        width: 100%;
+        padding: 20px;
+        text-align: center; 
+    }
+
+    .popup-right-nl h1 {
+        font-size: 20px; 
+    }
+
+    .popup-right-nl .h2-nl {
+        font-size: 16px; /* Adjust the subheading font size */
+    }
+
+    .popup-right-nl p {
+        font-size: 14px; /* Adjust text size for mobile */
+    }
+
+    .close1-btn-nl {
+        width: 20px;
+        cursor: pointer;
+        margin: 18px 10px;
+        position: absolute;
+        top: -4px;
+        right: 12px;
+        font-size: 18px;
+        font-weight: 800;
+        z-index: 1010; /* Ensure the close button is on top */
+    }
+
+    .no-thanks-nl {
+        font-size: 14px; /* Adjust 'No thanks' font size */
+    }
+
+    .signup-btn1-nl {
+        font-size: 14px; 
+    }
+
+    .terms-nl {
+        font-size: 10px; /* Adjust terms text size */
+    }
+}
     </style>
     <div id="popup-nl" class="popup-nl">
       <div class="popup-content-nl">
@@ -3551,96 +3609,88 @@
 
       </div>
     </div>
+ 
+<script>
+// Display newsletter popup if not shown in session
+function displayNewsletterPopup() {
+  if (!sessionStorage.getItem("newsletterPopupDisplayed")) {
+    document.getElementById("popup-nl").style.display = "flex";
+    sessionStorage.setItem("newsletterPopupDisplayed", "true"); // Mark as displayed
+  }
+}
 
-    <script>
+// Show the poll popup after a delay if not shown in session and user hasn't voted
+function displayPollPopup() {
+  if (!sessionStorage.getItem("pollPopupDisplayed") && !sessionStorage.getItem("hasVoted")) {
+    setTimeout(() => {
+      document.getElementById("pollPopup").style.display = "flex";
+      sessionStorage.setItem("pollPopupDisplayed", "true"); // Mark poll popup as displayed
+    }, 10000); // 10-second delay
+  }
+}
 
-      // Show the newsletter popup immediately on page load
-      function displayNewsletterPopup() {
-        document.getElementById('popup-nl').style.display = 'flex'; // Show newsletter
-      }
-      displayNewsletterPopup(); // Call the function
+// Close popups function for both newsletter and poll
+function closePopups() {
+  document.getElementById("popup-nl").style.display = "none";
+  document.getElementById("pollPopup").style.display = "none";
+}
 
-      // Check if the user has already voted in this session
-      const hasVoted = sessionStorage.getItem('hasVoted');
+// Add event listeners for close buttons in both popups
+document.querySelectorAll(".close-nl").forEach(btn => {
+  btn.addEventListener("click", closePopups);
+});
 
-      // Show the poll popup after a delay, only if the user hasn't voted
-      function checkAndDisplayPollPopup() {
-        const newsletterPopup = document.getElementById('popup-nl');
-        if (newsletterPopup.style.display !== 'flex' && !hasVoted) {
-          document.getElementById('pollPopup').style.display = 'flex'; // Show poll
-        }
-      }
+// Initialize popups on page load
+window.onload = function() {
+  displayNewsletterPopup(); // Show newsletter popup
+  displayPollPopup(); // Check and show poll popup if conditions met
+};
 
-      // Set timeout for poll display
-      setTimeout(checkAndDisplayPollPopup, 10000);
+// Close the popup when clicking outside the content
+window.addEventListener("click", function(event) {
+  const popupContent = document.querySelector(".popup-content");
+  if (
+    event.target === document.getElementById("popup-nl") && 
+    !popupContent.contains(event.target)
+  ) {
+    document.getElementById("popup-nl").style.display = "none";
+  }
+});
 
-      // Manage user selections and votes
-      const pollButtons = document.querySelectorAll('.poll-button[data-value]');
-      let selectedValue = '';
+// Handle form submission for newsletter
+document.getElementById("emailForm-nl").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const email = document.getElementById("email-nl").value;
+  if (email) {
+    alert(`Your email ID ${email} has been registered successfully for the newsletter.`);
+    document.getElementById("popup-nl").style.display = "none";
+  }
+});
 
-      // Handle clicks on poll buttons
-      pollButtons.forEach(button => {
-        button.addEventListener('click', function () {
-          pollButtons.forEach(btn => btn.classList.remove('selected')); // Clear previous selections
-          button.classList.add('selected'); // Highlight selected button
-          selectedValue = button.getAttribute('data-value'); // Store selected value
-        });
-      });
+// Poll voting logic
+const pollButtons = document.querySelectorAll(".poll-button[data-value]");
+let selectedValue = "";
 
-      // Handle voting process
-      document.getElementById('voteButton').addEventListener('click', function () {
-        if (selectedValue) {
-          document.getElementById('result').innerHTML = `You voted for: ${selectedValue}<br>Thank you!`; // Show result
-          sessionStorage.setItem('hasVoted', 'true'); // Save voting status
-          setTimeout(() => {
-            document.getElementById('pollPopup').style.display = 'none'; // Hide poll
-          }, 2000);
-        } else {
-          alert("Please select an option!"); // Alert if no option is selected
-        }
-      });
+pollButtons.forEach(button => {
+  button.addEventListener("click", function() {
+    pollButtons.forEach(btn => btn.classList.remove("selected"));
+    button.classList.add("selected");
+    selectedValue = button.getAttribute("data-value");
+  });
+});
 
-      // Close popups function
-      function closePopups() {
-        document.getElementById('popup-nl').style.display = 'none'; // Hide newsletter popup
-      }
-
-      // Attach close event to close buttons
-      document.querySelectorAll('.close-nl').forEach(btn => {
-        btn.addEventListener('click', closePopups);
-      });
-
-      // Function to log the voting action
-      function logVoteAction() {
-        console.log("User has voted for: " + selectedValue); // Log selected value
-      }
-
-      // Event listener for the vote button to log action
-      document.getElementById('voteButton').addEventListener('click', logVoteAction);
-
-      // Function to manage button focus for accessibility
-      function handleFocus(event) {
-        event.target.style.border = '2px solid #0058ff'; // Optional highlight effect
-      }
-
-      // Attach focus event for accessibility improvement
-      pollButtons.forEach(button => {
-        button.addEventListener('focus', handleFocus);
-      });
-
-      // Function to remove focus style
-      function handleBlur(event) {
-        event.target.style.border = ''; // Remove highlight effect
-      }
-
-      // Attach blur event for accessibility improvement
-      pollButtons.forEach(button => {
-        button.addEventListener('blur', handleBlur);
-      });
-
-      // Log when the script has loaded
-      console.log("Poll script initialized and ready!");
-
+document.getElementById("voteButton").addEventListener("click", function() {
+  if (selectedValue) {
+    document.getElementById("result").innerHTML = `You voted for: ${selectedValue}<br>Thank you!`;
+    sessionStorage.setItem("hasVoted", "true");
+    setTimeout(() => {
+      document.getElementById("pollPopup").style.display = "none";
+    }, 2000);
+  } else {
+    alert("Please select an option!");
+  }
+});
+ 
     </script>
 
     <script>
@@ -3876,10 +3926,10 @@
                         profile</a>
                     </li>
                     <li>
-                      <img src="./assets/images/inbox.png" /><a href="#">Inbox</a>
+                      <img src="./assets/images/inbox.png" /><a href="./assets/html/inbox.html">Inbox</a>
                     </li>
                     <li>
-                      <img src="./assets/images/settings.png" /><a href="#">Settings</a>
+                      <img src="./assets/images/settings.png" /><a href="./assets/html/settings.html">Settings</a>
                     </li>
                     <li><img src="./assets/images/help.png" /><a href="/help.html">Help</a></li>
                     <li>
@@ -4598,6 +4648,31 @@
               cardPerView = updateCardPerView();
               carousel.scrollLeft = carousel.offsetWidth * cardPerView;
             });
+
+//Literary Realms carousel autoplaying logic
+
+            let scrollInterval;
+
+const startAutoplay = () => {
+    scrollInterval = setInterval(() => {
+        const scrollAmount = (firstCardWidth) * 1; // Adjust the scroll amount as needed
+        carousel.scrollLeft += scrollAmount;
+    }, 3000); // Change the interval time (3000ms = 3 seconds) as needed
+};
+
+const stopAutoplay = () => {
+    clearInterval(scrollInterval);
+};
+
+// Start autoplay when the page loads
+startAutoplay();
+
+// Optionally, you can stop autoplay when the user interacts with the carousel
+carousel.addEventListener("mouseenter", stopAutoplay);
+carousel.addEventListener("mouseleave", startAutoplay);
+
+
+
           });
         </script>
         <style>
@@ -4888,7 +4963,7 @@
                       cost (Limited Offer)
                     </p>
                     <a href="assets/html/checkout.html" class="cta1 style-9">
-                      <span style="position: relative; top: 2.7rem; font-size: 1rem;">Buy Now</span>
+                      <span style="position: relative; top: 2.7rem; font-size: 15px;">Buy Now</span>
                       <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -4907,7 +4982,7 @@
                       timeless stories.
                     </p>
                     <a href="assets/html/checkout.html" class="cta1 style-9">
-                      <span style="position: relative; top: 2.7rem; font-size: 1rem;">Buy Now</span>
+                      <span style="position: relative; top: 2.7rem; font-size: 15px;">Buy Now</span>
                       <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -4926,7 +5001,7 @@
                       of their original cost.
                     </p>
                     <a href="assets/html/checkout.html" class="cta1 style-9">
-                      <span style="position: relative; top: 2.7rem; font-size: 1rem;">Buy Now</span>
+                      <span style="position: relative; top: 2.7rem; font-size: 15px;">Buy Now</span>
                       <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -4975,11 +5050,12 @@
             <ul class="grid-list" id="genre-list">
               <li data-aos="slide-right">
                 <div class="chapter-card">
-                  <p class="card-subtitle">01</p>
+                   <p class="card-subtitle">01</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Classic Literature</h3>
                     <span style='font-size: 5rem;filter: grayscale(100%);'>&#128395;</span>
                   </div>
+ 
 
 
                   <p class="card-text">
@@ -4990,7 +5066,7 @@
                     all writers whose works are considered classical literature.
                   </p>
 
-                  <a href="../assets/html/classic.html" class="cta2 style-9">
+                   <a href="../assets/html/classic.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
@@ -4998,6 +5074,7 @@
                     </svg>
                   </a>
                 </div>
+ 
               </li>
 
               <li data-aos="zoom-in">
@@ -5006,7 +5083,7 @@
                   <p class="card-subtitle" style=" width: 202.48px; height: 13px;">02</p>
                   <div class="iconrow" style=" width: 202.48px; height: 79px;">
                     <h3 class="h3 card-title">Romance</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#10084;</span>
+                    <span style='font-size:5rem;color: red;'>&#10084;</span>
                   </div>
 
                   <p class="card-text">
@@ -5015,13 +5092,14 @@
                     the main characters of the story. The biggest defining characteristic of the romance genre is that a
                     happy ending is always guaranteed, perhaps living 'happily ever after.
                   </p>
-                  <a href="../assets/html/romance.html" class="cta2 style-9">
+                   <a href="../assets/html/romance.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5032,7 +5110,7 @@
                   <p class="card-subtitle">03</p>
                   <div class="iconrow" style=" width: 202.48px; height: 79px;">
                     <h3 class="h3 card-title">Suspense Thriller</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#128269;</span>
+                    <span style='font-size:5rem;'>&#128269;</span>
                   </div>
 
 
@@ -5041,13 +5119,14 @@
                     with twists and turns, keeping readers guessing until the very last page as protagonists navigate
                     dangerous situations.
                   </p>
-                  <a href="../assets/html/suspense-thriller.html" class="cta2 style-9">
+                   <a href="../assets/html/suspense-thriller.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5058,7 +5137,7 @@
                   <p class="card-subtitle">04</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Science Fiction</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#128640;</span>
+                    <span style='font-size:5rem;'>&#128640;</span>
                   </div>
 
 
@@ -5067,13 +5146,14 @@
                     fiction books ignite the imagination with visions of advanced civilizations, space exploration, and
                     speculative science.
                   </p>
-                  <a href="../assets/html/science-fiction.html" class="cta2 style-9">
+                   <a href="../assets/html/science-fiction.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5084,7 +5164,7 @@
                   <p class="card-subtitle">05</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Fantasy</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F52E;</span>
+                    <span style='font-size:5rem;'>&#x1F52E;</span>
                   </div>
 
                   <p class="card-text">
@@ -5092,13 +5172,14 @@
                     anything is possible, weaving tales of epic quests, ancient prophecies, and battles between good and
                     evil.
                   </p>
-                  <a href="../assets/html/fantasy.html" class="cta2 style-9">
+                   <a href="../assets/html/fantasy.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5109,7 +5190,7 @@
                   <p class="card-subtitle">06</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Horror</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F578;</span>
+                    <span style='font-size:5rem;'>&#x1F578;</span>
                   </div>
 
                   <p class="card-text">
@@ -5117,13 +5198,14 @@
                     exploring fear, dread, and the unknown through chilling tales of monsters, ghosts, and psychological
                     terror.
                   </p>
-                  <a href="../assets/html/horror.html" class="cta2 style-9">
+                   <a href="../assets/html/horror.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5134,7 +5216,7 @@
                   <p class="card-subtitle">07</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Biography</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F464;</span>
+                    <span style='font-size:5rem;'>&#x1F464;</span>
                   </div>
 
                   <p class="card-text">
@@ -5143,13 +5225,14 @@
                     struggles of notable individuals, offering inspiration and understanding through their personal
                     stories and achievements.
                   </p>
-                  <a href="../assets/html/biography.html" class="cta2 style-9">
+                   <a href="../assets/html/biography.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5160,7 +5243,7 @@
                   <p class="card-subtitle">08</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Self Help</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F9E0;</span>
+                    <span style='font-size:5rem;'>&#x1F9E0;</span>
                   </div>
 
                   <p class="card-text">
@@ -5168,13 +5251,14 @@
                     strategies, and insights for personal growth, happiness, and success, covering topics such as
                     relationships, productivity, and mental health.
                   </p>
-                  <a href="../assets/html/self-help.html" class="cta2 style-9">
+                   <a href="../assets/html/self-help.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5185,7 +5269,7 @@
                   <p class="card-subtitle">09</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Historical Fiction</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F3DB;</span>
+                    <span style='font-size:5rem;'>&#x1F3DB;</span>
                   </div>
 
                   <p class="card-text">
@@ -5193,14 +5277,14 @@
                     narratives, transporting readers to different eras and cultures, bringing history to life through
                     vivid characters and immersive storytelling.
                   </p>
-                  <a href="../assets/html/historical-fiction.html" class="cta2 style-9">
+                   <a href="../assets/html/historical-fiction.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
-
+ 
                 </div>
               </li>
 
@@ -5210,7 +5294,7 @@
                   <p class="card-subtitle">10</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Poetry</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x270D;</span>
+                    <span style='font-size:5rem;'>&#x270D;</span>
                   </div>
 
 
@@ -5220,13 +5304,14 @@
                     From ancient epics to modern verses, they celebrate the power of words and the timeless beauty of
                     human expression.
                   </p>
-                  <a href="../assets/html/poetry.html" class="cta2 style-9">
+                   <a href="../assets/html/poetry.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5237,7 +5322,7 @@
                   <p class="card-subtitle">11</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Philosophy</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F4DC;</span>
+                    <span style='font-size:5rem;'>&#x1F4DC;</span>
                   </div>
 
 
@@ -5246,13 +5331,14 @@
                     and knowledge, they provoke deep thought, challenge assumptions, and offer
                     diverse perspectives, fostering critical thinking and a deeper understanding of the human condition.
                   </p>
-                  <a href="../assets/html/philosophy.html" class="cta2 style-9">
+                   <a href="../assets/html/philosophy.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5263,7 +5349,7 @@
                   <p class="card-subtitle">12</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Adventure</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F526;</span>
+                    <span style='font-size:5rem;'>&#x1F526;</span>
                   </div>
 
                   <p class="card-text">
@@ -5271,13 +5357,14 @@
                     transports readers to exotic locales, ignites the imagination, and offers escapism,
                     excitement, and a sense of discovery and wonder.
                   </p>
-                  <a href="../assets/html/adventure.html" class="cta2 style-9">
+                   <a href="../assets/html/adventure.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5289,20 +5376,21 @@
                   <p class="card-subtitle">13</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Non-Fiction</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F4D6;</span>
+                    <span style='font-size:5rem;'>&#x1F4D6;</span>
                   </div>
 
                   <p class="card-text">
                     Dive into the mysteries and secrets of the world surrounding us, and gain a deeper knowledge and
                     history behind the wisdom of our correspondants and predecessors, through non-fiction.
                   </p>
-                  <a href="../assets/html/nonfiction.html" class="cta2 style-9">
+                   <a href="../assets/html/nonfiction.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5313,20 +5401,21 @@
                   <p class="card-subtitle">14</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Comedy</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F939;</span>
+                    <span style='font-size:5rem;'>&#x1F939;</span>
                   </div>
 
                   <p class="card-text">
                     Are you feeling blue and want a good laugh? Well then, Comedy is the right genre for you! Grab a cup
                     of coffee, lean back and dive into a world of humour, smiles and all sun!
                   </p>
-                  <a href="../assets/html/comedy.html" class="cta2 style-9">
+                   <a href="../assets/html/comedy.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5337,7 +5426,7 @@
                   <p class="card-subtitle">15</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Detective Fiction</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F5DD;</span>
+                    <span style='font-size:5rem;'>&#x1F5DD;</span>
                   </div>
 
 
@@ -5346,13 +5435,14 @@
                     reach your end-goal with secret agents. Put your investigative and observative skills to the test,
                     in the land of Detective Fiction.
                   </p>
-                  <a href="../assets/html/detective-fiction.html" class="cta2 style-9">
+                   <a href="../assets/html/detective-fiction.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5361,7 +5451,7 @@
                   <p class="card-subtitle">16</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Fairy Tales</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F9DA;</span>
+                    <span style='font-size:5rem;'>&#x1F9DA;</span>
                   </div>
 
                   <p class="card-text">
@@ -5369,13 +5459,14 @@
                     vanquished. The essence of fairy tales is their promise of a happy ending, with characters finding
                     their "happily ever after."
                   </p>
-                  <a href="../assets/html/fairytale.html" class="cta2 style-9">
+                   <a href="../assets/html/fairytale.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
                 </div>
               </li>
               <li data-aos="zoom-in">
@@ -5383,7 +5474,7 @@
                   <p class="card-subtitle">17</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Mythology</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'> &#x1F31F;</span>
+                    <span style='font-size:5rem;'> &#x1F31F;</span>
                   </div>
 
                   <p class="card-text">
@@ -5391,13 +5482,14 @@
                     generations. These tales often feature gods, heroes, and mythical creatures, exploring themes of
                     creation, morality, and the human condition.
                   </p>
-                  <a href="../assets/html/mythology.html" class="cta2 style-9">
+                   <a href="../assets/html/mythology.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
                 </div>
               </li>
               <li data-aos="slide-left">
@@ -5405,7 +5497,7 @@
                   <p class="card-subtitle">18</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Noir</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F312;</span>
+                    <span style='font-size:5rem;'>&#x1F312;</span>
                   </div>
 
                   <p class="card-text">
@@ -5414,13 +5506,14 @@
                     environments and explore themes of crime, corruption, and existential despair.
                   </p>
                   </p>
-                  <a href="../assets/html/noir.html" class="cta2 style-9">
+                   <a href="../assets/html/noir.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
                 </div>
               </li>
               <li data-aos="slide-right">
@@ -5428,7 +5521,7 @@
                   <p class="card-subtitle">19</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">True Crime</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F575; </span>
+                    <span style='font-size:5rem;'>&#x1F575; </span>
                   </div>
 
                   <p class="card-text">
@@ -5436,13 +5529,14 @@
                     justice system through detailed and factual narratives. These stories often provide deep insights
                     into criminal minds and the complex pursuit of justice.
                   </p>
-                  <a href="../assets/html/true-crime.html" class="cta2 style-9">
+                   <a href="../assets/html/true-crime.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
                 </div>
 
               </li>
@@ -5453,7 +5547,7 @@
                   <p class="card-subtitle">20</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Dystopian</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#128740;</span>
+                    <span style='font-size:5rem;'>&#128740;</span>
                   </div>
 
                   <p class="card-text">
@@ -5461,13 +5555,14 @@
                     oppression, deprivation, and despair. These stories challenge readers to reflect on current social
                     and political issues by presenting exaggerated consequences of modern-day problems.
                   </p>
-                  <a href="../assets/html/dystopian.html" class="cta2 style-9">
+                   <a href="../assets/html/dystopian.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5478,7 +5573,7 @@
                   <p class="card-subtitle">21</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Magical Realism</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#129668;</span>
+                    <span style='font-size:5rem;'>&#129668;</span>
                   </div>
 
                   <p class="card-text">
@@ -5486,13 +5581,14 @@
                     of everyday life. This genre often explores the boundaries between reality and imagination, weaving
                     fantastical occurrences into the fabric of the mundane.
                   </p>
-                  <a href="../assets/html/magical-realism.html" class="cta2 style-9">
+                   <a href="../assets/html/magical-realism.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5504,7 +5600,7 @@
                   <p class="card-subtitle">22</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Cyberpunk</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F310;</span>
+                    <span style='font-size:5rem;'>&#x1F310;</span>
                   </div>
 
                   <p class="card-text">
@@ -5513,13 +5609,14 @@
                     technology on human life, including issues of cybernetics, artificial intelligence, and corporate
                     control.
                   </p>
-                  <a href="../assets/html/cyberpunk.html" class="cta2 style-9">
+                   <a href="../assets/html/cyberpunk.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5530,7 +5627,7 @@
                   <p class="card-subtitle">23</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Utopian</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F3DD;</span>
+                    <span style='font-size:5rem;'>&#x1F3DD;</span>
                   </div>
 
                   <p class="card-text">
@@ -5538,13 +5635,14 @@
                     perfect. These stories often explore theoretical models of how human society might function in an
                     ideal state, offering a contrast to real-world issues and inspiring visions of a better future.
                   </p>
-                  <a href="../assets/html/utopian.html" class="cta2 style-9">
+                   <a href="../assets/html/utopian.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5555,7 +5653,7 @@
                   <p class="card-subtitle">24</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Experimental Fiction</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F4DA;</span>
+                    <span style='font-size:5rem;'>&#x1F4DA;</span>
                   </div>
 
                   <p class="card-text">
@@ -5563,13 +5661,14 @@
                     genre is known for its innovative approaches, including fragmented narratives, unconventional
                     formats, and metafictional elements, pushing the boundaries of traditional storytelling.
                   </p>
-                  <a href="../assets/html/experimental-fiction.html" class="cta2 style-9">
+                   <a href="../assets/html/experimental-fiction.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
 
                 </div>
               </li>
@@ -5579,7 +5678,7 @@
                   <p class="card-subtitle">25</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Satire</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x1F3AD;</span>
+                    <span style='font-size:5rem;'>&#x1F3AD;</span>
                   </div>
 
                   <p class="card-text">
@@ -5587,13 +5686,14 @@
                     through verbal ingenuity, swift perception and the human understanding of sarcasm and irony in
                     real-life.
                   </p>
-                  <a href="../assets/html/satire.html" class="cta2 style-9">
+                   <a href="../assets/html/satire.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
+ 
                 </div>
               </li>
 
@@ -5604,7 +5704,7 @@
                   <p class="card-subtitle">26</p>
                   <div class="iconrow">
                     <h3 class="h3 card-title">Psychological Thriller</h3>
-                    <span style='font-size:5rem;filter: grayscale(100%);'>&#x23F3;</span>
+                    <span style='font-size:5rem;'>&#x23F3;</span>
                   </div>
 
                   <p class="card-text">
@@ -5612,26 +5712,27 @@
                     unreliable narrators. They keep you guessing with twists and explore complex, often dark,
                     motivations.
                   </p>
-                  <a href="../assets/html/psycological-thriller.html" class="cta2 style-9">
+                   <a href="../assets/html/psycological-thriller.html" class="cta2 style-9">
                     <span style="font-size: 1.2rem;">Book Recommendations</span>
                     <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                   </a>
-
+ 
                 </div>
               </li>
 
               <li data-aos="slide-left">
-                <a href="../assets/html/autobiography.html" style="text-decoration: none; color: inherit;">
+                 <a href="../assets/html/autobiography.html" style="text-decoration: none; color: inherit;">
                   <div class="chapter-card">
+ 
 
                     <p class="card-subtitle">27</p>
 
                     <h3 class="h3 card-title">Autobiography</h3>
 
-                    <p class="card-text">
+                     <p class="card-text">
                       A non-fiction account of a person's life written by that person, offering personal insight and
                       reflection on their experiences.It serves as a means for the author to share their unique
                       narrative,
@@ -5639,6 +5740,7 @@
                     </p>
                     <a href="../assets/html/biography.html" class="cta2 style-9">
                       <span style="font-size: 1.2rem;">Book Recommendations</span>
+ 
                       <svg width="1.3rem" height="1rem" viewBox="0 0 13 10">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -6058,10 +6160,10 @@
             document.getElementById('feedback-form').addEventListener('submit', function (event) {
               event.preventDefault(); // Prevent the default form submission
               console.log('Form submitted'); // Debug log
-
-<<<<<<< HEAD
+ 
               <script>
                 document.addEventListener("DOMContentLoaded", function () { })
+ 
 
 
 
@@ -6185,13 +6287,30 @@
               /* Ensure it's above other elements */
             }
 
-            >>>>>>>5b34637af341bc5ad0fa8d317b0c7a6df312a37f .toast-message.show {
+            .toast-message.show {
               opacity: 1;
               /* Visible */
               transform: translateX(-50%) translateY(0);
               /* Slide in */
             }
+ /* Toast message styles */
+.toast-message {
 
+    position: fixed;
+    top: 20px; /* Position at the top */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+    color: white; /* Text color */
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transitions */
+    z-index: 999; /* Ensure it's above other elements */
+}
+
+ 
 
             /* Simple styles for the popup */
             #thank-you-popup {
@@ -7037,9 +7156,38 @@ function showSuccessMessage() {
 
           <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
           <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a> |
-          <a href="our-vision.html" id="ourvisionlink">Our Vision</a></li> |
-          <li><a href="./contributor/contributorss.html"><i class="fas fa-users"></i> Our Contributors</a></li>
-          <a href="refundpolicy.html">Refund Policy</a>
+          <a href="our-vision.html" id="ourvisionlink">Our Vision</a> |
+          <a href="./contributor/contributorss.html" class="contributors"><i class="fas fa-users"></i> Our Contributors</a> |
+          <a href="refundpolicy.html" id="refundp">Refund Policy</a>
+          <style>
+            #refundp:hover{
+              color: rgb(126, 0, 21);
+              transition: color 0.5s ease;
+            }
+            .dark-mode #refundp:hover{
+              color: #708090;
+              transition: color 0.5s ease;
+            }
+            .fas .fa-users:hover{
+              color: rgb(126, 0, 21) !important;
+              transition: color 0.5s ease !important;
+            }
+            .dark-mode .fas .fa-users:hover{
+              color: #708090 !important;
+              transition: color 0.5s ease !important;
+            }
+            .contributors:hover{
+              color: rgb(126, 0, 21) !important;
+              transition: color 0.5s ease !important;
+            }
+            .dark-mode .contributors:hover{
+              color: #708090 !important;
+              transition: color 0.5s ease !important;
+            }
+            </style>
+
+          
+
 
         </div>
       </div>
@@ -7676,8 +7824,49 @@ open.classList.add('open')
                       duration: 2000
   });
     </script>
+ 
+<button id="achievement" class="achievement-button" onclick="window.location.href='./achievements.html'" title="Achievements">🏅</button>
 
+    <style>
+      .achievement-button {
+        position: fixed;
+        right: 45px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: linear-gradient(hwb(357 6% 30%), #d26d6d);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        /* Make it circular */
+        width: 50px;
+        /* Set width */
+        height: 50px;
+        /* Set height */
+        padding: 0;
+        /* Remove padding */
+        cursor: pointer;
+        z-index: 1005;
+        /* Ensure button is on top */
+        display: flex;
+        /* Center content */
+        justify-content: center;
+        /* Center content horizontally */
+        align-items: center;
+        /* Center content vertically */
+        font-size: 12px;
+        /* Smaller font size */
+        text-align: center;
+        /* Center text */
+        font-size: 23px;
+      }
 
+      .achievement-button:hover {
+        transform: translateY(-50%) scale(1.2);
+      }
+    </style>
+
+<style>
+ 
     <style>
       .popupp {
 
@@ -7741,6 +7930,8 @@ open.classList.add('open')
 
       }
     </style>
+
+<script src="scripts.js"></script> <!-- Link to your service worker registration script -->
 
   </body>
 

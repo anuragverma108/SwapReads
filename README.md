@@ -66,6 +66,8 @@
 ├── Mystical-fantaies.html
 ├── README.md
 ├── SECURITY.md
+├── achievements.css
+├── achievements.html
 ├── activity.css
 ├── activity.html
 ├── activity.js
@@ -84,11 +86,13 @@
 │   │   ├── about.css
 │   │   ├── aboutus.css
 │   │   ├── addremove.css
+│   │   ├── blog.css
 │   │   ├── checkout.css
 │   │   ├── contributor.css
 │   │   ├── event.css
 │   │   ├── forgot-pass.css
 │   │   ├── freeBooks.css
+│   │   ├── inbox.css
 │   │   ├── litrary_realms.css
 │   │   ├── login.css
 │   │   ├── playNow.css
@@ -97,6 +101,7 @@
 │   │   ├── read_later.css
 │   │   ├── readerConn.css
 │   │   ├── refresher.css
+│   │   ├── settings.css
 │   │   ├── socialmedia.css
 │   │   ├── style.css
 │   │   ├── styles.css
@@ -154,7 +159,6 @@
 │   │   ├── ConnReader.html
 │   │   ├── Error.html
 │   │   ├── about.html
-│   │   ├── about1.html
 │   │   ├── addremovebook.html
 │   │   ├── adventure.html
 │   │   ├── assets/
@@ -162,34 +166,42 @@
 │   │   │       └── event.css
 │   │   ├── audio.html
 │   │   ├── author.html
+│   │   ├── autobiography.html
 │   │   ├── biography.html
+│   │   ├── blog-content.html
 │   │   ├── blog.html
 │   │   ├── book_recommend.html
 │   │   ├── booking.html
 │   │   ├── booklistswap.html
 │   │   ├── bookpref.html
 │   │   ├── borrow.html
+│   │   ├── boy.html
 │   │   ├── checkout.html
 │   │   ├── classic.html
+│   │   ├── classica.html
+│   │   ├── classicq.html
 │   │   ├── comedy.html
-│   │   ├── comsp.html
 │   │   ├── custom.html
 │   │   ├── cyberpunk.html
 │   │   ├── detective-fiction.html
 │   │   ├── donate.html
 │   │   ├── dystopian.html
 │   │   ├── event.html
+│   │   ├── exp.html
 │   │   ├── experimental-fiction.html
 │   │   ├── fairytale.html
 │   │   ├── fantasy.html
+│   │   ├── fine.html
 │   │   ├── forgot-pass.html
 │   │   ├── freeBooks.html
 │   │   ├── god.html
 │   │   ├── googlece7a206a6cfbb7ed.html
 │   │   ├── historical-fiction.html
+│   │   ├── home.html
 │   │   ├── horror.html
 │   │   ├── image.png
 │   │   ├── img.png
+│   │   ├── inbox.html
 │   │   ├── login.html
 │   │   ├── magical-realism.html
 │   │   ├── maha.html
@@ -198,6 +210,7 @@
 │   │   ├── mood.html
 │   │   ├── mylogin.html
 │   │   ├── mythology.html
+│   │   ├── nectar.html
 │   │   ├── ngo.html
 │   │   ├── noir.html
 │   │   ├── nonfiction.html
@@ -212,18 +225,29 @@
 │   │   ├── read.html
 │   │   ├── read_later.html
 │   │   ├── romance.html
+│   │   ├── romancea.html
+│   │   ├── romanceq.html
 │   │   ├── satire.html
 │   │   ├── school.html
 │   │   ├── science-fiction.html
 │   │   ├── self-help.html
+│   │   ├── settings.html
 │   │   ├── social.html
 │   │   ├── suspense-thriller.html
 │   │   ├── tips.html
 │   │   ├── top10.html
 │   │   ├── true-crime.html
+│   │   ├── un.html
 │   │   └── utopian.html
 │   ├── images/
+│   │   ├── 1.jpg
+│   │   ├── 10-books-30-days.png
+│   │   ├── 100.jpg
+│   │   ├── 19.jpg
 │   │   ├── 1984.jpg
+│   │   ├── 20.jpg
+│   │   ├── 5.jpeg
+│   │   ├── 7.png
 │   │   ├── FB icon.png
 │   │   ├── LogoPicDark.png
 │   │   ├── LogoPicLight.png
@@ -239,28 +263,52 @@
 │   │   ├── achievement-3.jpg
 │   │   ├── achievement-4.jpg
 │   │   ├── achievement-5.jpg
+│   │   ├── adv.jpg
+│   │   ├── aen.jpg
+│   │   ├── air.jpeg
+│   │   ├── air.jpg
+│   │   ├── akira.jpg
+│   │   ├── alice.jpg
+│   │   ├── alone.jpg
+│   │   ├── alt.jpeg
 │   │   ├── alter.jpeg
 │   │   ├── american.jpg
+│   │   ├── animal.jpeg
 │   │   ├── anna_karenina.jpg
+│   │   ├── ariel.webp
+│   │   ├── atomic.jpeg
 │   │   ├── author-banner.png
+│   │   ├── auto.jpg
 │   │   ├── avatar1.jpg
 │   │   ├── avatar2.jpg
 │   │   ├── avatar3.jpg
 │   │   ├── avatar4.jpg
 │   │   ├── avatar5.jpg
 │   │   ├── award.svg
+│   │   ├── babb.jpeg
+│   │   ├── bad.jpg
 │   │   ├── be.jpeg
 │   │   ├── beach.jpg
 │   │   ├── bear.jpg
+│   │   ├── beauty.jpeg
+│   │   ├── become.jpg
+│   │   ├── becoming.jpg
 │   │   ├── before.jpg
 │   │   ├── behind.jpg
+│   │   ├── being.jpg
+│   │   ├── beingand.jpg
+│   │   ├── bel.jpg
 │   │   ├── benefits-1.svg
 │   │   ├── benefits-2.svg
 │   │   ├── benefits-3.svg
 │   │   ├── benefits-4.svg
 │   │   ├── benefits-5.svg
 │   │   ├── benefits-6.svg
+│   │   ├── big-sleep.jpg
 │   │   ├── big.jpg
+│   │   ├── bigs.jpg
+│   │   ├── birdbox.jpg
+│   │   ├── blind.jpg
 │   │   ├── book/
 │   │   │   ├── Army.jpg
 │   │   │   ├── Economist.jpg
@@ -277,33 +325,69 @@
 │   │   ├── books_swapRead.jpg
 │   │   ├── bookshelf.png
 │   │   ├── bookshelfhover.png
+│   │   ├── born (1).jpg
+│   │   ├── born.jpg
+│   │   ├── boss.jpg
+│   │   ├── bossy.jpeg
 │   │   ├── brave.jpeg
+│   │   ├── braven.jpg
+│   │   ├── bro.jpg
 │   │   ├── brothers_karamazov.jpg
+│   │   ├── cabinet.jpg
+│   │   ├── call.jpg
+│   │   ├── case.jpg
+│   │   ├── castle.png
+│   │   ├── catch.jpg
+│   │   ├── catch22.jpg
 │   │   ├── catcher_in_the_rye.jpg
 │   │   ├── chain.jpg
+│   │   ├── child.jpg
+│   │   ├── cind.jpeg
+│   │   ├── circe.jpg
+│   │   ├── citi.jpg
 │   │   ├── city.jpeg
 │   │   ├── cl.jpg
 │   │   ├── close-white.png
 │   │   ├── close.png
 │   │   ├── close1.png
+│   │   ├── cold.jpg
+│   │   ├── colum.jpg
 │   │   ├── comedy.jpg
 │   │   ├── community.png
 │   │   ├── communityhover.png
+│   │   ├── confe.jpg
 │   │   ├── contact.png
+│   │   ├── coraline.jpg
+│   │   ├── count.jpg
 │   │   ├── couple.jpg
 │   │   ├── court.jpg
+│   │   ├── crime.jpg
 │   │   ├── crime_and_punishment.jpg
+│   │   ├── critique.jpg
 │   │   ├── ctc1.png
 │   │   ├── ctc2.png
 │   │   ├── ctc3.png
 │   │   ├── ctc4.png
 │   │   ├── ctc5.png
+│   │   ├── dark.jpg
 │   │   ├── darkmode_bg.png
+│   │   ├── darkpl.jpg
+│   │   ├── devil.jpg
+│   │   ├── diary.webp
+│   │   ├── dict.jpg
+│   │   ├── dispo.jpg
+│   │   ├── do.jpg
+│   │   ├── dou.jpeg
+│   │   ├── dracula.jpeg
 │   │   ├── dracula.webp
+│   │   ├── dragon.jpg
+│   │   ├── dunces.jpeg
 │   │   ├── dune.jpg
 │   │   ├── duno.jpeg
 │   │   ├── duno.jpg
+│   │   ├── eco.jpg
 │   │   ├── edit profile.jpg
+│   │   ├── edu.webp
 │   │   ├── em.jpeg
 │   │   ├── emoji/
 │   │   │   ├── emoji-1.png
@@ -312,22 +396,32 @@
 │   │   │   ├── emoji-4.png
 │   │   │   └── emoji-5.png
 │   │   ├── enders.jpg
+│   │   ├── epic.jpg
+│   │   ├── exorcist.jpg
+│   │   ├── exp.jpeg
 │   │   ├── eye-close.png
 │   │   ├── eye-open.png
 │   │   ├── fahrenheit.jpeg
 │   │   ├── fantasy.jpg
+│   │   ├── farewell.jpg
 │   │   ├── fates.jpg
+│   │   ├── felon.jpg
 │   │   ├── final.png
+│   │   ├── fire.jpg
+│   │   ├── first-5-read.png
+│   │   ├── five.jpeg
 │   │   ├── foundation.jpeg
 │   │   ├── frankenstein.jpg
+│   │   ├── frog.jpg
+│   │   ├── fun.jpg
 │   │   ├── game.jpg
+│   │   ├── genre.jpg
 │   │   ├── genres/
 │   │   │   ├── 1.jpg
 │   │   │   ├── 10.jpg
 │   │   │   ├── 2.jpg
 │   │   │   ├── 3.jpg
 │   │   │   ├── 4.jpg
-│   │   │   ├── 5.jpeg
 │   │   │   ├── 6.jpg
 │   │   │   ├── 7.jpg
 │   │   │   ├── 8.jpg
@@ -336,24 +430,51 @@
 │   │   │   ├── auth2.jpg
 │   │   │   ├── auth3.jpg
 │   │   │   └── c1.jpg
+│   │   ├── ggg.jpeg
+│   │   ├── ghost.jpg
 │   │   ├── girl.jpg
+│   │   ├── girlon.jpeg
+│   │   ├── girlstop.jpg
+│   │   ├── girlwith.jpg
+│   │   ├── girlwithd.jpg
+│   │   ├── gold.jpg
 │   │   ├── gone.jpg
+│   │   ├── gonegirl.jpg
 │   │   ├── good of small tjings.jpg
+│   │   ├── good.jpg
 │   │   ├── google button.jpeg
 │   │   ├── google icon.jpeg
+│   │   ├── goto.jpeg
 │   │   ├── gr.jpeg
+│   │   ├── gravity.jpg
 │   │   ├── great-expectations.jpeg
 │   │   ├── great_gatsby.jpg
+│   │   ├── grit.jpg
 │   │   ├── guest.jpg
+│   │   ├── habit.jpg
+│   │   ├── hand.jpg
+│   │   ├── hang.jpg
+│   │   ├── hans.jpg
+│   │   ├── hard.jpg
 │   │   ├── harry.jpg
 │   │   ├── hating.jpg
+│   │   ├── haunting.jpeg
 │   │   ├── help.png
+│   │   ├── helt.jpg
+│   │   ├── herland.jpg
 │   │   ├── hero-banner.png
 │   │   ├── hero-section.avif
+│   │   ├── hitch.jpg
 │   │   ├── hitcher.jpeg
 │   │   ├── hobbit.jpg
 │   │   ├── hola.jpg
+│   │   ├── home.jpg
 │   │   ├── honey.jpg
+│   │   ├── horses.jpg
+│   │   ├── house.jpg
+│   │   ├── houses.jpg
+│   │   ├── hss.jpg
+│   │   ├── hunger.jpg
 │   │   ├── hype.jpeg
 │   │   ├── icons8-sun.svg
 │   │   ├── images/
@@ -365,51 +486,110 @@
 │   │   │   ├── ngo.jpeg
 │   │   │   ├── quiz.jpg
 │   │   │   └── school.png
+│   │   ├── imm.jpg
 │   │   ├── inbox.png
 │   │   ├── india after gandhi.jpg
 │   │   ├── insta icon.png
+│   │   ├── institute.jpg
+│   │   ├── island.jpeg
+│   │   ├── it.jpeg
 │   │   ├── itends.jpg
 │   │   ├── ja.jpeg
+│   │   ├── jack.jpg
 │   │   ├── jane_eyre.jpg
 │   │   ├── jk.jpeg
 │   │   ├── jo.jpeg
+│   │   ├── journey.jpg
+│   │   ├── kafta.jpg
+│   │   ├── kill.jpg
+│   │   ├── king.jpg
 │   │   ├── kiss.jpg
+│   │   ├── la.jpg
+│   │   ├── leaves.jpg
 │   │   ├── left.jpeg
 │   │   ├── les.jpg
+│   │   ├── liad.jpg
+│   │   ├── lies.jpeg
+│   │   ├── light.jpg
+│   │   ├── like.jpg
 │   │   ├── lock.jpg
 │   │   ├── logo_darkbg.png
 │   │   ├── logo_whitebg.png
 │   │   ├── logout.png
+│   │   ├── lonely.jpeg
+│   │   ├── long.jpg
+│   │   ├── look.jpg
+│   │   ├── love.jpg
 │   │   ├── ma.jpg
+│   │   ├── maha.jpg
+│   │   ├── malala.jpg
+│   │   ├── malto.webp
+│   │   ├── mar.jpg
 │   │   ├── martian.jpeg
 │   │   ├── mebeforeyou.jpg
+│   │   ├── mee.jpg
+│   │   ├── mermaid.jpg
+│   │   ├── metra.jpg
 │   │   ├── mg.jpeg
+│   │   ├── mid.jpg
 │   │   ├── midnight children.jpg
+│   │   ├── midnight.jpg
+│   │   ├── milk.jpg
+│   │   ├── mind.jpeg
+│   │   ├── mindset.jpg
+│   │   ├── mise.jpeg
 │   │   ├── mist.jpg
+│   │   ├── mlt.jpg
 │   │   ├── moby.jpg
+│   │   ├── mobydick.jpg
+│   │   ├── modern.jpg
+│   │   ├── mona.jpeg
 │   │   ├── moon.png
 │   │   ├── moon_solid.svg
+│   │   ├── motivation.jpg
+│   │   ├── murder.jpg
+│   │   ├── my.jpg
 │   │   ├── mystery.jpg
+│   │   ├── naked.jpg
 │   │   ├── name.jpg
 │   │   ├── narnia.jpg
 │   │   ├── ne.jpeg
+│   │   ├── nelson.jpeg
 │   │   ├── nes.jpeg
 │   │   ├── neuro.jpeg
+│   │   ├── neuroman.jpg
+│   │   ├── never.jpg
 │   │   ├── new_logo.png
 │   │   ├── new_logo_banner_dark.png
 │   │   ├── new_logo_banner_light.png
 │   │   ├── new_logo_dark.png
+│   │   ├── nick.jpg
 │   │   ├── night.jpg
+│   │   ├── nightingale.jpg
+│   │   ├── norse.jpg
 │   │   ├── notebook.jpeg
+│   │   ├── now.jpg
+│   │   ├── nyt.jpg
+│   │   ├── obj.jpeg
+│   │   ├── ocean.jpg
+│   │   ├── odd.jpg
 │   │   ├── odyssey.jpg
+│   │   ├── omens.jpeg
 │   │   ├── oryx.jpeg
 │   │   ├── oryx.jpg
+│   │   ├── out.jpg
 │   │   ├── outlander.jpg
+│   │   ├── part-of-our-community.png
+│   │   ├── patient.jpeg
+│   │   ├── ped.jpg
+│   │   ├── petsematory.jpeg
 │   │   ├── philopsphy.jpg
 │   │   ├── pic1.jpeg
 │   │   ├── pic2.jpeg
 │   │   ├── pic3.jpeg
 │   │   ├── pic4.jpeg
+│   │   ├── postman.jpg
+│   │   ├── power.jpeg
 │   │   ├── preview-1.png
 │   │   ├── preview-2.png
 │   │   ├── preview-3.png
@@ -417,21 +597,59 @@
 │   │   ├── preview-5.png
 │   │   ├── pride.jpg
 │   │   ├── priory.jpg
+│   │   ├── pross.jpeg
+│   │   ├── psh.jpeg
+│   │   ├── ramayana.jpeg
+│   │   ├── rapun.jpg
 │   │   ├── re.jpg
 │   │   ├── read.png
 │   │   ├── readhover.png
 │   │   ├── ready.jpeg
 │   │   ├── red.jpg
+│   │   ├── redh.jpg
+│   │   ├── republic.jpeg
+│   │   ├── road.jpg
+│   │   ├── robin.jpg
 │   │   ├── rom.jpg
 │   │   ├── rosie.jpg
+│   │   ├── rumi.webp
+│   │   ├── rums.jpg
+│   │   ├── sap.jpg
 │   │   ├── scarlet.jpg
+│   │   ├── sch.jpg
 │   │   ├── sci.jpg
+│   │   ├── science.jpg
+│   │   ├── sell.jpg
 │   │   ├── settings.png
 │   │   ├── shantaram.jpg
+│   │   ├── share-books.png
+│   │   ├── sher.jpg
+│   │   ├── shining.jpg
 │   │   ├── shutter.jpg
+│   │   ├── shutteris.jpeg
+│   │   ├── side.jpg
+│   │   ├── silence.jpg
 │   │   ├── silent.jpg
+│   │   ├── silentp.jpg
+│   │   ├── silver.cms
+│   │   ├── silver.jpg
+│   │   ├── sim.jpg
+│   │   ├── sings.jpeg
+│   │   ├── smoke.jpeg
 │   │   ├── snow.jpeg
+│   │   ├── snowcrash.jpg
+│   │   ├── snowq.jpg
+│   │   ├── snowwh.jpeg
+│   │   ├── spirit.jpg
+│   │   ├── sss.jpeg
+│   │   ├── steve.jpg
+│   │   ├── stevejobs.jpeg
+│   │   ├── str.jpg
+│   │   ├── subtle.jpg
 │   │   ├── sun.png
+│   │   ├── sunf.jpg
+│   │   ├── swap-read-mega-1.png
+│   │   ├── tatoo.jpg
 │   │   ├── tele.png
 │   │   ├── telephone.png
 │   │   ├── testimonials-1.jpg
@@ -441,9 +659,14 @@
 │   │   ├── testimonials-5.jpg
 │   │   ├── testimonials-6.jpg
 │   │   ├── the inheritance of book.jpg
+│   │   ├── thief.jpg
+│   │   ├── think.jpg
+│   │   ├── three.jpg
 │   │   ├── thriller.jpg
+│   │   ├── thus.jpeg
 │   │   ├── to_kill_a_mockingbird.png
 │   │   ├── train to paki.jpg
+│   │   ├── tree.avif
 │   │   ├── trendingbook1.jpg
 │   │   ├── trendingbook2.jpg
 │   │   ├── trendingbook3.jpg
@@ -452,16 +675,30 @@
 │   │   ├── true crime.jpg
 │   │   ├── twitter-icon.png
 │   │   ├── twitter.png
+│   │   ├── un.jpg
 │   │   ├── uprooted.jpg
 │   │   ├── user.jpg
+│   │   ├── utopia.jpeg
+│   │   ├── v.jpg
+│   │   ├── wald.jpg
 │   │   ├── war.jpeg
+│   │   ├── website-login.png
 │   │   ├── website-ss.png
 │   │   ├── wheel.jpg
 │   │   ├── white tiger.jpg
 │   │   ├── wife.jpg
 │   │   ├── wild.jpg
+│   │   ├── win.jpg
+│   │   ├── wind.jpeg
+│   │   ├── winter.jpg
 │   │   ├── woman.jpg
-│   │   └── wuthering_heights.jpg
+│   │   ├── wood.jpg
+│   │   ├── world.jpeg
+│   │   ├── wuthering_heights.jpg
+│   │   ├── wwz.jpg
+│   │   ├── yes.jpg
+│   │   ├── young.jpeg
+│   │   └── your-first-read.png
 │   ├── js/
 │   │   ├── ReaderConn.js
 │   │   ├── addremove.js
@@ -519,9 +756,9 @@
 ├── biographies.html
 ├── book.jpg
 ├── books.html
-├── chat.css
-├── chat.html
-├── chat.js
+├── chatt.css
+├── chatt.html
+├── chatt.js
 ├── cod.jpg
 ├── comsp.html
 ├── connectWithsame.html
@@ -553,6 +790,8 @@
 ├── gulpfile.js
 ├── help.html
 ├── historical-chronicals.html
+├── icon-192x192.png
+├── icon-512x512.png
 ├── index.html
 ├── intriguing-mysteries.html
 ├── jsFileEntries.js
@@ -560,6 +799,7 @@
 ├── logout.css
 ├── logout.js
 ├── lol.html
+├── manifest.json
 ├── map.jpg
 ├── mindful-living.html
 ├── modals(privacy policy).css
@@ -572,6 +812,7 @@
 ├── our-vision.html
 ├── package-lock.json
 ├── package.json
+├── payment.css
 ├── payment.html
 ├── payment.jpg
 ├── payment.js
@@ -581,8 +822,6 @@
 ├── popup.js
 ├── pricing.html
 ├── privacynotice.html
-├── profile.css
-├── profile.html
 ├── profiletest.html
 ├── refundpolicy.html
 ├── repo_structure.txt
@@ -593,6 +832,8 @@
 ├── sc.jpg
 ├── scifi.html
 ├── script.js
+├── scripts.js
+├── scrollToTop.js
 ├── scrollbar.css
 ├── scrollbar.js
 ├── sense-sensibility_01_austen_64kb.mp3
@@ -602,7 +843,9 @@
 ├── stackbit.config.ts
 ├── stay_connect.css
 ├── subscribe.html
+├── sw.js
 ├── terms&cond.html
+├── terms.css
 ├── testp.css
 ├── testp.js
 ├── thrilling-adventures.html

@@ -23,6 +23,10 @@
       href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <title>Help Center</title>
     <style>
       body {
@@ -40,80 +44,69 @@
       }
 
       .container {
-        background: rgba(225, 223, 225, 0.3);
+        background: rgba(240, 248, 255, 0.5); /* Light, cool background */
         padding: 40px;
         margin-top: 20px;
         margin-bottom: 20px;
         border-radius: 15px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Softer shadow */
         max-width: 800px;
         width: 90%;
       }
 
-      h1,
-      h2,
-      p,
-      .btn-custom,
-      .card-link {
-        opacity: 0;
-        transform: translateX(-100%);
-        animation: slideIn 1.3s forwards;
-      }
-
       h1 {
         text-align: center;
-        color: #333;
+        color: #2c3e50; /* Darker, elegant color */
         font-family: "Philosopher", sans-serif;
         font-weight: 700;
         margin-bottom: 30px;
       }
 
       p {
-        color: #666;
-        line-height: 1.6;
+        color: #4f5b66; /* Subtle dark gray */
+        line-height: 1.7;
       }
 
       .btn-home {
-        background-color: #aeadad;
-        color: rgb(250, 246, 249);
+        background-color: #7f8c8d; /* Warm, muted gray */
+        color: #fdfefe; /* Soft white */
         border: none;
         border-radius: 5px;
         padding: 15px 20px;
         font-weight: 700;
-        transition: all 0.3s ease;
         font-size: 0.9em;
         position: absolute;
         top: 20px;
         left: 20px;
+        transition: all 0.3s ease;
       }
 
       .btn-home:hover {
-        background-color: #f5baf1;
-        color: rgb(18, 17, 17);
+        background-color: #85c1e9; /* Soft blue on hover */
+        color: #2c3e50; /* Darker color for contrast */
         transform: translateY(-2px);
-        border: 1px solid black;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       }
 
       .btn-custom {
-        background-color: #f3acd0;
+        background-color: #ff6b81; /* Vibrant coral */
         color: white;
-        border: none;
-        border: 2px solid rgb(253, 13, 193);
+        border: 2px solid #ff3b4d; /* Deep coral border */
         border-radius: 25px;
         padding: 10px 25px;
         font-weight: 600;
+        font-size: 1em;
         transition: all 0.3s ease;
       }
 
       .btn-custom:hover {
         background: linear-gradient(
           to top left,
-          rgb(246, 128, 148),
-          rgb(250, 219, 249)
-        );
+          #ff8b94,
+          #ffced4
+        ); /* Softer pink gradient */
         transform: translateY(-2px);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       }
 
       .contact-card {
@@ -129,26 +122,24 @@
         margin-bottom: 20px;
       }
 
-      .contact-card .card-title {
-        margin-right: 10px;
-      }
-
       .card-title {
         font-weight: 600;
+        color: #34495e; /* Rich blue-gray */
         margin-bottom: 5px;
       }
 
       .address {
         font-style: normal;
+        color: #4f5b66;
       }
 
       .card-link {
-        color: #ff69b4;
+        color: #ff6b81;
         text-decoration: none;
       }
 
       .card-link:hover {
-        color: #ff1493;
+        color: #ff3b4d; /* Darker coral on hover */
       }
 
       @keyframes slideIn {
@@ -158,36 +149,46 @@
         }
       }
 
+      .section-1 h2,
+      .section-1 p,
+      .section-1 .btn-custom,
+      .section-2 h2,
+      .section-2 p,
+      .section-2 .btn-custom,
+      .section-3 h2,
+      .section-3 ul,
+      .section-4 h2,
+      .section-4 p,
+      .section-4 .btn-custom {
+        opacity: 0;
+        transform: translateX(-100%);
+        animation: slideIn 1.3s forwards;
+      }
+
+      /* Animation delay for staggered effect */
       .section-1 h2 {
         animation-delay: 0.2s;
       }
-
       .section-1 p,
       .section-1 .btn-custom {
         animation-delay: 0.4s;
       }
-
       .section-2 h2 {
         animation-delay: 0.6s;
       }
-
       .section-2 p,
       .section-2 .btn-custom {
         animation-delay: 0.8s;
       }
-
       .section-3 h2 {
         animation-delay: 1s;
       }
-
       .section-3 ul {
         animation-delay: 1.2s;
       }
-
       .section-4 h2 {
         animation-delay: 1.4s;
       }
-
       .section-4 p,
       .section-4 .btn-custom {
         animation-delay: 1.6s;
@@ -206,174 +207,75 @@
           font-size: 0.85em;
         }
       }
-      .faq-section {
-        display: none; /* Hidden by default */
-        margin-top: 20px;
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
       }
 
-      .faq-question {
-        font-weight: 600;
-        cursor: pointer;
+      html {
+        font-size: 100%;
       }
 
-      .faq-answer {
-        display: none; /* Hidden by default */
-        margin-top: 5px;
-        padding-left: 20px;
+      .nav__ul a {
+        color: #999;
       }
 
+      .nav__ul--extra {
+        column-count: 2;
+        column-gap: 1.25em;
+      }
 
+      .legal {
+        display: flex;
+        flex-wrap: wrap;
+        color: #999;
+      }
 
+      .legal__links {
+        display: flex;
+        align-items: center;
+      }
 
+      .heart {
+        color: #2f2f2f;
+      }
 
-      *, *:before, *:after {
-  box-sizing: border-box;
-}
+      @media screen and (min-width: 24.375em) {
+        .legal .legal__links {
+          margin-left: auto;
+        }
+      }
 
-html {
-  font-size: 100%;
-}
+      @media screen and (min-width: 40.375em) {
+        .footer__nav > * {
+          flex: 1;
+        }
 
-/* body {
-  font-family: acumin-pro, system-ui, sans-serif;
-  margin: 0;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  font-size: 14px;
-  background-color: #f4f4f4;
-  align-items: start;
-  min-height: 100vh;
-} */
+        .nav__item--extra {
+          flex-grow: 2;
+        }
 
-.footer {
-  position: absolute;
-  top: 130%;
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  padding: 30px 30px 20px 30px;
-  color: #2f2f2f;
-  background-color: pink;
-  border-top: 1px solid #e5e5e5;
-}
+        .footer__addr {
+          flex: 1 0px;
+        }
 
-.footer > * {
-  flex:  1 100%;
-}
+        .footer__nav {
+          flex: 2 0px;
+        }
+      }
+      .fa-home {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        font-size: 30px;
+        color: #f57d7d;
+        transition: color 0.3s ease;
+      }
 
-.footer__addr {
-  margin-right: 1.25em;
-  margin-bottom: 2em;
-}
-
-.footer__logo {
-  font-family: 'Pacifico', cursive;
-  font-weight: 400;
-  text-transform: lowercase;
-  font-size: 1.5rem;
-}
-
-.footer__addr h2 {
-  margin-top: 1.3em;
-  font-size: 15px;
-  font-weight: 400;
-}
-
-.nav__title {
-  font-weight: 400;
-  font-size: 15px;
-}
-
-.footer address {
-  font-style: normal;
-  color: #999;
-}
-
-.footer__btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 36px;
-  max-width: max-content;
-  background-color: rgb(33, 33, 33, 0.07);
-  border-radius: 100px;
-  color: #2f2f2f;
-  line-height: 0;
-  margin: 0.6em 0;
-  font-size: 1rem;
-  padding: 0 1.3em;
-}
-
-.footer ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.footer li {
-  line-height: 2em;
-}
-
-.footer a {
-  text-decoration: none;
-}
-
-.footer__nav {
-  display: flex;
-	flex-flow: row wrap;
-}
-
-.footer__nav > * {
-  flex: 1 50%;
-  margin-right: 1.25em;
-}
-
-.nav__ul a {
-  color: #999;
-}
-
-.nav__ul--extra {
-  column-count: 2;
-  column-gap: 1.25em;
-}
-
-.legal {
-  display: flex;
-  flex-wrap: wrap;
-  color: #999;
-}
-  
-.legal__links {
-  display: flex;
-  align-items: center;
-}
-
-.heart {
-  color: #2f2f2f;
-}
-
-@media screen and (min-width: 24.375em) {
-  .legal .legal__links {
-    margin-left: auto;
-  }
-}
-
-@media screen and (min-width: 40.375em) {
-  .footer__nav > * {
-    flex: 1;
-  }
-  
-  .nav__item--extra {
-    flex-grow: 2;
-  }
-  
-  .footer__addr {
-    flex: 1 0px;
-  }
-  
-  .footer__nav {
-    flex: 2 0px;
-  }
-}
+      .fa-home:hover {
+        color: maroon; /* Pink on hover */
+      }
     </style>
     <style>
       /* Circle styles */
@@ -393,29 +295,29 @@ html {
   </head>
 
   <body>
-      <!-- Circles -->
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-    <a href="/index.html" class="btn btn-home">
-      <i class="fas fa-home mr-2"></i>Home
+    <!-- Circles -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <a href="/index.html">
+      <i class="fas fa-home"></i>
     </a>
 
     <div class="container">
@@ -429,72 +331,9 @@ html {
         <h2 class="mb-4">Frequently Asked Questions</h2>
         <p>For answers to common questions, please visit our FAQ section:</p>
         <div class="text-center">
-           <button id="faqButton" class="btn btn-custom">View FAQ</button>
+          <a href="/index.html#faqq" class="btn btn-custom">View FAQ</a>
         </div>
       </div>
-      <div class="faq-section" id="faqSection">
-  <h2 class="mb-4">FAQs</h2>
-  <div class="faq-question" onclick="toggleAnswer('faq1')">
-    What is SwapReads.com?
-  </div>
-  <div class="faq-answer" id="faq1">
-    SwapReads.com is a platform that connects users globally to exchange books, making reading more accessible and sustainable.
-  </div>
-  <div class="faq-question" onclick="toggleAnswer('faq2')">
-    How does the book swapping process work?
-  </div>
-  <div class="faq-answer" id="faq2">
-    Users can list their books and browse other users' books. They can then initiate swaps directly through the platform.
-  </div>
-  <div class="faq-question" onclick="toggleAnswer('faq3')">
-    Is there a fee to use SwapReads.com?
-  </div>
-  <div class="faq-answer" id="faq3">
-    No, using SwapReads.com for swapping books is free. Users only need to cover shipping costs if applicable.
-  </div>
-  <div class="faq-question" onclick="toggleAnswer('faq4')">
-    How do I create an account?
-  </div>
-  <div class="faq-answer" id="faq4">
-    You can create an account by clicking on the "Sign Up" button on the homepage and filling out the registration form.
-  </div>
-  <div class="faq-question" onclick="toggleAnswer('faq5')">
-    What types of books can I swap?
-  </div>
-  <div class="faq-answer" id="faq5">
-    You can swap any book, including novels, textbooks, and children's books, as long as they are in good condition.
-  </div>
-  <div class="faq-question" onclick="toggleAnswer('faq6')">
-    How do I find books to swap?
-  </div>
-  <div class="faq-answer" id="faq6">
-    Use the search feature on the platform to find specific titles or browse categories to discover new books.
-  </div>
-  <div class="faq-question" onclick="toggleAnswer('faq7')">
-    What if the book I receive is damaged?
-  </div>
-  <div class="faq-answer" id="faq7">
-    If you receive a damaged book, you can report the issue through our support team, and we will assist you in resolving it.
-  </div>
-  <div class="faq-question" onclick="toggleAnswer('faq8')">
-    Can I swap e-books?
-  </div>
-  <div class="faq-answer" id="faq8">
-    Currently, SwapReads.com focuses on physical books. E-book swapping is not supported at this time.
-  </div>
-  <div class="faq-question" onclick="toggleAnswer('faq9')">
-    How do I communicate with other users?
-  </div>
-  <div class="faq-answer" id="faq9">
-    You can send private messages to other users through the platform to discuss swaps or ask questions.
-  </div>
-  <div class="faq-question" onclick="toggleAnswer('faq10')">
-    What should I do if I forget my password?
-  </div>
-        <div class="faq-answer" id="faq10">
-    Click on the "Forgot Password?" link on the login page, and follow the instructions to reset your password.
-  </div>
-</div>
 
       <div class="mt-5 section-2">
         <h2 class="mb-4">Need More Help?</h2>
@@ -552,97 +391,6 @@ html {
       </div>
     </div>
 
-
-    <footer class="footer">
-      <div class="footer__addr">
-        <h1 class="footer__logo"><img src="https://swapreadsconnect.netlify.app/assets/images/final.png" alt="" style="height: 180px;"></h1>
-            
-        <h2>Contact</h2>
-        
-        <address>
-          5684569445 SwapReads<br>
-              
-          <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
-        </address>
-      </div>
-      
-      <ul class="footer__nav">
-        <li class="nav__item">
-          <h2 class="nav__title">Other</h2>
-    
-          <ul class="nav__ul">
-            <li>
-              <a href="index.html">Home</a>
-            </li>
-    
-            <li>
-              <a href="./assets/html/about.html">About</a>
-            </li>
-                
-            <li>
-              <a href="index.html#contact">Contact US</a>
-            </li>
-          </ul>
-        </li>
-        
-        <li class="nav__item nav__item--extra">
-          <h2 class="nav__title">Explore</h2>
-          
-          <ul class="nav__ul nav__ul--extra">
-            <li>
-              <a href="#">Inspiring Biography</a>
-            </li>
-            
-            <li>
-              <a href="#">Laugh Out Loud Comedy</a>
-            </li>
-            
-            <li>
-              <a href="#">Intriguing Mysteries   </a>
-            </li>
-            
-            <li>
-              <a href="#">Romance</a>
-            </li>
-            
-            <li>
-              <a href="#">Horror</a>
-            </li>
-            
-            <li>
-              <a href="#">Classic Literature</a>
-            </li>
-          </ul>
-        </li>
-        
-        <li class="nav__item">
-          <h2 class="nav__title">Legal</h2>
-          
-          <ul class="nav__ul">
-            <li>
-              <a href="#">Privacy Policy</a>
-            </li>
-            
-            <li>
-              <a href="#">Terms of Use</a>
-            </li>
-            
-            <li>
-              <a href="#"></a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      
-      <div class="legal">
-        <p>&copy; 2024 Pranjal. All rights reserved.</p>
-        
-        <div class="legal__links">
-          <span>Made with <span class="heart">♥</span> SwapReads</span>
-        </div>
-      </div>
-    </footer>
-
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
@@ -655,14 +403,14 @@ html {
         });
       });
       $(document).ready(function () {
-    $("#faqButton").click(function () {
-      $("#faqSection").toggle(); // Show or hide the FAQ section
-    });
-  });
+        $("#faqButton").click(function () {
+          $("#faqSection").toggle(); // Show or hide the FAQ section
+        });
+      });
 
       function toggleAnswer(faqId) {
-  $("#" + faqId).toggle(); // Toggle visibility of the specific answer
-}
+        $("#" + faqId).toggle(); // Toggle visibility of the specific answer
+      }
     </script>
     <script>
       // Coordinates for the cursor
@@ -671,10 +419,28 @@ html {
 
       // Colors for the circles
       const colors = [
-        "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
-        "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
-        "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
-        "#680060", "#60005f", "#48005f", "#3d005e"
+        "#ffb56b",
+        "#fdaf69",
+        "#f89d63",
+        "#f59761",
+        "#ef865e",
+        "#ec805d",
+        "#e36e5c",
+        "#df685c",
+        "#d5585c",
+        "#d1525c",
+        "#c5415d",
+        "#c03b5d",
+        "#b22c5e",
+        "#ac265e",
+        "#9c155f",
+        "#950f5f",
+        "#830060",
+        "#7c0060",
+        "#680060",
+        "#60005f",
+        "#48005f",
+        "#3d005e",
       ];
 
       // Assign colors and initial position to each circle
