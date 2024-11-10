@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home and the World Quiz</title>
+    <title>Home and the world Quiz</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -58,13 +58,14 @@
 <body>
 
 <div class="quiz-container">
-    <h1>Home and the World Quiz</h1>
+    <h1>Home and the world Quiz</h1>
     <div id="quiz-questions">
         <!-- Questions will be inserted here -->
     </div>
     <button id="submit-button" onclick="submitQuiz()">Submit</button>
     <div id="quiz-result" style="display: none;"></div>
-    <button id="home-button" style="display: none;" onclick="window.location.href='quizzes.html';">Return to Quizzes</button>
+    <button id="home-button" style="display: none;" onclick="window.location.href='index.html';">Return to Home</button>
+    <button id="solutions-button" style="display: none;" onclick="showSolutions()">See Solutions</button>
 </div>
 
 <script>
@@ -139,6 +140,38 @@
         const homeButton = document.createElement('button');
         homeButton.onclick = () => window.location.href = 'quizzes.html';
         homeButton.innerText = 'Return to Quizzes';
+        quizContainer.appendChild(homeButton);
+
+        // Create the see solutions button
+        const solutionsButton = document.createElement('button');
+        solutionsButton.onclick = showSolutions;
+        solutionsButton.innerText = 'See Solutions';
+        quizContainer.appendChild(solutionsButton);
+    }
+
+    function showSolutions() {
+        const quizContainer = document.querySelector('.quiz-container');
+        quizContainer.innerHTML = '<h2>Quiz Solutions</h2>';
+
+        quizData.forEach((question, index) => {
+            const solutionElement = document.createElement('div');
+            solutionElement.classList.add('solution');
+            
+            const questionText = document.createElement('h4');
+            questionText.innerText = `${index + 1}. ${question.question}`;
+            solutionElement.appendChild(questionText);
+
+            const correctAnswer = document.createElement('p');
+            correctAnswer.innerText = `Correct Answer: ${question.answer}`;
+            solutionElement.appendChild(correctAnswer);
+
+            quizContainer.appendChild(solutionElement);
+        });
+
+        // Add the return to home button again
+        const homeButton = document.createElement('button');
+        homeButton.onclick = () => window.location.href = 'quizzes.html';
+        homeButton.innerText = 'Return to Home';
         quizContainer.appendChild(homeButton);
     }
 
