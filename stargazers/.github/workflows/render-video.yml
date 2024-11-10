@@ -1,0 +1,72 @@
+on:
+  workflow_dispatch:
+    inputs:
+      repoOrg:
+        description: "Repo User/Org"
+        required: true
+        default: "anuragverma108"
+      repoName:
+        description: "Repo Name"
+        required: true
+        default: "SwapReads"
+      starCount:
+        description: "Star Count"
+        required: true
+        default: "400"
+      duration:
+        description: "Duration (seconds)"
+        required: false
+        default: "60"
+  schedule:
+    # Run every day at 00:00 UTC
+    - cron: '0 0 * * *' 
+name: Render video
+jobs:
+  render:
+    name: Render video
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3  
+        with:
+          node-version: '16'  # Updated to more recent Node.js version
+          
+      - name: Install Fallback Fonts
+        run: |
+          sudo apt-get update -yqq
+          sudo apt-get install -yq --no-install-recommends \
+            fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji fonts-noto-mono
+
+      - name: Install Dependencies
+        run: |
+          npm i 
+          
+      - name: Define Input Props
+        run: echo $WORKFLOW_INPUT | tee input-props.json | jq -C '.' # Inject to file, inspect to logs
+        env:
+            WORKFLOW_INPUT: ${{ toJson(github.event.inputs) }}
+      - name: Render Video
+        run: npm run build -- --props="./input-props.json"
+        env:
+          REMOTION_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Ensure out/ Directory Exists
+        run: mkdir -p out
+
+      - name: Upload Video Artifact
+        uses: actions/upload-artifact@v4  # Updated to latest version
+        with:
+          name: rendered-video
+          path: out/Main.mp4
+          retention-days: 30  # Keep artifact for 30 days
+
+      - name: Store Video in Repository
+        run: |
+          git config user.name yashksaini-coder
+          git config user.email 115717039+yashksaini-coder@users.noreply.github.com
+          git add .
+          git commit -m "Add rendered video" || echo "No changes to commit"
+          git push
