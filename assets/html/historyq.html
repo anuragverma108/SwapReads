@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historical Fiction Books Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f69ca1;
+            color: #090909;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .quiz-container {
+            background: #ffe3e3;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: #e73d3d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            display: block;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #4d2b47;
+        }
+
+        h4 {
+            margin: 10px 0;
+        }
+
+        .option {
+            margin: 5px 0;
+        }
+
+        .solution {
+            margin-top: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Historical Fiction Books Quiz</h1>
+    <div id="quiz-questions">
+        <!-- Questions will be inserted here -->
+    </div>
+    <button id="submit-button" onclick="submitQuiz()">Submit</button>
+    <div id="quiz-result" style="display: none;"></div>
+    <button id="home-button" style="display: none;" onclick="window.location.href='index.html';">Return to Home</button>
+    <button id="solutions-button" style="display: none;" onclick="showSolutions()">See Solutions</button>
+</div>
+
+<script>
+    const quizData = [
+        {
+            question: "Who wrote 'The Nightingale'?",
+            options: ["Kristin Hannah", "J.K. Rowling", "John Green", "Paulo Coelho"],
+            answer: "Kristin Hannah"
+        },
+        {
+            question: "In 'All the Light We Cannot See', what is the main setting?",
+            options: ["Paris", "Berlin", "New York", "Saint-Malo"],
+            answer: "Saint-Malo"
+        },
+        {
+            question: "Which novel features the story of a young girl named Liesel in Nazi Germany?",
+            options: ["The Book Thief", "The Tattooist of Auschwitz", "The Nightingale", "The Help"],
+            answer: "The Book Thief"
+        },
+        {
+            question: "In 'Homegoing', what is the main theme?",
+            options: ["The impact of slavery on generations", "War and peace", "The French Revolution", "The American Dream"],
+            answer: "The impact of slavery on generations"
+        },
+        {
+            question: "Who is the author of 'The Tattooist of Auschwitz'?",
+            options: ["Cheryl Strayed", "Heather Morris", "Margaret Atwood", "Sara Gruen"],
+            answer: "Heather Morris"
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const questionElement = document.getElementById('quiz-questions');
+        questionElement.innerHTML = '';
+
+        const currentQuestion = quizData[currentQuestionIndex];
+        const questionText = document.createElement('h4');
+        questionText.innerText = currentQuestion.question;
+        questionElement.appendChild(questionText);
+
+        currentQuestion.options.forEach(option => {
+            const optionButton = document.createElement('button');
+            optionButton.classList.add('option');
+            optionButton.innerText = option;
+            optionButton.onclick = () => selectAnswer(option);
+            questionElement.appendChild(optionButton);
+        });
+    }
+
+    function selectAnswer(selectedOption) {
+        const currentQuestion = quizData[currentQuestionIndex];
+        if (selectedOption === currentQuestion.answer) {
+            score++;
+        }
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < quizData.length) {
+            loadQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        const quizContainer = document.querySelector('.quiz-container');
+        quizContainer.innerHTML = `<h2>Your Score: ${score}/${quizData.length}</h2>`;
+
+        const homeButton = document.createElement('button');
+        homeButton.onclick = () => window.location.href = 'index.html';
+        homeButton.innerText = 'Return to Home';
+        quizContainer.appendChild(homeButton);
+
+        const solutionsButton = document.createElement('button');
+        solutionsButton.onclick = showSolutions;
+        solutionsButton.innerText = 'See Solutions';
+        quizContainer.appendChild(solutionsButton);
+    }
+
+    function showSolutions() {
+        const quizContainer = document.querySelector('.quiz-container');
+        quizContainer.innerHTML = '<h2>Quiz Solutions</h2>';
+
+        quizData.forEach((question, index) => {
+            const solutionElement = document.createElement('div');
+            solutionElement.classList.add('solution');
+
+            const questionText = document.createElement('h4');
+            questionText.innerText = `${index + 1}. ${question.question}`;
+            solutionElement.appendChild(questionText);
+
+            const correctAnswer = document.createElement('p');
+            correctAnswer.innerText = `Correct Answer: ${question.answer}`;
+            solutionElement.appendChild(correctAnswer);
+
+            quizContainer.appendChild(solutionElement);
+        });
+
+        const homeButton = document.createElement('button');
+        homeButton.onclick = () => window.location.href = 'index.html';
+        homeButton.innerText = 'Return to Home';
+        quizContainer.appendChild(homeButton);
+    }
+
+    function submitQuiz() {
+        if (currentQuestionIndex < quizData.length) {
+            alert("Please answer all questions before submitting!");
+        } else {
+            showResult();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadQuestion);
+</script>
+
+</body>
+</html>
