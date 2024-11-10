@@ -1,66 +1,728 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>SwapReads</title>
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <title>SwapReads</title>
+       <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
+       <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
+       <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
+       <link rel="manifest" href="./assets/favicon_package_v0.16/site.webmanifest">
+       <link rel="mask-icon" href="./assets/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+       <meta name="msapplication-TileColor" content="#da532c">
+       <meta name="theme-color" content="#ffffff">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+       <link rel="stylesheet" href="./assets/css/style.css">
+       <link rel="stylesheet" href="./assets/css/litrary_realms.css">
+       <link rel="stylesheet" href="./assets/font-6/css/all.css">
+       <link rel="stylesheet" href="header.css">
+       <link rel="stylesheet" href="./assets/css/MenuClick.css">
+     
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link
+         href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+         rel="stylesheet">
+     
+       <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+         crossorigin="anonymous" referrerpolicy="no-referrer" />
+       <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+         crossorigin="anonymous" referrerpolicy="no-referrer" />
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     
+       <script src="./assets/js/rateUsModal.js" defer></script>
+       <script src="https://unpkg.com/scrollreveal"></script>
+       <script src="./assets/js/faq.js"></script>
+       <script src="./assets/js/tilt.js"></script>
+       <script src="./assets/js/scroll.js"></script>
+       <link rel="stylesheet" href="./scrollbar.css">
+     
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+       <link rel="stylesheet" href="modals(privacy policy).css">
+     
+       <!-- Swiper CSS -->
+       <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+     
+       <!-- Custom CSS -->
+       <link rel="stylesheet" href="assets/css/test-style.css">
+     
+       <!-- Preloader CSS-->
+       <link rel="stylesheet" href="assets/css/preloader.css">
+       <script src="https://cdn.lordicon.com/lordicon.js"></script>
+       <script src="./assets/js/preloader.js" defer></script>
+       <script src="./script.js"></script>
+       
+      
+       <style>
+        
+        .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays on top of other content */
+   margin-top: 45px;
+   margin-left: 9rem;
+}
+         swiper-container {
+           width: 100%;
+           height: 75%;
+         }
+     
+       
+         /* Theme Change Button Style */
+         @media (max-width: 990px) {
+           .switch-container {
+             margin-top: 3.2rem;
+             margin-right: -0.5rem;
+           }
+         }
+         @media (max-width: 575px) {
+           .switch-container {
+             margin-top: 2.4rem;
+             margin-right: -0.5rem;
+           }
+           /* Navbar Toggle Button placed in center */
+           .nav-toggle-btn{
+             margin-top: -2rem;
+             margin-left: 2.2rem;
+           }
+         }
+     
+     /* testimonal card fix by harshcodesit */
+         swiper-slide {
+           text-align: center;
+           font-size: 15;
+           background: transparent;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           margin-bottom: 50px;
+         }
+         /* ########### */
+     
+         swiper-slide img {
+           display: block;
+           width: 100%;
+           height: 100%;
+           object-fit: cover;
+           color: hsl(357, 37%, 62%);
+         }
+     
+         swiper-container {
+     
+            margin: auto;
+     
+         }
+     
+         .flip-card {
+           background-color: transparent;
+           width: 400px;
+           height: 370px;
+           /* margin: 2px; */
+           /* border: 1px solid #f1f1f1; */
+           perspective: 1000px;
+           /* Remove this if you don't want the 3D effect */
+         }
+     
+         /* This container is needed to position the front and back side */
+         .flip-card-inner {
+           position: relative;
+           width: 100%;
+           height: 100%;
+           text-align: center;
+           transition: transform 0.7s;
+           transform-style: preserve-3d;
+           padding: 10px;
+         }
+     
+         /* Do an horizontal flip when you move the mouse over the flip box container */
+         .flip-card:hover .flip-card-inner {
+           transform: rotateY(180deg);
+         }
+     
+         /* Position the front and back side */
+         .flip-card-front,
+         .flip-card-back {
+           position: absolute;
+           width: 100%;
+           height: 100%;
+           -webkit-backface-visibility: hidden;
+           /* Safari */
+           backface-visibility: hidden;
+         }
+     
+         /* Style the front side (fallback if image is missing) */
+         .flip-card-front {
+           background-color: white;
+           color: black;
+         }
+     
+         /* Style the back side */
+         .flip-card-back {
+           background-color: white;
+           color: black;
+           transform: rotateY(180deg);
+         }
+     
+         /* Light mode styles */
+         .light-mode .readmore-anim {
+           font-size: 18px;
+           letter-spacing: 0;
+           color: hsl(357, 37%, 62%);
+         }
+     
+         .light-mode .readmore-anim:hover {
+           color: red;
+           letter-spacing: 1px;
+           transition: ease-in-out;
+         }
+         .cta1{
+       position: relative;
+       display: flex;
+       align-items: center;
+       justify-content: flex-start;
+       margin: auto;
+       padding: 20px 24px;
+       color:  hsl(357, 37%, 62%);
+       font-family: Avenir, sans-serif;
+       text-decoration: none;
+       transition: all 0.2s ease;
+       &:before {
+         content: "";
+         position: absolute;
+         top: 27px;
+         left: 0;
+         display: block;
+         border-radius: 28px;
+         background: rgba(255, 171, 157, 0.5);
+         width: 56px;
+         height: 56px;
+         transition: all 0.3s ease;
+       }
+       span {
+         position: relative;
+         font-size: 8px;
+         line-height: 18px;
+         font-weight: 900;
+         letter-spacing: 0.25em;
+         text-transform: uppercase;
+         vertical-align: middle;
+         color: var(--charcoal);
+       }
+       svg {
+         position: relative;
+         top: 27px;
+         margin-left: 5px;
+         fill: none;
+         stroke-linecap: round;
+         stroke-linejoin: round;
+         stroke: hsl(357, 37%, 62%);
+         stroke-width: 2;
+         transform: translateX(-5px);
+         transition: all 0.3s ease;
+       }
+       &:hover {
+         &:before {
+           width: 9%;
+           background: #ffab9d;
+         }
+         svg {
+           transform: translateX(0);
+         }
+         .active {
+           transform: scale(0.96);
+         }
+       }
+     }
+     /* CSS to make navbar item text color black */
+.navbar-link {
+  color: black !important;
+}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
-  <link rel="manifest" href="./assets/favicon_package_v0.16/site.webmanifest">
-  <link rel="mask-icon" href="./assets/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     .cta {
+       position: relative;
+       display: flex;
+       align-items: center;
+       justify-content: flex-start;
+       margin: auto;
+       padding: 20px 24px;
+       color:  hsl(357, 37%, 62%);
+       font-family: Avenir, sans-serif;
+       text-decoration: none;
+       transition: all 0.2s ease;
+       &:before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         display: block;
+         border-radius: 28px;
+         background: rgba(255, 171, 157, 0.5);
+         width: 56px;
+         height: 56px;
+         transition: all 0.3s ease;
+       }
+       span {
+         position: relative;
+         font-size: 8px;
+         line-height: 18px;
+         font-weight: 900;
+         letter-spacing: 0.25em;
+         text-transform: uppercase;
+         vertical-align: middle;
+         color: var(--charcoal);
+       }
+       svg {
+         position: relative;
+         top: 0;
+         margin-left: 5px;
+         fill: none;
+         stroke-linecap: round;
+         stroke-linejoin: round;
+         stroke: hsl(357, 37%, 62%);
+         stroke-width: 2;
+         transform: translateX(-5px);
+         transition: all 0.3s ease;
+       }
+       &:hover {
+         &:before {
+           width: 9%;
+           background: #ffab9d;
+         }
+         svg {
+           transform: translateX(0);
+         }
+         .active {
+           transform: scale(0.96);
+         }
+       }
+     }
+     
+     
+     
+         /* Dark Mode Styles */
+         .dark-mode .readmore-anim {
+           font-size: 18px;
+           letter-spacing: 0;
+           color: hsl(357, 37%, 62%);
+           
+         }
+     
+         .readmore-anim .icon:hover {
+           color: red;
+         }
+     
+         .dark-mode .readmore-anim:hover {
+           color: red;
+           letter-spacing: 1px;
+           transition: ease-in-out;
+         }
+     
+         .dark-mode .header.scrolled {
+           background-color: #232222; /* Change to a darker color when scrolled */
+           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+         }
+     
+         #cookie-consent {
+       position: fixed;
+       bottom: 10px;
+       left: 10px;
+       background-color: #f1f1f1;
+       padding: 20px;
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+       align-items: center;
+       width: 300px;
+       height: fit-content;
+       z-index: 100;
+       border-radius: 10px;
+       margin-bottom: 5px;
+       margin: 20px;
+       border-right: 4px solid transparent;
+       border-bottom: 4px solid transparent;
+       transition: border-color 0.3s;
+     }
+     
+     #cookie-consent:hover {
+       border-right-color: #A30F17;
+       border-bottom-color: #A30F17;
+     }
+     
+     #cookie-consent p {
+       color: black;  /* Make the text black for better visibility */
+       text-align: center;  /* Center align the text */
+     }
+     
+      .menu {
+        display: none;
+        position: absolute;
+        top: 80px; 
+        right: 0;
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        width: 200px; 
+        z-index: 1000;
+        margin-right:10px;
+      }
+      
+      .menu.active {
+        display: block;
+      }
+      
+      .menu h3 {
+        padding: 10px;
+        text-align: center;
+      }
+      
+      .menu ul {
+        list-style: none;
+        padding: 10px 0;
+      }
+      
+      .menu ul li {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+      }
+      
+      .menu ul li img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+      .profile img {
+        width: 50px; 
+        height: 50px; 
+        border-radius: 50%; 
+        object-fit: cover;
+        border: 2px solid #fff; 
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+      }
+    
+     .accept-cookies,
+     .reject-cookies {
+       width: 260px;  /* Decrease the button width */
+       height: 35px;  /* Decrease the button height */
+       color: white;
+       background-color: #A30F17;
+       border: none;
+       border-radius: 5px;  /* Add rounded corners */
+       cursor: pointer;
+       transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;  /* Smooth transition for effects */
+     }
+     
+     .reject-cookies {
+       margin-top: 10px;
+     }
+     
+     
+     .accept-cookies:hover,
+     .reject-cookies:hover {
+       transform: scale(0.95);
+       box-shadow: 0 0 15px rgb(249, 212, 212);  /* Reduce the shadow size */
+     }
+     
+     .accept-cookies:hover {
+       background-color: rgb(245, 202, 202);
+       color: #A30F17;
+     }
+     
+     .reject-cookies:hover {
+       background-color: rgb(250, 192, 192);
+       color: #A30F17;
+     }
+     
+     #learn-more-link,
+     #show-less-link {
+       color: #A30F17;  
+       text-decoration: none;
+       cursor: pointer;
+       font-size: 20px;
+     }
+     
+     #learn-more-link:hover,
+     #show-less-link:hover {
+       text-decoration: underline;
+     }
+     
+     #cookie-content {
+       display: none;
+       margin-top: 10px;
+     }
+     
+     
+     #back-to-top-container {
+       position: fixed;
+     }
+     
+     
+     
+         /* Basic navbar styling */
+     .header {
+       position: fixed;
+       width: 100%;
+       top: 10;
+       z-index: 1000;
+       transition: top 0.3s;
+     }
+     
+     /* Hide the navbar */
+     .header.hidden {
+       top: -93px; /* Adjust according to your header height */
+     }
+     
+     /* Navbar styling when scrolled */
+     .header.scrolled {
+       background-color: #efefef; /* Change to a darker color when scrolled */
+       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+     }
+     * {
+       margin: 0;
+       padding: 0;
+       font-family: "Poppins", sans-serif;
+     }
+     
+     body {
+       background: #ffccbc;
+      
+     }
+     
+     .action {
+       position: fixed;
+       top: 43px;
+       right: 83px;
+     }
+     
+     .action .profile {
+       position: relative;
+       width: 60px;
+       height: 60px;
+       border-radius: 50%;
+       overflow: hidden;
+       cursor: pointer;
+     }
+     
+     .action .profile img {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+     }
+     
+     .action .menu {
+       position: absolute;
+       top: 120px;
+       right: -10px;
+       padding: 10px 20px;
+       background: #fff;
+       width: 200px;
+       box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+       border-radius: 15px;
+       transition: 0.5s;
+       visibility: hidden;
+       opacity: 0;
+     }
+     
+     .action .menu.active {
+       top: 80px;
+       visibility: visible;
+       opacity: 1;
+     }
+     
+     .action .menu::before {
+       content: "";
+       position: absolute;
+       top: -5px;
+       right: 28px;
+       width: 20px;
+       height: 20px;
+       background: #fff;
+       transform: rotate(45deg);
+     }
+     
+     .action .menu h3 {
+       width: 100%;
+       text-align: center;
+       font-size: 18px;
+       padding: 20px 0;
+       font-weight: 500;
+       color: #555;
+       line-height: 1.5em;
+     }
+     
+     .action .menu h3 span {
+       font-size: 14px;
+       color: #cecece;
+       font-weight: 300;
+     }
+     
+     .action .menu ul li {
+       list-style: none;
+       padding: 16px 0;
+       border-top: 1px solid rgba(0, 0, 0, 0.05);
+       display: flex;
+       align-items: center;
+     }
+     
+     .action .menu ul li img {
+       max-width: 20px;
+       margin-right: 10px;
+       opacity: 0.5;
+       transition: 0.5s;
+     }
+     
+     .action .menu ul li:hover img {
+       opacity: 1;
+     }
+     
+     .action .menu ul li a {
+       display: inline-flex;
+       text-align: center;
+       padding-left: 5%;
+       font-weight: 300;
+       font-size: 19px;
+       text-decoration: none;
+       color: #555;
+       font-weight: 500;
+       transition: 0.5s;
+     }
+     
+     .action .menu ul li:hover a {
+       color: #ff5d94;
+       font-size: 21px;
+     
+     }
+     .hamburger{
+         display: none;
+         cursor: pointer;
+         position: absolute;
+         top: 24px;
+         left: 1.5%;
+     }
+     .line{
+         width: 36px;
+         height: 5px;
+         margin: 4px 4px;
+         background-color: rgb(240, 15, 15);
+     }
+     @media only screen and (max-width:1063px){
+         .nav{
+             flex-direction: column;
+             position: fixed;
+             top: 0;
+             width: 100%;
+         }
+         .header{
+             flex-direction: column;
+             height: 53.8rem;
+             transition: 0.55s all ease-out;
+             padding-top: 5px;
+             padding-top: 60px;
+         }
+         .navbar-item{
+             margin-right: 40px;
+         }
+         .navbar-list{
+           position: relative;
+           top: 400px;
+         }
+         .hamburger{
+             display: block;
+         }
+         .nav-h{
+             height: 78px;
+             width: 100vw;
+         }
+         .vis-h{
+             opacity: 0;
+         }
+         .logo img{
+           position: relative;
+           top: 17px;
+           left: 350px;
+         }
+     }
+     @media only screen and (max-width:990px){
+       .header{
+         height: 0;
+       }
+       .navbar-list{
+         top: 0;
+       }
+       .logo img{
+         top: -9px;
+         left: 50px;
+         
+       }
+     }
+     @media (min-width: 990px){
 
+     .grid-list {
+    grid-template-columns: repeat(2, 1fr);
+}
+     }
+     .chapter-card{
+        width: 30vw;
+        height: 400px;
+     }
 
-  <link rel="stylesheet" href="./assets/css/MenuClick.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+     .chapter-card {
+       transition: transform 0.3s ease, box-shadow 0.3s ease; 
+     }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
-    rel="stylesheet">
+.chapter-card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+}  
+     .genre{
+        margin-top: 200px;
+     }
+     .light-mode .switch-container {
+    right: 140px;
+    top: 10px;
+}
+.switch-checkbox:checked + .switch-label .switch-button {
+    transform: translateX(13px);
+    /* background-color: #34495e; */
+}
+.ben {
+    color: var(--sonic-silver);
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+   
+}
+.chapter-card:hover .ben{
+color: #d26d6d;
+}
+       </style>
+      <style>
+        /* Circle styles */
+        .circle {
+          height: 24px;
+          width: 24px;
+          border-radius: 50%;
+          background-color: black;
+          position: fixed;
+          top: 0;
+          left: 0;
+          pointer-events: none;
+          z-index: 99999999;
+          transition: transform 0.1s ease-out;
+        }
 
-  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-
-  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
-
-  <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/Available.css">
-
-  <script src="./assets/js/rateUsModal.js" defer></script>
-
-</head>
-<script src="https://unpkg.com/scrollreveal"></script>
-<script src="./assets/js/faq.js"></script>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-<!-- Swiper CSS -->
-<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-
-<!-- Custom CSS -->
-<link rel="stylesheet" href="assets/css/test-style.css">
-<style>
-      .header {
+        .header {
   position: fixed;
   top: 0;
   width: 100%;
@@ -75,808 +737,52 @@
 .dark-mode .navbar-link {
   color: white !important;
 }
-  .menu {
-    display: none;
-    position: absolute;
-    top: 80px; 
-    right: 0;
-    background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    width: 200px; 
-    z-index: 1000;
-    margin-right:200px;
-  }
-  
-  .menu.active {
-    display: block;
-  }
-  
-  .menu h3 {
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .menu ul {
-    list-style: none;
-    padding: 10px 0;
-  }
-  
-  .menu ul li {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .menu ul li img {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-  }
-  .profile img {
-    width: 50px; 
-    height: 50px; 
-    border-radius: 50%; 
-    object-fit: cover;
-    border: 2px solid #fff; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
-  }
-
-  .book-item {
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    width: 200px;
-    padding: 0;
-    margin-left: auto; 
-    margin-right: auto; 
-    background-color: #ffe3e0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .book-item .btn{
-    display: block;
-    width: 90%;
-    margin: auto;
-    padding: 10px; 
-    text-align: center;
-  }
-  .book-item .read_later_button {
-    display: block;
-    width: 90%;
-    margin: 1px 10px 30px 30px; /* Center align the button */
-    padding: 10px;
-    text-align: center;
-  }
-
-  .book-cover {
-    padding: 0; 
-    margin-top: 20px;
-    margin-left: auto; 
-    margin-right: auto; 
-    display: block; 
-  }
-  
-</style>
-
-<body>
-
-          <!-- Circles -->
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div> 
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-
-
-
-          <style>
-        
-            .header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000; /* Ensures it stays on top of other content */
-       margin-top: 45px;
-       margin-left: 9rem;
-    }
-             swiper-container {
-               width: 100%;
-               height: 75%;
-             }
-         
-           
-             /* Theme Change Button Style */
-             @media (max-width: 990px) {
-               .switch-container {
-                 margin-top: 3.2rem;
-                 margin-right: -0.5rem;
-               }
-             }
-             @media (max-width: 575px) {
-               .switch-container {
-                 margin-top: 2.4rem;
-                 margin-right: -0.5rem;
-               }
-               /* Navbar Toggle Button placed in center */
-               .nav-toggle-btn{
-                 margin-top: -2rem;
-                 margin-left: 2.2rem;
-               }
-             }
-         
-         /* testimonal card fix by harshcodesit */
-             swiper-slide {
-               text-align: center;
-               font-size: 15;
-               background: transparent;
-               display: flex;
-               justify-content: center;
-               align-items: center;
-               margin-bottom: 50px;
-             }
-             /* ########### */
-         
-             swiper-slide img {
-               display: block;
-               width: 100%;
-               height: 100%;
-               object-fit: cover;
-               color: hsl(357, 37%, 62%);
-             }
-         
-             swiper-container {
-         
-                margin: auto;
-         
-             }
-         
-             .flip-card {
-               background-color: transparent;
-               width: 400px;
-               height: 370px;
-               /* margin: 2px; */
-               /* border: 1px solid #f1f1f1; */
-               perspective: 1000px;
-               /* Remove this if you don't want the 3D effect */
-             }
-         
-             /* This container is needed to position the front and back side */
-             .flip-card-inner {
-               position: relative;
-               width: 100%;
-               height: 100%;
-               text-align: center;
-               transition: transform 0.7s;
-               transform-style: preserve-3d;
-               padding: 10px;
-             }
-         
-             /* Do an horizontal flip when you move the mouse over the flip box container */
-             .flip-card:hover .flip-card-inner {
-               transform: rotateY(180deg);
-             }
-         
-             /* Position the front and back side */
-             .flip-card-front,
-             .flip-card-back {
-               position: absolute;
-               width: 100%;
-               height: 100%;
-               -webkit-backface-visibility: hidden;
-               /* Safari */
-               backface-visibility: hidden;
-             }
-         
-             /* Style the front side (fallback if image is missing) */
-             .flip-card-front {
-               background-color: white;
-               color: black;
-             }
-         
-             /* Style the back side */
-             .flip-card-back {
-               background-color: white;
-               color: black;
-               transform: rotateY(180deg);
-             }
-         
-             /* Light mode styles */
-             .light-mode .readmore-anim {
-               font-size: 18px;
-               letter-spacing: 0;
-               color: hsl(357, 37%, 62%);
-             }
-         
-             .light-mode .readmore-anim:hover {
-               color: red;
-               letter-spacing: 1px;
-               transition: ease-in-out;
-             }
-             .cta1{
-           position: relative;
-           display: flex;
-           align-items: center;
-           justify-content: flex-start;
-           margin: auto;
-           padding: 20px 24px;
-           color:  hsl(357, 37%, 62%);
-           font-family: Avenir, sans-serif;
-           text-decoration: none;
-           transition: all 0.2s ease;
-           &:before {
-             content: "";
-             position: absolute;
-             top: 27px;
-             left: 0;
-             display: block;
-             border-radius: 28px;
-             background: rgba(255, 171, 157, 0.5);
-             width: 56px;
-             height: 56px;
-             transition: all 0.3s ease;
-           }
-           span {
-             position: relative;
-             font-size: 8px;
-             line-height: 18px;
-             font-weight: 900;
-             letter-spacing: 0.25em;
-             text-transform: uppercase;
-             vertical-align: middle;
-             color: var(--charcoal);
-           }
-           svg {
-             position: relative;
-             top: 27px;
-             margin-left: 5px;
-             fill: none;
-             stroke-linecap: round;
-             stroke-linejoin: round;
-             stroke: hsl(357, 37%, 62%);
-             stroke-width: 2;
-             transform: translateX(-5px);
-             transition: all 0.3s ease;
-           }
-           &:hover {
-             &:before {
-               width: 9%;
-               background: #ffab9d;
-             }
-             svg {
-               transform: translateX(0);
-             }
-             .active {
-               transform: scale(0.96);
-             }
-           }
-         }
-         /* CSS to make navbar item text color black */
-    .navbar-link {
-      color: black !important;
-    }
+      </style>
+     </head>
+<body> 
+      <!-- Circles -->
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+   <script>
+   
+     document.addEventListener('DOMContentLoaded', function() {
     
-         .cta {
-           position: relative;
-           display: flex;
-           align-items: center;
-           justify-content: flex-start;
-           margin: auto;
-           padding: 20px 24px;
-           color:  hsl(357, 37%, 62%);
-           font-family: Avenir, sans-serif;
-           text-decoration: none;
-           transition: all 0.2s ease;
-           &:before {
-             content: "";
-             position: absolute;
-             top: 0;
-             left: 0;
-             display: block;
-             border-radius: 28px;
-             background: rgba(255, 171, 157, 0.5);
-             width: 56px;
-             height: 56px;
-             transition: all 0.3s ease;
-           }
-           span {
-             position: relative;
-             font-size: 8px;
-             line-height: 18px;
-             font-weight: 900;
-             letter-spacing: 0.25em;
-             text-transform: uppercase;
-             vertical-align: middle;
-             color: var(--charcoal);
-           }
-           svg {
-             position: relative;
-             top: 0;
-             margin-left: 5px;
-             fill: none;
-             stroke-linecap: round;
-             stroke-linejoin: round;
-             stroke: hsl(357, 37%, 62%);
-             stroke-width: 2;
-             transform: translateX(-5px);
-             transition: all 0.3s ease;
-           }
-           &:hover {
-             &:before {
-               width: 9%;
-               background: #ffab9d;
-             }
-             svg {
-               transform: translateX(0);
-             }
-             .active {
-               transform: scale(0.96);
-             }
-           }
-         }
-         
-         
-         
-             /* Dark Mode Styles */
-             .dark-mode .readmore-anim {
-               font-size: 18px;
-               letter-spacing: 0;
-               color: hsl(357, 37%, 62%);
-               
-             }
-         
-             .readmore-anim .icon:hover {
-               color: red;
-             }
-         
-             .dark-mode .readmore-anim:hover {
-               color: red;
-               letter-spacing: 1px;
-               transition: ease-in-out;
-             }
-         
-             .dark-mode .header.scrolled {
-               background-color: #232222; /* Change to a darker color when scrolled */
-               box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
-             }
-         
-             #cookie-consent {
-           position: fixed;
-           bottom: 10px;
-           left: 10px;
-           background-color: #f1f1f1;
-           padding: 20px;
-           display: flex;
-           flex-direction: column;
-           justify-content: space-between;
-           align-items: center;
-           width: 300px;
-           height: fit-content;
-           z-index: 100;
-           border-radius: 10px;
-           margin-bottom: 5px;
-           margin: 20px;
-           border-right: 4px solid transparent;
-           border-bottom: 4px solid transparent;
-           transition: border-color 0.3s;
-         }
-         
-         #cookie-consent:hover {
-           border-right-color: #A30F17;
-           border-bottom-color: #A30F17;
-         }
-         
-         #cookie-consent p {
-           color: black;  /* Make the text black for better visibility */
-           text-align: center;  /* Center align the text */
-         }
-         
-          .menu {
-            display: none;
-            position: absolute;
-            top: 80px; 
-            right: 0;
-            background-color: white;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            width: 200px; 
-            z-index: 1000;
-            margin-right:10px;
-          }
-          
-          .menu.active {
-            display: block;
-          }
-          
-          .menu h3 {
-            padding: 10px;
-            text-align: center;
-          }
-          
-          .menu ul {
-            list-style: none;
-            padding: 10px 0;
-          }
-          
-          .menu ul li {
-            padding: 10px;
-            display: flex;
-            align-items: center;
-          }
-          
-          .menu ul li img {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-          }
-          .profile img {
-            width: 50px; 
-            height: 50px; 
-            border-radius: 50%; 
-            object-fit: cover;
-            border: 2px solid #fff; 
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
-          }
-        
-         .accept-cookies,
-         .reject-cookies {
-           width: 260px;  /* Decrease the button width */
-           height: 35px;  /* Decrease the button height */
-           color: white;
-           background-color: #A30F17;
-           border: none;
-           border-radius: 5px;  /* Add rounded corners */
-           cursor: pointer;
-           transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;  /* Smooth transition for effects */
-         }
-         
-         .reject-cookies {
-           margin-top: 10px;
-         }
-         
-         
-         .accept-cookies:hover,
-         .reject-cookies:hover {
-           transform: scale(0.95);
-           box-shadow: 0 0 15px rgb(249, 212, 212);  /* Reduce the shadow size */
-         }
-         
-         .accept-cookies:hover {
-           background-color: rgb(245, 202, 202);
-           color: #A30F17;
-         }
-         
-         .reject-cookies:hover {
-           background-color: rgb(250, 192, 192);
-           color: #A30F17;
-         }
-         
-         #learn-more-link,
-         #show-less-link {
-           color: #A30F17;  
-           text-decoration: none;
-           cursor: pointer;
-           font-size: 20px;
-         }
-         
-         #learn-more-link:hover,
-         #show-less-link:hover {
-           text-decoration: underline;
-         }
-         
-         #cookie-content {
-           display: none;
-           margin-top: 10px;
-         }
-         
-         
-         #back-to-top-container {
-           position: fixed;
-         }
-         
-         
-         
-             /* Basic navbar styling */
-         .header {
-           position: fixed;
-           width: 100%;
-           top: 10;
-           z-index: 1000;
-           transition: top 0.3s;
-         }
-         
-         /* Hide the navbar */
-         .header.hidden {
-           top: -93px; /* Adjust according to your header height */
-         }
-         
-         /* Navbar styling when scrolled */
-         .header.scrolled {
-           background-color: #efefef; /* Change to a darker color when scrolled */
-           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
-         }
-         * {
-           margin: 0;
-           padding: 0;
-           font-family: "Poppins", sans-serif;
-         }
-         
-        
-         
-         .action {
-           position: fixed;
-           top: 43px;
-           right: 83px;
-         }
-         
-         .action .profile {
-           position: relative;
-           width: 60px;
-           height: 60px;
-           border-radius: 50%;
-           overflow: hidden;
-           cursor: pointer;
-         }
-         
-         .action .profile img {
-           position: absolute;
-           top: 0;
-           left: 0;
-           width: 100%;
-           height: 100%;
-           object-fit: cover;
-         }
-         
-         .action .menu {
-           position: absolute;
-           top: 120px;
-           right: -10px;
-           padding: 10px 20px;
-           background: #fff;
-           width: 200px;
-           box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
-           border-radius: 15px;
-           transition: 0.5s;
-           visibility: hidden;
-           opacity: 0;
-         }
-         
-         .action .menu.active {
-           top: 80px;
-           visibility: visible;
-           opacity: 1;
-         }
-         
-         .action .menu::before {
-           content: "";
-           position: absolute;
-           top: -5px;
-           right: 28px;
-           width: 20px;
-           height: 20px;
-           background: #fff;
-           transform: rotate(45deg);
-         }
-         
-         .action .menu h3 {
-           width: 100%;
-           text-align: center;
-           font-size: 18px;
-           padding: 20px 0;
-           font-weight: 500;
-           color: #555;
-           line-height: 1.5em;
-         }
-         
-         .action .menu h3 span {
-           font-size: 14px;
-           color: #cecece;
-           font-weight: 300;
-         }
-         
-         .action .menu ul li {
-           list-style: none;
-           padding: 16px 0;
-           border-top: 1px solid rgba(0, 0, 0, 0.05);
-           display: flex;
-           align-items: center;
-         }
-         
-         .action .menu ul li img {
-           max-width: 20px;
-           margin-right: 10px;
-           opacity: 0.5;
-           transition: 0.5s;
-         }
-         
-         .action .menu ul li:hover img {
-           opacity: 1;
-         }
-         
-         .action .menu ul li a {
-           display: inline-flex;
-           text-align: center;
-           padding-left: 5%;
-           font-weight: 300;
-           font-size: 19px;
-           text-decoration: none;
-           color: #555;
-           font-weight: 500;
-           transition: 0.5s;
-         }
-         
-         .action .menu ul li:hover a {
-           color: #ff5d94;
-           font-size: 21px;
-         
-         }
-         .hamburger{
-             display: none;
-             cursor: pointer;
-             position: absolute;
-             top: 24px;
-             left: 1.5%;
-         }
-         .line{
-             width: 36px;
-             height: 5px;
-             margin: 4px 4px;
-             background-color: rgb(240, 15, 15);
-         }
-         @media only screen and (max-width:1063px){
-             .nav{
-                 flex-direction: column;
-                 position: fixed;
-                 top: 0;
-                 width: 100%;
-             }
-             .header{
-                 flex-direction: column;
-                 height: 53.8rem;
-                 transition: 0.55s all ease-out;
-                 padding-top: 5px;
-                 padding-top: 60px;
-             }
-             .navbar-item{
-                 margin-right: 40px;
-             }
-             .navbar-list{
-               position: relative;
-               top: 400px;
-             }
-             .hamburger{
-                 display: block;
-             }
-             .nav-h{
-                 height: 78px;
-                 width: 100vw;
-             }
-             .vis-h{
-                 opacity: 0;
-             }
-             .logo img{
-               position: relative;
-               top: 17px;
-               left: 350px;
-             }
-         }
-         @media only screen and (max-width:990px){
-           .header{
-             height: 0;
-           }
-           .navbar-list{
-             top: 0;
-           }
-           .logo img{
-             top: -9px;
-             left: 50px;
-             
-           }
-         }
-         @media (min-width: 990px){
+     const learnMoreLink = document.getElementById('learn-more-link');
+     const learnMoreContent = document.getElementById('learn-more-content');
+   
     
-         .grid-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-         }
-         .chapter-card{
-            width: 30vw;
-            height: 400px;
-         }
-    
-         .chapter-card {
-           transition: transform 0.3s ease, box-shadow 0.3s ease; 
-         }
-    
-    .chapter-card:hover {
-        transform: scale(1.05); 
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
-    }  
-         .genre{
-            margin-top: 200px;
-         }
-         .light-mode .switch-container {
-        right: 140px;
-        top: 10px;
-    }
-    .switch-checkbox:checked + .switch-label .switch-button {
-        transform: translateX(13px);
-        /* background-color: #34495e; */
-    }
-    .ben {
-        color: var(--sonic-silver);
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
-        text-align: center;
-       
-    }
-    .chapter-card:hover .ben{
-    color: #d26d6d;
-    }
-           </style>
-          <style>
-            /* Circle styles */
-            .circle {
-              height: 24px;
-              width: 24px;
-              border-radius: 50%;
-              background-color: black;
-              position: fixed;
-              top: 0;
-              left: 0;
-              pointer-events: none;
-              z-index: 99999999;
-              transition: transform 0.1s ease-out;
-            }
-    
-            
-          </style>
-
-
-
-
+   
+     // Add event listener to "Learn More" link
+     learnMoreLink.addEventListener('click', function(event) {
+       event.preventDefault();
+       learnMoreContent.style.display = 'block';
+       learnMoreLink.style.display = 'none';
+     });
+   });
+   </script>
+  
   <header class="header header-anim nav-h" data-header>
   
     <div class="container mobile-container-styles">
-     
+      <button class="hamburger" id="hamburger-button" aria-label="Menu">
         <span></span>
         <span></span>
         <span></span>
@@ -1026,361 +932,336 @@
               }
                 </script>
               </header>
-              <style>
-                .work-sans {
-                  font-family: 'Work Sans', sans-serif;
-                }
-          
-                #menu-toggle:checked+#menu {
-                  display: block;
-                }
-          
-                .hover\:grow {
-                  transition: all 0.3s;
-                  transform: scale(1);
-                }
-          
-                .hover\:grow:hover {
-                  transform: scale(1.02);
-              }
-              
+
+   
+   
+   <section class="genre" id="genre">
+    <h2 class="h2 section-title has-underline" style="margin-top: 15px;">
+        Diverse Literary Adventures
+        <span class="span has-before"></span>
+      </h2>
+       <div class="container">
+           <h2 class="h2 section-title has-underline" id="section-title1">
+               Introduction to swap reads
+             <span class="span has-before"></span>
+           </h2>
+ 
+           <ul class="grid-list">
+             <li>
+               <div class="chapter-card">
+                 <p class="card-subtitle"></p>
+                 <p class="card-text" >
+                  <div class="ben">Connecting Book Lovers and Promoting Reading Culture</div> 
+                  SwapReads is an online platform designed to connect book enthusiasts and facilitate the exchange of books. It aims to promote a vibrant reading culture by making it easier for users to discover new titles, share their favorite books, and connect with fellow readers through discussions and reviews.
+                 </p>
+               </div>
+             </li>
+             <li>
+               <div class="chapter-card">
+                 <p class="card-subtitle"></p>
+                 <p class="card-text" >
+                  <div class="ben">Personalized Recommendations and Eco-Friendly Practices</div> 
+                  SwapReads offers personalized book recommendations to help users find their next great read. By encouraging sustainable reading habits and reducing the need for new book purchases, the platform supports eco-friendly practices, fostering a community that celebrates the joy of reading while promoting environmental consciousness.
+                 </p>
+               </div>
+             </li>
             
-          
-          </style>
-
-
-
-  <main>
-
-
+                                 
+           </ul>
+         </div>
+       <div class="container">
+           <h2 class="h2 section-title has-underline" id="section-title1">
+            Maximizing Book Swapping on SwapReads
+             <span class="span has-before"></span>
+           </h2>
+ 
+           <ul class="grid-list">
+             <li>
+               <div class="chapter-card">
+                 <p class="card-subtitle"></p>
+                 <p class="card-text" >
+                  <div class="ben">Joining SwapReads</div> 
+                  Join SwapReads by creating an account and setting up your profile. Fill out your reading preferences and interests to enhance your swapping experience.
+                 </p>
+               </div>
+             </li>
+             <li>
+               <div class="chapter-card">
+                 <p class="card-subtitle"></p>
+                 <p class="card-text" >
+                  <div class="ben">Building Your Book Collection
+                </div> 
+                Explore SwapReads' extensive library to discover new titles and classics alike. Add books to your virtual shelf to showcase your collection and attract swap offers. Keep your wishlist updated with books you're eager to read, signaling to others what you're looking for and increasing your chances of successful swaps.
+                 </p>
+               </div>
+             </li>
+             <li>
+               <div class="chapter-card">
+                 <p class="card-subtitle"></p>
+                 <p class="card-text" >
+                  <div class="ben">Initiating Swaps</div>
+                  Initiating swaps on SwapReads is simple and interactive. Browse through other users' collections or search for specific titles. When you find a book of interest, send a swap request detailing what you're offering in return. Engage in friendly communication to finalize the swap and expand your reading options.
+                 </p>
+               </div>
+             </li>
+             <li>
+               <div class="chapter-card">
+                 <p class="card-subtitle"></p>
+                 <p class="card-text" >
+                  <div class="ben">Rating and Reviewing</div>
+                  After completing a swap, contribute to the community by rating and reviewing the books you've received. Your insights help others make informed decisions and build trust within the SwapReads community. Share your thoughts on the book's plot, characters, and overall reading experience. Participate in discussions and book reviews to foster connections and enrich the swapping experience for everyone involved.
+                 </p>
+               </div>
+             </li>                    
+           </ul>
+         </div>
+         <div class="container">
+           <h2 class="h2 section-title has-underline" id="section-title1">
+            Budget-Friendly Reading Habits
+             <span class="span has-before"></span>
+           </h2>
+ 
+           <ul class="grid-list">
+             <li>
+               <div class="chapter-card">
+                 <p class="card-subtitle"></p>
+                 <p class="card-text" >
+                  <div class="ben">Leveraging Public Libraries</div>
+                  Many communities organize book swap events at libraries, community centers, or local cafes. Keep an eye on community bulletin boards, local event listings, and social media groups to find upcoming events. Attending these events is a great way to meet fellow book lovers and exchange books.
+                 </p>
+               </div>
+             </li>
+             <li>
+               <div class="chapter-card">
+                 <p class="card-subtitle"></p>
+                 <p class="card-text" >
+                  <div class="ben">Participating in Book Sales and Discounts</div>
+                  Stay informed about book sales and discounts from retailers and online platforms. Follow publishers on social media, subscribe to newsletters, and join loyalty programs for exclusive offers. Utilize discount codes and seasonal promotions to maximize savings on your book purchases.
+               </div>
+             </li>
+             <li>
+               <div class="chapter-card">
+                 <p class="card-subtitle"></p>
+                 <p class="card-text" >
+                  <div class="ben">Exploring E-books</div>
+                  Discover affordable reading options through e-books . Many platforms offer free or discounted titles, especially classics and indie publications. Subscribe to newsletters and follow platforms like Kindle and Audible for promotional offers.
+                 </p>
+               </div>
+             </li>
+             <li>
+               <div class="chapter-card">
+                 <p class="card-subtitle"></p>
+                 <p class="card-text" >
+                  <div class="ben">Secondhand Bookstores and Online Markets</div>
+                  Find budget-friendly reads at secondhand bookstores and online marketplaces. Explore diverse selections and uncover hidden gems at discounted prices. Consider selling or trading books you've finished to refresh your collection economically.
+                 </p>
+               </div>
+             </li>                    
+           </ul>
+         </div>
+     </section>
+     
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-    <section class="genre" id="genre">
-      <h2 class="h2 section-title has-underline" style="margin-top: 15px;">
-          Diverse Literary Adventures
-          <span class="span has-before"></span>
-        </h2>
-         <div class="container">
-             <h2 class="h2 section-title has-underline" id="section-title1">
-                 Introduction to swap reads
-               <span class="span has-before"></span>
-             </h2>
-   
-             <ul class="grid-list">
-               <li>
-                 <div class="chapter-card">
-                   <p class="card-subtitle"></p>
-                   <p class="card-text" >
-                    <div class="ben">Connecting Book Lovers and Promoting Reading Culture</div> 
-                    SwapReads is an online platform designed to connect book enthusiasts and facilitate the exchange of books. It aims to promote a vibrant reading culture by making it easier for users to discover new titles, share their favorite books, and connect with fellow readers through discussions and reviews.
-                   </p>
-                 </div>
-               </li>
-               <li>
-                 <div class="chapter-card">
-                   <p class="card-subtitle"></p>
-                   <p class="card-text" >
-                    <div class="ben">Personalized Recommendations and Eco-Friendly Practices</div> 
-                    SwapReads offers personalized book recommendations to help users find their next great read. By encouraging sustainable reading habits and reducing the need for new book purchases, the platform supports eco-friendly practices, fostering a community that celebrates the joy of reading while promoting environmental consciousness.
-                   </p>
-                 </div>
-               </li>
-              
-                                   
-             </ul>
-           </div>
-         <div class="container">
-             <h2 class="h2 section-title has-underline" id="section-title1">
-              Maximizing Book Swapping on SwapReads
-               <span class="span has-before"></span>
-             </h2>
-   
-             <ul class="grid-list">
-               <li>
-                 <div class="chapter-card">
-                   <p class="card-subtitle"></p>
-                   <p class="card-text" >
-                    <div class="ben">Joining SwapReads</div> 
-                    Join SwapReads by creating an account and setting up your profile. Fill out your reading preferences and interests to enhance your swapping experience.
-                   </p>
-                 </div>
-               </li>
-               <li>
-                 <div class="chapter-card">
-                   <p class="card-subtitle"></p>
-                   <p class="card-text" >
-                    <div class="ben">Building Your Book Collection
-                  </div> 
-                  Explore SwapReads' extensive library to discover new titles and classics alike. Add books to your virtual shelf to showcase your collection and attract swap offers. Keep your wishlist updated with books you're eager to read, signaling to others what you're looking for and increasing your chances of successful swaps.
-                   </p>
-                 </div>
-               </li>
-               <li>
-                 <div class="chapter-card">
-                   <p class="card-subtitle"></p>
-                   <p class="card-text" >
-                    <div class="ben">Initiating Swaps</div>
-                    Initiating swaps on SwapReads is simple and interactive. Browse through other users' collections or search for specific titles. When you find a book of interest, send a swap request detailing what you're offering in return. Engage in friendly communication to finalize the swap and expand your reading options.
-                   </p>
-                 </div>
-               </li>
-               <li>
-                 <div class="chapter-card">
-                   <p class="card-subtitle"></p>
-                   <p class="card-text" >
-                    <div class="ben">Rating and Reviewing</div>
-                    After completing a swap, contribute to the community by rating and reviewing the books you've received. Your insights help others make informed decisions and build trust within the SwapReads community. Share your thoughts on the book's plot, characters, and overall reading experience. Participate in discussions and book reviews to foster connections and enrich the swapping experience for everyone involved.
-                   </p>
-                 </div>
-               </li>                    
-             </ul>
-           </div>
-           <div class="container">
-             <h2 class="h2 section-title has-underline" id="section-title1">
-              Budget-Friendly Reading Habits
-               <span class="span has-before"></span>
-             </h2>
-   
-             <ul class="grid-list">
-               <li>
-                 <div class="chapter-card">
-                   <p class="card-subtitle"></p>
-                   <p class="card-text" >
-                    <div class="ben">Leveraging Public Libraries</div>
-                    Many communities organize book swap events at libraries, community centers, or local cafes. Keep an eye on community bulletin boards, local event listings, and social media groups to find upcoming events. Attending these events is a great way to meet fellow book lovers and exchange books.
-                   </p>
-                 </div>
-               </li>
-               <li>
-                 <div class="chapter-card">
-                   <p class="card-subtitle"></p>
-                   <p class="card-text" >
-                    <div class="ben">Participating in Book Sales and Discounts</div>
-                    Stay informed about book sales and discounts from retailers and online platforms. Follow publishers on social media, subscribe to newsletters, and join loyalty programs for exclusive offers. Utilize discount codes and seasonal promotions to maximize savings on your book purchases.
-                 </div>
-               </li>
-               <li>
-                 <div class="chapter-card">
-                   <p class="card-subtitle"></p>
-                   <p class="card-text" >
-                    <div class="ben">Exploring E-books</div>
-                    Discover affordable reading options through e-books . Many platforms offer free or discounted titles, especially classics and indie publications. Subscribe to newsletters and follow platforms like Kindle and Audible for promotional offers.
-                   </p>
-                 </div>
-               </li>
-               <li>
-                 <div class="chapter-card">
-                   <p class="card-subtitle"></p>
-                   <p class="card-text" >
-                    <div class="ben">Secondhand Bookstores and Online Markets</div>
-                    Find budget-friendly reads at secondhand bookstores and online marketplaces. Explore diverse selections and uncover hidden gems at discounted prices. Consider selling or trading books you've finished to refresh your collection economically.
-                   </p>
-                 </div>
-               </li>                    
-             </ul>
-           </div>
-       </section>
-
-
-
-
-
-
-
-  </main>
-  <footer class="ff">
-    <div class="foot-top">
-      <div class="foot-left">
-  
-        <div class="desc">
-  <!--google translate-->
-          <!-- <div id="google_translate_element"></div>
-  
-          <script type="text/javascript">
-              function googleTranslateElementInit() {
-                  new google.translate.TranslateElement(
-                      {pageLanguage: 'en'},
-                      'google_translate_element'
-                  );
-              }
-          </script>
-  
-          <script type="text/javascript"
-                  src=
-      "https://translate.google.com/translate_a/element.js?
-      cb=googleTranslateElementInit">
-          </script> -->
-          <div class="SwapReads" ><a href="#" class="logo" style="margin: 0px 40px">SwapReads</a></div>
-          <div>
-            <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
-              lovers
-              seeking to swap and
-  
-              discover new literary gems.
-              Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
-              the
-              world of literature—all on one convenient platform. Join us and dive into a universe of endless
-              possibilities!
-            </p>
-          </div>
-  
-        </div>
-      </div>
-      <div class="foot-middle" style="padding: 20px; ">
-        <h2 style="font-size: 24px; margin-bottom: 15px; ">Quick Links</h2>
-        <div id="quicklinks" class="row" style="display: flex; gap: 20px;">
-          <!-- First Column -->
-          <div class="col-md-6" style="flex: 1;">
-            <ul style="list-style: none; padding: 0; margin: 0;">
-              <li class="foot-quick" style="margin-bottom: 10px;">
-                <a href="/index.html#home" onclick="lenis.scrollTo('#home')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
-                  <i class="fas fa-home" style="margin-right: 8px;"></i>
-                  <p class="flinks" style="margin: 0;">Home</p>
-                </a>
-              </li>
-              <li class="foot-quick" style="margin-bottom: 10px;">
-                <a href="/index.html#benefits" onclick="lenis.scrollTo('#benefits')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
-                  <i class="fas fa-book" style="margin-right: 8px;"></i>
-                  <p class="flinks" style="margin: 0;">Benefits</p>
-                </a>
-              </li>
-              <li class="foot-quick" style="margin-bottom: 10px;">
-                <a href="/index.html#chapters" onclick="lenis.scrollTo('#chapters')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
-                  <i class="fas fa-globe" style="margin-right: 8px;"></i>
-                  <p class="flinks" style="margin: 0;">Literary</p>
-                </a>
-              </li>
-              <li class="foot-quick" style="margin-bottom: 10px;">
-                <a href="/index.html#pricing" onclick="lenis.scrollTo('#pricing')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
-                  <i class="fas fa-dollar-sign" style="margin-right: 8px;"></i>
-                  <p class="flinks" style="margin: 0;">Pricing</p>
-                </a>
-              </li>
-              <li class="foot-quick" style="margin-bottom: 10px;">
-                <a href="book_recommend.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
-                  <i class="fas fa-bookmark" style="margin-right: 8px;"></i>
-                  <p class="flinks" style="margin: 0;">Recommend</p>
-                </a>
-              </li>
-            </ul>
-          </div>
-      
-          <!-- Second Column -->
-          <div class="col-md-6" style="flex: 1;">
-            <ul style="list-style: none; padding: 0; margin: 0;">
-              <li class="foot-quick" style="margin-bottom: 10px;">
-                <a href="/assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
-                  <i class="fas fa-exchange-alt" style="margin-right: 8px;"></i>
-                  <p class="flinks" style="margin: 0;">Swap</p>
-                </a>
-              </li>
-              <li class="foot-quick" style="margin-bottom: 10px;">
-                <a href="/assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
-                  <i class="fas fa-file-pdf" style="margin-right: 8px;"></i>
-                  <p class="flinks" style="margin: 0;">E-Book</p>
-                </a>
-              </li>
-              <li class="foot-quick" style="margin-bottom: 10px;">
-                <a href="/assets/html/about.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
-                  <i class="fas fa-info-circle" style="margin-right: 8px;"></i>
-                  <p class="flinks" style="margin: 0;">About</p>
-                </a>
-              </li>
-              <li class="foot-quick" style="margin-bottom: 10px;">
-                <a href="/index.html#contact" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
-                  <i class="fas fa-envelope" style="margin-right: 8px;"></i>
-                  <p class="flinks" style="margin: 0;">Contact</p>
-                </a>
-              </li>
-              <li class="foot-quick" style="margin-bottom: 10px;">
-                <a href="/index.html#faqq" onclick="lenis.scrollTo('#faqq')" style="display: flex; align-items: center;color:#534A4A;  text-decoration: none;">
-                  <i class="fas fa-question-circle" style="margin-right: 8px;"></i>
-                  <p class="flinks" style="margin: 0;">FAQ</p>
-                </a>
-              </li>
-            </ul>
+    <footer class="ff">
+      <div class="foot-top">
+        <div class="foot-left">
+    
+          <div class="desc">
+    <!--google translate-->
+            <!-- <div id="google_translate_element"></div>
+    
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement(
+                        {pageLanguage: 'en'},
+                        'google_translate_element'
+                    );
+                }
+            </script>
+    
+            <script type="text/javascript"
+                    src=
+        "https://translate.google.com/translate_a/element.js?
+        cb=googleTranslateElementInit">
+            </script> -->
+            <div class="SwapReads" ><a href="#" class="logo" style="margin: 0px 40px">SwapReads</a></div>
+            <div>
+              <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
+                lovers
+                seeking to swap and
+    
+                discover new literary gems.
+                Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
+                the
+                world of literature—all on one convenient platform. Join us and dive into a universe of endless
+                possibilities!
+              </p>
+            </div>
+    
           </div>
         </div>
-      </div>
-      
-        <style>
-          .social-icons input[type="email"] 
-          {
-              border: 2px solid #ccc; /* Gray border */
-              border-radius: 4px; /* Rounded corners */
-              padding: 10px; /* Inner padding */
-              font-size: 16px; /* Font size */
-          }
-          #confirmationMessage
-          {
-            margin-left: 50px;
-            font-size: 23px;
-            color: green;
-  
-          }
-         /* for small screen */
-          @media (max-width: 768px) 
-          {
-            #confirmationMessage 
+        <div class="foot-middle" style="padding: 20px; ">
+          <h2 style="font-size: 24px; margin-bottom: 15px; ">Quick Links</h2>
+          <div id="quicklinks" class="row" style="display: flex; gap: 20px;">
+            <!-- First Column -->
+            <div class="col-md-6" style="flex: 1;">
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/index.html#home" onclick="lenis.scrollTo('#home')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-home" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">Home</p>
+                  </a>
+                </li>
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/index.html#benefits" onclick="lenis.scrollTo('#benefits')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-book" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">Benefits</p>
+                  </a>
+                </li>
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/index.html#chapters" onclick="lenis.scrollTo('#chapters')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-globe" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">Literary</p>
+                  </a>
+                </li>
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/index.html#pricing" onclick="lenis.scrollTo('#pricing')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-dollar-sign" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">Pricing</p>
+                  </a>
+                </li>
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="book_recommend.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-bookmark" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">Recommend</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+        
+            <!-- Second Column -->
+            <div class="col-md-6" style="flex: 1;">
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-exchange-alt" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">Swap</p>
+                  </a>
+                </li>
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/assets/html/freeBooks.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-file-pdf" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">E-Book</p>
+                  </a>
+                </li>
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/assets/html/about.html" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-info-circle" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">About</p>
+                  </a>
+                </li>
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/index.html#contact" onclick="lenis.scrollTo('#contact')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-envelope" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">Contact</p>
+                  </a>
+                </li>
+                <li class="foot-quick" style="margin-bottom: 10px;">
+                  <a href="/index.html#faqq" onclick="lenis.scrollTo('#faqq')" style="display: flex; align-items: center;  text-decoration: none;">
+                    <i class="fas fa-question-circle" style="margin-right: 8px;"></i>
+                    <p class="flinks" style="margin: 0;">FAQ</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+          <style>
+            .social-icons input[type="email"] 
             {
-                margin-left: 0;
-                text-align: center;
-                font-size: 18px;
+                border: 2px solid #ccc; /* Gray border */
+                border-radius: 4px; /* Rounded corners */
+                padding: 10px; /* Inner padding */
+                font-size: 16px; /* Font size */
             }
-        }
-        </style>
-        <style>
-          #confirmationmessage {
-    position: fixed;
-    top: 42rem;
-    right: 10px;
-    background-color: green;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    display: none;
-  }
-  
-        </style>
-  
-  <form id="newsform" onsubmit="return showConfirmationMessage();">
-    <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
-    <div class="row-flex display-flex">
-        <input class="finput" type="email" id="new-email" name="email" 
-               placeholder="Email address" 
-               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
-               title="Please enter a valid email address that ends with '.com'" required>
-        <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
-    </div>
-</form>
-
-<div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
-
-<script>
-function showConfirmationMessage() {
+            #confirmationMessage
+            {
+              margin-left: 50px;
+              font-size: 23px;
+              color: green;
+    
+            }
+           /* for small screen */
+            @media (max-width: 768px) 
+            {
+              #confirmationMessage 
+              {
+                  margin-left: 0;
+                  text-align: center;
+                  font-size: 18px;
+              }
+          }
+          </style>
+          <style>
+            #confirmationmessage {
+      position: fixed;
+      top: 42rem;
+      right: 10px;
+      background-color: green;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      display: none;
+    }
+    
+          </style>
+    
+       <form id="newsform" onsubmit="return showConfirmationMessage();">
+        <label for="new-email" class="news-form">Subscribe to our Newsletter</label>
+        <div class="row-flex display-flex">
+            <input class="finput" type="email" id="new-email" name="email" placeholder="Email address"
+                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$"
+                   title="Please enter a valid email address that ends with '.com'" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="subscribe" id="subs">
+        </div>
+    </form>
+    
+    <div id="confirmationmessage" style="display: none;">Thank you for subscribing!</div>
+      
+    <script>
+    function showConfirmationMessage() {
+    
     const form = document.getElementById('newsform');
     const confirmationMessage = document.getElementById('confirmationmessage');
-
+    
+    
     confirmationMessage.style.display = 'block';
     setTimeout(function() {
-        location.reload(); 
+      location.reload(); 
     }, 3000);
-}
-</script>
-
-<style>
-.finput:hover {
-    border: 0.2rem solid #A30F17;
-    margin-bottom: -0.2rem;
-}
-form {
-    width: 500px;
-    height: 300px;
-    font-size: larger;
-}
-
-.subscribe {
+    
+    
+    
+    }
+    
+    
+    
+    </script>
+    <style>
+    .finput:hover{
+      border:0.2rem solid #A30F17;
+      margin-bottom:-0.2rem;
+    }
+    form {
+      width: 500px;
+      height:300px;
+      font-size: larger;
+    }
+    
+    .subscribe {
     background-color: #A30F17;
     color: white; 
     border: none; 
@@ -1390,250 +1271,522 @@ form {
     border-radius: 5px; 
     cursor: pointer; 
     transition: background-color 0.3s, transform 0.2s;
-}
-
-.subscribe:hover {
+    }
+    
+    .subscribe:hover {
     background: linear-gradient(hwb(357 6% 36%), #d26d6d);
     transform: scale(1.1);
-}
-
-.subscribe:active {
-    transform: scale(0.98); 
-}
-
-.subscribe:focus {
-    outline: none; 
-}
-
-.icons {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 150px;
-}
-
-/* Add this to change the placeholder text color */
-input::placeholder {
-    color: rgb(58, 56, 56); /* Set placeholder text color to black */
-}
-</style>
-
-  
-  <!-- <script>
-  function showConfirmationMessage() 
-  {
-    // Show confirmation message
-    const confirmationMessage = document.getElementById('confirmationMessage');
-    confirmationMessage.innerHTML = "Thank you for subscribing!";
-    confirmationMessage.style.display = 'block';
-  
-    // Reset the form after 3 seconds
-    setTimeout(function() 
-    {
-        document.getElementById('newsletterForm').reset();
-        confirmationMessage.style.display = 'none';
-        
-    }, 3000);
-  
-    return false; 
-  }
-  </script>-->
-        <div class="icons">
-          <a href="https://www.discord.com/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
-            </div>
-           </a>
-  
-          <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
-            </div>
-          </a>
-  
-          <a href="https://www.facebook.com/" target="_blank">
-            <div class="icon">
-              <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
-            </div>
-          </a>
-  
-          <a href="https://x.com/anuragverma_108" target="_blank">
-            <div class="icon">
-              <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
-            </div>
-          </a>
-  
-          <a href="https://www.instagram.com/">
-            <div class="icon" id="insta-icon">
-              <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
-            </div>
-          </a>
-  
-  
-          <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
-            <div class="icon">
-              <i class="fab fa-youtube" style="cursor: pointer;"></i>
-            </div>
-          </a>
-  
-  
-  
-          <a href="https://github.com/anuragverma108">
-            <div class="icon">
-              <i class="fab fa-github" title="Github"></i>
-            </div>
-          </a>
-         
-  
-        </div>
-       </div>
-  
-       <div>
-        <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
-          <button class="Btn">
-            <svg height="1.2em" class="arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path></svg>
-            <p class="text">Back to Top</p>
-          </button>
-        </div>
-        <!-- <div>
-          <button id="translateButton" style="background-color: #A30F17; transition:all 1s ease 0.1s;">Translate</button>
-        </div> -->
-      </div>
-  
-      </div>
-    </div>
-  <!-- <style>
-    #translateButton:hover{
-      background: linear-gradient(hwb(357 6% 36%), #d26d6d);
-      transform:scale(1.1);
     }
-  </style> -->
-  
-    <!-- adding privacy policy and copyright popup-->
-    <div class="footer-f" style="text-align: center; align-items: center;">
-      <p style="text-align: center">
-        &copy;
-        <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
-      </p>
-      <div class="row-copy">
-  
-  
-      <a href="/copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
-      <a href="/privacynotice.html" id="privacyNoticeLink">Privacy Notice</a> |
-      <a href="/our-vision.html" id="ourvisionLink">Our Vision</a></li> |
-      <a href="\SwapReads\refundpolicy.html">Refund Policy</a>
-    </div>
-    </div>
-    <style>
-      #copyrightPolicyLink:hover{
-        color: rgb(126, 0, 21);
-        transition: 0.5s ease;
-        text-decoration: none;
-      }
-      #privacyNoticeLink:hover{
-        color: rgb(126, 0, 21);
-        transition: 0.5s ease;
-        text-decoration: none;
-      }
-      #ourvisionLink:hover{
-        color: rgb(126, 0, 21);
-        transition: 0.5s ease;
-        text-decoration: none;
-      }
+    
+    .subscribe:active {
+    transform: scale(0.98); 
+    }
+    
+    .subscribe:focus {
+    outline: none; 
+    }
+    
+    .icons{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 150px;
+    }
+    
+    
     </style>
-  
-    <!-- Copyright Policy Modal -->
-    <div id="copyrightPolicyModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closeCopyright">&times;</span>
-        <h1>Copyright Policy</h1>
-        <p>Welcome to SwapReads. Here is our copyright policy:</p>
-        <ul>
-          <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
-          <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
-          <li>Users may download and print content for personal use only.</li>
-          <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
-          <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
-        </ul>
+    
+    <!-- <script>
+    function showConfirmationMessage() 
+    {
+      // Show confirmation message
+      const confirmationMessage = document.getElementById('confirmationMessage');
+      confirmationMessage.innerHTML = "Thank you for subscribing!";
+      confirmationMessage.style.display = 'block';
+    
+      // Reset the form after 3 seconds
+      setTimeout(function() 
+      {
+          document.getElementById('newsletterForm').reset();
+          confirmationMessage.style.display = 'none';
+          
+      }, 3000);
+    
+      return false; 
+    }
+    </script>-->
+          <div class="icons">
+            <a href="https://www.discord.com/" target="_blank">
+              <div class="icon">
+                <i class="fab fa-discord" title="Discord" style="cursor: pointer;"></i>
+              </div>
+             </a>
+    
+            <a href="https://www.linkedin.com/in/anurag-verma-b91417253/" target="_blank">
+              <div class="icon">
+                <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
+              </div>
+            </a>
+    
+            <a href="https://www.facebook.com/" target="_blank">
+              <div class="icon">
+                <i class="fab fa-facebook" title="Facebook" style="cursor: pointer;"></i>
+              </div>
+            </a>
+    
+            <a href="https://x.com/anuragverma_108" target="_blank">
+              <div class="icon">
+                <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
+              </div>
+            </a>
+    
+            <a href="https://www.instagram.com/">
+              <div class="icon" id="insta-icon">
+                <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
+              </div>
+            </a>
+    
+    
+            <a href="https://www.youtube.com/@anuragbytes" target="_blank" title="YouTube">
+              <div class="icon">
+                <i class="fab fa-youtube" style="cursor: pointer;"></i>
+              </div>
+            </a>
+    
+    
+    
+            <a href="https://github.com/anuragverma108">
+              <div class="icon">
+                <i class="fab fa-github" title="Github"></i>
+              </div>
+            </a>
+           
+    
+          </div>
+         </div>
+    
+         <div>
+          <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
+            <button class="Btn">
+              <svg height="1.2em" class="arrow" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path></svg>
+              <p class="text">Back to Top</p>
+            </button>
+          </div>
+          <!-- <div>
+            <button id="translateButton" style="background-color: #A30F17; transition:all 1s ease 0.1s;">Translate</button>
+          </div> -->
+        </div>
+    
+        </div>
       </div>
-    </div> 
-  
-    <!-- Privacy Notice Modal -->
-    <div id="privacyNoticeModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closePrivacy">&times;</span>
-        <h1>Privacy Notice</h1>
-        <p>Welcome to SwapReads. Here is our privacy notice:</p>
-        <ul>
-          <li>We collect personal information when you register, buy, or sell books.</li>
-          <li>We use this information to provide and improve our services.</li>
-          <li>We do not share your personal information with third parties without your consent.</li>
-          <li>We take reasonable measures to protect your data from unauthorized access.</li>
-          <li>You can contact us to update or delete your personal information.</li>
-          <li>By using our site, you consent to our privacy practices.</li>
-        </ul>
+    <!-- <style>
+      #translateButton:hover{
+        background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+        transform:scale(1.1);
+      }
+    </style> -->
+    
+      <!-- adding privacy policy and copyright popup-->
+      <div class="footer-f" style="text-align: center; align-items: center;">
+        <p style="text-align: center">
+          &copy;
+          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+        </p>
+        <div class="row-copy">
+    
+    
+        <a href="/copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+        <a href="/privacynotice.html" id="privacyNoticeLink">Privacy Notice</a> |
+        <a href="/our-vision.html" id="ourvisionLink">Our Vision</a></li> |
+        <a href="\SwapReads\refundpolicy.html">Refund Policy</a>
       </div>
-    </div> 
-  
-    <script>
-      // Get the modal elements
-      var copyrightModal = document.getElementById("copyrightPolicyModal");
-      var privacyModal = document.getElementById("privacyNoticeModal");
-  
-      // Get the link elements
-      var copyrightLink = document.getElementById("copyrightPolicyLink");
-      var privacyLink = document.getElementById("privacyNoticeLink");
-  
-      // Get the <span> elements that close the modals
-      var closeCopyright = document.getElementById("closeCopyright");
-      var closePrivacy = document.getElementById("closePrivacy");
-  
-      // When the user clicks the link, open the modal
-      copyrightLink.onclick = function() {
-        copyrightModal.style.display = "block";
-      }
-      privacyLink.onclick = function() {
-        privacyModal.style.display = "block";
-      }
-  
-      // When the user clicks on <span> (x), close the modal
-      closeCopyright.onclick = function() {
-        copyrightModal.style.display = "none";
-      }
-      closePrivacy.onclick = function() {
-        privacyModal.style.display = "none";
-      }
-  
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == copyrightModal) {
+      </div>
+      <style>
+        #copyrightPolicyLink:hover{
+          color: rgb(126, 0, 21);
+          transition: 0.5s ease;
+          text-decoration: none;
+        }
+        #privacyNoticeLink:hover{
+          color: rgb(126, 0, 21);
+          transition: 0.5s ease;
+          text-decoration: none;
+        }
+        #ourvisionLink:hover{
+          color: rgb(126, 0, 21);
+          transition: 0.5s ease;
+          text-decoration: none;
+        }
+      </style>
+    
+      <!-- Copyright Policy Modal -->
+      <div id="copyrightPolicyModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeCopyright">&times;</span>
+          <h1>Copyright Policy</h1>
+          <p>Welcome to SwapReads. Here is our copyright policy:</p>
+          <ul>
+            <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
+            <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
+            <li>Users may download and print content for personal use only.</li>
+            <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
+            <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
+          </ul>
+        </div>
+      </div> 
+    
+      <!-- Privacy Notice Modal -->
+      <div id="privacyNoticeModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closePrivacy">&times;</span>
+          <h1>Privacy Notice</h1>
+          <p>Welcome to SwapReads. Here is our privacy notice:</p>
+          <ul>
+            <li>We collect personal information when you register, buy, or sell books.</li>
+            <li>We use this information to provide and improve our services.</li>
+            <li>We do not share your personal information with third parties without your consent.</li>
+            <li>We take reasonable measures to protect your data from unauthorized access.</li>
+            <li>You can contact us to update or delete your personal information.</li>
+            <li>By using our site, you consent to our privacy practices.</li>
+          </ul>
+        </div>
+      </div> 
+    
+      <script>
+        // Get the modal elements
+        var copyrightModal = document.getElementById("copyrightPolicyModal");
+        var privacyModal = document.getElementById("privacyNoticeModal");
+    
+        // Get the link elements
+        var copyrightLink = document.getElementById("copyrightPolicyLink");
+        var privacyLink = document.getElementById("privacyNoticeLink");
+    
+        // Get the <span> elements that close the modals
+        var closeCopyright = document.getElementById("closeCopyright");
+        var closePrivacy = document.getElementById("closePrivacy");
+    
+        // When the user clicks the link, open the modal
+        copyrightLink.onclick = function() {
+          copyrightModal.style.display = "block";
+        }
+        privacyLink.onclick = function() {
+          privacyModal.style.display = "block";
+        }
+    
+        // When the user clicks on <span> (x), close the modal
+        closeCopyright.onclick = function() {
           copyrightModal.style.display = "none";
         }
-        if (event.target == privacyModal) {
+        closePrivacy.onclick = function() {
           privacyModal.style.display = "none";
         }
+    
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == copyrightModal) {
+            copyrightModal.style.display = "none";
+          }
+          if (event.target == privacyModal) {
+            privacyModal.style.display = "none";
+          }
+        }
+      </script>
+      
+    </footer>
+    
+     <div>
+      <button id="translateButton">Translate</button>
+    </div>
+    <style>
+      /* Quick Links Grid Styling */
+footer .footer-column ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 10px 20px; /* Space between items */
+}
+
+footer .footer-column ul li {
+  margin: 0; /* Reset default margin */
+}
+
+footer .footer-column ul li a {
+  color: inherit; /* Keep the color as in original code */
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+footer .footer-column ul li a:hover {
+  color: inherit; /* Keep the hover color as in original code */
+}
+
+      /* Fixed translate button */
+    #translateButton {
+      position: fixed;
+      /* bottom: 20px; */
+      top:-15rem;
+      right: 4.4rem;
+      z-index: 1000;
+      width: 53px;  
+      height: 53px;
+      border-radius: 50%; 
+      border: none; 
+      background:linear-gradient(hwb(357 6% 36%),#d26d6d); 
+      color: white; 
+      text-align: center; 
+      display: inline-block; 
+      font-size: 16px; 
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      transition: transform 0.3s ease;
+      margin-top: 75.8vh;
+      margin-right:opx;
+    }
+    #translateButton:hover {
+      transform: scale(1.2); 
+    }
+    /* The popup modal */
+    .popup {
+      display: none; 
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0); 
+      background-color: rgba(0,0,0,0.4); 
+    }
+    /* Popup content */
+    .popup-content {
+    background:linear-gradient(hwb(357 6% 36%),#d26d6d);
+      margin-top: 600px;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 300px;
+      border-radius: 10px;
+      position: relative;
+      margin-left: 1160px;
+      /* margin-right: 0px; */
+    }
+    /* Close button */
+    .close {
+      color: #073725;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+    }
+    /* Hide the default Google Translate widget */
+    .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+      display: none !important;
+    }
+    body {
+      top: 0px !important;
+    }
+    /* Hide the "Powered by Google" branding */
+    .goog-logo-link {
+      display: none !important;
+    }
+    .goog-te-gadget {
+      height: 28px !important;
+      overflow: hidden;
+    }
+    /* Hide Google Translate notifications */
+    .goog-te-spinner-pos,
+    .goog-te-spinner,
+    .goog-te-balloon-frame,
+    .goog-te-banner-frame,
+    .goog-te-banner,
+    .goog-te-balloon {
+      display: none !important;
+    }
+    /* Custom styles for the Google Translate dropdown */
+    #google_translate_element select {
+      background: #ffffff; 
+      border: 1px solid #ccc; 
+      color: #d26d6d; 
+      padding: 5px; 
+      font-size: 14px; 
+      border-radius: 5px; 
+    }
+    /* Hide the Google Translate bar */
+    body > .skiptranslate {
+      display: none !important;
+    }
+    .goog-te-banner-frame.skiptranslate {
+      display: none !important;
+    }
+    .goog-te-banner-frame {
+      display: none !important;
+    }
+    .goog-te-banner {
+      display: none !important;
+    }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      // Get the popup
+      var popup = document.getElementById('translatePopup');
+      // Get the button that opens the popup
+      var btn = document.getElementById('translateButton');
+      // Get the <span> element that closes the popup
+      var span = document.getElementsByClassName('close')[0];
+      // When the user clicks the button, open the popup 
+      btn.onclick = function() {
+          popup.style.display = 'block';
+      }
+      // When the user clicks on <span> (x), close the popup
+      span.onclick = function() {
+          popup.style.display = 'none';
+      }
+      // When the user clicks anywhere outside of the popup, close it
+      window.onclick = function(event) {
+          if (event.target == popup) {
+              popup.style.display = 'none';
+          }
+      }
+    });
+    </script>
+    <!-- Popup for Google Translate -->
+    <div id="translatePopup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <div id="google_translate_element"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+              pageLanguage: 'en',
+          }, 'google_translate_element');
       }
     </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
-  </footer>
-  
+    <!-- Your custom JavaScript -->
+    <script src="script.js"></script>
 
-       
+     <script>
 
-   
-  <!--Dark Mode-->
-
+        function toggleDarkMode() {
+          const isDarkMode = isDarkModePreferred();
+          setDarkModePreference(!isDarkMode);
+          applyDarkModePreference();
+        }
+    
+        // Function to apply dark mode preference
+        function applyDarkModePreference() {
+          const isDarkMode = isDarkModePreferred();
+          if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
+          } else {
+            document.body.classList.remove('dark-mode');
+            document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
+          }
+        }
+    
+        document.addEventListener('DOMContentLoaded', () => {
+          const currentTheme = localStorage.getItem('theme');
+          const switchCheckbox = document.getElementById('switch');
+        
+          if (!switchCheckbox) {
+            console.error("Switch checkbox not found!");
+            return;
+          }
+        
+          const applyDarkModeStyles = () => {
+            document.body.classList.remove('light-mode');
+            document.body.classList.add('dark-mode');
+          };
+        
+          const applyLightModeStyles = () => {
+            document.body.classList.remove('dark-mode');
+            document.body.classList.add('light-mode');
+          };
+        
+          const initializeTheme = () => {
+            if (currentTheme === 'dark-mode') {
+              applyDarkModeStyles();
+              switchCheckbox.checked = true;
+            } else {
+              applyLightModeStyles();
+            }
+          };
+        
+          const handleThemeChange = () => {
+            if (switchCheckbox.checked) {
+              applyDarkModeStyles();
+              localStorage.setItem('theme', 'dark-mode');
+            } else {
+              applyLightModeStyles();
+              localStorage.setItem('theme', 'light-mode');
+            }
+          };
+        
+          initializeTheme();
+          switchCheckbox.addEventListener('change', handleThemeChange);
+        });
+        
+      </script>
+       <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const backToTopButton = document.getElementById('back-to-top-container');
+    
+          function checkButtonVisibility() {
+            if (window.innerWidth > 100 && window.scrollY > 100) {
+              backToTopButton.style.display = 'block';
+            } else {
+              backToTopButton.style.display = 'none';
+            }
+          }
+    
+          window.addEventListener('scroll', checkButtonVisibility);
+          window.addEventListener('resize', checkButtonVisibility);
+    
+          backToTopButton.addEventListener('click', function () {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          });
+    
+          checkButtonVisibility();
+        });
+    
+      </script>
+      
   <script>
-    //function to toggle the like button
-    document.addEventListener("DOMContentLoaded", ()=>{
-      let hearts= document.querySelectorAll(".heart-icon");
-      hearts.forEach((heart)=>{
-        heart.addEventListener("click", ()=>{
-          heart.classList.toggle("text-blue-500");
-        })
-      })
-    });
 
+    //   function sendMail(){
+    //         let params={
+    //             name:document.getElementById('name').value,
+    //             email:document.getElementById('email').value,
+    //             subject:document.getElementById('subject').value,
+    //             message:document.getElementById('message').value,
+    //             subscribe:document.getElementById('newsletter-email').value
+    //         }
+    //         EmailJSResponseStatus.send("service_lktb68z","template_w79vd94",params,"o6kveYmOSDrs0l1Mg")
+    //         .then(alert('Email sent successfully'))
+    //       }
+
+    // document.querySelector('subscribe-btn').addEventListener('submit', sendMail());
     // Function to toggle dark mode
     function toggleDarkMode() {
       const isDarkMode = isDarkModePreferred();
@@ -1646,295 +1799,109 @@ input::placeholder {
       const isDarkMode = isDarkModePreferred();
       if (isDarkMode) {
         document.body.classList.add('dark-mode');
-        document.getElementById('theme-icon').src = 'assets/images/icons8-sun.svg';
+        document.getElementById('theme-icon').src = './assets/images/icons8-sun.svg';
       } else {
         document.body.classList.remove('dark-mode');
-        document.getElementById('theme-icon').src = 'assets/images/moon_solid.svg';
+        document.getElementById('theme-icon').src = './assets/images/moon_solid.svg';
       }
     }
 
-    // Function to set dark mode preference
     document.addEventListener('DOMContentLoaded', () => {
       const currentTheme = localStorage.getItem('theme');
-      const switchCheckbox = document.getElementById('switch'); // Define switchCheckbox here
-
-      if (switchCheckbox) { // Check if switchCheckbox is not null
-        function applyDarkModeStyles() {
-          document.body.classList.remove('light-mode');
-          document.body.classList.add('dark-mode');
+      const switchCheckbox = document.getElementById('switch');
+    
+      if (!switchCheckbox) {
+        console.error("Switch checkbox not found!");
+        return;
+      }
+    
+      const applyDarkModeStyles = () => {
+        document.body.classList.remove('light-mode');
+        document.body.classList.add('dark-mode');
+      };
+    
+      const applyLightModeStyles = () => {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+      };
+    
+      const initializeTheme = () => {
+        if (currentTheme === 'dark-mode') {
+          applyDarkModeStyles();
+          switchCheckbox.checked = true;
+        } else {
+          applyLightModeStyles();
         }
-
-        function applyLightModeStyles() {
-          document.body.classList.remove('dark-mode');
-          document.body.classList.add('light-mode');
+      };
+    
+      const handleThemeChange = () => {
+        if (switchCheckbox.checked) {
+          applyDarkModeStyles();
+          localStorage.setItem('theme', 'dark-mode');
+        } else {
+          applyLightModeStyles();
+          localStorage.setItem('theme', 'light-mode');
         }
+      };
+    
+      initializeTheme();
+      switchCheckbox.addEventListener('change', handleThemeChange);
+    });
+    
+  </script>
+      <script>
+        // Coordinates for the cursor
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
 
-        if (currentTheme) {
-          if (currentTheme === 'dark-mode') {
-            applyDarkModeStyles();
-            switchCheckbox.checked = true;
-          } else {
-            applyLightModeStyles();
-          }
-        }
+        // Colors for the circles
+        const colors = [
+          "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+          "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+          "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+          "#680060", "#60005f", "#48005f", "#3d005e"
+        ];
 
-        switchCheckbox.addEventListener('change', () => {
-          if (switchCheckbox.checked) {
-            applyDarkModeStyles();
-            localStorage.setItem('theme', 'dark-mode');
-          } else {
-            applyLightModeStyles();
-            localStorage.setItem('theme', 'light-mode');
-          }
+        // Assign colors and initial position to each circle
+        circles.forEach(function (circle, index) {
+          circle.x = 0;
+          circle.y = 0;
+          circle.style.backgroundColor = colors[index % colors.length];
         });
-      } else {
-      console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
-    }
-  });
-  </script>
 
-
-
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js" defer></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script src="./assets/js/scroll-reveal.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-  <!-- Lenis smooth scrolling -->
-  <script>
-    document.addEventListener("scroll", function () {
-      var scrollPosition = window.scrollY;
-
-      // Get the top position of each section on the page
-      var homeSection = document.getElementById("home").offsetTop;
-      var benefitsSection = document.getElementById("benefits").offsetTop;
-      var chaptersSection = document.getElementById("chapters").offsetTop;
-      var pricingSection = document.getElementById("pricing").offsetTop;
-      var contactSection = document.getElementById("contact").offsetTop;
-
-      // Check which section the user has scrolled to and add the active class accordingly
-      if (scrollPosition < benefitsSection) {
-        setActiveLink("home");
-      } else if (scrollPosition >= benefitsSection && scrollPosition < chaptersSection) {
-        setActiveLink("benefits");
-      } else if (scrollPosition >= chaptersSection && scrollPosition < pricingSection) {
-        setActiveLink("chapters");
-      } else if (scrollPosition >= pricingSection && scrollPosition < contactSection) {
-        setActiveLink("pricing");
-      } else {
-        setActiveLink("contact");
-      }
-    });
-
-    function setActiveLink(sectionId) {
-      // Remove active class from all navbar links
-      var navbarLinks = document.querySelectorAll(".navbar-link");
-      navbarLinks.forEach(function (link) {
-        link.classList.remove("active");
-      });
-
-      // Add active class to the navbar link corresponding to the current section
-      var activeLink = document.querySelector('a[href="#' + sectionId + '"]');
-      if (activeLink) {
-        activeLink.classList.add("active");
-      }
-    }
-
-    const lenis = new Lenis({
-      duration: 1.8,
-      easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
-      direction: "vertical",
-      gestureDirection: "vertical",
-      smooth: true,
-      smoothTouch: false,
-      touchMultiplier: 2,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-    // JavaScript function to load more content when user scrolls to bottom
-    function loadMoreContent() {
-      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      var windowHeight = window.innerHeight;
-      var documentHeight = document.documentElement.scrollHeight;
-
-      // Check if user has scrolled to the bottom of the page
-      if (scrollTop + windowHeight >= documentHeight) {
-        // Make an AJAX request to fetch more content
-        // Replace 'more-content-url' with the actual URL to fetch more content
-        fetch('/index.html')
-          .then(response => response.text())
-          .then(data => {
-            // Append the fetched content to the page
-            document.getElementById('content-container').insertAdjacentHTML('beforeend', data);
-          })
-          .catch(error => console.error('Error fetching more content:', error));
-      }
-    }
-
-    // Event listener to trigger loadMoreContent function when user scrolls
-    window.addEventListener('scroll', loadMoreContent);
-
-
-
-  </script>
-  <script type="module">
-    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyCu2WXknNce_49J5BLuR1DyHm319hu6dWc",
-      authDomain: "login-13127.firebaseapp.com",
-      projectId: "login-13127",
-      storageBucket: "login-13127.appspot.com",
-      messagingSenderId: "151656578300",
-      appId: "1:151656578300:web:c67208ab6ec437c844ab79",
-      measurementId: "G-L3PPD58MZ8",
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth();
-
-    // Check authentication state and update navbar
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        document.getElementById("login-signup-link").style.display = "none";
-        document.getElementById("logout-link").style.display = "block";
-      } else {
-        document.getElementById("login-signup-link").style.display = "block";
-        document.getElementById("logout-link").style.display = "none";
-      }
-    });
-
-    // Logout function
-    document.getElementById("logout").addEventListener("click", (e) => {
-      e.preventDefault();
-      signOut(auth).then(() => {
-        alert("Logged out successfully.");
-      }).catch((error) => {
-        console.error("Logout error:", error);
-      });
-    });
-  </script>
-
-  <script src="vanilla-tilt.js"></script>
-  <script type="text/javascript">
-    (function (d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      v.onload = function () {
-        window.voiceflow.chat.load({
-          verify: { projectID: '66448ea9c63c08981233b8f1' },
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production'
+        // Update the coordinates when the mouse moves
+        window.addEventListener("mousemove", function (e) {
+          coords.x = e.clientX;
+          coords.y = e.clientY;
         });
-      }
-      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-    })(document, 'script');
 
+        // Animation function to move the circles
+        function animateCircles() {
+          let x = coords.x;
+          let y = coords.y;
 
+          circles.forEach(function (circle, index) {
+            // Update the position and scale of each circle
+            circle.style.left = x - 12 + "px";
+            circle.style.top = y - 12 + "px";
+            circle.style.scale = (circles.length - index) / circles.length;
 
-  </script>
-  <!-- Swiper JS -->
-<script src="assets/js/swiper-bundle.min.js"></script>
-<!-- Custom JavaScript -->
+            circle.x = x;
+            circle.y = y;
 
-<script src="assets/js/test-script.js"></script>
-<script src="scroll.js"></script>
-<script>
-const navbar=document.querySelector('.navbar'),
-NavButton=document.querySelector('.nav-toggle-btn'),
-open=document.querySelector('.open'),
-close=document.querySelector('.close');
-let count=0
-NavButton.addEventListener('click',()=>{
-      
-if(count===0){
-navbar.classList.remove('nav_activated')
-open.classList.add('close')
-close.classList.add('open')
-open.classList.remove('open')
-close.classList.remove('close')
-count++
-}
-else{
-navbar.classList.add('nav_activated')
-open.classList.add('open')
-close.classList.add('close')
-open.classList.remove('close')
-close.classList.remove('open')
-count=0
-}
-})
-</script>
+            // Get the next circle in the sequence
+            const nextCircle = circles[index + 1] || circles[0];
+            x += (nextCircle.x - x) * 0.3;
+            y += (nextCircle.y - y) * 0.3;
+          });
 
-<script>
+          // Repeat the animation
+          requestAnimationFrame(animateCircles);
+        }
 
-  // Coordinates for the cursor
-  const coords = { x: 0, y: 0 };
-  const circles = document.querySelectorAll(".circle");
-
-  // Colors for the circles
-  const colors = [
-    "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
-    "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
-    "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
-    "#680060", "#60005f", "#48005f", "#3d005e"
-  ];
-
-  // Assign colors and initial position to each circle
-  circles.forEach(function (circle, index) {
-    circle.x = 0;
-    circle.y = 0;
-    circle.style.backgroundColor = colors[index % colors.length];
-  });
-
-  // Update the coordinates when the mouse moves
-  window.addEventListener("mousemove", function (e) {
-    coords.x = e.clientX;
-    coords.y = e.clientY;
-  });
-
-  // Animation function to move the circles
-  function animateCircles() {
-    let x = coords.x;
-    let y = coords.y;
-
-    circles.forEach(function (circle, index) {
-      // Update the position and scale of each circle
-      circle.style.left = x - 12 + "px";
-      circle.style.top = y - 12 + "px";
-      circle.style.scale = (circles.length - index) / circles.length;
-
-      circle.x = x;
-      circle.y = y;
-
-      // Get the next circle in the sequence
-      const nextCircle = circles[index + 1] || circles[0];
-      x += (nextCircle.x - x) * 0.15;
-      y += (nextCircle.y - y) * 0.15;
-    });
-
-    // Repeat the animation
-    requestAnimationFrame(animateCircles);
-  }
-
-  // Start the animation
-  animateCircles();
-
-</script>
+        // Start the animation
+        animateCircles();
+      </script>
 </body>
-
 </html>
+
