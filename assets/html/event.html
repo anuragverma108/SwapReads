@@ -550,6 +550,97 @@ tbody td.event-date:hover {
     background: #8e2e2e;
     color: #f0e6e6;
 }
+/* For tablets and larger mobile devices */
+@media (max-width: 768px) {
+  /* Center-align the main calendar container */
+  #event-calendar {
+      width: 100%;
+      padding: 1rem;
+      box-sizing: border-box;
+  }
+
+  /* Adjust header */
+  .calendar-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .calendar-header h3 {
+      font-size: 1.5em;
+      text-align: center;
+  }
+
+  /* Adjust buttons */
+  .calendar-header button {
+      width: 90%;
+      margin: 0.5em 0;
+      padding: 0.6em;
+  }
+
+  /* Table adjustments */
+  table {
+      width: 100%;
+      font-size: 0.9em;
+  }
+
+  th, td {
+      padding: 0.5em;
+      text-align: center;
+  }
+
+  /* Event details section */
+  #event-details {
+      font-size: 1em;
+      padding: 1rem;
+      margin-top: 1rem;
+  }
+
+  /* Translate button */
+  .translate-button {
+      position: fixed;
+      right: 1em;
+      bottom: 2em;
+      height: 40px;
+      width: 40px;
+      font-size: 0.8em;
+  }
+}
+
+/* For small screens (extra-small devices) */
+@media (max-width: 480px) {
+  /* Adjust font sizes */
+  body {
+      font-size: 0.8em;
+  }
+
+  .calendar-header h3 {
+      font-size: 1.2em;
+  }
+
+  .calendar-header button {
+      padding: 0.5em;
+      font-size: 0.9em;
+      width: 100%;
+  }
+
+  table, th, td {
+      font-size: 0.8em;
+      padding: 0.4em;
+  }
+
+  /* Event details */
+  #event-details {
+      font-size: 0.9em;
+  }
+
+  /* Translate button */
+  .translate-button {
+      height: 35px;
+      width: 35px;
+      font-size: 0.75em;
+  }
+}
 
 
        </style>
@@ -980,6 +1071,189 @@ tbody td.event-date:hover {
     
                 </style>
     
+    <style>
+      /* Default styles */
+      .ff {
+        font-size: 18px;
+        padding: 2rem 3rem;
+        background-color:#d26d6d;
+      }
+    
+      .foot-top, .foot-middle, .foot-right {
+        padding: 1rem;
+      }
+    
+      .foot-left, .foot-middle, .foot-right {
+        flex: 1;
+      }
+    
+      .desc p {
+        color: black;
+        font-size: 16px;
+        text-align: justify;
+      }
+    
+      #quicklinks {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 1rem;
+      }
+    
+      .foot-quick {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.75rem;
+      }
+    
+      /* Dark Mode */
+      .dark-mode .logo {
+        color: maroon !important;
+      }
+    
+      .dark-mode .description {
+        color: white !important;
+      }
+    
+      .dark-mode #quicklinks-color {
+        color: maroon !important;
+      }
+    
+      .dark-mode #quicklinks ul li a {
+        color: white !important;
+      }
+    
+      /* Social Icons */
+      .icons a {
+        color: #4f5e75;
+        margin-right: 10px;
+        transition: color 0.3s ease;
+      }
+    
+      .icons a:hover {
+        color: #374151;
+      }
+    
+      .icons .fab {
+        font-size: 24px;
+      }
+    
+      /* Subscribe Button */
+      .subscribe {
+        background-color: #A30F17;
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.4rem;
+        border-radius: 0.5rem;
+        width: 100%;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+    
+      .subscribe:hover {
+        background: linear-gradient(hwb(357 6% 36%), #d26d6d);
+        transform: scale(1.1);
+      }
+    
+      .subscribe:active {
+        transform: scale(0.98);
+      }
+    
+      .subscribe:focus {
+        outline: none;
+      }
+    
+      /* Responsive Design for Small Screens (max-width: 768px) */
+      @media (max-width: 768px) {
+        .footer {
+          padding: 1rem;
+        }
+    
+        .foot-top, .foot-middle, .foot-right {
+          flex: 100%;
+          text-align: center;
+        }
+    
+        #quicklinks {
+          grid-template-columns: 1fr; /* Stack the quick links */
+          gap: 1rem;
+        }
+    
+        #quicklinks h2 {
+          font-size: 24px;
+          margin-top: 1rem;
+        }
+    
+        .foot-quick {
+          flex-direction: column; /* Stack the icon and text vertically */
+          align-items: flex-start;
+        }
+    
+        .desc p {
+          font-size: 14px; /* Reduce font size for better readability */
+        }
+    
+        .icons a {
+          font-size: 20px;
+        }
+    
+        .subscribe {
+          font-size: 1.2rem;
+          padding: 0.8rem 1.5rem; /* Adjust padding */
+        }
+    
+        .row-flex {
+          display: block; /* Stack inputs and button for better alignment */
+          width: 100%;
+        }
+    
+        .finput {
+          width: 100%; /* Ensure the email input takes up the full width */
+          margin-bottom: 1rem;
+        }
+    
+        /* Hide confirmation message after 3 seconds */
+        #confirmationmessage {
+          position: static; /* Change to static position on small screens */
+          margin: 1rem auto;
+          text-align: center;
+          width: auto;
+        }
+    
+        /* Footer font sizes for small screens */
+        h2 {
+          font-size: 20px;
+        }
+      }
+    
+      /* Mobile Footer Styles */
+      @media (max-width: 480px) {
+        .footer {
+          padding: 1rem;
+          font-size: 16px;
+        }
+    
+        .desc p {
+          font-size: 12px;
+        }
+    
+        .subscribe {
+          font-size: 1.1rem;
+        }
+    
+        #quicklinks h2 {
+          font-size: 20px;
+          margin-top: 1rem;
+        }
+    
+        .icons a {
+          font-size: 18px;
+          margin-right: 5px;
+        }
+      }
+    
+    </style>
     
     
     
@@ -1001,7 +1275,7 @@ tbody td.event-date:hover {
           }
     
           </script>
-          <style>
+          <!-- <style>
     
           .subscribe {
           background-color: #A30F17;
@@ -1029,7 +1303,7 @@ tbody td.event-date:hover {
           outline: none; 
           }
     
-          </style>
+          </style> -->
     
           <div class="foot-right">
           <h2 style="margin-bottom: 2.4rem; margin-top:0.5rem; font-size: 28px; font-weight: 700;" id="stayconnected-color">Stay Connected</h2>
