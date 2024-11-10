@@ -6241,6 +6241,7 @@ body {
   font-size: 18px;
   color: #ffffff;
   text-shadow:  2px 2px 2px black;
+}
   .ok-button {
 
 background-color: #f37777; /* Button background color */
@@ -7205,50 +7206,59 @@ function showSuccessMessage() {
 
       <!-- adding privacy policy and copyright popup-->
       <div class="footer-f" style="text-align: center; align-items: center;">
-        <p style="text-align: center">
-          &copy;
-          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian
-          Hackers.
-        </p>
-        <div class="row-copy">
+  <p style="text-align: center">
+    &copy;
+    <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+  </p>
+  <div class="row-copy">
+    <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+    <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a> |
+    <a href="our-vision.html" id="ourvisionlink">Our Vision</a> |
+    <a href="./contributor/contributorss.html" class="contributors"><i class="fas fa-users"></i> Our Contributors</a> |
+    <a href="refundpolicy.html" id="refundp">Refund Policy</a>
 
-          <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
-          <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a> |
-          <a href="our-vision.html" id="ourvisionlink">Our Vision</a> |
-          <a href="./contributor/contributorss.html" class="contributors"><i class="fas fa-users"></i> Our Contributors</a> |
-          <a href="refundpolicy.html" id="refundp">Refund Policy</a>
-          <style>
-            #refundp:hover{
-              color: rgb(126, 0, 21);
-              transition: color 0.5s ease;
-            }
-            .dark-mode #refundp:hover{
-              color: #708090;
-              transition: color 0.5s ease;
-            }
-            .fas .fa-users:hover{
-              color: rgb(126, 0, 21) !important;
-              transition: color 0.5s ease !important;
-            }
-            .dark-mode .fas .fa-users:hover{
-              color: #708090 !important;
-              transition: color 0.5s ease !important;
-            }
-            .contributors:hover{
-              color: rgb(126, 0, 21) !important;
-              transition: color 0.5s ease !important;
-            }
-            .dark-mode .contributors:hover{
-              color: #708090 !important;
-              transition: color 0.5s ease !important;
-            }
-            </style>
+    <!-- Back to Top Button -->
+    <div id="back-to-top-container" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; align-items: center;">
+      <button class="Btn" style="background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px; border-radius: 5px;">
+        <svg height="1.2em" class="arrow" viewBox="0 0 512 512">
+          <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path>
+        </svg>
+        <p class="text">Back to Top</p>
+      </button>
+    </div>
 
-          
+    <!-- Styles for hover effects -->
+    <style>
+      #refundp:hover {
+        color: rgb(126, 0, 21);
+        transition: color 0.5s ease;
+      }
+      .dark-mode #refundp:hover {
+        color: #708090;
+        transition: color 0.5s ease;
+      }
+      .fas .fa-users:hover, .contributors:hover {
+        color: rgb(126, 0, 21) !important;
+        transition: color 0.5s ease !important;
+      }
+      .dark-mode .fas .fa-users:hover, .dark-mode .contributors:hover {
+        color: #708090 !important;
+        transition: color 0.5s ease !important;
+      }
+    </style>
+
+    <!-- Script for showing the Back to Top button when scrolling -->
+    <script>
+      window.onscroll = function() {
+        const backToTop = document.getElementById('back-to-top-container');
+        // Show the button if the page is scrolled more than 100px
+        backToTop.style.display = document.documentElement.scrollTop > 100 ? 'inline-flex' : 'none';
+      };
+    </script>
+  </div>
+</div>
 
 
-        </div>
-      </div>
       <style>
         .dark-mode #copyrightPolicyLink:hover {
           color: #708090;
