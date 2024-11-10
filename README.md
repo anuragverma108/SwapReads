@@ -178,6 +178,7 @@
 │   │   ├── boy.html
 │   │   ├── checkout.html
 │   │   ├── classic.html
+│   │   ├── classicq.html
 │   │   ├── comedy.html
 │   │   ├── custom.html
 │   │   ├── cyberpunk.html
